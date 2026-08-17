@@ -1,0 +1,15 @@
+{
+  "name": "ANDES — examen de admisión",
+  "short_name": "ANDES",
+  "description": "Preparación para el examen de admisión a la Maestría en Física, Uniandes.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1115",
+  "theme_color": "#0f1115",
+  "lang": "es",
+  "icons": [
+    { "src": "icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
