@@ -30,12 +30,12 @@ def tt(p):
 SEM = []
 
 SEM.append((
- "Diagnóstico y cinemática",
- "Medir dónde estás realmente y reactivar Física 1. Sin este número el resto del plan va a ciegas.",
- "Diagnóstico registrado con \\texttt{medidor.py simulacro} y reporte generado.",
- [("Simulacro diagnóstico, preguntas 1--12. Cronómetro de 60 min, sin apuntes, sin calculadora. Archivo: 01\\_EXAMENES/uniandes\\_admision/",
-   "Sigue con las preguntas 13--24 (otros 60 min). Terminas el diagnóstico hoy."),
-  ("Si ayer solo hiciste 1--12: resuelve 13--24 en 60 min. Si ya terminaste: corrígelo con 03\\_TEMARIO/00\\_mapa\\_simulacro.md.",
+ "Diagnóstico y los 10 patrones",
+ "El diagnóstico ya dio su número: 2 de 12, con la base en 0/6 y los patrones en 2/6. Esta semana se cierra la otra mitad y se convierte el resultado en los 10 patrones escritos a mano.",
+ "\\texttt{04\\_ESTUDIO/formularios/patrones.md} con los 10 derivados, no copiados.",
+ [("Los 10 patrones de 03\\_TEMARIO/00\\_mapa\\_simulacro.md. Empieza por los cuatro que fallaste: P2 Poisson, P7 contacto térmico, P8 bosones en caja, P9 escalón.",
+   "Además: P3, P4, P6 y P10, que el diagnóstico no llegó a evaluar."),
+  ("Cierra el diagnóstico: preguntas 13--24 del simulacro, 60 min cronometrados, sin apuntes.",
    "Además: regístralo con \\texttt{python3 06\\_SEGUIMIENTO/medidor.py simulacro}."),
   ("Corre \\texttt{medidor.py reporte} y abre \\texttt{tablero.html}. Identifica tus 2 áreas más débiles.",
    "Además: al registrar el simulacro, clasifica cada fallo por causa. Es el paso que más informa."),
@@ -345,7 +345,7 @@ A(r"""
 \begin{center}
 {\color{cab}\Huge\textbf{Cronograma de estudio}}\\[2mm]
 {\Large Examen de admisión --- Maestría en Ciencias, Física --- Universidad de los Andes}\\[3mm]
-{\large\textbf{Del lunes 17 de agosto al domingo 22 de noviembre de 2026} \quad ---\quad 14 semanas}\\[2mm]
+{\large\textbf{Del lunes 17 de agosto al domingo 22 de noviembre de 2026} \quad ---\quad 14 semanas, S0 a S13}\\[2mm]
 {\large\color{alerta}\textbf{Examen: lunes 23 de noviembre de 2026}}
 \end{center}
 
@@ -413,10 +413,13 @@ A(pagina_mapa())
 
 # ---- semanas
 lunes = INICIO
-for i, (titulo, objetivo, entregable, dias, dom) in enumerate(SEM, start=1):
+# Se numeran S0..S13 igual que PLAN.md y que la app. Antes iban de 1 a 14 y la
+# "Semana 1" del PDF era la S0 del plan: al mirar los dos, cada uno decía una
+# cosa distinta para el mismo día.
+for i, (titulo, objetivo, entregable, dias, dom) in enumerate(SEM, start=0):
     fin = lunes + dt.timedelta(days=6)
     rango = f"{lunes.day} de {MESES[lunes.month-1]} -- {fin.day} de {MESES[fin.month-1]}"
-    A(r"\seccion{Semana %d \quad\textnormal{\normalsize %s}}" % (i, rango))
+    A(r"\seccion{S%d \quad\textnormal{\normalsize %s}}" % (i, rango))
     A(r"\textbf{Foco:} %s\\[0.5mm]" % titulo)
     A(r"\textbf{Por qué:} %s\\[0.5mm]" % objetivo)
     A(r"\textbf{Entregable de la semana:} %s" % entregable)
