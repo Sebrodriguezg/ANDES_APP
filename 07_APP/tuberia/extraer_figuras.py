@@ -43,6 +43,10 @@ MARGEN = 6               # puntos de aire alrededor del recorte
 
 # Una franja de figura tiene que tener cierto cuerpo para valer la pena.
 ALTO_MINIMO = 18
+# Alto típico de una línea de texto en este PDF, en puntos.
+ALTO_LINEA = 13
+# Cuánto abrir el recorte cuando no hay texto que enmarque el dibujo.
+MARGEN_CIEGO = 46
 
 
 def _lineas_por_pagina(lineas):
@@ -76,10 +80,16 @@ def _huele_a_dibujo(texto):
 
 
 def localizar_franjas(lineas):
-    """Devuelve {(pagina, numero_pregunta): (y0, y1)} de la zona de dibujo.
+    """Devuelve {(capitulo, numero): (pagina, y0, y1)} de la zona de dibujo.
 
-    Se reusa el mismo recorrido del extractor de texto para saber dónde empieza
-    y termina cada pregunta, y dentro de ese rango se marca lo que no es prosa.
+    La primera versión tomaba la franja que va de la primera a la última línea
+    con trazos, y cortaba 188 de 316 figuras: las curvas y las flechas se
+    extienden bastante más allá de las líneas que el extractor de texto llega a
+    ver, así que se quedaban fuera por arriba o por abajo.
+
+    El dibujo vive en el hueco entre el final del enunciado y el comienzo de
+    las opciones. Ese hueco es el recorte correcto: se toma entero y después
+    PIL lo ajusta al contenido real.
     """
     capitulo_de_pagina, _ = H._capitulos_por_pagina(lineas)
 
@@ -87,22 +97,30 @@ def localizar_franjas(lineas):
     capitulo = 0
     numero = None
     siguiente = 1
-    acumulado = []
+    bloque = []          # (y0, es_dibujo, pagina) de la pregunta en curso
 
     def cerrar():
-        nonlocal acumulado, numero
-        if numero is not None and acumulado:
-            # Se exige que al menos una línea sea trazo de dibujo de verdad;
-            # un par de rótulos sueltos no hacen una figura.
-            trazos = [l for l in acumulado if H.RE_RESTO_FIGURA.search(l.texto)]
-            paginas = {l.pagina for l in acumulado}
-            # Una figura partida entre dos páginas no se puede recortar de una vez.
-            if trazos and len(paginas) == 1:
-                y0 = min(l.y0 for l in acumulado) - MARGEN
-                y1 = max(l.y0 + 12 for l in acumulado) + MARGEN
+        nonlocal bloque, numero
+        if numero is not None and bloque:
+            dibujos = [b for b in bloque if b[1]]
+            paginas = {b[2] for b in bloque}
+            if dibujos and len(paginas) == 1:
+                primero = min(b[0] for b in dibujos)
+                ultimo = max(b[0] for b in dibujos)
+
+                # Texto que enmarca el dibujo por arriba y por abajo.
+                arriba = [b[0] for b in bloque if not b[1] and b[0] < primero]
+                abajo = [b[0] for b in bloque if not b[1] and b[0] > ultimo]
+
+                # Sin texto que lo enmarque se deja un margen generoso: es
+                # preferible recortar de más y que PIL ajuste, que cortar la
+                # figura por la mitad.
+                y0 = (max(arriba) + ALTO_LINEA) if arriba else (primero - MARGEN_CIEGO)
+                y1 = min(abajo) if abajo else (ultimo + MARGEN_CIEGO)
+
                 if y1 - y0 >= ALTO_MINIMO:
-                    franjas[(capitulo, numero)] = (acumulado[0].pagina, y0, y1)
-        acumulado = []
+                    franjas[(capitulo, numero)] = (bloque[0][2], y0, y1)
+        bloque = []
 
     for linea in lineas:
         cap_pag = capitulo_de_pagina.get(linea.pagina, capitulo)
@@ -121,18 +139,19 @@ def localizar_franjas(lineas):
             cerrar()
             numero = int(m.group(1))
             siguiente = numero + 1
+            bloque.append((linea.y0, False, linea.pagina))
             continue
 
         if numero is None:
             continue
 
         if H.RE_RESPUESTA.match(texto):
+            bloque.append((linea.y0, False, linea.pagina))
             cerrar()
             numero = None
             continue
 
-        if _huele_a_dibujo(texto):
-            acumulado.append(linea)
+        bloque.append((linea.y0, _huele_a_dibujo(texto), linea.pagina))
 
     cerrar()
     return franjas

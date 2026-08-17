@@ -172,9 +172,10 @@ def cargar_autoral():
     tarjetas = []
     for ruta in sorted(AUTORAL.glob("*.json")):
         for t in json.loads(ruta.read_text(encoding="utf-8")):
-            for campo in ("formula", "valor"):
-                if t.get(campo):
-                    t[campo] = desplegar_formula(t[campo])
+            # Solo las tablas de texto se repliegan. Las fórmulas son LaTeX y
+            # el ancho lo resuelve KaTeX con su propio desplazamiento.
+            if isinstance(t.get("tabla"), str):
+                t["tabla"] = desplegar_formula(t["tabla"])
             tarjetas.append(t)
     return tarjetas
 

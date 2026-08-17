@@ -1,6 +1,7 @@
 /* Construcción del DOM de cada tipo de tarjeta del feed. */
 
 import { mate, escapar } from './mate.js';
+import { renderFormula } from './formula.js';
 import { nombreArea } from './datos.js';
 import * as almacen from './almacen.js';
 
@@ -148,7 +149,7 @@ function tarjetaPatron(t) {
       </div>
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
       <p class="enunciado">${mate(t.idea)}</p>
-      <div class="formula">${mate(t.formula)}</div>
+      <div class="formula">${renderFormula(t.formula)}</div>
       <div class="bloque"><span class="rotulo">Cuándo aparece</span>${mate(t.cuando)}</div>
       <div class="bloque trampa"><span class="rotulo">La trampa</span>${mate(t.trampa)}</div>
     </article>`);
@@ -198,7 +199,7 @@ function tarjetaEcuacion(t) {
     <article class="tarjeta tarjeta-ecuacion">
       ${encabezado(t, 'Ecuación', t.semana || '')}
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
-      <div class="formula grande">${mate(t.formula)}</div>
+      <div class="formula">${renderFormula(t.formula)}</div>
       <div class="bloque"><span class="rotulo">Qué dice</span>${mate(t.significa)}</div>
       <div class="bloque trampa"><span class="rotulo">La trampa</span>${mate(t.trampa)}</div>
     </article>`);
@@ -249,7 +250,7 @@ function tarjetaDato(t) {
     <article class="tarjeta tarjeta-dato">
       ${encabezado(t, 'Para memorizar')}
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
-      <div class="formula">${mate(t.valor)}</div>
+      <div class="formula tabla">${mate(t.tabla || t.valor)}</div>
       <div class="bloque"><span class="rotulo">Por qué importa</span>${mate(t.porque)}</div>
     </article>`);
   nodo.style.setProperty('--color-area', `var(--${t.area || 'transversal'})`);

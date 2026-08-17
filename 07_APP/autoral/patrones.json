@@ -8,7 +8,10 @@
   "nivel": "ALTO",
   "titulo": "Área en el espacio de fase y período",
   "idea": "Para un movimiento periódico en una dimensión, el área que encierra la órbita en el plano (q, p) crece con la energía, y el ritmo al que crece es exactamente el período.",
-  "formula": "A(E) = ∮ p dq        T(E) = dA/dE",
+  "formula": [
+   "A(E) = \\oint p\\,dq",
+   "T(E) = \\frac{dA}{dE}"
+  ],
   "cuando": "Te dan un potencial raro —V ∝ |x|, un pozo cuadrado, algo no armónico— y te piden el período sin resolver la ecuación de movimiento. Calcular el área es mucho más rápido que integrar.",
   "trampa": "Solo vale para movimiento periódico ligado en 1D. Y ojo con la variable de acción J = A/2π, que difiere en ese factor: si te piden período y respondes con J, te equivocas por 2π.",
   "estado_d1": "acertado"
@@ -22,7 +25,14 @@
   "nivel": "ALTO",
   "titulo": "Álgebra de corchetes de Poisson",
   "idea": "El momento angular genera rotaciones, y eso se ve en su álgebra: al hacer corchete con cualquier vector, lo rota. El resultado siempre es del mismo tipo que el segundo argumento.",
-  "formula": "{f, g} = Σ_{k} ( ∂f/∂q_{k} · ∂g/∂p_{k} − ∂f/∂p_{k} · ∂g/∂q_{k} )\n\n{L_{i}, p_{j}} = ε_{ijk} p_{k}\n{L_{i}, q_{j}} = ε_{ijk} q_{k}\n{L_{i}, L_{j}} = ε_{ijk} L_{k}",
+  "formula": [
+   "#Definición",
+   "\\{f, g\\} = \\sum_k \\left( \\frac{\\partial f}{\\partial q_k}\\frac{\\partial g}{\\partial p_k} - \\frac{\\partial f}{\\partial p_k}\\frac{\\partial g}{\\partial q_k} \\right)",
+   "#El álgebra que hay que recordar",
+   "\\{L_i, p_j\\} = \\varepsilon_{ijk}\\,p_k",
+   "\\{L_i, q_j\\} = \\varepsilon_{ijk}\\,q_k",
+   "\\{L_i, L_j\\} = \\varepsilon_{ijk}\\,L_k"
+  ],
   "cuando": "Preguntas de una línea que se resuelven por estructura, sin calcular nada. Si el corchete es con p, la respuesta lleva p; si es con q, lleva q.",
   "trampa": "El orden de los índices define el signo. Antes de calcular, descarta por estructura: si una opción da cero o cambia el tipo de variable, está mal. En el simulacro de 2024 la opción correcta venía con los índices intercambiados —muy probablemente una errata del examen— y aun así era la única posible.",
   "estado_d1": "fallado"
@@ -36,7 +46,11 @@
   "nivel": "ALTO",
   "titulo": "Dispersión por esfera dura",
   "idea": "Es el único problema de scattering con solución cerrada y elemental. La reflexión especular en la superficie relaciona el parámetro de impacto con el ángulo de dispersión.",
-  "formula": "b(θ) = R cos(θ/2)\n\ndσ/dΩ = R²/4        σ_{total} = πR²",
+  "formula": [
+   "b(\\theta) = R\\cos\\!\\left(\\frac{\\theta}{2}\\right)",
+   "#La sección eficaz diferencial es constante",
+   "\\frac{d\\sigma}{d\\Omega} = \\frac{R^2}{4} \\qquad \\sigma_{\\text{tot}} = \\pi R^2"
+  ],
   "cuando": "Cualquier pregunta de sección eficaz en un examen de opción múltiple. La sección eficaz diferencial es isótropa —constante, no depende de θ— y la total es simplemente el área geométrica de la esfera.",
   "trampa": "θ es el ángulo de dispersión, no el de incidencia sobre la superficie. Que dσ/dΩ sea constante es el resultado que más sorprende: memorízalo, porque permite descartar de inmediato toda opción con dependencia angular."
  },
@@ -49,7 +63,14 @@
   "nivel": "ALTO",
   "titulo": "Condiciones de gauge",
   "idea": "Los potenciales φ y A no son únicos: puedes cambiarlos sin tocar E ni B. Esa libertad se fija imponiendo una condición, y hay dos que se usan siempre.",
-  "formula": "Transformación:  A → A + ∇λ,   φ → φ − ∂λ/∂t\n\nGauge de Lorenz:   ∇·A + (1/c²) ∂φ/∂t = 0\nGauge de Coulomb:  ∇·A = 0",
+  "formula": [
+   "#La libertad de gauge",
+   "\\vec{A} \\to \\vec{A} + \\nabla\\lambda \\qquad \\phi \\to \\phi - \\frac{\\partial\\lambda}{\\partial t}",
+   "#Gauge de Lorenz",
+   "\\nabla\\cdot\\vec{A} + \\frac{1}{c^2}\\frac{\\partial\\phi}{\\partial t} = 0",
+   "#Gauge de Coulomb",
+   "\\nabla\\cdot\\vec{A} = 0"
+  ],
   "cuando": "Te preguntan cuál condición desacopla las ecuaciones de onda de φ y A (Lorenz), o cuál hace que φ sea el potencial instantáneo de Coulomb (Coulomb, de ahí el nombre).",
   "trampa": "Se llama gauge de **Lorenz**, por Ludvig Lorenz, no Lorentz. Y la ventaja del de Lorenz es que es covariante ante transformaciones de Lorentz —ahí sí, con t—; el de Coulomb no lo es."
  },
@@ -62,7 +83,13 @@
   "nivel": "ALTO",
   "titulo": "Esfera conductora en campo uniforme",
   "idea": "Un conductor esférico metido en un campo uniforme se polariza. La solución es el campo original más el de un dipolo puro colocado en el centro: no hace falta resolver Laplace, basta con imponer que el potencial sea constante en la superficie.",
-  "formula": "V(r, θ) = −E₀ ( r − a³/r² ) cos θ        (esfera a tierra, radio a)\n\nσ(θ) = 3 ε₀ E₀ cos θ        p = 4π ε₀ a³ E₀",
+  "formula": [
+   "#Esfera a tierra de radio a, en campo E₀",
+   "V(r,\\theta) = -E_0\\left(r - \\frac{a^3}{r^2}\\right)\\cos\\theta",
+   "#Densidad superficial y momento dipolar",
+   "\\sigma(\\theta) = 3\\varepsilon_0 E_0\\cos\\theta",
+   "p = 4\\pi\\varepsilon_0 a^3 E_0"
+  ],
   "cuando": "Griffiths §3.3.2. Aparece disfrazado de armónicos esféricos, pero solo sobreviven los términos ℓ = 1.",
   "trampa": "Verifica siempre la condición de frontera: en r = a el potencial se anula, y eso por sí solo descarta casi todas las opciones. Si la esfera está aislada con carga Q en vez de a tierra, hay que sumar Q/4πε₀r.",
   "estado_d1": "acertado"
@@ -76,7 +103,13 @@
   "nivel": "ALTO",
   "titulo": "Entropía combinatoria",
   "idea": "La entropía cuenta microestados. En los problemas de examen, contar es siempre un coeficiente binomial: monedas, espines, partículas en dos mitades de una caja. Es el mismo problema con distinto disfraz.",
-  "formula": "S = k ln Ω\n\nΩ(N, n) = N! / ( n! (N−n)! )\n\nStirling:  ln N! ≈ N ln N − N",
+  "formula": [
+   "S = k\\ln\\Omega",
+   "#Contar microestados es un binomial",
+   "\\Omega(N,n) = \\frac{N!}{n!\\,(N-n)!}",
+   "#Stirling",
+   "\\ln N! \\approx N\\ln N - N"
+  ],
   "cuando": "Lanzas N monedas y te preguntan la entropía de un macroestado, o repartes N partículas entre dos mitades.",
   "trampa": "El máximo de Ω está en n = N/2 y es abrumadoramente agudo: por eso el equilibrio es el reparto uniforme. Si la pregunta pide una diferencia de entropía, calcula el cociente de los Ω antes de tomar logaritmos: casi todo se cancela."
  },
@@ -89,7 +122,14 @@
   "nivel": "ALTO",
   "titulo": "Equilibrio térmico por maximización",
   "idea": "Dos sistemas en contacto reparten la energía de modo que el producto de sus multiplicidades sea máximo. Si cada multiplicidad es una potencia de la energía, el reparto sale proporcional a los exponentes.",
-  "formula": "Maximizar  Ω_{A}(E_{A}) · Ω_{B}(E − E_{A})\n\nSi Ω_{A} ∝ E_{A}^{n_A} y Ω_{B} ∝ E_{B}^{n_B}:\n\nE_{A} = E · n_{A} / (n_{A} + n_{B})",
+  "formula": [
+   "#Se maximiza el producto de multiplicidades",
+   "\\frac{\\partial}{\\partial E_A}\\Big[\\Omega_A(E_A)\\,\\Omega_B(E-E_A)\\Big] = 0",
+   "#Si cada una es una potencia de la energía",
+   "\\Omega_A \\propto E_A^{\\,n_A} \\qquad \\Omega_B \\propto E_B^{\\,n_B}",
+   "#El reparto sale proporcional a los exponentes",
+   "E_A = E\\,\\frac{n_A}{n_A + n_B}"
+  ],
   "cuando": "Dos sistemas con multiplicidades dadas como potencias entran en contacto térmico y te piden la energía más probable de uno.",
   "trampa": "El reparto va con los exponentes —que cuentan grados de libertad—, no con el número de partículas ni con nada que se te ocurra promediar. Cuando un exponente es gigantesco frente al otro, el sistema grande se queda con prácticamente toda la energía: ese límite descarta opciones de un vistazo.",
   "estado_d1": "fallado"
@@ -103,7 +143,12 @@
   "nivel": "ALTO",
   "titulo": "Bosones y fermiones en una caja",
   "idea": "Toda la diferencia está en si dos partículas pueden ocupar el mismo estado de una partícula. Los bosones sí; los fermiones no. El estado base del sistema cambia por completo según cuál sea el caso.",
-  "formula": "Caja 2D de lados L_{x}, L_{y}:\n\nE(n_{x}, n_{y}) = (π²ℏ²/2m) ( n_{x}²/L_{x}² + n_{y}²/L_{y}² )\n\nEnergía total = suma sobre las partículas",
+  "formula": [
+   "#Caja 2D de lados Lx y Ly",
+   "E(n_x,n_y) = \\frac{\\pi^2\\hbar^2}{2m}\\left(\\frac{n_x^2}{L_x^2} + \\frac{n_y^2}{L_y^2}\\right)",
+   "#La energía del sistema es la suma sobre partículas",
+   "E_{\\text{tot}} = \\sum_i E(n_x^{(i)}, n_y^{(i)})"
+  ],
   "cuando": "Dos o tres partículas idénticas en una caja y te piden la energía del estado fundamental, o el primer nivel degenerado.",
   "trampa": "Para bosones, ambos caen en el estado más bajo y la energía es 2·E₁₁. Para fermiones sin espín hay que subir al siguiente nivel; con espín ½ caben dos por estado espacial. Cuando piden el nivel *degenerado* más bajo, hay que buscar la energía total que se alcanza con varias combinaciones distintas de números cuánticos, que no es lo mismo que la energía mínima.",
   "estado_d1": "fallado"
@@ -117,7 +162,12 @@
   "nivel": "ALTO",
   "titulo": "Reflexión en el escalón de potencial",
   "idea": "Una partícula con energía suficiente para pasar un escalón se refleja de todos modos. Es el resultado más antiintuitivo de la cuántica elemental y cae constantemente.",
-  "formula": "k_{i} = √( 2m(E − V_{i}) ) / ℏ\n\nR = ( (k₁ − k₂) / (k₁ + k₂) )²        T = 1 − R",
+  "formula": [
+   "#Número de onda a cada lado del escalón",
+   "k_i = \\frac{\\sqrt{2m(E - V_i)}}{\\hbar}",
+   "#Solo depende del cociente k₁/k₂",
+   "R = \\left(\\frac{k_1 - k_2}{k_1 + k_2}\\right)^{2} \\qquad T = 1 - R"
+  ],
   "cuando": "Escalón con E > V₀. Con E = 9V₀/8 sale k₁/k₂ = 3 y por tanto R = 1/4.",
   "trampa": "R depende solo del cociente k₁/k₂, así que conviene calcularlo primero. Y T no es |t|²: hay que corregir por el cociente de velocidades. Lo seguro es obtener T como 1 − R.",
   "estado_d1": "fallado"
@@ -131,7 +181,15 @@
   "nivel": "ALTO",
   "titulo": "Oscilador armónico con operadores escalera",
   "idea": "Nunca resuelvas el oscilador con integrales de funciones de Hermite en un examen cronometrado. Escribe x y p en términos de a y a†, y usa que a y a† suben y bajan el número cuántico.",
-  "formula": "x = √(ℏ/2mω) (a + a†)        p = i √(mℏω/2) (a† − a)\n\na|n⟩ = √n |n−1⟩        a†|n⟩ = √(n+1) |n+1⟩\n\n⟨n| x² |n⟩ = (ℏ/mω)(n + ½)",
+  "formula": [
+   "#Posición y momento con operadores escalera",
+   "x = \\sqrt{\\frac{\\hbar}{2m\\omega}}\\,(a + a^{\\dagger})",
+   "p = i\\sqrt{\\frac{m\\hbar\\omega}{2}}\\,(a^{\\dagger} - a)",
+   "#Cómo actúan",
+   "a|n\\rangle = \\sqrt{n}\\,|n-1\\rangle \\qquad a^{\\dagger}|n\\rangle = \\sqrt{n+1}\\,|n+1\\rangle",
+   "#El valor que más piden",
+   "\\langle n|x^2|n\\rangle = \\frac{\\hbar}{m\\omega}\\left(n + \\tfrac{1}{2}\\right)"
+  ],
   "cuando": "Te piden ⟨x⟩, ⟨x²⟩ o su evolución temporal. Los elementos de matriz de x solo conectan estados vecinos, así que casi todo se anula.",
   "trampa": "En un estado propio de energía nada depende del tiempo: ⟨x⟩ = 0 siempre. Para que ⟨x⟩ oscile hace falta una superposición de al menos dos niveles, y entonces oscila con la frecuencia de la diferencia de energías. Si la pregunta pide dependencia temporal y el estado es estacionario, la respuesta es 'constante'."
  }

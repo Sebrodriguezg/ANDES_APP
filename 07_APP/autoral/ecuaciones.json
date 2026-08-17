@@ -1,210 +1,289 @@
 [
  {
-  "id": "eq-mec-01",
-  "tipo": "ecuacion",
-  "area": "mecanica",
-  "semana": "S1",
-  "nivel": "BASE",
+  "id": "eq-mec-01", "tipo": "ecuacion", "area": "mecanica", "semana": "S1", "nivel": "BASE",
   "titulo": "Cinemática con aceleración constante",
-  "formula": "v = v₀ + at\nx = x₀ + v₀t + ½at²\nv² = v₀² + 2a(x − x₀)",
+  "formula": [
+   "v = v_0 + at",
+   "x = x_0 + v_0 t + \\tfrac{1}{2}at^2",
+   "v^2 = v_0^2 + 2a(x - x_0)"
+  ],
   "significa": "Las tres se deducen una de otra. La tercera es la más útil en opción múltiple porque no tiene tiempo: si el enunciado no menciona t, esa es la que va.",
   "trampa": "Solo valen con a constante. En cuanto la aceleración dependa del tiempo o de la posición, hay que integrar."
  },
  {
-  "id": "eq-mec-02",
-  "tipo": "ecuacion",
-  "area": "mecanica",
-  "semana": "S1",
-  "nivel": "BASE",
+  "id": "eq-mec-02", "tipo": "ecuacion", "area": "mecanica", "semana": "S1", "nivel": "BASE",
   "titulo": "Trabajo y energía",
-  "formula": "W = ∫ F·dr = F d cos θ        (F constante)\nW_{neto} = ΔK = ½mv² − ½mv₀²\nP = dW/dt = F·v",
-  "significa": "El trabajo neto de todas las fuerzas es el cambio de energía cínetica. Ojo: el trabajo de UNA fuerza no es el cambio de energía cinética.",
+  "formula": [
+   "W = \\int \\vec{F}\\cdot d\\vec{r} = Fd\\cos\\theta",
+   "W_{\\text{neto}} = \\Delta K = \\tfrac{1}{2}mv^2 - \\tfrac{1}{2}mv_0^2",
+   "P = \\frac{dW}{dt} = \\vec{F}\\cdot\\vec{v}"
+  ],
+  "significa": "El trabajo neto de todas las fuerzas es el cambio de energía cinética. Ojo: el trabajo de UNA fuerza no es el cambio de energía cinética.",
   "trampa": "El coseno es entre la fuerza y el desplazamiento. Una fuerza perpendicular al movimiento no hace trabajo — por eso la normal y la tensión centrípeta no aparecen en el balance de energía."
  },
  {
-  "id": "eq-mec-03",
-  "tipo": "ecuacion",
-  "area": "mecanica",
-  "semana": "S1",
-  "nivel": "BASE",
+  "id": "eq-mec-03", "tipo": "ecuacion", "area": "mecanica", "semana": "S1", "nivel": "BASE",
   "titulo": "Colisiones",
-  "formula": "Siempre:      p_{inicial} = p_{final}\nElástica:     también K_{inicial} = K_{final}\nPerfectamente inelástica: quedan pegados, v_f = m₁v₁/(m₁+m₂)\n\nElástica 1D:  v₁' = ((m₁−m₂)/(m₁+m₂))v₁,  v₂' = (2m₁/(m₁+m₂))v₁",
+  "formula": [
+   "#Siempre",
+   "\\vec{p}_i = \\vec{p}_f",
+   "#Solo si es elástica",
+   "K_i = K_f",
+   "#Perfectamente inelástica: quedan pegados",
+   "v_f = \\frac{m_1 v_1}{m_1 + m_2}",
+   "#Elástica en una dimensión",
+   "v_1' = \\frac{m_1-m_2}{m_1+m_2}\\,v_1",
+   "v_2' = \\frac{2m_1}{m_1+m_2}\\,v_1"
+  ],
   "significa": "El momento se conserva en toda colisión. La energía cinética solo en las elásticas.",
   "trampa": "En una colisión elástica de masas iguales, se intercambian las velocidades. Si m₂ ≫ m₁, la primera rebota con la misma rapidez. Estos dos límites descartan opciones al instante."
  },
  {
-  "id": "eq-mec-04",
-  "tipo": "ecuacion",
-  "area": "mecanica",
-  "semana": "S2",
-  "nivel": "BASE",
+  "id": "eq-mec-04", "tipo": "ecuacion", "area": "mecanica", "semana": "S2", "nivel": "BASE",
   "titulo": "Rotación: el diccionario con la traslación",
-  "formula": "x ↔ θ      v ↔ ω      a ↔ α      m ↔ I      F ↔ τ\n\nτ = Iα        K_rot = ½Iω²        L = Iω\n\nEjes paralelos:  I = I_cm + Md²",
+  "formula": [
+   "x \\leftrightarrow \\theta \\qquad v \\leftrightarrow \\omega \\qquad a \\leftrightarrow \\alpha",
+   "m \\leftrightarrow I \\qquad F \\leftrightarrow \\tau",
+   "\\tau = I\\alpha \\qquad K_{\\text{rot}} = \\tfrac{1}{2}I\\omega^2",
+   "L = I\\omega",
+   "#Teorema de ejes paralelos",
+   "I = I_{\\text{cm}} + Md^2"
+  ],
   "significa": "Toda la dinámica rotacional es la traslacional con el diccionario aplicado. Si sabes el análogo, sabes la fórmula.",
-  "trampa": "I depende del eje. Momentos de inercia que hay que tener de memoria: aro MR², disco ½MR², esfera maciza ⅖MR², cascarón esférico ⅔MR², varilla por el centro ML²/12."
+  "trampa": "I depende del eje. Momentos de inercia de memoria: aro MR², disco ½MR², esfera maciza ⅖MR², cascarón esférico ⅔MR², varilla por el centro ML²/12."
  },
  {
-  "id": "eq-mec-05",
-  "tipo": "ecuacion",
-  "area": "mecanica",
-  "semana": "S2",
-  "nivel": "BASE",
+  "id": "eq-mec-05", "tipo": "ecuacion", "area": "mecanica", "semana": "S2", "nivel": "BASE",
   "titulo": "Oscilador armónico, amortiguado y forzado",
-  "formula": "MAS:          ω = √(k/m)        T = 2π√(m/k)\nPéndulo:      ω = √(g/L)\nAmortiguado:  x = A e^{−γt/2} cos(ω't)\nForzado:      A(ω) = (F₀/m) / √( (ω₀²−ω²)² + (γω)² )",
+  "formula": [
+   "#Movimiento armónico simple",
+   "\\omega = \\sqrt{\\frac{k}{m}} \\qquad T = 2\\pi\\sqrt{\\frac{m}{k}}",
+   "#Péndulo simple",
+   "\\omega = \\sqrt{\\frac{g}{L}}",
+   "#Amortiguado",
+   "x(t) = A\\,e^{-\\gamma t/2}\\cos(\\omega' t)",
+   "#Forzado: amplitud en estado estacionario",
+   "A(\\omega) = \\frac{F_0/m}{\\sqrt{(\\omega_0^2-\\omega^2)^2 + (\\gamma\\omega)^2}}"
+  ],
   "significa": "La amplitud en estado estacionario es máxima cerca de ω ≈ ω₀: eso es resonancia. Es la pregunta 5 del simulacro de 2024.",
   "trampa": "El período de un MAS no depende de la amplitud. El de un péndulo tampoco, mientras el ángulo sea pequeño — esa es justamente la aproximación sin θ ≈ θ."
  },
  {
-  "id": "eq-mec-06",
-  "tipo": "ecuacion",
-  "area": "mecanica",
-  "semana": "S2",
-  "nivel": "BASE",
+  "id": "eq-mec-06", "tipo": "ecuacion", "area": "mecanica", "semana": "S2", "nivel": "BASE",
   "titulo": "Gravitación y fluidos",
-  "formula": "F = Gm₁m₂/r²        U = −Gm₁m₂/r\nv_{escape} = √(2GM/R)        T² ∝ a³   (Kepler)\n\nP = P₀ + ρgh        Empuje = ρ_{fluido}·V_{desplazado}·g\nBernoulli:  P + ½ρv² + ρgh = constante",
+  "formula": [
+   "F = \\frac{Gm_1m_2}{r^2} \\qquad U = -\\frac{Gm_1m_2}{r}",
+   "v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}} \\qquad T^2 \\propto a^3",
+   "#Estática de fluidos",
+   "P = P_0 + \\rho g h",
+   "E_{\\text{empuje}} = \\rho_{\\text{fluido}}\\, V_{\\text{sum}}\\, g",
+   "#Bernoulli",
+   "P + \\tfrac{1}{2}\\rho v^2 + \\rho g h = \\text{cte}"
+  ],
   "significa": "La energía potencial gravitacional es negativa y tiende a cero en el infinito: por eso una órbita ligada tiene energía total negativa.",
   "trampa": "En el empuje, la densidad es la del fluido y el volumen es el sumergido, no el del cuerpo. Si flota, son distintos."
  },
  {
-  "id": "eq-em-01",
-  "tipo": "ecuacion",
-  "area": "electromagnetismo",
-  "semana": "S4",
-  "nivel": "BASE",
+  "id": "eq-em-01", "tipo": "ecuacion", "area": "electromagnetismo", "semana": "S4", "nivel": "BASE",
   "titulo": "Ley de Gauss",
-  "formula": "∮ E·dA = Q_{encerrada} / ε₀\n\nEsfera / carga puntual:  E = kQ/r²\nAlambre infinito:        E = λ/2πε₀r\nPlano infinito:          E = σ/2ε₀   (no depende de la distancia)",
+  "formula": [
+   "\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{Q_{\\text{enc}}}{\\varepsilon_0}",
+   "#Carga puntual o esfera",
+   "E = \\frac{kQ}{r^2}",
+   "#Alambre infinito",
+   "E = \\frac{\\lambda}{2\\pi\\varepsilon_0 r}",
+   "#Plano infinito: no depende de la distancia",
+   "E = \\frac{\\sigma}{2\\varepsilon_0}"
+  ],
   "significa": "Solo sirve para calcular cuando hay simetría esférica, cilíndrica o plana. Fuera de esos casos vale, pero no ayuda.",
   "trampa": "Lo que cuenta es la carga ENCERRADA. Dentro de un conductor macizo en equilibrio E = 0, y dentro de una cavidad vacía también. El plano infinito es el caso que más sorprende: el campo es constante."
  },
  {
-  "id": "eq-em-02",
-  "tipo": "ecuacion",
-  "area": "electromagnetismo",
-  "semana": "S4",
-  "nivel": "BASE",
+  "id": "eq-em-02", "tipo": "ecuacion", "area": "electromagnetismo", "semana": "S4", "nivel": "BASE",
   "titulo": "Potencial y capacitancia",
-  "formula": "V = kQ/r        E = −∇V        ΔV = −∫E·dl\n\nC = Q/V        C_{placas} = ε₀A/d        U = ½CV² = Q²/2C\n\nSerie:    1/C = 1/C₁ + 1/C₂\nParalelo: C = C₁ + C₂",
+  "formula": [
+   "V = \\frac{kQ}{r} \\qquad \\vec{E} = -\\nabla V",
+   "\\Delta V = -\\int \\vec{E}\\cdot d\\vec{l}",
+   "C = \\frac{Q}{V} \\qquad C_{\\text{placas}} = \\frac{\\varepsilon_0 A}{d}",
+   "U = \\tfrac{1}{2}CV^2 = \\frac{Q^2}{2C}",
+   "#Serie y paralelo",
+   "\\frac{1}{C} = \\frac{1}{C_1} + \\frac{1}{C_2}",
+   "C = C_1 + C_2"
+  ],
   "significa": "Los condensadores se combinan al revés que las resistencias: en serie se suman los inversos.",
   "trampa": "Si desconectas la batería, Q queda fijo y V cambia. Si la dejas conectada, V queda fijo y Q cambia. Casi todas las preguntas de condensadores se juegan en esa distinción."
  },
  {
-  "id": "eq-em-03",
-  "tipo": "ecuacion",
-  "area": "electromagnetismo",
-  "semana": "S5",
-  "nivel": "BASE",
+  "id": "eq-em-03", "tipo": "ecuacion", "area": "electromagnetismo", "semana": "S5", "nivel": "BASE",
   "titulo": "Magnetostática",
-  "formula": "F = qv × B        F = IL × B\n\nBiot-Savart:  dB = (μ₀/4π) I dl × r̂ / r²\nAlambre infinito:  B = μ₀I/2πr\nCentro de espira:  B = μ₀I/2R\nSolenoide:         B = μ₀nI\n\nAmpère:  ∮ B·dl = μ₀ I_{encerrada}",
+  "formula": [
+   "\\vec{F} = q\\vec{v}\\times\\vec{B} \\qquad \\vec{F} = I\\vec{L}\\times\\vec{B}",
+   "#Biot-Savart",
+   "d\\vec{B} = \\frac{\\mu_0}{4\\pi}\\frac{I\\,d\\vec{l}\\times\\hat{r}}{r^2}",
+   "#Los dos valores que más caen",
+   "B_{\\text{alambre}} = \\frac{\\mu_0 I}{2\\pi r}",
+   "B_{\\text{espira}} = \\frac{\\mu_0 I}{2R}",
+   "B_{\\text{solenoide}} = \\mu_0 n I",
+   "#Ley de Ampère",
+   "\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0 I_{\\text{enc}}"
+  ],
   "significa": "El campo de una espira en su centro y el de un alambre infinito son los dos valores que más caen. Vale la pena tenerlos de memoria.",
   "trampa": "La fuerza magnética nunca hace trabajo: es perpendicular a la velocidad. Cambia la dirección, nunca la rapidez ni la energía cinética."
  },
  {
-  "id": "eq-em-04",
-  "tipo": "ecuacion",
-  "area": "electromagnetismo",
-  "semana": "S5",
-  "nivel": "BASE",
+  "id": "eq-em-04", "tipo": "ecuacion", "area": "electromagnetismo", "semana": "S5", "nivel": "BASE",
   "titulo": "Inducción",
-  "formula": "Φ = ∫ B·dA\nε = −dΦ/dt        (Faraday, con el signo de Lenz)\nε = BLv            (barra que se desliza)\n\nL = Φ/I        U = ½LI²        ε_L = −L dI/dt",
+  "formula": [
+   "\\Phi = \\int \\vec{B}\\cdot d\\vec{A}",
+   "#Faraday, con el signo de Lenz",
+   "\\varepsilon = -\\frac{d\\Phi}{dt}",
+   "#Barra que se desliza",
+   "\\varepsilon = BLv",
+   "#Inductancia",
+   "L = \\frac{\\Phi}{I} \\qquad U = \\tfrac{1}{2}LI^2",
+   "\\varepsilon_L = -L\\frac{dI}{dt}"
+  ],
   "significa": "El signo menos es la ley de Lenz: la corriente inducida se opone al cambio que la produjo. No es un detalle, es lo que hace que la energía se conserve.",
   "trampa": "Lo que induce es el CAMBIO de flujo, no el flujo. Un campo enorme pero constante no induce nada. Y el flujo cambia por tres vías: cambia B, cambia el área, o cambia la orientación."
  },
  {
-  "id": "eq-em-05",
-  "tipo": "ecuacion",
-  "area": "electromagnetismo",
-  "semana": "S6",
-  "nivel": "ALTO",
+  "id": "eq-em-05", "tipo": "ecuacion", "area": "electromagnetismo", "semana": "S6", "nivel": "ALTO",
   "titulo": "Ecuaciones de Maxwell",
-  "formula": "∇·E = ρ/ε₀\n∇·B = 0\n∇×E = −∂B/∂t\n∇×B = μ₀J + μ₀ε₀ ∂E/∂t\n\nc = 1/√(μ₀ε₀)        S = (1/μ₀) E × B",
+  "formula": [
+   "\\nabla\\cdot\\vec{E} = \\frac{\\rho}{\\varepsilon_0}",
+   "\\nabla\\cdot\\vec{B} = 0",
+   "\\nabla\\times\\vec{E} = -\\frac{\\partial\\vec{B}}{\\partial t}",
+   "\\nabla\\times\\vec{B} = \\mu_0\\vec{J} + \\mu_0\\varepsilon_0\\frac{\\partial\\vec{E}}{\\partial t}",
+   "#Velocidad de la luz y vector de Poynting",
+   "c = \\frac{1}{\\sqrt{\\mu_0\\varepsilon_0}}",
+   "\\vec{S} = \\frac{1}{\\mu_0}\\vec{E}\\times\\vec{B}"
+  ],
   "significa": "La segunda dice que no hay monopolos magnéticos. El último término de la cuarta —la corriente de desplazamiento— es lo que permite las ondas electromagnéticas.",
   "trampa": "En una onda plana E y B son perpendiculares entre sí y a la dirección de propagación, en fase, y con E = cB. La intensidad media va con E₀²/2."
  },
  {
-  "id": "eq-ter-01",
-  "tipo": "ecuacion",
-  "area": "termo_estadistica",
-  "semana": "S7",
-  "nivel": "BASE",
+  "id": "eq-ter-01", "tipo": "ecuacion", "area": "termo_estadistica", "semana": "S7", "nivel": "BASE",
   "titulo": "Primera ley y calorimetría",
-  "formula": "ΔU = Q − W        (W = trabajo hecho POR el gas)\nW = ∫ P dV\n\nQ = mcΔT           (calentar)\nQ = mL              (cambio de fase, a temperatura constante)",
-  "significa": "En un cambio de fase la temperatura NO cambia mientras dure. Ese es el error de la pregunta 9 del D1.",
+  "formula": [
+   "#W es el trabajo hecho POR el gas",
+   "\\Delta U = Q - W \\qquad W = \\int P\\,dV",
+   "#Calentar",
+   "Q = mc\\,\\Delta T",
+   "#Cambio de fase: la temperatura NO cambia",
+   "Q = mL"
+  ],
+  "significa": "En un cambio de fase la temperatura no cambia mientras dure. Ese es el error de la pregunta 9 del D1.",
   "trampa": "Si el proceso pasa por un cambio de fase, hay que partir el cálculo en tramos: calentar hasta el punto de fusión, fundir, seguir calentando. Cada tramo con su fórmula."
  },
  {
-  "id": "eq-ter-02",
-  "tipo": "ecuacion",
-  "area": "termo_estadistica",
-  "semana": "S7",
-  "nivel": "BASE",
+  "id": "eq-ter-02", "tipo": "ecuacion", "area": "termo_estadistica", "semana": "S7", "nivel": "BASE",
   "titulo": "Gas ideal y procesos",
-  "formula": "PV = nRT = NkT\n\nIsotérmico:  T cte,  W = nRT ln(V_f/V_i),  ΔU = 0\nIsobárico:   P cte,  W = PΔV\nIsocórico:   V cte,  W = 0,  Q = ΔU\nAdiabático:  Q = 0,  PV^γ = cte,  γ = C_P/C_V\n\nEquipartición:  U = (f/2)NkT",
+  "formula": [
+   "PV = nRT = NkT",
+   "#Isotérmico: T constante, ΔU = 0",
+   "W = nRT\\ln\\!\\left(\\frac{V_f}{V_i}\\right)",
+   "#Isobárico e isocórico",
+   "W = P\\,\\Delta V \\qquad W = 0,\\; Q = \\Delta U",
+   "#Adiabático: Q = 0",
+   "PV^{\\gamma} = \\text{cte} \\qquad \\gamma = \\frac{C_P}{C_V}",
+   "#Equipartición: f grados de libertad",
+   "U = \\tfrac{f}{2}NkT"
+  ],
   "significa": "f es el número de grados de libertad: 3 para gas monoatómico, 5 para diatómico a temperatura ambiente.",
   "trampa": "El trabajo depende del camino, no solo de los extremos. Por eso la pregunta 18 del simulacro da una trayectoria p(V) concreta: hay que calcular el área bajo esa curva, no aplicar una fórmula."
  },
  {
-  "id": "eq-ter-03",
-  "tipo": "ecuacion",
-  "area": "termo_estadistica",
-  "semana": "S8",
-  "nivel": "BASE",
+  "id": "eq-ter-03", "tipo": "ecuacion", "area": "termo_estadistica", "semana": "S8", "nivel": "BASE",
   "titulo": "Segunda ley, entropía y máquinas",
-  "formula": "ΔS = ∫ dQ_rev/T        S = k ln Ω\n\nCarnot:  η = 1 − T_f/T_c        (temperaturas absolutas)\nRefrigerador:  COP = T_f/(T_c − T_f)",
+  "formula": [
+   "\\Delta S = \\int \\frac{dQ_{\\text{rev}}}{T} \\qquad S = k\\ln\\Omega",
+   "#Carnot: el techo de cualquier máquina",
+   "\\eta = 1 - \\frac{T_f}{T_c}",
+   "#Refrigerador",
+   "\\text{COP} = \\frac{T_f}{T_c - T_f}"
+  ],
   "significa": "El rendimiento de Carnot es el techo de cualquier máquina entre esas dos temperaturas. Ninguna opción puede superarlo.",
-  "trampa": "En kelvin, siempre. Y si una opción da rendimiento mayor que 1 − T_f/T_c, está mal sin necesidad de calcular nada."
+  "trampa": "En kelvin, siempre. Y si una opción da rendimiento mayor que el de Carnot, está mal sin necesidad de calcular nada."
  },
  {
-  "id": "eq-mod-01",
-  "tipo": "ecuacion",
-  "area": "relatividad",
-  "semana": "S9",
-  "nivel": "BASE",
+  "id": "eq-mod-01", "tipo": "ecuacion", "area": "relatividad", "semana": "S9", "nivel": "BASE",
   "titulo": "Relatividad especial",
-  "formula": "γ = 1/√(1 − v²/c²)\n\nDilatación:   Δt = γΔt₀        (Δt₀ = tiempo propio)\nContracción:  L = L₀/γ         (L₀ = longitud propia)\n\nE = γmc²        E² = (pc)² + (mc²)²        p = γmv\n\nDoppler:  f = f₀ √((1−β)/(1+β))   (alejándose)",
+  "formula": [
+   "\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}",
+   "#Dilatación: Δt₀ es el tiempo propio",
+   "\\Delta t = \\gamma\\,\\Delta t_0",
+   "#Contracción: L₀ es la longitud propia",
+   "L = \\frac{L_0}{\\gamma}",
+   "#Energía y momento",
+   "E = \\gamma mc^2 \\qquad p = \\gamma mv",
+   "E^2 = (pc)^2 + (mc^2)^2",
+   "#Doppler, alejándose",
+   "f = f_0\\sqrt{\\frac{1-\\beta}{1+\\beta}}"
+  ],
   "significa": "El tiempo propio es el que mide quien está en reposo respecto al suceso. La longitud propia, quien está en reposo respecto al objeto.",
   "trampa": "El tiempo se dilata y la longitud se contrae: γ multiplica en un caso y divide en el otro. Para β ≪ 1, γ ≈ 1 + β²/2 — con el medio."
  },
  {
-  "id": "eq-mod-02",
-  "tipo": "ecuacion",
-  "area": "moderna_cuantica",
-  "semana": "S9",
-  "nivel": "BASE",
+  "id": "eq-mod-02", "tipo": "ecuacion", "area": "moderna_cuantica", "semana": "S9", "nivel": "BASE",
   "titulo": "Cuantización y dualidad",
-  "formula": "E = hf = hc/λ        λ = h/p        (de Broglie)\n\nFotoeléctrico:  K_max = hf − φ\nCompton:        Δλ = (h/m_ec)(1 − cos θ)\nBohr:           E_n = −13,6 eV / n²        r_n = n²a₀",
+  "formula": [
+   "E = hf = \\frac{hc}{\\lambda} \\qquad \\lambda = \\frac{h}{p}",
+   "#Efecto fotoeléctrico",
+   "K_{\\max} = hf - \\phi",
+   "#Compton",
+   "\\Delta\\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)",
+   "#Bohr",
+   "E_n = -\\frac{13{,}6\\ \\text{eV}}{n^2} \\qquad r_n = n^2 a_0"
+  ],
   "significa": "En el efecto fotoeléctrico lo que importa es la frecuencia, no la intensidad: más intensidad da más electrones, no electrones más rápidos.",
-  "trampa": "hc ≈ 1240 eV·nm es el número que más ahorra tiempo en el examen. Con él pasas de longitud de onda a energía de cabeza."
+  "trampa": "hc ≈ 1240 eV·nm es el número que más tiempo ahorra en el examen. Con él pasas de longitud de onda a energía de cabeza."
  },
  {
-  "id": "eq-mod-03",
-  "tipo": "ecuacion",
-  "area": "moderna_cuantica",
-  "semana": "S10",
-  "nivel": "BASE",
+  "id": "eq-mod-03", "tipo": "ecuacion", "area": "moderna_cuantica", "semana": "S10", "nivel": "BASE",
   "titulo": "Pozo infinito y oscilador",
-  "formula": "Pozo infinito de ancho L:\n  ψ_n = √(2/L) sin(nπx/L)        E_n = n²π²ℏ²/2mL²\n\nOscilador armónico:\n  E_n = ℏω(n + ½)        (el estado base NO es cero)\n\nIncertidumbre:  Δx Δp ≥ ℏ/2",
+  "formula": [
+   "#Pozo infinito de ancho L",
+   "\\psi_n(x) = \\sqrt{\\frac{2}{L}}\\,\\sin\\!\\left(\\frac{n\\pi x}{L}\\right)",
+   "E_n = \\frac{n^2\\pi^2\\hbar^2}{2mL^2}",
+   "#Oscilador: el estado base NO es cero",
+   "E_n = \\hbar\\omega\\left(n + \\tfrac{1}{2}\\right)",
+   "#Incertidumbre",
+   "\\Delta x\\,\\Delta p \\geq \\frac{\\hbar}{2}"
+  ],
   "significa": "La energía del pozo va como n², la del oscilador como n. Esa diferencia basta para descartar la mitad de las opciones.",
-  "trampa": "El estado base del oscilador tiene energía ℏω/2, no cero. Es consecuencia directa del principio de incertidumbre: una partícula en reposo exacto en el mínimo violaría ΔxΔp ≥ ℏ/2."
+  "trampa": "El estado base del oscilador tiene energía ℏω/2, no cero. Es consecuencia directa del principio de incertidumbre: una partícula en reposo exacto en el mínimo lo violaría."
  },
  {
-  "id": "eq-opt-01",
-  "tipo": "ecuacion",
-  "area": "optica_ondas",
-  "semana": "S11",
-  "nivel": "BASE",
+  "id": "eq-opt-01", "tipo": "ecuacion", "area": "optica_ondas", "semana": "S11", "nivel": "BASE",
   "titulo": "Óptica geométrica y ondulatoria",
-  "formula": "n₁ sin θ₁ = n₂ sin θ₂        (Snell)\n1/s + 1/s' = 1/f        m = −s'/s\n\nYoung:      d sin θ = mλ        (máximos)\nRed:        d sin θ = mλ\nUna rendija: a sin θ = mλ        (mínimos, ojo)\nRayleigh:   θ ≈ 1,22 λ/D",
-  "significa": "En doble rendija la condición con m entero da máximos; en una sola rendija, la misma forma da MÍNIMOS. Es la confusión más frecuente.",
+  "formula": [
+   "#Snell",
+   "n_1\\sin\\theta_1 = n_2\\sin\\theta_2",
+   "#Lentes delgadas",
+   "\\frac{1}{s} + \\frac{1}{s'} = \\frac{1}{f} \\qquad m = -\\frac{s'}{s}",
+   "#Doble rendija y red: MÁXIMOS",
+   "d\\sin\\theta = m\\lambda",
+   "#Una sola rendija: MÍNIMOS",
+   "a\\sin\\theta = m\\lambda",
+   "#Criterio de Rayleigh",
+   "\\theta \\approx 1{,}22\\,\\frac{\\lambda}{D}"
+  ],
+  "significa": "En doble rendija la condición con m entero da máximos; en una sola rendija, la misma forma da mínimos. Es la confusión más frecuente.",
   "trampa": "El signo de las distancias en lentes depende del convenio. Verifica con un caso que conozcas: objeto lejano en lente convergente da imagen real en el foco."
  },
  {
-  "id": "eq-mat-01",
-  "tipo": "ecuacion",
-  "area": "transversal",
-  "semana": "S1",
-  "nivel": "BASE",
+  "id": "eq-mat-01", "tipo": "ecuacion", "area": "transversal", "semana": "S1", "nivel": "BASE",
   "titulo": "Aproximaciones que hay que tener automatizadas",
-  "formula": "(1 + x)^{n} ≈ 1 + nx                (x ≪ 1)\ne^{x} ≈ 1 + x + x²/2\nsin x ≈ x − x³/6        cos x ≈ 1 − x²/2\nln(1 + x) ≈ x\n\nγ = (1 − β²)^{−1/2} ≈ 1 + β²/2",
+  "formula": [
+   "#Para x ≪ 1, la que más sirve",
+   "(1+x)^n \\approx 1 + nx",
+   "e^x \\approx 1 + x + \\frac{x^2}{2}",
+   "\\sin x \\approx x - \\frac{x^3}{6}",
+   "\\cos x \\approx 1 - \\frac{x^2}{2}",
+   "\\ln(1+x) \\approx x",
+   "#El caso que te costó la pregunta 6 del D1",
+   "\\gamma = (1-\\beta^2)^{-1/2} \\approx 1 + \\frac{\\beta^2}{2}"
+  ],
   "significa": "Casi toda la física de examen con parámetros pequeños se resuelve con la primera línea. El resto son casos particulares suyos.",
   "trampa": "El exponente puede ser negativo o fraccionario, y ahí es donde se pierden los factores. Con n = −1/2 el signo se invierte y aparece el medio. Esa fue la pregunta 6 del D1."
  }

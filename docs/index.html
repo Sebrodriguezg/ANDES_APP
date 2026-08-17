@@ -7,7 +7,11 @@
 <title>ANDES</title>
 <link rel="manifest" href="app.webmanifest">
 <link rel="icon" href="icono.svg" type="image/svg+xml">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
 <link rel="stylesheet" href="css/estilo.css">
+<!-- KaTeX va local, con sus fuentes: la app tiene que funcionar sin datos.
+     Sin defer, para que window.katex ya exista cuando corran los módulos. -->
+<script src="vendor/katex/katex.min.js"></script>
 </head>
 <body>
 
