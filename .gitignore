@@ -36,4 +36,8 @@ __pycache__/
 # App: dependencias y material intermedio de la tubería de contenido
 # ---------------------------------------------------------------
 node_modules/
-07_APP/pipeline/_cache/
+07_APP/tuberia/_cache/
+
+# Corpus intermedio sin cifrar: es el banco de HRW en texto plano y este repo es
+# público. Solo se publican los shards cifrados de docs/contenido/.
+07_APP/tuberia/crudo/
