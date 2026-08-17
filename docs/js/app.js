@@ -184,6 +184,24 @@ function pintarYo() {
         <button class="boton suave" id="exportar">Exportar respuestas (CSV)</button>
         <button class="boton suave" id="reiniciar">Borrar mi progreso</button>
       </div>
+    </div>
+
+    <h2 class="seccion">Pasar el progreso a otro aparato</h2>
+    <div class="tarjeta">
+      <p style="margin:0 0 12px;color:var(--texto-suave);font-size:.9rem">
+        El avance vive en este navegador. Para seguir en otro, copia el código
+        aquí y pégalo allá. Se fusiona con lo que ya hubiera, no lo pisa.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="boton suave" id="copiar-estado">Copiar mi progreso</button>
+        <button class="boton suave" id="pegar-estado">Pegar progreso</button>
+      </div>
+      <textarea id="caja-estado" rows="3" hidden
+        placeholder="Pega aquí el código que empieza por ANDES1:"
+        style="width:100%;margin-top:12px;padding:10px;border-radius:var(--radio);
+               border:1px solid var(--borde-vivo);background:var(--fondo);
+               color:var(--texto);font-family:var(--mono);font-size:.72rem"></textarea>
+      <div id="aviso-estado" style="margin-top:10px;font-size:.84rem"></div>
     </div>`;
 
   $('meta').addEventListener('change', e => {
@@ -197,6 +215,36 @@ function pintarYo() {
     navigator.clipboard?.writeText(almacen.exportarCSV())
       .then(() => { $('exportar').textContent = 'Copiado al portapapeles'; })
       .catch(() => { $('exportar').textContent = 'No pude copiar'; });
+  });
+
+  const caja = $('caja-estado');
+  const aviso = $('aviso-estado');
+
+  $('copiar-estado').addEventListener('click', () => {
+    const codigo = almacen.exportarEstado();
+    navigator.clipboard?.writeText(codigo)
+      .then(() => { aviso.textContent = `Copiado (${codigo.length} caracteres).`;
+                    aviso.style.color = 'var(--ok)'; })
+      .catch(() => { caja.hidden = false; caja.value = codigo; caja.select();
+                     aviso.textContent = 'No pude copiar solo: cópialo de la caja.';
+                     aviso.style.color = 'var(--aviso)'; });
+  });
+
+  $('pegar-estado').addEventListener('click', () => {
+    if (caja.hidden) {
+      caja.hidden = false;
+      caja.value = '';
+      caja.focus();
+      aviso.textContent = 'Pega el código y vuelve a tocar el botón.';
+      aviso.style.color = 'var(--texto-tenue)';
+      return;
+    }
+    const r = almacen.importarEstado(caja.value);
+    aviso.textContent = r.ok
+      ? `Listo: ${r.respuestas} respuestas en total.`
+      : `No se pudo: ${r.motivo}.`;
+    aviso.style.color = r.ok ? 'var(--ok)' : 'var(--mal)';
+    if (r.ok) { caja.hidden = true; pintarYo(); }
   });
 
   $('reiniciar').addEventListener('click', () => {

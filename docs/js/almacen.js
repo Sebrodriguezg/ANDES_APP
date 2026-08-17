@@ -183,6 +183,71 @@ export function exportarCSV() {
   return cab + filas.join('\n');
 }
 
+/* ── Traspaso entre dispositivos ──────────────────────────────
+   El progreso vive en el navegador, así que el celular y el computador no lo
+   comparten. Estas dos funciones lo mueven de uno a otro como un texto que se
+   copia y se pega, sin necesidad de servidor ni de cuenta. */
+
+export function exportarEstado() {
+  const util = {
+    v: 2,
+    vistas: estado.vistas,
+    respuestas: estado.respuestas,
+    dias: estado.dias,
+    sesion: estado.sesion,
+    meta_diaria: estado.meta_diaria,
+  };
+  // btoa no admite caracteres fuera de latin-1; los ids y códigos son ASCII,
+  // pero se codifica a UTF-8 primero por si acaso.
+  const bytes = new TextEncoder().encode(JSON.stringify(util));
+  let binario = '';
+  for (const b of bytes) binario += String.fromCharCode(b);
+  return 'ANDES1:' + btoa(binario);
+}
+
+export function importarEstado(texto) {
+  const limpio = String(texto || '').trim().replace(/\s+/g, '');
+  if (!limpio.startsWith('ANDES1:')) return { ok: false, motivo: 'no parece un código de ANDES' };
+
+  try {
+    const binario = atob(limpio.slice(7));
+    const bytes = Uint8Array.from(binario, c => c.charCodeAt(0));
+    const datos = JSON.parse(new TextDecoder().decode(bytes));
+    if (!datos || typeof datos !== 'object' || !datos.respuestas) {
+      return { ok: false, motivo: 'el código está incompleto' };
+    }
+
+    // Se fusiona en vez de reemplazar: si respondiste cosas distintas en cada
+    // dispositivo, se conservan las dos.
+    const porClave = new Map();
+    for (const r of [...estado.respuestas, ...datos.respuestas]) {
+      porClave.set(`${r.id}|${r.ts}`, r);
+    }
+    estado.respuestas = [...porClave.values()].sort((a, b) => a.ts - b.ts);
+    estado.vistas = { ...estado.vistas, ...datos.vistas };
+
+    for (const [dia, v] of Object.entries(datos.dias || {})) {
+      const mio = estado.dias[dia];
+      // Se queda el día con más avance, no la suma: sumarlos contaría doble lo
+      // que se hizo en los dos aparatos.
+      if (!mio || v.n > mio.n) estado.dias[dia] = v;
+    }
+
+    if (datos.sesion?.fecha === hoyISO()) {
+      const mia = sesionDeHoy();
+      if ((datos.sesion.orden || []).length > mia.orden.length) {
+        estado.sesion = datos.sesion;
+      }
+    }
+    if (datos.meta_diaria) estado.meta_diaria = datos.meta_diaria;
+
+    guardar();
+    return { ok: true, respuestas: estado.respuestas.length };
+  } catch {
+    return { ok: false, motivo: 'no pude leer el código' };
+  }
+}
+
 export function reiniciar() {
   estado = { ...INICIAL };
   guardar();

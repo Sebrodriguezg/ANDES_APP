@@ -58,7 +58,9 @@ RE_FIGURA = re.compile(
 
 # Restos de las figuras en ASCII del PDF: hileras de puntos, barras y flechas que
 # `pdftotext` mezcla con el texto. Si aparecen, la pregunta viene contaminada.
-RE_RESTO_FIGURA = re.compile(r"(\.\s*){4,}|[↑↓→←|]{2,}|_\{\s*\.")
+# Ojo: aquí no puede entrar la llave suelta. El propio extractor genera
+# subíndices como T_{2}, y tratarlas como trazo parte el texto legítimo.
+RE_RESTO_FIGURA = re.compile(r"(\.\s*){4,}|[↑↓→←|]{2,}|_\{\s*\.|•")
 
 ILEGIBLE = "�"
 
@@ -94,7 +96,11 @@ def truncar_en_dibujo(texto):
         # de una o dos letras, que es como se ven los ejes etiquetados.
         palabras = cola.split()
         rotulos_sueltos = len(palabras) <= 4 and all(len(p) <= 2 for p in palabras)
-        if proporcion_letras < 0.15 or rotulos_sueltos:
+        # Contar letras no basta: los diagramas rotulados con números romanos
+        # (I, II, III, IV, V) parecen texto y salvan la cola de ser descartada.
+        # Lo que no tienen los dibujos son palabras de verdad.
+        sin_palabras = not [w for w in re.findall(r"[A-Za-z]+", cola) if len(w) >= 4]
+        if proporcion_letras < 0.15 or rotulos_sueltos or sin_palabras:
             # Se guarda el corte más tardío, no el primero: el enunciado puede
             # seguir después de una frase ("...la pista. En el punto 3:") y
             # cortar en la primera se lleva por delante la pregunta de verdad.

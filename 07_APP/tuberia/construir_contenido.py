@@ -40,6 +40,63 @@ AREAS = [
 ]
 
 
+# Ancho útil de la caja de fórmula en un teléfono de 414 px. Es conservador a
+# propósito: las letras griegas y los superíndices no son monoespaciados ni
+# siquiera dentro de una fuente mono, así que 38 caracteres contados ya se
+# salían de la caja.
+ANCHO_FORMULA = 33
+
+
+def desplegar_formula(texto):
+    """Repliega al ancho del móvil las fórmulas escritas en columnas.
+
+    En el contenido autoral las fórmulas se escriben alineadas con espacios,
+    que se lee muy bien en un editor y fatal en un teléfono: 'Contracción:
+    L = L₀/γ        (L₀ = longitud propia)' se parte por la mitad y queda
+    ilegible.
+
+    Cada línea se trata como una cosa o la otra, no como una mezcla:
+
+    - Prosa: se envuelve por palabras, con un espacio de unión.
+    - Fórmula en columnas: los huecos de dos o más espacios marcan dónde
+      separaba las columnas, y sirven de puntos de corte. Una fórmula continua
+      que no quepa no se parte por un sitio arbitrario: se deja desbordar y la
+      caja la desplaza de lado.
+
+    Lo que continúa una línea anterior va indentado para que se vea que es lo
+    mismo.
+    """
+    if not texto:
+        return texto
+
+    salida = []
+    for linea in texto.split("\n"):
+        if len(linea) <= ANCHO_FORMULA:
+            salida.append(linea)
+            continue
+
+        sangria = " " * (len(linea) - len(linea.lstrip()))
+        cuerpo = linea.strip()
+
+        palabras_prosa = [w for w in cuerpo.split() if len(w) >= 3 and w[0].isalpha()]
+        es_prosa = len(palabras_prosa) >= 5
+        piezas = cuerpo.split() if es_prosa else re.split(r"\s{2,}", cuerpo)
+        union = " " if es_prosa else "  "
+
+        actual, prefijo = "", sangria
+        for pieza in piezas:
+            tentativa = f"{actual}{union}{pieza}" if actual else pieza
+            if actual and len(prefijo + tentativa) > ANCHO_FORMULA:
+                salida.append(prefijo + actual)
+                actual, prefijo = pieza, sangria + "  "
+            else:
+                actual = tentativa
+        if actual:
+            salida.append(prefijo + actual)
+
+    return "\n".join(salida)
+
+
 def codigo_de(tarjeta):
     """Nombre corto y estable con el que referirse a una tarjeta.
 
@@ -114,7 +171,11 @@ def cargar_mc(figuras):
 def cargar_autoral():
     tarjetas = []
     for ruta in sorted(AUTORAL.glob("*.json")):
-        tarjetas.extend(json.loads(ruta.read_text(encoding="utf-8")))
+        for t in json.loads(ruta.read_text(encoding="utf-8")):
+            for campo in ("formula", "valor"):
+                if t.get(campo):
+                    t[campo] = desplegar_formula(t[campo])
+            tarjetas.append(t)
     return tarjetas
 
 

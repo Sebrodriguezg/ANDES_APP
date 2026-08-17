@@ -36,7 +36,7 @@
   "nivel": "ALTO",
   "titulo": "Dispersión por esfera dura",
   "idea": "Es el único problema de scattering con solución cerrada y elemental. La reflexión especular en la superficie relaciona el parámetro de impacto con el ángulo de dispersión.",
-  "formula": "b(θ) = R cos(θ/2)\n\ndσ/dΩ = R²/4        σ_total = πR²",
+  "formula": "b(θ) = R cos(θ/2)\n\ndσ/dΩ = R²/4        σ_{total} = πR²",
   "cuando": "Cualquier pregunta de sección eficaz en un examen de opción múltiple. La sección eficaz diferencial es isótropa —constante, no depende de θ— y la total es simplemente el área geométrica de la esfera.",
   "trampa": "θ es el ángulo de dispersión, no el de incidencia sobre la superficie. Que dσ/dΩ sea constante es el resultado que más sorprende: memorízalo, porque permite descartar de inmediato toda opción con dependencia angular."
  },

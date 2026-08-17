@@ -39,8 +39,15 @@ export function mate(texto) {
     s = s.replace(/\^\{([^{}]*)\}/g, '<sup>$1</sup>')
          .replace(/_\{([^{}]*)\}/g, '<sub>$1</sub>');
   }
-  // Forma corta sin llaves: x^2, v_0
-  s = s.replace(/\^(-?\w)/g, '<sup>$1</sup>')
-       .replace(/_(-?\w)/g, '<sub>$1</sub>');
+  // Forma corta sin llaves: x^2, v_0, K_rot, I_cm.
+  // Toma hasta tres caracteres, no uno: con uno solo "K_rot" salía como K con
+  // la r debajo y "ot" al lado. El tope de tres y el lookahead evitan que se
+  // coma cosas como "03_TEMARIO" cuando aparecen en prosa.
+  s = s.replace(/\^([+-]?[\p{L}\d]{1,3})(?![\p{L}\d])/gu, '<sup>$1</sup>')
+       .replace(/_([+-]?[\p{L}\d]{1,3})(?![\p{L}\d])/gu, '<sub>$1</sub>');
+  // Énfasis al estilo Markdown, que es como está escrito el contenido autoral.
+  // Sin esto los asteriscos salían crudos: "el nivel *degenerado* más bajo".
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+       .replace(/(^|[\s(])\*([^*\n]+)\*(?=[\s.,;:)]|$)/g, '$1<em>$2</em>');
   return s;
 }

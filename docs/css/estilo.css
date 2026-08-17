@@ -323,9 +323,12 @@ sup, sub { font-size: .7em; line-height: 0; }
   border-left: 2px solid var(--color-area, var(--acento));
   border-radius: var(--radio);
   font-family: var(--mono);
-  font-size: .86rem;
+  font-size: .84rem;
   line-height: 1.9;
-  white-space: pre-wrap;
+  /* Sin reajuste: la tubería ya repliega las fórmulas al ancho del móvil, y
+     dejar que el navegador las parta por su cuenta rompe la alineación. Lo
+     que aun así no quepa se desplaza de lado. */
+  white-space: pre;
   overflow-x: auto;
   color: var(--texto);
 }

@@ -1,30 +1,45 @@
 [
  {
-  "id": "dato-01", "tipo": "dato", "area": "transversal", "nivel": "BASE",
+  "id": "dato-01",
+  "tipo": "dato",
+  "area": "transversal",
+  "nivel": "BASE",
   "titulo": "Las constantes que hay que tener en la cabeza",
   "valor": "c = 3,00 × 10⁸ m/s\nh = 6,63 × 10⁻³⁴ J·s\nℏ = 1,05 × 10⁻³⁴ J·s\ne = 1,60 × 10⁻¹⁹ C\nk_B = 1,38 × 10⁻²³ J/K\nG = 6,67 × 10⁻¹¹ N·m²/kg²\nε₀ = 8,85 × 10⁻¹² F/m\nk = 1/4πε₀ = 8,99 × 10⁹ N·m²/C²\nμ₀ = 4π × 10⁻⁷ T·m/A",
   "porque": "En un examen de 7,2 minutos por pregunta, buscar una constante en la hoja de fórmulas cuesta más de lo que parece."
  },
  {
-  "id": "dato-02", "tipo": "dato", "area": "transversal", "nivel": "BASE",
+  "id": "dato-02",
+  "tipo": "dato",
+  "area": "transversal",
+  "nivel": "BASE",
   "titulo": "Los atajos que ahorran más tiempo",
-  "valor": "hc = 1240 eV·nm\nℏc = 197 eV·nm\nk_B T a 300 K ≈ 1/40 eV = 0,025 eV\nm_e c² = 0,511 MeV\nm_p c² = 938 MeV\na₀ = 0,529 Å = 0,529 × 10⁻¹⁰ m\nE_Rydberg = 13,6 eV",
+  "valor": "hc = 1240 eV·nm\nℏc = 197 eV·nm\nk_B T a 300 K ≈ 1/40 eV = 0,025 eV\nm_e c² = 0,511 MeV\nm_p c² = 938 MeV\na₀ = 0,529 Å = 0,529 × 10⁻¹⁰ m\nE_{Rydberg} = 13,6 eV",
   "porque": "Con hc = 1240 eV·nm conviertes longitud de onda en energía sin calculadora: un fotón de 500 nm son 2,5 eV. Es el número más rentable de toda la lista."
  },
  {
-  "id": "dato-03", "tipo": "dato", "area": "mecanica", "nivel": "BASE",
+  "id": "dato-03",
+  "tipo": "dato",
+  "area": "mecanica",
+  "nivel": "BASE",
   "titulo": "Momentos de inercia, de memoria",
   "valor": "Aro o cascarón cilíndrico (eje):     MR²\nDisco o cilindro macizo (eje):      ½MR²\nEsfera maciza (diámetro):           ⅖MR²\nCascarón esférico (diámetro):       ⅔MR²\nVarilla por el centro:              ML²/12\nVarilla por un extremo:             ML²/3\n\nEjes paralelos:  I = I_cm + Md²",
   "porque": "Aparecen en rodadura, en péndulos físicos y en conservación de momento angular. Son seis números y salen constantemente."
  },
  {
-  "id": "dato-04", "tipo": "dato", "area": "transversal", "nivel": "BASE",
+  "id": "dato-04",
+  "tipo": "dato",
+  "area": "transversal",
+  "nivel": "BASE",
   "titulo": "Órdenes de magnitud para oler un error",
   "valor": "Átomo:              10⁻¹⁰ m\nNúcleo:             10⁻¹⁵ m\nLongitud de onda visible:  400–700 nm\nVelocidad del sonido en aire: 340 m/s\nDensidad del agua:  1000 kg/m³\nPresión atmosférica: 10⁵ Pa\nEnergía de enlace nuclear: ~8 MeV por nucleón\nEnergía química típica: unos pocos eV",
   "porque": "Si tu resultado se aleja tres órdenes de magnitud de estos, te comiste un factor. Revisar es más barato que marcar mal."
  },
  {
-  "id": "dato-05", "tipo": "dato", "area": "transversal", "nivel": "BASE",
+  "id": "dato-05",
+  "tipo": "dato",
+  "area": "transversal",
+  "nivel": "BASE",
   "titulo": "Cómo se reparte el examen",
   "valor": "Mecánica (Física 1 + Clásica):     32 %   ~8 preguntas\nElectromagnetismo + Relatividad:   28 %   ~7 preguntas\nTermodinámica + Estadística:       20 %   ~5 preguntas\nCuántica + Moderna:                20 %   ~5 preguntas\nÓptica:                            0–4 %\n\n25 preguntas · 3 horas · 7,2 min por pregunta\nSin penalización por error: se responden las 25",
   "porque": "El 60 % es Física 1–2 sólida y rápida; el 40 % es pregrado superior. Ahí se aprueba y ahí se decide, en ese orden."
