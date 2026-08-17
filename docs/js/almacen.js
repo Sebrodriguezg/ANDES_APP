@@ -75,6 +75,11 @@ export function ordinalDe(id) {
 
 export function historialHoy() { return sesionDeHoy().orden.slice(); }
 
+/** Familias de pregunta ya servidas hoy, para no repetir variantes. */
+export function familiasDeHoy() {
+  return sesionDeHoy().orden.map(x => x.familia).filter(Boolean);
+}
+
 /** Deja constancia de que la tarjeta ya salió, para no repetirla.
  *  No suma al progreso del día: salir en pantalla no es haberla hecho. */
 export function vista(id) {
@@ -96,7 +101,15 @@ export function contar(id, meta = {}) {
   const ya = s.orden.findIndex(x => x.id === id);
   if (ya >= 0) return ya + 1;
 
-  s.orden.push({ id, codigo: meta.codigo || '', tipo: meta.tipo || '', ok: null });
+  s.orden.push({
+    id,
+    codigo: meta.codigo || '',
+    tipo: meta.tipo || '',
+    // La familia agrupa las variantes del mismo planteamiento, para no
+    // servir dos casi iguales el mismo día.
+    familia: meta.familia || '',
+    ok: null,
+  });
   const d = estado.dias[hoyISO()] || { n: 0, aciertos: 0 };
   d.n += 1;
   estado.dias[hoyISO()] = d;

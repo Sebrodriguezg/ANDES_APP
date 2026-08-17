@@ -17,6 +17,10 @@ let observador = null;
 let observadorLectura = null;
 // Ids que hoy tocan por repaso, con su ficha. El feed los sirve primero.
 let repasoPendiente = new Map();
+// Familias ya servidas hoy. El banco de HRW repite el mismo planteamiento
+// cambiando un número: 90 familias con más de una variante. Verlas seguidas
+// confunde, porque parecen la misma pregunta con distinta respuesta.
+let familiasServidas = new Set();
 
 // Las tarjetas que no se responden —patrón, ecuación, dato, descarte, tu error—
 // cuentan para la meta cuando han estado de verdad en pantalla. Sin esto no
@@ -35,7 +39,7 @@ function vigilarLectura(nodo, tarjeta, alContar) {
         // Pasar de largo con el pulgar no cuenta como haberla leído.
         nodo._temporizador = setTimeout(() => {
           const t = nodo._tarjeta;
-          const n = almacen.contar(t.id, { codigo: t.codigo, tipo: t.tipo });
+          const n = almacen.contar(t.id, { codigo: t.codigo, tipo: t.tipo, familia: t.familia });
           pintarOrdinal(nodo, n);
           observadorLectura.unobserve(nodo);
           nodo._alContar?.();
@@ -74,6 +78,10 @@ function peso(t, flojas) {
     error: 4, patron: 3.5, descarte: 3, ecuacion: 2.5, micro: 2.2, dato: 2, mc: 1,
   };
   p *= PESO_TIPO[t.tipo] ?? 1;
+
+  // Una variante de algo que ya salió hoy se hunde: que aparezcan seguidas
+  // parece un error de la app, no una pregunta distinta.
+  if (t.familia && familiasServidas.has(t.familia)) p *= 0.05;
 
   // Lo que toca repasar manda sobre todo lo demás: una pregunta que ya fallaste
   // y vuelve en su momento vale más que cualquier pregunta nueva.
@@ -178,6 +186,7 @@ async function pintarLote() {
   for (const t of elegidas) {
     cola = cola.filter(x => x.id !== t.id);
     almacen.vista(t.id);
+    if (t.familia) familiasServidas.add(t.familia);
     const nodo = construir(t, () => progreso());
     if (!nodo) continue;
     contenedor.append(nodo);
@@ -228,6 +237,7 @@ export async function iniciar(crono) {
   cola = [];
   indiceTanda = 0;
   cerrado = false;
+  familiasServidas = new Set(almacen.familiasDeHoy());
   observadorLectura?.disconnect();
   observadorLectura = null;
 

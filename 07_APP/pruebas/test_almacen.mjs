@@ -214,6 +214,15 @@ await prueba('el CSV lleva las columnas del medidor', a => {
   assert.ok(fila.includes('concepto'));
 });
 
+await prueba('las familias servidas hoy se recuerdan', a => {
+  a.contar('q1', { codigo: 'HRW 2.1', familia: 'un coche va de a a b' });
+  a.contar('q2', { codigo: 'HRW 2.5', familia: 'una masa cuelga de' });
+  a.contar('q3', { codigo: 'P2' });
+  assert.deepEqual(a.familiasDeHoy().sort(),
+    ['un coche va de a a b', 'una masa cuelga de'],
+    'las tarjetas sin familia no cuentan');
+});
+
 await prueba('la meta diaria se acota a un rango sensato', a => {
   a.fijarMeta(0);
   assert.ok(a.metaDiaria() >= 5);

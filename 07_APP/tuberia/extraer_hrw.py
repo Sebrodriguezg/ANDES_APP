@@ -190,6 +190,19 @@ MAPA_CAPITULOS = {
 FUERA_DE_ALCANCE = {43, 44}
 
 
+def _huella(texto):
+    """Firma de un enunciado, para agrupar variantes de la misma pregunta.
+
+    El banco de HRW repite el mismo planteamiento cambiando un número o una
+    opción: 222 preguntas forman 101 familias. Son preguntas legítimas y
+    distintas, pero mostrar dos de la misma familia seguidas confunde, porque
+    parecen la misma con distinta respuesta.
+    """
+    t = re.sub(r"[\d.,]+", "#", texto.lower())
+    t = re.sub(r"[^a-z# ]+", " ", t)
+    return " ".join(t.split())[:110]
+
+
 class Pregunta:
     def __init__(self, capitulo, titulo_capitulo, numero):
         self.capitulo = capitulo
@@ -250,6 +263,7 @@ class Pregunta:
             "capitulo_titulo": self.titulo_capitulo,
             "numero": self.numero,
             "enunciado": self.texto_enunciado(),
+            "familia": _huella(self.texto_enunciado()),
             "opciones": {k: self._limpiar(self.opciones[k]) for k in self.orden_opciones},
             "respuesta": self.respuesta,
             "area": area,
@@ -357,6 +371,16 @@ def _valida(preg, descartes):
         descartes["depende_de_figura"] += 1
         preg.necesita_figura = True
         return False
+    # Si el texto crudo tenía bastante más que lo extraído, se perdió algo por
+    # el camino: enumeraciones de varias líneas que se reordenan, listas de
+    # ecuaciones. Son pocas, pero una pregunta a la que le falta media premisa
+    # es peor que no tenerla.
+    crudo = " ".join(frag for frag, _ in preg.enunciado)
+    crudo_limpio = re.sub(r"[.\s}{•]+", " ", limpiar_trazo(crudo)).strip()
+    if len(crudo_limpio) > len(enunciado) * 1.45 + 40:
+        descartes["texto_incompleto"] += 1
+        return False
+
     if preg.tiene_trazos or RE_BASURA_FORMULA.search(todo):
         descartes["resto_de_figura"] += 1
         preg.necesita_figura = True
@@ -378,6 +402,7 @@ def extraer(ruta_xml):
     descartes = {
         "sin_respuesta": 0, "opciones_incompletas": 0, "respuesta_sin_opcion": 0,
         "enunciado_vacio": 0, "opcion_vacia": 0, "opciones_repetidas": 0,
+        "texto_incompleto": 0,
         "depende_de_figura": 0,
         "resto_de_figura": 0, "glifo_ilegible": 0, "fuera_de_alcance": 0,
     }

@@ -266,7 +266,7 @@ function tarjetaMC(t, alResponder) {
     if (!anotar) return;
 
     vibrar(ok ? 18 : [12, 40, 12]);
-    const n = almacen.contar(t.id, { codigo: t.codigo, tipo: t.tipo });
+    const n = almacen.contar(t.id, { codigo: t.codigo, tipo: t.tipo, familia: t.familia });
     pintarOrdinal(nodo, n);
     almacen.registrarRespuesta({
       id: t.id, area: t.area, nivel: t.nivel,

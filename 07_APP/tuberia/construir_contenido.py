@@ -191,6 +191,7 @@ def cargar_mc(figuras):
                 "opciones": r["opciones"],
                 "respuesta": r["respuesta"],
                 "etiquetas": r.get("etiquetas", []),
+                "familia": r.get("familia"),
                 "origen": r.get("fuente", ""),
                 "tema": r.get("capitulo_titulo", ""),
                 "patron": r.get("patron"),
