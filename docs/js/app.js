@@ -218,7 +218,16 @@ function pedirClave() {
     capa.className = 'capa-clave';
     capa.innerHTML = `
       <div class="tarjeta caja-clave">
-        <div class="candado">⚛</div>
+        <svg class="candado" viewBox="0 0 512 512" aria-hidden="true">
+          <defs>
+            <linearGradient id="inferno-clave" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#420A68"/><stop offset="0.4" stop-color="#932667"/>
+              <stop offset="0.7" stop-color="#F37819"/><stop offset="1" stop-color="#FCFFA4"/>
+            </linearGradient>
+          </defs>
+          <path d="M20 400 L196 96 L272 246 L332 158 L492 400 Z" fill="url(#inferno-clave)"/>
+          <rect x="20" y="418" width="472" height="26" fill="#FCA50A"/>
+        </svg>
         <h3 class="titulo-tarjeta">Desbloquear el contenido</h3>
         <p style="color:var(--texto-suave);font-size:.9rem">
           El banco de preguntas va cifrado porque el repositorio es público.

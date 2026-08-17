@@ -39,11 +39,34 @@ AREAS = [
 ]
 
 
-def cargar_mc():
-    """Preguntas de opción múltiple de los bancos extraídos."""
+def cargar_figuras():
+    ruta = CRUDO / "figuras.json"
+    if not ruta.exists():
+        return {}
+    return json.loads(ruta.read_text(encoding="utf-8"))
+
+
+def cargar_mc(figuras):
+    """Preguntas de opción múltiple de los bancos extraídos.
+
+    Incluye las que se habían apartado por depender de una figura, siempre que
+    el rescate de figuras haya conseguido el dibujo. Sin la imagen no entran:
+    una pregunta que dice "en la gráfica de abajo" y no trae gráfica no se puede
+    responder.
+    """
     tarjetas = []
-    for ruta in sorted(CRUDO.glob("*.json")):
+    fuentes = [CRUDO / "hrw.json", CRUDO / "hrw_pendientes_figura.json"]
+    fuentes += [r for r in sorted(CRUDO.glob("*.json"))
+                if r.name not in {"hrw.json", "hrw_pendientes_figura.json", "figuras.json"}]
+
+    for ruta in fuentes:
+        if not ruta.exists():
+            continue
+        pendiente = ruta.name == "hrw_pendientes_figura.json"
         for r in json.loads(ruta.read_text(encoding="utf-8")):
+            fig = figuras.get(r["id"])
+            if pendiente and not fig:
+                continue
             tarjetas.append({
                 "id": r["id"],
                 "tipo": "mc",
@@ -57,6 +80,9 @@ def cargar_mc():
                 "etiquetas": r.get("etiquetas", []),
                 "origen": r.get("fuente", ""),
                 "tema": r.get("capitulo_titulo", ""),
+                **({"figura": {
+                    "png": fig["png"], "ancho": fig["ancho"], "alto": fig["alto"],
+                }} if fig else {}),
             })
     return tarjetas
 
@@ -133,7 +159,8 @@ def main():
 
     rng = random.Random(args.semilla)
 
-    mc = cargar_mc()
+    figuras = cargar_figuras()
+    mc = cargar_mc(figuras)
     autoral = cargar_autoral()
     errores = cargar_errores()
 
@@ -184,6 +211,7 @@ def main():
             "por_tipo": dict(Counter(t["tipo"] for t in tarjetas)),
             "por_area": dict(Counter(t.get("area", "") for t in tarjetas)),
             "por_nivel": dict(Counter(t.get("nivel", "") for t in tarjetas)),
+            "con_figura": sum(1 for t in tarjetas if t.get("figura")),
         },
     }
     (SALIDA / "manifiesto.json").write_text(
@@ -194,6 +222,7 @@ def main():
     print(f"{len(tarjetas)} tarjetas en {len(tandas)} tandas  ({peso/1024:.0f} kB)")
     print(f"  por tipo:  {manifiesto['resumen']['por_tipo']}")
     print(f"  por área:  {manifiesto['resumen']['por_area']}")
+    print(f"  con figura: {manifiesto['resumen']['con_figura']}")
     print(f"  -> {SALIDA.relative_to(RAIZ)}/")
 
     if clave:

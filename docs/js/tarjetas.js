@@ -28,17 +28,36 @@ function vibrar(ms) {
 
 /* ── Opción múltiple ──────────────────────────────────────── */
 
+/* La figura va rescatada del PDF como PNG en base64, así que viaja dentro del
+   contenido cifrado igual que el texto. */
+function bloqueFigura(t) {
+  if (!t.figura) return '';
+  return `
+    <figure class="figura">
+      <img src="data:image/png;base64,${t.figura.png}"
+           width="${t.figura.ancho}" height="${t.figura.alto}"
+           alt="Figura de la pregunta" loading="lazy" decoding="async">
+      <figcaption class="pie-figura">Figura del enunciado</figcaption>
+    </figure>`;
+}
+
 function tarjetaMC(t, alResponder) {
   const letras = LETRAS.filter(l => l in t.opciones);
+  // Hay preguntas cuyas cinco alternativas son gráficas: el texto de la opción
+  // viene vacío y lo que se elige está dentro de la figura. En ese caso el botón
+  // se queda solo con la letra.
+  const soloLetras = letras.every(l => !t.opciones[l].trim());
+
   const nodo = elemento(`
-    <article class="tarjeta tarjeta-mc">
+    <article class="tarjeta tarjeta-mc${soloLetras ? ' opciones-en-figura' : ''}">
       ${encabezado(t, 'Pregunta', t.nivel === 'ALTO' ? 'nivel alto' : '')}
       <p class="enunciado">${mate(t.enunciado)}</p>
+      ${bloqueFigura(t)}
       <div class="opciones">
         ${letras.map(l => `
           <button class="opcion" data-letra="${l}">
             <span class="letra">${l}</span>
-            <span class="cuerpo">${mate(t.opciones[l])}</span>
+            ${soloLetras ? '' : `<span class="cuerpo">${mate(t.opciones[l])}</span>`}
           </button>`).join('')}
       </div>
     </article>`);

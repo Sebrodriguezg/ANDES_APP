@@ -33,6 +33,7 @@ RAIZ = Path(__file__).resolve().parents[2]
 PDF = RAIZ / "01_EXAMENES/banco_hrw/HRW7_Test_Bank_con_respuestas.pdf"
 CACHE = Path(__file__).parent / "_cache"
 SALIDA = Path(__file__).parent / "crudo" / "hrw.json"
+APARTADAS = Path(__file__).parent / "crudo" / "hrw_pendientes_figura.json"
 
 RE_CAPITULO = re.compile(r"^Chapter\s+(\d+):?\s*(.*)$", re.I)
 # En el pie de página el número de página alterna de lado según la paridad:
@@ -121,6 +122,7 @@ class Pregunta:
         self.opciones = {}
         self.orden_opciones = []
         self.respuesta = None
+        self.necesita_figura = False
 
     def texto_enunciado(self):
         return " ".join(self.enunciado).strip()
@@ -225,14 +227,19 @@ def _valida(preg, descartes):
     # las alternativas quedan en blanco o amontonadas todas dentro de la última.
     if any(not v.strip() for v in preg.opciones.values()):
         descartes["opcion_vacia"] += 1
+        preg.necesita_figura = True
         return False
 
     todo = enunciado + " " + " ".join(preg.opciones.values())
+    # Las que dependen de una figura no se tiran: se apartan. Si el extractor de
+    # figuras logra rescatar el dibujo, la pregunta vuelve al corpus completa.
     if RE_FIGURA.search(todo):
         descartes["depende_de_figura"] += 1
+        preg.necesita_figura = True
         return False
     if RE_RESTO_FIGURA.search(todo):
         descartes["resto_de_figura"] += 1
+        preg.necesita_figura = True
         return False
     if ILEGIBLE in todo:
         descartes["glifo_ilegible"] += 1
@@ -247,6 +254,7 @@ def extraer(ruta_xml):
     lineas = geometria.leer_lineas(ruta_xml)
 
     preguntas = []
+    apartadas = []
     descartes = {
         "sin_respuesta": 0, "opciones_incompletas": 0, "respuesta_sin_opcion": 0,
         "enunciado_vacio": 0, "opcion_vacia": 0, "depende_de_figura": 0,
@@ -266,6 +274,8 @@ def extraer(ruta_xml):
         if actual is not None:
             if _valida(actual, descartes):
                 preguntas.append(actual)
+            elif actual.necesita_figura and actual.respuesta and len(actual.opciones) >= 4:
+                apartadas.append(actual)
             actual = None
             campo = None
 
@@ -331,7 +341,7 @@ def extraer(ruta_xml):
             actual.opciones[campo] += " " + texto
 
     cerrar()
-    return preguntas, descartes
+    return preguntas, apartadas, descartes
 
 
 def main():
@@ -349,7 +359,7 @@ def main():
         print("Extrayendo geometría del PDF (655 páginas)...")
         subprocess.run(["pdftotext", "-bbox-layout", str(PDF), str(xml)], check=True)
 
-    preguntas, descartes = extraer(xml)
+    preguntas, apartadas, descartes = extraer(xml)
 
     if args.muestra:
         import random
@@ -368,7 +378,11 @@ def main():
     SALIDA.parent.mkdir(exist_ok=True)
     SALIDA.write_text(json.dumps(registros, ensure_ascii=False, indent=1), encoding="utf-8")
 
+    pendientes = [p.a_dict() for p in apartadas]
+    APARTADAS.write_text(json.dumps(pendientes, ensure_ascii=False, indent=1), encoding="utf-8")
+
     print(f"\n{len(registros)} preguntas -> {SALIDA.relative_to(RAIZ)}")
+    print(f"{len(pendientes)} apartadas a la espera de figura -> {APARTADAS.relative_to(RAIZ)}")
     print("\nDescartadas:")
     for motivo, n in sorted(descartes.items(), key=lambda kv: -kv[1]):
         if n:
