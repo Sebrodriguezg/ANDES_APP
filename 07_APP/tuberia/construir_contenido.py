@@ -121,6 +121,9 @@ def codigo_de(tarjeta):
     m = re.match(r"uniandes2024-q(\d+)", ident)
     if m:
         return f"UA24 {int(m.group(1))}"
+    m = re.match(r"euf-2020a-q(\d+)", ident)
+    if m:
+        return f"EUF {int(m.group(1))}"
     if tipo == "patron":
         return tarjeta.get("patron", "PAT")
     if tipo == "error":

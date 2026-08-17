@@ -32,6 +32,9 @@ __pycache__/
 *~
 .DS_Store
 
+# Los ZIP del paquete de estudio: se regeneran con empaquetar.py y son 1 GB.
+_paquete/
+
 # ---------------------------------------------------------------
 # App: dependencias y material intermedio de la tubería de contenido
 # ---------------------------------------------------------------

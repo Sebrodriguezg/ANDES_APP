@@ -8,6 +8,13 @@ import { escapar } from './mate.js';
 
 let crono = null;
 
+/* Dónde vive lo que la app no puede llevar dentro: los libros, los bancos de
+   examen y el material de seguimiento. Son 650 MB con copyright, así que no
+   pueden estar en un repositorio público. */
+const CARPETA_DRIVE =
+  'https://drive.google.com/drive/folders/1py2fECGlQFPfMQoG-C6TOAmt_fT_80Ai';
+const REPOSITORIO = 'https://github.com/Sebrodriguezg/ANDES_APP';
+
 const $ = id => document.getElementById(id);
 const VISTAS = ['hoy', 'feed', 'plan', 'yo', 'simulacro'];
 
@@ -246,6 +253,25 @@ function pintarYo() {
         <button class="boton suave" id="exportar">Exportar respuestas (CSV)</button>
         <button class="boton suave" id="reiniciar">Borrar mi progreso</button>
       </div>
+    </div>
+
+    <h2 class="seccion">Todo el material</h2>
+    <div class="tarjeta">
+      <p style="margin:0 0 12px;color:var(--texto-suave);font-size:.9rem">
+        Los libros, los bancos de examen, el plan, el temario y el seguimiento
+        completos. Un gigabyte que la app no puede llevar dentro.
+      </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="boton suave enlace-externo" href="${CARPETA_DRIVE}"
+           target="_blank" rel="noopener noreferrer">Descargar el paquete</a>
+        <a class="boton suave enlace-externo" href="${REPOSITORIO}"
+           target="_blank" rel="noopener noreferrer">Ver el repositorio</a>
+      </div>
+      <p class="pie-fuentes">
+        El banco sale de Halliday–Resnick–Walker, del GRE Physics del ETS, del
+        EUF de Brasil y del examen de admisión de Uniandes 2024. Material de
+        estudio personal.
+      </p>
     </div>
 
     <h2 class="seccion">Pasar el progreso a otro aparato</h2>

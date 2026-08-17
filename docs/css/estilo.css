@@ -1025,3 +1025,14 @@ ul.lista.material li { font-size: .9rem; color: var(--texto-suave); }
 .acciones-reporte .abrir-formulario.desactivado {
   opacity: .4; pointer-events: none;
 }
+
+/* Enlaces a lo que vive fuera de la app: el paquete de material y el código. */
+.acciones-reporte .enlace-externo, a.enlace-externo {
+  text-decoration: none; text-align: center; margin-top: 0;
+}
+a.enlace-externo { flex: 1 1 auto; }
+.pie-fuentes {
+  margin: 14px 0 0; padding-top: 11px;
+  border-top: 1px solid var(--borde);
+  font-size: .76rem; color: var(--texto-tenue);
+}
