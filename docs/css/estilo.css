@@ -718,3 +718,115 @@ ul.lista li::marker { color: var(--texto-tenue); }
   margin: 0; font-family: var(--mono); font-size: .8rem;
   color: var(--texto-suave); white-space: pre-wrap;
 }
+
+/* ── Cronómetro ─────────────────────────────────────────────── */
+
+/* Discreto a propósito: informa sin agobiar. El enemigo del D1 fueron 14
+   minutos en una pregunta, no la falta de un reloj grande. */
+.cronometro {
+  display: flex; align-items: center; gap: 9px;
+  margin-top: 13px; padding-top: 11px;
+  border-top: 1px solid var(--borde);
+}
+.cronometro-canal {
+  flex: 1; height: 2px; background: var(--borde); overflow: hidden;
+}
+.cronometro-relleno {
+  height: 100%; width: 0;
+  background: var(--texto-tenue);
+  transition: width 1s linear;
+}
+.cronometro-relleno.pasado { background: var(--aviso); }
+.cronometro-texto {
+  flex: none; font-size: .62rem; color: var(--texto-tenue);
+  font-variant-numeric: tabular-nums; letter-spacing: .08em;
+}
+.cronometro-texto[data-aviso]::after {
+  content: " · " attr(data-aviso);
+  color: var(--aviso); letter-spacing: .04em; text-transform: none;
+}
+
+.veredicto .reloj {
+  color: var(--texto-tenue); letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+}
+.veredicto .reloj.lento { color: var(--aviso); }
+
+/* ── Confianza y causa ──────────────────────────────────────── */
+
+.pregunta-rapida {
+  margin-top: 13px; padding-top: 12px;
+  border-top: 1px solid var(--borde);
+}
+.pregunta-rapida .rotulo {
+  display: block; margin-bottom: 8px;
+  font-family: var(--mono); font-size: .6rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--texto-tenue);
+}
+.pregunta-rapida.confianza .rotulo { color: var(--acento); }
+
+.opciones-rapidas { display: flex; gap: 7px; flex-wrap: wrap; }
+.opciones-rapidas button {
+  flex: 1 1 auto; min-width: 84px;
+  padding: 9px 10px;
+  background: var(--tarjeta-alta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  color: var(--texto-suave);
+  font-size: .78rem; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.opciones-rapidas button:hover {
+  border-color: var(--acento); color: var(--texto);
+}
+.pregunta-rapida.resuelta .rotulo { color: var(--ok); }
+
+.opcion.elegida { border-left-color: var(--acento); }
+
+/* ── Repaso espaciado ───────────────────────────────────────── */
+
+.cabecera-repaso {
+  display: flex; flex-direction: column; gap: 3px;
+  margin: 14px 0 4px; padding: 12px 14px;
+  background: color-mix(in srgb, var(--inf-40) 14%, var(--tarjeta));
+  border-left: 2px solid var(--inf-50);
+  border-radius: var(--radio);
+}
+.cabecera-repaso .rotulo {
+  font-family: var(--mono); font-size: .6rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--inf-90);
+}
+.cabecera-repaso .cuenta { font-size: .9rem; color: var(--texto-suave); }
+
+.cinta-repaso {
+  display: inline-block; margin-bottom: 10px;
+  padding: 3px 9px;
+  background: color-mix(in srgb, var(--inf-50) 22%, transparent);
+  border-left: 2px solid var(--inf-50);
+  border-radius: var(--radio);
+  font-family: var(--mono); font-size: .6rem;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--inf-90);
+}
+
+/* ── Calibración y causas en la vista Yo ────────────────────── */
+
+.fila-dato {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid var(--borde);
+  font-size: .88rem;
+}
+.fila-dato:last-child { border-bottom: 0; }
+.fila-dato .etiqueta { flex: 1; }
+.fila-dato .valor {
+  font-family: var(--mono); font-variant-numeric: tabular-nums;
+  color: var(--texto-tenue); font-size: .8rem;
+}
+.fila-dato .canal {
+  flex: 0 0 82px; height: 5px; background: var(--borde); overflow: hidden;
+}
+.fila-dato .relleno { height: 100%; background: var(--color-dato, var(--acento)); }
+.fila-dato.alerta .valor { color: var(--mal); }
+
+.nota-meta {
+  margin: 10px 0 0; font-size: .82rem; color: var(--texto-tenue);
+}

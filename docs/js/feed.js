@@ -15,6 +15,8 @@ let semanaActual = null;
 let cerrado = false;
 let observador = null;
 let observadorLectura = null;
+// Ids que hoy tocan por repaso, con su ficha. El feed los sirve primero.
+let repasoPendiente = new Map();
 
 // Las tarjetas que no se responden —patrón, ecuación, dato, descarte, tu error—
 // cuentan para la meta cuando han estado de verdad en pantalla. Sin esto no
@@ -22,6 +24,25 @@ let observadorLectura = null;
 // progreso se llenaba solo.
 const TIPOS_DE_LECTURA = new Set(['patron', 'ecuacion', 'dato', 'descarte', 'error']);
 const SEGUNDOS_PARA_CONTAR = 1200;
+
+/* El cronómetro de una pregunta arranca cuando de verdad la tienes delante, no
+   cuando el feed la pinta cuatro pantallas más abajo. */
+let observadorCronometro = null;
+
+function vigilarCronometro(nodo, tarjeta) {
+  if (tarjeta.tipo !== 'mc' || !nodo._cronometro) return;
+
+  observadorCronometro ??= new IntersectionObserver(entradas => {
+    for (const e of entradas) {
+      if (e.isIntersecting) {
+        e.target._cronometro?.arrancar();
+        observadorCronometro.unobserve(e.target);
+      }
+    }
+  }, { threshold: 0.5 });
+
+  observadorCronometro.observe(nodo);
+}
 
 function vigilarLectura(nodo, tarjeta, alContar) {
   if (!TIPOS_DE_LECTURA.has(tarjeta.tipo)) return;
@@ -73,6 +94,12 @@ function peso(t, flojas) {
   };
   p *= PESO_TIPO[t.tipo] ?? 1;
 
+  // Lo que toca repasar manda sobre todo lo demás: una pregunta que ya fallaste
+  // y vuelve en su momento vale más que cualquier pregunta nueva.
+  if (repasoPendiente.has(t.id)) {
+    p *= repasoPendiente.get(t.id).hueso ? 12 : 8;
+  }
+
   return p;
 }
 
@@ -90,6 +117,19 @@ function elegir(candidatos, cuantos) {
     pesados.splice(k, 1);
   }
   return salida;
+}
+
+/* El repaso espaciado solo servía de adorno: se calculaba qué tocaba y se
+   pintaba un número en la pestaña Yo, sin que el feed lo sirviera nunca. Aquí
+   se traen esas tarjetas y se marcan para que salgan las primeras. */
+async function cargarRepaso() {
+  const pendientes = almacen.pendientesDeRepaso();
+  repasoPendiente = new Map(pendientes.map(p => [p.id, p]));
+  if (!pendientes.length) return [];
+
+  const tarjetas = await datos.buscarPorIds(pendientes.map(p => p.id));
+  for (const t of tarjetas) t.repaso = repasoPendiente.get(t.id);
+  return tarjetas;
 }
 
 async function asegurarCola(minimo) {
@@ -161,8 +201,18 @@ async function pintarLote() {
     if (!nodo) continue;
     contenedor.append(nodo);
     vigilarLectura(nodo, t, () => progreso());
+    vigilarCronometro(nodo, t);
   }
   progreso();
+}
+
+function cabeceraRepaso(n) {
+  const nodo = document.createElement('div');
+  nodo.className = 'cabecera-repaso';
+  nodo.innerHTML = `
+    <span class="rotulo">Hoy toca repasar</span>
+    <span class="cuenta">${n} ${n === 1 ? 'pregunta' : 'preguntas'} que fallaste</span>`;
+  return nodo;
 }
 
 /** Si ya habías avanzado hoy, el feed abre diciendo por dónde ibas. */
@@ -200,8 +250,18 @@ export async function iniciar(crono) {
   cerrado = false;
   observadorLectura?.disconnect();
   observadorLectura = null;
+  observadorCronometro?.disconnect();
+  observadorCronometro = null;
 
   await restaurarSesion(contenedor);
+
+  // El repaso encabeza la cola, antes de traer nada nuevo.
+  const aRepasar = await cargarRepaso();
+  if (aRepasar.length) {
+    cola.unshift(...aRepasar);
+    contenedor.append(cabeceraRepaso(aRepasar.length));
+  }
+
   await pintarLote();
 
   const centinela = document.getElementById('centinela');

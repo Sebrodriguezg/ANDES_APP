@@ -7,6 +7,24 @@ import * as almacen from './almacen.js';
 
 const LETRAS = ['A', 'B', 'C', 'D', 'E'];
 
+/* En el examen son 7,2 min por pregunta; la meta del plan es bajar a 6. La
+   barra se llena hacia esos 6 minutos, y a partir de ahí avisa. */
+const SEGUNDOS_META = 360;
+
+const CAUSAS_FALLO = [
+  ['concepto', 'No sabía la física'],
+  ['algebra', 'Error de cuentas'],
+  ['lectura', 'Leí mal'],
+  ['tiempo', 'Me quedé sin tiempo'],
+];
+
+const NIVELES_CONFIANZA = [
+  [1, 'Adiviné'],
+  [2, 'Dudo'],
+  [3, 'Creo que sí'],
+  [4, 'Seguro'],
+];
+
 function elemento(html) {
   const t = document.createElement('template');
   t.innerHTML = html.trim();
@@ -60,6 +78,45 @@ function bloqueFigura(t) {
     </figure>`;
 }
 
+/* El cronómetro es la respuesta al hallazgo más caro del D1: 14 minutos en una
+   sola pregunta. Empieza cuando la tarjeta se ve y para al responder. */
+function montarCronometro(nodo) {
+  const barra = nodo.querySelector('.cronometro-relleno');
+  const marca = nodo.querySelector('.cronometro-texto');
+  let inicio = null;
+  let tic = null;
+
+  function pintar() {
+    const s = Math.round((Date.now() - inicio) / 1000);
+    const frac = Math.min(1, s / SEGUNDOS_META);
+    if (barra) {
+      barra.style.width = `${frac * 100}%`;
+      barra.classList.toggle('pasado', s > SEGUNDOS_META);
+    }
+    if (marca) {
+      marca.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+      // Pasados los seis minutos, la regla que salió del diagnóstico.
+      if (s === SEGUNDOS_META + 1) marca.dataset.aviso = 'marca lo que creas y sigue';
+    }
+  }
+
+  return {
+    arrancar() {
+      if (inicio) return;
+      inicio = Date.now();
+      pintar();
+      tic = setInterval(pintar, 1000);
+    },
+    parar() {
+      if (!inicio) return 0;
+      clearInterval(tic);
+      const s = Math.round((Date.now() - inicio) / 1000);
+      inicio = null;
+      return s;
+    },
+  };
+}
+
 function tarjetaMC(t, alResponder) {
   const letras = LETRAS.filter(l => l in t.opciones);
   // Hay preguntas cuyas cinco alternativas son gráficas: el texto de la opción
@@ -67,9 +124,16 @@ function tarjetaMC(t, alResponder) {
   // se queda solo con la letra.
   const soloLetras = letras.every(l => !t.opciones[l].trim());
 
+  // La confianza solo se pide donde informa: en lo de nivel alto y en lo que
+  // vuelve por repaso. Pedirla en las 25 del día volvería el feed un trámite.
+  const pideConfianza = t.nivel === 'ALTO' || t.repaso;
+
   const nodo = elemento(`
     <article class="tarjeta tarjeta-mc${soloLetras ? ' opciones-en-figura' : ''}">
       ${encabezado(t, 'Pregunta', t.nivel === 'ALTO' ? 'nivel alto' : '')}
+      ${t.repaso ? `<div class="cinta-repaso">
+        ${t.repaso.hueso ? 'Hueso' : 'Repaso'} · la fallaste
+        ${t.repaso.fallos > 1 ? `${t.repaso.fallos} veces` : 'una vez'}</div>` : ''}
       <p class="enunciado">${mate(t.enunciado)}</p>
       ${bloqueFigura(t)}
       <div class="opciones">
@@ -79,18 +143,26 @@ function tarjetaMC(t, alResponder) {
             ${soloLetras ? '' : `<span class="cuerpo">${mate(t.opciones[l])}</span>`}
           </button>`).join('')}
       </div>
+      <div class="cronometro">
+        <div class="cronometro-canal"><div class="cronometro-relleno"></div></div>
+        <span class="cronometro-texto">0:00</span>
+      </div>
     </article>`);
 
   nodo.style.setProperty('--color-area', `var(--${t.area || 'transversal'})`);
 
+  const cronometro = montarCronometro(nodo);
   let respondida = false;
 
-  function marcar(marcada, { anotar }) {
+  /** Pinta el resultado. `anotar` es falso al repintar el historial del día:
+   *  la respuesta ya está registrada y volver a anotarla contaría doble. */
+  function revelar(marcada, { anotar, segundos = 0, confianza = null }) {
     if (respondida) return;
     respondida = true;
 
     const ok = marcada === t.respuesta;
     nodo.classList.add('respondida');
+    nodo.querySelector('.cronometro')?.remove();
 
     nodo.querySelectorAll('.opcion').forEach(b => {
       if (b.dataset.letra === t.respuesta) b.classList.add('correcta');
@@ -100,35 +172,92 @@ function tarjetaMC(t, alResponder) {
     const fuente = t.origen === 'HRW7'
       ? `Halliday–Resnick–Walker · cap. ${(t.id.match(/c(\d+)/) || [, '?'])[1]}`
       : escapar(t.origen || '');
+    const reloj = segundos
+      ? `${Math.floor(segundos / 60)}:${String(segundos % 60).padStart(2, '0')}`
+      : '';
 
     nodo.insertAdjacentHTML('beforeend', `
       <div class="veredicto ${ok ? 'bien' : 'mal'}">
         <span>${ok ? '✓ Correcta' : `✗ Era ${t.respuesta}`}</span>
+        ${reloj ? `<span class="reloj${segundos > SEGUNDOS_META ? ' lento' : ''}">${reloj}</span>` : ''}
         <span class="fuente">${fuente}</span>
       </div>`);
 
-    // Al repintar el historial del día no se vuelve a anotar la respuesta:
-    // ya está registrada y contaría doble.
     if (!anotar) return;
 
     vibrar(ok ? 18 : [12, 40, 12]);
-    // Una pregunta cuenta para la meta cuando la respondes, no cuando aparece.
     const n = almacen.contar(t.id, { codigo: t.codigo, tipo: t.tipo });
     pintarOrdinal(nodo, n);
     almacen.registrarRespuesta({
       id: t.id, area: t.area, nivel: t.nivel,
       patron: t.patron || '', marcada, correcta: t.respuesta, ok,
+      segundos, confianza,
     });
     alResponder?.(ok);
+
+    if (!ok) preguntarCausa();
+  }
+
+  /** Al fallar, un toque para decir por qué. Es la columna que produjo la mejor
+   *  conclusión del diagnóstico: 9 de 10 fallos eran conceptuales. */
+  function preguntarCausa() {
+    const caja = elemento(`
+      <div class="pregunta-rapida causa">
+        <span class="rotulo">¿Por qué falló?</span>
+        <div class="opciones-rapidas">
+          ${CAUSAS_FALLO.map(([k, texto]) =>
+            `<button data-causa="${k}">${escapar(texto)}</button>`).join('')}
+        </div>
+      </div>`);
+    nodo.append(caja);
+    caja.querySelectorAll('button').forEach(b => {
+      b.addEventListener('click', () => {
+        almacen.anotarCausa(t.id, b.dataset.causa);
+        caja.innerHTML = `<span class="rotulo">Anotado: ${escapar(b.textContent)}</span>`;
+        caja.classList.add('resuelta');
+      });
+    });
+  }
+
+  /** La confianza va antes de ver el resultado, que es la única forma de que
+   *  signifique algo. Caza el caso peligroso: creer que la sabes y fallarla. */
+  function preguntarConfianza(marcada, segundos) {
+    const caja = elemento(`
+      <div class="pregunta-rapida confianza">
+        <span class="rotulo">¿Qué tan seguro?</span>
+        <div class="opciones-rapidas">
+          ${NIVELES_CONFIANZA.map(([n, texto]) =>
+            `<button data-nivel="${n}">${escapar(texto)}</button>`).join('')}
+        </div>
+      </div>`);
+    nodo.append(caja);
+    caja.querySelectorAll('button').forEach(b => {
+      b.addEventListener('click', () => {
+        caja.remove();
+        revelar(marcada, { anotar: true, segundos, confianza: Number(b.dataset.nivel) });
+      });
+    });
   }
 
   nodo.querySelectorAll('.opcion').forEach(boton => {
-    boton.addEventListener('click', () => marcar(boton.dataset.letra, { anotar: true }));
+    boton.addEventListener('click', () => {
+      if (respondida || nodo.querySelector('.confianza')) return;
+      const segundos = cronometro.parar();
+      const marcada = boton.dataset.letra;
+
+      if (pideConfianza) {
+        boton.classList.add('elegida');
+        preguntarConfianza(marcada, segundos);
+      } else {
+        revelar(marcada, { anotar: true, segundos });
+      }
+    });
   });
 
   const previa = almacen.respuestaPrevia(t.id);
-  if (previa) marcar(previa.marcada, { anotar: false });
+  if (previa) revelar(previa.marcada, { anotar: false, segundos: previa.segundos || 0 });
 
+  nodo._cronometro = cronometro;
   return nodo;
 }
 

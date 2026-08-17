@@ -7,12 +7,20 @@
 const CLAVE = 'andes.v2';
 
 const INICIAL = {
-  vistas: {},        // id de tarjeta -> timestamp de la última vez
-  respuestas: [],    // {id, area, nivel, patron, marcada, correcta, ok, ts}
+  vistas: {},        // id -> timestamp de la última vez que salió
+  respuestas: [],    // {id, area, nivel, patron, marcada, correcta, ok, segundos, causa, confianza, ts}
   dias: {},          // 'AAAA-MM-DD' -> {n, aciertos}
+  repaso: {},        // id -> {seguidos, proximo, fallos}
   meta_diaria: 30,
   tanda_actual: 0,
 };
+
+/* Escalera de repaso espaciado, en días. Una tarjeta fallada vuelve mañana; con
+   cada acierto sube un peldaño. Los dos primeros saltos son los del plan de
+   estudio —repasar a los 3 y a los 14 días—; el resto los espacia para que el
+   feed no se llene de cosas ya sabidas. */
+const ESCALERA = [1, 3, 7, 14, 30];
+const DIA = 86400000;
 
 function leer() {
   try {
@@ -99,6 +107,7 @@ export function fueVista(id) { return id in estado.vistas; }
 
 export function registrarRespuesta(r) {
   estado.respuestas.push({ ...r, ts: Date.now() });
+  actualizarRepaso(r.id, r.ok);
   if (r.ok) {
     const d = estado.dias[hoyISO()] || { n: 0, aciertos: 0 };
     d.aciertos += 1;
@@ -109,6 +118,19 @@ export function registrarRespuesta(r) {
   const entrada = sesionDeHoy().orden.find(x => x.id === r.id);
   if (entrada) entrada.ok = !!r.ok;
   guardar();
+}
+
+/** Anota por qué falló, después de haber respondido.
+ *  Va aparte porque la causa se pregunta cuando ya se reveló el resultado. */
+export function anotarCausa(id, causa) {
+  for (let i = estado.respuestas.length - 1; i >= 0; i--) {
+    if (estado.respuestas[i].id === id) {
+      estado.respuestas[i].causa = causa;
+      guardar();
+      return true;
+    }
+  }
+  return false;
 }
 
 /** La última respuesta dada a una tarjeta, si ya la respondiste. */
@@ -150,35 +172,99 @@ export function aciertoPorArea() {
   return acc;
 }
 
+/** Tiempo medio por pregunta respondida, en segundos. */
+export function tiempoMedio(soloHoy = false) {
+  const desde = soloHoy ? new Date(hoyISO() + 'T00:00:00').getTime() : 0;
+  const t = estado.respuestas.filter(r => r.segundos > 0 && r.ts >= desde);
+  if (!t.length) return null;
+  return Math.round(t.reduce((s, r) => s + r.segundos, 0) / t.length);
+}
+
+/** Por qué fallas, que es la pregunta que más rinde del diagnóstico. */
+export function porCausa() {
+  const acc = {};
+  for (const r of estado.respuestas) {
+    if (r.ok || !r.causa) continue;
+    acc[r.causa] = (acc[r.causa] || 0) + 1;
+  }
+  return acc;
+}
+
+/** Calibración: qué tan bien sabes lo que sabes.
+ *  El caso peligroso es confianza alta con acierto bajo. */
+export function calibracion() {
+  const acc = {};
+  for (const r of estado.respuestas) {
+    if (!r.confianza) continue;
+    acc[r.confianza] = acc[r.confianza] || { n: 0, ok: 0 };
+    acc[r.confianza].n += 1;
+    if (r.ok) acc[r.confianza].ok += 1;
+  }
+  return acc;
+}
+
 export function totales() {
   const n = estado.respuestas.length;
   const ok = estado.respuestas.filter(r => r.ok).length;
   return { n, ok, pct: n ? Math.round(100 * ok / n) : 0 };
 }
 
-/** Tarjetas falladas que toca repasar: a los 3 días y a los 14.
- *  Es la misma regla de práctica deliberada que ya usa el medidor. */
-export function pendientesDeRepaso() {
-  const dia = 86400000;
-  const ahora = Date.now();
-  const ultima = new Map();
-  for (const r of estado.respuestas) ultima.set(r.id, r);
+/* ── Repaso espaciado ────────────────────────────────────────
+   Una tarjeta que fallaste no se pierde en el corpus: entra en una cola y
+   vuelve a aparecer con espaciado creciente hasta que la domines. Es la regla
+   de práctica deliberada del plan de estudio, aplicada por la app en vez de a
+   mano. */
 
-  const salida = [];
-  for (const r of ultima.values()) {
-    if (r.ok) continue;
-    const edad = (ahora - r.ts) / dia;
-    if (edad >= 3) salida.push({ id: r.id, dias: Math.floor(edad) });
+function actualizarRepaso(id, ok) {
+  if (!id) return;
+  const ficha = estado.repaso[id] || { seguidos: 0, fallos: 0, proximo: 0 };
+
+  if (ok) {
+    ficha.seguidos += 1;
+    // Dos aciertos seguidos y la tarjeta sale de la cola: ya está.
+    if (ficha.seguidos >= 2 && ficha.fallos > 0) {
+      delete estado.repaso[id];
+      return;
+    }
+  } else {
+    ficha.fallos += 1;
+    ficha.seguidos = 0;
   }
-  return salida;
+
+  const peldano = Math.min(ficha.seguidos, ESCALERA.length - 1);
+  ficha.proximo = Date.now() + ESCALERA[peldano] * DIA;
+  estado.repaso[id] = ficha;
 }
 
+/** Las que ya toca repasar hoy, de la más atrasada a la más reciente. */
+export function pendientesDeRepaso() {
+  const ahora = Date.now();
+  return Object.entries(estado.repaso)
+    .filter(([, f]) => f.fallos > 0 && f.proximo <= ahora)
+    .map(([id, f]) => ({
+      id,
+      fallos: f.fallos,
+      dias: Math.max(0, Math.floor((ahora - f.proximo) / DIA)),
+      // Una tarjeta fallada dos veces o más es hueso: cuesta y hay que insistir.
+      hueso: f.fallos >= 2,
+    }))
+    .sort((a, b) => b.dias - a.dias);
+}
+
+/** Cuántas hay en la cola aunque todavía no toquen. */
+export function enCola() {
+  return Object.values(estado.repaso).filter(f => f.fallos > 0).length;
+}
+
+/** CSV con las mismas columnas que espera 06_SEGUIMIENTO/medidor.py, para que
+ *  lo que haces en el teléfono alimente el tablero que ya existe. */
 export function exportarCSV() {
-  const cab = 'fecha,id,area,nivel,patron,marcada,correcta,ok\n';
+  const cab = 'fecha,id,area,nivel,patron,marcada,correcta,ok,segundos,causa,confianza\n';
   const filas = estado.respuestas.map(r => [
     new Date(r.ts).toISOString().slice(0, 10),
     r.id, r.area || '', r.nivel || '', r.patron || '',
     r.marcada || '', r.correcta || '', r.ok ? 1 : 0,
+    r.segundos || '', r.causa || '', r.confianza || '',
   ].join(','));
   return cab + filas.join('\n');
 }
@@ -194,6 +280,7 @@ export function exportarEstado() {
     vistas: estado.vistas,
     respuestas: estado.respuestas,
     dias: estado.dias,
+    repaso: estado.repaso,
     sesion: estado.sesion,
     meta_diaria: estado.meta_diaria,
   };
@@ -225,6 +312,7 @@ export function importarEstado(texto) {
     }
     estado.respuestas = [...porClave.values()].sort((a, b) => a.ts - b.ts);
     estado.vistas = { ...estado.vistas, ...datos.vistas };
+    estado.repaso = { ...estado.repaso, ...(datos.repaso || {}) };
 
     for (const [dia, v] of Object.entries(datos.dias || {})) {
       const mio = estado.dias[dia];

@@ -160,17 +160,69 @@ function pintarYo() {
         </div>`;
     }).join('');
 
+  const medio = almacen.tiempoMedio();
+  const reloj = medio
+    ? `${Math.floor(medio / 60)}:${String(medio % 60).padStart(2, '0')}`
+    : '—';
+
+  const CAUSAS = {
+    concepto: 'No sabía la física', algebra: 'Error de cuentas',
+    lectura: 'Leí mal', tiempo: 'Me quedé sin tiempo',
+  };
+  const causas = almacen.porCausa();
+  const totalCausas = Object.values(causas).reduce((a, b) => a + b, 0);
+  const bloqueCausas = totalCausas ? Object.entries(causas)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, n]) => `
+      <div class="fila-dato" style="--color-dato: var(--aviso)">
+        <span class="etiqueta">${escapar(CAUSAS[k] || k)}</span>
+        <span class="canal"><span class="relleno"
+          style="width:${Math.round(100 * n / totalCausas)}%"></span></span>
+        <span class="valor">${n}</span>
+      </div>`).join('') : '';
+
+  // La calibración es el dato que más cuesta ver de otra forma: confianza alta
+  // con acierto bajo es exactamente lo que pasó en la pregunta 8 del D1.
+  const cal = almacen.calibracion();
+  const NIVEL = { 1: 'Adiviné', 2: 'Dudo', 3: 'Creo que sí', 4: 'Seguro' };
+  const bloqueCalibracion = Object.keys(cal).length ? [4, 3, 2, 1]
+    .filter(n => cal[n])
+    .map(n => {
+      const { n: total, ok } = cal[n];
+      const pct = Math.round(100 * ok / total);
+      const peligro = n >= 3 && pct < 60;
+      return `
+        <div class="fila-dato ${peligro ? 'alerta' : ''}"
+             style="--color-dato: var(--${peligro ? 'mal' : 'ok'})">
+          <span class="etiqueta">${NIVEL[n]}</span>
+          <span class="canal"><span class="relleno" style="width:${pct}%"></span></span>
+          <span class="valor">${ok}/${total} · ${pct}%</span>
+        </div>`;
+    }).join('') : '';
+
   $('vista-yo').innerHTML = `
     <h2 class="seccion">Tu desempeño en la app</h2>
     <div class="rejilla-cifras">
       <div class="cifra"><div class="n">${t.n}</div><div class="r">respondidas</div></div>
       <div class="cifra"><div class="n">${t.pct}%</div><div class="r">acierto</div></div>
+      <div class="cifra"><div class="n">${reloj}</div><div class="r">por pregunta</div></div>
+      <div class="cifra"><div class="n">${repaso.length}</div><div class="r">toca repasar</div></div>
       <div class="cifra"><div class="n">${almacen.racha()}</div><div class="r">racha</div></div>
-      <div class="cifra"><div class="n">${repaso.length}</div><div class="r">por repasar</div></div>
+      <div class="cifra"><div class="n">${almacen.enCola()}</div><div class="r">en la cola</div></div>
     </div>
+    ${medio ? `<p class="nota-meta">${medio <= 360
+        ? 'Vas por debajo de los 6 min que pide el plan.'
+        : `Meta: 6:00 por pregunta. Vas ${Math.round((medio - 360) / 6)} % por encima.`}</p>` : ''}
 
     <h2 class="seccion">Por área</h2>
     ${barras || '<p class="vacio">Responde algunas preguntas en el feed y aquí aparece el desglose.</p>'}
+
+    ${bloqueCausas ? `<h2 class="seccion">Por qué fallas</h2>${bloqueCausas}` : ''}
+
+    ${bloqueCalibracion ? `<h2 class="seccion">Qué tan bien sabes lo que sabes</h2>
+      ${bloqueCalibracion}
+      <p class="nota-meta">Marcar alto y fallar es el caso peligroso: crees que
+      la sabes, así que nunca la vuelves a repasar.</p>` : ''}
 
     <h2 class="seccion">Ajustes</h2>
     <div class="tarjeta">
