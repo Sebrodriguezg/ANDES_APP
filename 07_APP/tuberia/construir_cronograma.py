@@ -116,15 +116,17 @@ TAREAS_EXTRA = {
 }
 
 
-# Estructura de la semana tipo (PLAN.md §5). El domingo queda libre a propósito.
+# Estructura de la semana tipo (PLAN.md §5): cinco sesiones de 1 a 2 horas, con
+# el fin de semana de comodín. Antes la app pedía 17 h semanales y el cronograma
+# impreso 5-10, así que cada uno mandaba una cosa distinta para el mismo día.
 SEMANA_TIPO = [
-    ("lunes",     "teoria",    2.5, "Leer el capítulo y derivar los resultados a mano"),
-    ("martes",    "teoria",    2.5, "Cerrar la teoría y construir el formulario del tema"),
-    ("miercoles", "problemas", 3.5, "Problemas del libro de práctica, sin límite de tiempo"),
-    ("jueves",    "problemas", 3.5, "Seguir con los problemas asignados de la semana"),
-    ("viernes",   "mc",        3.0, "Opción múltiple cronometrada a 7 min por pregunta"),
-    ("sabado",    "repaso",    2.0, "Rehacer de memoria lo fallado y repasar semanas previas"),
-    ("domingo",   "descanso",  0.0, "Descanso o colchón para lo que quedó pendiente"),
+    ("lunes",     "teoria",    "1–2", "Leer el capítulo y derivar los resultados a mano"),
+    ("martes",    "teoria",    "1–2", "Cerrar la teoría y construir el formulario del tema"),
+    ("miercoles", "problemas", "1–2", "Problemas del libro de práctica, sin límite de tiempo"),
+    ("jueves",    "problemas", "1–2", "Seguir con los problemas asignados de la semana"),
+    ("viernes",   "mc",        "1–2", "Opción múltiple cronometrada a 7 min por pregunta"),
+    ("sabado",    "comodin",   "",    "Comodín. Solo si quedó algo pendiente entre semana"),
+    ("domingo",   "comodin",   "",    "Comodín o descanso. Si vas al día, libre"),
 ]
 
 # Algunos encabezados traen solo el rango de fechas, sin título de semana.

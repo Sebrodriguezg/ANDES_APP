@@ -5,44 +5,44 @@
   {
    "dia": "lunes",
    "bloque": "teoria",
-   "horas": 2.5,
+   "horas": "1–2",
    "que": "Leer el capítulo y derivar los resultados a mano"
   },
   {
    "dia": "martes",
    "bloque": "teoria",
-   "horas": 2.5,
+   "horas": "1–2",
    "que": "Cerrar la teoría y construir el formulario del tema"
   },
   {
    "dia": "miercoles",
    "bloque": "problemas",
-   "horas": 3.5,
+   "horas": "1–2",
    "que": "Problemas del libro de práctica, sin límite de tiempo"
   },
   {
    "dia": "jueves",
    "bloque": "problemas",
-   "horas": 3.5,
+   "horas": "1–2",
    "que": "Seguir con los problemas asignados de la semana"
   },
   {
    "dia": "viernes",
    "bloque": "mc",
-   "horas": 3.0,
+   "horas": "1–2",
    "que": "Opción múltiple cronometrada a 7 min por pregunta"
   },
   {
    "dia": "sabado",
-   "bloque": "repaso",
-   "horas": 2.0,
-   "que": "Rehacer de memoria lo fallado y repasar semanas previas"
+   "bloque": "comodin",
+   "horas": "",
+   "que": "Comodín. Solo si quedó algo pendiente entre semana"
   },
   {
    "dia": "domingo",
-   "bloque": "descanso",
-   "horas": 0.0,
-   "que": "Descanso o colchón para lo que quedó pendiente"
+   "bloque": "comodin",
+   "horas": "",
+   "que": "Comodín o descanso. Si vas al día, libre"
   }
  ],
  "semanas": [
@@ -61,7 +61,7 @@
      "fecha": "2026-08-14",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Sesión cronometrada en la app: 25 preguntas a 7 min"
@@ -70,26 +70,24 @@
     {
      "fecha": "2026-08-15",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "Dejar listo el formulario en blanco de Mecánica para S1"
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-08-16",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     },
     {
      "fecha": "2026-08-17",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Repasar el análisis del diagnóstico D1 en 05_SIMULACROS/D1_resultados.md",
@@ -100,7 +98,7 @@
      "fecha": "2026-08-18",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Repasar el análisis del diagnóstico D1 en 05_SIMULACROS/D1_resultados.md",
@@ -111,7 +109,7 @@
      "fecha": "2026-08-19",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Rehacer a mano las preguntas del D1 que fallaste",
@@ -122,7 +120,7 @@
      "fecha": "2026-08-20",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Rehacer a mano las preguntas del D1 que fallaste",
@@ -133,7 +131,7 @@
      "fecha": "2026-08-21",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Sesión cronometrada en la app: 25 preguntas a 7 min"
@@ -142,19 +140,17 @@
     {
      "fecha": "2026-08-22",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "Dejar listo el formulario en blanco de Mecánica para S1"
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-08-23",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -199,7 +195,7 @@
      "fecha": "2026-08-24",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 1, capítulos de cinemática, dinámica, energía y momento (BIB/1_fisica_general/Serway_Fisica_Vol1_7ed.pdf)",
@@ -210,7 +206,7 @@
      "fecha": "2026-08-25",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Morin cap. 5 Conservation of energy and momentum (p. 138)",
@@ -222,7 +218,7 @@
      "fecha": "2026-08-26",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Irodov — §1.1 Kinematics (p. 11) · §1.2 The Fundamental Equation of Dynamics (p. 20) · §1.3 Laws of Conservation of Energy, Momentum and Angular Momentum (p. 30)",
@@ -233,7 +229,7 @@
      "fecha": "2026-08-27",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Lim Mechanics — Parte I §1 Dynamics of a Point Mass, problemas 1001–1108 · §2 Dynamics of a System of Point Masses, 1109–1144",
@@ -244,7 +240,7 @@
      "fecha": "2026-08-28",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "GR8677 y GR9277: todas las preguntas de mecánica clásica. Verificar con GR8677_solutions_grephysics.pdf."
@@ -253,19 +249,17 @@
     {
      "fecha": "2026-08-29",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/mecanica_I.md + 60 problemas resueltos."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-08-30",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -313,7 +307,7 @@
      "fecha": "2026-08-31",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 1, capítulos de rotación, gravitación, oscilaciones y fluidos",
@@ -324,7 +318,7 @@
      "fecha": "2026-09-01",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Morin cap. 7 Central forces (p. 281)",
@@ -338,7 +332,7 @@
      "fecha": "2026-09-02",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Irodov — §1.4 Universal Gravitation (p. 43) · §1.5 Dynamics of a Solid Body (p. 47) · §1.7 Hydrodynamics (p. 62) · §4.1 Mechanical Oscillations (p. 166)",
@@ -350,7 +344,7 @@
      "fecha": "2026-09-03",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "MIT OCW 8.01 — psets 7 a 12",
@@ -361,7 +355,7 @@
      "fecha": "2026-09-04",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "GR9677 y GR0177: preguntas de rotación, gravitación y oscilaciones."
@@ -370,19 +364,17 @@
     {
      "fecha": "2026-09-05",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/mecanica_II.md + 60 problemas. La fórmula de amplitud del oscilador forzado debe quedar memorizada."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-09-06",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -441,7 +433,7 @@
      "fecha": "2026-09-07",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "1. Tong Classical Dynamics (BIB/2_mecanica_clasica/Tong_Classical_Dynamics_Cambridge.pdf) — texto principal de la semana. Cubre Lagrange, Hamilton, espacio de fase, Poisson y transformaciones canónicas con la concisión adecuada",
@@ -452,7 +444,7 @@
      "fecha": "2026-09-08",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "3. Hand & Finch — segunda pasada, más legible que Goldstein",
@@ -463,7 +455,7 @@
      "fecha": "2026-09-09",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Lim Mechanics — Parte II §1 Lagrange's Equations, 2001–2027 · §3 Hamilton's Canonical Equations, 2068–2084 ← el bloque más valioso",
@@ -474,7 +466,7 @@
      "fecha": "2026-09-10",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "MIT OCW 8.09 — 8-09/MIT8_09F14_pset1.pdf a pset4.pdf + MIT8_09F14_Chapter_1.pdf a Chapter_4.pdf",
@@ -485,7 +477,7 @@
      "fecha": "2026-09-11",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Todas las preguntas de mecánica analítica de los 4 exámenes GRE. Son pocas pero siempre caen."
@@ -494,30 +486,17 @@
     {
      "fecha": "2026-09-12",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/mecanica_analitica.md con los tres patrones + 40 problemas.",
-      "Tarjetas Anki para los tres patrones — se repasan cada semana hasta noviembre.",
-      "## Autoevaluación del bloque",
-      "Antes de pasar a S4, deberías poder responder sin consultar:",
-      "[ ] Bloque sobre bloque con fricción y polea: ¿cuál es la condición de deslizamiento conjunto?",
-      "[ ] Rizo vertical: ¿cuál es la condición en el punto más alto?",
-      "[ ] Oscilador forzado amortiguado: ¿cuál es la amplitud en estado estacionario?",
-      "[ ] ¿Cómo se obtiene el período desde el área en el espacio de fase?",
-      "[ ] ¿Cuánto vale {L_i, p_j}?",
-      "[ ] ¿Cuál es b(θ) para esfera dura y por qué la sección eficaz es isótropa?",
-      "[ ] Dado un lagrangiano, ¿cómo identificas coordenadas cíclicas y qué conservan?",
-      "Si fallas alguna, esa es la que repasas — no vuelvas a leer el capítulo entero."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-09-13",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -562,7 +541,7 @@
      "fecha": "2026-09-14",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 2, capítulos de campo eléctrico, Gauss, potencial y capacitancia",
@@ -573,7 +552,7 @@
      "fecha": "2026-09-15",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Griffiths cap. 3 Potentials: §3.1 Laplace · §3.2 método de imágenes (p. 121) · §3.3.2 separación de variables en coordenadas esféricas (p. 137) ← pregunta 12 del simulacro · §3.4 expansión multipolar (p. 146)",
@@ -585,7 +564,7 @@
      "fecha": "2026-09-16",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Irodov — §3.1 Constant Electric Field in Vacuum (p. 105) · §3.2 Conductors and Dielectrics (p. 111) · §3.3 Electric Capacitance. Energy of an Electric Field (p. 118)",
@@ -596,7 +575,7 @@
      "fecha": "2026-09-17",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Griffiths — Problemas al final de cada sección de caps. 2, 3 y 4",
@@ -607,7 +586,7 @@
      "fecha": "2026-09-18",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Preguntas de electrostática de los 4 GRE."
@@ -616,19 +595,17 @@
     {
      "fecha": "2026-09-19",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/em_I.md + 60 problemas."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-09-20",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -673,7 +650,7 @@
      "fecha": "2026-09-21",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 2, capítulos de corriente, circuitos, campo magnético e inducción",
@@ -684,7 +661,7 @@
      "fecha": "2026-09-22",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Griffiths cap. 6 Magnetic Fields in Matter (p. 255): magnetización, corrientes ligadas, campo H, condiciones de frontera",
@@ -696,7 +673,7 @@
      "fecha": "2026-09-23",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Irodov — §3.4 Electric Current (p. 125) · §3.5 Constant Magnetic Field. Magnetics (p. 136) · §3.6 Electromagnetic Induction. Maxwell's Equations (p. 147) · §3.7 Motion of Charged Particles in E and B Fields (p. 160)",
@@ -707,7 +684,7 @@
      "fecha": "2026-09-24",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Griffiths — Problemas de caps. 5, 6 y 7",
@@ -718,7 +695,7 @@
      "fecha": "2026-09-25",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Preguntas de magnetostática, circuitos e inducción de los 4 GRE. Los circuitos son frecuentes en GRE y rápidos de despachar."
@@ -727,19 +704,17 @@
     {
      "fecha": "2026-09-26",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/em_II.md + 60 problemas."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-09-27",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -799,7 +774,7 @@
      "fecha": "2026-09-28",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": []
     },
@@ -807,7 +782,7 @@
      "fecha": "2026-09-29",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Griffiths §7.3 Maxwell's Equations (p. 321) — incluye §7.3.4 carga magnética y §7.3.6 condiciones de frontera",
@@ -822,7 +797,7 @@
      "fecha": "2026-09-30",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Lim Electromagnetism — Parte I §4 Typical Methods: Separation of Variables, Images, Green's Function, Multipole Expansion, 1062–1095 ← el bloque clave de la semana · §5 Miscellaneous Applications, 1096–1108",
@@ -834,7 +809,7 @@
      "fecha": "2026-10-01",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "MIT OCW 8.20 — Relatividad especial completa, con solucionario: pset1–pset4 + _soln, midterm1+_soln, midterm2+_soln, final_exam.pdf",
@@ -845,7 +820,7 @@
      "fecha": "2026-10-02",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Preguntas de ondas EM y relatividad de los 4 GRE. Relatividad especial es de las áreas más densas del GRE."
@@ -854,28 +829,17 @@
     {
      "fecha": "2026-10-03",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/em_III_relatividad.md con gauge, armónicos esféricos y cinemática relativista + 50 problemas.",
-      "Tarjetas Anki para los dos patrones caros.",
-      "## Autoevaluación del bloque",
-      "[ ] Ley de Gauss en las tres simetrías, de memoria",
-      "[ ] Conductor cilíndrico hueco con corriente: B en las tres regiones",
-      "[ ] ¿Qué es una transformación de gauge y qué fija el gauge de Lorenz?",
-      "[ ] Esfera conductora a tierra en campo uniforme: forma de la solución y condición de frontera",
-      "[ ] Campo B en el centro de una espira, sin mirar",
-      "[ ] Dilatación temporal para v ≪ c: expansión a primer orden",
-      "[ ] Diferencia de potencial entre esfera y cascarón concéntricos"
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-10-04",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -920,7 +884,7 @@
      "fecha": "2026-10-05",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Schroeder Parte I, cap. 1 Energy in Thermal Physics (p. 1): §1.1 equilibrio térmico · §1.2 gas ideal (p. 6) · §1.3 equipartición (p. 14) · §1.4 calor y trabajo (p. 17) · §1.5 trabajo de compresión (p. 20) ← pregunta 18 · §1.6 capacidades caloríficas, calor latente, entalpía (p. 28) ← pregunta 17 · §1.7 procesos de transporte (p. 37)",
@@ -931,7 +895,7 @@
      "fecha": "2026-10-06",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Schroeder cap. 4 Engines and Refrigerators (p. 122): ciclo de Carnot, máquinas reales, refrigeración, proceso de estrangulamiento",
@@ -943,7 +907,7 @@
      "fecha": "2026-10-07",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Irodov — §2.1 Equation of the Gas State. Processes (p. 75) · §2.2 The First Law of Thermodynamics. Heat Capacity (p. 78) · §2.4 The Second Law. Entropy (p. 88) · §2.6 Phase Transformations (p. 96)",
@@ -954,7 +918,7 @@
      "fecha": "2026-10-08",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Cahn & Nadgorny Parte 2 — Cap. 4, secciones Introductory Thermodynamics (4.1–4.22) y Heat and Work (4.23 en adelante). Problemas reales de MIT, Princeton, Stony Brook, Moscow Phys-Tech",
@@ -965,7 +929,7 @@
      "fecha": "2026-10-09",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Preguntas de termodinámica de los 4 GRE. Suelen ser rápidas: ciclos, eficiencia de Carnot, procesos adiabáticos."
@@ -974,19 +938,17 @@
     {
      "fecha": "2026-10-10",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/termodinamica.md + 50 problemas."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-10-11",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -1043,7 +1005,7 @@
      "fecha": "2026-10-12",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": []
     },
@@ -1051,7 +1013,7 @@
      "fecha": "2026-10-13",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Schroeder cap. 2 The Second Law (p. 49): §2.1 sistemas de dos estados · §2.2 sólido de Einstein (p. 53) · §2.3 sistemas interactuantes (p. 56) ← pregunta 20 · §2.4 sistemas grandes, Stirling, agudeza de la multiplicidad (p. 60) · §2.5 gas ideal (p. 68) · §2.6 entropía (p. 74) ← pregunta 19",
@@ -1065,7 +1027,7 @@
      "fecha": "2026-10-14",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Lim Thermodynamics & Statistical Mechanics — Parte II: Física estadística — 208 problemas",
@@ -1077,7 +1039,7 @@
      "fecha": "2026-10-15",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Irodov — §2.3 Kinetic Theory of Gases. Boltzmann's Law and Maxwell's Distribution (p. 82)",
@@ -1088,7 +1050,7 @@
      "fecha": "2026-10-16",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Preguntas de estadística de los 4 GRE: distribuciones de Fermi-Dirac y Bose-Einstein, cuerpo negro, equipartición."
@@ -1097,29 +1059,17 @@
     {
      "fecha": "2026-10-17",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/estadistica.md + 50 problemas.",
-      "Tarjetas Anki: S = k ln Ω, factor de Boltzmann, distribuciones FD/BE, ley de Planck, contacto térmico.",
-      "## Autoevaluación del bloque",
-      "[ ] Coeficiente de expansión lineal a partir de L(T)",
-      "[ ] Calorimetría con dos cambios de fase simultáneos: cómo plantear el balance",
-      "[ ] W = −∫p dV sobre una trayectoria p(V) no trivial, y primera ley para despejar Q",
-      "[ ] Entropía combinatoria de un sistema discreto: S = k ln Ω",
-      "[ ] Dos sistemas en contacto térmico: cómo hallar la energía más probable",
-      "[ ] Eficiencia de Carnot y por qué es cota superior",
-      "[ ] Diferencia entre estadística de bosones y de fermiones al llenar niveles",
-      "[ ] Distribución de Planck y de dónde sale la ley de Stefan-Boltzmann"
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-10-18",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -1167,7 +1117,7 @@
      "fecha": "2026-10-19",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Eisberg & Resnick (BIB/5_cuantica_moderna/Eisberg_Resnick_Quantum_Physics.pdf), capítulos de radiación térmica, fotones, De Broglie y modelo de Bohr — es el texto de la semana",
@@ -1178,7 +1128,7 @@
      "fecha": "2026-10-20",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Griffiths Electrodynamics §12.2 Relativistic Mechanics (p. 507): tiempo propio, energía-momento, cinemática y dinámica relativistas",
@@ -1189,7 +1139,7 @@
      "fecha": "2026-10-21",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Lim Atomic, Nuclear and Particle Physics — Secciones de física atómica: fotoeléctrico, Compton, Bohr, espectros",
@@ -1200,7 +1150,7 @@
      "fecha": "2026-10-22",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "MIT OCW 8.20 — Relatividad especial con solucionario completo: pset1–pset4 + _soln, ambos midterms + soluciones",
@@ -1211,7 +1161,7 @@
      "fecha": "2026-10-23",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Física moderna de los 4 GRE. Es el bloque más grande del GRE después de mecánica: fotoeléctrico, Compton, Bohr y De Broglie caen siempre y son rápidos."
@@ -1220,20 +1170,17 @@
     {
      "fecha": "2026-10-24",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/moderna.md + 50 problemas.",
-      "Anki: constantes (h, ħ, c, m_e, m_p, e, k_B), energía de Rydberg, longitud de onda Compton, relaciones relativistas."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-10-25",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -1295,7 +1242,7 @@
      "fecha": "2026-10-26",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Griffiths QM cap. 1 The Wave Function: §1.1 ecuación de Schrödinger · §1.3 probabilidad · §1.4 normalización · §1.5 momento · §1.6 incertidumbre",
@@ -1306,7 +1253,7 @@
      "fecha": "2026-10-27",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Griffiths QM cap. 3 Formalism: §3.1 espacio de Hilbert · §3.2 observables · §3.3 autofunciones · §3.4 interpretación estadística generalizada · §3.5 incertidumbre · §3.6 vectores, operadores y notación de Dirac",
@@ -1319,7 +1266,7 @@
      "fecha": "2026-10-28",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Lim Quantum Mechanics — Parte I Basic Principles and One-dimensional Motions, 1001–1071 ← escalón, barrera, pozo, oscilador · Parte II Central Potentials, 2001–2023 · Parte III Spin and Angular Momentum, 3001–3048 · Parte VII Many-Particle Systems, 7001–7037 ← bosones y fermiones",
@@ -1331,7 +1278,7 @@
      "fecha": "2026-10-29",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "MIT OCW 8.05 — 8-05/ — capítulos 1–9 en PDF + psets ps1–ps10 + tres finales (final_2011, final_2012, final_2013) y tres parciales",
@@ -1343,7 +1290,7 @@
      "fecha": "2026-10-30",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Cuántica de los 4 GRE. Ojo: el GRE pregunta mucho pozo infinito, oscilador y momento angular — coincide bien con Uniandes."
@@ -1352,29 +1299,17 @@
     {
      "fecha": "2026-10-31",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/cuantica.md con los tres patrones + 50 problemas.",
-      "Anki: energías del pozo infinito y del oscilador, R y T del escalón, conmutadores básicos, autovalores de L² y L_z.",
-      "## Autoevaluación del bloque",
-      "[ ] Efecto fotoeléctrico y Compton: fórmulas de memoria",
-      "[ ] Niveles de Bohr y energía de ionización del hidrógeno",
-      "[ ] Doppler relativista: factor √((1+β)/(1−β)) y cuándo se usa cada signo",
-      "[ ] Escalón de potencial con E > V₀: expresión de R",
-      "[ ] Oscilador armónico: espectro, operadores a y a†, evolución temporal de ⟨x⟩",
-      "[ ] Dos bosones sin espín en caja 2D: nivel más bajo y su degeneración",
-      "[ ] Diferencia en el conteo de estados entre bosones, fermiones y partículas distinguibles",
-      "[ ] Pozo infinito 1D y 2D: espectro y degeneraciones"
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-11-01",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -1436,7 +1371,7 @@
      "fecha": "2026-11-02",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 2, capítulos de ondas, óptica geométrica, interferencia y difracción. Para esta semana Serway basta — es exactamente el nivel al que se preguntaría"
@@ -1446,7 +1381,7 @@
      "fecha": "2026-11-03",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Delft BSc Optics 2ª ed. (BIB/6_optica_ondas/Delft_BSc_Optics_2ed_CC-BY.pdf):",
@@ -1462,7 +1397,7 @@
      "fecha": "2026-11-04",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Lim Optics — 160 problemas en total: Parte I óptica geométrica (41 problemas) ← prioridad · Parte II óptica ondulatoria (89) · Parte III óptica cuántica (30)",
@@ -1473,7 +1408,7 @@
      "fecha": "2026-11-05",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Irodov — §4.3 Elastic Waves. Acoustics (p. 188) — ondas y Doppler acústico",
@@ -1484,7 +1419,7 @@
      "fecha": "2026-11-06",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Preguntas de óptica y ondas de los 4 GRE. En el GRE óptica sí pesa, así que este bloque te sirve doble si mantienes viva la ruta GRE."
@@ -1493,29 +1428,17 @@
     {
      "fecha": "2026-11-07",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "../04_ESTUDIO/formularios/optica_ondas.md — un formulario corto: Snell, lentes delgadas, aumento, Young, red de difracción, Rayleigh, Malus, Brewster. Media página basta.",
-      "## Autoevaluación",
-      "[ ] Ley de Snell y ángulo crítico de reflexión total",
-      "[ ] Ecuación de lentes delgadas y convenio de signos",
-      "[ ] Doble rendija: posición de máximos y mínimos",
-      "[ ] Red de difracción: condición de máximo principal",
-      "[ ] Criterio de Rayleigh",
-      "[ ] Ley de Malus y ángulo de Brewster",
-      "[ ] Ondas estacionarias en cuerda y en tubo: modos normales",
-      "[ ] Efecto Doppler acústico: los cuatro casos de signo",
-      "Si respondes esto, la semana cumplió su propósito. No profundizar más — el retorno por hora es el más bajo de todo el plan."
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-11-08",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -1535,7 +1458,7 @@
      "fecha": "2026-11-09",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Repasar los formularios de las áreas más flojas"
@@ -1545,7 +1468,7 @@
      "fecha": "2026-11-10",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Repasar los formularios de las áreas más flojas"
@@ -1555,7 +1478,7 @@
      "fecha": "2026-11-11",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Simulacro completo en la app: 25 preguntas, 3 horas"
@@ -1565,7 +1488,7 @@
      "fecha": "2026-11-12",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Simulacro completo en la app: 25 preguntas, 3 horas"
@@ -1575,7 +1498,7 @@
      "fecha": "2026-11-13",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Simulacro completo y análisis de error por área"
@@ -1584,19 +1507,17 @@
     {
      "fecha": "2026-11-14",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "Rehacer de memoria lo fallado en los simulacros"
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-11-15",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]
@@ -1616,7 +1537,7 @@
      "fecha": "2026-11-16",
      "dia": "lunes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Repaso de errores y formularios"
@@ -1626,7 +1547,7 @@
      "fecha": "2026-11-17",
      "dia": "martes",
      "bloque": "teoria",
-     "horas": 2.5,
+     "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
       "Repaso de errores y formularios"
@@ -1636,7 +1557,7 @@
      "fecha": "2026-11-18",
      "dia": "miercoles",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Problemas del libro de práctica, sin límite de tiempo",
      "material": [
       "Dos simulacros más, en condiciones reales"
@@ -1646,7 +1567,7 @@
      "fecha": "2026-11-19",
      "dia": "jueves",
      "bloque": "problemas",
-     "horas": 3.5,
+     "horas": "1–2",
      "que": "Seguir con los problemas asignados de la semana",
      "material": [
       "Dos simulacros más, en condiciones reales"
@@ -1656,7 +1577,7 @@
      "fecha": "2026-11-20",
      "dia": "viernes",
      "bloque": "mc",
-     "horas": 3.0,
+     "horas": "1–2",
      "que": "Opción múltiple cronometrada a 7 min por pregunta",
      "material": [
       "Último simulacro. Meta: 18 de 25"
@@ -1665,19 +1586,17 @@
     {
      "fecha": "2026-11-21",
      "dia": "sabado",
-     "bloque": "repaso",
-     "horas": 2.0,
-     "que": "Rehacer de memoria lo fallado y repasar semanas previas",
-     "material": [
-      "Solo repaso ligero. Dormir. 18-nov cierra inscripción, 19-nov documentos"
-     ]
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín. Solo si quedó algo pendiente entre semana",
+     "material": []
     },
     {
      "fecha": "2026-11-22",
      "dia": "domingo",
-     "bloque": "descanso",
-     "horas": 0.0,
-     "que": "Descanso o colchón para lo que quedó pendiente",
+     "bloque": "comodin",
+     "horas": "",
+     "que": "Comodín o descanso. Si vas al día, libre",
      "material": []
     }
    ]

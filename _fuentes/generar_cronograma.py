@@ -364,7 +364,7 @@ Marca la casilla \ch{} del día cuando termines. Si hiciste la extendida, marca 
 \begin{itemize}[leftmargin=5mm,itemsep=0.5mm]
 \item Lunes, martes y miércoles: desde las \textbf{16:00}.
 \item Jueves y viernes: desde las \textbf{19:00}.
-\item \textbf{Sábados: libres.} No hay nada asignado en todo el plan.
+\item \textbf{Sábados: comodín.} Sin asignación fija; se usan solo si quedó algo pendiente entre semana.
 \item \textbf{Domingos: comodín.} No traen material nuevo. Son para recuperar, cerrar el entregable de la semana o descansar. Puedes dejarlos libres sin romper nada.
 \item \textbf{Los días 12 de cada mes están libres} (12 de septiembre, 12 de octubre y 12 de noviembre). Si caen entre semana, la tarea de ese día se corre al domingo comodín.
 \end{itemize}
@@ -443,7 +443,7 @@ for i, (titulo, objetivo, entregable, dias, dom) in enumerate(SEM, start=0):
 
     sab = lunes + dt.timedelta(days=5)
     A(r"\rowcolor{libre}")
-    A(r" & \textbf{Sábado %d} & --- & \multicolumn{4}{l@{}}{\textit{Libre. Sin asignación en todo el plan.}}\\" % sab.day)
+    A(r" & \textbf{Sábado %d} & --- & \multicolumn{4}{l@{}}{\textit{Comodín. Sin asignación fija.}}\\" % sab.day)
     domd = lunes + dt.timedelta(days=6)
     A(r"\rowcolor{gris}")
     A(r"\ch & \textbf{Domingo %d} & libre & \multicolumn{4}{l@{}}{\textit{%s}}\\" % (domd.day, dom))

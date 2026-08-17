@@ -80,7 +80,7 @@ function pintarHoy() {
         <div class="etiqueta-tarjeta">
           <span class="punto-area"></span>
           <span class="tipo">${escapar(datos.nombreBloque(dia.bloque))}</span>
-          <span class="derecha">${dia.horas} h</span>
+          <span class="derecha">${dia.horas ? dia.horas + ' h' : 'sin asignación'}</span>
         </div>
         <p class="enunciado"${dia.material?.length ? '' : ' style="margin:0"'}>${escapar(dia.que)}</p>
         ${dia.material?.length ? `

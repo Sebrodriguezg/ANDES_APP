@@ -160,7 +160,14 @@ Plantillas de seguimiento creadas en `06_SEGUIMIENTO/`: `errores.md` y `metricas
 
 ## 5. Calendario — 14 semanas
 
-**Presupuesto sugerido: 15–20 h/semana.** Ajustable, pero por debajo de 12 h/sem el plan no cierra.
+**Presupuesto real: 5–10 h/semana.** Cinco sesiones de 1 a 2 horas, de lunes a viernes.
+
+Esta cifra sustituye al 15–20 h/semana que decía antes. Aquel número era el deseable
+sobre el papel, no el sostenible durante catorce semanas, y tenía la consecuencia de
+que el cronograma impreso y el plan mandaban cosas distintas para el mismo día.
+
+Con 70–140 horas totales **hay que priorizar sin piedad**: mecánica y electromagnetismo
+son el 60 % del examen y no se negocian; óptica se sacrifica entera si aprieta.
 
 | Semana | Fechas | Foco | Entregable |
 |---|---|---|---|
@@ -181,11 +188,18 @@ Plantillas de seguimiento creadas en `06_SEGUIMIENTO/`: `errores.md` y `metricas
 | — | **23 nov** | **EXAMEN** | 🎯 |
 
 ### Estructura de una semana tipo
-- **Lun–Mar (teoría, ~5 h)**: leer el capítulo, derivar los resultados a mano, construir el formulario del tema.
-- **Mié–Jue (problemas, ~7 h)**: 40–60 problemas del libro de práctica, sin límite de tiempo al inicio.
-- **Vie (formato MC, ~3 h)**: mismo tema pero en preguntas de opción múltiple cronometradas a 7 min. Aquí entra el GRE.
-- **Sáb (repaso activo, ~2 h)**: rehacer de memoria los problemas fallados de la semana + repasar Anki de semanas previas.
-- **Dom**: descanso o colchón.
+
+Cada día tiene una **mínima de 1 hora** y una **extendida de 2**. La mínima es el
+compromiso; la extendida es lo que se hace cuando el día lo permite.
+
+- **Lun–Mar (teoría)**: leer el capítulo, derivar los resultados a mano, construir el formulario del tema.
+- **Mié–Jue (problemas)**: problemas del libro de práctica, sin límite de tiempo al inicio.
+- **Vie (formato MC)**: el mismo tema en opción múltiple cronometrada a 7 min. Aquí entra el GRE.
+- **Sáb y Dom (comodín)**: sin asignación fija. Se usan solo si quedó algo pendiente
+  entre semana o para cerrar el entregable. Si vas al día, libres.
+
+El repaso de lo fallado no ocupa día propio: lo sirve el feed de la app, que reinyecta
+lo que fallaste a los 1, 3, 7, 14 y 30 días.
 
 ---
 

@@ -132,7 +132,7 @@ export const nombreArea = a => NOMBRES_AREA[a] || a || '—';
 
 const NOMBRES_BLOQUE = {
   teoria: 'Teoría', problemas: 'Problemas', mc: 'Opción múltiple',
-  repaso: 'Repaso activo', descanso: 'Descanso',
+  repaso: 'Repaso activo', descanso: 'Descanso', comodin: 'Comodín',
 };
 
 export const nombreBloque = b => NOMBRES_BLOQUE[b] || b;
