@@ -66,7 +66,12 @@ def _linea_base(palabras):
 
     Se toma la moda del alto redondeado, no el promedio: si media línea son exponentes
     el promedio se contamina, la moda no. Con empate gana el cuerpo más grande, que es
-    siempre el texto normal.
+    casi siempre el texto normal.
+
+    El desempate es ambiguo cuando la línea tiene una sola palabra normal y una rara:
+    un exponente es más bajo que su base, pero el glifo del menos matemático es más
+    alto. No hay señal que resuelva los dos casos con dos palabras, y no hace falta:
+    en el documento real toda línea trae contexto suficiente para que la moda decida.
     """
     altos = Counter(round(p.alto, 1) for p in palabras)
     alto_base = max(altos.items(), key=lambda kv: (kv[1], kv[0]))[0]

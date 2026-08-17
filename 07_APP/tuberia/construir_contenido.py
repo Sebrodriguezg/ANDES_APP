@@ -24,6 +24,7 @@ from collections import Counter
 from pathlib import Path
 
 import cifrar
+import portero
 
 RAIZ = Path(__file__).resolve().parents[2]
 CRUDO = Path(__file__).parent / "crudo"
@@ -163,6 +164,7 @@ def cargar_mc(figuras):
                 "tema": r.get("capitulo_titulo", ""),
                 **({"figura": {
                     "png": fig["png"], "ancho": fig["ancho"], "alto": fig["alto"],
+                    "incierta": fig.get("incierta", False),
                 }} if fig else {}),
             })
     return tarjetas
@@ -241,6 +243,10 @@ def main():
     ap.add_argument("--clave", help="frase de cifrado; por defecto usa 07_APP/.clave")
     ap.add_argument("--en-claro", action="store_true",
                     help="no cifrar (solo para depurar en local)")
+    ap.add_argument("--sin-portero", action="store_true",
+                    help="publica aunque el corpus no cumpla los umbrales")
+    ap.add_argument("--rapido", action="store_true",
+                    help="omite la revisión de figuras, que es la parte lenta")
     args = ap.parse_args()
 
     rng = random.Random(args.semilla)
@@ -259,6 +265,14 @@ def main():
 
     for t in tarjetas:
         t["codigo"] = codigo_de(t)
+
+    # El portero va antes de escribir nada: si el corpus se degradó, es mejor
+    # dejar publicado lo de ayer que sustituirlo por algo peor.
+    incumplidos = portero.revisar(
+        tarjetas, revisar_figuras=not args.rapido, estricto=not args.sin_portero
+    )
+    if incumplidos and not args.sin_portero:
+        raise SystemExit(1)
 
     SALIDA.mkdir(parents=True, exist_ok=True)
     for patron in ("tanda-*.json", "tanda-*.bin"):

@@ -56,6 +56,24 @@ def _lineas_por_pagina(lineas):
     return porpag
 
 
+def _es_estructura(texto):
+    """¿La línea es esqueleto de la pregunta y no parte del dibujo?
+
+    Solo cuentan el arranque del enunciado, las opciones, la respuesta y la
+    prosa de verdad. Es más estricto que "tiene letras" a propósito: los
+    rótulos de dentro de la figura ("v", "P", "1 2 3") tienen letras, y
+    tomarlos por frontera metía el recorte dentro del dibujo y lo cortaba.
+    """
+    t = texto.strip()
+    if H.RE_OPCION.match(t) or H.RE_RESPUESTA.match(t) or H.RE_PREGUNTA.match(t):
+        return True
+    # Tres palabras basta: "whose speed is increasing?" cierra un enunciado y
+    # tiene tres, mientras que los rótulos de los ejes ("v P", "man in", "1 2 3")
+    # no llegan a dos ni de lejos.
+    palabras = [w for w in re.findall(r"[A-Za-z]{3,}", t)]
+    return len(palabras) >= 3
+
+
 def _huele_a_dibujo(texto):
     """¿Esta línea es parte de un dibujo?
 
@@ -97,29 +115,45 @@ def localizar_franjas(lineas):
     capitulo = 0
     numero = None
     siguiente = 1
-    bloque = []          # (y0, es_dibujo, pagina) de la pregunta en curso
+    bloque = []          # (y0, es_dibujo, pagina, es_estructura, es_trazo)
 
     def cerrar():
         nonlocal bloque, numero
         if numero is not None and bloque:
             dibujos = [b for b in bloque if b[1]]
+            # Hace falta al menos un trazo de verdad —hileras de puntos o
+            # barras de eje—, no solo rótulos. Sin esta condición se colaban
+            # preguntas sin figura cuyas opciones son fórmulas cortas
+            # ("x_i = 4 m, x_f = 6 m"), y se les adjuntaba una imagen de texto.
+            trazos = [b for b in bloque if b[4]]
             paginas = {b[2] for b in bloque}
-            if dibujos and len(paginas) == 1:
+            if trazos and dibujos and len(paginas) == 1:
                 primero = min(b[0] for b in dibujos)
                 ultimo = max(b[0] for b in dibujos)
 
-                # Texto que enmarca el dibujo por arriba y por abajo.
-                arriba = [b[0] for b in bloque if not b[1] and b[0] < primero]
-                abajo = [b[0] for b in bloque if not b[1] and b[0] > ultimo]
+                # La frontera la ponen solo las líneas de estructura. Antes la
+                # ponía cualquier línea que no oliera a dibujo, y los rótulos
+                # de los ejes cerraban el recorte por dentro de la figura.
+                arriba = [b[0] for b in bloque if b[3] and b[0] < primero]
+                abajo = [b[0] for b in bloque if b[3] and b[0] > ultimo]
 
                 # Sin texto que lo enmarque se deja un margen generoso: es
                 # preferible recortar de más y que PIL ajuste, que cortar la
                 # figura por la mitad.
+                # Justo entre la última línea de estructura y la primera de
+                # después. Nada de colchón hacia afuera: abrir cinco puntos se
+                # llevaba media línea de texto por arriba y por abajo, y el
+                # recorte salía con letras pegadas al borde.
                 y0 = (max(arriba) + ALTO_LINEA) if arriba else (primero - MARGEN_CIEGO)
                 y1 = min(abajo) if abajo else (ultimo + MARGEN_CIEGO)
 
+                # Con texto a ambos lados la franja es exacta: el dibujo no
+                # puede solaparse con el texto, así que cabe entero. Sin él, el
+                # recorte va a ciegas y queda marcado como incierto.
+                incierta = not (arriba and abajo)
+
                 if y1 - y0 >= ALTO_MINIMO:
-                    franjas[(capitulo, numero)] = (bloque[0][2], y0, y1)
+                    franjas[(capitulo, numero)] = (bloque[0][2], y0, y1, incierta)
         bloque = []
 
     for linea in lineas:
@@ -139,19 +173,20 @@ def localizar_franjas(lineas):
             cerrar()
             numero = int(m.group(1))
             siguiente = numero + 1
-            bloque.append((linea.y0, False, linea.pagina))
+            bloque.append((linea.y0, False, linea.pagina, True, False))
             continue
 
         if numero is None:
             continue
 
         if H.RE_RESPUESTA.match(texto):
-            bloque.append((linea.y0, False, linea.pagina))
+            bloque.append((linea.y0, False, linea.pagina, True, False))
             cerrar()
             numero = None
             continue
 
-        bloque.append((linea.y0, _huele_a_dibujo(texto), linea.pagina))
+        bloque.append((linea.y0, _huele_a_dibujo(texto), linea.pagina,
+                       _es_estructura(texto), H.es_trazo(texto)))
 
     cerrar()
     return franjas
@@ -189,6 +224,12 @@ def recortar(pdf, pagina, y0, y1, alto_pagina=792):
                 g.unlink()
             return None
 
+        # Si el contenido llega al límite de la franja que se pidió, la franja
+        # se quedó corta y el dibujo está cortado de verdad. Medirlo aquí es
+        # exacto; inferirlo después mirando el PNG confunde una figura cortada
+        # con una letra del enunciado que asoma por el borde.
+        desbordada = caja[1] <= 1 or caja[3] >= im.height - 1
+
         pad = 8
         caja = (max(0, caja[0] - pad), max(0, caja[1] - pad),
                 min(im.width, caja[2] + pad), min(im.height, caja[3] + pad))
@@ -206,7 +247,7 @@ def recortar(pdf, pagina, y0, y1, alto_pagina=792):
     for g in generados:
         g.unlink()
 
-    return datos, dims
+    return datos, dims, desbordada
 
 
 def main():
@@ -240,7 +281,7 @@ def main():
     muestras = 0
     fallos = 0
 
-    for i, ((cap, num), (pagina, y0, y1)) in enumerate(objetivo, 1):
+    for i, ((cap, num), (pagina, y0, y1, incierta)) in enumerate(objetivo, 1):
         if i % 100 == 0:
             print(f"  {i}/{len(objetivo)}…")
         try:
@@ -252,7 +293,7 @@ def main():
             fallos += 1
             continue
 
-        datos, (an, al) = res
+        datos, (an, al), _ = res
         # Una tira muy plana o muy diminuta suele ser un renglón suelto, no un dibujo.
         if al < 30 or an < 60 or len(datos) < 400:
             continue
@@ -262,6 +303,7 @@ def main():
             "png": base64.b64encode(datos).decode(),
             "ancho": an, "alto": al,
             "bytes": len(datos),
+            "incierta": incierta,
             "en_corpus": (cap, num) in validas,
         }
 
@@ -274,11 +316,13 @@ def main():
     SALIDA.parent.mkdir(exist_ok=True)
     SALIDA.write_text(json.dumps(salida, ensure_ascii=False), encoding="utf-8")
 
+    cortadas = sum(1 for v in salida.values() if v["incierta"])
     peso = sum(v["bytes"] for v in salida.values())
     en_corpus = sum(1 for v in salida.values() if v["en_corpus"])
     print(f"\n{len(salida)} figuras -> {SALIDA.relative_to(RAIZ)}")
     print(f"  {en_corpus} en preguntas que ya están en el corpus")
     print(f"  {len(salida) - en_corpus} en preguntas descartadas por figura")
+    print(f"  {cortadas} recortadas a ciegas ({100*cortadas/max(1,len(salida)):.0f} %)")
     print(f"  peso total {peso/1024/1024:.2f} MB  (media {peso/max(1,len(salida))/1024:.1f} kB)")
     if fallos:
         print(f"  {fallos} franjas sin contenido renderizable")
