@@ -75,7 +75,14 @@ function pintarHoy() {
           <span class="tipo">${escapar(datos.nombreBloque(dia.bloque))}</span>
           <span class="derecha">${dia.horas} h</span>
         </div>
-        <p class="enunciado" style="margin:0">${escapar(dia.que)}</p>
+        <p class="enunciado"${dia.material?.length ? '' : ' style="margin:0"'}>${escapar(dia.que)}</p>
+        ${dia.material?.length ? `
+          <div class="bloque">
+            <span class="rotulo">Con qué</span>
+            <ul class="lista material">
+              ${dia.material.map(m => `<li>${escapar(m)}</li>`).join('')}
+            </ul>
+          </div>` : ''}
       </div>` : ''}
 
     <a class="boton suave enlace-simulacro" href="#simulacro">Hacer un simulacro completo</a>

@@ -22,7 +22,7 @@ let repasoPendiente = new Map();
 // cuentan para la meta cuando han estado de verdad en pantalla. Sin esto no
 // habría forma de completar el día leyendo, y con contarlas al pintarlas el
 // progreso se llenaba solo.
-const TIPOS_DE_LECTURA = new Set(['patron', 'ecuacion', 'dato', 'descarte', 'error']);
+const TIPOS_DE_LECTURA = new Set(['patron', 'ecuacion', 'dato', 'descarte', 'error', 'micro']);
 const SEGUNDOS_PARA_CONTAR = 1200;
 
 function vigilarLectura(nodo, tarjeta, alContar) {
@@ -71,7 +71,7 @@ function peso(t, flojas) {
   // que hay; después los patrones y las técnicas de descarte, que son lo que
   // convierte tiempo de scroll en puntos el 23 de noviembre.
   const PESO_TIPO = {
-    error: 4, patron: 3.5, descarte: 3, ecuacion: 2.5, dato: 2, mc: 1,
+    error: 4, patron: 3.5, descarte: 3, ecuacion: 2.5, micro: 2.2, dato: 2, mc: 1,
   };
   p *= PESO_TIPO[t.tipo] ?? 1;
 

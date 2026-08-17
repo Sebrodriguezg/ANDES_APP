@@ -49,6 +49,73 @@ SEMANAS_EXTRA = {
                 entregable="Listo. Los últimos dos días: repaso ligero y dormir"),
 }
 
+def _seccion(secciones, *prefijos):
+    """Busca una sección por el principio de su título.
+
+    Los encabezados varían entre archivos —"BASE — leer", "BASE/ALTO — leer (en
+    este orden)", "ALTO — leer (núcleo de la semana)"— así que no sirve buscar
+    por igualdad.
+    """
+    for prefijo in prefijos:
+        for titulo, renglones in secciones.items():
+            if titulo.upper().startswith(prefijo.upper()):
+                return renglones
+    return []
+
+
+def _material_del_dia(bloque, secciones):
+    """Qué leer o hacer hoy, en concreto.
+
+    Antes el día solo traía la frase genérica de la semana tipo —"leer el
+    capítulo y derivar los resultados"— y no decía qué capítulo ni de qué
+    libro. El material está en las secciones de la semana; aquí se reparte
+    entre los días según el bloque que le toque a cada uno.
+    """
+    base = _seccion(secciones, "BASE — leer", "BASE/ALTO")
+    alto = _seccion(secciones, "ALTO — leer")
+    problemas = _seccion(secciones, "PROBLEMAS")
+    mc = _seccion(secciones, "Viernes")
+    entregable = _seccion(secciones, "Entregable")
+
+    if bloque == "teoria":
+        # El lunes arranca por lo básico y el martes cierra con lo de nivel alto.
+        return {"lunes": base[:2] or base, "martes": (base[2:] + alto) or alto}
+    if bloque == "problemas":
+        mitad = (len(problemas) + 1) // 2
+        return {"miercoles": problemas[:mitad], "jueves": problemas[mitad:]}
+    if bloque == "mc":
+        return {"viernes": mc}
+    if bloque == "repaso":
+        return {"sabado": entregable}
+    return {}
+
+
+# Tareas concretas de las semanas que no salen de 03_TEMARIO. Sin esto, S0, S12
+# y S13 muestran la frase genérica y nada más.
+TAREAS_EXTRA = {
+    "S0": {
+        "teoria": ["Repasar el análisis del diagnóstico D1 en 05_SIMULACROS/D1_resultados.md",
+                   "Revisar los 10 patrones en 03_TEMARIO/00_mapa_simulacro.md"],
+        "problemas": ["Rehacer a mano las preguntas del D1 que fallaste",
+                      "Media sesión de expansiones binomiales: (1+x)^n para x pequeño"],
+        "mc": ["Sesión cronometrada en la app: 25 preguntas a 7 min"],
+        "repaso": ["Dejar listo el formulario en blanco de Mecánica para S1"],
+    },
+    "S12": {
+        "teoria": ["Repasar los formularios de las áreas más flojas"],
+        "problemas": ["Simulacro completo en la app: 25 preguntas, 3 horas"],
+        "mc": ["Simulacro completo y análisis de error por área"],
+        "repaso": ["Rehacer de memoria lo fallado en los simulacros"],
+    },
+    "S13": {
+        "teoria": ["Repaso de errores y formularios"],
+        "problemas": ["Dos simulacros más, en condiciones reales"],
+        "mc": ["Último simulacro. Meta: 18 de 25"],
+        "repaso": ["Solo repaso ligero. Dormir. 18-nov cierra inscripción, 19-nov documentos"],
+    },
+}
+
+
 # Estructura de la semana tipo (PLAN.md §5). El domingo queda libre a propósito.
 SEMANA_TIPO = [
     ("lunes",     "teoria",    2.5, "Leer el capítulo y derivar los resultados a mano"),
@@ -159,15 +226,22 @@ def _dias_de(semana):
                  for nombre, bloque, horas, que in SEMANA_TIPO}
     nombres = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
 
+    secciones = semana.get("secciones") or {}
+    extra = TAREAS_EXTRA.get(semana["id"], {})
+
     while cursor <= fin:
         nombre = nombres[cursor.weekday()]
         bloque, horas, que = plantilla[nombre]
+        material = _material_del_dia(bloque, secciones).get(nombre, [])
+        if not material:
+            material = extra.get(bloque, [])
         dias.append({
             "fecha": cursor.isoformat(),
             "dia": nombre,
             "bloque": bloque,
             "horas": horas,
             "que": que,
+            "material": material,
         })
         cursor += timedelta(days=1)
     return dias

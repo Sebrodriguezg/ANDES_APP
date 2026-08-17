@@ -122,7 +122,11 @@ def codigo_de(tarjeta):
     if tipo == "error":
         m = re.match(r"error-(\w+)-(\d+)", ident)
         return f"{m.group(1)}·{m.group(2)}" if m else "ERROR"
-    prefijos = {"ecuacion": "ECU", "descarte": "DES", "dato": "DAT"}
+    if tipo == "micro":
+        m = re.match(r"expl-(gr\d+)-(\d+)", ident)
+        if m:
+            return f"{m.group(1).upper()} {int(m.group(2))}"
+    prefijos = {"ecuacion": "ECU", "descarte": "DES", "dato": "DAT", "micro": "EXP"}
     sufijo = ident.rsplit("-", 1)[-1].upper()
     return f"{prefijos.get(tipo, 'TAR')} {sufijo}"
 
@@ -145,7 +149,8 @@ def cargar_mc(figuras):
     tarjetas = []
     fuentes = [CRUDO / "hrw.json", CRUDO / "hrw_pendientes_figura.json"]
     fuentes += [r for r in sorted(CRUDO.glob("*.json"))
-                if r.name not in {"hrw.json", "hrw_pendientes_figura.json", "figuras.json"}]
+                if r.name not in {"hrw.json", "hrw_pendientes_figura.json",
+                                  "figuras.json", "explicaciones.json"}]
 
     for ruta in fuentes:
         if not ruta.exists():
@@ -181,6 +186,15 @@ def cargar_mc(figuras):
                 }} if fig else {}),
             })
     return tarjetas
+
+
+def cargar_explicaciones():
+    """Micro-lecciones del GRE. Van con el contenido autoral porque se leen, no
+    se responden."""
+    ruta = CRUDO / "explicaciones.json"
+    if not ruta.exists():
+        return []
+    return json.loads(ruta.read_text(encoding="utf-8"))
 
 
 def cargar_autoral():
@@ -266,7 +280,7 @@ def main():
 
     figuras = cargar_figuras()
     mc = cargar_mc(figuras)
-    autoral = cargar_autoral()
+    autoral = cargar_autoral() + cargar_explicaciones()
     errores = cargar_errores()
 
     if not mc:

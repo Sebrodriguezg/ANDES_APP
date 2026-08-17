@@ -948,3 +948,22 @@ ul.lista li::marker { color: var(--texto-tenue); }
 @supports not (filter: blur(5px)) {
   .tarjeta-mc.tapada .cuerpo-pregunta { visibility: hidden; }
 }
+
+/* El material concreto del día: qué libro y qué capítulo, no "leer el
+   capítulo" a secas. */
+ul.lista.material { margin-top: 4px; }
+ul.lista.material li { font-size: .9rem; color: var(--texto-suave); }
+
+/* ── Micro-lección ──────────────────────────────────────────── */
+
+.tarjeta-micro::before {
+  content: ""; position: absolute; inset: -1px auto -1px -1px; width: 2px;
+  background: var(--inf-30);
+}
+.tarjeta-micro .enunciado { font-size: .98rem; }
+.pie-micro {
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid var(--borde);
+  font-family: var(--mono); font-size: .58rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--texto-tenue);
+}

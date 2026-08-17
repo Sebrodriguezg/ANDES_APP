@@ -436,6 +436,24 @@ export function tarjetaCierre({ n, aciertos, alSeguir }) {
   return nodo;
 }
 
+/* ── Micro-lección ────────────────────────────────────────── */
+
+/* Razonamientos del GRE comentados por físicos. No van atados a una pregunta
+   —los exámenes a los que pertenecen están escaneados y sus enunciados no se
+   pueden recuperar—, así que se leen como lo que son: la forma de atacar un
+   tema que el examen pregunta una y otra vez. */
+function tarjetaMicro(t) {
+  const nodo = elemento(`
+    <article class="tarjeta tarjeta-micro">
+      ${encabezado(t, 'Cómo se ataca', t.codigo || '')}
+      <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
+      <p class="enunciado">${mate(t.texto)}</p>
+      <div class="pie-micro">${escapar(t.origen || '')}</div>
+    </article>`);
+  nodo.style.setProperty('--color-area', `var(--${t.area || 'transversal'})`);
+  return nodo;
+}
+
 /* ── Reanudar la sesión del día ───────────────────────────── */
 
 /* Entrar tres veces en un día no debería significar empezar tres veces. Esta
@@ -479,6 +497,7 @@ export function construir(t, alResponder) {
     case 'ecuacion': return tarjetaEcuacion(t);
     case 'descarte': return tarjetaDescarte(t);
     case 'dato':     return tarjetaDato(t);
+    case 'micro':    return tarjetaMicro(t);
     default:         return null;
   }
 }
