@@ -1,0 +1,25 @@
+pregunta,area,tema,nivel,patron
+1,mecanica,Conservación de energía + condición de contacto en rizo vertical,BASE,
+2,mecanica,Newton con ligaduras y fricción estática (Sears 5.88),BASE,
+3,mecanica,Cinemática rotacional con aceleración angular constante (Sears 9.15),BASE,
+4,mecanica,Energía potencial elástica,BASE,
+5,mecanica,Oscilador forzado amortiguado: amplitud en estado estacionario,ALTO,
+6,mecanica,Área en espacio de fase y período T(E)=dA/dE,ALTO,P1
+7,mecanica,Corchetes de Poisson,ALTO,P2
+8,mecanica,Scattering con esfera dura: parámetro de impacto b(theta),ALTO,P3
+9,electromagnetismo,Ley de Ampère en conductor cilíndrico hueco,BASE,
+10,electromagnetismo,Condición de gauge en potenciales EM,ALTO,P4
+11,relatividad,Dilatación temporal con expansión para beta << 1,BASE,
+12,electromagnetismo,Esfera conductora a tierra en campo uniforme (armónicos esféricos),ALTO,P5
+13,electromagnetismo,Campo B en el centro de una espira circular,BASE,
+14,electromagnetismo,Superposición vectorial de campos de dos anillos cargados,BASE,
+15,electromagnetismo,Diferencia de potencial entre esfera sólida y cascarón,BASE,
+16,termo_estadistica,Coeficiente de expansión lineal a partir de L(T),BASE,
+17,termo_estadistica,Calorimetría con dos cambios de fase,BASE,
+18,termo_estadistica,Primera ley con trabajo sobre trayectoria p(V) no trivial,BASE,
+19,termo_estadistica,Entropía combinatoria S = k ln Omega,ALTO,P6
+20,termo_estadistica,Dos sistemas en contacto térmico: energía más probable,ALTO,P7
+21,moderna_cuantica,Dos bosones indistinguibles en caja rectangular 2D,ALTO,P8
+22,relatividad,Doppler relativista y condición de ionización,ALTO,
+23,moderna_cuantica,Escalón de potencial: coeficiente de reflexión R,ALTO,P9
+24,moderna_cuantica,Oscilador armónico cuántico: varianza como función del tiempo,ALTO,P10

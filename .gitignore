@@ -1,0 +1,39 @@
+# ---------------------------------------------------------------
+# Material bibliográfico y bancos de examen: se quedan en local.
+# 353 archivos, ~651 MB, con copyright. No van a un repo público.
+# ---------------------------------------------------------------
+*.pdf
+*.djvu
+*.epub
+*.zip
+
+# Excepción: el cronograma es material propio, generado desde cronograma.tex
+!cronograma.pdf
+
+# ---------------------------------------------------------------
+# Artefactos de compilación
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# ---------------------------------------------------------------
+# Basura del editor y del sistema
+# ---------------------------------------------------------------
+*.swp
+*.swo
+.*.swp
+*~
+.DS_Store
+
+# ---------------------------------------------------------------
+# App: dependencias y material intermedio de la tubería de contenido
+# ---------------------------------------------------------------
+node_modules/
+07_APP/pipeline/_cache/

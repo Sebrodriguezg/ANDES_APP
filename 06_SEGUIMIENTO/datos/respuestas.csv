@@ -1,0 +1,13 @@
+simulacro_id,pregunta,marcada,correcta,ok,area,nivel,tema,patron,p_mas,causa
+D1,1,c,d,0,mecanica,BASE,Conservación de energía + condición de contacto en rizo vertical,,,concepto
+D1,2,d,c,0,mecanica,BASE,Newton con ligaduras y fricción estática (Sears 5.88),,,concepto
+D1,6,a,a,1,mecanica,ALTO,Área en espacio de fase y período T(E)=dA/dE,P1,,
+D1,7,c,a,0,mecanica,ALTO,Corchetes de Poisson,P2,,concepto
+D1,9,d,e,0,electromagnetismo,BASE,Ley de Ampère en conductor cilíndrico hueco,,,concepto
+D1,11,d,b,0,relatividad,BASE,Dilatación temporal con expansión para beta << 1,,,algebra
+D1,12,b,b,1,electromagnetismo,ALTO,Esfera conductora a tierra en campo uniforme (armónicos esféricos),P5,,
+D1,15,d,c,0,electromagnetismo,BASE,Diferencia de potencial entre esfera sólida y cascarón,,,concepto
+D1,17,e,d,0,termo_estadistica,BASE,Calorimetría con dos cambios de fase,,,concepto
+D1,20,c,b,0,termo_estadistica,ALTO,Dos sistemas en contacto térmico: energía más probable,P7,,concepto
+D1,21,c,e,0,moderna_cuantica,ALTO,Dos bosones indistinguibles en caja rectangular 2D,P8,,concepto
+D1,23,d,b,0,moderna_cuantica,ALTO,Escalón de potencial: coeficiente de reflexión R,P9,,concepto
