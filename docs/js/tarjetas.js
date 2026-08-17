@@ -513,6 +513,8 @@ function tarjetaMicro(t) {
     <article class="tarjeta tarjeta-micro">
       ${encabezado(t, 'Cómo se ataca', t.codigo || '')}
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
+      <p class="aviso-micro">Cómo se resuelve este tipo de problema. No va
+      atada a una pregunta concreta: es el razonamiento suelto.</p>
       <p class="enunciado">${mate(t.texto)}</p>
       <div class="pie-micro">${escapar(t.origen || '')}</div>
     </article>`);

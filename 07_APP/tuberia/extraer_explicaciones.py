@@ -55,6 +55,14 @@ MAPA_AREA = {
 RE_PROBLEMA = re.compile(r"\nProblem\s+(\d+)\s*\n")
 RE_TIPO = re.compile(r"Subject Type\s*\n(.+?)\n(.*)", re.S)
 RE_FIGURA = re.compile(r"\b(figure|shown|diagram|above|below|as in the)\b", re.I)
+
+# Referencias a un enunciado que no tenemos. La explicación puede ser buena y
+# aun así no servir: "este problema tiene tres pasos" no dice nada si no se ve
+# cuál es el problema. Lo reportó Sebastián desde la app, y tenía razón.
+RE_DEPENDE_ENUNCIADO = re.compile(
+    r"\b(this (question|problem)|the (question|problem)|the answer|choices?|"
+    r"option|given (that|in)|as stated|the values? (given|above)|"
+    r"one is given|the given)\b", re.I)
 RE_PIE = re.compile(r"c\s*\d{4}\s*Yosu.*$|^\d+$", re.M)
 # Las frases que remiten a una opción —"as in choice (E)"— no dicen nada sin el
 # enunciado. Se quita la frase entera, no solo el fragmento: recortar a media
@@ -114,6 +122,8 @@ def extraer_de(examen):
         if not (LARGO_MINIMO <= len(texto) <= LARGO_MAXIMO):
             continue
         if RE_FIGURA.search(texto):
+            continue
+        if RE_DEPENDE_ENUNCIADO.search(texto):
             continue
         if proporcion_prosa(texto) < 0.55:
             continue
