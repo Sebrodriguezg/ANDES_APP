@@ -5,7 +5,7 @@
 
 import * as datos from './datos.js';
 import * as almacen from './almacen.js';
-import { construir, tarjetaCierre } from './tarjetas.js';
+import { construir, tarjetaCierre, tarjetaReanudar } from './tarjetas.js';
 
 const POR_LOTE = 6;
 
@@ -122,12 +122,37 @@ async function pintarLote() {
 
   for (const t of elegidas) {
     cola = cola.filter(x => x.id !== t.id);
+    // El ordinal se asigna antes de construir la tarjeta para que salga en ella.
+    almacen.vista(t.id, { codigo: t.codigo, tipo: t.tipo });
     const nodo = construir(t, () => progreso());
     if (!nodo) continue;
     contenedor.append(nodo);
-    almacen.vista(t.id);
   }
   progreso();
+}
+
+/** Si ya habías avanzado hoy, el feed abre diciendo por dónde ibas. */
+async function restaurarSesion(contenedor) {
+  const historial = almacen.historialHoy();
+  if (!historial.length) return;
+
+  const { n, aciertos } = almacen.progresoHoy();
+
+  contenedor.append(tarjetaReanudar({
+    n, aciertos,
+    meta: almacen.metaDiaria(),
+    ultimo: historial.at(-1)?.codigo || '',
+    alVerAnteriores: async () => {
+      const tarjetas = await datos.buscarPorIds(historial.map(h => h.id));
+      const fragmento = document.createDocumentFragment();
+      for (const t of tarjetas) {
+        const nodo = construir(t, null);
+        if (nodo) fragmento.append(nodo);
+      }
+      // Se insertan arriba, en el orden en que salieron.
+      contenedor.prepend(fragmento);
+    },
+  }));
 }
 
 export async function iniciar(crono) {
@@ -140,6 +165,7 @@ export async function iniciar(crono) {
   indiceTanda = 0;
   cerrado = false;
 
+  await restaurarSesion(contenedor);
   await pintarLote();
 
   const centinela = document.getElementById('centinela');

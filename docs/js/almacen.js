@@ -39,12 +39,44 @@ export function fijarMeta(n) {
   guardar();
 }
 
-export function vista(id) {
+/* ── Sesión del día ───────────────────────────────────────────
+   El orden en que fueron saliendo las tarjetas de hoy. Es lo que permite
+   volver a entrar a media tarde y seguir donde ibas en vez de empezar de
+   cero, y lo que le da a cada tarjeta su número dentro del día. */
+
+function sesionDeHoy() {
+  if (!estado.sesion || estado.sesion.fecha !== hoyISO()) {
+    estado.sesion = { fecha: hoyISO(), orden: [] };
+  }
+  return estado.sesion;
+}
+
+export function sesion() { return sesionDeHoy(); }
+
+/** Cuántas tarjetas llevas hoy; el ordinal de la siguiente es este más uno. */
+export function posicionHoy() { return sesionDeHoy().orden.length; }
+
+export function ordinalDe(id) {
+  const i = sesionDeHoy().orden.findIndex(x => x.id === id);
+  return i < 0 ? null : i + 1;
+}
+
+export function historialHoy() { return sesionDeHoy().orden.slice(); }
+
+export function vista(id, meta = {}) {
   estado.vistas[id] = Date.now();
-  const d = estado.dias[hoyISO()] || { n: 0, aciertos: 0 };
-  d.n += 1;
-  estado.dias[hoyISO()] = d;
+
+  const s = sesionDeHoy();
+  // Si la tarjeta ya salió hoy no se cuenta dos veces: al restaurar la sesión
+  // se vuelven a pintar las mismas y el contador no debe dispararse.
+  if (!s.orden.some(x => x.id === id)) {
+    s.orden.push({ id, codigo: meta.codigo || '', tipo: meta.tipo || '', ok: null });
+    const d = estado.dias[hoyISO()] || { n: 0, aciertos: 0 };
+    d.n += 1;
+    estado.dias[hoyISO()] = d;
+  }
   guardar();
+  return ordinalDe(id);
 }
 
 export function fueVista(id) { return id in estado.vistas; }
@@ -56,7 +88,19 @@ export function registrarRespuesta(r) {
     d.aciertos += 1;
     estado.dias[hoyISO()] = d;
   }
+  // La respuesta queda anotada también en la sesión, para poder repintar el
+  // historial del día con los aciertos y fallos ya marcados.
+  const entrada = sesionDeHoy().orden.find(x => x.id === r.id);
+  if (entrada) entrada.ok = !!r.ok;
   guardar();
+}
+
+/** La última respuesta dada a una tarjeta, si ya la respondiste. */
+export function respuestaPrevia(id) {
+  for (let i = estado.respuestas.length - 1; i >= 0; i--) {
+    if (estado.respuestas[i].id === id) return estado.respuestas[i];
+  }
+  return null;
 }
 
 export function progresoHoy() {

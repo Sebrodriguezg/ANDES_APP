@@ -19,6 +19,7 @@ import argparse
 import csv
 import json
 import random
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -37,6 +38,29 @@ AREAS = [
     "mecanica", "electromagnetismo", "termo_estadistica",
     "moderna_cuantica", "relatividad", "optica_ondas",
 ]
+
+
+def codigo_de(tarjeta):
+    """Nombre corto y estable con el que referirse a una tarjeta.
+
+    Sirve para saber dónde quedaste y para poder buscar una pregunta concreta:
+    'me atoré en la HRW 5.41'. Es estable entre reconstrucciones porque sale del
+    identificador, no del orden en que caiga en el feed.
+    """
+    ident = tarjeta.get("id", "")
+    tipo = tarjeta.get("tipo")
+
+    m = re.match(r"hrw-c(\d+)-q(\d+)", ident)
+    if m:
+        return f"HRW {int(m.group(1))}.{int(m.group(2))}"
+    if tipo == "patron":
+        return tarjeta.get("patron", "PAT")
+    if tipo == "error":
+        m = re.match(r"error-(\w+)-(\d+)", ident)
+        return f"{m.group(1)}·{m.group(2)}" if m else "ERROR"
+    prefijos = {"ecuacion": "ECU", "descarte": "DES", "dato": "DAT"}
+    sufijo = ident.rsplit("-", 1)[-1].upper()
+    return f"{prefijos.get(tipo, 'TAR')} {sufijo}"
 
 
 def cargar_figuras():
@@ -170,6 +194,9 @@ def main():
         )
 
     tarjetas = intercalar(mc, autoral, errores, rng)
+
+    for t in tarjetas:
+        t["codigo"] = codigo_de(t)
 
     SALIDA.mkdir(parents=True, exist_ok=True)
     for patron in ("tanda-*.json", "tanda-*.bin"):

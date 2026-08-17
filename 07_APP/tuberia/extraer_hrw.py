@@ -62,6 +62,61 @@ RE_RESTO_FIGURA = re.compile(r"(\.\s*){4,}|[↑↓→←|]{2,}|_\{\s*\.")
 
 ILEGIBLE = "�"
 
+
+def limpiar_trazo(texto):
+    """Borra las hileras de puntos, barras y flechas dejando el texto real."""
+    t = RE_RESTO_FIGURA.sub(" ", texto)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def truncar_en_dibujo(texto):
+    """Corta el texto donde acaba la prosa y empieza el dibujo.
+
+    Perseguir los trazos carácter a carácter no funciona: además de puntos, las
+    figuras usan viñetas, llaves de subíndice y flechas, en combinaciones
+    distintas en cada página. Lo que sí es estable es que la prosa termina en
+    '.', '?' o ':' y todo lo que viene después es dibujo.
+
+    Así que se busca el final de frase tras el cual ya casi no quedan letras y
+    se corta ahí. Un enunciado de varias frases no se ve afectado, porque la
+    cola de las primeras sigue estando llena de texto.
+    """
+    corte = None
+    # El final de frase tiene que estar pegado a una palabra: los puntos del
+    # dibujo van sueltos entre espacios y llaves, y si se admiten como corte el
+    # límite se va hasta el final de la basura.
+    for m in re.finditer(r"(?<=[A-Za-z0-9)\]])[.?:]\s", texto):
+        cola = texto[m.end():].strip()
+        if not cola:
+            continue
+        proporcion_letras = sum(c.isalpha() for c in cola) / len(cola)
+        # O bien la cola es casi toda símbolos, o son cuatro rótulos sueltos
+        # de una o dos letras, que es como se ven los ejes etiquetados.
+        palabras = cola.split()
+        rotulos_sueltos = len(palabras) <= 4 and all(len(p) <= 2 for p in palabras)
+        if proporcion_letras < 0.15 or rotulos_sueltos:
+            # Se guarda el corte más tardío, no el primero: el enunciado puede
+            # seguir después de una frase ("...la pista. En el punto 3:") y
+            # cortar en la primera se lleva por delante la pregunta de verdad.
+            corte = m.end()
+    return texto[:corte].strip() if corte else texto
+
+
+def es_trazo(texto):
+    """¿La línea es parte del dibujo y no del texto de la pregunta?
+
+    Los ejes de las figuras están trazados con hileras de puntos y barras. Si no
+    se filtran, el enunciado termina con medio dibujo pegado en forma de
+    '. . . . . . . .' y el resultado es ilegible en pantalla.
+    """
+    return bool(RE_RESTO_FIGURA.search(texto))
+
+
+def es_rotulo(texto):
+    """Rótulo suelto de dentro de la figura: '1', '2 3', 'm', 'd'."""
+    t = texto.strip()
+    return bool(t) and len(t) <= 24 and sum(c.isalpha() for c in t) <= 3
+
 # Los 44 capítulos repartidos entre las áreas del examen y las semanas del cronograma.
 # Las semanas siguen el calendario de PLAN.md; los capítulos 43 y 44 (energía nuclear,
 # quarks y cosmología) quedan fuera de alcance según la sección 3 del plan.
@@ -123,9 +178,42 @@ class Pregunta:
         self.orden_opciones = []
         self.respuesta = None
         self.necesita_figura = False
+        self.tiene_trazos = False
+        self.y_trazos = []
+
+    def _rango_dibujo(self):
+        """Franja vertical de la página que ocupa el dibujo, con algo de aire."""
+        if not self.y_trazos:
+            return None
+        return min(self.y_trazos) - 4, max(self.y_trazos) + 4
+
+    def _limpiar(self, fragmentos):
+        """Quita del texto lo que en realidad era dibujo.
+
+        Dos cuidados que costaron una pasada en falso:
+
+        - La limpieza es dentro de la línea, no por líneas enteras. Una misma
+          línea puede llevar el final del enunciado y el comienzo de los ejes:
+          "...at the center of mass of the rod? . . . . . ." Si se descarta
+          entera, la pregunta pierde el final y deja de entenderse.
+        - Los rótulos sueltos ("1", "2 3") se distinguen de una continuación
+          corta legítima ("3:") por dónde están: solo son rótulo si caen dentro
+          de la franja vertical que ocupa el dibujo.
+        """
+        rango = self._rango_dibujo()
+        salida = []
+        for i, (frag, y) in enumerate(fragmentos):
+            texto = limpiar_trazo(frag)
+            if not texto:
+                continue
+            if i and rango and rango[0] <= y <= rango[1] and es_rotulo(texto):
+                continue
+            salida.append(texto)
+        texto = re.sub(r"\s+", " ", " ".join(salida)).strip()
+        return truncar_en_dibujo(texto) if self.tiene_trazos else texto
 
     def texto_enunciado(self):
-        return " ".join(self.enunciado).strip()
+        return self._limpiar(self.enunciado)
 
     def a_dict(self):
         area, semana, etiquetas = MAPA_CAPITULOS.get(
@@ -140,7 +228,7 @@ class Pregunta:
             "capitulo_titulo": self.titulo_capitulo,
             "numero": self.numero,
             "enunciado": self.texto_enunciado(),
-            "opciones": {k: self.opciones[k].strip() for k in self.orden_opciones},
+            "opciones": {k: self._limpiar(self.opciones[k]) for k in self.orden_opciones},
             "respuesta": self.respuesta,
             "area": area,
             "semana": semana,
@@ -225,19 +313,20 @@ def _valida(preg, descartes):
         return False
     # Una opción vacía delata que la pregunta traía una figura y el texto se desarmó:
     # las alternativas quedan en blanco o amontonadas todas dentro de la última.
-    if any(not v.strip() for v in preg.opciones.values()):
+    opciones = {k: preg._limpiar(v) for k, v in preg.opciones.items()}
+    if any(not v.strip() for v in opciones.values()):
         descartes["opcion_vacia"] += 1
         preg.necesita_figura = True
         return False
 
-    todo = enunciado + " " + " ".join(preg.opciones.values())
+    todo = enunciado + " " + " ".join(opciones.values())
     # Las que dependen de una figura no se tiran: se apartan. Si el extractor de
     # figuras logra rescatar el dibujo, la pregunta vuelve al corpus completa.
     if RE_FIGURA.search(todo):
         descartes["depende_de_figura"] += 1
         preg.necesita_figura = True
         return False
-    if RE_RESTO_FIGURA.search(todo):
+    if preg.tiene_trazos:
         descartes["resto_de_figura"] += 1
         preg.necesita_figura = True
         return False
@@ -319,7 +408,7 @@ def extraer(ruta_xml):
             ):
                 cerrar()
                 actual = Pregunta(capitulo, titulo_capitulo, numero)
-                actual.enunciado.append(m.group(2))
+                actual.enunciado.append((m.group(2), linea.y0))
                 campo = "enunciado"
                 siguiente_numero = numero + 1
                 continue
@@ -330,15 +419,19 @@ def extraer(ruta_xml):
         m = RE_OPCION.match(texto)
         if m and m.group(1) not in actual.opciones:
             letra = m.group(1)
-            actual.opciones[letra] = m.group(2)
+            actual.opciones[letra] = [(m.group(2), linea.y0)]
             actual.orden_opciones.append(letra)
             campo = letra
             continue
 
+        if es_trazo(texto):
+            actual.tiene_trazos = True
+            actual.y_trazos.append(linea.y0)
+
         if campo == "enunciado":
-            actual.enunciado.append(texto)
+            actual.enunciado.append((texto, linea.y0))
         elif campo in actual.opciones:
-            actual.opciones[campo] += " " + texto
+            actual.opciones[campo].append((texto, linea.y0))
 
     cerrar()
     return preguntas, apartadas, descartes

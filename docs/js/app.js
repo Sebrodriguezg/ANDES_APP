@@ -60,7 +60,9 @@ function pintarHoy() {
       ${anillo(n, meta)}
       <div>
         <div class="racha"><strong>${almacen.racha()}</strong> días seguidos</div>
-        <div class="racha">${n ? `${aciertos} de ${n} hoy` : 'Sin tarjetas hoy todavía'}</div>
+        <div class="racha">${n
+          ? `${aciertos} de ${n} hoy · vas en la <strong>#${n}</strong>`
+          : 'Sin tarjetas hoy todavía'}</div>
       </div>
     </div>
 

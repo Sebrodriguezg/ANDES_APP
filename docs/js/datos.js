@@ -70,6 +70,22 @@ export async function desbloquear(frase) {
 
 export function datosCifrado() { return manifiesto?.cifrado || null; }
 
+/** Busca tarjetas concretas por su id, cargando tandas hasta encontrarlas.
+ *  Se usa al repintar el historial del día. */
+export async function buscarPorIds(ids) {
+  const pendientes = new Set(ids);
+  const encontradas = new Map();
+
+  for (let i = 0; i < numeroDeTandas() && pendientes.size; i++) {
+    let tanda;
+    try { tanda = await cargarTanda(i); } catch { break; }
+    for (const t of tanda) {
+      if (pendientes.delete(t.id)) encontradas.set(t.id, t);
+    }
+  }
+  return ids.map(id => encontradas.get(id)).filter(Boolean);
+}
+
 export function numeroDeTandas() {
   return manifiesto ? manifiesto.tandas.length : 0;
 }

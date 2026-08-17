@@ -633,3 +633,39 @@ ul.lista li::marker { color: var(--texto-tenue); }
 }
 .opciones-en-figura .opcion.correcta { border-bottom-color: var(--ok); }
 .opciones-en-figura .opcion.incorrecta { border-bottom-color: var(--mal); }
+
+/* ── Ordinal del día y reanudación ──────────────────────────── */
+
+/* El número que lleva cada tarjeta dentro del día. Es lo que te permite decir
+   "me quedé en la #23" y volver a encontrarla. */
+.ordinal {
+  flex: none;
+  padding: 1px 6px;
+  background: var(--tarjeta-alta);
+  border-left: 2px solid var(--color-area, var(--acento));
+  color: var(--texto-suave);
+  font-size: .62rem; letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tarjeta-reanudar {
+  border-color: var(--borde-vivo);
+  background:
+    radial-gradient(110% 80% at 0% 0%,
+      color-mix(in srgb, var(--inf-40) 18%, transparent), transparent 65%),
+    var(--tarjeta);
+}
+.tarjeta-reanudar .marcador {
+  display: flex; align-items: baseline; gap: 8px; margin: 4px 0 8px;
+}
+.tarjeta-reanudar .posicion {
+  font-family: var(--mono); font-size: 2.1rem; font-weight: 700;
+  line-height: 1; color: var(--inf-90);
+}
+.tarjeta-reanudar .de {
+  font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--texto-tenue);
+}
+.tarjeta-reanudar p { margin: 0; color: var(--texto-suave); font-size: .94rem; }
+.tarjeta-reanudar strong { color: var(--texto); }
+.tarjeta-reanudar .boton { width: 100%; }

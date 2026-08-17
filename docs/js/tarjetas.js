@@ -13,12 +13,13 @@ function elemento(html) {
 }
 
 function encabezado(tarjeta, tipoTexto, derecha = '') {
+  const n = almacen.ordinalDe(tarjeta.id);
   return `
     <div class="etiqueta-tarjeta">
-      <span class="punto-area"></span>
+      ${n ? `<span class="ordinal">#${n}</span>` : '<span class="punto-area"></span>'}
       <span class="tipo">${escapar(tipoTexto)}</span>
       <span>${escapar(nombreArea(tarjeta.area))}</span>
-      ${derecha ? `<span class="derecha">${escapar(derecha)}</span>` : ''}
+      <span class="derecha">${escapar(derecha || tarjeta.codigo || '')}</span>
     </div>`;
 }
 
@@ -65,39 +66,47 @@ function tarjetaMC(t, alResponder) {
   nodo.style.setProperty('--color-area', `var(--${t.area || 'transversal'})`);
 
   let respondida = false;
-  nodo.querySelectorAll('.opcion').forEach(boton => {
-    boton.addEventListener('click', () => {
-      if (respondida) return;
-      respondida = true;
 
-      const marcada = boton.dataset.letra;
-      const ok = marcada === t.respuesta;
-      nodo.classList.add('respondida');
+  function marcar(marcada, { anotar }) {
+    if (respondida) return;
+    respondida = true;
 
-      nodo.querySelectorAll('.opcion').forEach(b => {
-        if (b.dataset.letra === t.respuesta) b.classList.add('correcta');
-        else if (b === boton) b.classList.add('incorrecta');
-      });
+    const ok = marcada === t.respuesta;
+    nodo.classList.add('respondida');
 
-      vibrar(ok ? 18 : [12, 40, 12]);
-
-      const fuente = t.origen === 'HRW7'
-        ? `Halliday–Resnick–Walker · cap. ${(t.id.match(/c(\d+)/) || [, '?'])[1]}`
-        : escapar(t.origen || '');
-
-      nodo.insertAdjacentHTML('beforeend', `
-        <div class="veredicto ${ok ? 'bien' : 'mal'}">
-          <span>${ok ? '✓ Correcta' : `✗ Era ${t.respuesta}`}</span>
-          <span class="fuente">${fuente}</span>
-        </div>`);
-
-      almacen.registrarRespuesta({
-        id: t.id, area: t.area, nivel: t.nivel,
-        patron: t.patron || '', marcada, correcta: t.respuesta, ok,
-      });
-      alResponder?.(ok);
+    nodo.querySelectorAll('.opcion').forEach(b => {
+      if (b.dataset.letra === t.respuesta) b.classList.add('correcta');
+      else if (b.dataset.letra === marcada) b.classList.add('incorrecta');
     });
+
+    const fuente = t.origen === 'HRW7'
+      ? `Halliday–Resnick–Walker · cap. ${(t.id.match(/c(\d+)/) || [, '?'])[1]}`
+      : escapar(t.origen || '');
+
+    nodo.insertAdjacentHTML('beforeend', `
+      <div class="veredicto ${ok ? 'bien' : 'mal'}">
+        <span>${ok ? '✓ Correcta' : `✗ Era ${t.respuesta}`}</span>
+        <span class="fuente">${fuente}</span>
+      </div>`);
+
+    // Al repintar el historial del día no se vuelve a anotar la respuesta:
+    // ya está registrada y contaría doble.
+    if (!anotar) return;
+
+    vibrar(ok ? 18 : [12, 40, 12]);
+    almacen.registrarRespuesta({
+      id: t.id, area: t.area, nivel: t.nivel,
+      patron: t.patron || '', marcada, correcta: t.respuesta, ok,
+    });
+    alResponder?.(ok);
+  }
+
+  nodo.querySelectorAll('.opcion').forEach(boton => {
+    boton.addEventListener('click', () => marcar(boton.dataset.letra, { anotar: true }));
   });
+
+  const previa = almacen.respuestaPrevia(t.id);
+  if (previa) marcar(previa.marcada, { anotar: false });
 
   return nodo;
 }
@@ -114,7 +123,7 @@ function tarjetaPatron(t) {
         <span class="insignia-patron">${escapar(t.patron)}</span>
         <span class="tipo">Patrón</span>
         <span>${escapar(nombreArea(t.area))}</span>
-        ${estado ? `<span class="derecha">${escapar(estado)}</span>` : ''}
+        <span class="derecha">${escapar(estado || `#${almacen.ordinalDe(t.id) || ''}`)}</span>
       </div>
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
       <p class="enunciado">${mate(t.idea)}</p>
@@ -184,10 +193,11 @@ function tarjetaDescarte(t) {
   const nodo = elemento(`
     <article class="tarjeta tarjeta-descarte">
       <div class="etiqueta-tarjeta">
-        <span class="punto-area"></span>
+        <span class="ordinal">#${almacen.ordinalDe(t.id) || ''}</span>
         <span class="tipo">Descarte</span>
         <span>${escapar(t.tecnica)}</span>
-        ${t.estado_d1 === 'fallado' ? '<span class="derecha">lo fallaste en el D1</span>' : ''}
+        <span class="derecha">${t.estado_d1 === 'fallado'
+          ? 'lo fallaste en el D1' : escapar(t.codigo || '')}</span>
       </div>
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
       <p class="enunciado">${mate(t.situacion)}</p>
@@ -240,6 +250,39 @@ export function tarjetaCierre({ n, aciertos, alSeguir }) {
   nodo.querySelector('button').addEventListener('click', () => {
     nodo.remove();
     alSeguir?.();
+  });
+  return nodo;
+}
+
+/* ── Reanudar la sesión del día ───────────────────────────── */
+
+/* Entrar tres veces en un día no debería significar empezar tres veces. Esta
+   tarjeta abre el feed diciendo por dónde ibas, y deja volver a lo anterior
+   si quieres releer algo. */
+export function tarjetaReanudar({ n, aciertos, meta, ultimo, alVerAnteriores }) {
+  const nodo = elemento(`
+    <article class="tarjeta tarjeta-reanudar">
+      <div class="etiqueta-tarjeta">
+        <span class="punto-area"></span>
+        <span class="tipo">Continúas</span>
+        <span class="derecha">hoy</span>
+      </div>
+      <div class="marcador">
+        <span class="posicion">#${n}</span>
+        <span class="de">de ${meta}</span>
+      </div>
+      <p>Llevas <strong>${aciertos}</strong> de ${n} hoy.
+         ${ultimo ? `La última fue <strong>${escapar(ultimo)}</strong>.` : ''}
+         Sigues en la <strong>#${n + 1}</strong>.</p>
+      <button class="boton suave" type="button">Ver las anteriores</button>
+    </article>`);
+
+  const boton = nodo.querySelector('button');
+  boton.addEventListener('click', async () => {
+    boton.disabled = true;
+    boton.textContent = 'Cargando…';
+    await alVerAnteriores?.();
+    boton.remove();
   });
   return nodo;
 }
