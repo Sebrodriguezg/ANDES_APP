@@ -830,3 +830,79 @@ ul.lista li::marker { color: var(--texto-tenue); }
 .nota-meta {
   margin: 10px 0 0; font-size: .82rem; color: var(--texto-tenue);
 }
+
+/* Aviso sobre la procedencia de la respuesta. El examen de Uniandes no trae
+   clave publicada, y decirlo importa: no es lo mismo fallar contra una
+   respuesta oficial que contra una razonada. */
+.aviso-clave {
+  margin: 9px 0 0; font-size: .78rem; color: var(--texto-tenue);
+  padding-left: 10px; border-left: 2px solid var(--borde-vivo);
+}
+
+/* ── Modo simulacro ─────────────────────────────────────────── */
+
+/* La sala de examen se distingue del feed a propósito: aquí no hay colores de
+   acierto ni retroalimentación, solo el reloj y las veinticinco. */
+.sim-barra {
+  position: sticky; top: 0; z-index: 15;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 0 9px; margin-bottom: 4px;
+  background: linear-gradient(var(--fondo) 78%, transparent);
+}
+.sim-reloj {
+  font-family: var(--mono); font-size: 1.4rem; font-weight: 700;
+  font-variant-numeric: tabular-nums; color: var(--texto);
+}
+.sim-reloj.poco { color: var(--mal); }
+.sim-entregar {
+  padding: 8px 16px;
+  background: transparent; color: var(--texto-suave);
+  border: 1px solid var(--borde-vivo); border-radius: var(--radio);
+  font-family: var(--mono); font-size: .66rem;
+  letter-spacing: .14em; text-transform: uppercase; cursor: pointer;
+}
+.sim-entregar:hover { color: var(--acento); border-color: var(--acento); }
+
+.sim-cabecera {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.sim-indice {
+  font-family: var(--mono); font-size: 1.1rem; font-weight: 700;
+  color: var(--acento);
+}
+.sim-indice span {
+  font-size: .62rem; color: var(--texto-tenue);
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.sim-duda {
+  padding: 5px 11px;
+  background: transparent; color: var(--texto-tenue);
+  border: 1px solid var(--borde); border-radius: var(--radio);
+  font-family: var(--mono); font-size: .6rem;
+  letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
+}
+.sim-duda.activa { color: var(--aviso); border-color: var(--aviso); }
+
+/* Mapa de las 25: de un vistazo se ve qué falta y qué quedó dudoso. */
+.sim-mapa {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+  gap: 5px; margin: 14px 0;
+}
+.sim-casilla {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  background: var(--tarjeta); color: var(--texto-tenue);
+  border: 1px solid var(--borde); border-radius: var(--radio);
+  font-family: var(--mono); font-size: .72rem; cursor: pointer;
+}
+.sim-casilla.hecha { background: var(--tarjeta-alta); color: var(--texto); }
+.sim-casilla.dudosa { border-color: var(--aviso); color: var(--aviso); }
+.sim-casilla.actual { border-color: var(--acento); color: var(--acento); font-weight: 700; }
+
+.sim-nav { display: flex; gap: 10px; }
+.sim-nav .boton { flex: 1; margin-top: 0; }
+
+.enlace-simulacro {
+  display: block; width: 100%; margin-top: 18px;
+  text-align: center; text-decoration: none;
+}

@@ -43,6 +43,7 @@ node_modules/
 
 # Banco de pruebas visual: monta las tarjetas en claro para revisarlas.
 docs/_prueba.html
+docs/_sim.html
 docs/_muestra.json
 
 # Corpus intermedio sin cifrar: es el banco de HRW en texto plano y este repo es

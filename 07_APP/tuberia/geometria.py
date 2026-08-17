@@ -238,8 +238,16 @@ def _agrupar_en_lineas(palabras, pagina):
     return [Linea(g["palabras"], pagina) for g in grupos]
 
 
-def leer_lineas(ruta_xml):
-    """Devuelve todas las líneas del documento, en orden de lectura."""
+def leer_lineas(ruta_xml, corte_columna=None):
+    """Devuelve todas las líneas del documento, en orden de lectura.
+
+    `corte_columna` es la coordenada X que separa dos columnas de maquetación.
+    Sin ella, un documento a dos columnas sale con las dos fundidas en la misma
+    línea —"1. Two objects sliding... 3. For the cir"— porque las palabras de
+    ambas están a la misma altura y el agrupador las une por solape vertical.
+    Con ella, cada columna se agrupa por separado y se devuelven en orden de
+    lectura: la izquierda entera y después la derecha.
+    """
     from io import BytesIO
 
     limpio, sustituciones = _sanear(ruta_xml)
@@ -264,7 +272,13 @@ def leer_lineas(ruta_xml):
                     )
                 )
         elif evento == "end" and etiqueta == "page":
-            lineas.extend(_agrupar_en_lineas(acumulado, pagina))
+            if corte_columna is None:
+                lineas.extend(_agrupar_en_lineas(acumulado, pagina))
+            else:
+                izquierda = [p for p in acumulado if p.x0 < corte_columna]
+                derecha = [p for p in acumulado if p.x0 >= corte_columna]
+                lineas.extend(_agrupar_en_lineas(izquierda, pagina))
+                lineas.extend(_agrupar_en_lineas(derecha, pagina))
             acumulado = []
             elem.clear()
     return lineas

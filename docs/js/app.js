@@ -3,12 +3,13 @@
 import * as datos from './datos.js';
 import * as almacen from './almacen.js';
 import * as feed from './feed.js';
+import * as simulacro from './simulacro.js';
 import { escapar } from './mate.js';
 
 let crono = null;
 
 const $ = id => document.getElementById(id);
-const VISTAS = ['hoy', 'feed', 'plan', 'yo'];
+const VISTAS = ['hoy', 'feed', 'plan', 'yo', 'simulacro'];
 
 /* ── Vista HOY ────────────────────────────────────────────── */
 
@@ -76,6 +77,8 @@ function pintarHoy() {
         </div>
         <p class="enunciado" style="margin:0">${escapar(dia.que)}</p>
       </div>` : ''}
+
+    <a class="boton suave enlace-simulacro" href="#simulacro">Hacer un simulacro completo</a>
 
     ${listaSeccion('Temas de la semana', s['Temas'] || s['Temas — prioridad descendente'])}
     ${listaSeccion('Leer — base', s['BASE — leer'] || s['BASE/ALTO — leer (en este orden)']
@@ -310,6 +313,133 @@ function pintarYo() {
   });
 }
 
+/* ── Vista SIMULACRO ──────────────────────────────────────── */
+
+let relojSimulacro = null;
+
+function salaDeExamen() {
+  const ex = simulacro.estado();
+  let i = 0;
+
+  function reloj() {
+    const s = Math.round(simulacro.segundosRestantes());
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const marca = $('sim-reloj');
+    if (marca) {
+      marca.textContent = `${h}:${String(m).padStart(2, '0')}`;
+      marca.classList.toggle('poco', s < 15 * 60);
+    }
+    if (s <= 0) terminar();
+  }
+
+  function pintar() {
+    $('sim-cuerpo').innerHTML = simulacro.pintarPregunta(
+      ex.preguntas[i], i, ex.preguntas.length);
+
+    $('sim-cuerpo').querySelectorAll('.opcion').forEach(b => {
+      b.addEventListener('click', () => {
+        simulacro.marcar(i, b.dataset.letra);
+        pintar();
+      });
+    });
+    $('sim-cuerpo').querySelector('.sim-duda')?.addEventListener('click', () => {
+      simulacro.alternarDuda(i);
+      pintar();
+    });
+    pintarMapa();
+    $('sim-anterior').disabled = i === 0;
+    window.scrollTo(0, 0);
+  }
+
+  function pintarMapa() {
+    $('sim-mapa').innerHTML = ex.preguntas.map((_, k) => `
+      <button class="sim-casilla ${k === i ? 'actual' : ''}
+        ${ex.marcadas[k] ? 'hecha' : ''} ${ex.dudosas.has(k) ? 'dudosa' : ''}"
+        data-ir="${k}">${k + 1}</button>`).join('');
+    $('sim-mapa').querySelectorAll('[data-ir]').forEach(b => {
+      b.addEventListener('click', () => { i = Number(b.dataset.ir); pintar(); });
+    });
+  }
+
+  function terminar() {
+    clearInterval(relojSimulacro);
+    const r = simulacro.corregir();
+    $('vista-simulacro').innerHTML = `
+      <div class="cabecera-hoy"><h1>Simulacro terminado</h1></div>
+      ${simulacro.pintarResultado(r)}
+      <button class="boton" id="sim-salir" type="button">Volver</button>`;
+    $('sim-salir').addEventListener('click', () => { location.hash = 'hoy'; });
+  }
+
+  $('vista-simulacro').innerHTML = `
+    <div class="sim-barra">
+      <span class="sim-reloj" id="sim-reloj">3:00</span>
+      <button class="sim-entregar" id="sim-entregar" type="button">Entregar</button>
+    </div>
+    <div class="tarjeta" id="sim-cuerpo"></div>
+    <div class="sim-mapa" id="sim-mapa"></div>
+    <div class="sim-nav">
+      <button class="boton suave" id="sim-anterior" type="button">Anterior</button>
+      <button class="boton" id="sim-siguiente" type="button">Siguiente</button>
+    </div>`;
+
+  $('sim-anterior').addEventListener('click', () => { if (i > 0) { i--; pintar(); } });
+  $('sim-siguiente').addEventListener('click', () => {
+    if (i < ex.preguntas.length - 1) { i++; pintar(); }
+  });
+  $('sim-entregar').addEventListener('click', () => {
+    const faltan = ex.marcadas.filter(m => !m).length;
+    const boton = $('sim-entregar');
+    if (faltan && boton.dataset.seguro !== '1') {
+      boton.dataset.seguro = '1';
+      boton.textContent = `Faltan ${faltan}. ¿Entregar?`;
+      return;
+    }
+    terminar();
+  });
+
+  pintar();
+  clearInterval(relojSimulacro);
+  relojSimulacro = setInterval(reloj, 1000);
+  reloj();
+}
+
+async function pintarSimulacro() {
+  if (simulacro.estado() && !simulacro.estado().fin) { salaDeExamen(); return; }
+
+  const ultimo = almacen.ultimoSimulacro();
+  $('vista-simulacro').innerHTML = `
+    <div class="cabecera-hoy">
+      <div class="fecha">Semanas 12 y 13 del plan</div>
+      <h1>Simulacro</h1>
+    </div>
+    <div class="tarjeta">
+      <p class="enunciado">25 preguntas y 3 horas, con el reparto del examen
+      real: 8 de mecánica, 6 de electromagnetismo, 5 de termodinámica y
+      estadística, 4 de cuántica y moderna, 2 de relatividad.</p>
+      <p class="enunciado">No se corrige nada hasta el final. Lo que se entrena
+      aquí no es la física, es aguantar tres horas sin saber si vas bien y
+      repartir el tiempo entre las veinticinco.</p>
+      ${ultimo ? `<div class="bloque"><span class="rotulo">Último</span>
+        ${ultimo.aciertos}/${ultimo.n} · ${ultimo.pct} % en ${ultimo.minutos} min
+        (${ultimo.fecha})</div>` : ''}
+      <button class="boton" id="sim-empezar" type="button">Empezar</button>
+    </div>`;
+
+  $('sim-empezar').addEventListener('click', async () => {
+    $('sim-empezar').disabled = true;
+    $('sim-empezar').textContent = 'Armando el examen…';
+    try {
+      await simulacro.armar();
+      salaDeExamen();
+    } catch {
+      $('vista-simulacro').innerHTML =
+        '<p class="vacio">No pude armar el simulacro. ¿Metiste la clave?</p>';
+    }
+  });
+}
+
 /* ── Desbloqueo ───────────────────────────────────────────── */
 
 /** El contenido va cifrado porque el repositorio es público. La frase se pide
@@ -381,6 +511,7 @@ async function mostrar(vista) {
   if (vista === 'hoy') pintarHoy();
   if (vista === 'plan') pintarPlan();
   if (vista === 'yo') pintarYo();
+  if (vista === 'simulacro') await pintarSimulacro();
   if (vista === 'feed') await feed.iniciar(crono);
 
   if (vista !== 'feed') window.scrollTo(0, 0);

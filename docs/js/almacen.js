@@ -11,6 +11,7 @@ const INICIAL = {
   respuestas: [],    // {id, area, nivel, patron, marcada, correcta, ok, segundos, causa, confianza, ts}
   dias: {},          // 'AAAA-MM-DD' -> {n, aciertos}
   repaso: {},        // id -> {seguidos, proximo, fallos}
+  simulacros: [],    // {fecha, n, aciertos, pct, minutos, porArea}
   meta_diaria: 30,
   tanda_actual: 0,
 };
@@ -118,6 +119,20 @@ export function registrarRespuesta(r) {
   const entrada = sesionDeHoy().orden.find(x => x.id === r.id);
   if (entrada) entrada.ok = !!r.ok;
   guardar();
+}
+
+/** Guarda el resultado de un simulacro completo.
+ *  Se exporta aparte porque el medidor lo lleva en su propia tabla. */
+export function registrarSimulacro(r) {
+  estado.simulacros.push({ fecha: hoyISO(), ts: Date.now(), ...r });
+  guardar();
+}
+
+export function simulacros() { return estado.simulacros.slice(); }
+
+/** Curva de simulacros, que es la métrica que decide si el plan va bien. */
+export function ultimoSimulacro() {
+  return estado.simulacros.at(-1) || null;
 }
 
 /** Anota por qué falló, después de haber respondido.
@@ -281,6 +296,7 @@ export function exportarEstado() {
     respuestas: estado.respuestas,
     dias: estado.dias,
     repaso: estado.repaso,
+    simulacros: estado.simulacros,
     sesion: estado.sesion,
     meta_diaria: estado.meta_diaria,
   };
@@ -313,6 +329,11 @@ export function importarEstado(texto) {
     estado.respuestas = [...porClave.values()].sort((a, b) => a.ts - b.ts);
     estado.vistas = { ...estado.vistas, ...datos.vistas };
     estado.repaso = { ...estado.repaso, ...(datos.repaso || {}) };
+    const porFecha = new Map();
+    for (const s of [...estado.simulacros, ...(datos.simulacros || [])]) {
+      porFecha.set(`${s.ts}`, s);
+    }
+    estado.simulacros = [...porFecha.values()].sort((a, b) => a.ts - b.ts);
 
     for (const [dia, v] of Object.entries(datos.dias || {})) {
       const mio = estado.dias[dia];

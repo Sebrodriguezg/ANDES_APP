@@ -171,6 +171,8 @@ function tarjetaMC(t, alResponder) {
 
     const fuente = t.origen === 'HRW7'
       ? `Halliday–Resnick–Walker · cap. ${(t.id.match(/c(\d+)/) || [, '?'])[1]}`
+      : t.origen === 'ETS-GR1775' ? 'ETS · GRE Physics GR1775'
+      : t.origen === 'Uniandes2024' ? 'Uniandes · admisión 2024'
       : escapar(t.origen || '');
     const reloj = segundos
       ? `${Math.floor(segundos / 60)}:${String(segundos % 60).padStart(2, '0')}`
@@ -181,7 +183,11 @@ function tarjetaMC(t, alResponder) {
         <span>${ok ? '✓ Correcta' : `✗ Era ${t.respuesta}`}</span>
         ${reloj ? `<span class="reloj${segundos > SEGUNDOS_META ? ' lento' : ''}">${reloj}</span>` : ''}
         <span class="fuente">${fuente}</span>
-      </div>`);
+      </div>
+      ${t.clave_derivada ? `<p class="aviso-clave">El Departamento no publica la
+        clave: esta respuesta está razonada, no verificada.</p>` : ''}
+      ${t.p_acierto ? `<p class="aviso-clave">La acertó el ${t.p_acierto} % de
+        quienes presentaron el GRE.</p>` : ''}`);
 
     if (!anotar) return;
 

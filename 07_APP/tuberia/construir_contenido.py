@@ -111,6 +111,12 @@ def codigo_de(tarjeta):
     m = re.match(r"hrw-c(\d+)-q(\d+)", ident)
     if m:
         return f"HRW {int(m.group(1))}.{int(m.group(2))}"
+    m = re.match(r"ets-gr1775-q(\d+)", ident)
+    if m:
+        return f"GRE {int(m.group(1))}"
+    m = re.match(r"uniandes2024-q(\d+)", ident)
+    if m:
+        return f"UA24 {int(m.group(1))}"
     if tipo == "patron":
         return tarjeta.get("patron", "PAT")
     if tipo == "error":
@@ -146,7 +152,9 @@ def cargar_mc(figuras):
             continue
         pendiente = ruta.name == "hrw_pendientes_figura.json"
         for r in json.loads(ruta.read_text(encoding="utf-8")):
-            fig = figuras.get(r["id"])
+            # Uniandes trae su imagen dentro del propio registro, porque sus
+            # opciones son gráficos y no se pueden separar del enunciado.
+            fig = r.get("figura") or figuras.get(r["id"])
             if pendiente and not fig:
                 continue
             tarjetas.append({
@@ -162,6 +170,11 @@ def cargar_mc(figuras):
                 "etiquetas": r.get("etiquetas", []),
                 "origen": r.get("fuente", ""),
                 "tema": r.get("capitulo_titulo", ""),
+                "patron": r.get("patron"),
+                # El porcentaje de aspirantes que acertó, cuando la fuente lo trae.
+                **({"p_acierto": r["p_acierto"]} if r.get("p_acierto") else {}),
+                # Uniandes no publica clave: la suya está razonada, no verificada.
+                **({"clave_derivada": True} if r.get("clave_derivada") else {}),
                 **({"figura": {
                     "png": fig["png"], "ancho": fig["ancho"], "alto": fig["alto"],
                     "incierta": fig.get("incierta", False),
