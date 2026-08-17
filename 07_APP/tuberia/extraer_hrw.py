@@ -49,6 +49,10 @@ RE_SOLO_NUMERO = re.compile(r"^\d+$")
 # Una pregunta que remite a una figura no sirve sin la imagen: se descarta.
 # "known below" no es un error de tipeo mío: es una errata del banco de HRW por
 # "shown below", y aparece lo suficiente como para que valga la pena atraparla.
+# "significant figures" no es una figura: son preguntas de cifras
+# significativas, sin dibujo ninguno, y el filtro se las llevaba por delante.
+RE_NO_ES_FIGURA = re.compile(r"significant figures?", re.I)
+
 RE_FIGURA = re.compile(
     r"\b(figure|figures|shown below|known below|shown in the|the diagram|diagram shows|"
     r"diagram represents|graph below|graph shows|graph above|shown above|as shown|"
@@ -250,6 +254,20 @@ class Pregunta:
     def texto_enunciado(self):
         return self._limpiar(self.enunciado)
 
+    def _opciones_completas(self):
+        """Las cinco letras, siempre.
+
+        Cuando las alternativas están dibujadas no hay texto que extraer, y la
+        app las presenta como botones de letra sobre la figura. Para eso hacen
+        falta las cinco, aunque vengan vacías.
+        """
+        salida = {k: self._limpiar(self.opciones[k]) for k in self.orden_opciones}
+        if len(salida) < 5 and self.necesita_figura:
+            for letra in "ABCDE":
+                salida.setdefault(letra, "")
+            return {k: salida[k] for k in "ABCDE"}
+        return salida
+
     def a_dict(self):
         area, semana, etiquetas = MAPA_CAPITULOS.get(
             self.capitulo, ("sin_clasificar", None, [])
@@ -264,7 +282,7 @@ class Pregunta:
             "numero": self.numero,
             "enunciado": self.texto_enunciado(),
             "familia": _huella(self.texto_enunciado()),
-            "opciones": {k: self._limpiar(self.opciones[k]) for k in self.orden_opciones},
+            "opciones": self._opciones_completas(),
             "respuesta": self.respuesta,
             "area": area,
             "semana": semana,
@@ -339,7 +357,12 @@ def _valida(preg, descartes):
         descartes["sin_respuesta"] += 1
         return False
     if len(preg.opciones) < 4:
+        # Sin texto de opción casi siempre significa que las alternativas están
+        # dibujadas: "Which of the following five graphs...". Se aparta para
+        # intentar rescatar la figura, igual que las demás con dibujo, en vez
+        # de tirarla. Eran 54, la mayor bolsa de pérdidas del banco.
         descartes["opciones_incompletas"] += 1
+        preg.necesita_figura = True
         return False
     if preg.respuesta not in preg.opciones:
         descartes["respuesta_sin_opcion"] += 1
@@ -367,7 +390,7 @@ def _valida(preg, descartes):
     todo = enunciado + " " + " ".join(opciones.values())
     # Las que dependen de una figura no se tiran: se apartan. Si el extractor de
     # figuras logra rescatar el dibujo, la pregunta vuelve al corpus completa.
-    if RE_FIGURA.search(todo):
+    if RE_FIGURA.search(RE_NO_ES_FIGURA.sub(" ", todo)):
         descartes["depende_de_figura"] += 1
         preg.necesita_figura = True
         return False
@@ -420,7 +443,7 @@ def extraer(ruta_xml):
         if actual is not None:
             if _valida(actual, descartes):
                 preguntas.append(actual)
-            elif actual.necesita_figura and actual.respuesta and len(actual.opciones) >= 4:
+            elif actual.necesita_figura and actual.respuesta:
                 apartadas.append(actual)
             actual = None
             campo = None
