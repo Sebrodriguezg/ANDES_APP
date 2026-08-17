@@ -43,21 +43,29 @@ function montarReporte(nodo, t) {
 
     const panel = elemento(`
       <div class="panel-reporte">
-        <p>Esta es la tarjeta <strong>${escapar(t.codigo || t.id)}</strong>.
-        Si algo está mal —una opción repetida, un exponente perdido, una figura
-        cortada— cópiala y descríbelo en el formulario.</p>
+        <p>Esta es la tarjeta <strong>${escapar(t.codigo || t.id)}</strong>.</p>
+        <p class="orden-reporte">Copia primero: sin el código no hay forma de
+        saber cuál era. Pégalo al principio de la descripción.</p>
         <div class="acciones-reporte">
-          <button class="boton suave copiar-ficha" type="button">Copiar la tarjeta</button>
-          <a class="boton suave" href="${FORMULARIO}" target="_blank"
-             rel="noopener noreferrer">Abrir el formulario</a>
+          <button class="boton copiar-ficha" type="button">1 · Copiar la tarjeta</button>
+          <a class="boton suave abrir-formulario desactivado" href="${FORMULARIO}"
+             target="_blank" rel="noopener noreferrer">2 · Abrir el formulario</a>
         </div>
       </div>`);
     nodo.append(panel);
 
+    // El formulario se habilita al copiar. Es un empujón pequeño, pero el
+    // primer reporte llegó sin código y no se pudo identificar la pregunta.
     panel.querySelector('.copiar-ficha').addEventListener('click', e => {
       navigator.clipboard?.writeText(fichaDeReporte(t))
-        .then(() => { e.target.textContent = 'Copiada'; })
-        .catch(() => { e.target.textContent = 'No pude copiar'; });
+        .then(() => {
+          e.target.textContent = '✓ Copiada';
+          panel.querySelector('.abrir-formulario').classList.remove('desactivado');
+        })
+        .catch(() => {
+          e.target.textContent = 'No pude copiar';
+          panel.querySelector('.abrir-formulario').classList.remove('desactivado');
+        });
     });
   });
 }

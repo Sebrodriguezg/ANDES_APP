@@ -1018,3 +1018,10 @@ ul.lista.material li { font-size: .9rem; color: var(--texto-suave); }
   font-family: var(--mono); font-size: .62rem;
   letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
 }
+
+/* El orden importa: el primer reporte llegó sin código y no se pudo saber qué
+   pregunta era. El enlace al formulario se enciende al copiar la ficha. */
+.panel-reporte .orden-reporte { font-size: .8rem; color: var(--texto-tenue); }
+.acciones-reporte .abrir-formulario.desactivado {
+  opacity: .4; pointer-events: none;
+}
