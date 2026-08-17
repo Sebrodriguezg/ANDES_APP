@@ -906,3 +906,45 @@ ul.lista li::marker { color: var(--texto-tenue); }
   display: block; width: 100%; margin-top: 18px;
   text-align: center; text-decoration: none;
 }
+
+/* ── Velo de la pregunta ────────────────────────────────────── */
+
+/* La pregunta se muestra difuminada hasta que decides atacarla. Se ve que hay
+   algo y de qué área es, pero no se puede leer: así el reloj mide el tiempo
+   que le dedicaste de verdad, y no el que estuvo en pantalla mientras
+   scrolleabas. */
+.tarjeta-mc.tapada { position: relative; }
+
+.tarjeta-mc.tapada .cuerpo-pregunta {
+  filter: blur(5px) saturate(.4);
+  opacity: .5;
+  pointer-events: none;
+  user-select: none;
+  max-height: 260px;
+  overflow: hidden;
+}
+
+.tarjeta-mc.tapada .cronometro { visibility: hidden; }
+
+.velo {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 9px;
+  border-radius: var(--radio);
+  background: linear-gradient(
+    color-mix(in srgb, var(--tarjeta) 55%, transparent),
+    color-mix(in srgb, var(--tarjeta) 88%, transparent));
+  -webkit-tap-highlight-color: transparent;
+}
+
+.velo .empezar { margin-top: 0; }
+.velo .pista-velo {
+  font-family: var(--mono); font-size: .58rem;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--texto-tenue);
+}
+
+/* Sin difuminado, el velo sigue tapando: el blur no está en todos los
+   navegadores viejos y el contenido no debe quedar legible por debajo. */
+@supports not (filter: blur(5px)) {
+  .tarjeta-mc.tapada .cuerpo-pregunta { visibility: hidden; }
+}

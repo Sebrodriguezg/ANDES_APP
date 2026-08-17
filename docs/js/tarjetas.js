@@ -128,24 +128,34 @@ function tarjetaMC(t, alResponder) {
   // vuelve por repaso. Pedirla en las 25 del día volvería el feed un trámite.
   const pideConfianza = t.nivel === 'ALTO' || t.repaso;
 
+  // La pregunta nace tapada. El cronómetro arrancaba antes al aparecer en
+  // pantalla, y bastaba con hacer scroll para poner en marcha el de todas las
+  // que pasaban: los tiempos medidos no eran de nadie. Ahora el reloj empieza
+  // cuando decides atacarla, que es el único momento que significa algo.
   const nodo = elemento(`
-    <article class="tarjeta tarjeta-mc${soloLetras ? ' opciones-en-figura' : ''}">
+    <article class="tarjeta tarjeta-mc tapada${soloLetras ? ' opciones-en-figura' : ''}">
       ${encabezado(t, 'Pregunta', t.nivel === 'ALTO' ? 'nivel alto' : '')}
       ${t.repaso ? `<div class="cinta-repaso">
         ${t.repaso.hueso ? 'Hueso' : 'Repaso'} · la fallaste
         ${t.repaso.fallos > 1 ? `${t.repaso.fallos} veces` : 'una vez'}</div>` : ''}
-      <p class="enunciado">${mate(t.enunciado)}</p>
-      ${bloqueFigura(t)}
-      <div class="opciones">
-        ${letras.map(l => `
-          <button class="opcion" data-letra="${l}">
-            <span class="letra">${l}</span>
-            ${soloLetras ? '' : `<span class="cuerpo">${mate(t.opciones[l])}</span>`}
-          </button>`).join('')}
+      <div class="cuerpo-pregunta">
+        <p class="enunciado">${mate(t.enunciado)}</p>
+        ${bloqueFigura(t)}
+        <div class="opciones">
+          ${letras.map(l => `
+            <button class="opcion" data-letra="${l}">
+              <span class="letra">${l}</span>
+              ${soloLetras ? '' : `<span class="cuerpo">${mate(t.opciones[l])}</span>`}
+            </button>`).join('')}
+        </div>
+        <div class="cronometro">
+          <div class="cronometro-canal"><div class="cronometro-relleno"></div></div>
+          <span class="cronometro-texto">0:00</span>
+        </div>
       </div>
-      <div class="cronometro">
-        <div class="cronometro-canal"><div class="cronometro-relleno"></div></div>
-        <span class="cronometro-texto">0:00</span>
+      <div class="velo">
+        <button class="boton empezar" type="button">Empezar pregunta</button>
+        <span class="pista-velo">El reloj arranca al tocar</span>
       </div>
     </article>`);
 
@@ -260,8 +270,23 @@ function tarjetaMC(t, alResponder) {
     });
   });
 
+  function destapar() {
+    nodo.classList.remove('tapada');
+    nodo.querySelector('.velo')?.remove();
+    cronometro.arrancar();
+  }
+
+  nodo.querySelector('.empezar')?.addEventListener('click', destapar);
+  nodo._destapar = destapar;
+
+  // Una pregunta ya respondida se repinta destapada y sin reloj: no hay nada
+  // que cronometrar en el historial del día.
   const previa = almacen.respuestaPrevia(t.id);
-  if (previa) revelar(previa.marcada, { anotar: false, segundos: previa.segundos || 0 });
+  if (previa) {
+    nodo.classList.remove('tapada');
+    nodo.querySelector('.velo')?.remove();
+    revelar(previa.marcada, { anotar: false, segundos: previa.segundos || 0 });
+  }
 
   nodo._cronometro = cronometro;
   return nodo;

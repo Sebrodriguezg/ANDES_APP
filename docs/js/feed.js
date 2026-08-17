@@ -25,25 +25,6 @@ let repasoPendiente = new Map();
 const TIPOS_DE_LECTURA = new Set(['patron', 'ecuacion', 'dato', 'descarte', 'error']);
 const SEGUNDOS_PARA_CONTAR = 1200;
 
-/* El cronómetro de una pregunta arranca cuando de verdad la tienes delante, no
-   cuando el feed la pinta cuatro pantallas más abajo. */
-let observadorCronometro = null;
-
-function vigilarCronometro(nodo, tarjeta) {
-  if (tarjeta.tipo !== 'mc' || !nodo._cronometro) return;
-
-  observadorCronometro ??= new IntersectionObserver(entradas => {
-    for (const e of entradas) {
-      if (e.isIntersecting) {
-        e.target._cronometro?.arrancar();
-        observadorCronometro.unobserve(e.target);
-      }
-    }
-  }, { threshold: 0.5 });
-
-  observadorCronometro.observe(nodo);
-}
-
 function vigilarLectura(nodo, tarjeta, alContar) {
   if (!TIPOS_DE_LECTURA.has(tarjeta.tipo)) return;
 
@@ -201,7 +182,6 @@ async function pintarLote() {
     if (!nodo) continue;
     contenedor.append(nodo);
     vigilarLectura(nodo, t, () => progreso());
-    vigilarCronometro(nodo, t);
   }
   progreso();
 }
@@ -250,8 +230,6 @@ export async function iniciar(crono) {
   cerrado = false;
   observadorLectura?.disconnect();
   observadorLectura = null;
-  observadorCronometro?.disconnect();
-  observadorCronometro = null;
 
   await restaurarSesion(contenedor);
 
