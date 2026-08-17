@@ -3,112 +3,114 @@
   "algoritmo": "AES-GCM-256",
   "kdf": "PBKDF2-SHA256",
   "iteraciones": 210000,
-  "sal": "I+coT57CRKpWy+G8nuutmQ==",
-  "canario": "wLr+GB0yuEuGRtNNZkfNqqXu9pGzi3avaIZpsQhTEpoZ2oTA"
+  "sal": "QjoL8nZ30KNkdtwEgDyIkA==",
+  "canario": "ce8X+jXAL/GR1s4Ogyn7WFH/nnmGPN1yqvgiGJndv+pZgbyl"
  },
  "semilla": 2026,
- "total": 2773,
+ "total": 2760,
  "por_tanda": 220,
  "tandas": [
   {
    "archivo": "tanda-00.bin",
    "n": 220,
    "areas": {
-    "termo_estadistica": 20,
-    "mecanica": 74,
-    "optica_ondas": 26,
-    "electromagnetismo": 61,
-    "moderna_cuantica": 31,
+    "mecanica": 86,
+    "moderna_cuantica": 26,
+    "termo_estadistica": 17,
+    "electromagnetismo": 60,
+    "optica_ondas": 24,
     "relatividad": 5,
-    "transversal": 3
+    "transversal": 2
    }
   },
   {
    "archivo": "tanda-01.bin",
    "n": 220,
    "areas": {
-    "electromagnetismo": 71,
-    "moderna_cuantica": 32,
-    "optica_ondas": 30,
-    "mecanica": 67,
-    "termo_estadistica": 15,
-    "relatividad": 4,
-    "transversal": 1
+    "mecanica": 65,
+    "electromagnetismo": 73,
+    "termo_estadistica": 18,
+    "moderna_cuantica": 28,
+    "relatividad": 10,
+    "optica_ondas": 23,
+    "transversal": 3
    }
   },
   {
    "archivo": "tanda-02.bin",
    "n": 220,
    "areas": {
-    "moderna_cuantica": 26,
-    "mecanica": 87,
-    "electromagnetismo": 53,
+    "transversal": 4,
+    "electromagnetismo": 55,
+    "relatividad": 7,
+    "moderna_cuantica": 27,
     "termo_estadistica": 22,
-    "optica_ondas": 26,
-    "relatividad": 5,
-    "transversal": 1
+    "mecanica": 82,
+    "optica_ondas": 23
    }
   },
   {
    "archivo": "tanda-03.bin",
    "n": 220,
    "areas": {
-    "transversal": 8,
-    "mecanica": 71,
-    "moderna_cuantica": 19,
-    "optica_ondas": 30,
-    "electromagnetismo": 71,
-    "termo_estadistica": 16,
-    "relatividad": 5
+    "mecanica": 72,
+    "optica_ondas": 29,
+    "electromagnetismo": 67,
+    "moderna_cuantica": 25,
+    "termo_estadistica": 17,
+    "relatividad": 8,
+    "transversal": 2
    }
   },
   {
    "archivo": "tanda-04.bin",
    "n": 220,
    "areas": {
-    "mecanica": 68,
-    "electromagnetismo": 71,
-    "moderna_cuantica": 23,
+    "mecanica": 80,
+    "electromagnetismo": 53,
+    "relatividad": 3,
+    "optica_ondas": 29,
+    "transversal": 1,
     "termo_estadistica": 21,
-    "relatividad": 10,
-    "optica_ondas": 23,
-    "transversal": 4
+    "moderna_cuantica": 33
    }
   },
   {
    "archivo": "tanda-05.bin",
    "n": 220,
    "areas": {
-    "mecanica": 88,
-    "electromagnetismo": 47,
-    "moderna_cuantica": 28,
-    "optica_ondas": 27,
-    "termo_estadistica": 19,
-    "relatividad": 11
+    "mecanica": 79,
+    "moderna_cuantica": 26,
+    "optica_ondas": 30,
+    "electromagnetismo": 58,
+    "termo_estadistica": 18,
+    "relatividad": 7,
+    "transversal": 2
    }
   },
   {
    "archivo": "tanda-06.bin",
    "n": 220,
    "areas": {
-    "mecanica": 75,
-    "relatividad": 6,
-    "moderna_cuantica": 23,
+    "mecanica": 72,
     "electromagnetismo": 68,
-    "termo_estadistica": 19,
-    "optica_ondas": 29
+    "termo_estadistica": 23,
+    "moderna_cuantica": 27,
+    "optica_ondas": 27,
+    "relatividad": 2,
+    "transversal": 1
    }
   },
   {
    "archivo": "tanda-07.bin",
    "n": 220,
    "areas": {
-    "electromagnetismo": 54,
-    "termo_estadistica": 23,
+    "mecanica": 77,
+    "termo_estadistica": 21,
+    "optica_ondas": 31,
     "moderna_cuantica": 29,
-    "mecanica": 85,
-    "optica_ondas": 25,
-    "relatividad": 3,
+    "electromagnetismo": 54,
+    "relatividad": 7,
     "transversal": 1
    }
   },
@@ -116,38 +118,38 @@
    "archivo": "tanda-08.bin",
    "n": 220,
    "areas": {
-    "relatividad": 5,
-    "optica_ondas": 25,
-    "electromagnetismo": 57,
-    "moderna_cuantica": 41,
-    "termo_estadistica": 22,
-    "mecanica": 67,
-    "transversal": 3
+    "mecanica": 73,
+    "termo_estadistica": 21,
+    "moderna_cuantica": 33,
+    "transversal": 4,
+    "optica_ondas": 26,
+    "electromagnetismo": 56,
+    "relatividad": 7
    }
   },
   {
    "archivo": "tanda-09.bin",
    "n": 220,
    "areas": {
-    "mecanica": 75,
-    "optica_ondas": 25,
-    "moderna_cuantica": 17,
-    "electromagnetismo": 69,
-    "termo_estadistica": 25,
-    "transversal": 1,
-    "relatividad": 8
+    "mecanica": 72,
+    "termo_estadistica": 26,
+    "electromagnetismo": 71,
+    "optica_ondas": 23,
+    "moderna_cuantica": 21,
+    "relatividad": 6,
+    "transversal": 1
    }
   },
   {
    "archivo": "tanda-10.bin",
    "n": 220,
    "areas": {
-    "moderna_cuantica": 33,
-    "electromagnetismo": 65,
-    "optica_ondas": 18,
     "mecanica": 76,
-    "termo_estadistica": 22,
-    "relatividad": 5,
+    "electromagnetismo": 73,
+    "relatividad": 4,
+    "optica_ondas": 17,
+    "termo_estadistica": 20,
+    "moderna_cuantica": 29,
     "transversal": 1
    }
   },
@@ -155,50 +157,51 @@
    "archivo": "tanda-11.bin",
    "n": 220,
    "areas": {
-    "electromagnetismo": 70,
-    "moderna_cuantica": 24,
-    "mecanica": 82,
-    "optica_ondas": 23,
-    "relatividad": 5,
-    "termo_estadistica": 16
+    "electromagnetismo": 69,
+    "moderna_cuantica": 23,
+    "mecanica": 81,
+    "termo_estadistica": 17,
+    "optica_ondas": 25,
+    "relatividad": 5
    }
   },
   {
    "archivo": "tanda-12.bin",
-   "n": 133,
+   "n": 120,
    "areas": {
-    "mecanica": 39,
-    "optica_ondas": 20,
-    "electromagnetismo": 34,
-    "moderna_cuantica": 24,
-    "termo_estadistica": 10,
-    "relatividad": 6
+    "optica_ondas": 19,
+    "mecanica": 33,
+    "termo_estadistica": 9,
+    "moderna_cuantica": 23,
+    "relatividad": 6,
+    "electromagnetismo": 29,
+    "transversal": 1
    }
   }
  ],
  "resumen": {
   "por_tipo": {
-   "mc": 2547,
+   "mc": 2534,
    "micro": 174,
+   "patron": 10,
    "ecuacion": 19,
    "dato": 5,
    "descarte": 8,
-   "patron": 10,
    "error": 10
   },
   "por_area": {
-   "termo_estadistica": 250,
-   "mecanica": 954,
-   "optica_ondas": 327,
-   "electromagnetismo": 791,
+   "mecanica": 948,
    "moderna_cuantica": 350,
-   "relatividad": 78,
+   "termo_estadistica": 250,
+   "electromagnetismo": 786,
+   "optica_ondas": 326,
+   "relatividad": 77,
    "transversal": 23
   },
   "por_nivel": {
-   "BASE": 2560,
+   "BASE": 2547,
    "ALTO": 213
   },
-  "con_figura": 303
+  "con_figura": 290
  }
 }

@@ -997,3 +997,24 @@ ul.lista.material li { font-size: .9rem; color: var(--texto-suave); }
 .acciones-reporte { display: flex; gap: 8px; flex-wrap: wrap; }
 .acciones-reporte .boton { flex: 1 1 auto; margin-top: 0; text-align: center;
   text-decoration: none; }
+
+/* Aviso de contenido corregido. Sin él no hay forma de saber que la pregunta
+   rara que tienes delante ya se arregló en el repositorio. */
+.aviso-actualizacion {
+  position: fixed; z-index: 60;
+  left: 14px; right: 14px;
+  bottom: calc(var(--alto-nav) + var(--seguro-abajo) + 12px);
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px;
+  background: var(--tarjeta-alta);
+  border: 1px solid var(--acento); border-radius: var(--radio);
+  font-size: .86rem;
+}
+.aviso-actualizacion span { flex: 1; }
+.aviso-actualizacion button {
+  padding: 7px 14px;
+  background: var(--acento); color: var(--inf-00);
+  border: 0; border-radius: var(--radio);
+  font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
+}

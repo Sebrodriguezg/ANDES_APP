@@ -1,7 +1,11 @@
 /* Service worker: deja la app utilizable sin datos.
    El cascarón se guarda al instalar; el contenido, conforme lo pides. */
 
-const CACHE = 'andes-v2';
+/* La versión se sube a mano en cada publicación de contenido. Sin eso, un
+   teléfono con la app instalada sigue sirviendo del caché la versión anterior:
+   Sebastián vio preguntas con el signo × desplazado horas después de haberlo
+   arreglado, porque su copia era la de antes. */
+const CACHE = 'andes-v3';
 const CASCARON = [
   './', './index.html', './css/estilo.css', './icono.svg',
   './js/app.js', './js/feed.js', './js/datos.js',

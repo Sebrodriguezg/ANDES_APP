@@ -320,6 +320,33 @@ function pintarYo() {
   });
 }
 
+/** Avisa cuando se publicó contenido nuevo desde la última visita.
+ *
+ *  El service worker puede tardar en reemplazar lo cacheado, y sin aviso no hay
+ *  forma de saber que lo que estás viendo ya se corrigió. */
+async function avisarSiHayContenidoNuevo() {
+  try {
+    const m = await datos.cargarManifiesto();
+    const firma = `${m.total}·${m.semilla}·${m.tandas.length}`;
+    const previa = localStorage.getItem('andes.firma');
+    localStorage.setItem('andes.firma', firma);
+
+    if (!previa || previa === firma) return;
+
+    const aviso = document.createElement('div');
+    aviso.className = 'aviso-actualizacion';
+    aviso.innerHTML = `<span>Hay contenido corregido.</span>
+      <button type="button">Recargar</button>`;
+    aviso.querySelector('button').addEventListener('click', async () => {
+      if ('caches' in window) {
+        for (const c of await caches.keys()) await caches.delete(c);
+      }
+      location.reload();
+    });
+    document.body.append(aviso);
+  } catch { /* sin manifiesto no hay nada que comparar */ }
+}
+
 /* ── Vista SIMULACRO ──────────────────────────────────────── */
 
 let relojSimulacro = null;
@@ -557,6 +584,8 @@ async function arrancar() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => { /* sin conexión */ });
   }
+
+  avisarSiHayContenidoNuevo();
 }
 
 arrancar();

@@ -35,6 +35,10 @@ SALIDA = RAIZ / "docs" / "contenido"
 POR_TANDA = 220
 SEMILLA_POR_DEFECTO = 2026
 
+# Restos de una fórmula que se descompuso: llaves sueltas o un signo de
+# multiplicar sin operandos.
+RE_BASURA_FORMULA = re.compile(r"\}\s*\}|^\s*\\times|\\times\s*$|\\times\s*\\times")
+
 AREAS = [
     "mecanica", "electromagnetismo", "termo_estadistica",
     "moderna_cuantica", "relatividad", "optica_ondas",
@@ -168,6 +172,13 @@ def cargar_mc(figuras):
             # para las fuentes que se añadan después.
             textos = [v.strip() for v in r.get("opciones", {}).values() if v.strip()]
             if len(set(textos)) < len(textos):
+                continue
+
+            # Basura de fórmula descompuesta en el texto. Se comprueba también
+            # aquí porque las preguntas apartadas por figura vuelven al corpus
+            # cuando se rescata su dibujo, y el enunciado puede seguir sucio.
+            todo = r.get("enunciado", "") + " " + " ".join(textos)
+            if RE_BASURA_FORMULA.search(todo):
                 continue
             tarjetas.append({
                 "id": r["id"],

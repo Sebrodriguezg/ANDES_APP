@@ -56,6 +56,13 @@ RE_FIGURA = re.compile(
     re.I,
 )
 
+# Llaves sueltas y signos de multiplicar sin operandos: lo que queda cuando una
+# figura se descompone dentro del texto. Se miran aparte de RE_RESTO_FIGURA
+# porque ahí no puede entrar la llave —el propio extractor genera T_{2}— pero
+# un "} }" o un "\times" al borde sí delatan basura.
+RE_BASURA_FORMULA = re.compile(r"\}\s*\}|(?<![\^_])\{[^{}]*\}\s*\}|"
+                               r"^\s*\\times|\\times\s*$")
+
 # Restos de las figuras en ASCII del PDF: hileras de puntos, barras y flechas que
 # `pdftotext` mezcla con el texto. Si aparecen, la pregunta viene contaminada.
 # Ojo: aquí no puede entrar la llave suelta. El propio extractor genera
@@ -99,7 +106,12 @@ def truncar_en_dibujo(texto):
         # Contar letras no basta: los diagramas rotulados con números romanos
         # (I, II, III, IV, V) parecen texto y salvan la cola de ser descartada.
         # Lo que no tienen los dibujos son palabras de verdad.
-        sin_palabras = not [w for w in re.findall(r"[A-Za-z]+", cola) if len(w) >= 4]
+        # Los comandos que genera el propio extractor no cuentan como palabras:
+        # "\times" contiene "times", y una cola de puro dibujo como
+        # "1 2 3 \times _{p}" pasaba por texto legítimo gracias a eso.
+        cola_sin_comandos = re.sub(r"\\[a-zA-Z]+", " ", cola)
+        sin_palabras = not [w for w in re.findall(r"[A-Za-z]+", cola_sin_comandos)
+                            if len(w) >= 4]
         # Una hilera de puntos en la cola es trazo de los ejes, y entonces da
         # igual que después venga una palabra suelta: los rótulos del dibujo
         # ("water air", "60", "30") también son palabras.
@@ -345,7 +357,7 @@ def _valida(preg, descartes):
         descartes["depende_de_figura"] += 1
         preg.necesita_figura = True
         return False
-    if preg.tiene_trazos:
+    if preg.tiene_trazos or RE_BASURA_FORMULA.search(todo):
         descartes["resto_de_figura"] += 1
         preg.necesita_figura = True
         return False

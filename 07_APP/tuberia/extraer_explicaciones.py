@@ -79,6 +79,9 @@ def proporcion_prosa(texto):
 
 def limpiar(texto):
     texto = RE_PIE.sub(" ", texto)
+    # El texto plano de grephysics pierde los exponentes: "10−4 m/s" era 10^{-4}.
+    # Aquí no hay geometría que consultar, pero el patrón es inequívoco.
+    texto = re.sub(r"\b10\s*[-−]\s*(\d+)", r"10^{-\1}", texto)
     texto = RE_FRASE_ELECCION.sub(" ", texto)
     texto = re.sub(r"\s+", " ", texto).strip()
     # Se corta en el último final de frase, para no dejar la explicación a

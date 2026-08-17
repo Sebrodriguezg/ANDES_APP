@@ -28,6 +28,10 @@ done
 rm -rf "$tmp"
 
 echo
+echo "── Notación del corpus ──"
+python3 07_APP/tuberia/auditar.py 2>/dev/null | grep -E "^  (ok|MAL)" || echo "  (sin corpus extraído)"
+
+echo
 echo "── Datos publicados ──"
 python3 - <<'PY' || fallos=1
 import json, sys
