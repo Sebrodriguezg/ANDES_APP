@@ -38,6 +38,9 @@ __pycache__/
 node_modules/
 07_APP/tuberia/_cache/
 
+# Capturas descargadas de los reportes: se vuelven a bajar cuando hagan falta.
+07_APP/tuberia/_cache/capturas/
+
 # La frase de cifrado de las tandas. Nunca sale de este computador.
 07_APP/.clave
 

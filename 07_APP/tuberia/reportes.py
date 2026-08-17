@@ -23,6 +23,9 @@ HOJA = ("https://docs.google.com/spreadsheets/d/"
         "1qoFcISxsPKQZa0G-OxrvBHFkKeQj6kxWWR83nsMop3g/export?format=csv")
 
 CRUDO = Path(__file__).parent / "crudo"
+CAPTURAS = Path(__file__).parent / "_cache" / "capturas"
+
+RE_DRIVE = re.compile(r"drive\.google\.com/open\?id=([\w-]+)|/file/d/([\w-]+)")
 
 # Los códigos que la app pone en cada tarjeta: HRW 5.41, GRE 27, UA24 3, P2...
 RE_CODIGO = re.compile(
@@ -38,6 +41,39 @@ def descargar():
     if "accounts.google.com" in crudo[:2000]:
         raise SystemExit("La hoja no es pública: no puedo leerla.")
     return list(csv.reader(io.StringIO(crudo)))
+
+
+def bajar_captura(url):
+    """Trae la imagen adjunta al reporte, si la hay y es accesible.
+
+    Google Drive sirve los archivos compartidos por enlace desde
+    uc?export=download. Con adjuntos de pocos MB llega la imagen directa; si
+    fuera muy grande, Drive devolvería una página de confirmación en su lugar.
+    """
+    m = RE_DRIVE.search(url or "")
+    if not m:
+        return None
+    ident = m.group(1) or m.group(2)
+
+    CAPTURAS.mkdir(parents=True, exist_ok=True)
+    destino = CAPTURAS / f"{ident}.img"
+    if destino.exists():
+        return destino
+
+    try:
+        peticion = urllib.request.Request(
+            f"https://drive.google.com/uc?export=download&id={ident}",
+            headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(peticion, timeout=30) as r:
+            datos = r.read()
+    except Exception as e:
+        print(f"      (no pude bajar la captura: {e})")
+        return None
+
+    if datos[:15].lower().lstrip().startswith(b"<!doctype") or b"<html" in datos[:200].lower():
+        return None
+    destino.write_bytes(datos)
+    return destino
 
 
 def cargar_corpus():
@@ -123,7 +159,16 @@ def main():
             print(f"   tipo: {tipo}")
         print(f"   {desc.strip()[:400]}")
         if captura:
-            print(f"   captura: {captura}")
+            ruta = bajar_captura(captura)
+            if ruta:
+                try:
+                    from PIL import Image
+                    with Image.open(ruta) as im:
+                        print(f"   captura: {ruta}  ({im.format}, {im.size[0]}x{im.size[1]})")
+                except Exception:
+                    print(f"   captura: {ruta}")
+            else:
+                print(f"   captura: {captura}  (no accesible)")
 
         if t:
             print(f"   ►  {t['id']}  [{t.get('area', '?')}]")
