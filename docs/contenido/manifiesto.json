@@ -4,8 +4,8 @@
   "algoritmo": "AES-GCM-256",
   "kdf": "PBKDF2-SHA256",
   "iteraciones": 210000,
-  "sal": "rj8j6Y57/BmlCBBI1xiPTg==",
-  "canario": "qLGwyXhj4yesjMARTGp4RWefXwXxral+pZWq4NoVZPtiUGd6"
+  "sal": "pPef6nkMDppE8wDVxWgjaQ==",
+  "canario": "i3ypKtzDT0RpIRSL1fc8j//bV1mvkzD7twxTcUU90F2MLu5S"
  },
  "semilla": 2026,
  "total": 2836,

@@ -93,6 +93,8 @@ function pintarHoy() {
       </div>` : ''}
 
     <a class="boton suave enlace-simulacro" href="#simulacro">Hacer un simulacro completo</a>
+    <a class="boton suave enlace-simulacro" href="${CARPETA_DRIVE}"
+       target="_blank" rel="noopener noreferrer">Descargar todo el material</a>
 
     ${listaSeccion('Temas de la semana', s['Temas'] || s['Temas — prioridad descendente'])}
     ${listaSeccion('Leer — base', s['BASE — leer'] || s['BASE/ALTO — leer (en este orden)']
@@ -231,6 +233,26 @@ function pintarYo() {
         ? 'Vas por debajo de los 6 min que pide el plan.'
         : `Meta: 6:00 por pregunta. Vas ${Math.round((medio - 360) / 6)} % por encima.`}</p>` : ''}
 
+    <h2 class="seccion">Todo el material</h2>
+    <div class="tarjeta">
+      <p style="margin:0 0 12px;color:var(--texto-suave);font-size:.9rem">
+        Los libros, los bancos de examen, el plan, el temario y el seguimiento
+        completos. Un gigabyte que la app no puede llevar dentro.
+      </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="boton suave enlace-externo" href="${CARPETA_DRIVE}"
+           target="_blank" rel="noopener noreferrer">Descargar el paquete</a>
+        <a class="boton suave enlace-externo" href="${REPOSITORIO}"
+           target="_blank" rel="noopener noreferrer">Ver el repositorio</a>
+      </div>
+      <p class="pie-fuentes">
+        El banco sale de Halliday–Resnick–Walker, del GRE Physics del ETS, del
+        EUF de Brasil y del examen de admisión de Uniandes 2024. Material de
+        estudio personal.
+        <br><span id="version-contenido"></span>
+      </p>
+    </div>
+
     <h2 class="seccion">Por área</h2>
     ${barras || '<p class="vacio">Responde algunas preguntas en el feed y aquí aparece el desglose.</p>'}
 
@@ -253,26 +275,6 @@ function pintarYo() {
         <button class="boton suave" id="exportar">Exportar respuestas (CSV)</button>
         <button class="boton suave" id="reiniciar">Borrar mi progreso</button>
       </div>
-    </div>
-
-    <h2 class="seccion">Todo el material</h2>
-    <div class="tarjeta">
-      <p style="margin:0 0 12px;color:var(--texto-suave);font-size:.9rem">
-        Los libros, los bancos de examen, el plan, el temario y el seguimiento
-        completos. Un gigabyte que la app no puede llevar dentro.
-      </p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a class="boton suave enlace-externo" href="${CARPETA_DRIVE}"
-           target="_blank" rel="noopener noreferrer">Descargar el paquete</a>
-        <a class="boton suave enlace-externo" href="${REPOSITORIO}"
-           target="_blank" rel="noopener noreferrer">Ver el repositorio</a>
-      </div>
-      <p class="pie-fuentes">
-        El banco sale de Halliday–Resnick–Walker, del GRE Physics del ETS, del
-        EUF de Brasil y del examen de admisión de Uniandes 2024. Material de
-        estudio personal.
-        <br><span id="version-contenido"></span>
-      </p>
     </div>
 
     <h2 class="seccion">Pasar el progreso a otro aparato</h2>
