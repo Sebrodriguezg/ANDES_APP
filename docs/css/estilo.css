@@ -669,3 +669,7 @@ ul.lista li::marker { color: var(--texto-tenue); }
 .tarjeta-reanudar p { margin: 0; color: var(--texto-suave); font-size: .94rem; }
 .tarjeta-reanudar strong { color: var(--texto); }
 .tarjeta-reanudar .boton { width: 100%; }
+
+/* La ranura del ordinal antes de que la tarjeta cuente: se ve como el guion de
+   área, y se reemplaza por el número al responderla o leerla. */
+.ranura-ordinal { opacity: .8; }

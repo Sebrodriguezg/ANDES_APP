@@ -1,7 +1,10 @@
 /* Estado persistente en el teléfono: qué has visto, qué respondiste, tu racha.
    Todo vive en localStorage — no hay servidor y no sale nada del dispositivo. */
 
-const CLAVE = 'andes.v1';
+/* v2: hasta la v1 el progreso del día se incrementaba al pintar la tarjeta,
+   no al trabajarla, así que los contadores guardados vienen inflados. Cambiar
+   la clave hace que el conteo arranque limpio en vez de heredar el error. */
+const CLAVE = 'andes.v2';
 
 const INICIAL = {
   vistas: {},        // id de tarjeta -> timestamp de la última vez
@@ -63,20 +66,33 @@ export function ordinalDe(id) {
 
 export function historialHoy() { return sesionDeHoy().orden.slice(); }
 
-export function vista(id, meta = {}) {
+/** Deja constancia de que la tarjeta ya salió, para no repetirla.
+ *  No suma al progreso del día: salir en pantalla no es haberla hecho. */
+export function vista(id) {
   estado.vistas[id] = Date.now();
-
-  const s = sesionDeHoy();
-  // Si la tarjeta ya salió hoy no se cuenta dos veces: al restaurar la sesión
-  // se vuelven a pintar las mismas y el contador no debe dispararse.
-  if (!s.orden.some(x => x.id === id)) {
-    s.orden.push({ id, codigo: meta.codigo || '', tipo: meta.tipo || '', ok: null });
-    const d = estado.dias[hoyISO()] || { n: 0, aciertos: 0 };
-    d.n += 1;
-    estado.dias[hoyISO()] = d;
-  }
   guardar();
-  return ordinalDe(id);
+}
+
+/** Suma la tarjeta al progreso del día y le asigna su número.
+ *
+ *  Se llama cuando de verdad la trabajaste: al responder una pregunta, o al
+ *  haber tenido en pantalla una tarjeta de lectura. Antes esto ocurría al
+ *  pintarla, y como el feed pinta de a seis, el contador arrancaba en 6/30 sin
+ *  que hubieras tocado nada.
+ *
+ *  Es idempotente: al repintar el historial del día no vuelve a contar.
+ */
+export function contar(id, meta = {}) {
+  const s = sesionDeHoy();
+  const ya = s.orden.findIndex(x => x.id === id);
+  if (ya >= 0) return ya + 1;
+
+  s.orden.push({ id, codigo: meta.codigo || '', tipo: meta.tipo || '', ok: null });
+  const d = estado.dias[hoyISO()] || { n: 0, aciertos: 0 };
+  d.n += 1;
+  estado.dias[hoyISO()] = d;
+  guardar();
+  return s.orden.length;
 }
 
 export function fueVista(id) { return id in estado.vistas; }

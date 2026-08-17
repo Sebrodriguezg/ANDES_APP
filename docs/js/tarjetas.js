@@ -12,11 +12,28 @@ function elemento(html) {
   return t.content.firstElementChild;
 }
 
-function encabezado(tarjeta, tipoTexto, derecha = '') {
+/* El hueco del ordinal se deja siempre; se rellena cuando la tarjeta cuenta
+   para la meta del día, que es al responderla o al haberla leído. */
+function ranura(tarjeta) {
   const n = almacen.ordinalDe(tarjeta.id);
+  return n
+    ? `<span class="ordinal">#${n}</span>`
+    : '<span class="punto-area ranura-ordinal"></span>';
+}
+
+export function pintarOrdinal(nodo, n) {
+  const hueco = nodo.querySelector('.ranura-ordinal, .ordinal');
+  if (!hueco || !n) return;
+  const marca = document.createElement('span');
+  marca.className = 'ordinal';
+  marca.textContent = `#${n}`;
+  hueco.replaceWith(marca);
+}
+
+function encabezado(tarjeta, tipoTexto, derecha = '') {
   return `
     <div class="etiqueta-tarjeta">
-      ${n ? `<span class="ordinal">#${n}</span>` : '<span class="punto-area"></span>'}
+      ${ranura(tarjeta)}
       <span class="tipo">${escapar(tipoTexto)}</span>
       <span>${escapar(nombreArea(tarjeta.area))}</span>
       <span class="derecha">${escapar(derecha || tarjeta.codigo || '')}</span>
@@ -94,6 +111,9 @@ function tarjetaMC(t, alResponder) {
     if (!anotar) return;
 
     vibrar(ok ? 18 : [12, 40, 12]);
+    // Una pregunta cuenta para la meta cuando la respondes, no cuando aparece.
+    const n = almacen.contar(t.id, { codigo: t.codigo, tipo: t.tipo });
+    pintarOrdinal(nodo, n);
     almacen.registrarRespuesta({
       id: t.id, area: t.area, nivel: t.nivel,
       patron: t.patron || '', marcada, correcta: t.respuesta, ok,
@@ -120,10 +140,11 @@ function tarjetaPatron(t) {
   const nodo = elemento(`
     <article class="tarjeta tarjeta-patron">
       <div class="etiqueta-tarjeta">
+        ${ranura(t)}
         <span class="insignia-patron">${escapar(t.patron)}</span>
         <span class="tipo">Patrón</span>
         <span>${escapar(nombreArea(t.area))}</span>
-        <span class="derecha">${escapar(estado || `#${almacen.ordinalDe(t.id) || ''}`)}</span>
+        <span class="derecha">${escapar(estado || t.codigo || '')}</span>
       </div>
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
       <p class="enunciado">${mate(t.idea)}</p>
@@ -193,7 +214,7 @@ function tarjetaDescarte(t) {
   const nodo = elemento(`
     <article class="tarjeta tarjeta-descarte">
       <div class="etiqueta-tarjeta">
-        <span class="ordinal">#${almacen.ordinalDe(t.id) || ''}</span>
+        ${ranura(t)}
         <span class="tipo">Descarte</span>
         <span>${escapar(t.tecnica)}</span>
         <span class="derecha">${t.estado_d1 === 'fallado'

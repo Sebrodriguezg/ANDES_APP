@@ -5,7 +5,7 @@
 
 import * as datos from './datos.js';
 import * as almacen from './almacen.js';
-import { construir, tarjetaCierre, tarjetaReanudar } from './tarjetas.js';
+import { construir, tarjetaCierre, tarjetaReanudar, pintarOrdinal } from './tarjetas.js';
 
 const POR_LOTE = 6;
 
@@ -14,6 +14,40 @@ let indiceTanda = 0;
 let semanaActual = null;
 let cerrado = false;
 let observador = null;
+let observadorLectura = null;
+
+// Las tarjetas que no se responden —patrón, ecuación, dato, descarte, tu error—
+// cuentan para la meta cuando han estado de verdad en pantalla. Sin esto no
+// habría forma de completar el día leyendo, y con contarlas al pintarlas el
+// progreso se llenaba solo.
+const TIPOS_DE_LECTURA = new Set(['patron', 'ecuacion', 'dato', 'descarte', 'error']);
+const SEGUNDOS_PARA_CONTAR = 1200;
+
+function vigilarLectura(nodo, tarjeta, alContar) {
+  if (!TIPOS_DE_LECTURA.has(tarjeta.tipo)) return;
+
+  observadorLectura ??= new IntersectionObserver(entradas => {
+    for (const e of entradas) {
+      const nodo = e.target;
+      if (e.isIntersecting) {
+        // Pasar de largo con el pulgar no cuenta como haberla leído.
+        nodo._temporizador = setTimeout(() => {
+          const t = nodo._tarjeta;
+          const n = almacen.contar(t.id, { codigo: t.codigo, tipo: t.tipo });
+          pintarOrdinal(nodo, n);
+          observadorLectura.unobserve(nodo);
+          nodo._alContar?.();
+        }, SEGUNDOS_PARA_CONTAR);
+      } else {
+        clearTimeout(nodo._temporizador);
+      }
+    }
+  }, { threshold: 0.55 });
+
+  nodo._tarjeta = tarjeta;
+  nodo._alContar = alContar;
+  observadorLectura.observe(nodo);
+}
 
 /** Peso de una tarjeta: cuánto conviene mostrarla ahora. */
 function peso(t, flojas) {
@@ -122,11 +156,11 @@ async function pintarLote() {
 
   for (const t of elegidas) {
     cola = cola.filter(x => x.id !== t.id);
-    // El ordinal se asigna antes de construir la tarjeta para que salga en ella.
-    almacen.vista(t.id, { codigo: t.codigo, tipo: t.tipo });
+    almacen.vista(t.id);
     const nodo = construir(t, () => progreso());
     if (!nodo) continue;
     contenedor.append(nodo);
+    vigilarLectura(nodo, t, () => progreso());
   }
   progreso();
 }
@@ -164,6 +198,8 @@ export async function iniciar(crono) {
   cola = [];
   indiceTanda = 0;
   cerrado = false;
+  observadorLectura?.disconnect();
+  observadorLectura = null;
 
   await restaurarSesion(contenedor);
   await pintarLote();
