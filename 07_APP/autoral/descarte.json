@@ -1,0 +1,129 @@
+[
+ {
+  "id": "descarte-01",
+  "tipo": "descarte",
+  "area": "transversal",
+  "nivel": "BASE",
+  "tecnica": "Análisis dimensional",
+  "titulo": "Las unidades matan opciones gratis",
+  "situacion": "Un péndulo de longitud L en gravedad g. ¿Cuál puede ser su período?",
+  "opciones_falsas": [
+    "2π √(L·g) — dimensiones de longitud sobre tiempo, no de tiempo",
+    "2π L/g — dimensiones de tiempo al cuadrado",
+    "2π √(g/L) — es una frecuencia, no un período"
+  ],
+  "conclusion": "Solo 2π√(L/g) tiene dimensiones de tiempo. No hiciste física: hiciste contabilidad de unidades, y descartaste tres opciones en quince segundos.",
+  "regla": "Cuando las opciones son fórmulas simbólicas, revisa dimensiones antes que nada. En un examen de 7,2 minutos por pregunta es la técnica más rentable que existe."
+ },
+ {
+  "id": "descarte-02",
+  "tipo": "descarte",
+  "area": "transversal",
+  "nivel": "BASE",
+  "tecnica": "Casos límite",
+  "titulo": "Lleva la fórmula a un extremo que sepas",
+  "situacion": "Dos masas m₁ y m₂ unidas por una cuerda sobre una polea (máquina de Atwood). ¿Cuál es la aceleración?",
+  "opciones_falsas": [
+    "Cualquier opción que no se anule cuando m₁ = m₂ — con masas iguales el sistema está en equilibrio",
+    "Cualquier opción que no tienda a g cuando m₂ → 0 — con una sola masa es caída libre",
+    "Cualquier opción que crezca sin límite: la aceleración nunca supera g"
+  ],
+  "conclusion": "a = (m₁ − m₂)g/(m₁ + m₂) pasa las tres pruebas. Las demás mueren en la primera.",
+  "regla": "Los límites que siempre sirven: masas iguales, una masa a cero, sin fricción, ángulo a 0 o 90°, v ≪ c, T → 0, r → ∞."
+ },
+ {
+  "id": "descarte-03",
+  "tipo": "descarte",
+  "area": "transversal",
+  "nivel": "BASE",
+  "tecnica": "Signos y simetrías",
+  "titulo": "¿Hacia dónde debe apuntar?",
+  "situacion": "Campo eléctrico en el centro de un anillo cargado uniformemente, o en el eje de simetría de cualquier distribución simétrica.",
+  "opciones_falsas": [
+    "Cualquier valor distinto de cero en el centro de un anillo: cada trozo se cancela con el diametralmente opuesto",
+    "Cualquier componente perpendicular al eje en un punto del eje: la simetría la anula",
+    "Un potencial que crezca con la distancia cuando la carga es positiva"
+  ],
+  "conclusion": "Antes de integrar, pregúntate qué componentes sobreviven a la simetría. Muchas veces la respuesta es cero y no hay nada que calcular.",
+  "regla": "Si la distribución tiene un eje o un plano de simetría, todo lo perpendicular se cancela. Es el descarte más rápido en electromagnetismo."
+ },
+ {
+  "id": "descarte-04",
+  "tipo": "descarte",
+  "area": "transversal",
+  "nivel": "BASE",
+  "tecnica": "Órdenes de magnitud",
+  "titulo": "¿El número tiene sentido físico?",
+  "situacion": "Una respuesta numérica en un problema de mecánica cotidiana o de física atómica.",
+  "opciones_falsas": [
+    "Una velocidad de caída de 500 m/s tras caer dos metros",
+    "Una energía de ionización de 500 eV para el hidrógeno — es 13,6 eV",
+    "Un radio atómico de 10⁻⁶ m — los átomos son 10⁻¹⁰ m"
+  ],
+  "conclusion": "Tener anclados unos pocos números —g ≈ 10, c ≈ 3×10⁸, radio de Bohr ≈ 0,5 Å, 13,6 eV, kT ≈ 1/40 eV a temperatura ambiente— descarta opciones sin calcular.",
+  "regla": "Si el resultado se aleja tres órdenes de magnitud de lo que conoces, casi seguro te comiste un factor. Revisa antes de marcar."
+ },
+ {
+  "id": "descarte-05",
+  "tipo": "descarte",
+  "area": "mecanica",
+  "nivel": "BASE",
+  "tecnica": "Casos límite",
+  "titulo": "El error que te costó la pregunta 1 del D1",
+  "situacion": "Un cuerpo recorre un rizo vertical de radio R impulsado por un resorte. ¿Cuánto hay que comprimir el resorte?",
+  "opciones_falsas": [
+    "Cualquier expresión que no contenga el término mg(2R) de subir hasta el tope del rizo",
+    "Cualquier expresión donde la compresión no crezca al crecer R"
+  ],
+  "conclusion": "La condición en el tope es v² = gR, pero la energía del resorte tiene que cubrir además la subida completa: ½kx² = ½mv² + mg(2R). Sacaste bien la primera parte y se te quedó la segunda.",
+  "regla": "En conservación de energía, escribe todos los términos antes de igualar. El balance de energía es contabilidad: si falta una cuenta, el resultado está mal aunque la física esté bien.",
+  "estado_d1": "fallado"
+ },
+ {
+  "id": "descarte-06",
+  "tipo": "descarte",
+  "area": "mecanica",
+  "nivel": "BASE",
+  "tecnica": "Signos y simetrías",
+  "titulo": "Fuerzas internas: el error de la pregunta 2 del D1",
+  "situacion": "Bloques A y B apilados, arrastrados por un bloque C que cuelga. ¿Cuál es la condición para que A no resbale sobre B?",
+  "opciones_falsas": [
+    "Cualquier planteamiento que meta la fricción entre A y B en la ecuación del sistema completo"
+  ],
+  "conclusion": "La fricción entre A y B es interna al conjunto A+B: no aparece en la ecuación global. La condición es a = μₛg, y del sistema completo a = m_C·g/(m_A+m_B+m_C).",
+  "regla": "Antes de escribir Newton, decide cuál es tu sistema y traza la frontera. Las fuerzas que cruzan la frontera entran; las de adentro se cancelan por pares. Este es el error conceptual más común de Física 1.",
+  "estado_d1": "fallado"
+ },
+ {
+  "id": "descarte-07",
+  "tipo": "descarte",
+  "area": "relatividad",
+  "nivel": "BASE",
+  "tecnica": "Aproximaciones",
+  "titulo": "La expansión binomial que te costó la pregunta 6",
+  "situacion": "Dilatación temporal con β ≪ 1. Te piden la corrección a primer orden.",
+  "opciones_falsas": [
+    "γ ≈ 1 + β² — falta el medio",
+    "γ ≈ 1 − β²/2 — el signo está al revés, γ siempre es mayor que 1"
+  ],
+  "conclusion": "γ = (1 − β²)^{-1/2} ≈ 1 + β²/2. Sabías que había que expandir y se te fue el factor ½. El resultado te dio el doble de lo debido.",
+  "regla": "(1 + x)^{n} ≈ 1 + nx para x pequeño. Con n = −1/2 y x = −β² sale +β²/2. Ensaya esta expansión hasta que salga sin pensar: aparece en relatividad, en péndulos y en toda la física estadística.",
+  "estado_d1": "fallado"
+ },
+ {
+  "id": "descarte-08",
+  "tipo": "descarte",
+  "area": "electromagnetismo",
+  "nivel": "BASE",
+  "tecnica": "Casos límite",
+  "titulo": "Verificar en la frontera: la pregunta 5 del D1",
+  "situacion": "Ley de Ampère en un conductor cilíndrico hueco, radio interior a y exterior b. Campo en la región intermedia.",
+  "opciones_falsas": [
+    "Cualquier expresión con b² en el denominador en vez de (b² − a²)",
+    "Cualquier expresión que no se anule en r = a"
+  ],
+  "conclusion": "La prueba que decide: en r = b el campo debe valer μ₀I/2πb, el de un alambre completo. Y en r = a debe anularse, porque no hay corriente encerrada. Solo una opción cumple ambas.",
+  "regla": "En problemas por regiones, evalúa siempre en las fronteras. Ibas por buen camino verificando límites — es la técnica correcta, solo faltó llevarla hasta el final.",
+  "estado_d1": "fallado"
+ }
+]

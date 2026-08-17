@@ -142,6 +142,70 @@ function tarjetaError(t) {
   return nodo;
 }
 
+/* ── Ecuación ─────────────────────────────────────────────── */
+
+function tarjetaEcuacion(t) {
+  const nodo = elemento(`
+    <article class="tarjeta tarjeta-ecuacion">
+      ${encabezado(t, 'Ecuación', t.semana || '')}
+      <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
+      <div class="formula grande">${mate(t.formula)}</div>
+      <div class="bloque"><span class="rotulo">Qué dice</span>${mate(t.significa)}</div>
+      <div class="bloque trampa"><span class="rotulo">La trampa</span>${mate(t.trampa)}</div>
+    </article>`);
+  nodo.style.setProperty('--color-area', `var(--${t.area || 'transversal'})`);
+  return nodo;
+}
+
+/* ── Técnica de descarte ──────────────────────────────────── */
+
+/* Estas se revelan por pasos: primero la situación, y solo cuando has intentado
+   descartar por tu cuenta aparecen las opciones muertas y la regla. */
+function tarjetaDescarte(t) {
+  const nodo = elemento(`
+    <article class="tarjeta tarjeta-descarte">
+      <div class="etiqueta-tarjeta">
+        <span class="punto-area"></span>
+        <span class="tipo">Descarte</span>
+        <span>${escapar(t.tecnica)}</span>
+        ${t.estado_d1 === 'fallado' ? '<span class="derecha">lo fallaste en el D1</span>' : ''}
+      </div>
+      <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
+      <p class="enunciado">${mate(t.situacion)}</p>
+      <button class="boton suave revelar" type="button">Ver qué se puede matar</button>
+      <div class="oculto" hidden>
+        <ul class="lista muertas">
+          ${(t.opciones_falsas || []).map(o => `<li>${mate(o)}</li>`).join('')}
+        </ul>
+        <div class="bloque"><span class="rotulo">Conclusión</span>${mate(t.conclusion)}</div>
+        <div class="bloque trampa"><span class="rotulo">La regla</span>${mate(t.regla)}</div>
+      </div>
+    </article>`);
+
+  nodo.style.setProperty('--color-area', `var(--${t.area || 'transversal'})`);
+  const boton = nodo.querySelector('.revelar');
+  boton.addEventListener('click', () => {
+    nodo.querySelector('.oculto').hidden = false;
+    boton.remove();
+    vibrar(12);
+  });
+  return nodo;
+}
+
+/* ── Dato / constante ─────────────────────────────────────── */
+
+function tarjetaDato(t) {
+  const nodo = elemento(`
+    <article class="tarjeta tarjeta-dato">
+      ${encabezado(t, 'Para memorizar')}
+      <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
+      <div class="formula">${mate(t.valor)}</div>
+      <div class="bloque"><span class="rotulo">Por qué importa</span>${mate(t.porque)}</div>
+    </article>`);
+  nodo.style.setProperty('--color-area', `var(--${t.area || 'transversal'})`);
+  return nodo;
+}
+
 /* ── Cierre de sesión ─────────────────────────────────────── */
 
 export function tarjetaCierre({ n, aciertos, alSeguir }) {
@@ -165,9 +229,12 @@ export function tarjetaCierre({ n, aciertos, alSeguir }) {
 
 export function construir(t, alResponder) {
   switch (t.tipo) {
-    case 'mc':     return tarjetaMC(t, alResponder);
-    case 'patron': return tarjetaPatron(t);
-    case 'error':  return tarjetaError(t);
-    default:       return null;
+    case 'mc':       return tarjetaMC(t, alResponder);
+    case 'patron':   return tarjetaPatron(t);
+    case 'error':    return tarjetaError(t);
+    case 'ecuacion': return tarjetaEcuacion(t);
+    case 'descarte': return tarjetaDescarte(t);
+    case 'dato':     return tarjetaDato(t);
+    default:         return null;
   }
 }

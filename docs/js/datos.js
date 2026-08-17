@@ -3,6 +3,8 @@
    El corpus entero son ~1,2 MB. No se descarga de golpe: la app pide el manifiesto
    y la primera tanda (~105 kB) y va trayendo las siguientes conforme avanzas. */
 
+import * as cripto from './cripto.js';
+
 const BASE = 'contenido/';
 
 let manifiesto = null;
@@ -13,6 +15,13 @@ async function traer(archivo) {
   const resp = await fetch(BASE + archivo, { cache: 'no-cache' });
   if (!resp.ok) throw new Error(`No pude cargar ${archivo} (${resp.status})`);
   return resp.json();
+}
+
+async function traerCifrado(archivo, clave) {
+  const resp = await fetch(BASE + archivo, { cache: 'no-cache' });
+  if (!resp.ok) throw new Error(`No pude cargar ${archivo} (${resp.status})`);
+  const blob = await resp.arrayBuffer();
+  return JSON.parse(await cripto.descifrar(clave, blob));
 }
 
 export async function cargarManifiesto() {
@@ -30,10 +39,36 @@ export async function cargarTanda(indice) {
   const m = await cargarManifiesto();
   const meta = m.tandas[indice];
   if (!meta) return [];
-  const tarjetas = await traer(meta.archivo);
+
+  let tarjetas;
+  if (m.cifrado) {
+    const clave = await cripto.recuperar(m.cifrado);
+    if (!clave) throw new Error('sin-clave');
+    tarjetas = await traerCifrado(meta.archivo, clave);
+  } else {
+    tarjetas = await traer(meta.archivo);
+  }
+
   tandasCargadas.set(indice, tarjetas);
   return tarjetas;
 }
+
+/** ¿El contenido viene cifrado y todavía no hay clave válida en el teléfono? */
+export async function necesitaClave() {
+  const m = await cargarManifiesto();
+  if (!m.cifrado) return false;
+  return !(await cripto.recuperar(m.cifrado));
+}
+
+export async function desbloquear(frase) {
+  const m = await cargarManifiesto();
+  const clave = await cripto.probarFrase(frase, m.cifrado);
+  if (!clave) return false;
+  await cripto.recordar(clave);
+  return true;
+}
+
+export function datosCifrado() { return manifiesto?.cifrado || null; }
 
 export function numeroDeTandas() {
   return manifiesto ? manifiesto.tandas.length : 0;

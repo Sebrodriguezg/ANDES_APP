@@ -115,12 +115,21 @@ Racha, meta diaria, combo, repaso espaciado a 3 y 14 días, estadísticas por á
 exportación a CSV compatible con `medidor.py`.
 *Entregable: lo que haces en el celular alimenta el tablero que ya existe.*
 
-### F5 · Contenido autoral
-Los 10 patrones, formularios por área, tarjetas de descarte, micro-lecciones, constantes.
-Es la parte que más mueve la aguja y crece cada semana junto con el cronograma.
+### F5 · Contenido autoral ✅
+52 tarjetas escritas a mano, priorizadas según el diagnóstico D1 (base 0/6):
+los 10 patrones, 19 ecuaciones por área, 8 técnicas de descarte —cinco de ellas
+atadas a un fallo concreto tuyo del D1—, 5 fichas de constantes y órdenes de
+magnitud, más tus 10 errores reinyectados. Crece cada semana.
 
-### F6 · Cierre
-Cifrado de shards, PWA offline completa, rotación de tandas, ajustes finos.
+### F6 · Cifrado ✅
+Tandas cifradas con AES-256-GCM, clave derivada por PBKDF2-SHA256 con 210 000
+iteraciones. La frase se escribe una vez y queda guardada en el teléfono. Un
+canario en el manifiesto permite decir "clave incorrecta" al instante en vez de
+reventar al descifrar. La frase vive en `07_APP/.clave`, fuera de git.
+
+### Pendiente
+Rotación de tandas con semilla nueva, ajustes de diseño tras usarla en el
+celular, y más contenido autoral conforme avancen las semanas.
 
 ---
 

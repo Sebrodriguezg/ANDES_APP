@@ -38,6 +38,9 @@ __pycache__/
 node_modules/
 07_APP/tuberia/_cache/
 
+# La frase de cifrado de las tandas. Nunca sale de este computador.
+07_APP/.clave
+
 # Corpus intermedio sin cifrar: es el banco de HRW en texto plano y este repo es
 # público. Solo se publican los shards cifrados de docs/contenido/.
 07_APP/tuberia/crudo/

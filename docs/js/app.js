@@ -208,6 +208,55 @@ function pintarYo() {
   });
 }
 
+/* ── Desbloqueo ───────────────────────────────────────────── */
+
+/** El contenido va cifrado porque el repositorio es público. La frase se pide
+ *  una sola vez: después queda la clave derivada guardada en el teléfono. */
+function pedirClave() {
+  return new Promise(resolve => {
+    const capa = document.createElement('div');
+    capa.className = 'capa-clave';
+    capa.innerHTML = `
+      <div class="tarjeta caja-clave">
+        <div class="candado">⚛</div>
+        <h3 class="titulo-tarjeta">Desbloquear el contenido</h3>
+        <p style="color:var(--texto-suave);font-size:.9rem">
+          El banco de preguntas va cifrado porque el repositorio es público.
+          Escribe la clave una vez y queda guardada en este dispositivo.
+        </p>
+        <input id="frase" type="text" inputmode="text" autocapitalize="none"
+               autocomplete="off" spellcheck="false" placeholder="andes-····-····-····">
+        <div class="error-clave" id="error-clave" hidden>Clave incorrecta</div>
+        <button class="boton" id="abrir" type="button">Abrir</button>
+      </div>`;
+    document.body.append(capa);
+
+    const campo = capa.querySelector('#frase');
+    const boton = capa.querySelector('#abrir');
+    const error = capa.querySelector('#error-clave');
+
+    async function intentar() {
+      const frase = campo.value.trim();
+      if (!frase) return;
+      boton.disabled = true;
+      boton.textContent = 'Comprobando…';
+      error.hidden = true;
+
+      const ok = await datos.desbloquear(frase);
+      if (ok) { capa.remove(); resolve(true); return; }
+
+      boton.disabled = false;
+      boton.textContent = 'Abrir';
+      error.hidden = false;
+      campo.select();
+    }
+
+    boton.addEventListener('click', intentar);
+    campo.addEventListener('keydown', e => { if (e.key === 'Enter') intentar(); });
+    setTimeout(() => campo.focus(), 60);
+  });
+}
+
 /* ── Enrutado ─────────────────────────────────────────────── */
 
 async function mostrar(vista) {
@@ -242,6 +291,12 @@ async function arrancar() {
   }
 
   $('dias-restantes').textContent = datos.diasHasta(crono.examen);
+
+  // Hoy y Plan salen del cronograma, que va en claro; solo el feed necesita la
+  // clave. Se pide al arrancar para no interrumpir a mitad del scroll.
+  try {
+    if (await datos.necesitaClave()) await pedirClave();
+  } catch { /* sin manifiesto: el feed avisará por su cuenta */ }
 
   document.querySelectorAll('.barra-inferior button').forEach(b => {
     b.addEventListener('click', () => { location.hash = b.dataset.vista; });

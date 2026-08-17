@@ -409,3 +409,54 @@ ul.lista li { margin: 5px 0; font-size: .93rem; }
 
 .vacio { padding: 30px 16px; text-align: center; color: var(--texto-tenue);
   font-size: .9rem; border: 1px dashed var(--borde); border-radius: 12px; }
+
+/* ── Pantalla de desbloqueo ─────────────────────────────────── */
+
+.capa-clave {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: color-mix(in srgb, var(--fondo) 92%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.caja-clave { max-width: 380px; width: 100%; margin: 0; text-align: center; }
+.caja-clave .candado { font-size: 2.4rem; color: var(--acento); line-height: 1; }
+.caja-clave .titulo-tarjeta { margin-top: 10px; }
+
+.caja-clave input {
+  width: 100%; margin: 14px 0 0; padding: 12px 14px;
+  background: var(--tarjeta-alta); color: var(--texto);
+  border: 1px solid var(--borde); border-radius: 10px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 1rem; text-align: center; letter-spacing: .04em;
+}
+.caja-clave input:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+
+.error-clave { margin-top: 9px; color: var(--mal); font-size: .84rem; }
+.caja-clave .boton { width: 100%; margin-top: 14px; }
+.caja-clave .boton:disabled { opacity: .6; }
+
+/* ── Tarjetas de ecuación, descarte y dato ──────────────────── */
+
+.tarjeta-ecuacion { border-color: color-mix(in srgb, var(--color-area) 32%, var(--borde)); }
+.formula.grande { font-size: 1rem; line-height: 2; }
+
+.tarjeta-descarte { border-color: color-mix(in srgb, var(--aviso) 34%, var(--borde)); }
+.tarjeta-descarte .revelar { width: 100%; margin-top: 4px; }
+.tarjeta-descarte .muertas { margin: 4px 0 0; padding-left: 0; list-style: none; }
+.tarjeta-descarte .muertas li {
+  position: relative;
+  padding: 8px 10px 8px 30px;
+  margin: 6px 0;
+  background: color-mix(in srgb, var(--mal) 9%, var(--tarjeta-alta));
+  border-radius: 8px;
+  font-size: .89rem;
+}
+.tarjeta-descarte .muertas li::before {
+  content: "✕";
+  position: absolute; left: 11px; top: 8px;
+  color: var(--mal); font-weight: 700;
+}
+
+.tarjeta-dato .formula { line-height: 1.95; }

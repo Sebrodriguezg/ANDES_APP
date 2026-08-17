@@ -22,6 +22,8 @@ import random
 from collections import Counter
 from pathlib import Path
 
+import cifrar
+
 RAIZ = Path(__file__).resolve().parents[2]
 CRUDO = Path(__file__).parent / "crudo"
 AUTORAL = RAIZ / "07_APP" / "autoral"
@@ -124,6 +126,9 @@ def main():
     ap.add_argument("--semilla", type=int, default=SEMILLA_POR_DEFECTO,
                     help="cambia el orden de las tandas")
     ap.add_argument("--por-tanda", type=int, default=POR_TANDA)
+    ap.add_argument("--clave", help="frase de cifrado; por defecto usa 07_APP/.clave")
+    ap.add_argument("--en-claro", action="store_true",
+                    help="no cifrar (solo para depurar en local)")
     args = ap.parse_args()
 
     rng = random.Random(args.semilla)
@@ -140,18 +145,29 @@ def main():
     tarjetas = intercalar(mc, autoral, errores, rng)
 
     SALIDA.mkdir(parents=True, exist_ok=True)
-    for viejo in SALIDA.glob("tanda-*.json"):
-        viejo.unlink()
+    for patron in ("tanda-*.json", "tanda-*.bin"):
+        for viejo in SALIDA.glob(patron):
+            viejo.unlink()
+
+    clave = bloque_cripto = None
+    frase = nueva = None
+    if not args.en_claro:
+        frase, nueva = cifrar.obtener_frase(args.clave)
+        clave, bloque_cripto = cifrar.preparar(frase)
 
     tandas = []
     for i in range(0, len(tarjetas), args.por_tanda):
         trozo = tarjetas[i:i + args.por_tanda]
         indice = len(tandas)
-        nombre = f"tanda-{indice:02d}.json"
-        (SALIDA / nombre).write_text(
-            json.dumps(trozo, ensure_ascii=False, separators=(",", ":")),
-            encoding="utf-8",
-        )
+        if clave:
+            nombre = f"tanda-{indice:02d}.bin"
+            cifrar.escribir_tanda(SALIDA / nombre, clave, trozo)
+        else:
+            nombre = f"tanda-{indice:02d}.json"
+            (SALIDA / nombre).write_text(
+                json.dumps(trozo, ensure_ascii=False, separators=(",", ":")),
+                encoding="utf-8",
+            )
         tandas.append({
             "archivo": nombre,
             "n": len(trozo),
@@ -159,6 +175,7 @@ def main():
         })
 
     manifiesto = {
+        "cifrado": bloque_cripto,
         "semilla": args.semilla,
         "total": len(tarjetas),
         "por_tanda": args.por_tanda,
@@ -173,11 +190,22 @@ def main():
         json.dumps(manifiesto, ensure_ascii=False, indent=1), encoding="utf-8"
     )
 
-    peso = sum(f.stat().st_size for f in SALIDA.glob("tanda-*.json"))
+    peso = sum(f.stat().st_size for f in SALIDA.glob("tanda-*"))
     print(f"{len(tarjetas)} tarjetas en {len(tandas)} tandas  ({peso/1024:.0f} kB)")
     print(f"  por tipo:  {manifiesto['resumen']['por_tipo']}")
     print(f"  por área:  {manifiesto['resumen']['por_area']}")
     print(f"  -> {SALIDA.relative_to(RAIZ)}/")
+
+    if clave:
+        print(f"\n  cifrado AES-256-GCM, {cifrar.ITERACIONES:,} iteraciones")
+        if nueva:
+            print(f"\n  CLAVE NUEVA: {frase}")
+            print(f"  guardada en {cifrar.ARCHIVO_CLAVE.relative_to(RAIZ)} (fuera de git)")
+            print("  la escribes una sola vez en la app; anótala donde no se pierda")
+        else:
+            print(f"  clave tomada de {cifrar.ARCHIVO_CLAVE.relative_to(RAIZ)}")
+    else:
+        print("\n  SIN CIFRAR — no publiques esto en un repositorio público")
 
 
 if __name__ == "__main__":

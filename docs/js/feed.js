@@ -31,9 +31,13 @@ function peso(t, flojas) {
   // El tema de la semana en curso, al frente.
   if (semanaActual && t.semana === semanaActual.id) p *= 2.2;
 
-  // Los patrones y tus propios errores valen más que una pregunta cualquiera.
-  if (t.tipo === 'patron') p *= 3.5;
-  if (t.tipo === 'error') p *= 4;
+  // No todas las tarjetas rinden igual. Tus propios errores son lo más valioso
+  // que hay; después los patrones y las técnicas de descarte, que son lo que
+  // convierte tiempo de scroll en puntos el 23 de noviembre.
+  const PESO_TIPO = {
+    error: 4, patron: 3.5, descarte: 3, ecuacion: 2.5, dato: 2, mc: 1,
+  };
+  p *= PESO_TIPO[t.tipo] ?? 1;
 
   return p;
 }
@@ -56,8 +60,14 @@ function elegir(candidatos, cuantos) {
 
 async function asegurarCola(minimo) {
   while (cola.length < minimo && indiceTanda < datos.numeroDeTandas()) {
-    const tanda = await datos.cargarTanda(indiceTanda++);
-    cola.push(...tanda);
+    try {
+      const tanda = await datos.cargarTanda(indiceTanda++);
+      cola.push(...tanda);
+    } catch (e) {
+      if (e.message === 'sin-clave') throw e;
+      // Una tanda que no llega no debe tumbar el feed: se sigue con las demás.
+      console.warn('tanda ilegible, sigo con la siguiente', e);
+    }
   }
   // Si se agotó el corpus, se vuelve a empezar: lo visto reaparece con poco peso,
   // así que en la práctica salen primero las falladas y las que quedaron sin ver.
@@ -97,7 +107,17 @@ async function pintarLote() {
     return;
   }
 
-  await asegurarCola(POR_LOTE * 4);
+  try {
+    await asegurarCola(POR_LOTE * 4);
+  } catch (e) {
+    if (e.message === 'sin-clave' && !contenedor.querySelector('.vacio')) {
+      contenedor.innerHTML =
+        '<p class="vacio">El contenido está cifrado y falta la clave.<br>' +
+        'Recarga la página para volver a escribirla.</p>';
+    }
+    return;
+  }
+
   const elegidas = elegir(cola, POR_LOTE);
 
   for (const t of elegidas) {

@@ -1,11 +1,11 @@
 /* Service worker: deja la app utilizable sin datos.
    El cascarón se guarda al instalar; el contenido, conforme lo pides. */
 
-const CACHE = 'andes-v1';
+const CACHE = 'andes-v2';
 const CASCARON = [
   './', './index.html', './css/estilo.css', './icono.svg',
   './js/app.js', './js/feed.js', './js/datos.js',
-  './js/almacen.js', './js/tarjetas.js', './js/mate.js',
+  './js/almacen.js', './js/tarjetas.js', './js/mate.js', './js/cripto.js',
   './contenido/cronograma.json', './contenido/manifiesto.json',
 ];
 
