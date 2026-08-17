@@ -17,6 +17,7 @@ Uso:
 
 import argparse
 import csv
+from datetime import date
 import json
 import random
 import re
@@ -354,6 +355,9 @@ def main():
         })
 
     manifiesto = {
+        # Fecha de generación, para poder saber desde la app qué versión del
+        # contenido se está usando sin tener que mirar el repositorio.
+        "generado": date.today().isoformat(),
         "cifrado": bloque_cripto,
         "semilla": args.semilla,
         "total": len(tarjetas),

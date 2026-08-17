@@ -271,6 +271,7 @@ function pintarYo() {
         El banco sale de Halliday–Resnick–Walker, del GRE Physics del ETS, del
         EUF de Brasil y del examen de admisión de Uniandes 2024. Material de
         estudio personal.
+        <br><span id="version-contenido"></span>
       </p>
     </div>
 
@@ -296,6 +297,15 @@ function pintarYo() {
     almacen.fijarMeta(parseInt(e.target.value, 10) || 30);
     feed.refrescarProgreso();
   });
+
+  // Qué versión del contenido tiene este aparato. Útil cuando un despliegue
+  // falla y la app se queda sirviendo lo de antes sin que se note.
+  datos.cargarManifiesto().then(m => {
+    const marca = $('version-contenido');
+    if (marca && m.generado) {
+      marca.textContent = `Contenido del ${m.generado} · ${m.total} tarjetas.`;
+    }
+  }).catch(() => {});
 
   $('exportar').addEventListener('click', () => {
     // La app no puede escribir archivos: se copia al portapapeles y de ahí
