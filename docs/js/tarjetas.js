@@ -7,6 +7,61 @@ import * as almacen from './almacen.js';
 
 const LETRAS = ['A', 'B', 'C', 'D', 'E'];
 
+/* Formulario para reportar tarjetas con errores. El corpus sale de extraer
+   texto de PDF y siempre va a quedar algo mal; lo que importa es que cuando
+   Sebastián se tope con una, reportarla cueste dos toques y llegue con el
+   identificador, porque "vi una pregunta rara" no se puede arreglar. */
+const FORMULARIO = 'https://docs.google.com/forms/d/e/'
+  + '1FAIpQLSeK5ZEwXob2rhtrO7oxy-fLjY9Vc2E364KOrhwjPEgIWJ9aNA/viewform';
+
+function fichaDeReporte(t) {
+  const trozos = [
+    `Tarjeta: ${t.codigo || t.id}`,
+    `id: ${t.id}`,
+    `tipo: ${t.tipo}  ·  area: ${t.area || '—'}  ·  nivel: ${t.nivel || '—'}`,
+    t.origen ? `fuente: ${t.origen}` : '',
+  ];
+  if (t.enunciado) trozos.push(`enunciado: ${t.enunciado.slice(0, 240)}`);
+  if (t.opciones) {
+    for (const l of LETRAS) {
+      if (l in t.opciones) trozos.push(`  ${l}. ${t.opciones[l].slice(0, 90)}`);
+    }
+  }
+  if (t.respuesta) trozos.push(`respuesta registrada: ${t.respuesta}`);
+  if (t.titulo) trozos.push(`titulo: ${t.titulo}`);
+  return trozos.filter(Boolean).join('\n');
+}
+
+/** Panel de ayuda de una tarjeta: identifica cuál es y lleva al formulario. */
+function montarReporte(nodo, t) {
+  const boton = nodo.querySelector('.ayuda');
+  if (!boton) return;
+
+  boton.addEventListener('click', () => {
+    const abierto = nodo.querySelector('.panel-reporte');
+    if (abierto) { abierto.remove(); return; }
+
+    const panel = elemento(`
+      <div class="panel-reporte">
+        <p>Esta es la tarjeta <strong>${escapar(t.codigo || t.id)}</strong>.
+        Si algo está mal —una opción repetida, un exponente perdido, una figura
+        cortada— cópiala y descríbelo en el formulario.</p>
+        <div class="acciones-reporte">
+          <button class="boton suave copiar-ficha" type="button">Copiar la tarjeta</button>
+          <a class="boton suave" href="${FORMULARIO}" target="_blank"
+             rel="noopener noreferrer">Abrir el formulario</a>
+        </div>
+      </div>`);
+    nodo.append(panel);
+
+    panel.querySelector('.copiar-ficha').addEventListener('click', e => {
+      navigator.clipboard?.writeText(fichaDeReporte(t))
+        .then(() => { e.target.textContent = 'Copiada'; })
+        .catch(() => { e.target.textContent = 'No pude copiar'; });
+    });
+  });
+}
+
 /* En el examen son 7,2 min por pregunta; la meta del plan es bajar a 6. La
    barra se llena hacia esos 6 minutos, y a partir de ahí avisa. */
 const SEGUNDOS_META = 360;
@@ -56,6 +111,7 @@ function encabezado(tarjeta, tipoTexto, derecha = '') {
       <span class="tipo">${escapar(tipoTexto)}</span>
       <span>${escapar(nombreArea(tarjeta.area))}</span>
       <span class="derecha">${escapar(derecha || tarjeta.codigo || '')}</span>
+      <button class="ayuda" type="button" aria-label="Reportar un error en esta tarjeta">?</button>
     </div>`;
 }
 
@@ -306,6 +362,7 @@ function tarjetaPatron(t) {
         <span class="tipo">Patrón</span>
         <span>${escapar(nombreArea(t.area))}</span>
         <span class="derecha">${escapar(estado || t.codigo || '')}</span>
+        <button class="ayuda" type="button" aria-label="Reportar un error">?</button>
       </div>
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
       <p class="enunciado">${mate(t.idea)}</p>
@@ -380,6 +437,7 @@ function tarjetaDescarte(t) {
         <span>${escapar(t.tecnica)}</span>
         <span class="derecha">${t.estado_d1 === 'fallado'
           ? 'lo fallaste en el D1' : escapar(t.codigo || '')}</span>
+        <button class="ayuda" type="button" aria-label="Reportar un error">?</button>
       </div>
       <h3 class="titulo-tarjeta">${mate(t.titulo)}</h3>
       <p class="enunciado">${mate(t.situacion)}</p>
@@ -490,6 +548,12 @@ export function tarjetaReanudar({ n, aciertos, meta, ultimo, alVerAnteriores }) 
 /* ── Despacho ─────────────────────────────────────────────── */
 
 export function construir(t, alResponder) {
+  const nodo = despachar(t, alResponder);
+  if (nodo) montarReporte(nodo, t);
+  return nodo;
+}
+
+function despachar(t, alResponder) {
   switch (t.tipo) {
     case 'mc':       return tarjetaMC(t, alResponder);
     case 'patron':   return tarjetaPatron(t);

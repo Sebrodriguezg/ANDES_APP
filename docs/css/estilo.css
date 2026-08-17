@@ -967,3 +967,33 @@ ul.lista.material li { font-size: .9rem; color: var(--texto-suave); }
   font-family: var(--mono); font-size: .58rem;
   letter-spacing: .12em; text-transform: uppercase; color: var(--texto-tenue);
 }
+
+/* ── Reportar un error en una tarjeta ───────────────────────── */
+
+/* Discreto pero siempre en el mismo sitio: al final del encabezado. Nada de
+   esperar a que el usuario recuerde dónde estaba la pregunta rara. */
+.ayuda {
+  flex: none;
+  width: 18px; height: 18px; padding: 0; margin-left: 6px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: 1px solid var(--borde-vivo); border-radius: 50%;
+  color: var(--texto-tenue);
+  font-family: var(--mono); font-size: .6rem; line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ayuda:hover { color: var(--acento); border-color: var(--acento); }
+
+.panel-reporte {
+  margin-top: 13px; padding-top: 12px;
+  border-top: 1px solid var(--borde);
+}
+.panel-reporte p {
+  margin: 0 0 11px; font-size: .86rem; color: var(--texto-suave);
+}
+.panel-reporte strong { color: var(--acento); font-family: var(--mono); }
+
+.acciones-reporte { display: flex; gap: 8px; flex-wrap: wrap; }
+.acciones-reporte .boton { flex: 1 1 auto; margin-top: 0; text-align: center;
+  text-decoration: none; }

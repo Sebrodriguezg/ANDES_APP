@@ -162,6 +162,13 @@ def cargar_mc(figuras):
             fig = r.get("figura") or figuras.get(r["id"])
             if pendiente and not fig:
                 continue
+
+            # Dos opciones idénticas hacen la pregunta imposible de responder.
+            # El filtro va aquí y no en cada extractor para que valga también
+            # para las fuentes que se añadan después.
+            textos = [v.strip() for v in r.get("opciones", {}).values() if v.strip()]
+            if len(set(textos)) < len(textos):
+                continue
             tarjetas.append({
                 "id": r["id"],
                 "tipo": "mc",

@@ -22,6 +22,8 @@ UMBRALES = {
     "sin_codigo_pct": 0.0,            # toda tarjeta necesita su nombre corto
     "mc_sin_respuesta_pct": 0.0,      # una pregunta sin clave no sirve
     "opciones_vacias_pct": 0.5,       # salvo las que traen las opciones dibujadas
+    "opciones_repetidas_pct": 0.0,    # dos iguales hacen la pregunta imposible
+    "simbolo_suelto_pct": 0.2,        # el × desplazado al borde de una opción
 }
 
 # Basura de figura, sin contar los subíndices legítimos que genera el extractor.
@@ -64,6 +66,16 @@ def medir(tarjetas, revisar_figuras=True):
         and not t.get("figura")
     )
 
+    repetidas = 0
+    simbolo = 0
+    for t in mc:
+        textos = [v.strip() for v in t.get("opciones", {}).values() if v.strip()]
+        if len(set(textos)) < len(textos):
+            repetidas += 1
+        if any(v.strip().startswith("\\times") or v.strip().endswith("\\times")
+               for v in t.get("opciones", {}).values()):
+            simbolo += 1
+
     cortadas = 0
     if revisar_figuras and con_figura:
         cortadas = sum(1 for t in con_figura if _figura_incierta(t["figura"]))
@@ -77,6 +89,8 @@ def medir(tarjetas, revisar_figuras=True):
         "sin_codigo_pct": 100 * sin_codigo / total,
         "mc_sin_respuesta_pct": 100 * sin_respuesta / (len(mc) or 1),
         "opciones_vacias_pct": 100 * vacias / (len(mc) or 1),
+        "opciones_repetidas_pct": 100 * repetidas / (len(mc) or 1),
+        "simbolo_suelto_pct": 100 * simbolo / (len(mc) or 1),
     }
 
 

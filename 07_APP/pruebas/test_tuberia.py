@@ -198,6 +198,36 @@ class TestDeteccionDeFiguras(unittest.TestCase):
         self.assertFalse(self.F._es_estructura("1 2 3"))
 
 
+class TestSimbolosYOpciones(unittest.TestCase):
+    """Tres fallos que Sebastián vio en el teléfono antes que yo."""
+
+    def test_el_signo_de_multiplicar_no_se_desplaza(self):
+        """El × viene de una fuente de símbolos y su caja mide 18 pt contra los
+        10 del texto. Agrupando las líneas solo por su base formaba línea
+        propia y acababa al final del renglón: "3.1 10^{-10} s ×"."""
+        palabras = [
+            palabra("3.1", 100, 510.08),
+            palabra("×", 118, 511.72, alto=18.27),
+            palabra("10", 134, 510.08),
+            palabra("-10", 146, 508.4, alto=7.01),
+            palabra("s", 160, 510.08),
+        ]
+        lineas = geometria._agrupar_en_lineas(palabras, 1)
+        self.assertEqual(len(lineas), 1, "el × debe quedar en la misma línea")
+        texto = lineas[0].texto
+        self.assertIn("3.1", texto)
+        self.assertLess(texto.index("times"), texto.index("10^"),
+                        f"el × va entre el número y la potencia: {texto!r}")
+
+    def test_la_cola_con_puntos_se_corta_aunque_traiga_palabras(self):
+        """Los rótulos de dentro del dibujo también son palabras: "water air",
+        "60", "30". Lo que delata la cola es la hilera de puntos."""
+        t = H.truncar_en_dibujo(
+            "If n = 1.33, what is the angle of refraction for the ray shown? "
+            ". 60 . . . . . . . ° . . . . . . 30 . . . . . water air")
+        self.assertTrue(t.endswith("shown?"), f"quedó: {t!r}")
+
+
 class TestPortero(unittest.TestCase):
     """El portero tiene que dejar pasar lo bueno y parar lo malo."""
 

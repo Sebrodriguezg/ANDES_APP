@@ -100,7 +100,11 @@ def truncar_en_dibujo(texto):
         # (I, II, III, IV, V) parecen texto y salvan la cola de ser descartada.
         # Lo que no tienen los dibujos son palabras de verdad.
         sin_palabras = not [w for w in re.findall(r"[A-Za-z]+", cola) if len(w) >= 4]
-        if proporcion_letras < 0.15 or rotulos_sueltos or sin_palabras:
+        # Una hilera de puntos en la cola es trazo de los ejes, y entonces da
+        # igual que después venga una palabra suelta: los rótulos del dibujo
+        # ("water air", "60", "30") también son palabras.
+        con_trazo = bool(RE_RESTO_FIGURA.search(cola))
+        if proporcion_letras < 0.15 or rotulos_sueltos or sin_palabras or con_trazo:
             # Se guarda el corte más tardío, no el primero: el enunciado puede
             # seguir después de una frase ("...la pista. En el punto 3:") y
             # cortar en la primera se lleva por delante la pregunta de verdad.
@@ -325,6 +329,15 @@ def _valida(preg, descartes):
         preg.necesita_figura = True
         return False
 
+    # Dos opciones idénticas hacen la pregunta imposible de responder. La
+    # mayoría son erratas del propio banco de HRW —el original repite 10^{-10}
+    # en las opciones C y D—, pero unas cuantas son exponentes que se
+    # perdieron. En cualquiera de los dos casos no sirve para practicar.
+    textos = [v.strip() for v in opciones.values() if v.strip()]
+    if len(set(textos)) < len(textos):
+        descartes["opciones_repetidas"] += 1
+        return False
+
     todo = enunciado + " " + " ".join(opciones.values())
     # Las que dependen de una figura no se tiran: se apartan. Si el extractor de
     # figuras logra rescatar el dibujo, la pregunta vuelve al corpus completa.
@@ -352,7 +365,8 @@ def extraer(ruta_xml):
     apartadas = []
     descartes = {
         "sin_respuesta": 0, "opciones_incompletas": 0, "respuesta_sin_opcion": 0,
-        "enunciado_vacio": 0, "opcion_vacia": 0, "depende_de_figura": 0,
+        "enunciado_vacio": 0, "opcion_vacia": 0, "opciones_repetidas": 0,
+        "depende_de_figura": 0,
         "resto_de_figura": 0, "glifo_ilegible": 0, "fuera_de_alcance": 0,
     }
 

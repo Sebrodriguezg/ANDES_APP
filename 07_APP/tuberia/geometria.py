@@ -206,9 +206,15 @@ def _agrupar_en_lineas(palabras, pagina):
     altos = Counter(round(p.alto, 1) for p in palabras)
     alto_cuerpo = max(altos.items(), key=lambda kv: (kv[1], kv[0]))[0] or 10.0
 
-    es_pequena = lambda p: p.alto < alto_cuerpo * 0.85
-    cuerpo = [p for p in palabras if not es_pequena(p)]
-    pequenas = [p for p in palabras if es_pequena(p)]
+    # Anómala es toda palabra cuya caja se aparta del cuerpo de texto, por
+    # abajo o por arriba. Los super y subíndices son más pequeños; el signo de
+    # multiplicar viene de una fuente de símbolos y su caja mide 18 pt contra
+    # los 10 del texto. Agrupando solo por la base, ese × formaba línea propia
+    # y terminaba desplazado al final del renglón: "3.1 10^{-10} s ×".
+    es_anomala = lambda p: (p.alto < alto_cuerpo * 0.85
+                            or p.alto > alto_cuerpo * 1.35)
+    cuerpo = [p for p in palabras if not es_anomala(p)]
+    pequenas = [p for p in palabras if es_anomala(p)]
 
     # Las líneas del cuerpo se agrupan por su base (y1), que es estable dentro de una
     # misma línea aunque cambie la fuente de algún símbolo.
