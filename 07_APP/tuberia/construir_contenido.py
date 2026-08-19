@@ -34,6 +34,11 @@ SEGUIMIENTO = RAIZ / "06_SEGUIMIENTO" / "datos"
 SALIDA = RAIZ / "docs" / "contenido"
 
 POR_TANDA = 220
+
+# Lo que entra en el paquete de la hoja de repaso. Es el material de cosecha
+# propia: los diez patrones, las ecuaciones, las tablas de datos y los casos de
+# descarte. Se deja fuera `mc` (con copyright), `micro` y `error`.
+TIPOS_HOJA = ("patron", "ecuacion", "dato", "descarte")
 SEMILLA_POR_DEFECTO = 2026
 
 # Restos de una fórmula que se descompuso: llaves sueltas o un signo de
@@ -223,7 +228,13 @@ def cargar_explicaciones():
 def cargar_autoral():
     tarjetas = []
     for ruta in sorted(AUTORAL.glob("*.json")):
-        for t in json.loads(ruta.read_text(encoding="utf-8")):
+        contenido = json.loads(ruta.read_text(encoding="utf-8"))
+        # `examen.json` vive en esta carpeta pero no son tarjetas: es el reparto
+        # del examen, el expediente del D1 y el protocolo, que la hoja de
+        # repaso muestra aparte. Viaja como objeto, no como lista.
+        if not isinstance(contenido, list):
+            continue
+        for t in contenido:
             # Solo las tablas de texto se repliegan. Las fórmulas son LaTeX y
             # el ancho lo resuelve KaTeX con su propio desplazamiento.
             if isinstance(t.get("tabla"), str):
@@ -325,7 +336,7 @@ def main():
         raise SystemExit(1)
 
     SALIDA.mkdir(parents=True, exist_ok=True)
-    for patron in ("tanda-*.json", "tanda-*.bin"):
+    for patron in ("tanda-*.json", "tanda-*.bin", "hoja.json", "hoja.bin"):
         for viejo in SALIDA.glob(patron):
             viejo.unlink()
 
@@ -354,11 +365,35 @@ def main():
             "areas": dict(Counter(t.get("area", "") for t in trozo)),
         })
 
+    # ── El paquete de la hoja de repaso ───────────────────────
+    #
+    # La vista Hoja solo necesita el material autoral, pero el barajado lo
+    # dispersa entre las trece tandas: sin un paquete propio, abrirla obligaría
+    # a descargar el corpus entero —1,2 MB— para rescatar cuarenta tarjetas.
+    material_hoja = [t for t in tarjetas if t["tipo"] in TIPOS_HOJA]
+    if clave:
+        archivo_hoja = "hoja.bin"
+        cifrar.escribir_tanda(SALIDA / archivo_hoja, clave, material_hoja)
+    else:
+        archivo_hoja = "hoja.json"
+        (SALIDA / archivo_hoja).write_text(
+            json.dumps(material_hoja, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
+
+    # El reparto del examen, el expediente del D1 y el protocolo del día no son
+    # tarjetas, pero la hoja los muestra. Van en claro: son de cosecha propia y
+    # el diagnóstico ya está publicado en 05_SIMULACROS/D1_resultados.md.
+    (SALIDA / "examen.json").write_text(
+        (AUTORAL / "examen.json").read_text(encoding="utf-8"), encoding="utf-8"
+    )
+
     manifiesto = {
         # Fecha de generación, para poder saber desde la app qué versión del
         # contenido se está usando sin tener que mirar el repositorio.
         "generado": date.today().isoformat(),
         "cifrado": bloque_cripto,
+        "hoja": {"archivo": archivo_hoja, "n": len(material_hoja)},
         "semilla": args.semilla,
         "total": len(tarjetas),
         "por_tanda": args.por_tanda,

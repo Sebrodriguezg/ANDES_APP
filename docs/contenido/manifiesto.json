@@ -1,11 +1,15 @@
 {
- "generado": "2026-08-18",
+ "generado": "2026-08-19",
  "cifrado": {
   "algoritmo": "AES-GCM-256",
   "kdf": "PBKDF2-SHA256",
   "iteraciones": 210000,
-  "sal": "wmUgM41ygAdvWVyX3v8Hvw==",
-  "canario": "vCelLTpVoPIC3RMV9OZnPXCKmxOXCe4NW3d+9ZhZgmrL/x/M"
+  "sal": "mxMzE7CjYVVTHdy5WtEfng==",
+  "canario": "h/8wzGqPdIyq0YMBphrQqa0fuQlocLwrGw5TMuvgQ6pFDWJ3"
+ },
+ "hoja": {
+  "archivo": "hoja.bin",
+  "n": 42
  },
  "semilla": 2026,
  "total": 2757,

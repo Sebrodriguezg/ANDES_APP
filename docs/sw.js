@@ -5,12 +5,17 @@
    teléfono con la app instalada sigue sirviendo del caché la versión anterior:
    Sebastián vio preguntas con el signo × desplazado horas después de haberlo
    arreglado, porque su copia era la de antes. */
-const CACHE = 'andes-v3';
+const CACHE = 'andes-v4';
 const CASCARON = [
   './', './index.html', './css/estilo.css', './icono.svg',
   './js/app.js', './js/feed.js', './js/datos.js',
   './js/almacen.js', './js/tarjetas.js', './js/mate.js', './js/cripto.js',
+  // Estos tres faltaban: solo se guardaban al usarlos por primera vez, así que
+  // quien instalaba la app y se quedaba sin datos no podía abrir el simulacro
+  // ni ver una fórmula compuesta.
+  './js/hoja.js', './js/formula.js', './js/simulacro.js',
   './contenido/cronograma.json', './contenido/manifiesto.json',
+  './contenido/examen.json',
 ];
 
 self.addEventListener('install', e => {

@@ -1,0 +1,86 @@
+{
+ "_nota": "Lo que no es una tarjeta pero la hoja de repaso necesita: el reparto del examen, el expediente del D1 y el protocolo del día. Lo leen tanto 07_APP/tuberia/hoja_definitiva.py como la vista Hoja de la app, así que se corrige aquí una sola vez.",
+
+ "fecha_examen": "2026-11-23",
+ "preguntas": 25,
+ "horas": 3,
+ "minutos_por_pregunta": "7,2",
+
+ "reparto": [
+  { "area": "mecanica", "nombre": "Mecánica", "pct": 32, "preguntas": 8 },
+  { "area": "electromagnetismo", "nombre": "Electromagnetismo y relatividad", "pct": 28, "preguntas": 7 },
+  { "area": "termo_estadistica", "nombre": "Termodinámica y estadística", "pct": 20, "preguntas": 5 },
+  { "area": "moderna_cuantica", "nombre": "Cuántica y moderna", "pct": 20, "preguntas": 5 }
+ ],
+
+ "d1": {
+  "fecha": "2026-08-14",
+  "aciertos": 2,
+  "total": 12,
+  "minutos_usados": "44,5",
+  "minutos_disponibles": 60,
+  "base": "0 / 6",
+  "alto": "2 / 6",
+  "preguntas": [
+   { "n": 1, "tema": "Rizo con resorte", "tuya": "c", "buena": "d", "ok": false,
+     "tiempo": "5:31", "confianza": 3,
+     "nota": "Sacaste bien v² = gR en el tope y se te quedó la energía de subir 2R." },
+   { "n": 2, "tema": "Bloques A/B/C con fricción", "tuya": "d", "buena": "c", "ok": false,
+     "tiempo": "14:42", "confianza": 2, "lento": true,
+     "nota": "La fricción entre A y B es interna al conjunto: no va en la ecuación global." },
+   { "n": 3, "tema": "Espacio de fase", "tuya": "a", "buena": "a", "ok": true,
+     "tiempo": "1:47", "confianza": 3, "patron": "P1",
+     "nota": "Correcta, y en menos de dos minutos." },
+   { "n": 4, "tema": "Corchetes de Poisson", "tuya": "c", "buena": "a", "ok": false,
+     "tiempo": "0:43", "confianza": 1, "patron": "P2",
+     "nota": "Adivinaste. Solo una opción tiene la estructura posible." },
+   { "n": 5, "tema": "Ampère, cilindro hueco", "tuya": "d", "buena": "e", "ok": false,
+     "tiempo": "6:24", "confianza": 2,
+     "nota": "Ibas bien con límites. Faltó evaluar en r = b." },
+   { "n": 6, "tema": "Dilatación temporal", "tuya": "d", "buena": "b", "ok": false,
+     "tiempo": "7:45", "confianza": 2,
+     "nota": "Física correcta, matemática fallida: te comiste el 1/2 de la binomial." },
+   { "n": 7, "tema": "Esfera a tierra en campo E", "tuya": "b", "buena": "b", "ok": true,
+     "tiempo": "2:37", "confianza": 4, "patron": "P5",
+     "nota": "Rápida y con confianza. Aplicaste Φ(a) = 0 como toca." },
+   { "n": 8, "tema": "Potencial esfera y cascarón", "tuya": "d", "buena": "c", "ok": false,
+     "tiempo": "2:06", "confianza": 4,
+     "nota": "Confianza 4 y fallada. Es el caso peligroso: nunca la vuelves a repasar." },
+   { "n": 9, "tema": "Calorimetría, espada", "tuya": "e", "buena": "d", "ok": false,
+     "tiempo": "1:28", "confianza": 1,
+     "nota": "Dos cambios de fase. Hay que partir el cálculo en tramos." },
+   { "n": 10, "tema": "Contacto térmico", "tuya": "c", "buena": "b", "ok": false,
+     "tiempo": "1:00", "confianza": 1, "patron": "P7",
+     "nota": "El reparto va con los exponentes de las multiplicidades." },
+   { "n": 11, "tema": "Dos bosones en caja 2D", "tuya": "c", "buena": "e", "ok": false,
+     "tiempo": "2:00", "confianza": 1, "patron": "P8",
+     "nota": "El nivel degenerado más bajo no es el de energía mínima." },
+   { "n": 12, "tema": "Escalón de potencial", "tuya": "d", "buena": "b", "ok": false,
+     "tiempo": "0:30", "confianza": 1, "patron": "P9",
+     "nota": "E = 9V₀/8 da k₁/k₂ = 3, y de ahí R = 1/4." }
+  ],
+  "avisos": [
+   { "titulo": "14 minutos en la pregunta 2",
+     "texto": "Casi un tercio del examen en un problema que además fallaste. En el examen real eso son dos preguntas perdidas por reloj." },
+   { "titulo": "La pregunta 8: confianza 4 y fallada",
+     "texto": "El caso peligroso. Crees que la sabes, así que nunca la vuelves a repasar." },
+   { "titulo": "Nueve de diez fallos son conceptuales",
+     "texto": "No hay atajo. Se arregla estudiando, y por eso el cronograma es como es." }
+  ]
+ },
+
+ "protocolo": [
+  { "titulo": "Responde las 25",
+    "texto": "No hay penalización por error. Una casilla en blanco es un cero seguro; una marcada al azar vale 1 de 5." },
+  { "titulo": "La regla de los 6 minutos",
+    "texto": "Si a los seis minutos no ves el final, marca lo que creas y sigue. En el D1 se te fueron 14,4 minutos en una sola pregunta —y la fallaste—. Eso son dos preguntas perdidas por reloj, no por ignorancia." },
+  { "titulo": "Primero los regalos",
+    "texto": "Da una pasada rápida y despacha las triviales en menos de dos minutos cada una. En el simulacro de 2024 eran la 4, la 13 y la 14. Ese tiempo es el que compra las caras." },
+  { "titulo": "Dimensiones antes que física",
+    "texto": "Cuando las opciones son fórmulas simbólicas, revisa unidades primero. Es la técnica más rentable que existe a 7,2 minutos por pregunta." },
+  { "titulo": "Verifica en la frontera",
+    "texto": "En problemas por regiones, evalúa en los bordes. Es lo que decidía la pregunta 5 del D1 y llevabas la técnica correcta a medio camino." },
+  { "titulo": "Escribe todos los términos antes de igualar",
+    "texto": "El balance de energía es contabilidad. Si falta una cuenta el resultado está mal aunque la física esté bien. Fue la pregunta 1." }
+ ]
+}

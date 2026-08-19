@@ -4,6 +4,7 @@ import * as datos from './datos.js';
 import * as almacen from './almacen.js';
 import * as feed from './feed.js';
 import * as simulacro from './simulacro.js';
+import * as hoja from './hoja.js';
 import { escapar } from './mate.js';
 
 let crono = null;
@@ -16,7 +17,7 @@ const CARPETA_DRIVE =
 const REPOSITORIO = 'https://github.com/Sebrodriguezg/ANDES_APP';
 
 const $ = id => document.getElementById(id);
-const VISTAS = ['hoy', 'feed', 'plan', 'yo', 'simulacro'];
+const VISTAS = ['hoy', 'feed', 'hoja', 'plan', 'yo', 'simulacro'];
 
 /* ── Vista HOY ────────────────────────────────────────────── */
 
@@ -581,6 +582,7 @@ async function mostrar(vista) {
   });
 
   if (vista === 'hoy') pintarHoy();
+  if (vista === 'hoja') await hoja.pintar();
   if (vista === 'plan') pintarPlan();
   if (vista === 'yo') pintarYo();
   if (vista === 'simulacro') await pintarSimulacro();

@@ -9,6 +9,8 @@ const BASE = 'contenido/';
 
 let manifiesto = null;
 let cronograma = null;
+let hojaCargada = null;
+let examen = null;
 const tandasCargadas = new Map();
 
 async function traer(archivo) {
@@ -51,6 +53,33 @@ export async function cargarTanda(indice) {
 
   tandasCargadas.set(indice, tarjetas);
   return tarjetas;
+}
+
+/** El material de la hoja de repaso: patrones, ecuaciones, datos y descartes.
+ *
+ *  Va en un paquete aparte a propósito. Estas cuarenta tarjetas están
+ *  repartidas por las trece tandas —el barajado las dispersa—, así que
+ *  reunirlas desde el feed obligaría a descargar el corpus entero para usar el
+ *  1,5 % de él. */
+export async function cargarHoja() {
+  if (hojaCargada) return hojaCargada;
+  const m = await cargarManifiesto();
+  if (!m.hoja) return [];
+
+  if (m.cifrado) {
+    const clave = await cripto.recuperar(m.cifrado);
+    if (!clave) throw new Error('sin-clave');
+    hojaCargada = await traerCifrado(m.hoja.archivo, clave);
+  } else {
+    hojaCargada = await traer(m.hoja.archivo);
+  }
+  return hojaCargada;
+}
+
+/** Reparto del examen, expediente del D1 y protocolo del día. Va en claro. */
+export async function cargarExamen() {
+  if (!examen) examen = await traer('examen.json');
+  return examen;
 }
 
 /** ¿El contenido viene cifrado y todavía no hay clave válida en el teléfono? */
