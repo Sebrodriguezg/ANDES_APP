@@ -1,6 +1,6 @@
 {
  "examen": "2026-11-23",
- "generado": "2026-08-17",
+ "generado": "2026-08-18",
  "semana_tipo": [
   {
    "dia": "lunes",
@@ -90,8 +90,10 @@
      "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
-      "Repasar el análisis del diagnóstico D1 en 05_SIMULACROS/D1_resultados.md",
-      "Revisar los 10 patrones en 03_TEMARIO/00_mapa_simulacro.md"
+      "Los 10 patrones de 03_TEMARIO/00_mapa_simulacro.md, derivados a mano",
+      "Empieza por los cuatro fallados: P2 Poisson, P7 contacto térmico, P8 bosones en caja, P9 escalón",
+      "Cierra el diagnóstico: preguntas 13–24 del simulacro, 60 min cronometrados",
+      "REA (Molitoris), repaso condensado: cap. 1 pp. 3–25 para arrancar mecánica"
      ]
     },
     {
@@ -101,8 +103,10 @@
      "horas": "1–2",
      "que": "Cerrar la teoría y construir el formulario del tema",
      "material": [
-      "Repasar el análisis del diagnóstico D1 en 05_SIMULACROS/D1_resultados.md",
-      "Revisar los 10 patrones en 03_TEMARIO/00_mapa_simulacro.md"
+      "Los 10 patrones de 03_TEMARIO/00_mapa_simulacro.md, derivados a mano",
+      "Empieza por los cuatro fallados: P2 Poisson, P7 contacto térmico, P8 bosones en caja, P9 escalón",
+      "Cierra el diagnóstico: preguntas 13–24 del simulacro, 60 min cronometrados",
+      "REA (Molitoris), repaso condensado: cap. 1 pp. 3–25 para arrancar mecánica"
      ]
     },
     {
@@ -199,7 +203,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 1, capítulos de cinemática, dinámica, energía y momento (BIB/1_fisica_general/Serway_Fisica_Vol1_7ed.pdf)",
-      "Morin cap. 2 Statics (p. 22) y cap. 3 Using F = ma (p. 51)"
+      "Morin cap. 2 Statics (p. 22) y cap. 3 Using F = ma (p. 51)",
+      "REA cap. 1, pp. 3–15 — vectores, movimiento, Newton, momento y energía"
      ]
     },
     {
@@ -311,7 +316,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 1, capítulos de rotación, gravitación, oscilaciones y fluidos",
-      "Morin cap. 4 Oscillations (p. 101) ← crítico, es la pregunta 5 del simulacro"
+      "Morin cap. 4 Oscillations (p. 101) ← crítico, es la pregunta 5 del simulacro",
+      "REA cap. 1, pp. 16–25 — movimiento armónico, colisiones y lagrangiana"
      ]
     },
     {
@@ -437,7 +443,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "1. Tong Classical Dynamics (BIB/2_mecanica_clasica/Tong_Classical_Dynamics_Cambridge.pdf) — texto principal de la semana. Cubre Lagrange, Hamilton, espacio de fase, Poisson y transformaciones canónicas con la concisión adecuada",
-      "2. Morin cap. 6 The Lagrangian method (p. 218) — la introducción más suave, con problemas resueltos"
+      "2. Morin cap. 6 The Lagrangian method (p. 218) — la introducción más suave, con problemas resueltos",
+      "REA cap. 1, pp. 22–25 — mecánica lagrangiana, que es el puente a los patrones"
      ]
     },
     {
@@ -545,7 +552,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 2, capítulos de campo eléctrico, Gauss, potencial y capacitancia",
-      "Griffiths cap. 2 Electrostatics (p. 59 aprox.) — §2.3 potencial es la pregunta 15 del simulacro"
+      "Griffiths cap. 2 Electrostatics (p. 59 aprox.) — §2.3 potencial es la pregunta 15 del simulacro",
+      "REA cap. 2, pp. 26–31 — campos eléctricos, capacitores, corriente"
      ]
     },
     {
@@ -654,7 +662,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Serway Vol. 2, capítulos de corriente, circuitos, campo magnético e inducción",
-      "Griffiths cap. 5 Magnetostatics (p. 202): §5.1 Lorentz · §5.2 Biot-Savart (p. 215) ← pregunta 13 · §5.3.3 aplicaciones de la ley de Ampère (p. 225) ← pregunta 9 · §5.4 potencial vectorial (p. 234)"
+      "Griffiths cap. 5 Magnetostatics (p. 202): §5.1 Lorentz · §5.2 Biot-Savart (p. 215) ← pregunta 13 · §5.3.3 aplicaciones de la ley de Ampère (p. 225) ← pregunta 9 · §5.4 potencial vectorial (p. 234)",
+      "REA cap. 2, pp. 31–40 — circuitos y campo magnético"
      ]
     },
     {
@@ -776,7 +785,9 @@
      "bloque": "teoria",
      "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
-     "material": []
+     "material": [
+      "REA cap. 2, pp. 38–44 — campos magnéticos y corrientes"
+     ]
     },
     {
      "fecha": "2026-09-29",
@@ -888,7 +899,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Schroeder Parte I, cap. 1 Energy in Thermal Physics (p. 1): §1.1 equilibrio térmico · §1.2 gas ideal (p. 6) · §1.3 equipartición (p. 14) · §1.4 calor y trabajo (p. 17) · §1.5 trabajo de compresión (p. 20) ← pregunta 18 · §1.6 capacidades caloríficas, calor latente, entalpía (p. 28) ← pregunta 17 · §1.7 procesos de transporte (p. 37)",
-      "Serway Vol. 1, capítulos de temperatura, expansión térmica y primera ley ← pregunta 16 (expansión lineal)"
+      "Serway Vol. 1, capítulos de temperatura, expansión térmica y primera ley ← pregunta 16 (expansión lineal)",
+      "REA cap. 4, pp. 50–55 — temperatura, calor y leyes de la termodinámica"
      ]
     },
     {
@@ -1007,7 +1019,9 @@
      "bloque": "teoria",
      "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
-     "material": []
+     "material": [
+      "REA cap. 4, p. 56 — entropía"
+     ]
     },
     {
      "fecha": "2026-10-13",
@@ -1121,7 +1135,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Eisberg & Resnick (BIB/5_cuantica_moderna/Eisberg_Resnick_Quantum_Physics.pdf), capítulos de radiación térmica, fotones, De Broglie y modelo de Bohr — es el texto de la semana",
-      "Serway Vol. 2, capítulos finales de física moderna"
+      "Serway Vol. 2, capítulos finales de física moderna",
+      "REA cap. 3, pp. 45–49 (atómica) y cap. 6, pp. 63–65 (relatividad)"
      ]
     },
     {
@@ -1246,7 +1261,8 @@
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
       "Griffiths QM cap. 1 The Wave Function: §1.1 ecuación de Schrödinger · §1.3 probabilidad · §1.4 normalización · §1.5 momento · §1.6 incertidumbre",
-      "Griffiths QM cap. 2 Time-Independent Schrödinger Equation: §2.1 estados estacionarios · §2.2 pozo infinito · §2.3 oscilador armónico — §2.3.1 método algebraico ← pregunta 24 · §2.4 partícula libre · §2.5 potencial delta, estados ligados y de dispersión · §2.6 pozo finito ← la base de la pregunta 23"
+      "Griffiths QM cap. 2 Time-Independent Schrödinger Equation: §2.1 estados estacionarios · §2.2 pozo infinito · §2.3 oscilador armónico — §2.3.1 método algebraico ← pregunta 24 · §2.4 partícula libre · §2.5 potencial delta, estados ligados y de dispersión · §2.6 pozo finito ← la base de la pregunta 23",
+      "REA cap. 5, pp. 57–62 — incluye el escalón de potencial, que es P9"
      ]
     },
     {
@@ -1374,7 +1390,8 @@
      "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
-      "Serway Vol. 2, capítulos de ondas, óptica geométrica, interferencia y difracción. Para esta semana Serway basta — es exactamente el nivel al que se preguntaría"
+      "Serway Vol. 2, capítulos de ondas, óptica geométrica, interferencia y difracción. Para esta semana Serway basta — es exactamente el nivel al que se preguntaría",
+      "REA cap. 7, pp. 66–75 — ondas, óptica geométrica, interferencia, difracción"
      ]
     },
     {
@@ -1461,7 +1478,8 @@
      "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
-      "Repasar los formularios de las áreas más flojas"
+      "Repasar los formularios de las áreas más flojas",
+      "REA Test 1 (p. 79, clave 109) y Test 2 (p. 153, clave 185), completos"
      ]
     },
     {
@@ -1540,7 +1558,8 @@
      "horas": "1–2",
      "que": "Leer el capítulo y derivar los resultados a mano",
      "material": [
-      "Repaso de errores y formularios"
+      "Repaso de errores y formularios",
+      "REA Test 3 (p. 233) y Test 4 (p. 317). Las explicaciones detalladas valen tanto como el examen"
      ]
     },
     {

@@ -94,8 +94,11 @@ def _material_del_dia(bloque, secciones):
 # y S13 muestran la frase genérica y nada más.
 TAREAS_EXTRA = {
     "S0": {
-        "teoria": ["Repasar el análisis del diagnóstico D1 en 05_SIMULACROS/D1_resultados.md",
-                   "Revisar los 10 patrones en 03_TEMARIO/00_mapa_simulacro.md"],
+        "teoria": ["Los 10 patrones de 03_TEMARIO/00_mapa_simulacro.md, derivados a mano",
+                   "Empieza por los cuatro fallados: P2 Poisson, P7 contacto térmico, "
+                   "P8 bosones en caja, P9 escalón",
+                   "Cierra el diagnóstico: preguntas 13–24 del simulacro, 60 min cronometrados",
+                   "REA (Molitoris), repaso condensado: cap. 1 pp. 3–25 para arrancar mecánica"],
         "problemas": ["Rehacer a mano las preguntas del D1 que fallaste",
                       "Media sesión de expansiones binomiales: (1+x)^n para x pequeño"],
         "mc": ["Sesión cronometrada en la app: 25 preguntas a 7 min"],
@@ -128,6 +131,26 @@ SEMANA_TIPO = [
     ("sabado",    "comodin",   "",    "Comodín. Solo si quedó algo pendiente entre semana"),
     ("domingo",   "comodin",   "",    "Comodín o descanso. Si vas al día, libre"),
 ]
+
+# El repaso condensado del REA (Molitoris) son 74 páginas que cubren las siete
+# áreas del examen. Se lee en paralelo al texto de la semana: es el resumen que
+# fija lo esencial antes de entrar al libro grande, y está escrito para este
+# formato de opción múltiple.
+REA = {
+    "S1":  "REA cap. 1, pp. 3–15 — vectores, movimiento, Newton, momento y energía",
+    "S2":  "REA cap. 1, pp. 16–25 — movimiento armónico, colisiones y lagrangiana",
+    "S3":  "REA cap. 1, pp. 22–25 — mecánica lagrangiana, que es el puente a los patrones",
+    "S4":  "REA cap. 2, pp. 26–31 — campos eléctricos, capacitores, corriente",
+    "S5":  "REA cap. 2, pp. 31–40 — circuitos y campo magnético",
+    "S6":  "REA cap. 2, pp. 38–44 — campos magnéticos y corrientes",
+    "S7":  "REA cap. 4, pp. 50–55 — temperatura, calor y leyes de la termodinámica",
+    "S8":  "REA cap. 4, p. 56 — entropía",
+    "S9":  "REA cap. 3, pp. 45–49 (atómica) y cap. 6, pp. 63–65 (relatividad)",
+    "S10": "REA cap. 5, pp. 57–62 — incluye el escalón de potencial, que es P9",
+    "S11": "REA cap. 7, pp. 66–75 — ondas, óptica geométrica, interferencia, difracción",
+    "S12": "REA Test 1 (p. 79, clave 109) y Test 2 (p. 153, clave 185), completos",
+    "S13": "REA Test 3 (p. 233) y Test 4 (p. 317). Las explicaciones detalladas valen tanto como el examen",
+}
 
 # Algunos encabezados traen solo el rango de fechas, sin título de semana.
 TITULOS_FALLBACK = {
@@ -237,6 +260,10 @@ def _dias_de(semana):
         material = _material_del_dia(bloque, secciones).get(nombre, [])
         if not material:
             material = extra.get(bloque, [])
+        # El repaso del REA acompaña el bloque de teoría de cada semana.
+        rea = REA.get(semana["id"])
+        if rea and bloque == "teoria" and nombre == "lunes":
+            material = material + [rea]
         dias.append({
             "fecha": cursor.isoformat(),
             "dia": nombre,

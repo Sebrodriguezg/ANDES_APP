@@ -364,6 +364,7 @@ Marca la casilla \ch{} del día cuando termines. Si hiciste la extendida, marca 
 \begin{itemize}[leftmargin=5mm,itemsep=0.5mm]
 \item Lunes, martes y miércoles: desde las \textbf{16:00}.
 \item Jueves y viernes: desde las \textbf{19:00}.
+\item \textbf{El REA (Molitoris) acompaña cada semana.} Su repaso son 74 páginas para las siete áreas, escritas para este formato de opción múltiple. Se lee antes del texto grande, no en vez de él. Sus cuatro exámenes con explicaciones detalladas son la munición de las semanas 12 y 13.
 \item \textbf{Sábados: comodín.} Sin asignación fija; se usan solo si quedó algo pendiente entre semana.
 \item \textbf{Domingos: comodín.} No traen material nuevo. Son para recuperar, cerrar el entregable de la semana o descansar. Puedes dejarlos libres sin romper nada.
 \item \textbf{Los días 12 de cada mes están libres} (12 de septiembre, 12 de octubre y 12 de noviembre). Si caen entre semana, la tarea de ese día se corre al domingo comodín.
