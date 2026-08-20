@@ -5,7 +5,7 @@
    teléfono con la app instalada sigue sirviendo del caché la versión anterior:
    Sebastián vio preguntas con el signo × desplazado horas después de haberlo
    arreglado, porque su copia era la de antes. */
-const CACHE = 'andes-v4';
+const CACHE = 'andes-v5';
 const CASCARON = [
   './', './index.html', './css/estilo.css', './icono.svg',
   './js/app.js', './js/feed.js', './js/datos.js',

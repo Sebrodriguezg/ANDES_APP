@@ -30,6 +30,7 @@ import portero
 RAIZ = Path(__file__).resolve().parents[2]
 CRUDO = Path(__file__).parent / "crudo"
 AUTORAL = RAIZ / "07_APP" / "autoral"
+EXPLICACIONES = RAIZ / "07_APP" / "explicaciones"
 SEGUIMIENTO = RAIZ / "06_SEGUIMIENTO" / "datos"
 SALIDA = RAIZ / "docs" / "contenido"
 
@@ -127,9 +128,11 @@ def codigo_de(tarjeta):
     m = re.match(r"uniandes2024-q(\d+)", ident)
     if m:
         return f"UA24 {int(m.group(1))}"
-    m = re.match(r"euf-2020a-q(\d+)", ident)
+    # El EUF numera desde Q1 en cada sección, así que el código lleva las dos:
+    # "EUF 3·4" es la cuarta de la tercera sección.
+    m = re.match(r"euf-2020a-s(\d+)q(\d+)", ident)
     if m:
-        return f"EUF {int(m.group(1))}"
+        return f"EUF {int(m.group(1))}·{int(m.group(2))}"
     if tipo == "patron":
         return tarjeta.get("patron", "PAT")
     if tipo == "error":
@@ -243,6 +246,19 @@ def cargar_autoral():
     return tarjetas
 
 
+def cargar_explicaciones_propias():
+    """Las explicaciones escritas a mano, indexadas por id de tarjeta.
+
+    Van aparte del corpus porque se escriben por bloques y a lo largo de
+    semanas: mantenerlas en su propio archivo deja el diff de cada bloque
+    legible y permite publicar con cobertura parcial.
+    """
+    fuera = {}
+    for ruta in sorted(EXPLICACIONES.glob("*.json")):
+        fuera.update(json.loads(ruta.read_text(encoding="utf-8")))
+    return fuera
+
+
 def cargar_errores():
     """Convierte tus fallos registrados en tarjetas de repaso.
 
@@ -326,6 +342,27 @@ def main():
 
     for t in tarjetas:
         t["codigo"] = codigo_de(t)
+
+    # Las explicaciones se pegan a su tarjeta. `confirma` dice a qué letra llega
+    # el razonamiento: si no es la registrada, una de las dos está mal y el
+    # portero lo para. No se corrige aquí en silencio.
+    explicaciones = cargar_explicaciones_propias()
+    desacuerdos = []
+    for t in tarjetas:
+        e = explicaciones.get(t["id"])
+        if not e:
+            continue
+        confirma = (e.get("confirma") or "").strip().upper()
+        if t.get("respuesta") and confirma and confirma != t["respuesta"]:
+            desacuerdos.append((t["id"], confirma, t["respuesta"]))
+            continue
+        t["explicacion"] = {k: v for k, v in e.items() if k != "confirma"}
+
+    if desacuerdos:
+        print(f"\n  {len(desacuerdos)} explicación(es) en desacuerdo con la clave:")
+        for ident, dice, hay in desacuerdos:
+            print(f"    {ident}: la explicación llega a {dice}, el banco dice {hay}")
+        raise SystemExit("Desacuerdo entre explicación y clave. No se publica.")
 
     # El portero va antes de escribir nada: si el corpus se degradó, es mejor
     # dejar publicado lo de ayer que sustituirlo por algo peor.

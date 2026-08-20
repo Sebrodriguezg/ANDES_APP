@@ -1302,3 +1302,66 @@ a.enlace-externo { flex: 1 1 auto; }
 }
 .hoja-protocolo h4 { margin: 0 0 4px; font-family: var(--serif); font-size: 1rem; }
 .hoja-protocolo p { margin: 0; font-size: .88rem; color: var(--texto-suave); }
+
+/* ── Explicación al responder ────────────────────────────────── */
+
+.explicacion {
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--fondo-alto);
+  border: 1px solid var(--borde);
+  border-left: 2px solid var(--acento);
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+.idea-explicacion { margin: 0 0 12px; font-size: .95rem; }
+
+.explicacion .pasos {
+  margin: 0; padding: 0 0 0 4px;
+  list-style: none; counter-reset: paso;
+}
+.explicacion .pasos li {
+  counter-increment: paso;
+  position: relative;
+  padding: 0 0 10px 26px;
+  font-size: .9rem;
+  color: var(--texto-suave);
+}
+.explicacion .pasos li:last-child { padding-bottom: 0; }
+.explicacion .pasos li::before {
+  content: counter(paso);
+  position: absolute; left: 0; top: 0;
+  width: 17px; text-align: center;
+  font-family: var(--mono); font-size: .7rem; line-height: 1.5;
+  color: var(--acento);
+  border: 1px solid var(--borde-vivo); border-radius: 50%;
+}
+/* Una fórmula dentro de un paso puede ser más ancha que el teléfono. */
+.explicacion .katex { max-width: 100%; }
+.explicacion .pasos li, .distractores li span:last-child { overflow-wrap: anywhere; }
+
+.distractores { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--borde); }
+.distractores .rotulo {
+  display: block; margin-bottom: 8px;
+  font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--texto-tenue);
+}
+.distractores ul { margin: 0; padding: 0; list-style: none; }
+.distractores li {
+  display: flex; gap: 9px; align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--borde);
+  font-size: .87rem; color: var(--texto-suave);
+}
+.distractores li:last-child { border-bottom: 0; }
+.distractores .letra {
+  flex: none; width: 18px; text-align: center;
+  font-family: var(--mono); font-size: .74rem;
+  color: var(--texto-tenue);
+  border: 1px solid var(--borde-vivo); border-radius: var(--radio);
+}
+/* La que marcaste: es la que hay que leer. */
+.distractores li.tuya { color: var(--texto); }
+.distractores li.tuya .letra {
+  color: var(--mal); border-color: var(--mal);
+}

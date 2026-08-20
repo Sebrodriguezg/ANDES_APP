@@ -1,0 +1,165 @@
+{
+ "uniandes2024-q01": {
+  "idea": "Conservación de energía, pero con todos los términos: el resorte tiene que pagar la velocidad en el tope **y** la subida hasta él.",
+  "pasos": [
+   "En el punto más alto del rizo la gravedad es la única fuerza centrípeta que hace falta como mínimo: $mg = mv^2/R$, o sea $v^2 = gR = 10 \\cdot 0.5 = 5\\ \\mathrm{m^2/s^2}$.",
+   "La energía del resorte cubre dos cosas: la cinética en el tope y la altura ganada, que es $2R$. $\\tfrac{1}{2}kx^2 = \\tfrac{1}{2}mv^2 + mg(2R)$.",
+   "Con números: $\\tfrac{1}{2}x^2 = \\tfrac{1}{2}(5) + (1)(10)(1) = 2.5 + 10 = 12.5$.",
+   "$x^2 = 25 \\Rightarrow x = 5\\ \\mathrm{m}$."
+  ],
+  "porque_fallan": {
+   "C": "Es lo que sale si aplicas bien la condición del tope pero te olvidas del término $mg(2R)$: solo pagas la velocidad, no la subida. Fue tu error en el D1."
+  },
+  "confirma": "D"
+ },
+
+ "uniandes2024-q02": {
+  "idea": "Traza la frontera del sistema antes de escribir Newton. La fricción entre A y B es **interna** al conjunto A+B y no aparece en la ecuación global.",
+  "pasos": [
+   "Sobre B la única fuerza horizontal es la fricción con A. Para que no resbale hace falta $ma \\leq \\mu_s mg$, es decir $a \\leq \\mu_s g$.",
+   "Mirando el conjunto entero (A + B + C), lo único que lo acelera es el peso de C: $a = \\dfrac{m_C\\,g}{m_A + m_B + m_C}$.",
+   "En el límite se igualan: $\\mu_s g = \\dfrac{m_C\\,g}{m_A+m_B+m_C}$.",
+   "Despejando: $m_C = \\dfrac{\\mu_s}{1-\\mu_s}(m_A + m_B)$."
+  ],
+  "porque_fallan": {
+   "D": "Sale de meter la fricción A–B en la ecuación del sistema completo. Es el error conceptual más común de Física 1 y el que te costó catorce minutos en el D1."
+  },
+  "confirma": "C"
+ },
+
+ "uniandes2024-q06": {
+  "idea": "Es el patrón P1. El área encerrada en el espacio de fase crece con la energía, y el ritmo al que crece **es** el período.",
+  "pasos": [
+   "El área de la órbita es $A(E) = \\oint p\\,dq$.",
+   "Derivando respecto a la energía se obtiene directamente el período: $T(E) = \\dfrac{dA}{dE}$.",
+   "No hay que resolver la ecuación de movimiento: por eso este resultado cae tanto en examen."
+  ],
+  "porque_fallan": {},
+  "confirma": "A"
+ },
+
+ "uniandes2024-q07": {
+  "idea": "Es el patrón P2, y se responde por **estructura**, sin calcular: el corchete del momento angular con una coordenada devuelve una coordenada.",
+  "pasos": [
+   "El álgebra que hay que tener memorizada: $\\{L_i, q_j\\} = \\varepsilon_{ijk}\\,q_k$.",
+   "Así que el resultado tiene que llevar $q$, con un símbolo de Levi-Civita delante y un índice contraído.",
+   "Eso ya deja una sola opción en pie, sin hacer ninguna derivada."
+  ],
+  "porque_fallan": {
+   "B": "Da cero, y el corchete de $L$ con una coordenada no se anula.",
+   "C": "Devuelve $L_m$: cambia el tipo de variable. El corchete con $q$ tiene que dar $q$.",
+   "D": "Devuelve $p_j$, que sería el resultado de $\\{L_i, p_j\\}$, no de este."
+  },
+  "confirma": "A"
+ },
+
+ "uniandes2024-q09": {
+  "idea": "Ley de Ampère con la corriente repartida por el área del anillo. La prueba que decide la pregunta es evaluar en las dos fronteras.",
+  "pasos": [
+   "La densidad de corriente es uniforme: $J = \\dfrac{I}{\\pi(b^2-a^2)}$.",
+   "La corriente encerrada por un círculo de radio $r$ vale $I_{enc} = J\\,\\pi(r^2-a^2) = I\\,\\dfrac{r^2-a^2}{b^2-a^2}$.",
+   "Ampère da $B = \\dfrac{\\mu_0 I}{2\\pi r}\\cdot\\dfrac{r^2-a^2}{b^2-a^2}$.",
+   "Comprueba en los bordes: en $r=a$ se anula, y en $r=b$ queda $\\mu_0 I/2\\pi b$, el de un alambre completo. Solo una opción cumple las dos."
+  ],
+  "porque_fallan": {
+   "D": "Lleva $b^2$ en el denominador en vez de $b^2-a^2$: no reparte la corriente solo por el metal del anillo. Falla la prueba en $r=a$."
+  },
+  "confirma": "E"
+ },
+
+ "uniandes2024-q11": {
+  "idea": "Dilatación temporal con $\\beta \\ll 1$. La física es de una línea; lo que decide la pregunta es la expansión binomial.",
+  "pasos": [
+   "$v = 960\\ \\mathrm{km/h} = 266.7\\ \\mathrm{m/s}$, así que $\\beta = v/c \\approx 8.9\\times10^{-7}$.",
+   "$\\gamma = (1-\\beta^2)^{-1/2}$. Con $\\beta$ tan pequeño hay que expandir, porque la calculadora devolvería 1.",
+   "$(1+x)^n \\approx 1 + nx$ con $n=-1/2$ y $x=-\\beta^2$ da $\\gamma \\approx 1 + \\dfrac{\\beta^2}{2}$.",
+   "La corrección es $\\beta^2/2 \\approx 4\\times10^{-13}$, no $\\beta^2$."
+  ],
+  "porque_fallan": {
+   "D": "Es el doble de lo correcto: sale de usar $\\gamma \\approx 1 + \\beta^2$ y comerse el $\\tfrac{1}{2}$ de la expansión. Fue exactamente tu fallo en el D1, y la física la tenías bien."
+  },
+  "confirma": "B"
+ },
+
+ "uniandes2024-q12": {
+  "idea": "Es el patrón P5. Campo uniforme más un dipolo en el centro; la condición de contorno lo decide sin resolver Laplace.",
+  "pasos": [
+   "El enunciado ya te regala la forma: $V = (Ar + B/r^2)\\cos\\theta$. Solo sobreviven los términos $\\ell = 1$.",
+   "Lejos de la esfera el campo debe volver al uniforme, o sea $V \\to -E_0 r\\cos\\theta$, y eso fija $A = -E_0$.",
+   "La esfera está **a tierra**: $V(a,\\theta) = 0$ para todo $\\theta$. Eso da $-E_0 a + B/a^2 = 0$, luego $B = E_0 a^3$.",
+   "$V(r,\\theta) = -E_0\\left(r - \\dfrac{a^3}{r^2}\\right)\\cos\\theta$."
+  ],
+  "porque_fallan": {},
+  "confirma": "B"
+ },
+
+ "uniandes2024-q15": {
+  "idea": "Gauss para el campo entre las dos esferas, e integrar. Entre $a$ y $b$ solo cuenta la carga encerrada, que es $+Q$.",
+  "pasos": [
+   "Para $a < r < b$ la carga encerrada es $+Q$, así que $E = kQ/r^2$. El cascarón exterior no contribuye dentro de sí mismo.",
+   "$\\Delta V = -\\int_a^b E\\,dr = -kQ\\int_a^b \\dfrac{dr}{r^2}$.",
+   "$\\Delta V = kQ\\left(\\dfrac{1}{a} - \\dfrac{1}{b}\\right)$, positiva porque la esfera interior está a mayor potencial."
+  ],
+  "porque_fallan": {
+   "D": "En el D1 la marcaste con confianza 4 y era falsa. Es el caso peligroso: crees que la sabes, así que nunca la vuelves a repasar. La estructura que hay que buscar es la diferencia de inversos, no un $1/r^2$."
+  },
+  "confirma": "C"
+ },
+
+ "uniandes2024-q17": {
+  "idea": "Calorimetría con cambio de fase: hay que partir el cálculo en tramos, porque durante la vaporización la temperatura no sube.",
+  "pasos": [
+   "El hierro se enfría de 1370 °C a 100 °C y suelta $Q = 10 \\cdot 0.470 \\cdot 1270 = 5969\\ \\mathrm{kJ}$.",
+   "El agua hace dos cosas: calentarse de 20 a 100 °C, que cuesta $m \\cdot 4.190 \\cdot 80 = 335.2\\,m$, y vaporizar 2 kg, que cuesta $2 \\cdot 2300 = 4600\\ \\mathrm{kJ}$.",
+   "Igualando: $5969 = 335.2\\,m + 4600$.",
+   "$m = 1369/335.2 \\approx 4.1\\ \\mathrm{kg}$."
+  ],
+  "porque_fallan": {
+   "E": "Sale de no separar los tramos, o de calentar toda el agua hasta 100 °C y además vaporizarla entera en vez de solo los 2 kg pedidos."
+  },
+  "confirma": "D"
+ },
+
+ "uniandes2024-q20": {
+  "idea": "Es el patrón P7. Dos sistemas en contacto reparten la energía maximizando el **producto** de sus multiplicidades, y el reparto sale proporcional a los exponentes.",
+  "pasos": [
+   "Se maximiza $\\Omega_A(E_A)\\,\\Omega_B(E_T - E_A)$. Tomando logaritmos y derivando se llega a $\\partial S_A/\\partial E_A = \\partial S_B/\\partial E_B$, que es igualar temperaturas.",
+   "Si $\\Omega_A \\propto E_A^{n_A}$ y $\\Omega_B \\propto E_B^{n_B}$, la condición da $\\dfrac{n_A}{E_A} = \\dfrac{n_B}{E_T - E_A}$.",
+   "Despejando: $E_A = E_T\\,\\dfrac{n_A}{n_A + n_B}$.",
+   "Con $n_A = 10^{6}$ y $n_B = 10^{24}$, el sistema grande se queda con prácticamente toda la energía: $E_A \\approx 10^{-18}\\,E_T$."
+  ],
+  "porque_fallan": {
+   "C": "Reparte según algo que no son los exponentes. El límite lo delata: cuando un exponente es dieciocho órdenes mayor que el otro, la energía de A tiene que ser despreciable."
+  },
+  "confirma": "B"
+ },
+
+ "uniandes2024-q21": {
+  "idea": "Es el patrón P8, y la trampa está en la palabra **degenerado**: no piden la energía mínima, piden la energía más baja que se alcanza de varias maneras distintas.",
+  "pasos": [
+   "En una caja de lados $L$ y $2L$: $E(n_x,n_y) = \\dfrac{\\pi^2\\hbar^2}{8mL^2}\\left(4n_x^2 + n_y^2\\right)$. Llama $\\varepsilon$ a ese prefactor.",
+   "Niveles de una partícula, en unidades de $\\varepsilon$: $(1,1)=5$, $(1,2)=8$, $(1,3)=13$, $(2,1)=17$, $(1,4)=20$, $(2,2)=20$.",
+   "Son bosones: pueden compartir estado, y la energía del sistema es la suma de los dos.",
+   "El estado fundamental es $2\\times 5 = 10\\varepsilon$, pero es único. La primera energía que se alcanza de **tres** formas es $25\\varepsilon$: $\\{(1,1),(1,4)\\}$, $\\{(1,1),(2,2)\\}$ y $\\{(1,2),(2,1)\\}$.",
+   "$E = \\dfrac{25\\pi^2\\hbar^2}{8mL^2}$, con degeneración 3."
+  ],
+  "porque_fallan": {
+   "C": "Es la energía del estado fundamental, $10\\varepsilon$. Responde a «la energía más baja», que no es lo que pregunta el enunciado."
+  },
+  "confirma": "E"
+ },
+
+ "uniandes2024-q23": {
+  "idea": "Es el patrón P9. Aunque $E > V_0$ y clásicamente pasaría siempre, la onda se refleja en parte: solo depende del cociente $k_1/k_2$.",
+  "pasos": [
+   "$k_i = \\sqrt{2m(E-V_i)}/\\hbar$. Con $E = 9V_0/8$: a la izquierda $k_1 \\propto \\sqrt{9V_0/8}$, a la derecha $k_2 \\propto \\sqrt{9V_0/8 - V_0} = \\sqrt{V_0/8}$.",
+   "El cociente es lo único que importa: $k_1/k_2 = \\sqrt{9} = 3$. El $V_0$ y el 8 se cancelan.",
+   "$R = \\left(\\dfrac{k_1-k_2}{k_1+k_2}\\right)^2 = \\left(\\dfrac{3-1}{3+1}\\right)^2 = \\dfrac{1}{4}$.",
+   "Si te piden la transmisión, sácala como $T = 1 - R$. **No** es $|t|^2$: hay que corregir por el cociente de velocidades."
+  ],
+  "porque_fallan": {
+   "D": "Sale de calcular $|t|^2$ sin la corrección de velocidades, o de suponer que con $E > V_0$ no hay reflexión."
+  },
+  "confirma": "B"
+ }
+}

@@ -1,0 +1,485 @@
+{
+ "ets-gr1775-q002": {
+  "idea": "El período de un péndulo va como la raíz de la longitud, así que doblar el período cuadruplica la longitud.",
+  "pasos": [
+   "$T = 2\\pi\\sqrt{L/g}$, o sea $T \\propto \\sqrt{L}$.",
+   "Si $T_B = 2T_A$, entonces $\\sqrt{L_B} = 2\\sqrt{L_A}$.",
+   "Elevando al cuadrado: $L_B = 4L_A$."
+  ],
+  "porque_fallan": {
+   "D": "Es la trampa central: leer la proporcionalidad como lineal. El período no va con $L$, va con $\\sqrt{L}$."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q004": {
+  "idea": "La corriente de desplazamiento es el término que Maxwell añadió a Ampère, y es el que permite que existan las ondas electromagnéticas.",
+  "pasos": [
+   "$\\nabla\\times\\vec{B} = \\mu_0\\vec{J} + \\mu_0\\varepsilon_0\\dfrac{\\partial\\vec{E}}{\\partial t}$.",
+   "El segundo término es la corriente de desplazamiento: $I_d = \\varepsilon_0\\dfrac{d\\Phi_E}{dt}$.",
+   "Es decir, proporcional al **ritmo de cambio** del flujo eléctrico."
+  ],
+  "porque_fallan": {
+   "D": "El flujo eléctrico sin derivar: un campo constante, por grande que sea, no genera corriente de desplazamiento.",
+   "B": "Confunde con la ley de Faraday, que sí va con el cambio del flujo magnético, pero es la otra ecuación."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q005": {
+  "idea": "En una onda plana los tres vectores forman un triedro: $\\hat{k}$, $\\vec{E}$ y $\\vec{B}$ en ese orden, y $\\vec{B}$ va en la dirección de $\\hat{k}\\times\\vec{E}$.",
+  "pasos": [
+   "La onda viaja según $\\hat{k} = \\hat{e}_z$, porque la fase es $kz-\\omega t$.",
+   "El campo eléctrico apunta según $\\hat{e}_x + \\hat{e}_y$.",
+   "$\\hat{e}_z \\times (\\hat{e}_x + \\hat{e}_y) = \\hat{e}_y - \\hat{e}_x$.",
+   "Comprueba que sea perpendicular a $\\vec{E}$: $(-1)(1) + (1)(1) = 0$. ✔"
+  ],
+  "porque_fallan": {
+   "A": "Pone $\\vec{B}$ en la dirección de propagación. En una onda electromagnética los dos campos son transversales.",
+   "C": "Es antiparalelo a $\\vec{E}$, no perpendicular: el producto escalar da $-2$."
+  },
+  "confirma": "B"
+ },
+
+ "ets-gr1775-q006": {
+  "idea": "Reversible significa exactamente una cosa: la entropía del universo no cambia.",
+  "pasos": [
+   "$\\Delta S_{universo} = \\Delta S_{sistema} + \\Delta S_{entorno} \\geq 0$, y la igualdad se da solo si el proceso es reversible.",
+   "Cada una por separado sí puede cambiar; lo que se conserva es la suma."
+  ],
+  "porque_fallan": {
+   "A": "Confunde reversible con isotérmico en gas ideal. Una adiabática reversible cambia la energía interna.",
+   "B": "Reversible no quiere decir a temperatura constante.",
+   "D": "Es la condición de los procesos **irreversibles**. En los reversibles la entropía del universo se queda igual."
+  },
+  "confirma": "C"
+ },
+
+ "ets-gr1775-q007": {
+  "idea": "Primera ley: $\\Delta U = Q - W$. Para que $\\Delta U = Q$ hace falta que el gas no haga trabajo.",
+  "pasos": [
+   "$W = \\int P\\,dV$, así que $W = 0$ exige volumen constante.",
+   "A volumen constante todo el calor va a energía interna: $\\Delta U = Q = nC_V\\Delta T$."
+  ],
+  "porque_fallan": {
+   "A": "A temperatura constante, en un gas ideal $\\Delta U = 0$ y todo el calor se va en trabajo. Es justo lo contrario.",
+   "C": "A presión constante el gas se expande y hace trabajo: $\\Delta U = Q - P\\Delta V < Q$.",
+   "D": "Adiabático es $Q = 0$, así que $\\Delta U = -W$."
+  },
+  "confirma": "B"
+ },
+
+ "ets-gr1775-q008": {
+  "idea": "En el efecto fotoeléctrico lo que manda es la frecuencia, no la intensidad, y la función de trabajo es una propiedad del metal.",
+  "pasos": [
+   "$K_{max} = h\\nu - \\phi$, donde $\\phi$ es la función de trabajo del metal.",
+   "El potencial de frenado cumple $eV_0 = K_{max}$, luego $V_0 = \\dfrac{h}{e}\\nu - \\dfrac{\\phi}{e}$.",
+   "Eso es una recta en $\\nu$, de pendiente $h/e$. Millikan la midió para obtener $h$."
+  ],
+  "porque_fallan": {
+   "A": "La función de trabajo es una constante del material: no depende de con qué luz lo ilumines.",
+   "C": "La corriente depende del número de fotones, o sea de la intensidad, no de la longitud de onda."
+  },
+  "confirma": "D"
+ },
+
+ "ets-gr1775-q009": {
+  "idea": "Las líneas características son transiciones atómicas entre capas internas; el fondo continuo es otra cosa (bremsstrahlung).",
+  "pasos": [
+   "El electrón incidente arranca un electrón de una capa interna, K o L, y deja un hueco.",
+   "Un electrón de una capa superior cae a ese hueco y emite un fotón de energía bien definida.",
+   "Como los niveles atómicos son discretos, salen líneas afiladas, y su energía depende del elemento: por eso son *características*."
+  ],
+  "porque_fallan": {
+   "E": "La dispersión Coulombiana con los núcleos frena los electrones y produce el **fondo continuo**, no las líneas.",
+   "A": "La radiación Čerenkov exige que la partícula vaya más rápido que la luz en el medio; aquí son electrones de baja energía."
+  },
+  "confirma": "C"
+ },
+
+ "ets-gr1775-q010": {
+  "idea": "Para cada $\\ell$, el número cuántico magnético recorre todos los enteros de $-\\ell$ a $+\\ell$.",
+  "pasos": [
+   "$m_\\ell \\in \\{-\\ell, \\ldots, 0, \\ldots, +\\ell\\}$.",
+   "Son $2\\ell + 1$ valores.",
+   "Con $\\ell = 2$: $2(2)+1 = 5$, que son $-2, -1, 0, 1, 2$."
+  ],
+  "porque_fallan": {
+   "C": "Cuenta solo $\\ell$ valores, o se olvida de los negativos.",
+   "D": "Sale de contar $2\\ell$, olvidando el cero."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q026": {
+  "idea": "El eco tiene **dos** desplazamientos Doppler: el coche emite acercándose a la pared, y luego recibe acercándose a la pared que reemite.",
+  "pasos": [
+   "Ida: la pared recibe $f_1 = f\\dfrac{v}{v - v_c}$, con la fuente acercándose.",
+   "Vuelta: el coche, que se acerca a esa fuente, oye $f_2 = f_1\\dfrac{v + v_c}{v}$.",
+   "Juntando: $f_2 = f\\dfrac{v+v_c}{v-v_c} = 600\\cdot\\dfrac{353.5}{346.5}$.",
+   "$f_2 \\approx 612\\ \\mathrm{Hz}$."
+  ],
+  "porque_fallan": {
+   "D": "Aplica un solo desplazamiento Doppler. Es el fallo típico: en un eco siempre hay dos.",
+   "C": "Supone que el eco vuelve con la frecuencia de emisión, como si el movimiento no contara."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q027": {
+  "idea": "Cerrar un extremo cambia la familia de armónicos entera: de todos los múltiplos a solo los impares de una fundamental que además es la mitad.",
+  "pasos": [
+   "Abierto en los dos extremos: $f_n = n\\dfrac{v}{2L}$, y como el primero es 50 Hz, $v/2L = 50$.",
+   "Cerrado en un extremo: $f_n = (2n-1)\\dfrac{v}{4L}$, y $v/4L = 25\\ \\mathrm{Hz}$.",
+   "Los nuevos armónicos son 25, 75, 125, 175, 225 Hz: múltiplos **impares** de 25.",
+   "Ninguno de 50, 100, 150, 200, 250 es múltiplo impar de 25. No sobrevive ninguno."
+  ],
+  "porque_fallan": {
+   "A": "Toma los impares de la serie original (50, 150, 250) creyendo que la fundamental no cambia. Cambia: pasa a 25 Hz.",
+   "B": "Toma los pares, que es el error contrario."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q028": {
+  "idea": "En un telescopio enfocado al infinito los dos focos coinciden, así que la separación entre lentes es la suma de las distancias focales.",
+  "pasos": [
+   "$f_{obj} + f_{oc} = 100\\ \\mathrm{cm}$, y $f_{oc} = 20\\ \\mathrm{cm}$, luego $f_{obj} = 80\\ \\mathrm{cm}$.",
+   "El aumento angular es $M = \\dfrac{f_{obj}}{f_{oc}} = \\dfrac{80}{20} = 4$."
+  ],
+  "porque_fallan": {
+   "B": "Sale de dividir 100 entre 20, usando la separación como si fuera la focal del objetivo.",
+   "E": "Confunde la separación con el aumento."
+  },
+  "confirma": "A"
+ },
+
+ "ets-gr1775-q029": {
+  "idea": "La vida media que te dan es la **propia**, la del sistema en reposo. En el laboratorio dura más, y esa es la que hay que usar para la distancia.",
+  "pasos": [
+   "$\\gamma = \\dfrac{1}{\\sqrt{1-0.6^2}} = \\dfrac{1}{0.8} = 1.25$.",
+   "Vida en el laboratorio: $\\Delta t = \\gamma\\,\\Delta t_0 = 1.25 \\cdot 2.0 = 2.5\\ \\mu\\mathrm{s}$.",
+   "Distancia: $d = v\\,\\Delta t = 0.6(3\\times10^8)(2.5\\times10^{-6}) = 450\\ \\mathrm{m}$."
+  ],
+  "porque_fallan": {
+   "C": "Usa la vida propia sin dilatar: $0.6c \\times 2.0\\,\\mu s = 360$ m. Es el error de olvidar el factor $\\gamma$.",
+   "E": "Multiplica por $c$ en vez de por $0.6c$."
+  },
+  "confirma": "D"
+ },
+
+ "ets-gr1775-q030": {
+  "idea": "La relación energía–momento es un triángulo rectángulo: la masa en reposo es el cateto que queda.",
+  "pasos": [
+   "$E^2 = (pc)^2 + (mc^2)^2$.",
+   "$(mc^2)^2 = 5.0^2 - 4.9^2 = 25 - 24.01 = 0.99\\ \\mathrm{GeV^2}$.",
+   "$mc^2 = \\sqrt{0.99} \\approx 0.995 \\approx 1.0\\ \\mathrm{GeV}$."
+  ],
+  "porque_fallan": {
+   "A": "Sale de restar las magnitudes en vez de sus cuadrados: $5.0 - 4.9 = 0.1$. Es la trampa de la pregunta."
+  },
+  "confirma": "D"
+ },
+
+ "ets-gr1775-q031": {
+  "idea": "Gauss con simetría: una carga puntual manda su flujo total por igual en todas las direcciones, y un plano infinito se lleva justo la mitad.",
+  "pasos": [
+   "El flujo total que sale de la carga es $Q/\\varepsilon_0$, sin depender de la superficie.",
+   "La carga está en $x = 1$, o sea fuera del plano $yz$ y a un lado de él.",
+   "Un plano infinito recoge la mitad del ángulo sólido: $\\Phi = \\dfrac{Q}{2\\varepsilon_0}$.",
+   "Las coordenadas $y = 10$ y $z = 5$ son irrelevantes: solo importa que la carga no esté sobre el plano."
+  ],
+  "porque_fallan": {},
+  "confirma": "D"
+ },
+
+ "ets-gr1775-q035": {
+  "idea": "Cada fotón es un ensayo independiente con probabilidad 0,1: es una binomial, y su desviación no es la media ni su raíz sin más.",
+  "pasos": [
+   "Media: $\\mu = np = 100 \\times 0.1 = 10$.",
+   "Desviación de una binomial: $\\sigma = \\sqrt{np(1-p)} = \\sqrt{100(0.1)(0.9)} = \\sqrt{9} = 3$."
+  ],
+  "porque_fallan": {
+   "C": "Usa $\\sigma = \\sqrt{\\mu} \\approx 3.2$… que casualmente se parece, pero viene de tratarlo como Poisson. Con $p$ no pequeño hay que llevar el factor $(1-p)$.",
+   "A": "Confunde el valor esperado con una certeza: el detector no acierta exactamente diez veces, fluctúa."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q036": {
+  "idea": "Propagación de incertidumbre: si una magnitud entra al cuadrado, su incertidumbre relativa se duplica.",
+  "pasos": [
+   "$K = \\tfrac{1}{2}mv^2$, y la masa no aporta incertidumbre.",
+   "Para $K \\propto v^2$: $\\dfrac{\\delta K}{K} = 2\\,\\dfrac{\\delta v}{v}$.",
+   "$2 \\times 10\\% = 20\\%$."
+  ],
+  "porque_fallan": {
+   "B": "Copia la incertidumbre de la velocidad sin propagarla por el cuadrado.",
+   "E": "Multiplica por cuatro, que sería el caso de $v^4$."
+  },
+  "confirma": "D"
+ },
+
+ "ets-gr1775-q037": {
+  "idea": "Los estados estacionarios son ortonormales, así que al normalizar la suma los términos cruzados se anulan y solo quedan los cuadrados.",
+  "pasos": [
+   "$\\langle\\Psi|\\Psi\\rangle = |A|^2\\left(\\langle\\psi_1|\\psi_1\\rangle + \\langle\\psi_2|\\psi_2\\rangle + \\langle\\psi_3|\\psi_3\\rangle\\right)$, porque los cruzados valen cero.",
+   "Cada uno vale 1, así que $\\langle\\Psi|\\Psi\\rangle = 3|A|^2$.",
+   "Normalizando: $A = 1/\\sqrt{3}$."
+  ],
+  "porque_fallan": {
+   "C": "Olvida normalizar: una suma de tres estados normalizados no está normalizada."
+  },
+  "confirma": "A"
+ },
+
+ "ets-gr1775-q039": {
+  "idea": "Con la **misma fuerza** —no el mismo desplazamiento— el muelle más blando se estira más y almacena más energía.",
+  "pasos": [
+   "$F = k\\,\\Delta x \\Rightarrow \\Delta x = F/k$. Como $k_1 > k_2$, sale $\\Delta x_1 < \\Delta x_2$.",
+   "$U = \\tfrac{1}{2}k\\,\\Delta x^2 = \\dfrac{F^2}{2k}$, así que también $U_1 < U_2$.",
+   "El truco es escribir $U$ en función de $F$, no de $\\Delta x$: ahí se ve que va como $1/k$."
+  ],
+  "porque_fallan": {
+   "B": "Acierta el desplazamiento y se equivoca en la energía. Pasa por razonar $U = \\tfrac12 k\\Delta x^2$ y quedarse con la $k$ sin ver que $\\Delta x$ también depende de ella.",
+   "D": "Sería el caso de aplicar el mismo **desplazamiento** a los dos, no la misma fuerza."
+  },
+  "confirma": "A"
+ },
+
+ "ets-gr1775-q041": {
+  "idea": "En rodadura sin deslizar la fracción rotacional es una constante geométrica: solo depende del momento de inercia, no de la pendiente ni del tiempo.",
+  "pasos": [
+   "Disco macizo: $I = \\tfrac{1}{2}mR^2$, y rodar sin deslizar impone $\\omega = v/R$.",
+   "$K_{rot} = \\tfrac{1}{2}I\\omega^2 = \\tfrac{1}{2}\\left(\\tfrac{1}{2}mR^2\\right)\\dfrac{v^2}{R^2} = \\tfrac{1}{4}mv^2$.",
+   "$K_{tras} = \\tfrac{1}{2}mv^2$, luego $K_{tot} = \\tfrac{3}{4}mv^2$.",
+   "Fracción: $\\dfrac{1/4}{3/4} = \\dfrac{1}{3}$. El «después de un tiempo» del enunciado es irrelevante."
+  ],
+  "porque_fallan": {
+   "C": "Da 1/2, que sería repartir a partes iguales entre rotación y traslación. Eso no pasa con ningún cuerpo real que ruede."
+  },
+  "confirma": "B"
+ },
+
+ "ets-gr1775-q042": {
+  "idea": "El poder de resolución es un número adimensional: la longitud de onda dividida entre la separación que se distingue.",
+  "pasos": [
+   "$R = \\dfrac{\\lambda}{\\Delta\\lambda}$.",
+   "$\\Delta\\lambda = 502 - 500 = 2\\ \\mathrm{nm}$.",
+   "$R = 500/2 = 250$."
+  ],
+  "porque_fallan": {
+   "A": "Da la separación $\\Delta\\lambda$ en vez del cociente.",
+   "C": "Sale de dividir por 0,1 nm o de colar un factor 20 de más."
+  },
+  "confirma": "B"
+ },
+
+ "ets-gr1775-q043": {
+  "idea": "En un Michelson la luz recorre el brazo **dos veces**, así que el camino óptico que cambia es $2L$, no $L$.",
+  "pasos": [
+   "Al vaciar la celda el camino óptico cambia en $2L(n-1)$.",
+   "Cada franja contada equivale a una longitud de onda: $2L(n-1) = N\\lambda$.",
+   "$n - 1 = \\dfrac{N\\lambda}{2L} = \\dfrac{100 \\times 632.2\\times10^{-9}}{2 \\times 0.10} = 3.16\\times10^{-4}$.",
+   "$n \\approx 1.00032$."
+  ],
+  "porque_fallan": {
+   "A": "Es el doble: sale de usar $L$ en vez de $2L$, es decir de olvidar el viaje de ida y vuelta.",
+   "D": "Da un índice menor que 1: el gas tiene que retrasar la luz, no adelantarla."
+  },
+  "confirma": "B"
+ },
+
+ "ets-gr1775-q048": {
+  "idea": "Es el experimento de Franck y Hertz. Las caídas periódicas de la corriente miden **una** energía de excitación, repetida.",
+  "pasos": [
+   "Los electrones chocan elásticamente hasta alcanzar 4,9 eV; ahí pueden excitar el átomo y pierden esa energía de golpe.",
+   "Con más voltaje el electrón vuelve a acelerarse y repite el proceso: por eso las caídas aparecen cada 4,9 V.",
+   "El espaciado regular no significa que existan niveles a 4,9, 9,8 y 14,7 eV: significa que la misma excitación ocurre una, dos o tres veces."
+  ],
+  "porque_fallan": {
+   "B": "Lee cada caída como una energía de excitación distinta. Es la trampa central del experimento.",
+   "D": "Confunde energías de excitación con niveles de energía absolutos, y además les pone signo negativo."
+  },
+  "confirma": "C"
+ },
+
+ "ets-gr1775-q049": {
+  "idea": "El oscilador isótropo en tres dimensiones tiene degeneración que crece con el nivel, y hay que contarla.",
+  "pasos": [
+   "$E = \\left(n + \\tfrac{3}{2}\\right)\\hbar\\omega$ con $n = n_x+n_y+n_z$.",
+   "Para $E = \\tfrac{7}{2}\\hbar\\omega$ hace falta $n = 2$.",
+   "El número de formas de repartir $n$ entre tres ejes es $\\dfrac{(n+1)(n+2)}{2} = \\dfrac{3\\cdot4}{2} = 6$.",
+   "Son $(2,0,0)$ y sus dos permutaciones, más $(1,1,0)$ y sus tres."
+  ],
+  "porque_fallan": {
+   "A": "Cuenta un solo estado, como si el nivel no fuera degenerado. En una dimensión sería cierto; en tres no.",
+   "B": "Cuenta solo las combinaciones de un tipo."
+  },
+  "confirma": "D"
+ },
+
+ "ets-gr1775-q052": {
+  "idea": "Para un sistema conservativo el hamiltoniano es la energía total, escrita en función del **momento**, no de la velocidad.",
+  "pasos": [
+   "$H = T + V$ con $T = \\dfrac{p^2}{2m}$ y $V = \\tfrac{1}{2}kx^2$.",
+   "$H = \\dfrac{p^2}{2m} + \\dfrac{1}{2}kx^2$.",
+   "El lagrangiano sería la resta; el hamiltoniano es la suma."
+  ],
+  "porque_fallan": {
+   "D": "Es el lagrangiano, con la resta en vez de la suma. Es la confusión más frecuente entre las dos formulaciones."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q053": {
+  "idea": "Faraday con $N$ espiras: la fem se multiplica por el número de vueltas.",
+  "pasos": [
+   "$\\varepsilon = -N\\dfrac{d\\Phi}{dt} = -NA\\dfrac{dB}{dt}$, porque el área no cambia.",
+   "$\\dfrac{\\Delta B}{\\Delta t} = \\dfrac{0.06-0.01}{0.25} = 0.2\\ \\mathrm{T/s}$.",
+   "$\\varepsilon = 250 \\times 0.2 \\times 0.2 = 10\\ \\mathrm{V}$."
+  ],
+  "porque_fallan": {
+   "A": "Olvida las 250 espiras: es el resultado de una sola vuelta.",
+   "E": "Usa el campo final en vez de su variación, o se come el intervalo de tiempo."
+  },
+  "confirma": "D"
+ },
+
+ "ets-gr1775-q056": {
+  "idea": "La curva de energía de ligadura por nucleón tiene su máximo en el hierro-56. De ahí que la fusión libere energía por debajo y la fisión por encima.",
+  "pasos": [
+   "La energía por nucleón sube rápido en los núcleos ligeros y baja despacio en los pesados.",
+   "El máximo está alrededor de $A \\approx 56$, con unos 8,8 MeV por nucleón.",
+   "Es la razón de que el hierro sea el final de la cadena de fusión estelar."
+  ],
+  "porque_fallan": {
+   "B": "El helio-4 es muy estable para su tamaño, pero se queda en unos 7,1 MeV por nucleón.",
+   "D": "El uranio ronda 7,6 MeV por nucleón: está pasado el máximo, y por eso se fisiona."
+  },
+  "confirma": "C"
+ },
+
+ "ets-gr1775-q057": {
+  "idea": "El muon es un leptón: literalmente un electrón pesado, con la misma carga y el mismo espín.",
+  "pasos": [
+   "Carga $-e$, espín $1/2$, y no siente la interacción fuerte.",
+   "Se diferencia del electrón solo en la masa —unas 207 veces mayor— y en que es inestable."
+  ],
+  "porque_fallan": {
+   "D": "Un mesón es un par quark-antiquark y sí siente la fuerza fuerte. El nombre antiguo «mesón mu» viene de ahí y es la trampa de la pregunta.",
+   "A": "Los quarks tienen carga fraccionaria y no aparecen libres."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q058": {
+  "idea": "Un leptón es elemental —no tiene quarks dentro— y un barión son exactamente tres quarks.",
+  "pasos": [
+   "Leptón: 0 quarks y 0 antiquarks. El electrón o el muon no están hechos de nada más.",
+   "Barión: 3 quarks y 0 antiquarks. El protón es $uud$.",
+   "Un quark y un antiquark serían un **mesón**, que no es ninguna de las dos cosas que preguntan."
+  ],
+  "porque_fallan": {
+   "B": "Describe un mesón en la columna del barión.",
+   "C": "Le pone un quark al leptón, que por definición es elemental."
+  },
+  "confirma": "A"
+ },
+
+ "ets-gr1775-q060": {
+  "idea": "Lo decide la ecuación de Maxwell que dice que no hay monopolos: la componente **normal** de $\\vec{B}$ es continua al cruzar cualquier superficie.",
+  "pasos": [
+   "$\\nabla\\cdot\\vec{B} = 0$ implica que $B_\\perp$ es continua en la frontera.",
+   "Dentro del superconductor $\\vec{B} = 0$, luego $B_\\perp = 0$ también justo fuera.",
+   "Si la componente normal se anula y el campo no tiene por qué anularse, lo que queda es tangencial."
+  ],
+  "porque_fallan": {
+   "A": "Confunde el interior con el exterior. Fuera el campo existe: es el efecto Meissner expulsándolo, no anulándolo.",
+   "B": "Es exactamente lo contrario de lo que impone $\\nabla\\cdot\\vec{B}=0$."
+  },
+  "confirma": "C"
+ },
+
+ "ets-gr1775-q064": {
+  "idea": "Corrimiento al rojo relativista. La razón de longitudes de onda al cuadrado da directamente $\\beta$.",
+  "pasos": [
+   "Alejándose: $\\dfrac{\\lambda_{obs}}{\\lambda_0} = \\sqrt{\\dfrac{1+\\beta}{1-\\beta}} = 3$.",
+   "Elevando al cuadrado: $\\dfrac{1+\\beta}{1-\\beta} = 9$.",
+   "$1+\\beta = 9 - 9\\beta \\Rightarrow 10\\beta = 8 \\Rightarrow \\beta = 0.8$."
+  ],
+  "porque_fallan": {
+   "A": "Da una velocidad mayor que $c$. Cualquier opción así se descarta sin calcular.",
+   "D": "Sale de usar la fórmula no relativista $\\Delta\\lambda/\\lambda = v/c$, que aquí daría $v = 2c$ y ya avisa de que no vale."
+  },
+  "confirma": "C"
+ },
+
+ "ets-gr1775-q065": {
+  "idea": "El trabajo es el aumento de energía total, y la energía cinética relativista es $(\\gamma-1)mc^2$, no $\\tfrac12 mv^2$.",
+  "pasos": [
+   "$\\gamma = \\dfrac{1}{\\sqrt{1-0.36}} = \\dfrac{1}{0.8} = 1.25$.",
+   "$W = \\Delta E = (\\gamma - 1)mc^2 = 0.25\\,mc^2$."
+  ],
+  "porque_fallan": {
+   "D": "Es $\\gamma mc^2$, la energía **total**, sin restar la energía en reposo.",
+   "B": "Usa $\\tfrac{1}{2}mv^2 = 0.18\\,mc^2$ o confunde el trabajo con $\\beta\\,mc^2$."
+  },
+  "confirma": "A"
+ },
+
+ "ets-gr1775-q066": {
+  "idea": "El efecto Hall es la única de esas medidas que distingue el **signo** del portador, porque la fuerza magnética separa cargas según su signo.",
+  "pasos": [
+   "Con corriente y campo perpendicular, $\\vec{F} = q\\vec{v}\\times\\vec{B}$ empuja los portadores hacia un lado.",
+   "El signo del voltaje transversal que aparece dice si los portadores son electrones o huecos.",
+   "La resistividad, el calor específico o la conductividad térmica solo dan magnitudes: no saben de signos."
+  ],
+  "porque_fallan": {
+   "C": "La resistividad mide cuántos portadores hay y cuánto se mueven, pero sale igual con carga positiva o negativa."
+  },
+  "confirma": "E"
+ },
+
+ "ets-gr1775-q067": {
+  "idea": "Relativo al avión: el avión sigue a velocidad constante, así que la única diferencia que se acumula es la que da la gravedad.",
+  "pasos": [
+   "Los dos comparten la velocidad horizontal de 100 m/s, que se cancela en la resta.",
+   "En vertical el paquete gana $v = gt = 10 \\times 4.0 = 40\\ \\mathrm{m/s}$ y el avión no.",
+   "Relativo al avión: 40 m/s hacia abajo, justo debajo de él."
+  ],
+  "porque_fallan": {
+   "D": "Da la velocidad respecto al **suelo**, no respecto al avión. Es no leer el sistema de referencia que piden.",
+   "A": "Supondría que el paquete acompaña al avión también en vertical."
+  },
+  "confirma": "B"
+ },
+
+ "ets-gr1775-q068": {
+  "idea": "Con arrastre cuadrático la velocidad terminal va como la raíz de la masa, porque el peso crece lineal y el arrastre cuadrático.",
+  "pasos": [
+   "En velocidad terminal el peso iguala al arrastre: $mg = \\tfrac{1}{2}C\\rho A v_t^2$.",
+   "Despejando: $v_t = \\sqrt{\\dfrac{2mg}{C\\rho A}} \\propto \\sqrt{m}$.",
+   "Todo lo demás es idéntico, así que $\\dfrac{v_h}{v_l} = \\sqrt{\\dfrac{2m}{m}} = \\sqrt{2}$."
+  ],
+  "porque_fallan": {
+   "A": "Sería el caso sin arrastre, donde la masa no influye. Pero aquí sí llegan a velocidad terminal.",
+   "C": "Da 2, que es tratar la dependencia como lineal en la masa: eso valdría con arrastre proporcional a $v$, no a $v^2$."
+  },
+  "confirma": "B"
+ },
+
+ "ets-gr1775-q069": {
+  "idea": "En el punto de equilibrio el muelle no almacena nada: toda la energía del sistema es cinética, y ahí se lee de un vistazo.",
+  "pasos": [
+   "Al pasar por el equilibrio, $U = 0$ y toda la energía es $K$.",
+   "$E = \\tfrac{1}{2}mv^2 = \\tfrac{1}{2}(0.30)(0.040)^2 = 2.4\\times10^{-4}\\ \\mathrm{J}$.",
+   "Son 0,24 mJ. No hace falta calcular $k$ ni usar la amplitud."
+  ],
+  "porque_fallan": {
+   "C": "Sale de sumar la energía potencial además de la cinética, contando dos veces lo mismo.",
+   "D": "Olvida el factor $\\tfrac{1}{2}$."
+  },
+  "confirma": "A"
+ }
+}

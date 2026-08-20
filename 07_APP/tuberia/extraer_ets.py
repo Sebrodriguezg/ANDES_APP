@@ -184,6 +184,43 @@ def extraer(ruta_xml, clave):
     return preguntas, descartes
 
 
+# El PDF del ETS también pierde notación, pero de otra manera que el de HRW.
+# Aquí los glifos sí llegan: llegan como caracteres de área de uso privado,
+# porque la fuente los codifica en el rango de Symbol y no hay tabla que los
+# traduzca. Son tres apariciones en todo el banco, y el contexto las identifica
+# sin margen de duda.
+PUA = {
+    # "the ℓ = 2 state" y "the quantum number m_{ℓ}". Sin esto la pregunta 10
+    # pierde justo la variable por la que pregunta.
+    "\uf06c": "ℓ",
+    # "How many states have energy (7/2) ℏω". Con eta el enunciado no dice nada;
+    # con hache barrada sale la degeneración 6 que registra la clave.
+    "\uf068": "ℏ",
+}
+
+# Pérdidas de verdad, no PUA: el glifo no llegó y se repone declarándolo.
+CORRECCIONES = {
+    # La micro de microsegundo. Con milisegundos la partícula recorrería 450 km
+    # y ninguna opción pasa de 750 m; con microsegundos sale justo la opción
+    # registrada, 450 m.
+    "ets-gr1775-q029": [("decays in 2.0 ms", "decays in 2.0 µs")],
+}
+
+
+def corregir(tarjeta):
+    """Traduce los caracteres de uso privado y aplica lo declarado a mano."""
+    def limpiar(texto):
+        for crudo, bueno in PUA.items():
+            texto = texto.replace(crudo, bueno)
+        return texto
+
+    tarjeta["enunciado"] = limpiar(tarjeta["enunciado"])
+    tarjeta["opciones"] = {k: limpiar(v) for k, v in tarjeta["opciones"].items()}
+    for viejo, nuevo in CORRECCIONES.get(tarjeta["id"], []):
+        tarjeta["enunciado"] = tarjeta["enunciado"].replace(viejo, nuevo)
+    return tarjeta
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--muestra", type=int, metavar="N")
@@ -214,6 +251,7 @@ def main():
         return
 
     SALIDA.parent.mkdir(exist_ok=True)
+    preguntas = [corregir(x) for x in preguntas]
     SALIDA.write_text(json.dumps(preguntas, ensure_ascii=False, indent=1),
                       encoding="utf-8")
 

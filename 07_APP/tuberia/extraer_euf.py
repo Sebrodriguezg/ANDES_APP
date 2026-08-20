@@ -105,6 +105,14 @@ def extraer(crudo):
     preguntas = []
     actual = None
     campo = None
+    # El examen se divide en secciones —mecánica, cuántica, electromagnetismo,
+    # termodinámica— y **cada una numera desde Q1**. Sin distinguirlas, once de
+    # las treinta y seis preguntas compartían identificador con otra, y el
+    # identificador es lo que usa la app para el repaso espaciado, el ordinal
+    # del día y para localizar una tarjeta. Las cabeceras de sección no se leen
+    # con fiabilidad, pero el reinicio de la numeración sí se ve.
+    seccion = 1
+    ultimo_numero = 0
     descartes = {"sin_respuesta": 0, "opciones_incompletas": 0,
                  "sin_enunciado": 0, "glifo_ilegible": 0}
 
@@ -117,6 +125,7 @@ def extraer(crudo):
                     for k, v in actual["opciones"].items()}
         respuesta = actual["respuesta"]
         numero = actual["numero"]
+        seccion = actual["seccion"]
         actual, campo = None, None
 
         if len(enunciado) < 25:
@@ -134,11 +143,12 @@ def extraer(crudo):
             return
 
         preguntas.append({
-            "id": f"euf-2020a-q{numero:03d}",
+            "id": f"euf-2020a-s{seccion}q{numero:02d}",
             "fuente": "EUF2020-1",
             "fuente_larga": "EUF · Exame Unificado das Pós-graduações em Física, 2020-1",
             "idioma": "pt",
             "numero": numero,
+            "seccion": seccion,
             "enunciado": enunciado,
             "opciones": opciones,
             "respuesta": respuesta,
@@ -156,8 +166,12 @@ def extraer(crudo):
         m = RE_PREGUNTA.match(linea)
         if m:
             cerrar()
-            actual = {"numero": int(m.group(1)), "enunciado": [m.group(2)],
-                      "opciones": {}, "respuesta": None}
+            numero = int(m.group(1))
+            if numero <= ultimo_numero:
+                seccion += 1
+            ultimo_numero = numero
+            actual = {"numero": numero, "enunciado": [m.group(2)],
+                      "opciones": {}, "respuesta": None, "seccion": seccion}
             campo = "enunciado"
             continue
 

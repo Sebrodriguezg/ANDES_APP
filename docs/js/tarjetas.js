@@ -1,7 +1,7 @@
 /* Construcción del DOM de cada tipo de tarjeta del feed. */
 
 import { mate, escapar } from './mate.js';
-import { renderFormula } from './formula.js';
+import { renderFormula, renderEnLinea } from './formula.js';
 import { nombreArea } from './datos.js';
 import * as almacen from './almacen.js';
 
@@ -218,6 +218,49 @@ function montarCronometro(nodo) {
   };
 }
 
+/* Prosa con matemáticas intercaladas entre signos de dólar. Es el formato en
+   que están escritas las explicaciones: se lee bien en el archivo JSON y aquí
+   se compone con KaTeX. */
+function conMatematicas(texto) {
+  return String(texto ?? '')
+    .split('$')
+    .map((trozo, i) => (i % 2 ? renderEnLinea(trozo) : mate(trozo)))
+    .join('');
+}
+
+/* La explicación al responder. Es lo que faltaba: el banco daba la letra y se
+   pasaba a la siguiente, así que fallar no enseñaba nada. Sebastián lo dijo
+   claro — "cuando me equivoco no hay margen para entender mi error, por ende
+   siento que no mejoro".
+
+   Va en tres partes, y la tercera es la que más pesa: en opción múltiple los
+   distractores son errores típicos hechos carne, y saber cuál te llevó a marcar
+   la que marcaste vale más que saber cuál era la buena. El que marcaste sale
+   destacado. */
+function bloqueExplicacion(t, marcada) {
+  const e = t.explicacion;
+  const pasos = (e.pasos || [])
+    .map(p => `<li>${conMatematicas(p)}</li>`).join('');
+
+  const fallan = Object.entries(e.porque_fallan || {})
+    .map(([letra, texto]) => `
+      <li class="${letra === marcada ? 'tuya' : ''}">
+        <span class="letra">${escapar(letra)}</span>
+        <span>${conMatematicas(texto)}</span>
+      </li>`).join('');
+
+  return `
+    <div class="explicacion">
+      ${e.idea ? `<p class="idea-explicacion">${conMatematicas(e.idea)}</p>` : ''}
+      ${pasos ? `<ol class="pasos">${pasos}</ol>` : ''}
+      ${fallan ? `
+        <div class="distractores">
+          <span class="rotulo">Por qué fallan las otras</span>
+          <ul>${fallan}</ul>
+        </div>` : ''}
+    </div>`;
+}
+
 function tarjetaMC(t, alResponder) {
   const letras = LETRAS.filter(l => l in t.opciones);
   // Hay preguntas cuyas cinco alternativas son gráficas: el texto de la opción
@@ -299,6 +342,8 @@ function tarjetaMC(t, alResponder) {
         clave: esta respuesta está razonada, no verificada.</p>` : ''}
       ${t.p_acierto ? `<p class="aviso-clave">La acertó el ${t.p_acierto} % de
         quienes presentaron el GRE.</p>` : ''}`);
+
+    if (t.explicacion) nodo.insertAdjacentHTML('beforeend', bloqueExplicacion(t, marcada));
 
     if (!anotar) return;
 
