@@ -1,0 +1,346 @@
+{
+ "hrw-c18-q001": {"idea": "Equilibrio térmico significa exactamente una cosa: misma temperatura. Nada más.",
+  "pasos": ["Dos cuerpos en equilibrio térmico no intercambian energía neta como calor.", "Eso ocurre si y solo si están a la misma temperatura. Pueden moverse, chocar, tener presiones o volúmenes distintos."],
+  "porque_fallan": {"C": "Pueden tener presiones distintas sin problema: un gas comprimido y otro no pueden estar a la misma temperatura."},
+  "confirma": "D"},
+
+ "hrw-c18-q002": {"idea": "Una pared diatérmica deja pasar calor pero no materia ni volumen: solo iguala temperaturas.",
+  "pasos": ["Al permitir el paso de energía, los dos gases acaban a la misma temperatura.", "Nada obliga a que igualen presión, volumen o número de partículas."],
+  "porque_fallan": {"D": "Añade la presión, que no tiene por qué igualarse: la pared es rígida."},
+  "confirma": "E"},
+
+ "hrw-c18-q003": {"idea": "Mientras el globo siga cambiando, sigue habiendo flujo neto de calor. El equilibrio es cuando deja de cambiar.",
+  "pasos": ["El aire frío del globo se calienta con el de la sala y se expande.", "Mientras se expanda, su temperatura sigue subiendo: aún no hay equilibrio.", "Deja de expandirse justo cuando alcanza la temperatura ambiente."],
+  "porque_fallan": {"A": "Subir o bajar depende de la densidad, no del equilibrio térmico."},
+  "confirma": "C"},
+
+ "hrw-c18-q004": {"idea": "La ley cero es la transitividad del equilibrio térmico, y por eso permite definir la temperatura.",
+  "pasos": ["Si C está en equilibrio con A y con B, entonces A y B lo están entre sí.", "Esa transitividad es lo que hace posible un termómetro: C hace de intermediario."],
+  "porque_fallan": {"E": "Justo lo contrario: la ley cero sí dice algo, y es lo único que dice."},
+  "confirma": "C"},
+
+ "hrw-c18-q005": {"idea": "La ley cero es la que da sentido a la palabra temperatura.",
+  "pasos": ["Sin transitividad, no podría existir una etiqueta común a todos los sistemas en equilibrio entre sí.", "Esa etiqueta es la temperatura, y por eso la ley cero va numerada antes que la primera."],
+  "porque_fallan": {"D": "El equilibrio térmico se define antes que la ley cero; la ley cero se apoya en él, no al revés."},
+  "confirma": "C"},
+
+ "hrw-c18-q006": {"idea": "Sin ley cero no habría temperatura, porque no habría manera consistente de asignarla.",
+  "pasos": ["Presión, momento y energía interna se definen sin recurrir al equilibrio térmico.", "La temperatura no: depende de que el equilibrio sea transitivo."],
+  "porque_fallan": {"C": "La energía interna se define mecánicamente, sumando las energías de las partículas."},
+  "confirma": "E"},
+
+ "hrw-c18-q007": {"idea": "No hay termómetro patrón guardado en ningún sitio: el kelvin se define por un punto fijo reproducible.",
+  "pasos": ["La escala se ancla al punto triple del agua, que se puede reproducir en cualquier laboratorio.", "Un objeto patrón sería innecesario y peor: se deteriora, como pasó con el kilogramo."],
+  "porque_fallan": {"B": "En Sèvres estuvo el kilogramo patrón, no un termómetro."},
+  "confirma": "E"},
+
+ "hrw-c18-q008": {"idea": "Lo único imprescindible es que algo medible cambie con la temperatura. Qué cambie y cómo, da igual.",
+  "pasos": ["Sirve la longitud, la presión, la resistencia eléctrica, el color…", "No hace falta que se dilate, ni que lo haga linealmente: basta calibrar."],
+  "porque_fallan": {"B": "La linealidad es cómoda pero no necesaria: un termopar no es lineal y funciona.", "A": "Hay sustancias que se contraen al calentarse y siguen sirviendo."},
+  "confirma": "E"},
+
+ "hrw-c18-q009": {"idea": "El punto triple es el único punto del diagrama de fases donde coexisten las tres fases.",
+  "pasos": ["Las curvas de fusión, vaporización y sublimación se cortan en un solo punto.", "Por ser único y reproducible, ancla la escala kelvin: 273,16 K para el agua."],
+  "porque_fallan": {"A": "Sólido y líquido coexisten a lo largo de toda la curva de fusión, no en un punto."},
+  "confirma": "D"},
+
+ "hrw-c18-q010": {"idea": "Los gases reales solo coinciden entre sí cuando se comportan como gas ideal, y eso pasa a densidad muy baja.",
+  "pasos": ["A alta densidad cada gas tiene sus propias desviaciones del comportamiento ideal.", "Extrapolando a concentración de partículas cero, todos convergen a la misma lectura.", "Por eso el termómetro de gas a volumen constante se define en ese límite."],
+  "porque_fallan": {"D": "A presiones muy altas es cuando **más** se separan unos de otros."},
+  "confirma": "E"},
+
+ "hrw-c18-q011": {"idea": "En un termómetro de gas a volumen constante la temperatura absoluta es proporcional a la presión.",
+  "pasos": ["$T = 273.16\\,\\dfrac{P}{P_{tp}}$.", "$T = 273.16 \\times \\dfrac{9.650\\times10^4}{8.500\\times10^4} = 273.16 \\times 1.135$.", "$T \\approx 310\\ \\mathrm{K}$."],
+  "porque_fallan": {"D": "Sale de sumar la diferencia de presiones a 273,16 en vez de multiplicar por el cociente.", "B": "Invierte el cociente."},
+  "confirma": "C"},
+
+ "hrw-c18-q012": {"idea": "Si la presión es proporcional a la temperatura, un kelvin cuesta siempre la misma presión: la del punto triple dividida entre 273,16.",
+  "pasos": ["$P = P_{tp}\\dfrac{T}{273.16}$, así que $\\dfrac{dP}{dT} = \\dfrac{P_{tp}}{273.16}$.", "$\\dfrac{6.30\\times10^4}{273.16} = 231\\ \\mathrm{Pa/K}$."],
+  "porque_fallan": {"D": "Un factor diez de más.", "A": "Divide por una temperatura distinta, quizá por 145."},
+  "confirma": "B"},
+
+ "hrw-c18-q014": {"idea": "Kelvin y Celsius nunca coinciden —difieren siempre en 273,15—, pero Kelvin y Fahrenheit sí se cruzan.",
+  "pasos": ["$K = C + 273.15$: la diferencia es constante, nunca cero.", "$K = F$ tiene solución: ocurre a 574,59.", "Y el kelvin no puede ser negativo, así que la opción D es imposible."],
+  "porque_fallan": {"A": "Imposible: la diferencia con Celsius es siempre 273,15.", "D": "El cero absoluto es el mínimo; no hay kelvin negativo."},
+  "confirma": "C"},
+
+ "hrw-c18-q015": {"idea": "Igualar las dos escalas y despejar. El punto de cruce está muy por encima de la temperatura ambiente.",
+  "pasos": ["$F = \\tfrac{9}{5}C + 32$ y $K = C + 273.15$.", "Pidiendo $F = K$: $\\tfrac{9}{5}C + 32 = C + 273.15$.", "$\\tfrac{4}{5}C = 241.15 \\Rightarrow C = 301.4$, luego $K = F \\approx 574$."],
+  "porque_fallan": {"A": "−40 es donde coinciden Celsius y Fahrenheit, que es la pregunta parecida y la trampa de esta.", "C": "273 es el desplazamiento entre Kelvin y Celsius, no un punto de cruce."},
+  "confirma": "E"},
+
+ "hrw-c18-q016": {"idea": "Kelvin y Celsius tienen el mismo tamaño de grado; solo cambia el origen. Fahrenheit tiene el grado más pequeño.",
+  "pasos": ["Un grado Celsius y un kelvin miden lo mismo, así que las **diferencias** coinciden.", "Un grado Fahrenheit es 5/9 de un Celsius, luego las diferencias no coinciden."],
+  "porque_fallan": {"B": "40 K son −233 °C, no −40 °C.", "E": "0 °F son −17,8 °C. El −32 sale de restar sin escalar."},
+  "confirma": "C"},
+
+ "hrw-c18-q017": {"idea": "Es la misma cuenta que el cruce Kelvin–Fahrenheit, pero devuelta a Celsius.",
+  "pasos": ["El cruce está en $K = F = 574.6$.", "$C = K - 273.15 = 574.6 - 273.15 \\approx 301\\ ^\\circ\\mathrm{C}$."],
+  "porque_fallan": {"A": "Da la lectura en Kelvin o Fahrenheit, sin convertir a Celsius."},
+  "confirma": "C"},
+
+ "hrw-c18-q018": {"idea": "Anclas de orden de magnitud: 20 °C es una habitación agradable, 20 K es casi el cero absoluto y 20 °F es bajo cero.",
+  "pasos": ["20 °C = 293 K = 68 °F, que es temperatura ambiente.", "20 K = −253 °C: ahí el aire ya es sólido."],
+  "porque_fallan": {"C": "20 °F son −7 °C.", "A": "20 K está cerca del cero absoluto."},
+  "confirma": "B"},
+
+ "hrw-c18-q019": {"idea": "La trampa está en la unidad: 98,6 es la temperatura corporal en **Fahrenheit**, pero aquí pone Celsius.",
+  "pasos": ["98,6 °C son casi 100 °C: agua a punto de hervir.", "En Fahrenheit, 98,6 °F sí es la temperatura de la boca — y esa es la confusión que busca la pregunta."],
+  "porque_fallan": {"D": "Sería cierto si dijera 98,6 °F. Con grados Celsius, ese termómetro estaría en té hirviendo, no en una boca."},
+  "confirma": "C"},
+
+ "hrw-c18-q020": {"idea": "Anclas de la escala Celsius: 0 congela, 37 es el cuerpo, 100 hierve.",
+  "pasos": ["Un día de verano ronda los 25–35 °C.", "80 °C quemaría; 0 °C es invierno."],
+  "porque_fallan": {"D": "80 °C es agua muy caliente al tacto, no aire de verano."},
+  "confirma": "C"},
+
+ "hrw-c18-q021": {"idea": "Una lámina bimetálica se curva porque los dos metales se dilatan de forma distinta. Si se dilataran igual, no pasaría nada.",
+  "pasos": ["Pegadas entre sí, al calentarse una quiere alargarse más que la otra.", "La única salida es curvarse, con el que más se dilata por fuera.", "Lo que hace falta es que difieran en el coeficiente de dilatación lineal."],
+  "porque_fallan": {"D": "Conducir mejor o peor cambia lo rápido que responde, no que se curve."},
+  "confirma": "E"},
+
+ "hrw-c18-q022": {"idea": "El que queda por dentro de la curva es el que menos se dilata: recorre el arco más corto.",
+  "pasos": ["Al curvarse, la cara exterior del arco es más larga que la interior.", "Ahí va el metal que más se dilata, el zinc.", "El hierro queda dentro porque su coeficiente de dilatación es menor."],
+  "porque_fallan": {"A": "Con un coeficiente mayor iría por fuera, no por dentro.", "C": "El calor específico no interviene: lo que decide la curvatura es cuánto cambia la longitud."},
+  "confirma": "B"},
+
+ "hrw-c18-q023": {"idea": "Un líquido no se sostiene solo: hay que meterlo en un recipiente, y el recipiente también se dilata.",
+  "pasos": ["Lo que se mide directamente es la dilatación **aparente**, relativa al recipiente.", "Para obtener la real hay que conocer y descontar la del vidrio.", "Un sólido se mide sin ese estorbo."],
+  "porque_fallan": {"A": "Sí existe relación: para materiales isótropos $\\beta \\approx 3\\alpha$."},
+  "confirma": "E"},
+
+ "hrw-c18-q027": {"idea": "Para dilataciones pequeñas, el área crece al doble del porcentaje que la longitud, y el volumen al triple.",
+  "pasos": ["$A \\propto d^2$, luego $\\dfrac{\\Delta A}{A} = 2\\dfrac{\\Delta d}{d}$.", "$2 \\times 0.17\\% = 0.34\\%$.", "Es la misma razón por la que $\\beta = 3\\alpha$ para el volumen."],
+  "porque_fallan": {"A": "Copia el porcentaje lineal sin duplicarlo.", "C": "Triplica: eso valdría para el volumen, no para el área."},
+  "confirma": "B"},
+
+ "hrw-c18-q029": {"idea": "Un coeficiente de dilatación es un cambio **relativo** por grado, así que las unidades de volumen se cancelan.",
+  "pasos": ["$\\beta = \\dfrac{1}{V}\\dfrac{\\Delta V}{\\Delta T}$: el volumen aparece arriba y abajo.", "Lo único que queda es el inverso de una temperatura: $1/\\mathrm{C^\\circ}$."],
+  "porque_fallan": {"B": "Deja unidades de volumen, como si midiera el cambio absoluto."},
+  "confirma": "E"},
+
+ "hrw-c18-q030": {"idea": "Que la **columna** doble su longitud no dice nada del coeficiente, porque la columna no empieza en cero: hay un bulbo lleno debajo.",
+  "pasos": ["El mercurio que se dilata es el del bulbo entero, no el del capilar visible.", "Un cambio pequeño en el volumen total puede doblar la parte visible.", "Así que ninguna conclusión sobre el coeficiente se sostiene."],
+  "porque_fallan": {"D": "El vacío no tira de nada: el mercurio sube porque se dilata, no por succión."},
+  "confirma": "E"},
+
+ "hrw-c18-q031": {"idea": "Dilatación de área: el coeficiente efectivo es $2\\alpha$, y hay que usar la superficie **total** del cubo, seis caras.",
+  "pasos": ["$A_0 = 6L^2 = 6(5.0)^2 = 150\\ \\mathrm{cm^2}$.", "$\\Delta A = 2\\alpha A_0\\Delta T = 2(1.0\\times10^{-5})(150)(50)$.", "$\\Delta A = 0.15\\ \\mathrm{cm^2}$."],
+  "porque_fallan": {"C": "Usa $\\alpha$ en vez de $2\\alpha$: la mitad.", "B": "Usa una sola cara en vez de las seis."},
+  "confirma": "D"},
+
+ "hrw-c18-q033": {"idea": "Para el volumen el coeficiente es tres veces el lineal.",
+  "pasos": ["$\\beta = 3\\alpha = 33\\times10^{-6}\\ \\mathrm{(C^\\circ)^{-1}}$.", "$\\Delta V = \\beta V_0\\Delta T = (33\\times10^{-6})(100)(100) = 0.33\\ \\mathrm{cm^3}$.", "$V = 100.33\\ \\mathrm{cm^3}$."],
+  "porque_fallan": {"C": "Usa $\\alpha$ sin triplicar.", "B": "Además pierde un factor tres y un orden de magnitud."},
+  "confirma": "A"},
+
+ "hrw-c18-q034": {"idea": "$\\beta = 3\\alpha$, y sale de desarrollar $(1+\\alpha\\Delta T)^3$ quedándose con el primer orden.",
+  "pasos": ["$V = L^3 \\to V(1+\\alpha\\Delta T)^3 \\approx V(1 + 3\\alpha\\Delta T)$.", "Los términos en $\\alpha^2$ y $\\alpha^3$ son despreciables porque $\\alpha \\sim 10^{-5}$.", "$\\beta = 3\\alpha$, y no depende de la forma del cuerpo."],
+  "porque_fallan": {"A": "Eleva al cubo el coeficiente en vez de multiplicarlo por tres.", "E": "Para un material isótropo la forma no influye."},
+  "confirma": "C"},
+
+ "hrw-c18-q035": {"idea": "El agua es la excepción: al congelarse **aumenta** de volumen, y por eso revienta la tubería.",
+  "pasos": ["El hielo tiene menor densidad que el agua líquida — flota.", "Congelarse dentro de un tubo cerrado genera presiones enormes."],
+  "porque_fallan": {"D": "Dice lo contrario: el hielo se contrae al fundirse, no al fundirse se expande."},
+  "confirma": "E"},
+
+ "hrw-c18-q036": {"idea": "El agua tiene su densidad máxima a 4 °C, así que a esa temperatura cualquier cambio —calentar o enfriar— aumenta el volumen… salvo que se pregunte justo lo contrario.",
+  "pasos": ["A 4 °C el volumen de una masa dada de agua es **mínimo**.", "Cuidado: la masa no cambia al calentar, así que el peso se mantiene.", "Partiendo de 4 °C y calentando, el volumen disminuye levemente hasta pasar el mínimo y luego crece."],
+  "porque_fallan": {"A": "Calentar no cambia la masa ni el peso.", "E": "El volumen sí cambia: el agua no es incompresible ni indilatable."},
+  "confirma": "D"},
+
+ "hrw-c18-q038": {"idea": "El calor es energía en tránsito, así que comparte unidades con el trabajo: julios.",
+  "pasos": ["La caloría y el julio miden lo mismo; el factor entre ellas es 4,186.", "Ese fue el hallazgo de Joule: el equivalente mecánico del calor."],
+  "porque_fallan": {"C": "Energía por tiempo es potencia.", "D": "La capacidad calorífica es energía por grado."},
+  "confirma": "B"},
+
+ "hrw-c18-q039": {"idea": "Una caloría son 4,186 J. Es el número que conviene tener anclado.",
+  "pasos": ["1 cal = 4,186 J ≈ 4,2 J.", "El inverso, 0,24 cal/J, es la trampa de la opción A."],
+  "porque_fallan": {"A": "Es el inverso: julios por caloría al revés.", "E": "Serían kilocalorías, las de las etiquetas de comida."},
+  "confirma": "D"},
+
+ "hrw-c18-q040": {"idea": "Capacidad calorífica: energía por grado, del objeto entero. No lleva la masa dividida.",
+  "pasos": ["$C = \\dfrac{Q}{\\Delta T}$, en J/K.", "Es una propiedad del objeto concreto, no del material."],
+  "porque_fallan": {"C": "Eso es el calor específico, que sí va por unidad de masa.", "E": "Es el inverso de la definición."},
+  "confirma": "A"},
+
+ "hrw-c18-q041": {"idea": "Calor específico: energía por unidad de masa y por grado. Es la capacidad calorífica normalizada.",
+  "pasos": ["$c = \\dfrac{Q}{m\\,\\Delta T}$, en J/(kg·K).", "Al no depender del tamaño, es una propiedad del material."],
+  "porque_fallan": {"A": "Eso es el calor latente, que va con el cambio de fase."},
+  "confirma": "D"},
+
+ "hrw-c18-q042": {"idea": "Igual masa, igual calor, temperaturas finales distintas: lo único que puede diferir es cuánta energía cuesta cada grado.",
+  "pasos": ["$\\Delta T = Q/C$, con $C = mc$.", "Como la masa es la misma, la diferencia está en el calor específico, o sea en la capacidad calorífica."],
+  "porque_fallan": {"A": "La conductividad afecta a la **rapidez** con que se reparte el calor, no a la temperatura final.", "C": "La densidad no entra: las masas ya son iguales."},
+  "confirma": "E"},
+
+ "hrw-c18-q044": {"idea": "A volumen constante todo el calor va a subir la temperatura, y el que tenga menos capacidad sube más.",
+  "pasos": ["$\\Delta T = Q/C$, con el mismo $Q$ para los dos.", "$C_A > C_B$ implica $\\Delta T_A < \\Delta T_B$.", "La energía interna sube lo mismo en ambos, porque a volumen constante $\\Delta U = Q$."],
+  "porque_fallan": {"A": "Invierte la relación: más capacidad significa que cuesta más subir un grado.", "C": "A volumen constante $\\Delta U = Q$ para los dos: no puede diferir."},
+  "confirma": "B"},
+
+ "hrw-c18-q045": {"idea": "A presión constante el gas se expande y gasta parte del calor en trabajo, así que hace falta más calor para el mismo grado.",
+  "pasos": ["A volumen constante: $Q = \\Delta U$.", "A presión constante: $Q = \\Delta U + P\\Delta V$.", "Ese término extra hace que $C_P > C_V$; para un gas ideal la diferencia es exactamente $nR$."],
+  "porque_fallan": {"C": "Lo dice al revés: a volumen constante no hay trabajo."},
+  "confirma": "D"},
+
+ "hrw-c18-q046": {"idea": "Calorimetría directa; lo único que hay que armar bien es la masa a partir de la densidad relativa.",
+  "pasos": ["$V = (20)^3 = 8000\\ \\mathrm{cm^3}$, y $m = 8000 \\times 2.7 = 21600\\ \\mathrm{g}$.", "$c = 0.217\\ \\mathrm{cal/(g\\cdot C^\\circ)}$.", "$\\Delta T = \\dfrac{47000}{21600 \\times 0.217} \\approx 10\\ \\mathrm{C^\\circ}$."],
+  "porque_fallan": {"A": "Sale de olvidar la densidad y tomar la masa como el volumen en gramos… con otro desliz.", "C": "Omite el calor específico relativo."},
+  "confirma": "B"},
+
+ "hrw-c18-q047": {"idea": "Es el experimento de Joule: se convierte trabajo mecánico en calor y se mide cuánto vale una caloría en julios.",
+  "pasos": ["Las paletas hacen trabajo sobre el agua; el recipiente está aislado.", "Todo ese trabajo aparece como aumento de temperatura.", "Comparando julios gastados con calorías obtenidas sale el equivalente mecánico del calor."],
+  "porque_fallan": {"D": "Convertir trabajo en calor tiene eficiencia 100 % siempre; lo difícil es al revés."},
+  "confirma": "E"},
+
+ "hrw-c18-q048": {"idea": "Toda la energía cinética de la bala se vuelve calor en la parafina.",
+  "pasos": ["$K = \\tfrac{1}{2}(0.010)(2000)^2 = 2.0\\times10^4\\ \\mathrm{J}$.", "En calorías: $2.0\\times10^4/4 = 5000\\ \\mathrm{cal}$.", "$\\Delta T = \\dfrac{5000}{1000 \\times 0.7} = 7.1\\ \\mathrm{C^\\circ}$.", "$T_f = 20 + 7.1 = 27.1\\ ^\\circ\\mathrm{C}$."],
+  "porque_fallan": {"A": "Olvida el factor $\\tfrac12$ o divide de más.", "C": "Confunde gramos con kilogramos en la masa de la cera."},
+  "confirma": "D"},
+
+ "hrw-c18-q049": {"idea": "Calorimetría: lo que suelta uno lo absorbe el otro. Las masas son iguales, así que se cancelan.",
+  "pasos": ["Agua: $Q = 300 \\times 1 \\times 10 = 3000\\ \\mathrm{cal}$.", "Aleación: $300 \\times c \\times 50 = 3000$.", "$c = 0.20\\ \\mathrm{cal/(g\\cdot C^\\circ)}$."],
+  "porque_fallan": {"B": "Invierte el cociente de saltos de temperatura.", "E": "Olvida el factor 5 entre los dos saltos térmicos."},
+  "confirma": "D"},
+
+ "hrw-c18-q050": {"idea": "Mezcla en recipiente aislado: la temperatura final es la media pesada por las capacidades caloríficas, y la del plomo es diminuta.",
+  "pasos": ["Plomo: $C = 300 \\times 0.030 = 9\\ \\mathrm{cal/C^\\circ}$. Agua: $C = 100 \\times 1 = 100\\ \\mathrm{cal/C^\\circ}$.", "$T = \\dfrac{9(100) + 100(70)}{109} = \\dfrac{7900}{109}$.", "$T \\approx 72.5\\ ^\\circ\\mathrm{C}$: el agua manda casi del todo."],
+  "porque_fallan": {"B": "Promedia las temperaturas sin pesar por las capacidades.", "D": "Pesa mal, dándole demasiado peso al plomo."},
+  "confirma": "E"},
+
+ "hrw-c18-q051": {"idea": "Aislado y sin cambio de fase: la energía se conserva, y la temperatura final es la media pesada por las capacidades.",
+  "pasos": ["$C_A(T_f - T_A) + C_B(T_f - T_B) = 0$.", "$T_f(C_A + C_B) = C_AT_A + C_BT_B$.", "$T_f = \\dfrac{C_AT_A + C_BT_B}{C_A+C_B}$, que siempre queda entre las dos temperaturas iniciales."],
+  "porque_fallan": {"A": "Con una resta arriba, si $T_A = T_B$ no devolvería esa temperatura. Ese límite lo descarta al instante.", "C": "Además puede dividir por cero si las capacidades coinciden."},
+  "confirma": "B"},
+
+ "hrw-c18-q052": {"idea": "Media pesada: el que tiene el doble de capacidad arrastra el doble la temperatura final hacia él.",
+  "pasos": ["$T_f = \\dfrac{C_A(300) + 2C_A(450)}{3C_A}$.", "$T_f = \\dfrac{300 + 900}{3} = 400\\ \\mathrm{K}$.", "Queda más cerca de 450 que de 300, como debe: B pesa el doble."],
+  "porque_fallan": {"B": "Es la media aritmética simple, 375, redondeada mal, o directamente la inicial de A.", "E": "Suma las temperaturas en vez de promediarlas."},
+  "confirma": "C"},
+
+ "hrw-c18-q053": {"idea": "Calor de transformación: energía **por unidad de masa** para cambiar de fase, sin que cambie la temperatura.",
+  "pasos": ["$Q = mL$, con $L$ en J/kg.", "Es el análogo del calor específico pero para el cambio de fase, no para subir la temperatura."],
+  "porque_fallan": {"A": "Le falta el «por unidad de masa»: eso sería el calor total, que depende de cuánta sustancia haya.", "D": "El calor específico sube la temperatura; el latente cambia la fase."},
+  "confirma": "B"},
+
+ "hrw-c18-q054": {"idea": "Fusión es pasar de sólido a líquido. El calor de fusión es lo que cuesta fundir un gramo, sin subir la temperatura.",
+  "pasos": ["80 cal funden 1 g de hielo a 0 °C y lo dejan como agua a 0 °C.", "La temperatura no cambia: toda esa energía va a romper la estructura del cristal."],
+  "porque_fallan": {"B": "Eso es el calor de vaporización, y son 540 cal/g.", "A": "Subir 1 g de agua un grado cuesta 1 cal, no 80."},
+  "confirma": "D"},
+
+ "hrw-c18-q056": {"idea": "Durante un cambio de fase la temperatura se queda clavada: toda la energía va a la energía potencial de los enlaces.",
+  "pasos": ["El calor latente rompe o forma enlaces, no acelera las moléculas.", "Por eso el agua hirviendo sigue a 100 °C por mucho que subas el fuego."],
+  "porque_fallan": {"B": "El agua al congelarse se expande, pero la mayoría de sustancias se contraen: no es general.", "E": "Va al revés: es la cinética la que no cambia y la potencial la que sube."},
+  "confirma": "A"},
+
+ "hrw-c18-q058": {"idea": "Tres tramos, tres fórmulas: fundir, calentar, vaporizar. Cada uno con su constante.",
+  "pasos": ["Fundir 1 g de hielo a 0 °C: 80 cal.", "Calentar el agua de 0 a 100 °C: $1 \\times 1.00 \\times 100 = 100$ cal.", "Vaporizar: 540 cal.", "Total: $80 + 100 + 540 = 720$ cal."],
+  "porque_fallan": {"C": "Olvida el tramo de calentar el agua líquida, que son 100 cal.", "B": "Solo cuenta la vaporización."},
+  "confirma": "D"},
+
+ "hrw-c18-q059": {"idea": "Cinco tramos, y hay que contarlos todos: calentar hielo, fundir, calentar agua, vaporizar, calentar vapor.",
+  "pasos": ["Hielo de −20 a 0: $10 \\times 0.5 \\times 20 = 100$ cal.", "Fundir: $10 \\times 80 = 800$ cal. Agua de 0 a 100: $10 \\times 1 \\times 100 = 1000$ cal.", "Vaporizar: $10 \\times 540 = 5400$ cal. Vapor de 100 a 130: $10 \\times 0.5 \\times 30 = 150$ cal.", "Total: $100+800+1000+5400+150 = 7450$ cal."],
+  "porque_fallan": {"C": "Se deja alguno de los tramos extremos, los del hielo frío o el vapor recalentado.", "E": "Cuenta de más en algún tramo."},
+  "confirma": "D"},
+
+ "hrw-c18-q060": {"idea": "Comparar el calor latente con el sensible: la condensación domina abrumadoramente.",
+  "pasos": ["Condensar 1 g de vapor: 540 cal.", "Enfriar ese gramo de agua de 100 a 80 °C: $1 \\times 1 \\times 20 = 20$ cal.", "Fracción del enfriamiento: $\\dfrac{20}{540+20} = 3.6\\%$."],
+  "porque_fallan": {"C": "Compara mal las escalas: el latente es veintisiete veces el sensible aquí.", "B": "Parece salir de confundir 540 con un porcentaje."},
+  "confirma": "E"},
+
+ "hrw-c18-q062": {"idea": "La potencia que mantiene fundido el metal es exactamente la que pierde. Al apagar, esa misma pérdida es la que lo solidifica.",
+  "pasos": ["Fundido en equilibrio: la potencia $P$ compensa justo las pérdidas.", "Apagado, pierde a ese mismo ritmo durante un tiempo $T$: energía perdida $= PT$.", "Esa energía es el calor latente de toda la masa: $PT = ML$.", "$L = \\dfrac{PT}{M}$."],
+  "porque_fallan": {"A": "Tiene las unidades al revés: $L$ es energía por masa, y $P/MT$ es potencia por masa y tiempo.", "D": "$PMT$ tampoco tiene unidades de energía por masa."},
+  "confirma": "E"},
+
+ "hrw-c18-q063": {"idea": "El agua solo puede ceder calor hasta llegar a 0 °C. Con eso se funde una parte del hielo, no todo.",
+  "pasos": ["Agua de 6 a 0 °C: $Q = 0.100 \\times 4190 \\times 6 = 2514\\ \\mathrm{J}$.", "Hielo fundido: $m = \\dfrac{2514}{333000} = 7.5\\times10^{-3}\\ \\mathrm{kg}$.", "Son 7,5 g. El resto del hielo se queda sin fundir y el sistema queda a 0 °C."],
+  "porque_fallan": {"E": "Supone que se funde todo, pero el agua no tiene energía suficiente ni de lejos.", "D": "Sale de olvidar un factor o de usar el calor específico del hielo."},
+  "confirma": "A"},
+
+ "hrw-c18-q064": {"idea": "La primera ley con el convenio de trabajo **sobre** el sistema: todo lo que entra, suma.",
+  "pasos": ["$\\Delta U = Q + W_{sobre}$.", "Equivale a $\\Delta U = Q - W_{por}$, que es la otra forma de escribirla.", "Lo importante es no mezclar los dos convenios en la misma cuenta."],
+  "porque_fallan": {"A": "Mezcla los convenios: resta el trabajo hecho **sobre** el sistema.", "D": "La energía interna sí depende del calor que entra."},
+  "confirma": "B"},
+
+ "hrw-c18-q066": {"idea": "La energía interna solo depende de la temperatura, así que el mismo salto térmico implica el mismo $\\Delta U$ en los dos procesos.",
+  "pasos": ["Primer proceso, adiabático: $\\Delta U = -W = -100\\ \\mathrm{J}$ para $\\Delta T = -5\\ \\mathrm{K}$.", "Segundo proceso, mismo $\\Delta T$, luego el mismo $\\Delta U = -100\\ \\mathrm{J}$.", "$\\Delta U = Q - W \\Rightarrow -100 = Q - 25 \\Rightarrow Q = -75\\ \\mathrm{J}$.", "$C = \\dfrac{Q}{\\Delta T} = \\dfrac{-75}{-5} = 15\\ \\mathrm{J/K}$."],
+  "porque_fallan": {"A": "Es la del primer proceso, $100/5$: usa el trabajo como si fuera calor.", "C": "Sale de dividir 25 entre 5, olvidando que parte de la energía viene del calor."},
+  "confirma": "D"},
+
+ "hrw-c18-q067": {"idea": "Adiabático significa $Q = 0$, así que lo único que puede cambiar la energía interna es el trabajo.",
+  "pasos": ["$\\Delta U = Q + W_{sobre} = 0 + W_{sobre}$.", "Si $\\Delta U = +20\\ \\mathrm{J}$, entonces se hicieron 20 J de trabajo **sobre** el sistema."],
+  "porque_fallan": {"B": "Si el sistema hiciera el trabajo, su energía interna bajaría.", "C": "En un proceso adiabático no entra ni sale calor, por definición."},
+  "confirma": "A"},
+
+ "hrw-c18-q068": {"idea": "Con $Q=0$ la primera ley se queda en dos términos: el trabajo del entorno es el cambio de energía interna.",
+  "pasos": ["$\\Delta U = Q + W_{sobre}$ con $Q = 0$.", "$\\Delta U = W_{sobre}$: el trabajo que hace el entorno sobre el sistema."],
+  "porque_fallan": {"A": "En adiabático no hay calor absorbido que igualar a nada.", "E": "Sería $-\\Delta U$: el trabajo hecho **por** el sistema baja su energía interna."},
+  "confirma": "D"},
+
+ "hrw-c18-q069": {"idea": "Volver al estado inicial obliga a $\\Delta U = 0$, y entonces el calor absorbido tiene que igualar al trabajo hecho.",
+  "pasos": ["La energía interna es función de estado: mismo estado, mismo valor.", "$0 = Q - W \\Rightarrow Q = W$.", "Absorber 50 J y hacer 50 J de trabajo cumple exactamente eso."],
+  "porque_fallan": {"A": "Adiabático y con trabajo no nulo daría $\\Delta U \\neq 0$: no puede cerrar el ciclo.", "B": "Absorber calor sin hacer trabajo subiría la energía interna."},
+  "confirma": "E"},
+
+ "hrw-c18-q070": {"idea": "En un ciclo todas las **funciones de estado** vuelven a su valor: presión, volumen, temperatura, energía interna. El trabajo no es una de ellas.",
+  "pasos": ["Trabajo y calor dependen del camino, no del estado.", "El área encerrada por el ciclo en el diagrama $P$–$V$ es justo el trabajo neto, y no tiene por qué ser cero.", "De hecho, si fuera cero la máquina no serviría de nada."],
+  "porque_fallan": {"A": "La energía interna sí es función de estado: en un ciclo su cambio es cero siempre."},
+  "confirma": "C"},
+
+ "hrw-c18-q071": {"idea": "Misma idea que la anterior, pero mirando el calor: tampoco es función de estado.",
+  "pasos": ["En un ciclo $\\Delta U = 0$, así que $Q = W$.", "Ese valor común no tiene por qué ser cero.", "En cambio $W - Q$ sí se anula siempre, porque es igual a $-\\Delta U$."],
+  "porque_fallan": {"A": "$W - Q = -\\Delta U$, que en un ciclo vale cero necesariamente."},
+  "confirma": "C"},
+
+ "hrw-c18-q072": {"idea": "Sale de despejar $k$ en la ley de conducción y arrastrar las unidades.",
+  "pasos": ["$P = \\dfrac{kA\\,\\Delta T}{L} \\Rightarrow k = \\dfrac{PL}{A\\,\\Delta T}$.", "Unidades: $\\dfrac{(\\mathrm{cal/s})(\\mathrm{cm})}{(\\mathrm{cm^2})(\\mathrm{C^\\circ})} = \\dfrac{\\mathrm{cal}}{\\mathrm{cm\\cdot s\\cdot C^\\circ}}$."],
+  "porque_fallan": {"A": "Pone el centímetro arriba: es la conductancia por unidad de área, no la conductividad."},
+  "confirma": "B"},
+
+ "hrw-c18-q073": {"idea": "Más área y más diferencia de temperatura, más flujo; más espesor, menos. Y todo en primera potencia.",
+  "pasos": ["$P_{cond} = \\dfrac{kA(T_1-T_2)}{L}$.", "Comprueba con el sentido común: doblar el grosor de la pared debe reducir el flujo a la mitad."],
+  "porque_fallan": {"A": "Pone $L^2$: entonces las unidades ya no cierran.", "B": "Intercambia área y espesor, que es justo al revés de lo que dicta la intuición."},
+  "confirma": "C"},
+
+ "hrw-c18-q074": {"idea": "La conducción en estado estacionario no depende de cuánta energía almacene el material, solo de con qué facilidad la deja pasar.",
+  "pasos": ["En $P = kA\\Delta T/L$ aparecen conductividad, área, espesor y salto térmico.", "El calor específico no está: ese gobierna el **transitorio**, no el régimen estacionario."],
+  "porque_fallan": {"B": "La conductividad es justo el protagonista de la fórmula."},
+  "confirma": "E"},
+
+ "hrw-c18-q075": {"idea": "Proporcionalidades encadenadas: se multiplican los tres factores por separado.",
+  "pasos": ["$P \\propto \\dfrac{A\\,\\Delta T}{L}$.", "Espesor $\\times 2$, área $\\times \\tfrac12$, salto $\\times 2$.", "Factor total: $\\dfrac{(1/2)(2)}{2} = \\dfrac{1}{2}$."],
+  "porque_fallan": {"C": "Cancela los tres factores creyendo que se compensan; no lo hacen, queda un medio.", "E": "Multiplica en vez de dividir por el espesor."},
+  "confirma": "B"},
+
+ "hrw-c18-q077": {"idea": "En equilibrio todo en la habitación está a la misma temperatura: lo que cambia es la rapidez con que te roba calor.",
+  "pasos": ["El metal conduce mucho mejor, así que evacúa calor de tu piel deprisa.", "Esa pérdida rápida es lo que el tacto interpreta como «frío».", "La madera, mala conductora, se calienta en el punto de contacto y deja de robar."],
+  "porque_fallan": {"D": "Están a la misma temperatura: la habitación es uniforme, lo dice el enunciado.", "C": "El calor no fluye entre ellos si están a la misma temperatura."},
+  "confirma": "B"},
+
+ "hrw-c18-q078": {"idea": "Lo mismo que el caso anterior, llevado al extremo: el acero extrae calor de la lengua tan rápido que la humedad se congela.",
+  "pasos": ["El poste de acero conduce el calor hacia dentro a gran velocidad.", "La saliva de la superficie de contacto se congela y pega la lengua.", "La madera no puede evacuar calor lo bastante rápido."],
+  "porque_fallan": {"A": "Un calor específico alto haría lo contrario: costaría más enfriar la zona de contacto."},
+  "confirma": "D"},
+
+ "hrw-c18-q079": {"idea": "Radiar bien y absorber bien son la misma propiedad, y una superficie negra y rugosa es la que mejor lo hace.",
+  "pasos": ["La ley de Kirchhoff dice que emisividad y absortividad coinciden.", "Negro y rugoso tiene emisividad cercana a 1; pulido y metálico, cercana a 0.", "Lo que importa es la superficie **exterior**, que es la que ve la habitación."],
+  "porque_fallan": {"E": "Pulido es lo peor para radiar: reflejaría el calor hacia dentro.", "A": "El interior no radia a la habitación."},
+  "confirma": "D"},
+
+ "hrw-c18-q080": {"idea": "Claro refleja, oscuro absorbe. Reflejar la luz solar antes de que entre es lo que mantiene fresca la habitación.",
+  "pasos": ["Una superficie clara tiene baja absortividad en el visible.", "La energía que refleja no se convierte en calor dentro de la casa."],
+  "porque_fallan": {"B": "Absorber más es justo lo que hace la persiana oscura, y por eso se cambió.", "D": "Transmitir dejaría pasar la luz al interior, que es lo que se quiere evitar."},
+  "confirma": "C"},
+
+ "hrw-c18-q081": {"idea": "El vacío corta conducción y convección, que necesitan materia. La radiación atraviesa el vacío sin problema — para eso está el plateado.",
+  "pasos": ["Conducción y convección requieren un medio material: sin aire, desaparecen.", "La radiación es electromagnética y viaja mejor en el vacío que en cualquier otro sitio.", "Contra ella lo que sirve es la superficie reflectante."],
+  "porque_fallan": {"A": "Es correcta: el plateado sí reduce la radiación, por eso no es la que se busca."},
+  "confirma": "D"},
+
+ "hrw-c18-q082": {"idea": "Cada mecanismo tiene su remedio, y las opciones los emparejan todas mal.",
+  "pasos": ["Plateado contra **radiación**, no contra convección.", "Vacío contra conducción y convección, no contra radiación.", "La plata es de hecho un conductor excelente; lo que importa ahí es que refleja.", "Ninguna de las afirmaciones se sostiene."],
+  "porque_fallan": {"B": "Empareja el plateado con la convección; va con la radiación.", "C": "Empareja el vacío con la radiación; va con conducción y convección."},
+  "confirma": "E"}
+}

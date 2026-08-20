@@ -1,0 +1,266 @@
+{
+ "hrw-c20-q001": {"idea": "Reversible significa que el proceso pasa por una sucesión de estados de equilibrio, así que se puede recorrer al revés sin dejar rastro.",
+  "pasos": ["Hay que ir tan despacio que el sistema tenga tiempo de equilibrarse en cada instante.", "Por eso reversible implica cuasi-estático: siempre cerca del equilibrio, no solo al principio y al final."],
+  "porque_fallan": {"B": "Estar en equilibrio solo en los extremos es lo que ocurre en un proceso irreversible, como una expansión libre."},
+  "confirma": "A"},
+
+ "hrw-c20-q002": {"idea": "Lento no basta. La fricción disipa energía en una sola dirección y eso no se puede deshacer.",
+  "pasos": ["Un proceso cuasi-estático puede ser irreversible si hay disipación.", "La fricción convierte trabajo en calor, y ese calor no vuelve a ser trabajo.", "Cambiar temperatura, presión o intercambiar calor no impide por sí solo la reversibilidad."],
+  "porque_fallan": {"B": "Un intercambio de calor con una diferencia de temperatura infinitesimal sí es reversible.", "A": "La temperatura cambia en toda adiabática reversible."},
+  "confirma": "D"},
+
+ "hrw-c20-q003": {"idea": "La entropía es función de estado, pero la integral $\\int dQ/T$ solo la calcula bien si el camino es reversible.",
+  "pasos": ["Para un camino irreversible, $\\int dQ/T < \\Delta S$.", "Como $\\Delta S$ solo depende de los extremos, se inventa un camino reversible cualquiera entre A y B y se integra por ahí.", "Ese es el truco estándar: el camino imaginario no tiene que ser el que ocurrió."],
+  "porque_fallan": {"E": "El calor absorbido no basta: hay que dividir por la temperatura a la que entra, punto a punto."},
+  "confirma": "C"},
+
+ "hrw-c20-q004": {"idea": "Sale de la definición: energía dividida entre temperatura.",
+  "pasos": ["$dS = dQ/T$, con $dQ$ en julios y $T$ en kelvin.", "Unidades: J/K."],
+  "porque_fallan": {"A": "El julio solo sería si no dividiéramos por la temperatura.", "E": "cal/mol es energía por cantidad, no por temperatura."},
+  "confirma": "B"},
+
+ "hrw-c20-q005": {"idea": "El trabajo depende del **camino**, no del estado. Por eso no es variable de estado.",
+  "pasos": ["Energía interna, entropía, temperatura y presión quedan fijadas por el estado del sistema.", "El trabajo y el calor solo tienen sentido para un proceso: preguntar «cuánto trabajo tiene este gas» no significa nada."],
+  "porque_fallan": {"C": "La entropía sí es función de estado, y eso es lo que la hace útil."},
+  "confirma": "A"},
+
+ "hrw-c20-q006": {"idea": "$dS = dQ/T$ con $dQ = 0$ da $dS = 0$. Pero hace falta que además sea reversible.",
+  "pasos": ["Adiabático: no entra ni sale calor.", "Reversible: la integral $\\int dQ/T$ calcula bien la entropía.", "Las dos condiciones juntas dan $\\Delta S = 0$. A eso se le llama isoentrópico."],
+  "porque_fallan": {"E": "Una expansión libre es adiabática e **irreversible**, y ahí la entropía aumenta.", "B": "En un isotermo reversible sí hay calor, y la entropía cambia."},
+  "confirma": "A"},
+
+ "hrw-c20-q007": {"idea": "La entropía es función de estado: si el sistema vuelve al mismo estado, su entropía vuelve al mismo valor.",
+  "pasos": ["En un ciclo cerrado el estado final coincide con el inicial.", "$\\Delta S_{sistema} = 0$ siempre, sea el ciclo reversible o no.", "Cuidado: la del **entorno** sí puede aumentar, y aumenta si el ciclo es irreversible."],
+  "porque_fallan": {"C": "En un isotermo no cíclico el volumen cambia y con él la entropía."},
+  "confirma": "D"},
+
+ "hrw-c20-q009": {"idea": "Expansión libre: no hay trabajo ni calor, así que la temperatura y la energía interna no cambian. Pero la entropía sí, porque el proceso es irreversible.",
+  "pasos": ["Recipiente rígido y aislado: $Q = 0$ y $W = 0$, luego $\\Delta E_{int} = 0$ y $T$ constante.", "Aun así el gas ocupa más volumen, y hay más microestados accesibles.", "$\\Delta S = nR\\ln(V_f/V_i) > 0$."],
+  "porque_fallan": {"B": "Para un gas ideal la temperatura no cambia en una expansión libre.", "D": "La presión **baja**, porque el volumen aumenta."},
+  "confirma": "A"},
+
+ "hrw-c20-q010": {"idea": "Contraer significa menos volumen y menos microestados, así que la entropía del gas baja. Siempre.",
+  "pasos": ["$\\Delta S = nR\\ln(V_f/V_i)$ para un cambio isotermo.", "Contracción es $V_f < V_i$, luego el logaritmo es negativo.", "Que baje la del gas no viola nada: la del entorno sube al menos otro tanto."],
+  "porque_fallan": {"B": "Confunde la entropía del sistema con la del universo. La del sistema sí puede bajar."},
+  "confirma": "E"},
+
+ "hrw-c20-q012": {"idea": "Ojo al sujeto: piden la entropía del **reservorio**, no la del gas. Y en un proceso reversible las dos son opuestas.",
+  "pasos": ["Del gas: $\\Delta S_{gas} = nR\\ln(V_f/V_i)$.", "Reversible significa que la entropía total no cambia: $\\Delta S_{res} = -\\Delta S_{gas}$.", "$\\Delta S_{res} = -nR\\ln(V_f/V_i) = nR\\ln(V_i/V_f)$."],
+  "porque_fallan": {"D": "Es la del gas. Leer mal el sujeto es toda la trampa de la pregunta."},
+  "confirma": "C"},
+
+ "hrw-c20-q013": {"idea": "Caso particular de la fórmula isoterma con el volumen doblado.",
+  "pasos": ["$\\Delta S = nR\\ln(V_f/V_i)$ con $n=1$ y $V_f/V_i = 2$.", "$\\Delta S = R\\ln 2$."],
+  "porque_fallan": {"D": "$RT\\ln 2$ es el **calor** absorbido, no la entropía: falta dividir por $T$.", "C": "Cero sería si el proceso fuera adiabático reversible."},
+  "confirma": "A"},
+
+ "hrw-c20-q014": {"idea": "La entropía es función de estado, así que da igual que el proceso sea irreversible: se calcula por un camino isotermo imaginario.",
+  "pasos": ["Misma temperatura al principio y al final, y el volumen cambia de $V_i$ a $V_f$.", "Se inventa un isotermo reversible entre esos dos estados.", "$\\Delta S = nR\\ln(V_f/V_i)$, exactamente igual que si el proceso hubiera sido reversible."],
+  "porque_fallan": {"E": "Sí se puede calcular: para eso sirve que la entropía sea función de estado.", "C": "Tiene el cociente invertido: eso sería la del entorno en el caso reversible."},
+  "confirma": "D"},
+
+ "hrw-c20-q015": {"idea": "A volumen constante, $dQ = nC_V dT$, y hay que integrar $dQ/T$: sale un logaritmo.",
+  "pasos": ["$\\Delta S = \\displaystyle\\int_{T_i}^{T_f}\\frac{nC_V\\,dT}{T}$.", "$\\Delta S = nC_V\\ln\\!\\left(\\dfrac{T_f}{T_i}\\right)$."],
+  "porque_fallan": {"E": "Olvida dividir por $T$ dentro de la integral: eso es el calor, no la entropía.", "C": "El logaritmo va del **cociente**, no de la diferencia. Además $\\ln$ de una temperatura no tiene sentido dimensional."},
+  "confirma": "A"},
+
+ "hrw-c20-q016": {"idea": "Mismo salto de temperatura, pero a presión constante hace falta más calor, y más calor a la misma temperatura es más entropía.",
+  "pasos": ["$\\Delta S = nC\\ln(T_f/T_i)$ con $C = C_V$ para A y $C = C_P$ para B.", "$C_P = C_V + R > C_V$.", "Luego $\\Delta S_B > \\Delta S_A$. La diferencia viene del trabajo de expansión."],
+  "porque_fallan": {"A": "La entropía es función de estado, pero los estados **finales no son los mismos**: B acabó con otro volumen.", "B": "Lo pone al revés."},
+  "confirma": "C"},
+
+ "hrw-c20-q017": {"idea": "El que cede calor pierde entropía, el que lo recibe gana más, y el balance es positivo porque el proceso es irreversible.",
+  "pasos": ["El caliente cede $Q$ a temperatura alta: $\\Delta S_h = -Q/T_h$ aproximadamente, negativo.", "El frío recibe el mismo $Q$ a temperatura baja: $\\Delta S_c = +Q/T_c$, y $T_c < T_h$, así que es mayor en magnitud.", "La suma es positiva: la entropía del universo aumenta."],
+  "porque_fallan": {"D": "Invierte quién gana y quién pierde entropía.", "C": "Un total negativo violaría la segunda ley."},
+  "confirma": "B"},
+
+ "hrw-c20-q018": {"idea": "Mismos estados inicial y final, misma variación de entropía. Es la definición de función de estado.",
+  "pasos": ["$\\Delta S$ depende solo de A y de B, no del camino.", "Lo que sí difiere es la entropía del **entorno**: en el irreversible aumenta, en el reversible se compensa."],
+  "porque_fallan": {"A": "Confunde la entropía del sistema con la del universo. La del sistema es la misma en los dos casos."},
+  "confirma": "B"},
+
+ "hrw-c20-q019": {"idea": "Sin calor, $\\Delta S \\geq 0$: cero si es reversible, positivo si no. Nunca negativa.",
+  "pasos": ["$\\Delta S \\geq \\displaystyle\\int \\frac{dQ}{T} = 0$ cuando $Q=0$.", "La igualdad se da solo en el caso reversible.", "Así que la entropía del sistema **no disminuye**."],
+  "porque_fallan": {"A": "Solo vale para las adiabáticas reversibles; una expansión libre la aumenta.", "B": "En la reversible no aumenta: se queda igual."},
+  "confirma": "E"},
+
+ "hrw-c20-q020": {"idea": "Reversible es exactamente la condición de que la entropía del universo no cambie.",
+  "pasos": ["$\\Delta S_{sistema} + \\Delta S_{entorno} = 0$.", "Cada una por separado puede cambiar, y normalmente cambia."],
+  "porque_fallan": {"A": "La del sistema sí puede cambiar: en un isotermo reversible cambia."},
+  "confirma": "C"},
+
+ "hrw-c20-q021": {"idea": "Irreversible es exactamente la condición de que la entropía del universo aumente.",
+  "pasos": ["$\\Delta S_{sistema} + \\Delta S_{entorno} > 0$.", "Es la formulación más general de la segunda ley."],
+  "porque_fallan": {"B": "La del sistema puede bajar —un frigorífico lo hace— mientras la total sube."},
+  "confirma": "D"},
+
+ "hrw-c20-q022": {"idea": "El enunciado de Kelvin-Planck: no existe una máquina cíclica que convierta calor íntegramente en trabajo.",
+  "pasos": ["Siempre hay que ceder parte del calor a un foco frío.", "Al revés no hay problema: el trabajo sí se convierte del todo en calor, como hace la fricción.", "Esa asimetría es la segunda ley."],
+  "porque_fallan": {"B": "El trabajo sí se puede convertir por completo en calor.", "D": "El rozamiento explica pérdidas concretas, pero el límite existe incluso sin rozamiento alguno."},
+  "confirma": "A"},
+
+ "hrw-c20-q023": {"idea": "Convertir calor en trabajo por completo y de forma cíclica es lo único que nunca ocurre. Lo demás pasa a diario.",
+  "pasos": ["I ocurre siempre: el calor fluye solo del caliente al frío.", "II ocurre siempre: frotarse las manos convierte trabajo en calor al cien por cien.", "III es la máquina perfecta que prohíbe la segunda ley."],
+  "porque_fallan": {"D": "Incluye la II, que es justo la que sí sucede: es la dirección fácil de la conversión.", "E": "Metería también el flujo espontáneo de calor, que es lo más común del mundo."},
+  "confirma": "C"},
+
+ "hrw-c20-q024": {"idea": "Es una bomba de calor, y sí funciona: entrega al edificio el calor extraído del suelo **más** el trabajo del motor.",
+  "pasos": ["$|Q_H| = |Q_C| + W$: lo que sale al foco caliente es más que el trabajo consumido.", "No se crea energía: parte viene del suelo, que se enfría.", "Por eso una bomba de calor es más eficiente que un calefactor eléctrico."],
+  "porque_fallan": {"A": "La energía se conserva perfectamente: el excedente sale del terreno.", "B": "La segunda ley no lo prohíbe: se está gastando trabajo para mover calor cuesta arriba."},
+  "confirma": "E"},
+
+ "hrw-c20-q025": {"idea": "La cocina está aislada, así que toda la energía eléctrica que entra acaba como calor dentro. La nevera solo la redistribuye.",
+  "pasos": ["El frigorífico saca calor de su interior y lo tira al mismo cuarto, más el trabajo del motor.", "Balance neto sobre el cuarto: entra la energía eléctrica y no sale nada.", "La temperatura sube, y quien lo dice es la primera ley."],
+  "porque_fallan": {"C": "Es la intuición de que la nevera enfría. Enfría su interior a costa de calentar más el exterior.", "E": "El resultado es correcto pero el motivo no: basta la conservación de la energía."},
+  "confirma": "B"},
+
+ "hrw-c20-q026": {"idea": "Una máquina térmica toma calor del foco caliente, convierte una parte en trabajo y **tiene que** ceder el resto al foco frío.",
+  "pasos": ["$|W| = |Q_H| - |Q_L|$, con $|Q_L| > 0$ obligatoriamente.", "Ese calor cedido no es un defecto de diseño: la segunda ley lo exige."],
+  "porque_fallan": {"A": "Sería una máquina de rendimiento 100 %, prohibida por la segunda ley.", "B": "Convertir trabajo en calor es lo que hace un frigorífico o un rozamiento, no una máquina térmica."},
+  "confirma": "C"},
+
+ "hrw-c20-q027": {"idea": "Rendimiento es lo que sacas dividido entre lo que pagas: trabajo entre calor absorbido del foco caliente.",
+  "pasos": ["$\\varepsilon = \\dfrac{|W|}{|Q_H|}$.", "Siempre menor que 1, porque $|W| = |Q_H| - |Q_L|$ con $|Q_L|>0$."],
+  "porque_fallan": {"A": "Es el inverso: daría un número mayor que uno.", "E": "Divide por el calor cedido, que no es lo que se paga."},
+  "confirma": "D"},
+
+ "hrw-c20-q028": {"idea": "Solo importa el cociente $T_C/T_H$, no la diferencia. Dos motores con el mismo salto pueden tener rendimientos muy distintos.",
+  "pasos": ["Motor 1: $1-400/500 = 0.20$. Motor 2: $1-500/600 = 0.167$.", "Motor 3: $1-400/600 = 0.333$. Motor 4: $1-600/800 = 0.25$.", "De menor a mayor: 2, 1, 4, 3."],
+  "porque_fallan": {"B": "Empareja por la **diferencia** de temperaturas: los motores 1 y 2 tienen ambos 100 K de salto pero rendimientos distintos. Ese es el error que la pregunta busca.", "A": "Ordena por el número de motor, sin calcular."},
+  "confirma": "E"},
+
+ "hrw-c20-q029": {"idea": "En $\\varepsilon = 1 - T_C/T_H$, bajar el denominador… no: bajar el **numerador** rinde más, porque $T_C$ entra dividida por un número grande.",
+  "pasos": ["Cambiar $T_C$ en $\\Delta T$ cambia el rendimiento en $\\Delta T/T_H$.", "Cambiar $T_H$ en $\\Delta T$ lo cambia en $T_C\\Delta T/T_H^2$, que es menor porque $T_C/T_H < 1$.", "Así que bajar el foco frío gana."],
+  "porque_fallan": {"A": "Subir el foco caliente también mejora, pero menos.", "B": "Subir el foco frío **empeora** el rendimiento."},
+  "confirma": "D"},
+
+ "hrw-c20-q030": {"idea": "Rendimiento real: lo que sale como trabajo entre lo que entra como calor. Las temperaturas del enunciado no hacen falta.",
+  "pasos": ["$|W| = 500 - 400 = 100\\ \\mathrm{cal/s}$.", "$\\varepsilon = \\dfrac{100}{500} = 20\\%$."],
+  "porque_fallan": {"A": "Es la fracción cedida al foco frío, $400/500$, que es justo lo contrario del rendimiento.", "D": "Divide el trabajo entre el calor cedido en vez de entre el absorbido."},
+  "confirma": "E"},
+
+ "hrw-c20-q032": {"idea": "Hacer trabajo y además soltar calor sin absorber nada es crear energía de la nada.",
+  "pasos": ["En un ciclo $\\Delta E_{int} = 0$, luego $Q_{neto} = W$.", "Con $Q_{neto} < 0$ y $W > 0$ la igualdad es imposible.", "Eso es la primera ley, no la segunda."],
+  "porque_fallan": {"C": "La segunda ley prohíbe convertir **todo** el calor en trabajo; aquí ni siquiera hay calor de entrada, así que falla antes."},
+  "confirma": "B"},
+
+ "hrw-c20-q033": {"idea": "Eso es lo que pasa espontáneamente cada vez que algo se enfría. No viola nada.",
+  "pasos": ["El calor fluye solo del caliente al frío: es la dirección natural.", "La entropía total aumenta, así que la segunda ley está contenta."],
+  "porque_fallan": {"C": "La segunda ley prohíbe el flujo en sentido contrario sin trabajo, no este."},
+  "confirma": "E"},
+
+ "hrw-c20-q034": {"idea": "Un charco que se congela cediendo calor a un aire más caliente hace fluir el calor cuesta arriba, y solo.",
+  "pasos": ["El agua está a mayor temperatura que su punto de congelación, y el aire está caliente.", "Para congelarse tendría que ceder calor a algo **más caliente**, sin ningún trabajo de por medio.", "Eso es exactamente lo que prohíbe el enunciado de Clausius."],
+  "porque_fallan": {"B": "La energía se conservaría perfectamente: el problema es la dirección, no la cantidad."},
+  "confirma": "C"},
+
+ "hrw-c20-q035": {"idea": "Absorber calor de los dos focos y convertirlo todo en trabajo conserva la energía, pero es la máquina perfecta que la segunda ley prohíbe.",
+  "pasos": ["$|W| = |Q_H| + |Q_L|$ cuadra con la primera ley: nada se crea.", "Pero no cede calor a ningún sitio: rendimiento del 100 %.", "Además enfría el foco frío gratis, lo que baja la entropía del universo."],
+  "porque_fallan": {"B": "La energía está perfectamente equilibrada; por eso la trampa es tentadora.", "E": "Sí viola algo, y es la segunda ley."},
+  "confirma": "C"},
+
+ "hrw-c20-q036": {"idea": "Es la máquina de rendimiento 100 %, el móvil perpetuo de segunda especie.",
+  "pasos": ["Absorbe $Q$ y produce $W = Q$, sin ceder nada.", "La energía se conserva, así que la primera ley no dice nada.", "Es justo lo que el enunciado de Kelvin-Planck declara imposible."],
+  "porque_fallan": {"B": "La primera ley se cumple: entra tanto como sale."},
+  "confirma": "C"},
+
+ "hrw-c20-q037": {"idea": "Dos isotermas y dos adiabáticas, en ese orden alternado. Nada más y nada menos.",
+  "pasos": ["Isoterma caliente, adiabática de expansión, isoterma fría, adiabática de compresión.", "El área encerrada es el trabajo neto, no el rendimiento."],
+  "porque_fallan": {"B": "Isocóricas no: las que cierran el ciclo son adiabáticas.", "E": "El área es el trabajo; el rendimiento es un cociente adimensional."},
+  "confirma": "A"},
+
+ "hrw-c20-q038": {"idea": "El rendimiento de Carnot depende **solo** de las dos temperaturas, y no de la sustancia ni del diseño.",
+  "pasos": ["$\\varepsilon_C = 1 - T_C/T_H$: no aparece nada más.", "Ese resultado es lo que convierte a Carnot en el techo universal."],
+  "porque_fallan": {"A": "Las máquinas reales tienen rendimientos muy distintos entre sí.", "E": "Dos Carnot con temperaturas distintas tienen rendimientos distintos."},
+  "confirma": "D"},
+
+ "hrw-c20-q039": {"idea": "Sustituir en la fórmula, con temperaturas absolutas.",
+  "pasos": ["$\\varepsilon = 1 - \\dfrac{400}{500} = 1 - 0.8 = 0.20$.", "El 20 %."],
+  "porque_fallan": {"B": "Usa la diferencia sobre el foco frío, $100/400$.", "D": "Da $T_C/T_H$ sin restar de uno… o directamente el cociente al revés."},
+  "confirma": "A"},
+
+ "hrw-c20-q040": {"idea": "Uno menos el cociente de la temperatura fría entre la caliente. El orden importa.",
+  "pasos": ["$\\varepsilon = 1 - \\dfrac{T_C}{T_H}$.", "Compruébalo con el límite $T_C \\to 0$: rendimiento 1, que es lo máximo imaginable.", "Y con $T_C = T_H$: rendimiento 0, porque sin salto no hay máquina."],
+  "porque_fallan": {"C": "Invierte el cociente y daría un rendimiento negativo.", "B": "Le falta el «uno menos»."},
+  "confirma": "D"},
+
+ "hrw-c20-q041": {"idea": "Esa fórmula es el **techo**, y solo se alcanza si la máquina es reversible. Cualquier irreversibilidad la deja por debajo.",
+  "pasos": ["Carnot demostró que ninguna máquina supera a la reversible entre los mismos focos.", "Y todas las reversibles tienen el mismo rendimiento, sea cual sea su sustancia."],
+  "porque_fallan": {"A": "La sustancia da igual: ese es justo el contenido del teorema de Carnot.", "E": "Una máquina real con rozamiento rinde menos."},
+  "confirma": "B"},
+
+ "hrw-c20-q042": {"idea": "Con vapor a 373 K y ambiente a 293 K, el techo teórico ronda el 20 %. Menos de lo que la gente supone.",
+  "pasos": ["$\\varepsilon = 1 - \\dfrac{293}{373} = 0.21$.", "Y eso es el máximo ideal: una máquina real quedaría bastante por debajo."],
+  "porque_fallan": {"D": "Un 80 % exigiría un foco frío a unos 75 K.", "C": "Un 50 % exigiría el foco frío a la mitad de la temperatura absoluta del caliente, unos 186 K."},
+  "confirma": "B"},
+
+ "hrw-c20-q043": {"idea": "Comparar con el techo de Carnot, y para eso hay que pasar a kelvin.",
+  "pasos": ["$T_H = 423\\ \\mathrm{K}$, $T_C = 303\\ \\mathrm{K}$.", "$\\varepsilon_{max} = 1 - \\dfrac{303}{423} = 28\\%$.", "El inventor afirma un 40 %, por encima del máximo posible: viola la segunda ley."],
+  "porque_fallan": {"E": "Sí viola algo. La clave es hacer la comparación en kelvin: en grados Celsius, $1-30/150 = 80\\%$ y parecería que cabe.", "B": "La energía podría conservarse; el problema es superar el techo de Carnot."},
+  "confirma": "C"},
+
+ "hrw-c20-q044": {"idea": "Con la misma entrada de calor, la irreversible saca menos trabajo, así que necesariamente tira más al foco frío.",
+  "pasos": ["$|Q_H|$ es igual para las dos.", "$\\varepsilon_{irr} < \\varepsilon_{Carnot}$, luego $|W_{irr}| < |W_{Carnot}|$.", "Y como $|Q_L| = |Q_H| - |W|$, la irreversible cede más."],
+  "porque_fallan": {"A": "Justo al revés: menos rendimiento con la misma entrada es menos trabajo.", "C": "Ninguna máquina supera a la de Carnot entre los mismos focos."},
+  "confirma": "B"},
+
+ "hrw-c20-q045": {"idea": "El coeficiente de desempeño relaciona el calor extraído con el trabajo; lo que llega al edificio es la suma de los dos.",
+  "pasos": ["$K = \\dfrac{|Q_C|}{W} = 14$, luego $|Q_C| = 14\\ \\mathrm{kW}$.", "Conservación de la energía: $|Q_H| = |Q_C| + W$.", "$|Q_H| = 14 + 1 = 15\\ \\mathrm{kW}$."],
+  "porque_fallan": {"D": "Olvida que casi toda la energía viene del exterior, no del motor.", "B": "Parece salir de usar el rendimiento de Carnot en vez del coeficiente dado."},
+  "confirma": "A"},
+
+ "hrw-c20-q046": {"idea": "Comprobar las dos leyes por separado: la primera es contabilidad, la segunda es el techo de Carnot.",
+  "pasos": ["Primera ley: $100 = 75 + 25$. ✔ Cuadra.", "Rendimiento real: $75/100 = 75\\%$.", "Techo de Carnot: $1 - 100/200 = 50\\%$.", "Supera el máximo posible: viola la segunda, no la primera."],
+  "porque_fallan": {"B": "La energía cuadra exactamente; es lo primero que hay que comprobar y aquí pasa.", "D": "El 75 % está muy por encima del 50 % permitido."},
+  "confirma": "C"},
+
+ "hrw-c20-q047": {"idea": "En un frigorífico lo que quieres es sacar calor del interior, y lo que pagas es el trabajo.",
+  "pasos": ["$K = \\dfrac{|Q_C|}{W}$.", "Puede ser mayor que 1 sin problema: no es un rendimiento, es una relación de conveniencia."],
+  "porque_fallan": {"B": "Usa el calor cedido al exterior, que incluye el trabajo: esa es la definición para una bomba de calor.", "D": "Es el inverso."},
+  "confirma": "A"},
+
+ "hrw-c20-q048": {"idea": "El análogo de Carnot para el frigorífico: la temperatura fría dividida entre la diferencia.",
+  "pasos": ["$K = \\dfrac{T_C}{T_H - T_C}$.", "Comprueba el límite: si los focos se acercan, $K \\to \\infty$, porque mover calor entre temperaturas casi iguales es casi gratis.", "Y si $T_C \\to 0$, $K \\to 0$: llegar al cero absoluto cuesta infinito."],
+  "porque_fallan": {"D": "Es el de la bomba de calor, con $T_H$ arriba.", "C": "Es el rendimiento de Carnot de una máquina térmica, no un coeficiente de desempeño."},
+  "confirma": "B"},
+
+ "hrw-c20-q049": {"idea": "$K$ crece cuando los focos se acercan, y acercarlos subiendo el frío es lo que más rinde, porque $T_C$ está también en el numerador.",
+  "pasos": ["$K = T_C/(T_H-T_C)$: subir $T_C$ aumenta el numerador y reduce el denominador a la vez.", "Bajar $T_H$ solo reduce el denominador."],
+  "porque_fallan": {"D": "Bajar el foco frío empeora: es pedirle más al frigorífico.", "A": "Subir el foco caliente también empeora."},
+  "confirma": "B"},
+
+ "hrw-c20-q050": {"idea": "En un ciclo todas las funciones de estado vuelven a su valor. El trabajo no lo es.",
+  "pasos": ["Entropía, presión, energía interna y temperatura son de estado: su cambio es cero.", "El trabajo neto es el área encerrada por el ciclo, y si fuera cero la máquina no serviría."],
+  "porque_fallan": {"A": "La entropía del gas es función de estado: en un ciclo vuelve a su valor, incluso si el ciclo es irreversible."},
+  "confirma": "D"},
+
+ "hrw-c20-q051": {"idea": "Contar microestados es un coeficiente binomial: de cuántas maneras se eligen 15 moléculas de 25.",
+  "pasos": ["$W = \\dbinom{25}{15} = \\dfrac{25!}{15!\\,10!}$.", "$W = 3\\,268\\,760 \\approx 3.27\\times10^6$."],
+  "porque_fallan": {"C": "Multiplica en vez de combinar.", "A": "Es del orden de $2^{25}$ mal calculado, o de Avogadro."},
+  "confirma": "B"},
+
+ "hrw-c20-q052": {"idea": "Boltzmann directo: $S = k\\ln W$, con la multiplicidad de la pregunta anterior.",
+  "pasos": ["$W = 3.27\\times10^6$, luego $\\ln W = 15.0$.", "$S = (1.38\\times10^{-23})(15.0) = 2.07\\times10^{-22}\\ \\mathrm{J/K}$."],
+  "porque_fallan": {"D": "Usa $\\log_{10}$ en vez del logaritmo natural.", "C": "Se queda en la constante de Boltzmann sin multiplicar por el logaritmo."},
+  "confirma": "A"},
+
+ "hrw-c20-q053": {"idea": "La diferencia de entropías es el logaritmo del **cociente** de multiplicidades: los números enormes se hacen manejables.",
+  "pasos": ["$\\Delta S = k\\ln\\dfrac{W_2}{W_1} = k\\ln\\dfrac{7.9\\times10^{19}}{3.8\\times10^{18}}$.", "$\\ln(20.8) = 3.03$.", "$\\Delta S = (1.38\\times10^{-23})(3.03) = 4.19\\times10^{-23}\\ \\mathrm{J/K}$."],
+  "porque_fallan": {"E": "Signo cambiado: la multiplicidad **aumenta**, así que la entropía sube.", "A": "Sí cambia: hay veinte veces más microestados."},
+  "confirma": "D"},
+
+ "hrw-c20-q054": {"idea": "Reducir la multiplicidad a un tercio baja la entropía en $k\\ln 3$.",
+  "pasos": ["$\\Delta S = k\\ln\\dfrac{W/3}{W} = k\\ln\\dfrac13$.", "$= -k\\ln 3$, negativo porque hay menos microestados."],
+  "porque_fallan": {"E": "Signo cambiado.", "C": "Usa $\\ln 2$ y un factor tres, mezclando las dos cosas."},
+  "confirma": "D"},
+
+ "hrw-c20-q055": {"idea": "La forma general: la resta de dos logaritmos es el logaritmo del cociente.",
+  "pasos": ["$\\Delta S = k\\ln M_2 - k\\ln M_1 = k\\ln\\dfrac{M_2}{M_1}$."],
+  "porque_fallan": {"D": "Producto en vez de cociente: eso sería la suma de las dos entropías.", "B": "Resta las multiplicidades en vez de sus logaritmos, y las unidades ni siquiera cierran."},
+  "confirma": "E"},
+
+ "hrw-c20-q056": {"idea": "Puente entre las dos definiciones de entropía: la de Boltzmann da $\\Delta S$, y la de Clausius convierte eso en calor.",
+  "pasos": ["$\\Delta S = k\\ln 3$ por el cambio de microestados.", "Isotermo y reversible: $Q = T\\,\\Delta S$.", "$Q = kT\\ln 3$."],
+  "porque_fallan": {"A": "Cero sería si el proceso fuera adiabático reversible, pero aquí la entropía cambia.", "B": "Olvida el logaritmo: la entropía va con $\\ln$ de la multiplicidad, no con ella."},
+  "confirma": "D"}
+}

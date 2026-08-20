@@ -1,0 +1,456 @@
+{
+ "hrw-c19-q001": {"idea": "Si un gas fuera casi todo materia, licuarlo no cambiaría gran cosa. Cambia por mil.",
+  "pasos": ["Al condensarse, un gas reduce su volumen unas mil veces a igual masa.", "Ese hueco que desaparece era espacio vacío entre moléculas."],
+  "porque_fallan": {"B": "La presión la ejercen las moléculas al chocar; eso pasaría igual con un gas denso.", "C": "La transparencia depende de la interacción con la luz, no del hueco."},
+  "confirma": "A"},
+
+ "hrw-c19-q002": {"idea": "A presión constante el volumen es proporcional a la temperatura **absoluta**. Pasar a kelvin es todo el problema.",
+  "pasos": ["$T_1 = 280\\ \\mathrm{K}$ y $T_2 = 350\\ \\mathrm{K}$.", "$V_2 = V_1\\dfrac{T_2}{T_1} = 1 \\times \\dfrac{350}{280} = 1.25\\ \\mathrm{m^3}$."],
+  "porque_fallan": {"E": "Sale de usar grados Celsius: $77/7 = 11$. Con Celsius las proporciones no valen — el cero está en el sitio equivocado.", "A": "Invierte el cociente."},
+  "confirma": "B"},
+
+ "hrw-c19-q003": {"idea": "Mismo caso: proporcional a la temperatura absoluta, y el 273 del enunciado está puesto para que la cuenta salga redonda.",
+  "pasos": ["$V_2 = 273 \\times \\dfrac{283}{273} = 283\\ \\mathrm{cm^3}$.", "Cada kelvin añade $1/273$ del volumen: por eso 10 K añaden 10 cm³."],
+  "porque_fallan": {"E": "Suma 20 en vez de 10.", "A": "Resta en vez de sumar."},
+  "confirma": "C"},
+
+ "hrw-c19-q004": {"idea": "Puerta abierta significa **misma presión**, y las habitaciones tienen el mismo volumen. Entonces $n \\propto 1/T$.",
+  "pasos": ["$PV = nRT$ con $P$ y $V$ iguales en las dos.", "$n = \\dfrac{PV}{RT} \\propto \\dfrac{1}{T}$.", "La habitación más fría contiene más aire — algo que sorprende, pero es lo que dice la ecuación."],
+  "porque_fallan": {"A": "Invierte la relación: más temperatura significa moléculas más separadas, no más aire.", "D": "La presión igual es la premisa, no la conclusión: por eso precisamente la cantidad difiere."},
+  "confirma": "B"},
+
+ "hrw-c19-q005": {"idea": "En condiciones normales el volumen es proporcional al número de moles, y por tanto a la masa del mismo gas.",
+  "pasos": ["28 g ocupan 22,4 L, o sea un mol.", "$42/28 = 1.5$ moles.", "$1.5 \\times 22.4 = 33.6\\ \\mathrm{L}$."],
+  "porque_fallan": {"B": "Da el volumen molar, sin escalar por la masa.", "E": "Todos los datos necesarios están: es la ley de Avogadro."},
+  "confirma": "C"},
+
+ "hrw-c19-q007": {"idea": "Dos cambios a la vez: mira cada magnitud por separado. La densidad solo depende del volumen, así que es la más fácil.",
+  "pasos": ["$V$ pasa de 10 a 5 m³, así que la densidad se **dobla**: la masa no cambia.", "Para la presión: $P \\propto T/V$, con $T$ de 546 K a 273 K —la mitad— y $V$ también a la mitad.", "Los dos factores se cancelan: la presión no cambia."],
+  "porque_fallan": {"A": "La presión se queda igual porque temperatura y volumen se reducen en el mismo factor.", "D": "La densidad sí cambia: es masa entre volumen, y el volumen se ha reducido a la mitad."},
+  "confirma": "E"},
+
+ "hrw-c19-q008": {"idea": "Ley combinada con los dos cambios a la vez, y las temperaturas en kelvin.",
+  "pasos": ["$T_1 = 300\\ \\mathrm{K}$, $T_2 = 225\\ \\mathrm{K}$.", "$V_2 = V_1\\dfrac{P_1}{P_2}\\dfrac{T_2}{T_1} = 2 \\times \\dfrac{76}{38} \\times \\dfrac{225}{300}$.", "$V_2 = 2 \\times 2 \\times 0.75 = 3\\ \\mathrm{m^3}$."],
+  "porque_fallan": {"B": "Solo aplica el cambio de presión y olvida que el frío contrae el globo.", "C": "Cancela los dos efectos, pero no se compensan: la presión gana."},
+  "confirma": "A"},
+
+ "hrw-c19-q009": {"idea": "Sacar los moles con la ley del gas ideal y multiplicar por la masa molar.",
+  "pasos": ["$n = \\dfrac{PV}{RT} = \\dfrac{(1)(12)}{(0.082)(293)} \\approx 0.50\\ \\mathrm{mol}$.", "$m = 0.50 \\times 32 = 16\\ \\mathrm{g}$."],
+  "porque_fallan": {"D": "Da la masa de un mol entero, sin calcular cuántos hay.", "A": "Pierde un factor: sería un cuarto de mol."},
+  "confirma": "C"},
+
+ "hrw-c19-q010": {"idea": "Ley combinada. Las presiones pueden ir en cualquier unidad mientras sea la misma en las dos.",
+  "pasos": ["$V_2 = V_1\\dfrac{P_1}{P_2}\\dfrac{T_2}{T_1} = 12 \\times \\dfrac{76}{215} \\times \\dfrac{373}{293}$.", "$= 12 \\times 0.354 \\times 1.273 \\approx 5.4\\ \\mathrm{L}$."],
+  "porque_fallan": {"D": "Invierte el cociente de presiones: subir la presión comprime, no expande.", "C": "Solo aplica el calentamiento."},
+  "confirma": "B"},
+
+ "hrw-c19-q011": {"idea": "Moles primero, moléculas después. El resultado —unas $2.5\\times10^{25}$ por metro cúbico— conviene tenerlo anclado.",
+  "pasos": ["$n = \\dfrac{PV}{RT} = \\dfrac{(1)(1)}{(8.2\\times10^{-5})(300)} \\approx 41\\ \\mathrm{mol}$.", "$N = 41 \\times 6.02\\times10^{23} \\approx 2.5\\times10^{25}$."],
+  "porque_fallan": {"A": "Se queda en los moles y no multiplica por Avogadro.", "D": "Un orden de magnitud de más."},
+  "confirma": "C"},
+
+ "hrw-c19-q012": {"idea": "Doblar el volumen a temperatura fija significa que la presión se reduce a la mitad: la del fondo era el doble de la atmosférica.",
+  "pasos": ["$P_{fondo}V = P_{sup}(2V) \\Rightarrow P_{fondo} = 2P_{atm}$.", "El exceso sobre la atmosférica es hidrostático: $\\rho g h = P_{atm}$.", "$h = \\dfrac{1.0\\times10^5}{(1000)(9.8)} \\approx 10\\ \\mathrm{m}$."],
+  "porque_fallan": {"A": "Toma la presión del fondo como el doble **más** la atmosférica, contándola dos veces.", "C": "Divide de más por un factor dos."},
+  "confirma": "D"},
+
+ "hrw-c19-q013": {"idea": "Isotermo es $PV$ constante, y eso en un plano $P$–$V$ es una hipérbola.",
+  "pasos": ["$PV = nRT$ con $T$ fija da $P = \\mathrm{cte}/V$.", "Esa curva es una hipérbola equilátera. Cuanto mayor la temperatura, más lejos del origen."],
+  "porque_fallan": {"A": "Horizontal es presión constante: isobárico.", "B": "Vertical es volumen constante: isocórico."},
+  "confirma": "E"},
+
+ "hrw-c19-q014": {"idea": "Isotermo significa que el producto $PV$ se conserva. Basta multiplicar cada opción.",
+  "pasos": ["Estado inicial: $PV = (2\\times10^5)(6) = 1.2\\times10^6$.", "Opción D: $(6\\times10^5)(2) = 1.2\\times10^6$. ✔", "Ninguna otra da el mismo producto."],
+  "porque_fallan": {"C": "$1.6\\times10^6$: la temperatura habría subido.", "E": "$1.6\\times10^6$ también."},
+  "confirma": "D"},
+
+ "hrw-c19-q015": {"idea": "Con el mismo número de moléculas, la temperatura es proporcional al producto $PV$. Es la misma cuenta que la anterior, buscando el máximo.",
+  "pasos": ["$T \\propto PV$ porque $N$ es igual para todos.", "A: $1.0\\times10^6$; B: $1.8\\times10^6$; C: $1.6\\times10^6$; D: $1.2\\times10^6$; E: $1.6\\times10^6$.", "El mayor producto es el de B."],
+  "porque_fallan": {"E": "Tiene la presión más alta, pero el volumen más pequeño: el producto no es el mayor. Mirar solo la presión es la trampa."},
+  "confirma": "B"},
+
+ "hrw-c19-q016": {"idea": "Adiabático significa una sola cosa: $Q = 0$. Ni entra ni sale calor.",
+  "pasos": ["No dice nada sobre presión ni temperatura, que sí cambian en una expansión adiabática.", "Al expandirse el gas hace trabajo, y sin calor que lo compense se enfría."],
+  "porque_fallan": {"E": "En una expansión adiabática la temperatura **baja**, no se mantiene.", "C": "El trabajo lo hace el gas sobre el entorno, no al revés."},
+  "confirma": "D"},
+
+ "hrw-c19-q017": {"idea": "La adiabática es $PV^\\gamma$ constante, con $\\gamma > 1$: se parece a una hipérbola pero es más empinada, así que no es ninguna de las curvas listadas.",
+  "pasos": ["$PV^\\gamma = \\mathrm{cte}$ solo sería hipérbola si $\\gamma = 1$.", "Con $\\gamma = 5/3$ o $7/5$ la caída es más brusca que la isoterma.", "No es recta, ni círculo, ni hipérbola: ninguna de esas."],
+  "porque_fallan": {"C": "La hipérbola es la isoterma. Confundirlas es el error clásico, y el que hace que las dos curvas se crucen en el diagrama."},
+  "confirma": "E"},
+
+ "hrw-c19-q018": {"idea": "El trabajo es el área bajo la curva, y eso es una integral: solo se simplifica si la presión es constante.",
+  "pasos": ["$W = \\displaystyle\\int p\\,dV$, siempre.", "Si $p$ fuera constante quedaría $p\\Delta V$, pero aquí la curva es cualquiera."],
+  "porque_fallan": {"B": "Vale solo para un proceso isobárico.", "E": "$\\int V\\,dp$ es otra cosa: el trabajo va con $dV$."},
+  "confirma": "D"},
+
+ "hrw-c19-q019": {"idea": "Trabajo nulo con $W = \\int p\\,dV$ y presión no nula obliga a que el volumen no cambie.",
+  "pasos": ["Si $dV = 0$ en todo el proceso, la integral se anula.", "Eso es un proceso isocórico o isovolumétrico."],
+  "porque_fallan": {"A": "En un isotermo sí hay trabajo, y bastante: $nRT\\ln(V_2/V_1)$.", "B": "Adiabático es sin calor; el trabajo es justamente lo único que hay."},
+  "confirma": "C"},
+
+ "hrw-c19-q020": {"idea": "Masa fija y volumen fijo: la densidad es el cociente de dos constantes.",
+  "pasos": ["$\\rho = m/V$, y ninguno de los dos cambia.", "Todo lo demás —presión, temperatura, energía interna— puede cambiar sin problema."],
+  "porque_fallan": {"A": "Calentando a volumen constante la presión sube.", "E": "La temperatura puede cambiar perfectamente."},
+  "confirma": "B"},
+
+ "hrw-c19-q021": {"idea": "El trabajo es el área bajo la curva. Comprimiendo desde el mismo estado inicial, la curva que sube más deprisa encierra más área.",
+  "pasos": ["Isobárico: la presión no sube, así que es la curva más baja — menos trabajo.", "Isotermo: la presión sube como $1/V$.", "Adiabático: sube como $1/V^\\gamma$, con $\\gamma>1$ — la más empinada, más trabajo.", "Orden creciente: isobárico, isotermo, adiabático."],
+  "porque_fallan": {"A": "Lo pone justo del revés.", "C": "Coloca el adiabático en medio, cuando es el que más cuesta: al comprimir sin dejar escapar calor, el gas se calienta y se resiste más."},
+  "confirma": "E"},
+
+ "hrw-c19-q022": {"idea": "$pV$ constante es la isoterma. En una adiabática el producto cambia, porque la temperatura cambia.",
+  "pasos": ["En adiabática vale $pV^\\gamma = \\mathrm{cte}$ y $TV^{\\gamma-1} = \\mathrm{cte}$.", "La ley del gas ideal $pV = nRT$ sigue valiendo, pero con $T$ variable.", "Por eso $pV$ a secas **no** se conserva."],
+  "porque_fallan": {"B": "La ecuación de estado vale siempre para un gas ideal, sea cual sea el proceso."},
+  "confirma": "E"},
+
+ "hrw-c19-q023": {"idea": "Temperatura y presión constantes a la vez, y aun así algo cambiando: eso es exactamente un cambio de fase.",
+  "pasos": ["En un gas ideal, $p$ y $T$ fijos obligan a $V$ fijo: no habría proceso.", "Durante la ebullición o la fusión, presión y temperatura se mantienen mientras el volumen cambia mucho.", "Por eso hace falta que haya transición de fase."],
+  "porque_fallan": {"B": "Sí es posible, y ocurre cada vez que hierve agua a presión atmosférica.", "A": "Con un gas ideal es justo cuando resulta imposible."},
+  "confirma": "C"},
+
+ "hrw-c19-q024": {"idea": "En un ciclo todas las funciones de estado vuelven a su valor. Todas las opciones listadas lo son.",
+  "pasos": ["Presión, volumen, temperatura y energía interna dependen solo del estado.", "Al cerrar el ciclo, sus cambios son cero.", "Lo que no se anula es el trabajo neto — y no está entre las opciones."],
+  "porque_fallan": {"D": "La energía interna es función de estado: su cambio en un ciclo es cero incluso si el sistema trabaja."},
+  "confirma": "E"},
+
+ "hrw-c19-q025": {"idea": "La difusión es movimiento molecular visible a escala macroscópica.",
+  "pasos": ["Dos gases quietos se mezclan solos, sin agitarlos.", "Solo puede ocurrir si las moléculas se mueven por su cuenta."],
+  "porque_fallan": {"A": "El viento es movimiento del gas en bloque, no de sus moléculas individuales.", "E": "La compresibilidad indica espacio vacío, no movimiento."},
+  "confirma": "B"},
+
+ "hrw-c19-q026": {"idea": "Presión es fuerza por área, y fuerza es cambio de momento por tiempo. Las moléculas rebotan e invierten su momento.",
+  "pasos": ["Cada choque contra la pared invierte la componente perpendicular del momento: cambio $2mv_\\perp$.", "Muchos choques por segundo dan una fuerza media constante.", "Esa fuerza repartida sobre el área es la presión."],
+  "porque_fallan": {"C": "La energía cinética media determina la temperatura; la presión viene del **momento** transferido.", "D": "En un gas ideal no hay fuerzas entre moléculas."},
+  "confirma": "B"},
+
+ "hrw-c19-q027": {"idea": "Lo mismo mirado desde la pared: la fuerza es la tasa de cambio de momento de las moléculas que rebotan.",
+  "pasos": ["Choque elástico contra la pared: la rapidez no cambia, pero la dirección sí.", "Ese cambio de momento, dividido entre el tiempo, es la fuerza."],
+  "porque_fallan": {"B": "Si perdieran rapidez el gas se enfriaría solo: los choques con la pared son elásticos.", "A": "El gas ideal no tiene fuerzas de repulsión entre moléculas."},
+  "confirma": "C"},
+
+ "hrw-c19-q028": {"idea": "La presión de un gas en equilibrio es la misma en todas las paredes, mire donde mire.",
+  "pasos": ["El movimiento molecular es isótropo: ninguna dirección está privilegiada.", "El área de la cara cambia la **fuerza** total, no la presión.", "Así que ninguna de las comparaciones ofrecidas vale."],
+  "porque_fallan": {"A": "Confunde fuerza con presión: menos área da menos fuerza a igual presión."},
+  "confirma": "E"},
+
+ "hrw-c19-q029": {"idea": "A temperatura constante cada molécula pega igual de fuerte; lo que cambia es cuántas hay pegando.",
+  "pasos": ["La temperatura fija la velocidad media, así que el impulso por choque no cambia.", "Meter más aire aumenta la concentración y por tanto los choques por segundo.", "Más choques por segundo, más presión."],
+  "porque_fallan": {"D": "A temperatura constante la rapidez media no cambia.", "C": "Al bombear quedan más juntas, no más separadas."},
+  "confirma": "A"},
+
+ "hrw-c19-q030": {"idea": "La temperatura mide la energía cinética **de traslación** por molécula, y nada más.",
+  "pasos": ["$\\tfrac{3}{2}kT = \\left\\langle \\tfrac{1}{2}mv^2\\right\\rangle$ para el movimiento del centro de masas.", "La rotación y la vibración suman a la energía interna pero no definen la temperatura."],
+  "porque_fallan": {"B": "La energía cinética total incluye rotación y vibración, que varían según la molécula.", "E": "La energía total incluiría potenciales de enlace."},
+  "confirma": "A"},
+
+ "hrw-c19-q031": {"idea": "$v_{rms} \\propto \\sqrt{T}$ con $T$ en kelvin. Ochenta grados de bajada son un cambio pequeño en escala absoluta.",
+  "pasos": ["$T$ pasa de 373 K a 293 K.", "$\\dfrac{v_2}{v_1} = \\sqrt{\\dfrac{293}{373}} = \\sqrt{0.786} = 0.886$.", "La caída es del 11 %."],
+  "porque_fallan": {"D": "Es la caída del cociente de temperaturas, sin la raíz.", "A": "Usa grados Celsius, donde 100 → 20 parece una caída del 80 %."},
+  "confirma": "E"},
+
+ "hrw-c19-q032": {"idea": "A la misma temperatura, $v_{rms} \\propto 1/\\sqrt{m}$: la molécula pesada va más despacio.",
+  "pasos": ["$\\tfrac{3}{2}kT$ es igual para las dos, así que $mv^2$ es igual.", "$\\dfrac{v_{O}}{v_{H}} = \\sqrt{\\dfrac{m_H}{m_O}} = \\sqrt{\\dfrac{1}{16}} = \\dfrac{1}{4}$."],
+  "porque_fallan": {"E": "Usa la razón de masas sin la raíz.", "B": "Además invierte la relación: el oxígeno es más lento, no más rápido."},
+  "confirma": "D"},
+
+ "hrw-c19-q033": {"idea": "Misma temperatura, así que solo cuenta la raíz del cociente de masas molares.",
+  "pasos": ["$\\dfrac{v_{He}}{v_{O}} = \\sqrt{\\dfrac{32}{4}} = \\sqrt{8} = 2.83$.", "$v_{He} = 460 \\times 2.83 \\approx 1300\\ \\mathrm{m/s}$."],
+  "porque_fallan": {"C": "Usa un factor $\\sqrt{2}$ en vez de $\\sqrt{8}$.", "A": "Divide en vez de multiplicar: el helio es más ligero y por tanto más rápido."},
+  "confirma": "E"},
+
+ "hrw-c19-q035": {"idea": "$v_{rms} \\propto \\sqrt{T/m}$. Si las velocidades coinciden y una molécula pesa más, su temperatura tiene que ser mayor.",
+  "pasos": ["Igualar $T_H/m_H = T_O/m_O$ da $T_O = T_H\\dfrac{m_O}{m_H} = 16\\,T_H$.", "El oxígeno está dieciséis veces más caliente."],
+  "porque_fallan": {"D": "Si las temperaturas fueran iguales, el hidrógeno sería cuatro veces más rápido.", "A": "La presión depende además del volumen y del número de moléculas: no se puede concluir nada."},
+  "confirma": "E"},
+
+ "hrw-c19-q036": {"idea": "La equipartición reparte por **grados de libertad**, no por moléculas ni por tipos de energía: $\\tfrac12 kT$ a cada uno.",
+  "pasos": ["Cada término cuadrático de la energía recibe $\\tfrac{1}{2}kT$ en promedio.", "Un monoatómico tiene 3 (traslación); un diatómico rígido, 5."],
+  "porque_fallan": {"A": "Entre moléculas la energía se reparte de forma desigual: por eso hay una distribución de velocidades.", "B": "En un gas ideal no hay energía potencial que repartir."},
+  "confirma": "C"},
+
+ "hrw-c19-q037": {"idea": "Diatómica rígida: tres de traslación más dos de rotación. El eje que une los átomos no cuenta.",
+  "pasos": ["Traslación en $x$, $y$, $z$: 3.", "Rotación en torno a los dos ejes perpendiculares al enlace: 2.", "El giro sobre el propio eje del enlace tiene momento de inercia despreciable y no cuenta.", "Total: 5, y de ahí $C_v = \\tfrac{5}{2}R$."],
+  "porque_fallan": {"E": "Contaría los tres ejes de rotación, incluido el del enlace.", "B": "Solo cuenta la traslación, que es el caso monoatómico."},
+  "confirma": "D"},
+
+ "hrw-c19-q038": {"idea": "Con $N$ átomos hay $3N$ grados de libertad en total. Para tres átomos, nueve.",
+  "pasos": ["Cada átomo puede moverse en tres direcciones: $3 \\times 3 = 9$.", "Se reparten en 3 de traslación, 3 de rotación y 3 de vibración."],
+  "porque_fallan": {"C": "Se queda en traslación más rotación, sin las vibraciones.", "B": "Cuenta solo la traslación del conjunto."},
+  "confirma": "E"},
+
+ "hrw-c19-q039": {"idea": "Media cuadrática: primero se elevan al cuadrado, luego se promedia, y al final la raíz. En ese orden.",
+  "pasos": ["Cuadrados: 7,84; 10,24; 33,64; 53,29; 54,76. Suman 159,8.", "Media: $159.8/5 = 31.95$.", "$\\sqrt{31.95} = 5.65\\ \\mathrm{m/s}$."],
+  "porque_fallan": {"A": "Es la media aritmética, 5,3. La cuadrática siempre sale algo mayor, porque pesa más los valores grandes."},
+  "confirma": "B"},
+
+ "hrw-c19-q040": {"idea": "Media pesada usando el punto medio de cada intervalo.",
+  "pasos": ["$5(2.5)+10(3.5)+5(4.5)+3(5.5)+1(6.5)+1(7.5) = 100.5$.", "$\\bar v = 100.5/25 \\approx 4.0\\ \\mathrm{m/s}$."],
+  "porque_fallan": {"B": "Toma el intervalo más poblado, la moda, en vez de la media.", "D": "Pesa de más la cola rápida."},
+  "confirma": "C"},
+
+ "hrw-c19-q042": {"idea": "Justamente para esto se define la velocidad cuadrática media: al elevarla al cuadrado devuelve la energía media exacta.",
+  "pasos": ["Energía media por molécula: $\\tfrac{1}{2}mv_{rms}^2$, por definición de $v_{rms}$.", "Total: $N$ veces eso, o sea $\\tfrac{1}{2}Nmv_{rms}^2$."],
+  "porque_fallan": {"A": "Mete la $N$ dentro del cuadrado, lo que da $N^2$.", "E": "Eleva al cuadrado un producto que ya no es una velocidad al cuadrado."},
+  "confirma": "D"},
+
+ "hrw-c19-q043": {"idea": "La frecuencia de choques va con la velocidad **y** con el área de sección, que va con el diámetro al cuadrado.",
+  "pasos": ["Tasa $\\propto n\\,\\bar v\\,d^2$, y la concentración es la misma para todos.", "A: $1\\cdot1=1$; B: $2\\cdot\\tfrac14=0.5$; C: $3\\cdot1=3$; D: $1\\cdot4=4$; E: $4\\cdot\\tfrac14=1$.", "El mayor es D: doblar el diámetro cuadruplica el blanco."],
+  "porque_fallan": {"E": "Tiene la velocidad más alta, pero el diámetro reducido a la mitad divide la sección por cuatro. Mirar solo la velocidad es la trampa.", "C": "Triplica la velocidad pero no toca el tamaño: se queda en 3."},
+  "confirma": "D"},
+
+ "hrw-c19-q044": {"idea": "En un gas ideal no hay interacciones, así que no hay energía potencial: solo cuenta la agitación térmica.",
+  "pasos": ["$E_{int} = \\tfrac{f}{2}nRT$, y ahí solo aparece la temperatura.", "Comprimir o expandir a temperatura constante no cambia la energía interna."],
+  "porque_fallan": {"E": "Presión y volumen entran solo a través de la temperatura: $PV = nRT$."},
+  "confirma": "A"},
+
+ "hrw-c19-q046": {"idea": "En equilibrio térmico comparten la temperatura, así que el cociente es el de sus grados de libertad.",
+  "pasos": ["$\\Delta E = \\tfrac{f}{2}Nk\\Delta T$, con el mismo $N$ y el mismo $\\Delta T$.", "Diatómico $f=5$, monoatómico $f=3$.", "$\\dfrac{\\Delta E_{dia}}{\\Delta E_{mon}} = \\dfrac{5}{3}$."],
+  "porque_fallan": {"B": "Invierte el cociente.", "C": "Supondría que las moléculas almacenan energía igual, cuando la diatómica además rota."},
+  "confirma": "D"},
+
+ "hrw-c19-q047": {"idea": "Los dos son monoatómicos, así que tienen los mismos tres grados de libertad. La masa no entra en la energía interna.",
+  "pasos": ["$\\Delta E = \\tfrac{3}{2}Nk\\Delta T$ para ambos.", "La masa cambia la **velocidad** de las moléculas, no su energía media.", "Cociente: 1."],
+  "porque_fallan": {"A": "Confunde con el cociente de velocidades, que sí depende de la masa."},
+  "confirma": "C"},
+
+ "hrw-c19-q048": {"idea": "Más grados de libertad, más energía almacenada por el mismo salto de temperatura.",
+  "pasos": ["Monoatómico $f=3$, diatómico $f=5$, poliatómico $f=6$ o más.", "$\\Delta E = \\tfrac{f}{2}Nk\\Delta T$ crece con $f$.", "El menor cambio es el del monoatómico y el mayor el del poliatómico."],
+  "porque_fallan": {"A": "Los pone al revés.", "E": "Acierta el menor y falla el mayor: el poliatómico supera al diatómico."},
+  "confirma": "B"},
+
+ "hrw-c19-q049": {"idea": "La energía interna es proporcional al número de moléculas, así que doblarlo la dobla: el aumento es igual a la que había.",
+  "pasos": ["$E_{int} = \\tfrac{5}{2}NkT$ para un diatómico.", "Con $2N$: $E = 5NkT$.", "El aumento es $\\tfrac{5}{2}NkT$."],
+  "porque_fallan": {"C": "Usa el $\\tfrac32$ del monoatómico.", "A": "La temperatura no cambia, pero la energía sí: hay el doble de moléculas."},
+  "confirma": "D"},
+
+ "hrw-c19-q050": {"idea": "$U \\propto T \\propto PV$. Doblar los dos cuadruplica el producto.",
+  "pasos": ["$PV = nRT$, así que doblar $P$ y $V$ multiplica $T$ por 4.", "$U \\propto T$, luego el cociente es 4."],
+  "porque_fallan": {"D": "Dobla solo uno de los dos factores."},
+  "confirma": "E"},
+
+ "hrw-c19-q051": {"idea": "Doblar la presión bajando el volumen a la mitad deja $PV$ igual, y por tanto la temperatura y la energía interna.",
+  "pasos": ["$P \\times 2$ y $V \\times \\tfrac12$ dan $PV$ constante.", "$T$ no cambia, luego $U$ tampoco. Cociente 1."],
+  "porque_fallan": {"D": "Mira solo la presión y olvida que el volumen la compensa."},
+  "confirma": "C"},
+
+ "hrw-c19-q052": {"idea": "Aislado térmicamente: todo el trabajo se convierte en energía interna, y esta va con los cinco grados de libertad.",
+  "pasos": ["$W = \\Delta E_{int} = \\tfrac{5}{2}Nk\\,\\Delta T$.", "$\\Delta T = \\dfrac{2W}{5Nk}$."],
+  "porque_fallan": {"C": "Usa el $\\tfrac32$ del monoatómico.", "E": "Olvida el factor de grados de libertad por completo."},
+  "confirma": "D"},
+
+ "hrw-c19-q053": {"idea": "La energía se reparte por igual entre los cinco grados de libertad, y dos de ellos son rotacionales.",
+  "pasos": ["Todo el trabajo va a energía interna: $\\Delta E = W$.", "De los 5 grados, 2 son de rotación: fracción $\\tfrac{2}{5}$.", "$\\Delta E_{rot} = \\tfrac{2}{5}W$."],
+  "porque_fallan": {"A": "Las rotaciones sí se excitan en un diatómico a temperatura ambiente.", "C": "$\\tfrac23$ sería el reparto si solo hubiera tres grados."},
+  "confirma": "D"},
+
+ "hrw-c19-q054": {"idea": "Mismo reparto, mirando ahora los tres grados de traslación de los cinco.",
+  "pasos": ["$\\Delta E_{tras} = \\dfrac{3}{5}\\Delta E_{int} = \\dfrac{3}{5}W$.", "Comprueba que cierre: $\\tfrac35 + \\tfrac25 = 1$. ✔"],
+  "porque_fallan": {"C": "Da la fracción rotacional en vez de la traslacional.", "E": "Le adjudica todo a la traslación, ignorando la rotación."},
+  "confirma": "D"},
+
+ "hrw-c19-q055": {"idea": "$v_{rms}$ depende solo de la temperatura, y en un isotermo la temperatura es lo único que no cambia.",
+  "pasos": ["$v_{rms} = \\sqrt{3kT/m}$.", "Isotermo significa $T$ constante, luego $v_{rms}$ constante."],
+  "porque_fallan": {"B": "Confunde presión con temperatura: comprimir un gas sin dejarlo enfriar sí lo calentaría, pero eso no es un isotermo."},
+  "confirma": "A"},
+
+ "hrw-c19-q056": {"idea": "La distribución tiene una cola de moléculas rápidas, y esas son las que escapan del líquido aunque esté muy por debajo de su punto de ebullición.",
+  "pasos": ["Aun a temperatura ambiente hay moléculas con energía suficiente para vencer la atracción del líquido.", "Al escaparse las más rápidas, el resto queda más frío: por eso evaporar enfría."],
+  "porque_fallan": {"E": "La ebullición ocurre a una temperatura concreta y no necesita la cola de la distribución.", "B": "La ley del gas ideal sale de contar choques, no de la forma de la distribución."},
+  "confirma": "D"},
+
+ "hrw-c19-q057": {"idea": "La distribución es asimétrica, con cola larga hacia la derecha, y eso ordena las tres medidas.",
+  "pasos": ["La cola de altas velocidades arrastra la media por encima de la moda.", "Y la cuadrática media, que pesa los cuadrados, queda aún más arriba.", "$v_p < \\bar v < v_{rms}$, con la proporción $1 : 1.13 : 1.22$."],
+  "porque_fallan": {"A": "Coloca la media por encima de la cuadrática, imposible: elevar al cuadrado siempre favorece a los valores grandes."},
+  "confirma": "D"},
+
+ "hrw-c19-q058": {"idea": "Unos 500 m/s, que es del orden de la velocidad del sonido. Conviene tenerlo anclado: no es casualidad que se parezcan.",
+  "pasos": ["$v_{rms} = \\sqrt{3RT/M}$ con $M \\approx 0.029$ kg/mol y $T = 300$ K.", "Sale unos 500 m/s.", "El sonido va algo más lento, 340 m/s, porque se propaga por los choques entre esas mismas moléculas."],
+  "porque_fallan": {"C": "Tres órdenes de magnitud por debajo.", "A": "Si estuvieran quietas no habría presión ni temperatura."},
+  "confirma": "D"},
+
+ "hrw-c19-q059": {"idea": "Es la raíz de la media de los **cuadrados**, no el cuadrado de la media ni ninguna de las otras. El orden de las operaciones importa.",
+  "pasos": ["$v_{rms} = \\sqrt{\\langle v^2\\rangle}$.", "La opción D dice «raíz del cuadrado del promedio», que devolvería el promedio a secas.", "Y no coincide ni con la más probable ni con la media."],
+  "porque_fallan": {"D": "Invierte el orden: $\\sqrt{\\langle v\\rangle^2} = \\langle v\\rangle$, que es la media, no la cuadrática.", "C": "La media es menor que la cuadrática."},
+  "confirma": "E"},
+
+ "hrw-c19-q060": {"idea": "Al subir la temperatura la curva se ensancha y se aplana, pero el área bajo ella es siempre la misma.",
+  "pasos": ["El área total está fijada: es el número de moléculas.", "Si el pico se desplaza a la derecha y la curva se ensancha, el máximo tiene que bajar.", "Así que hay menos moléculas en un intervalo pequeño alrededor del pico."],
+  "porque_fallan": {"A": "Confunde que el pico se **desplace** con que crezca. Se desplaza y baja."},
+  "confirma": "B"},
+
+ "hrw-c19-q061": {"idea": "$v_p = \\sqrt{2kT/m}$: crece con la temperatura.",
+  "pasos": ["Todas las velocidades características van con $\\sqrt{T}$.", "Más caliente, pico desplazado hacia la derecha."],
+  "porque_fallan": {"E": "Si no cambiara, la temperatura no significaría nada a nivel molecular."},
+  "confirma": "A"},
+
+ "hrw-c19-q062": {"idea": "Igual que la más probable: la media también va con $\\sqrt{T}$.",
+  "pasos": ["$\\bar v = \\sqrt{8kT/\\pi m}$.", "Todas las velocidades características escalan con la misma raíz."],
+  "porque_fallan": {"C": "No hay ningún cambio de régimen: la dependencia es la misma a toda temperatura."},
+  "confirma": "A"},
+
+ "hrw-c19-q063": {"idea": "Isotermo: la temperatura no cambia, así que la distribución de velocidades tampoco.",
+  "pasos": ["La velocidad media depende solo de $T$ y de la masa molecular.", "Comprimir acerca las moléculas —cambia el recorrido libre medio— pero no las acelera."],
+  "porque_fallan": {"A": "Es la intuición de que comprimir calienta, cierta en un adiabático pero no en un isotermo, donde el calor se evacúa."},
+  "confirma": "E"},
+
+ "hrw-c19-q064": {"idea": "A presión constante, más volumen significa más temperatura, y más temperatura significa más velocidad.",
+  "pasos": ["$V \\propto T$ a presión constante.", "$\\bar v \\propto \\sqrt{T}$, luego también crece."],
+  "porque_fallan": {"E": "Sería el caso si el proceso fuera isotermo, pero aquí lo que se mantiene es la presión."},
+  "confirma": "A"},
+
+ "hrw-c19-q065": {"idea": "Equilibrio térmico significa misma temperatura; entonces la velocidad va con la inversa de la raíz de la masa.",
+  "pasos": ["$\\dfrac{v_A}{v_B} = \\sqrt{\\dfrac{m_B}{m_A}} = \\sqrt{\\dfrac{4m}{m}} = 2$.", "El ligero va al doble de rápido."],
+  "porque_fallan": {"E": "Usa la razón de masas sin la raíz.", "B": "Invierte: el más ligero es el más rápido."},
+  "confirma": "D"},
+
+ "hrw-c19-q066": {"idea": "Para igualar velocidades con masas distintas hay que compensar con la temperatura, en la misma proporción que la masa.",
+  "pasos": ["$\\bar v$ igual exige $\\dfrac{T_A}{m_A} = \\dfrac{T_B}{m_B}$.", "$\\dfrac{T_A}{T_B} = \\dfrac{m_A}{m_B} = \\dfrac{m}{4m} = \\dfrac14$.", "El gas ligero tiene que estar cuatro veces más frío."],
+  "porque_fallan": {"E": "Invierte: para frenar el ligero hay que enfriarlo, no calentarlo.", "B": "Aplica una raíz que aquí no toca: el cociente de temperaturas es directo."},
+  "confirma": "A"},
+
+ "hrw-c19-q067": {"idea": "La energía cinética media de traslación es $\\tfrac32kT$ y no depende de la masa. Por eso el equilibrio térmico la iguala.",
+  "pasos": ["$\\left\\langle \\tfrac{1}{2}mv^2\\right\\rangle = \\tfrac{3}{2}kT$ para cualquier masa.", "Misma temperatura, misma energía media: cociente 1.", "El pesado va más lento justo lo necesario para compensar."],
+  "porque_fallan": {"A": "Traslada el cociente de masas a la energía, cuando es justo lo que se cancela."},
+  "confirma": "C"},
+
+ "hrw-c19-q068": {"idea": "Si la energía cinética media es $\\tfrac32kT$ para cualquier masa, igualarla es igualar la temperatura.",
+  "pasos": ["$\\tfrac{3}{2}kT_A = \\tfrac{3}{2}kT_B \\Rightarrow T_A = T_B$.", "El cociente es 1, y la masa no interviene."],
+  "porque_fallan": {"A": "Es la respuesta de la pregunta sobre **velocidades**, no sobre energías."},
+  "confirma": "C"},
+
+ "hrw-c19-q069": {"idea": "A temperatura constante todo lo que depende solo de $T$ se queda igual. Lo único que cambia es la densidad, y con ella el recorrido libre medio.",
+  "pasos": ["Velocidades y energías dependen solo de $T$: no cambian.", "$\\lambda \\propto 1/n$, y subir la presión a $T$ fija aumenta la concentración.", "Así que el recorrido libre medio se acorta."],
+  "porque_fallan": {"B": "$v_{rms}$ depende solo de la temperatura.", "C": "La energía interna de un gas ideal también."},
+  "confirma": "A"},
+
+ "hrw-c19-q070": {"idea": "Isotermo en gas ideal: $\\Delta E_{int} = 0$, y entonces el calor absorbido iguala al trabajo hecho por el gas.",
+  "pasos": ["$E_{int}$ depende solo de $T$, que no cambia.", "$0 = Q - W_{por} \\Rightarrow Q = W_{por}$."],
+  "porque_fallan": {"C": "El cambio de energía interna es cero, no igual al trabajo."},
+  "confirma": "A"},
+
+ "hrw-c19-q071": {"idea": "«El calor cedido iguala el trabajo hecho sobre el gas» significa que la energía interna no cambia: es un isotermo disfrazado.",
+  "pasos": ["$\\Delta E_{int} = Q + W_{sobre}$, con $Q = -W_{sobre}$.", "Luego $\\Delta E_{int} = 0$ y la temperatura es constante.", "Isotermo con la presión doblada: el volumen se reduce a la mitad."],
+  "porque_fallan": {"C": "Si el volumen no cambiara no habría trabajo, y el enunciado dice que sí lo hay.", "E": "Es perfectamente posible: es una compresión isoterma."},
+  "confirma": "B"},
+
+ "hrw-c19-q072": {"idea": "Mismo razonamiento: sin cambio de energía interna, todo el calor sale como trabajo.",
+  "pasos": ["$Q = \\Delta E_{int} + W_{por} = 0 + W_{por}$."],
+  "porque_fallan": {"E": "Isotermo no significa sin calor: eso sería adiabático. Aquí entra calor y sale trabajo en igual medida."},
+  "confirma": "A"},
+
+ "hrw-c19-q073": {"idea": "La energía interna se calcula siempre con $C_v$, sea cual sea el proceso. Y $C_v = C_p - R$.",
+  "pasos": ["$\\Delta E_{int} = nC_v\\Delta T$ siempre, porque $E_{int}$ depende solo de $T$.", "Relación de Mayer: $C_p - C_v = R$.", "$\\Delta E_{int} = n(C_p - R)\\Delta T$."],
+  "porque_fallan": {"A": "Usa $C_p$, que incluye el trabajo de expansión: eso es el calor a presión constante, no el cambio de energía interna.", "B": "Suma la $R$ en vez de restarla."},
+  "confirma": "C"},
+
+ "hrw-c19-q074": {"idea": "A presión constante: el calor cubre la energía interna **más** el trabajo de expansión.",
+  "pasos": ["$Q = nC_p\\Delta T = \\tfrac{5}{2}nR\\Delta T$ para un monoatómico.", "$\\Delta E_{int} = nC_v\\Delta T = \\tfrac{3}{2}nR\\Delta T$.", "El trabajo hecho **por el entorno** es negativo, $-nR\\Delta T$: el gas se expande contra él.", "Comprueba: $\\tfrac52 = \\tfrac32 + 1$. ✔"],
+  "porque_fallan": {"C": "Iguala calor y energía interna, que solo vale a volumen constante.", "B": "Intercambia los dos coeficientes."},
+  "confirma": "E"},
+
+ "hrw-c19-q075": {"idea": "A volumen constante no hay trabajo, así que el calor va entero a energía interna.",
+  "pasos": ["$W = 0$ porque $\\Delta V = 0$.", "$Q = \\Delta E_{int} = \\tfrac{3}{2}nR\\Delta T$ para un monoatómico."],
+  "porque_fallan": {"D": "Usa el $\\tfrac52$ de presión constante.", "E": "Pone trabajo distinto de cero a volumen constante."},
+  "confirma": "B"},
+
+ "hrw-c19-q076": {"idea": "La capacidad calorífica es **extensiva**: depende de cuánta sustancia hay.",
+  "pasos": ["$C_V = \\tfrac{f}{2}Nk$: en la fórmula solo aparece el número de moléculas.", "No aparecen ni presión, ni volumen, ni temperatura."],
+  "porque_fallan": {"E": "Sí depende de algo: del tamaño de la muestra."},
+  "confirma": "D"},
+
+ "hrw-c19-q077": {"idea": "El calor específico es la capacidad **por unidad de masa**, así que ya no depende ni del tamaño.",
+  "pasos": ["Al dividir por la masa desaparece la dependencia con $N$.", "Para un gas ideal tampoco depende de $T$, $P$ ni $V$: es una constante del tipo de molécula."],
+  "porque_fallan": {"D": "Eso es lo que distingue al calor específico de la capacidad calorífica: haber dividido por la cantidad."},
+  "confirma": "E"},
+
+ "hrw-c19-q078": {"idea": "La relación de Mayer, y sale de que a presión constante hay que pagar además el trabajo de expansión.",
+  "pasos": ["A presión constante el gas se expande y hace $P\\Delta V = nR\\Delta T$ de trabajo.", "Por mol y por kelvin, ese extra es exactamente $R$.", "$C_p - C_v = R$."],
+  "porque_fallan": {"A": "La constante de Boltzmann es la versión por molécula; aquí son magnitudes molares.", "E": "$RT$ tiene unidades de energía por mol, no de capacidad calorífica."},
+  "confirma": "B"},
+
+ "hrw-c19-q079": {"idea": "Tres grados de libertad, $\\tfrac12R$ cada uno.",
+  "pasos": ["$C_v = \\tfrac{f}{2}R$ con $f = 3$.", "$C_v = \\tfrac{3}{2}R$, y en consecuencia $C_p = \\tfrac52 R$."],
+  "porque_fallan": {"C": "Es el $C_p$ del monoatómico, o el $C_v$ del diatómico."},
+  "confirma": "B"},
+
+ "hrw-c19-q080": {"idea": "$C_v$ de un gas ideal es constante: no depende de la temperatura, luego el exponente es cero.",
+  "pasos": ["$C_v = \\tfrac{3}{2}R$, un número fijo.", "$T^0 = 1$, así que $n = 0$."],
+  "porque_fallan": {"C": "Confunde con la energía interna, que sí va como $T^1$."},
+  "confirma": "B"},
+
+ "hrw-c19-q081": {"idea": "Diatómico: cinco grados de libertad para $C_v$, y una $R$ más para $C_p$.",
+  "pasos": ["$C_v = \\tfrac{5}{2}R$.", "$C_p = C_v + R = \\tfrac{7}{2}R$."],
+  "porque_fallan": {"C": "Es el $C_v$ del diatómico, sin sumar la $R$.", "E": "Correspondería a un poliatómico."},
+  "confirma": "D"},
+
+ "hrw-c19-q082": {"idea": "Más grados de libertad significa más sitios donde guardar la energía, así que subir un grado cuesta más.",
+  "pasos": ["El monoatómico solo puede trasladarse: toda la energía va a velocidad.", "El poliatómico además rota y vibra, y esas formas se llevan parte de la energía.", "Para el mismo salto de temperatura hace falta más calor."],
+  "porque_fallan": {"A": "El trabajo depende del proceso, no del tipo de molécula.", "E": "«Contener calor» no es una propiedad: el calor es energía en tránsito."},
+  "confirma": "C"},
+
+ "hrw-c19-q083": {"idea": "$C_p$ siempre supera a $C_v$, así que el cociente al revés es menor que uno.",
+  "pasos": ["$C_p = C_v + R > C_v$.", "$\\dfrac{C_v}{C_p} = \\dfrac{1}{\\gamma} < 1$, porque $\\gamma > 1$."],
+  "porque_fallan": {"C": "Ese es $\\gamma = C_p/C_v$, el cociente en el otro orden. Ojo al enunciado."},
+  "confirma": "B"},
+
+ "hrw-c19-q084": {"idea": "El cociente vale $1/\\gamma$, y $\\gamma$ cambia con el número de grados de libertad: monoatómico 5/3, diatómico 7/5, poliatómico 4/3.",
+  "pasos": ["$\\dfrac{C_v}{C_p} = \\dfrac{f/2}{f/2+1} = \\dfrac{f}{f+2}$.", "Con $f = 3, 5, 6$ sale $3/5$, $5/7$, $6/8$: tres valores distintos.", "No depende de $T$ ni de $P$ en un gas ideal."],
+  "porque_fallan": {"C": "Para un gas ideal es constante con la temperatura."},
+  "confirma": "E"},
+
+ "hrw-c19-q085": {"idea": "$\\gamma = 1 + 2/f$: cuantos menos grados de libertad, mayor $\\gamma$. El monoatómico es el que menos tiene.",
+  "pasos": ["Monoatómico: $\\gamma = 5/3 \\approx 1.67$.", "Diatómico: $7/5 = 1.40$. Poliatómico: $4/3 \\approx 1.33$.", "El máximo es el monoatómico."],
+  "porque_fallan": {"B": "Lo pone al revés: más grados de libertad hacen $\\gamma$ más pequeño.", "E": "Si fueran iguales, las adiabáticas de todos los gases coincidirían."},
+  "confirma": "A"},
+
+ "hrw-c19-q086": {"idea": "Hace falta lo uno **y** lo otro: la primera ley con $Q=0$ para la relación diferencial, y la ecuación de estado para eliminar la presión.",
+  "pasos": ["Primera ley adiabática: $nC_v\\,dT = -p\\,dV$.", "Ecuación de estado: $p = nRT/V$.", "Sustituyendo e integrando sale $TV^{\\gamma-1} = \\mathrm{cte}$."],
+  "porque_fallan": {"C": "Sin la ecuación de estado no se puede sustituir la presión.", "D": "La ecuación de estado sola no dice nada de procesos sin calor."},
+  "confirma": "E"},
+
+ "hrw-c19-q087": {"idea": "Desde el mismo estado inicial hasta el mismo volumen final, la adiabática que cae más despacio deja más área bajo la curva. Y la que cae más despacio es la de menor $\\gamma$.",
+  "pasos": ["$p \\propto V^{-\\gamma}$: cuanto mayor $\\gamma$, más brusca la caída.", "El poliatómico tiene el $\\gamma$ más pequeño, así que su curva se mantiene más alta.", "Más área bajo la curva es más trabajo."],
+  "porque_fallan": {"C": "El monoatómico tiene el mayor $\\gamma$: su presión se desploma antes y hace **menos** trabajo.", "E": "Los tres $\\gamma$ son distintos, así que las tres curvas también."},
+  "confirma": "A"},
+
+ "hrw-c19-q088": {"idea": "Recorrido libre medio: lo que una molécula viaja, en promedio, entre dos choques.",
+  "pasos": ["No tiene que ver con el tamaño del recipiente ni con la separación media entre moléculas.", "En aire a presión atmosférica es unas mil veces mayor que la distancia entre vecinas."],
+  "porque_fallan": {"D": "La separación media entre moléculas es mucho menor: una molécula pasa junto a muchas antes de chocar con una."},
+  "confirma": "E"},
+
+ "hrw-c19-q089": {"idea": "La misma definición, dicha de otra manera: distancia media **entre colisiones**.",
+  "pasos": ["Es un promedio, no un máximo ni un mínimo.", "$\\lambda = \\dfrac{1}{\\sqrt2\\,\\pi d^2 n}$."],
+  "porque_fallan": {"C": "Un máximo no sería un promedio, y además no está acotado."},
+  "confirma": "B"},
+
+ "hrw-c19-q090": {"idea": "Del orden de $10^{-7}$ m: unas mil veces el tamaño de una molécula y mil veces la distancia entre vecinas.",
+  "pasos": ["$\\lambda = 1/(\\sqrt2\\pi d^2 n)$ con $d \\sim 3\\times10^{-10}$ m y $n \\sim 2.5\\times10^{25}\\ \\mathrm{m^{-3}}$.", "Sale unos 100 nm."],
+  "porque_fallan": {"D": "$10^{-9}$ m es del orden del tamaño molecular, no del recorrido entre choques."},
+  "confirma": "C"},
+
+ "hrw-c19-q091": {"idea": "Cuanto más gorda la molécula, más fácil chocar y más corto el recorrido: es inversamente proporcional a la sección eficaz.",
+  "pasos": ["$\\lambda = \\dfrac{1}{\\sqrt2\\,\\pi d^2 n}$, y $\\pi d^2$ es la sección.", "Doblar el diámetro cuadruplica la sección y divide $\\lambda$ entre cuatro."],
+  "porque_fallan": {"A": "Está al revés: más sección significa **menos** recorrido libre.", "C": "La velocidad no entra: cambia la frecuencia de choques, no la distancia entre ellos."},
+  "confirma": "B"},
+
+ "hrw-c19-q092": {"idea": "Misma fórmula, mirando ahora la concentración: más apretadas, menos recorrido.",
+  "pasos": ["$\\lambda \\propto 1/n$.", "Por eso en el vacío el recorrido libre puede ser de metros."],
+  "porque_fallan": {"C": "Invertido: más moléculas por metro cúbico acortan el trayecto.", "A": "Va con el diámetro **al cuadrado** y en el denominador."},
+  "confirma": "D"},
+
+ "hrw-c19-q093": {"idea": "Frecuencia de choques es velocidad dividida entre recorrido libre medio. La separación media que da el enunciado sobra.",
+  "pasos": ["$f = \\dfrac{\\bar v}{\\lambda} = \\dfrac{500}{5.0\\times10^{-6}}$.", "$f = 10^8\\ \\mathrm{s^{-1}}$."],
+  "porque_fallan": {"E": "Usa la separación entre moléculas, $5\\times10^{-9}$ m, en vez del recorrido libre. Ese dato está puesto como distractor."},
+  "confirma": "D"},
+
+ "hrw-c19-q094": {"idea": "$\\lambda \\propto 1/n$, y a presión constante la concentración baja con la temperatura.",
+  "pasos": ["$P = nkT$, luego $n = P/kT$.", "$\\lambda \\propto 1/n \\propto T/P$.", "A presión fija, $\\lambda \\propto T$."],
+  "porque_fallan": {"A": "Invierte la dependencia: calentar a presión constante separa las moléculas.", "E": "Sí cambia: el gas se dilata."},
+  "confirma": "C"},
+
+ "hrw-c19-q095": {"idea": "$\\lambda \\propto T/P$. Los dos cambios empujan en el mismo sentido, así que se multiplican.",
+  "pasos": ["$\\lambda_2 = \\lambda_1\\dfrac{T_2}{T_1}\\dfrac{P_1}{P_2}$.", "$= 4.0\\times10^{-7} \\times \\dfrac{350}{300} \\times \\dfrac{5.0\\times10^4}{1.0\\times10^4}$.", "$= 4.0\\times10^{-7} \\times 1.167 \\times 5 = 2.3\\times10^{-6}\\ \\mathrm{m}$."],
+  "porque_fallan": {"A": "Invierte los dos cocientes.", "C": "Aplica solo el cambio de temperatura y olvida el de presión, que es el que más pesa."},
+  "confirma": "E"}
+}
