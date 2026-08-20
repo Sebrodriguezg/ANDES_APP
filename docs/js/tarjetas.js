@@ -73,6 +73,9 @@ function montarReporte(nodo, t) {
 /* En el examen son 7,2 min por pregunta; la meta del plan es bajar a 6. La
    barra se llena hacia esos 6 minutos, y a partir de ahí avisa. */
 const SEGUNDOS_META = 360;
+// Tope de lo que se registra en una tarjeta. Quince minutos ya son el doble de
+// los 7,2 del examen: por encima de eso la tarjeta está abandonada, no en curso.
+const TOPE_SEGUNDOS = 900;
 
 const CAUSAS_FALLO = [
   ['concepto', 'No sabía la física'],
@@ -143,15 +146,29 @@ function bloqueFigura(t) {
 }
 
 /* El cronómetro es la respuesta al hallazgo más caro del D1: 14 minutos en una
-   sola pregunta. Empieza cuando la tarjeta se ve y para al responder. */
+   sola pregunta. Empieza cuando la tarjeta se ve y para al responder.
+
+   Solo cuenta el tiempo con la app delante. Antes medía con reloj de pared, así
+   que si salías a otra aplicación el contador seguía: Sebastián reportó una
+   pregunta «que va por una hora». Eso no es un número feo, es que contaminaba
+   justo la métrica que el cronómetro existe para medir.
+
+   Y por si acaso hay un tope: una tarjeta abandonada registra el tope, no el
+   rato que el teléfono estuviera encendido. */
 function montarCronometro(nodo) {
   const barra = nodo.querySelector('.cronometro-relleno');
   const marca = nodo.querySelector('.cronometro-texto');
-  let inicio = null;
+  let acumulado = 0;      // milisegundos ya contados, con la app visible
+  let desde = null;       // cuándo empezó el tramo visible en curso
+  let arrancado = false;
   let tic = null;
 
+  const segundos = () => Math.min(
+    TOPE_SEGUNDOS,
+    Math.round((acumulado + (desde ? Date.now() - desde : 0)) / 1000));
+
   function pintar() {
-    const s = Math.round((Date.now() - inicio) / 1000);
+    const s = segundos();
     const frac = Math.min(1, s / SEGUNDOS_META);
     if (barra) {
       barra.style.width = `${frac * 100}%`;
@@ -164,19 +181,39 @@ function montarCronometro(nodo) {
     }
   }
 
+  function pausar() {
+    if (desde === null) return;
+    acumulado += Date.now() - desde;
+    desde = null;
+    clearInterval(tic);
+    tic = null;
+  }
+
+  function reanudar() {
+    if (!arrancado || desde !== null) return;
+    desde = Date.now();
+    tic = setInterval(pintar, 1000);
+  }
+
+  const alCambiarVisibilidad = () => (document.hidden ? pausar() : reanudar());
+
   return {
     arrancar() {
-      if (inicio) return;
-      inicio = Date.now();
+      if (arrancado) return;
+      arrancado = true;
+      desde = Date.now();
       pintar();
       tic = setInterval(pintar, 1000);
+      document.addEventListener('visibilitychange', alCambiarVisibilidad);
     },
     parar() {
-      if (!inicio) return 0;
-      clearInterval(tic);
-      const s = Math.round((Date.now() - inicio) / 1000);
-      inicio = null;
-      return s;
+      if (!arrancado) return 0;
+      pausar();
+      // El oyente se quita siempre: en un feed infinito, dejarlos puestos los
+      // acumula tarjeta a tarjeta.
+      document.removeEventListener('visibilitychange', alCambiarVisibilidad);
+      arrancado = false;
+      return Math.min(TOPE_SEGUNDOS, Math.round(acumulado / 1000));
     },
   };
 }

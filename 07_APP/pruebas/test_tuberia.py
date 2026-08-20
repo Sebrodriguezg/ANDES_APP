@@ -9,6 +9,7 @@ rompieron dos veces mientras se arreglaba otra cosa.
 """
 
 import sys
+import collections
 import unittest
 from pathlib import Path
 
@@ -262,6 +263,100 @@ class TestCodigos(unittest.TestCase):
         ]
         for tarjeta, esperado in casos:
             self.assertEqual(C.codigo_de(tarjeta), esperado)
+
+
+class TestGlifosPerdidos(unittest.TestCase):
+    """Los glifos que pdftotext borraba en silencio.
+
+    En 2.208 preguntas la `ℓ` no aparecía ni una vez, la `ε₀` de la constante de
+    Coulomb tampoco, y siete `≠` se habían quedado en `=`, que invierte el
+    enunciado. Un caso congelado por clase, con la geometría real medida en el
+    PDF, porque lo que decide la clase es dónde está el glifo y cuánto mide.
+    """
+
+    def setUp(self):
+        import glifos
+        self.G = glifos
+
+    def _caja(self, x0, y0, x1, y1):
+        return (x0, y0, x1, y1)
+
+    def test_acento_de_vector_va_encima_de_su_letra(self):
+        # Página 35: "Let →R = →S × →T". La flecha solapa en x con la R y queda
+        # entera por encima de ella.
+        flecha = self._caja(112.9, 72.0, 118.4, 74.2)
+        erre = ("cmmi10", "R", self._caja(111.5, 75.2, 119.8, 82.9))
+        self.assertEqual(
+            self.G.clasificar("cmmi10", flecha, erre, None, 4.7), "vector")
+
+    def test_barra_de_negacion_hace_un_distinto(self):
+        # Misma página: "θ ≠ 90°". La barra sale de cmsy y cruza el igual.
+        barra = self._caja(74.8, 74.8, 80.0, 85.0)
+        igual = ("cmr10", "=", self._caja(75.0, 78.6, 81.0, 81.2))
+        self.assertEqual(
+            self.G.clasificar("cmsy10", barra, igual, None, 4.7), "negacion")
+
+    def test_la_ele_cursiva_tiene_ascendente(self):
+        # Página 599: "the same value of ℓ". Va en el flujo del texto y mide
+        # vez y media la altura de la x.
+        ele = self._caja(237.0, 237.8, 241.0, 245.6)
+        sig = ("cmr10", "a", self._caja(242.0, 240.6, 246.0, 245.6))
+        self.assertEqual(
+            self.G.clasificar("cmmi10", ele, sig, None, 4.9), "ele")
+
+    def test_la_epsilon_no_lo_tiene_y_lleva_el_cero_detras(self):
+        # Página 327: "1/4πε₀". Sin ascendente, y el subíndice cero la sigue.
+        eps = self._caja(100.0, 240.0, 104.0, 244.5)
+        cero = ("cmr7", "0", self._caja(104.0, 240.0, 107.0, 244.0))
+        self.assertEqual(
+            self.G.clasificar("cmmi10", eps, cero, None, 4.9), "epsilon")
+
+    def test_el_operador_se_reconoce_por_la_fuente_no_por_la_altura(self):
+        # Página 479, las ecuaciones de Maxwell. Una de las cuatro integrales
+        # medía 1,97 de alto y se colaba como ele: la fuente cmex la separa.
+        integral = self._caja(70.0, 100.0, 75.1, 119.3)
+        sig = ("cmmi10", "E", self._caja(76.0, 104.0, 82.0, 112.0))
+        self.assertEqual(
+            self.G.clasificar("cmex10", integral, sig, None, 4.9,
+                              cuerpo=10.91), "integral")
+
+    def test_un_glifo_solo_en_su_renglon_no_se_resuelve(self):
+        # Los rótulos sueltos de las figuras: antes que arriesgar, se dejan.
+        suelto = self._caja(10.0, 10.0, 14.0, 18.0)
+        self.assertEqual(
+            self.G.clasificar("cmmi10", suelto, None, None, 4.9,
+                              en_contexto=False), "aislado")
+
+
+class TestReparacionDeGlifos(unittest.TestCase):
+    """Que reponer los glifos no se lleve por delante otra cosa."""
+
+    def setUp(self):
+        import reparar_glifos
+        self.R = reparar_glifos
+
+    def test_no_borra_el_marcado_de_exponentes(self):
+        # El fallo que casi cometo: normalizar para comparar está bien, pero
+        # escribir ese resultado devolvía 10^{8} a 10 8.
+        texto = "a speed of 3.0 × 10^{8} m/s"
+        salida = self.R.reparar_texto(texto, {}, collections.Counter())
+        self.assertIn("10^{8}", salida)
+
+    def test_repone_la_epsilon_de_la_constante_de_coulomb(self):
+        c = collections.Counter()
+        self.assertEqual(
+            self.R.reparar_texto("The units of 1/4π_{0} are:", {}, c),
+            "The units of 1/4πε_{0} are:")
+
+    def test_repone_la_epsilon_tras_una_division(self):
+        c = collections.Counter()
+        self.assertEqual(self.R.reparar_texto("is q/_{0}", {}, c), "is q/ε_{0}")
+
+    def test_la_reparacion_es_idempotente(self):
+        c = collections.Counter()
+        una = self.R.reparar_texto("The units of 1/4π_{0} are:", {}, c)
+        dos = self.R.reparar_texto(una, {}, c)
+        self.assertEqual(una, dos)
 
 
 if __name__ == "__main__":

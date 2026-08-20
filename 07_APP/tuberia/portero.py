@@ -26,6 +26,13 @@ UMBRALES = {
     "simbolo_suelto_pct": 0.2,        # el × desplazado al borde de una opción
 }
 
+# Glifos que `pdftotext` borraba en silencio y que `reparar_glifos.py` repone.
+# El portero no mide aquí un porcentaje sino una presencia: si alguno vuelve a
+# desaparecer del corpus entero es que la reparación dejó de aplicarse, y eso
+# no se nota mirando las preguntas una a una —la `ℓ` faltó en 2.208 durante
+# semanas—. El mínimo es holgado a propósito: avisa del cero, no del ruido.
+GLIFOS_ESPERADOS = {"→": 40, "ℓ": 15, "ε": 15}
+
 # Basura de figura, sin contar los subíndices legítimos que genera el extractor.
 RE_SUBINDICE = re.compile(r"[_^]\{[^{}]*\}")
 RE_BASURA = re.compile(r"(\.\s*){3,}|•|\}\s*\}")
@@ -110,6 +117,18 @@ def revisar(tarjetas, revisar_figuras=True, estricto=True):
             incumplidos.append((clave, valor, tope))
         marca = "ok " if pasa else "MAL"
         print(f"    {marca}  {clave:26} {valor:5.1f} %   (tope {tope} %)")
+
+    faltan = []
+    texto = " ".join(
+        (x.get("enunciado") or "") + " " + " ".join((x.get("opciones") or {}).values())
+        for x in tarjetas)
+    for glifo, minimo in GLIFOS_ESPERADOS.items():
+        n = texto.count(glifo)
+        if n < minimo:
+            faltan.append((f"glifo {glifo}", n, minimo))
+        print(f"    {'ok ' if n >= minimo else 'MAL'}  "
+              f"{'glifo ' + glifo:26} {n:5}     (mínimo {minimo})")
+    incumplidos += faltan
 
     if incumplidos and estricto:
         print("\n  El corpus no cumple. No se publica.")
