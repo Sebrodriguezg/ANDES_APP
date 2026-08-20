@@ -1,0 +1,261 @@
+{
+ "hrw-c05-q001": {"idea": "Un sistema inercial es aquel en el que vale la primera ley: una partícula libre se mueve en línea recta y a velocidad constante.",
+  "pasos": ["Se define por referencia a un cuerpo sobre el que **no actúan fuerzas**.", "Cualquier sistema que se mueva a velocidad constante respecto a uno inercial también lo es."],
+  "porque_fallan": {"D": "Un sistema atado a la Tierra rota y orbita: es inercial solo aproximadamente."},
+  "confirma": "B"},
+
+ "hrw-c05-q002": {"idea": "Velocidad constante implica aceleración nula, y por la segunda ley eso implica fuerza neta nula.",
+  "pasos": ["$\\vec F_{neta} = m\\vec a = 0$.", "Puede haber muchas fuerzas: lo que se anula es su suma."],
+  "porque_fallan": {"E": "Puede haber rozamiento, si otra fuerza lo compensa.", "A": "Fuerza neta no nula daría aceleración."},
+  "confirma": "D"},
+
+ "hrw-c05-q003": {"idea": "El newton se define por el efecto sobre el kilogramo patrón: una fuerza vale numéricamente lo que la aceleración que le imprime.",
+  "pasos": ["$F = ma$ con $m = 1$ kg da $F$ numéricamente igual a $a$.", "Con cualquier otra masa la igualdad numérica se rompe."],
+  "porque_fallan": {"E": "Solo vale para el kilogramo patrón.", "A": "La velocidad no entra en la definición de fuerza."},
+  "confirma": "D"},
+
+ "hrw-c05-q004": {"idea": "La masa es escalar; el peso, que es una fuerza, sí es vectorial.",
+  "pasos": ["Un cuerpo no tiene «masa hacia abajo».", "El peso sí apunta hacia el centro de la Tierra."],
+  "porque_fallan": {"C": "El peso es una fuerza y tiene dirección."},
+  "confirma": "A"},
+
+ "hrw-c05-q005": {"idea": "Un newton es lo que hace falta para acelerar un kilogramo a un metro por segundo cuadrado.",
+  "pasos": ["$1\\ \\mathrm{N} = 1\\ \\mathrm{kg}\\cdot 1\\ \\mathrm{m/s^2}$.", "El peso de 1 kg son 9,8 N, no 1 N."],
+  "porque_fallan": {"A": "Ese es el peso de 1 kg: 9,8 N.", "C": "Con un gramo el número cambia mil veces."},
+  "confirma": "D"},
+
+ "hrw-c05-q006": {"idea": "Es una unidad **derivada**: masa por aceleración.",
+  "pasos": ["$\\mathrm{N} = \\mathrm{kg\\cdot m/s^2}$.", "El 9,8 aparece en el peso, no en la definición."],
+  "porque_fallan": {"A": "Mete la gravedad donde no va.", "D": "Un newton no es una masa."},
+  "confirma": "B"},
+
+ "hrw-c05-q007": {"idea": "Misma equivalencia dimensional.",
+  "pasos": ["$[F] = [m][a] = \\mathrm{kg\\cdot m/s^2}$."],
+  "porque_fallan": {"B": "kg·m/s son unidades de **momento lineal**.", "E": "kg·m²/s² son unidades de energía."},
+  "confirma": "C"},
+
+ "hrw-c05-q008": {"idea": "Segunda ley directa, con el kilogramo patrón el número sale igual a la aceleración.",
+  "pasos": ["$F = ma = (1.0)(5.6) = 5.6$ N."],
+  "porque_fallan": {"A": "Divide entre dos.", "D": "Hay aceleración, luego hay fuerza."},
+  "confirma": "B"},
+
+ "hrw-c05-q009": {"idea": "$\\vec a$ y $\\vec F_{neta}$ son paralelas siempre, porque la masa es un escalar positivo.",
+  "pasos": ["$\\vec a = \\vec F_{neta}/m$.", "La velocidad puede apuntar a cualquier lado: en un frenado va justo al contrario."],
+  "porque_fallan": {"B": "Al frenar, la aceleración es opuesta a la velocidad inicial.", "A": "El desplazamiento tampoco marca la dirección de la aceleración."},
+  "confirma": "D"},
+
+ "hrw-c05-q010": {"idea": "Masa es inercia: la resistencia de un cuerpo a cambiar su movimiento.",
+  "pasos": ["Cuanta más masa, menos aceleración para la misma fuerza.", "El peso, en cambio, depende de dónde estés."],
+  "porque_fallan": {"A": "El peso es una fuerza y cambia con la gravedad; la masa no."},
+  "confirma": "B"},
+
+ "hrw-c05-q011": {"idea": "La inercia se opone a **cualquier** cambio del movimiento, sea acelerar, frenar o girar.",
+  "pasos": ["Es el contenido de la primera ley.", "No empuja ni frena por sí sola: solo se resiste."],
+  "porque_fallan": {"B": "Frenar requiere una fuerza; la inercia no es una fuerza.", "D": "Caer es cosa de la gravedad."},
+  "confirma": "C"},
+
+ "hrw-c05-q013": {"idea": "Con la misma fuerza, masa y aceleración son inversamente proporcionales.",
+  "pasos": ["$m = F/a$: si $a$ es un quinto, $m$ es cinco veces.", "$F = 1.0 \\times 5.0 = 5.0$ N, y $m = 5.0/1.0 = 5.0$ kg."],
+  "porque_fallan": {"A": "Invierte la relación.", "C": "Supone que la masa no cambia."},
+  "confirma": "D"},
+
+ "hrw-c05-q014": {"idea": "El peso es una **fuerza**, con dirección y dependiente del lugar. La masa es una propiedad intrínseca.",
+  "pasos": ["$W = mg$: el peso cambia con $g$, la masa no.", "En la Luna pesas una sexta parte y tienes la misma masa."],
+  "porque_fallan": {"C": "Es al revés: es la masa la que siempre es la misma.", "D": "La masa se expresa en kilogramos, pero eso no es lo que las distingue."},
+  "confirma": "B"},
+
+ "hrw-c05-q015": {"idea": "La masa no depende de la gravedad local: es la misma en la Tierra, en la Luna o en el espacio.",
+  "pasos": ["$m$ mide inercia, que es independiente de $g$.", "Por eso una balanza de brazos —que compara masas— da lo mismo en cualquier sitio."],
+  "porque_fallan": {"A": "Eso le pasa al **peso**, no a la masa.", "B": "La masa es escalar."},
+  "confirma": "C"},
+
+ "hrw-c05-q016": {"idea": "En un mismo lugar, el cociente peso entre masa vale $g$ para **todos** los cuerpos. Eso es lo que las relaciona.",
+  "pasos": ["$W = mg$, luego $W/m = g$ es común a todo cuerpo en ese punto.", "Ese cociente cambia de un lugar a otro, pero es el mismo para todos los cuerpos del lugar."],
+  "porque_fallan": {"A": "El 9,8 vale en la superficie terrestre, no en general.", "C": "No son la misma magnitud en distintas unidades: una es fuerza y la otra no."},
+  "confirma": "E"},
+
+ "hrw-c05-q017": {"idea": "La balanza de brazos compara **masas** y da igual en la Luna; el dinamómetro mide **peso** y allí marca un sexto.",
+  "pasos": ["Balanza de brazos: los dos platos sufren la misma gravedad, que se cancela. Sigue marcando 12 kg.", "Dinamómetro: mide fuerza. Con $g$ seis veces menor, marca $12/6 = 2$ kg."],
+  "porque_fallan": {"A": "Supone que las dos son insensibles a la gravedad.", "D": "Invierte cuál es cuál."},
+  "confirma": "C"},
+
+ "hrw-c05-q018": {"idea": "La razón correcta —que la aceleración es la misma para todos— no está entre las opciones; las cuatro dicen otra cosa.",
+  "pasos": ["En el vacío ambos caen con aceleración $g$, así que llegan con la misma velocidad.", "(A) es falsa: caen **acelerando**, no a velocidad constante.", "(B) es falsa: sin aire no hay velocidad terminal.", "(C) es falsa: la aceleración es igual, no triple. (D) también: el más masivo pesa el triple."],
+  "porque_fallan": {"A": "Dice velocidad constante, cuando lo que es constante es la **aceleración**. Ese matiz es toda la pregunta.", "D": "La fuerza gravitatoria es tres veces mayor sobre el cuerpo tres veces más masivo; lo que se iguala es el cociente $F/m$."},
+  "confirma": "E"},
+
+ "hrw-c05-q019": {"idea": "Sin aire, todo cae igual, también en la Luna. Lo que cambia allí es el valor de $g$, no que sea común.",
+  "pasos": ["$a = g_{Luna} \\approx 1.6$ m/s² para los dos objetos.", "Es el experimento que hizo el astronauta Scott en el Apolo 15."],
+  "porque_fallan": {"D": "9,8 es la gravedad terrestre; en la Luna es la sexta parte.", "E": "En el vacío no hay empuje: nada flota."},
+  "confirma": "B"},
+
+ "hrw-c05-q024": {"idea": "Con la misma fuerza, la aceleración es inversamente proporcional a la masa.",
+  "pasos": ["$a = F/m$ y $m_B = 3m_A$.", "$a_A = 3a_B$."],
+  "porque_fallan": {"B": "Invierte la relación: el más ligero acelera **más**.", "D": "Aplica un cuadrado que no existe."},
+  "confirma": "A"},
+
+ "hrw-c05-q025": {"idea": "Velocidad constante significa aceleración nula, y por tanto fuerza neta nula. El motor existe, pero lo compensa el rozamiento.",
+  "pasos": ["Hay fuerzas: tracción, rozamiento, peso, normal.", "Su **suma** es cero, que es lo que pregunta el enunciado."],
+  "porque_fallan": {"A": "Confunde el sentido del movimiento con el de la fuerza neta. Moverse no requiere fuerza; acelerar sí."},
+  "confirma": "E"},
+
+ "hrw-c05-q026": {"idea": "Segunda ley para la aceleración, y luego cinemática para el cambio de rapidez.",
+  "pasos": ["$a = F/m = 8.0/16 = 0.50$ m/s².", "$\\Delta v = at = 0.50(4.0) = 2$ m/s."],
+  "porque_fallan": {"A": "Se queda en la aceleración.", "E": "Multiplica fuerza por tiempo sin dividir por la masa."},
+  "confirma": "B"},
+
+ "hrw-c05-q027": {"idea": "La aceleración va en el sentido de la fuerza neta, sin importar hacia dónde se mueva el objeto.",
+  "pasos": ["$a = 12/6 = 2$ m/s².", "La fuerza es hacia el norte, así que la aceleración también: el objeto va hacia el sur **frenando**."],
+  "porque_fallan": {"B": "Pone la aceleración en el sentido del movimiento. La aceleración sigue a la fuerza, no a la velocidad.", "D": "Multiplica en vez de dividir."},
+  "confirma": "A"},
+
+ "hrw-c05-q028": {"idea": "Dan el **peso**, no la masa: primero hay que dividir entre $g$.",
+  "pasos": ["$m = 9000/9.8 = 918$ kg.", "$a = 500/918 = 0.54$ m/s²."],
+  "porque_fallan": {"A": "Divide 500 entre 9000 tratando los newtons de peso como kilogramos. Es el error central de la pregunta.", "D": "Devuelve la gravedad."},
+  "confirma": "B"},
+
+ "hrw-c05-q029": {"idea": "Sin rozamiento no hay umbral que vencer: cualquier fuerza neta produce aceleración, por pequeña que sea.",
+  "pasos": ["$a = F/m$, y esto es distinto de cero para cualquier $F \\neq 0$.", "La idea de que hace falta «superar la inercia» viene de la experiencia con rozamiento."],
+  "porque_fallan": {"A": "El peso es vertical y lo cancela la normal: no se opone al empuje horizontal.", "D": "La inercia no es una fuerza que haya que vencer."},
+  "confirma": "C"},
+
+ "hrw-c05-q030": {"idea": "Solo la componente **horizontal** acelera; la vertical se la come la normal.",
+  "pasos": ["$F_x = 20\\cos20° = 18.8$ N.", "$a = 18.8/25 = 0.75$ m/s²."],
+  "porque_fallan": {"C": "Usa los 20 N enteros, sin proyectar.", "A": "Usa el seno en vez del coseno."},
+  "confirma": "B"},
+
+ "hrw-c05-q031": {"idea": "En vuelo la única fuerza es el peso, también en el punto más alto. Y el peso ya lo da el enunciado: 1,5 N.",
+  "pasos": ["La velocidad horizontal no requiere fuerza para mantenerse.", "En el punto más alto la velocidad vertical es cero, pero la fuerza no.", "$F_{neta} = W = 1.5$ N hacia abajo."],
+  "porque_fallan": {"D": "Confunde el peso con el valor de $g$: 9,8 es una aceleración, no una fuerza.", "B": "Velocidad vertical nula no implica fuerza nula."},
+  "confirma": "E"},
+
+ "hrw-c05-q032": {"idea": "Las fuerzas son perpendiculares: hay que componerlas con Pitágoras antes de dividir por la masa.",
+  "pasos": ["$F = \\sqrt{6.0^2+8.0^2} = 10$ N.", "$a = 10/5.0 = 2.0$ m/s²."],
+  "porque_fallan": {"C": "Suma los módulos y divide: daría 2,8.", "A": "Resta las fuerzas."},
+  "confirma": "B"},
+
+ "hrw-c05-q033": {"idea": "En reposo, la tensión iguala al peso.",
+  "pasos": ["$T - W = 0 \\Rightarrow T = 400$ N."],
+  "porque_fallan": {"B": "Duplica: cuenta el peso dos veces.", "C": "Sin tensión la bola caería."},
+  "confirma": "A"},
+
+ "hrw-c05-q034": {"idea": "En caída libre todo cae con la misma aceleración, así que la cuerda no tiene que tirar de nada: la tensión es cero.",
+  "pasos": ["Si hubiera tensión, uno de los dos aceleraría distinto de $g$.", "Los dos caen a $g$, luego la cuerda queda floja.", "Es la misma razón de la ingravidez aparente en una nave en órbita."],
+  "porque_fallan": {"D": "Sería la tensión si el sistema estuviera en reposo o colgado."},
+  "confirma": "A"},
+
+ "hrw-c05-q036": {"idea": "Subiendo y acelerando, la tensión supera al peso.",
+  "pasos": ["$T - mg = ma \\Rightarrow T = m(g+a)$.", "$T = 1000(9.8+3) = 12800$ N."],
+  "porque_fallan": {"D": "Da solo el peso, como si no acelerara.", "C": "Da solo el término de aceleración."},
+  "confirma": "E"},
+
+ "hrw-c05-q038": {"idea": "Bajando con aceleración, la tensión es **menor** que el peso. Y dan el peso, así que primero hay que sacar la masa.",
+  "pasos": ["$m = 16000/9.8 = 1633$ kg.", "$T = m(g-a) = 1633(9.8-3) = 11\\,000$ N."],
+  "porque_fallan": {"C": "Da el peso: sería el caso de bajar a velocidad constante.", "D": "Suma la aceleración en vez de restarla."},
+  "confirma": "B"},
+
+ "hrw-c05-q040": {"idea": "La cuerda se inclina justo lo necesario para que su componente horizontal dé la aceleración del coche.",
+  "pasos": ["Horizontal: $T\\sin\\theta = ma$. Vertical: $T\\cos\\theta = mg$.", "Dividiendo: $\\tan\\theta = a/g = 3/9.8 = 0.306$.", "$\\theta = 17°$. La masa se cancela: da igual cuánto pese la bola."],
+  "porque_fallan": {"E": "La masa no hace falta: se cancela al dividir las dos ecuaciones.", "B": "Sale de usar el seno o el arcoseno donde va la tangente."},
+  "confirma": "A"},
+
+ "hrw-c05-q041": {"idea": "El suelo empuja con $m(g+a)$ cuando el ascensor acelera hacia arriba. Y dan el peso, no la masa.",
+  "pasos": ["$m = 700/9.8 = 71.4$ kg.", "$N = m(g+a) = 71.4(9.8+4) = 990$ N."],
+  "porque_fallan": {"D": "Da el peso, como si no hubiera aceleración.", "B": "Multiplica 71,4 por 4, olvidando la gravedad."},
+  "confirma": "E"},
+
+ "hrw-c05-q042": {"idea": "La báscula marca más cuando la aceleración apunta hacia **arriba**.",
+  "pasos": ["$N = m(g+a)$ con $a$ positiva hacia arriba.", "Subir ganando velocidad es aceleración hacia arriba."],
+  "porque_fallan": {"E": "Velocidad constante da la lectura normal, suba o baje.", "D": "Bajar ganando velocidad es aceleración hacia abajo: marca menos."},
+  "confirma": "A"},
+
+ "hrw-c05-q043": {"idea": "Bajar **frenando** también es aceleración hacia arriba. Lo que cuenta es el sentido de la aceleración, no el del movimiento.",
+  "pasos": ["Si va hacia abajo y pierde rapidez, $\\Delta\\vec v$ apunta hacia arriba.", "$N = m(g+a) > mg$."],
+  "porque_fallan": {"D": "Subir frenando es aceleración hacia abajo: marca menos.", "C": "En reposo marca el peso normal."},
+  "confirma": "B"},
+
+ "hrw-c05-q044": {"idea": "El empuje va inclinado hacia abajo, así que aprieta el suelo: la normal **supera** al peso.",
+  "pasos": ["$N = mg + F\\sin20°$.", "$= 25(9.8) + 200(0.342) = 245 + 68$.", "$N = 310$ N."],
+  "porque_fallan": {"D": "Da solo el peso, ignorando la componente vertical del empuje.", "B": "Da solo esa componente."},
+  "confirma": "E"},
+
+ "hrw-c05-q045": {"idea": "En un plano sin rozamiento, $a = g\\sin\\theta$. Y ojo a las unidades: las opciones están en cm/s².",
+  "pasos": ["$a = 9.8\\sin30° = 4.9$ m/s².", "En centímetros: $490$ cm/s²."],
+  "porque_fallan": {"A": "Es $g$ entero: sería caída libre, con el plano vertical.", "C": "Usa el coseno en vez del seno."},
+  "confirma": "E"},
+
+ "hrw-c05-q046": {"idea": "La normal equilibra solo la componente del peso **perpendicular** al plano: va con el coseno.",
+  "pasos": ["$N = W\\cos25° = 25(0.906)$.", "$N = 23$ N."],
+  "porque_fallan": {"C": "Da el peso entero: solo valdría en horizontal.", "A": "Usa el seno, que da la componente a lo largo del plano."},
+  "confirma": "B"},
+
+ "hrw-c05-q047": {"idea": "Para sostenerlo, la fuerza paralela al plano iguala la componente del peso a lo largo del plano: va con el **seno**.",
+  "pasos": ["$F = W\\sin25° = 25(0.423)$.", "$F = 11$ N."],
+  "porque_fallan": {"E": "Es la normal, que va con el coseno. Distinguir las dos componentes es todo el ejercicio.", "A": "Confunde con alguna otra proyección."},
+  "confirma": "D"},
+
+ "hrw-c05-q048": {"idea": "La misma situación, preguntando ahora por la normal: coseno.",
+  "pasos": ["$N = W\\cos25° = 25(0.906) = 23$ N.", "La fuerza aplicada es paralela al plano, así que no afecta a la normal."],
+  "porque_fallan": {"D": "Es la fuerza aplicada, que va con el seno: es la otra pregunta del par."},
+  "confirma": "E"},
+
+ "hrw-c05-q049": {"idea": "A velocidad constante la fuerza aplicada iguala a la componente del peso: de ahí sale la masa.",
+  "pasos": ["$F = mg\\sin30°$.", "$32 = m(9.8)(0.5) = 4.9m$.", "$m = 6.5$ kg."],
+  "porque_fallan": {"A": "Divide entre $g$ sin el seno.", "E": "Divide entre el seno solo, olvidando $g$."},
+  "confirma": "D"},
+
+ "hrw-c05-q051": {"idea": "Segunda ley a lo largo del plano, con la fuerza aplicada contra la componente del peso.",
+  "pasos": ["Tomando cuesta arriba como positivo: $F - mg\\sin30° = ma$.", "$40 - 4.9m = 2.0m$.", "$40 = 6.9m \\Rightarrow m = 5.8$ kg."],
+  "porque_fallan": {"E": "Sale de olvidar el término de aceleración: daría $40/4.9 = 8.2$.", "A": "Suma donde hay que restar."},
+  "confirma": "C"},
+
+ "hrw-c05-q052": {"idea": "Acción y reacción actúan sobre **cuerpos distintos**, así que nunca pueden cancelarse entre sí.",
+  "pasos": ["Para sumar fuerzas hay que hacerlo sobre el mismo cuerpo.", "El par de la tercera ley reparte una fuerza en cada uno de los dos."],
+  "porque_fallan": {"A": "Son exactamente iguales en módulo: esa es la tercera ley.", "C": "Van en sentidos opuestos, no en el mismo."},
+  "confirma": "B"},
+
+ "hrw-c05-q053": {"idea": "La reacción intercambia los dos cuerpos y mantiene el tipo de fuerza: contacto con contacto.",
+  "pasos": ["Acción: el libro empuja a la mesa hacia abajo.", "Reacción: la mesa empuja al libro hacia arriba."],
+  "porque_fallan": {"A": "El peso del libro es otra fuerza: su reacción está en la Tierra, no en la mesa.", "D": "Esa es la reacción al peso, no a la fuerza de contacto."},
+  "confirma": "B"},
+
+ "hrw-c05-q054": {"idea": "La reacción a la gravedad de la Tierra sobre el bloque es la gravedad del **bloque sobre la Tierra**. Mismo tipo de fuerza, cuerpos intercambiados.",
+  "pasos": ["Acción: la Tierra atrae al bloque.", "Reacción: el bloque atrae a la Tierra con la misma fuerza.", "La cuerda no participa: sus fuerzas forman otros pares."],
+  "porque_fallan": {"A": "La tensión es de contacto y su reacción es el bloque tirando de la cuerda.", "B": "Ese es el par de la tensión, no el de la gravedad."},
+  "confirma": "E"},
+
+ "hrw-c05-q055": {"idea": "Primero la tensión con la segunda ley, y luego la tercera para invertir el sentido.",
+  "pasos": ["$mg - T = ma \\Rightarrow T = m(g-a) = 5(9.8-2.8) = 35$ N.", "La cuerda tira del bloque hacia arriba con 35 N.", "Por la tercera ley, el bloque tira de la cuerda con 35 N hacia **abajo**."],
+  "porque_fallan": {"C": "Acierta el módulo y falla el sentido: la pregunta es sobre la fuerza del bloque **sobre la cuerda**.", "E": "Da el peso, sin descontar la aceleración."},
+  "confirma": "D"},
+
+ "hrw-c05-q056": {"idea": "Velocidad constante significa aceleración nula: la normal es simplemente el peso.",
+  "pasos": ["$N = mg = 90(9.8) = 880$ N.", "Que suba a 5 m/s es irrelevante: lo que cuenta es que no acelera."],
+  "porque_fallan": {"B": "Confunde kilogramos con newtons.", "D": "Divide el peso entre dos."},
+  "confirma": "C"},
+
+ "hrw-c05-q057": {"idea": "Acelerando hacia abajo, la normal es menor que el peso.",
+  "pasos": ["$N = m(g-a) = 90(9.8-1.4)$.", "$N = 90(8.4) = 760$ N."],
+  "porque_fallan": {"D": "Da el peso, sin restar la aceleración.", "E": "Suma en vez de restar."},
+  "confirma": "C"},
+
+ "hrw-c05-q058": {"idea": "La fuerza del bloque sobre la Tierra es la reacción a su **peso**, así que vale $mg$ y no depende de la aceleración.",
+  "pasos": ["Peso del bloque: $5(9.8) = 49$ N hacia abajo.", "Su reacción: el bloque atrae a la Tierra con 49 N hacia arriba.", "La aceleración cambia la **tensión**, no el par gravitatorio."],
+  "porque_fallan": {"C": "35 N es la tensión de la cuerda, que sí depende de la aceleración. Son dos pares distintos."},
+  "confirma": "E"},
+
+ "hrw-c05-q061": {"idea": "Máquina de Atwood: la aceleración es la diferencia de pesos dividida entre la masa total.",
+  "pasos": ["$a = g\\dfrac{W_1-W_2}{W_1+W_2}$.", "$= g\\dfrac{13-12}{13+12} = \\dfrac{g}{25}$."],
+  "porque_fallan": {"E": "Usa solo el peso mayor en el numerador.", "A": "Daría caída libre, que solo pasa si el otro peso es cero."},
+  "confirma": "D"},
+
+ "hrw-c05-q062": {"idea": "Lo mismo con masas: la diferencia sobre la suma.",
+  "pasos": ["$a = g\\dfrac{5-4}{5+4} = \\dfrac{g}{9}$.", "Comprueba los límites: masas iguales dan cero; una masa nula da $g$."],
+  "porque_fallan": {"B": "Divide la masa mayor entre la total.", "A": "No sale de ninguna combinación válida."},
+  "confirma": "E"},
+
+ "hrw-c05-q069": {"idea": "La cuerda tiene masa, así que no transmite la fuerza entera: hay que acelerar el conjunto y luego mirar solo el juguete.",
+  "pasos": ["Masa total: $10 + 50 = 60$ g $= 0.060$ kg.", "$a = \\dfrac{3.0\\times10^{-2}}{0.060} = 0.50$ m/s².", "Sobre el juguete: $F = (0.050)(0.50) = 2.5\\times10^{-2}$ N."],
+  "porque_fallan": {"D": "Supone que la cuerda transmite los 3,0×10⁻² N íntegros, que solo valdría si no tuviera masa.", "B": "Da la fuerza que acelera a la cuerda."},
+  "confirma": "C"}
+}

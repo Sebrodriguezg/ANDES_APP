@@ -1,0 +1,181 @@
+{
+ "hrw-c04-q001": {"idea": "Velocidad es la **derivada** de la posición: cómo cambia, no cuánto vale.",
+  "pasos": ["$\\vec v = \\dfrac{d\\vec r}{dt}$.", "Posición entre tiempo solo daría la velocidad media desde el origen, y solo si se empezó ahí."],
+  "porque_fallan": {"E": "El cambio de posición es el desplazamiento; falta dividir por el tiempo.", "B": "Posición entre tiempo no es una definición general."},
+  "confirma": "A"},
+
+ "hrw-c04-q002": {"idea": "Aceleración es la derivada de la **velocidad**, y por tanto vectorial: cambia si cambia la rapidez o la dirección.",
+  "pasos": ["$\\vec a = \\dfrac{d\\vec v}{dt}$.", "Un movimiento circular uniforme tiene aceleración aunque la rapidez no cambie."],
+  "porque_fallan": {"D": "«Acelerar o frenar» deja fuera el cambio de dirección, que es la mitad del concepto.", "E": "El cambio de velocidad sin dividir por el tiempo no es la aceleración."},
+  "confirma": "C"},
+
+ "hrw-c04-q003": {"idea": "La rapidez es el módulo de la velocidad: un número sin dirección.",
+  "pasos": ["Velocidad, desplazamiento y aceleración llevan dirección: son vectores.", "La rapidez es lo que marca el velocímetro, y nunca es negativa."],
+  "porque_fallan": {"B": "La velocidad sí es vectorial: rapidez **más** dirección."},
+  "confirma": "A"},
+
+ "hrw-c04-q004": {"idea": "Masa, densidad, rapidez y temperatura son todas escalares: ninguna tiene dirección.",
+  "pasos": ["Un cuerpo no tiene «masa hacia el norte».", "La rapidez es el módulo de un vector, pero ella misma es escalar."],
+  "porque_fallan": {"C": "La rapidez es escalar; la **velocidad** es el vector."},
+  "confirma": "E"},
+
+ "hrw-c04-q005": {"idea": "Acelerado significa que la velocidad cambia, en módulo o en dirección. La componente horizontal de un proyectil no hace ninguna de las dos cosas.",
+  "pasos": ["Sin resistencia del aire, la gravedad solo actúa en vertical.", "La velocidad horizontal es constante: aceleración horizontal nula.", "El movimiento circular uniforme sí acelera, aunque la rapidez no cambie: cambia la dirección."],
+  "porque_fallan": {"B": "Rapidez constante no significa sin aceleración: la dirección cambia continuamente."},
+  "confirma": "E"},
+
+ "hrw-c04-q006": {"idea": "Desplazamiento es final menos inicial, componente a componente.",
+  "pasos": ["$x: 3-(-2) = 5$.", "$y: -1-3 = -4$.", "$z: 4-1 = 3$."],
+  "porque_fallan": {"C": "Es inicial menos final: el orden importa.", "A": "Suma en vez de restar."},
+  "confirma": "B"},
+
+ "hrw-c04-q007": {"idea": "El sonido recorre la **hipotenusa** mientras el avión recorre el cateto horizontal, en el mismo tiempo. Por eso la relación es con el seno, no con la tangente.",
+  "pasos": ["El sonido salió cuando el avión estaba a distancia $d = v_p t$ por detrás, a altura $h$.", "Ese sonido viajó $v_s t$ hasta ti, que es la hipotenusa $\\sqrt{d^2+h^2}$.", "$\\sin\\theta = \\dfrac{d}{\\sqrt{d^2+h^2}} = \\dfrac{v_p t}{v_s t} = \\dfrac{v_p}{v_s}$.", "$\\sin 30° = 0.5$: el avión va a la mitad de la velocidad del sonido."],
+  "porque_fallan": {"C": "Sale de usar $\\tan30° = 0.577$, o sea de tomar el cateto vertical como el camino del sonido. El sonido viaja en línea recta desde el punto de emisión: la hipotenusa.", "D": "Es $\\cos30°$."},
+  "confirma": "B"},
+
+ "hrw-c04-q008": {"idea": "El cambio de velocidad es una resta **vectorial**, y restar un vector que apunta al norte es sumar uno que apunta al sur.",
+  "pasos": ["$\\Delta\\vec v = \\vec v_f - \\vec v_i = 200\\ \\mathrm{S} - 200\\ \\mathrm{N}$.", "$= 200\\ \\mathrm{S} + 200\\ \\mathrm{S} = 400$ m/s hacia el sur."],
+  "porque_fallan": {"A": "La **rapidez** no cambia, pero la velocidad sí: es lo que distingue a las dos magnitudes.", "C": "Resta los módulos en vez de los vectores."},
+  "confirma": "E"},
+
+ "hrw-c04-q009": {"idea": "Los movimientos horizontal y vertical son independientes: lo que pase en horizontal no altera la caída.",
+  "pasos": ["La aceleración horizontal añadida no tiene componente vertical.", "Los dos cuerpos siguen con la misma $v_y$ en cada instante y la misma altura.", "Llegan al suelo a la vez."],
+  "porque_fallan": {"B": "Suponer que moverse en horizontal retrasa o adelanta la caída es el error central del capítulo.", "E": "Con aceleración horizontal la trayectoria es curva, no recta."},
+  "confirma": "A"},
+
+ "hrw-c04-q010": {"idea": "La única aceleración es la gravedad, así que a la velocidad inicial se le va sumando una velocidad hacia abajo que crece con el tiempo.",
+  "pasos": ["$\\vec v = \\vec v_0 + \\vec g t$.", "El término $\\vec g t$ apunta siempre hacia abajo y crece linealmente."],
+  "porque_fallan": {"B": "Una velocidad vertical **constante** no describe una caída acelerada.", "A": "En horizontal no se suma nada: esa componente no cambia."},
+  "confirma": "D"},
+
+ "hrw-c04-q011": {"idea": "Horizontal uniforme y vertical uniformemente acelerado dan una parábola.",
+  "pasos": ["$x = v_xt$ y $y = y_0 + v_{0y}t - \\tfrac12gt^2$.", "Despejando $t$ de la primera y sustituyendo, $y$ queda cuadrática en $x$."],
+  "porque_fallan": {"C": "La hipérbola aparece en órbitas de escape, no en tiro cerca del suelo.", "E": "Solo sería recta si el lanzamiento fuera vertical."},
+  "confirma": "D"},
+
+ "hrw-c04-q012": {"idea": "Menos gravedad alarga el vuelo y por tanto el alcance, pero también deja la bala con menos velocidad al llegar.",
+  "pasos": ["I: en la Luna $g$ es menor, el vuelo dura más y con la misma $v_x$ el alcance es mayor. **Verdadera**.", "II: en la Tierra $g$ es mayor, así que cae antes. **Verdadera**.", "III: la velocidad al impacto es $\\sqrt{v_x^2+2gh}$: depende de $g$, así que **no** coinciden. Falsa."],
+  "porque_fallan": {"E": "Da por buena la III. En la Tierra la bala llega bastante más rápido, aunque salga igual.", "C": "Descarta la II, que es cierta."},
+  "confirma": "B"},
+
+ "hrw-c04-q014": {"idea": "El disparo horizontal no cambia la caída: llega al suelo cuando lo haría una bala simplemente soltada.",
+  "pasos": ["La componente vertical parte de cero en los dos casos.", "$t = \\sqrt{2h/g}$ no depende de $v_x$.", "Es el experimento clásico de las dos monedas."],
+  "porque_fallan": {"A": "Tardar más exigiría alguna fuerza vertical hacia arriba.", "D": "La trayectoria es una parábola."},
+  "confirma": "C"},
+
+ "hrw-c04-q015": {"idea": "Comparar una velocidad horizontal con una vertical no tiene sentido físico: son componentes independientes y no hay razón para que coincidan.",
+  "pasos": ["La bomba conserva la velocidad horizontal del avión, así que el avión sigue justo encima al impactar: (A) es cierta.", "Su aceleración es $g$ constante y su trayectoria una parábola: (B) y (D) ciertas.", "Y el tiempo de vuelo depende solo de la altura: (E) cierta."],
+  "porque_fallan": {"A": "Es verdadera y sorprende: la bomba no se queda atrás, porque nada la frena en horizontal."},
+  "confirma": "C"},
+
+ "hrw-c04-q017": {"idea": "El objeto sale con la velocidad horizontal de la plataforma y la conserva, así que ambos avanzan lo mismo.",
+  "pasos": ["El lanzador apunta perpendicular a la plataforma, así que no añade velocidad horizontal relativa.", "Sin rozamiento del aire, el proyectil mantiene los 40 km/h horizontales.", "Cae justo donde estaba: sobre la plataforma."],
+  "porque_fallan": {"B": "Supone que el proyectil pierde la velocidad horizontal al salir, que es la intuición equivocada."},
+  "confirma": "C"},
+
+ "hrw-c04-q019": {"idea": "Ecuación cuadrática en el eje vertical, tomando el suelo como $-59.4$ m.",
+  "pasos": ["$-59.4 = 19.5t - 4.9t^2$.", "$4.9t^2 - 19.5t - 59.4 = 0$.", "$t = \\dfrac{19.5 + \\sqrt{380 + 1164}}{9.8} = \\dfrac{19.5+39.3}{9.8} = 6.0$ s."],
+  "porque_fallan": {"A": "Sale de olvidar la altura del acantilado y calcular solo el vuelo hasta volver al nivel de salida, que son 4 s.", "E": "Signo mal puesto en la cuadrática."},
+  "confirma": "C"},
+
+ "hrw-c04-q020": {"idea": "Alcance en terreno llano: $R = \\dfrac{v_0^2\\sin 2\\theta}{g}$. Ojo al **doble** del ángulo.",
+  "pasos": ["$R = \\dfrac{(980)^2\\sin 60°}{9.8}$.", "$= \\dfrac{960400 \\times 0.866}{9.8} = 8.5\\times10^4$ m.", "85 km."],
+  "porque_fallan": {"C": "Un factor diez de menos.", "E": "Usa $\\sin$ o $\\cos$ de 30° sin duplicar el ángulo, o duplica el resultado."},
+  "confirma": "D"},
+
+ "hrw-c04-q021": {"idea": "Lanzamiento horizontal: el tiempo lo fija la altura y la distancia la velocidad horizontal.",
+  "pasos": ["$t = \\sqrt{\\dfrac{2h}{g}} = \\sqrt{\\dfrac{40}{9.8}} = 2.0$ s.", "$x = v_xt = 20(2.0) = 40$ m."],
+  "porque_fallan": {"A": "Divide la altura entre dos y usa eso como tiempo.", "C": "Confunde la distancia horizontal con la longitud del recorrido."},
+  "confirma": "B"},
+
+ "hrw-c04-q025": {"idea": "El alcance es la velocidad horizontal por el tiempo total, y el tiempo total es el doble del de subida.",
+  "pasos": ["Tiempo de subida: $20/10 = 2$ s. Vuelo total: 4 s.", "$R = 30 \\times 4 = 120$ m.", "Equivale a $R = \\dfrac{2v_xv_y}{g}$."],
+  "porque_fallan": {"B": "Usa solo el tiempo de subida.", "E": "Duplica de más."},
+  "confirma": "D"},
+
+ "hrw-c04-q028": {"idea": "La aceleración media es el cambio **vectorial** de velocidad entre el tiempo. Con un giro de 90° los dos vectores son perpendiculares.",
+  "pasos": ["$|\\Delta\\vec v| = \\sqrt{200^2+200^2} = 283$ m/s.", "$|\\bar a| = 283/20 = 14$ m/s²."],
+  "porque_fallan": {"A": "La rapidez no cambia, pero la velocidad sí: cambió de dirección.", "C": "Resta los módulos, que daría cero, o usa 200/10."},
+  "confirma": "D"},
+
+ "hrw-c04-q029": {"idea": "Giro de 180°: la velocidad se invierte, así que el cambio es el **doble** de la rapidez.",
+  "pasos": ["$\\Delta\\vec v = 500\\ \\mathrm{S} - 500\\ \\mathrm{N} = 1000$ km/h hacia el sur.", "$\\bar a = 1000/40 = 25$ km/h·s, hacia el sur."],
+  "porque_fallan": {"C": "Usa 500 en vez de 1000: olvida que restar un vector norte es sumar uno sur.", "D": "Acierta el módulo y falla el sentido."},
+  "confirma": "E"},
+
+ "hrw-c04-q030": {"idea": "Periodo es la longitud de la circunferencia dividida entre la rapidez.",
+  "pasos": ["$C = 2\\pi r = 2\\pi(\\pi) = 2\\pi^2$ m.", "$T = \\dfrac{2\\pi^2}{4.0} = \\dfrac{\\pi^2}{2}$ s."],
+  "porque_fallan": {"C": "Usa $r$ en vez de la circunferencia.", "E": "Invierte el cociente."},
+  "confirma": "B"},
+
+ "hrw-c04-q031": {"idea": "En movimiento circular uniforme la velocidad es tangente y la aceleración apunta al centro: forman 90°.",
+  "pasos": ["Si tuvieran componente común, la rapidez cambiaría.", "Rapidez constante exige que la aceleración sea puramente centrípeta."],
+  "porque_fallan": {"A": "Si la aceleración fuera tangente, la rapidez cambiaría.", "D": "Opuestos significaría frenar en línea recta."},
+  "confirma": "C"},
+
+ "hrw-c04-q032": {"idea": "$a = v^2/r$: la aceleración va con el **cuadrado** de la rapidez.",
+  "pasos": ["Doblar $v$ multiplica $v^2$ por cuatro.", "Con $r$ igual, la aceleración se cuadruplica."],
+  "porque_fallan": {"B": "Trata la relación como lineal."},
+  "confirma": "C"},
+
+ "hrw-c04-q033": {"idea": "Con la misma aceleración, $r = v^2/a$: el radio va con el cuadrado de la rapidez.",
+  "pasos": ["$a_A = a_B$ y $v_A = 2v_B$.", "$\\dfrac{r_A}{r_B} = \\dfrac{v_A^2}{v_B^2} = 4$."],
+  "porque_fallan": {"D": "Traslada el cociente de rapideces sin elevarlo al cuadrado.", "B": "Invierte la relación."},
+  "confirma": "E"},
+
+ "hrw-c04-q034": {"idea": "Rapidez constante significa que la aceleración es **solo** centrípeta, también arriba. La gravedad no entra en la aceleración: entra en la tensión.",
+  "pasos": ["$a = \\dfrac{v^2}{r} = \\dfrac{16}{0.50} = 32$ m/s².", "En lo alto, el centro está abajo: la aceleración apunta hacia abajo."],
+  "porque_fallan": {"B": "Da $g$, confundiendo la aceleración del movimiento con la de la gravedad. Aquí la cuerda impone el movimiento.", "D": "Acierta el módulo y falla el sentido: el centro está debajo."},
+  "confirma": "E"},
+
+ "hrw-c04-q035": {"idea": "Mismo módulo, sentido opuesto: abajo el centro está arriba.",
+  "pasos": ["$a = 32$ m/s², sin cambio porque la rapidez es constante.", "Apunta hacia el centro, o sea hacia arriba."],
+  "porque_fallan": {"E": "Es la respuesta del punto más alto: el sentido se invierte.", "A": "Sustituye la centrípeta por la gravedad."},
+  "confirma": "D"},
+
+ "hrw-c04-q036": {"idea": "Aceleración centrípeta directa.",
+  "pasos": ["$a = \\dfrac{v^2}{r} = \\dfrac{100}{20} = 5.0$ m/s²."],
+  "porque_fallan": {"B": "Invierte el cociente.", "D": "Olvida elevar la velocidad al cuadrado o divide mal."},
+  "confirma": "C"},
+
+ "hrw-c04-q037": {"idea": "Despejar la rapidez de $a = v^2/r$, con $a$ expresada en unidades de $g$.",
+  "pasos": ["$a = 25(9.8) = 245$ m/s².", "$v = \\sqrt{ar} = \\sqrt{245 \\times 1.0}$.", "$v = 16$ m/s."],
+  "porque_fallan": {"E": "Da la aceleración, no la velocidad: le falta la raíz.", "C": "Usa 25 sin multiplicar por $g$."},
+  "confirma": "B"},
+
+ "hrw-c04-q038": {"idea": "Del arco recorrido salen la rapidez y el radio; con los dos, la aceleración.",
+  "pasos": ["$v = 25/5.0 = 5.0$ m/s.", "Un cuarto de vuelta son 25 m, luego la circunferencia mide 100 m y $r = 100/2\\pi = 15.9$ m.", "$a = \\dfrac{v^2}{r} = \\dfrac{25}{15.9} = 1.6$ m/s²."],
+  "porque_fallan": {"E": "Usa 25 m como radio en vez de como arco.", "A": "Confunde el radio con la circunferencia entera."},
+  "confirma": "C"},
+
+ "hrw-c04-q039": {"idea": "De las revoluciones por segundo sale la rapidez, y de ahí la aceleración.",
+  "pasos": ["$v = 2\\pi r f = 2\\pi(1.5)(2) = 18.8$ m/s.", "$a = \\dfrac{v^2}{r} = \\dfrac{355}{1.5} = 240$ m/s²."],
+  "porque_fallan": {"C": "Olvida un factor $2\\pi$ al pasar de revoluciones a rapidez.", "E": "Un orden de magnitud de más."},
+  "confirma": "D"},
+
+ "hrw-c04-q040": {"idea": "La pelota sale con la velocidad **horizontal** del punto más alto de la noria, y luego es un tiro horizontal desde 16 m.",
+  "pasos": ["$v = \\dfrac{2\\pi r}{T} = \\dfrac{2\\pi(8.0)}{10} = 5.0$ m/s, horizontal.", "Altura de caída: un diámetro, $16$ m. $t = \\sqrt{2(16)/9.8} = 1.81$ s.", "$x = 5.0 \\times 1.81 = 9.1$ m."],
+  "porque_fallan": {"A": "Supone que la pelota cae en vertical, olvidando la velocidad que trae.", "C": "Usa el radio como distancia horizontal sin calcular nada."},
+  "confirma": "D"},
+
+ "hrw-c04-q041": {"idea": "Ida y vuelta con corriente: los tiempos no se compensan, porque se pasa más rato yendo despacio.",
+  "pasos": ["Contracorriente: $20-5 = 15$ m/s, $t = 3000/15 = 200$ s.", "A favor: $20+5 = 25$ m/s, $t = 3000/25 = 120$ s.", "Total: $320$ s."],
+  "porque_fallan": {"D": "Usa 20 m/s en los dos sentidos, como si la corriente se cancelara. Nunca lo hace: siempre sale más lento que en agua quieta.", "A": "Suma mal los dos tramos."},
+  "confirma": "E"},
+
+ "hrw-c04-q042": {"idea": "Componer velocidades en dos pasos: barco respecto al suelo, y luego el hombre respecto al barco. Salen perpendiculares.",
+  "pasos": ["Barco respecto al suelo: $14 - 6 = 8$ km/h aguas arriba.", "El hombre añade 6 km/h **transversal**, perpendicular a esa.", "$v = \\sqrt{8^2+6^2} = 10$ km/h."],
+  "porque_fallan": {"D": "Suma los tres números en línea, sin ver que dos son perpendiculares.", "B": "Se queda con la velocidad del barco respecto al agua."},
+  "confirma": "A"},
+
+ "hrw-c04-q046": {"idea": "Para cruzar en línea recta hay que apuntar contra la corriente lo justo para cancelarla.",
+  "pasos": ["La componente del barco hacia el este debe anular los 5 km/h hacia el oeste del río.", "$10\\sin\\theta = 5 \\Rightarrow \\sin\\theta = 0.5$.", "$\\theta = 30°$ al este del norte."],
+  "porque_fallan": {"C": "45° cancelaría 7,07 km/h, demasiado.", "E": "El ángulo no depende del ancho: solo de las dos rapideces."},
+  "confirma": "B"},
+
+ "hrw-c04-q047": {"idea": "Los dos tienen la misma aceleración, $\\vec g$, así que la relativa se anula.",
+  "pasos": ["$\\vec a_{rel} = \\vec a_1 - \\vec a_2 = \\vec g - \\vec g = 0$.", "Por eso, visto desde uno, el otro se mueve en línea recta y a velocidad constante.", "Es la base de la sensación de ingravidez en caída libre."],
+  "porque_fallan": {"B": "Sumaría las magnitudes, pero los dos vectores apuntan igual: se restan.", "A": "Esa es la aceleración de cada uno respecto al suelo, no una respecto a la otra."},
+  "confirma": "D"}
+}
