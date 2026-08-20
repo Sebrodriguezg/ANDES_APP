@@ -1,0 +1,680 @@
+{
+ "hrw-c07-q001": {
+  "idea": "El vatio es potencia —energía por tiempo—, no energía.",
+  "pasos": [
+   "Julio, ergio, newton·metro y pie·libra son todos unidades de energía.",
+   "$1\\ \\mathrm{W} = 1\\ \\mathrm{J/s}$."
+  ],
+  "porque_fallan": {
+   "D": "Newton por metro es exactamente la definición de julio."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q002": {
+  "idea": "Buscar el grupo donde **las tres** magnitudes sean vectoriales.",
+  "pasos": [
+   "Desplazamiento, aceleración y fuerza: los tres llevan dirección.",
+   "En los demás grupos siempre se cuela un escalar: potencia, rapidez, energía, presión…"
+  ],
+  "porque_fallan": {
+   "A": "La potencia es escalar.",
+   "E": "La presión y el tiempo son escalares."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q003": {
+  "idea": "Sin desplazamiento no hay trabajo, por mucho esfuerzo muscular que cueste.",
+  "pasos": [
+   "$W = \\vec F\\cdot\\vec d$ y aquí $\\vec d = 0$.",
+   "El cansancio viene de la contracción muscular, que consume energía sin hacer trabajo mecánico."
+  ],
+  "porque_fallan": {
+   "D": "Multiplica fuerza por tiempo, que no es trabajo.",
+   "C": "Multiplica por la altura, pero el peso no sube nada."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q005": {
+  "idea": "La fuerza centrípeta apunta al centro y el desplazamiento es tangente: son perpendiculares en todo instante.",
+  "pasos": [
+   "$W = \\vec F\\cdot d\\vec r$ con $\\vec F \\perp d\\vec r$ da cero.",
+   "Por eso la rapidez no cambia: sin trabajo no hay cambio de energía cinética."
+  ],
+  "porque_fallan": {
+   "A": "El desplazamiento en cada tramo no es cero: la partícula recorre camino.",
+   "C": "El rozamiento no tiene nada que ver."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q006": {
+  "idea": "Una vuelta completa devuelve al punto de partida con la misma rapidez: la energía cinética no cambia y el trabajo neto es cero.",
+  "pasos": [
+   "La única fuerza es la tensión, siempre perpendicular al movimiento.",
+   "$\\Delta K = 0 \\Rightarrow W = 0$."
+  ],
+  "porque_fallan": {
+   "C": "Sale de multiplicar fuerza por camino sin mirar el ángulo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q007": {
+  "idea": "Bajando, peso y desplazamiento apuntan los dos hacia abajo: el trabajo es positivo.",
+  "pasos": [
+   "$W = mgh > 0$ cuando el cuerpo desciende una altura $h$.",
+   "Al subir sería negativo. Lo que decide el signo es el desplazamiento **vertical**."
+  ],
+  "porque_fallan": {
+   "D": "No depende del ángulo de lanzamiento: solo de si sube o baja.",
+   "C": "Sería cero solo si no cambiara la altura."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q008": {
+  "idea": "Acaba **más arriba** de donde salió, así que la gravedad hace trabajo negativo. Y el aire siempre lo hace.",
+  "pasos": [
+   "La grada está por encima del punto de bateo: $\\Delta h > 0$, luego $W_{grav} = -mg\\Delta h < 0$.",
+   "La resistencia del aire se opone al movimiento en todo instante: siempre negativa."
+  ],
+  "porque_fallan": {
+   "B": "Acierta el aire y falla la gravedad: si terminara más abajo sí sería positiva.",
+   "A": "El aire nunca hace trabajo positivo sobre el proyectil."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q009": {
+  "idea": "Misma altura al principio y al final: la gravedad no hace trabajo neto. El aire sigue restando.",
+  "pasos": [
+   "$W_{grav} = -mg\\Delta h = 0$ porque $\\Delta h = 0$.",
+   "La gravedad es conservativa: su trabajo depende solo de los extremos.",
+   "El aire no lo es: su trabajo depende del camino y siempre resta."
+  ],
+  "porque_fallan": {
+   "D": "Da la gravedad como negativa, cuando el cambio de altura es cero.",
+   "A": "El aire no puede hacer trabajo positivo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q010": {
+  "idea": "Trabajo de una fuerza constante en la dirección del movimiento: fuerza por distancia. La velocidad inicial no interviene.",
+  "pasos": [
+   "$W = Fd = 4(5) = 20$ J.",
+   "Los 3 m/s iniciales cambian la energía cinética total, pero no el trabajo de **esta** fuerza."
+  ],
+  "porque_fallan": {
+   "E": "Suma la energía cinética inicial, que no es trabajo de la fuerza aplicada.",
+   "A": "Multiplica por otra distancia."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q011": {
+  "idea": "A velocidad constante el tiro iguala al rozamiento, así que el trabajo del tiro es el del rozamiento en magnitud.",
+  "pasos": [
+   "$f = \\mu N = 0.05(5000) = 250$ N.",
+   "$W = fd = 250(1000) = 2.5\\times10^{5}$ J."
+  ],
+  "porque_fallan": {
+   "C": "Duplica el resultado.",
+   "A": "Un orden de magnitud de menos."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q012": {
+  "idea": "Mismo esquema, con el peso del equipo.",
+  "pasos": [
+   "$f = 0.05(6000) = 300$ N.",
+   "$W = 300(1000) = 3.0\\times10^{5}$ J."
+  ],
+  "porque_fallan": {
+   "B": "Divide entre dos.",
+   "E": "Usa el peso sin multiplicar por el coeficiente."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q013": {
+  "idea": "Ahora además acelera, así que la fuerza aplicada supera al rozamiento. Y ojo: dan el peso, no la masa.",
+  "pasos": [
+   "$m = 6000/9.8 = 612$ kg.",
+   "Rozamiento: 300 N. Para acelerar: $ma = 612(0.20) = 122$ N.",
+   "$F = 300 + 122 = 422$ N, y $W = 422(1000) = 4.2\\times10^{5}$ J."
+  ],
+  "porque_fallan": {
+   "C": "Es el caso a velocidad constante: olvida el término de aceleración.",
+   "A": "Signo negativo: ese sería el trabajo del rozamiento."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q014": {
+  "idea": "Levantar a velocidad constante: el trabajo es $mgh$.",
+  "pasos": [
+   "$W = (1)(9.8)(1) = 9.8 \\approx 10$ J."
+  ],
+  "porque_fallan": {
+   "B": "Olvida multiplicar por $g$.",
+   "E": "Sí hay trabajo: el bloque sube."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q015": {
+  "idea": "Fuerza siempre tangente: el trabajo es fuerza por **camino recorrido**, que en una vuelta es la circunferencia.",
+  "pasos": [
+   "$s = 2\\pi r = 2\\pi(2.5) = 15.7$ m.",
+   "$W = 3.0(15.7) = 47$ J."
+  ],
+  "porque_fallan": {
+   "A": "Usa el diámetro o el radio en vez de la circunferencia.",
+   "D": "Duplica la vuelta."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q017": {
+  "idea": "Si el cajón **frena** mientras sube, el hombre empuja con menos que la componente del peso.",
+  "pasos": [
+   "$m = 80/9.8 = 8.16$ kg y $mg\\sin30° = 40$ N.",
+   "Tomando cuesta arriba positivo: $F - 40 = 8.16(-1.5) = -12.2$.",
+   "$F = 27.8$ N, luego $W = 27.8(5.0) = 140$ J."
+  ],
+  "porque_fallan": {
+   "D": "Es el caso a velocidad constante, con $F = 40$ N.",
+   "A": "Es el trabajo de la **gravedad**, con signo negativo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q018": {
+  "idea": "A velocidad constante y sin rozamiento, el hombre solo vence la componente del peso.",
+  "pasos": [
+   "$F = mg\\sin30° = 80(0.5) = 40$ N.",
+   "$W = 40(5.0) = 200$ J.",
+   "Equivale a $mgh$ con $h = 5\\sin30° = 2.5$ m."
+  ],
+  "porque_fallan": {
+   "C": "Es el caso del cajón frenando, con menos fuerza.",
+   "E": "Suma un rozamiento que el enunciado descarta."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q019": {
+  "idea": "El trabajo de la gravedad depende solo del descenso, sin importar el rozamiento ni la velocidad.",
+  "pasos": [
+   "Baja una altura $h = 5.0\\sin30° = 2.5$ m.",
+   "$W_{grav} = +mgh = 80(2.5) = 200$ J, positivo porque baja."
+  ],
+  "porque_fallan": {
+   "B": "Signo cambiado: bajando, la gravedad hace trabajo positivo.",
+   "A": "Duplica la altura."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q020": {
+  "idea": "Solo cuenta la componente de la fuerza en la dirección del desplazamiento.",
+  "pasos": [
+   "$W = \\vec F\\cdot\\vec d = Fd\\cos\\theta$."
+  ],
+  "porque_fallan": {
+   "C": "El seno da la componente perpendicular, que no hace trabajo.",
+   "D": "Dividir por el coseno no tiene sentido dimensional aquí."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q022": {
+  "idea": "Producto escalar: solo la componente paralela al desplazamiento aporta.",
+  "pasos": [
+   "$\\vec d = (5\\ \\mathrm{m})\\hat i$.",
+   "$W = \\vec F\\cdot\\vec d = (4)(5) = 20$ J.",
+   "Las componentes en $\\hat j$ y $\\hat k$ no contribuyen."
+  ],
+  "porque_fallan": {
+   "D": "Suma componentes que son perpendiculares al movimiento.",
+   "E": "Se calcula perfectamente: basta el producto escalar."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q023": {
+  "idea": "El muelle hace trabajo positivo cuando el bloque se **acerca** a la posición relajada, o sea cuando $|x|$ disminuye.",
+  "pasos": [
+   "$W = \\tfrac12k(x_i^2 - x_f^2)$: positivo si $|x_i| > |x_f|$.",
+   "Opción E: de $-4$ a $-2$ cm, el módulo baja de 4 a 2. ✔"
+  ],
+  "porque_fallan": {
+   "A": "De 2 a 4: se aleja, trabajo negativo.",
+   "C": "De $-2$ a $-4$: el módulo crece, aunque los dos sean negativos. El signo de $x$ no importa, solo el módulo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q026": {
+  "idea": "Fuerza variable: hay que integrar. Con $F$ lineal sale el área de un triángulo.",
+  "pasos": [
+   "$W = \\displaystyle\\int_0^L Ax\\,dx$.",
+   "$W = \\dfrac{AL^2}{2}$."
+  ],
+  "porque_fallan": {
+   "A": "Olvida el factor un medio de la integral.",
+   "C": "Suma en vez de integrar."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q027": {
+  "idea": "Misma integral, término a término.",
+  "pasos": [
+   "$W = \\displaystyle\\int_0^L (ax+bx^2)\\,dx$.",
+   "$W = \\dfrac{aL^2}{2} + \\dfrac{bL^3}{3}$."
+  ],
+  "porque_fallan": {
+   "C": "Deriva en vez de integrar.",
+   "A": "Deja una $x$ suelta en el resultado, que ya no debería aparecer."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q028": {
+  "idea": "Primero la constante del muelle desde el equilibrio, y luego el trabajo del muelle entre las dos elongaciones.",
+  "pasos": [
+   "$k = \\dfrac{mg}{x_0} = \\dfrac{19.6}{0.060} = 327$ N/m.",
+   "Pasa de 6 cm a 16 cm de elongación.",
+   "$W_{muelle} = -\\tfrac12k(x_f^2-x_i^2) = -\\tfrac12(327)(0.16^2-0.06^2)$.",
+   "$= -\\tfrac12(327)(0.0220) = -3.6$ J."
+  ],
+  "porque_fallan": {
+   "E": "Signo cambiado: al estirarse más, el muelle tira en contra y hace trabajo negativo.",
+   "C": "Confunde centímetros con metros en algún paso."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q029": {
+  "idea": "Subir 16 cm desde una elongación de 6 cm deja el muelle **comprimido** 10 cm: hay que cruzar el punto relajado.",
+  "pasos": [
+   "$x_i = +6$ cm y $x_f = -10$ cm.",
+   "$W = -\\tfrac12k(x_f^2-x_i^2) = -\\tfrac12(327)(0.10^2 - 0.06^2)$.",
+   "$= -\\tfrac12(327)(0.0064) = -1.0$ J."
+  ],
+  "porque_fallan": {
+   "E": "Signo cambiado.",
+   "C": "Olvida que el muelle pasa a comprimirse y usa solo parte del recorrido."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q030": {
+  "idea": "$K = \\tfrac12mv^2$: la velocidad pesa el doble en el exponente, así que hay que comparar $mv^2$.",
+  "pasos": [
+   "A: $3MV^2 = 3$. B: $3M(2V)^2 = 12$. C: $2M(3V)^2 = 18$. D: $M(4V)^2 = 16$.",
+   "El mayor es C."
+  ],
+  "porque_fallan": {
+   "D": "Tiene la mayor velocidad, pero la menor masa: se queda en 16.",
+   "B": "Mira la masa antes que la velocidad."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q031": {
+  "idea": "A igual rapidez, la energía cinética es proporcional a la masa.",
+  "pasos": [
+   "$\\dfrac{K_Y}{K_X} = \\dfrac{2000}{500} = 4$."
+  ],
+  "porque_fallan": {
+   "D": "Eleva el cociente al cuadrado, que valdría si lo que difiriera fuera la velocidad.",
+   "A": "Supone que la energía no depende de la masa."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q032": {
+  "idea": "Toda la energía cinética se pierde al frenar. Y dan el peso: hay que sacar la masa.",
+  "pasos": [
+   "$m = 8000/9.8 = 816$ kg.",
+   "$K = \\tfrac12(816)(12)^2 = 5.9\\times10^{4}$ J.",
+   "Los 4,0 s no hacen falta: son un distractor."
+  ],
+  "porque_fallan": {
+   "A": "Trata los 8000 N como kilogramos.",
+   "D": "Un orden de magnitud de más."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q033": {
+  "idea": "El trabajo total es $\\Delta K$, y la energía cinética va con el **cuadrado** de la velocidad: el signo de $v$ da igual.",
+  "pasos": [
+   "$W = \\tfrac12m(v_f^2 - v_i^2)$.",
+   "En A, B, C y D se pasa de rapidez 5 a rapidez 2: $\\Delta K < 0$.",
+   "Solo en E se pasa de 2 a 5: la rapidez crece y el trabajo es positivo."
+  ],
+  "porque_fallan": {
+   "D": "De $-5$ a $+2$ la velocidad cambia de signo, pero la rapidez **baja**: el trabajo es negativo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q034": {
+  "idea": "La tensión máxima fija la energía cinética máxima, porque $T = mv^2/r$ y $K = \\tfrac12mv^2$.",
+  "pasos": [
+   "$mv^2 = Tr = 16(0.5) = 8$ J.",
+   "$K = \\tfrac12(8) = 4$ J."
+  ],
+  "porque_fallan": {
+   "B": "Olvida el factor un medio.",
+   "C": "Multiplica por el radio dos veces."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q035": {
+  "idea": "La energía cinética depende de masa y rapidez, no de la gravedad. La Luna no cambia nada.",
+  "pasos": [
+   "$K = \\tfrac12mv^2$: ahí no aparece $g$.",
+   "La **masa** es la misma en los dos sitios; lo que cambia es el peso."
+  ],
+  "porque_fallan": {
+   "D": "Confunde peso con masa. El peso sí es un sexto; la energía cinética no."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q036": {
+  "idea": "Del trabajo: fuerza por distancia, o sea $(ML/T^2)(L)$.",
+  "pasos": [
+   "$[E] = [F][L] = \\dfrac{ML}{T^2}\\cdot L = \\dfrac{ML^2}{T^2}$.",
+   "Comprueba con $\\tfrac12mv^2$: $M(L/T)^2$ da lo mismo."
+  ],
+  "porque_fallan": {
+   "E": "Son las dimensiones de fuerza.",
+   "A": "No corresponde a ninguna magnitud habitual."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q037": {
+  "idea": "Teorema del trabajo y la energía: el trabajo para detenerlo iguala a su energía cinética.",
+  "pasos": [
+   "$W = \\Delta K = 0 - K = -K$.",
+   "En magnitud, el trabajo necesario es exactamente $K$."
+  ],
+  "porque_fallan": {
+   "C": "Masa por velocidad es el **momento lineal**, no la energía.",
+   "E": "La velocidad al cuadrado sola no tiene unidades de energía."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q038": {
+  "idea": "Trabajo neto igual a la variación de energía cinética. Hay que restar cuadrados, no velocidades.",
+  "pasos": [
+   "$W = \\tfrac12(5.0)(10.0^2 - 6.0^2)$.",
+   "$= \\tfrac12(5.0)(100-36) = \\tfrac12(5.0)(64)$.",
+   "$W = 160$ J."
+  ],
+  "porque_fallan": {
+   "A": "Resta las velocidades y luego eleva: $\\tfrac12(5)(4)^2 = 40$. La energía no funciona así.",
+   "E": "Suma los cuadrados en vez de restarlos."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q040": {
+  "idea": "El trabajo neto es $\\Delta K$, y para eso hace falta la velocidad **final**, que el enunciado no da.",
+  "pasos": [
+   "$W = \\tfrac12m(v_f^2-v_i^2)$.",
+   "Sin saber cuánto baja ni con qué velocidad acaba, no hay respuesta.",
+   "El peso y la velocidad inicial no bastan."
+  ],
+  "porque_fallan": {
+   "C": "Sale de calcular la energía cinética inicial, que no es el trabajo neto."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q041": {
+  "idea": "Aquí sí se conoce el estado final —reposo—, así que el trabajo total es toda la energía cinética inicial.",
+  "pasos": [
+   "$K_i = \\tfrac12(4)(3)^2 = 18$ J y $K_f = 0$.",
+   "$W = \\Delta K = -18$ J, o 18 J en magnitud.",
+   "Los 2 m y el ángulo no hacen falta: el teorema no los pide."
+  ],
+  "porque_fallan": {
+   "E": "Sí se puede: el reposo final da toda la información.",
+   "C": "Sale de olvidar el factor un medio o de usar 2 m."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q042": {
+  "idea": "La distancia de frenado es energía entre fuerza. Con la misma energía y la misma fuerza, la distancia es la misma.",
+  "pasos": [
+   "$Fd = K \\Rightarrow d = K/F$.",
+   "Las dos tienen la misma $K$ y sufren la misma $F$: $d_1 = d_2$.",
+   "Las masas no intervienen."
+  ],
+  "porque_fallan": {
+   "D": "Traslada un cociente de masas que se cancela.",
+   "A": "Igual, en el otro sentido."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q043": {
+  "idea": "Teorema del trabajo y la energía: la fuerza media por la distancia de frenado iguala a la energía cinética.",
+  "pasos": [
+   "$Fd = \\tfrac12mv^2$.",
+   "$F = \\dfrac{mv^2}{2d}$.",
+   "Por eso al recibir una pelota se echa la mano hacia atrás: más $d$, menos fuerza."
+  ],
+  "porque_fallan": {
+   "C": "Olvida el factor 2 del denominador.",
+   "A": "$mv/d$ tiene unidades de fuerza solo si se confunde con el impulso."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q044": {
+  "idea": "El trabajo de la fuerza tangencial es toda la energía cinética ganada.",
+  "pasos": [
+   "$W = F(2\\pi r) = 3.0(15.7) = 47$ J.",
+   "$47 = \\tfrac12(0.50)v^2 \\Rightarrow v^2 = 188$.",
+   "$v = 14$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "Olvida el factor un medio.",
+   "A": "Usa el radio en vez de la circunferencia."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q045": {
+  "idea": "Hay dos componentes: la tangencial aplicada y la centrípeta, que a esa velocidad ya es enorme. Se componen con Pitágoras.",
+  "pasos": [
+   "De la pregunta anterior, $v^2 = 188$.",
+   "Centrípeta: $\\dfrac{mv^2}{r} = \\dfrac{0.50(188)}{2.5} = 37.7$ N.",
+   "Total: $\\sqrt{37.7^2+3.0^2} = 38$ N."
+  ],
+  "porque_fallan": {
+   "A": "Da solo la centrípeta redondeada a la baja, o suma mal.",
+   "C": "Suma los módulos en vez de componer perpendiculares."
+  },
+  "confirma": "B"
+ },
+ "hrw-c07-q047": {
+  "idea": "Si $K$ crece linealmente con el tiempo, $v$ va como $\\sqrt t$ y la aceleración como $1/\\sqrt t$: la fuerza tiene que ir decayendo.",
+  "pasos": [
+   "$\\tfrac12mv^2 = ct \\Rightarrow v \\propto \\sqrt t$.",
+   "$a = dv/dt \\propto t^{-1/2}$.",
+   "$F = ma \\propto 1/\\sqrt t$."
+  ],
+  "porque_fallan": {
+   "A": "Una fuerza constante daría $v \\propto t$ y $K \\propto t^2$, no lineal.",
+   "B": "Daría $K \\propto t^4$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q048": {
+  "idea": "Trabajo igual a variación de energía cinética, y la energía usa el **módulo** al cuadrado de la velocidad.",
+  "pasos": [
+   "$|v_i|^2 = 4^2+3^2 = 25$ y $|v_f|^2 = 2^2+3^2 = 13$.",
+   "$W = \\tfrac12(2)(13-25) = -12$ J."
+  ],
+  "porque_fallan": {
+   "E": "El trabajo es un escalar: no puede tener componentes.",
+   "B": "Resta las componentes en vez de los módulos al cuadrado."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q049": {
+  "idea": "Encadenar las proporcionalidades: fuerza, aceleración, velocidad y energía.",
+  "pasos": [
+   "$F \\propto t \\Rightarrow a \\propto t \\Rightarrow v \\propto t^2$.",
+   "$K \\propto v^2 \\propto t^4$."
+  ],
+  "porque_fallan": {
+   "B": "Se queda a mitad de camino, en la velocidad.",
+   "A": "Confunde con el caso de fuerza constante."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q050": {
+  "idea": "Toda la energía potencial de la caída se almacena en el muelle. Como la compresión es pequeña frente a los 2 m, se puede despreciar en la altura.",
+  "pasos": [
+   "$mgh = \\tfrac12kx^2$ con $h = 2.0$ m.",
+   "$x = \\sqrt{\\dfrac{2mgh}{k}} = \\sqrt{\\dfrac{2(1.5)(9.8)(2.0)}{1.5\\times10^5}} = 0.020$ m.",
+   "$F = kx = 1.5\\times10^5(0.020) = 3.0\\times10^{3}$ N."
+  ],
+  "porque_fallan": {
+   "A": "Da el peso del cajón: la fuerza en el impacto es doscientas veces mayor.",
+   "C": "Confunde la constante del muelle con una fuerza."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q051": {
+  "idea": "Fuerza que decae exponencialmente: el trabajo total es la integral hasta el infinito, y converge.",
+  "pasos": [
+   "$W = \\displaystyle\\int_0^{\\infty} F_0e^{-kx}dx$.",
+   "$= \\dfrac{F_0}{k}\\left[-e^{-kx}\\right]_0^{\\infty} = \\dfrac{F_0}{k}$.",
+   "Aunque la fuerza actúe sobre una distancia infinita, el trabajo es finito."
+  ],
+  "porque_fallan": {
+   "C": "Multiplica por $k$ en vez de dividir: las unidades ni siquiera cierran.",
+   "B": "Evalúa la exponencial en un punto en vez de integrarla."
+  },
+  "confirma": "A"
+ },
+ "hrw-c07-q052": {
+  "idea": "Ventaja mecánica es un cociente de **fuerzas**: lo que la máquina entrega dividido entre lo que le metes.",
+  "pasos": [
+   "$VM = \\dfrac{F_{salida}}{F_{entrada}}$.",
+   "El trabajo no se multiplica: lo que se gana en fuerza se pierde en distancia."
+  ],
+  "porque_fallan": {
+   "C": "Un cociente de trabajos sería la eficiencia, y nunca supera a uno.",
+   "A": "La eficiencia es otra cosa."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q053": {
+  "idea": "El plano inclinado reduce la **fuerza** necesaria, a costa de alargar el recorrido. El trabajo no baja.",
+  "pasos": [
+   "Subir por la rampa: $F = mg\\sin\\theta$, menor que $mg$.",
+   "Pero la distancia es $h/\\sin\\theta$, mayor que $h$.",
+   "El producto —el trabajo— es el mismo: $mgh$."
+  ],
+  "porque_fallan": {
+   "A": "El trabajo es el mismo sin rozamiento, y **mayor** con él.",
+   "B": "La distancia recorrida aumenta, no se reduce."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q055": {
+  "idea": "Potencia es energía por tiempo, así que se le añade un segundo al denominador.",
+  "pasos": [
+   "$[P] = \\dfrac{[E]}{T} = \\dfrac{ML^2/T^2}{T} = \\dfrac{ML^2}{T^3}$."
+  ],
+  "porque_fallan": {
+   "A": "Son las de energía.",
+   "C": "Son las de fuerza."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q056": {
+  "idea": "Cuatro son unidades de energía; el vatio es potencia.",
+  "pasos": [
+   "Julio, ergio, pie·libra y newton·metro miden todos energía.",
+   "El vatio es julio por segundo."
+  ],
+  "porque_fallan": {
+   "E": "Newton por metro es julio, por definición."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q057": {
+  "idea": "$ma$ es una **fuerza**, no una energía. Le falta multiplicar por una distancia.",
+  "pasos": [
+   "$mgh$, $Fd$ y $\\tfrac12mv^2$ son energías. $Pt$ también: potencia por tiempo.",
+   "$ma$ tiene dimensiones $ML/T^2$: fuerza."
+  ],
+  "porque_fallan": {
+   "E": "Potencia por tiempo sí es energía: es lo que factura la compañía eléctrica."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q058": {
+  "idea": "Vatio por segundo es potencia por tiempo: energía.",
+  "pasos": [
+   "$1\\ \\mathrm{W\\cdot s} = 1\\ \\mathrm{(J/s)\\cdot s} = 1$ J."
+  ],
+  "porque_fallan": {
+   "B": "El vatio **solo** es potencia; multiplicado por tiempo deja de serlo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q059": {
+  "idea": "Vatio **por hora** —dividido entre tiempo— es potencia entre tiempo, que no corresponde a ninguna magnitud usual.",
+  "pasos": [
+   "$\\mathrm{W/h}$ tiene dimensiones $ML^2/T^4$.",
+   "Es un error frecuente en prensa: lo que se factura es el kilovatio·**hora**, con multiplicación."
+  ],
+  "porque_fallan": {
+   "A": "La energía es vatio por hora **multiplicando**, no dividiendo.",
+   "B": "El vatio a secas ya es potencia."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q060": {
+  "idea": "Kilovatio·hora es potencia **por** tiempo: energía, o sea trabajo.",
+  "pasos": [
+   "$1\\ \\mathrm{kWh} = 1000\\ \\mathrm{J/s} \\times 3600\\ \\mathrm{s} = 3.6\\times10^{6}$ J."
+  ],
+  "porque_fallan": {
+   "A": "El kilovatio solo sí es potencia; multiplicado por horas ya no.",
+   "B": "Energía entre tiempo es potencia, justo al revés."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q062": {
+  "idea": "El trabajo no depende del tiempo empleado: solo de la fuerza y el desplazamiento. Lo que cambia es la **potencia**.",
+  "pasos": [
+   "$W = mgh$, y ni $m$, ni $g$, ni $h$ cambian.",
+   "En el doble de tiempo, la potencia es la mitad."
+  ],
+  "porque_fallan": {
+   "D": "Confunde trabajo con potencia."
+  },
+  "confirma": "C"
+ },
+ "hrw-c07-q064": {
+  "idea": "Sin desplazamiento no hay trabajo, y sin trabajo no hay potencia: cero, que no está entre las opciones.",
+  "pasos": [
+   "$W = 0$ porque el peso no se mueve.",
+   "$P = W/t = 0$."
+  ],
+  "porque_fallan": {
+   "D": "Sale de $80 \\times 2/30$, tratando el sostener como si fuera levantar."
+  },
+  "confirma": "E"
+ },
+ "hrw-c07-q065": {
+  "idea": "La potencia instantánea es $Fv$, así que primero hay que saber a qué velocidad va en ese instante.",
+  "pasos": [
+   "$a = 50/2 = 25$ m/s².",
+   "A los 2 s: $v = 25(2) = 50$ m/s.",
+   "$P = Fv = 50(50) = 2500$ W."
+  ],
+  "porque_fallan": {
+   "B": "Multiplica fuerza por tiempo en vez de por velocidad.",
+   "E": "Duplica el resultado."
+  },
+  "confirma": "D"
+ },
+ "hrw-c07-q066": {
+  "idea": "Mismo montaje, pero ahora la velocidad hay que sacarla de la **distancia**, no del tiempo.",
+  "pasos": [
+   "$a = 25$ m/s² y $v^2 = 2(25)(2) = 100$, luego $v = 10$ m/s.",
+   "$P = Fv = 50(10) = 500$ W."
+  ],
+  "porque_fallan": {
+   "D": "Multiplica fuerza por distancia: eso es el trabajo, no la potencia.",
+   "A": "Divide donde hay que multiplicar."
+  },
+  "confirma": "E"
+ }
+}

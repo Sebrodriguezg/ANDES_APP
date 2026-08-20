@@ -1,0 +1,261 @@
+{
+ "hrw-c06-q001": {"idea": "El rozamiento va con la **normal**, no con el área de contacto. Y la normal la fija el peso.",
+  "pasos": ["$f = \\mu N$, y sobre suelo horizontal $N = mg$.", "Poner otro ladrillo encima dobla el peso y por tanto la normal.", "El área no aparece en la fórmula: es el resultado que más sorprende del capítulo."],
+  "porque_fallan": {"C": "Cambiar el área no cambia el rozamiento: al repartirse sobre más superficie, la presión baja en la misma proporción.", "D": "Menos masa da **menos** rozamiento."},
+  "confirma": "A"},
+
+ "hrw-c06-q002": {"idea": "El coeficiente de rozamiento es un cociente entre dos fuerzas: adimensional y sin dirección.",
+  "pasos": ["$\\mu = f/N$: newtons entre newtons.", "No es un vector ni tiene unidades."],
+  "porque_fallan": {"D": "Si tuviera unidades de fuerza, $\\mu N$ no daría newtons.", "C": "Fuerza entre área es presión, otra cosa."},
+  "confirma": "E"},
+
+ "hrw-c06-q003": {"idea": "El rozamiento estático supera al cinético, así que la máxima retención es justo antes de que las ruedas patinen.",
+  "pasos": ["$\\mu_s > \\mu_k$ casi siempre.", "Con las ruedas bloqueadas actúa el cinético, que es menor.", "De ahí el ABS: mantiene las ruedas al borde del deslizamiento sin llegar a bloquearlas."],
+  "porque_fallan": {"A": "Patinando actúa el rozamiento cinético, que frena menos."},
+  "confirma": "B"},
+
+ "hrw-c06-q004": {"idea": "A velocidad constante la fuerza aplicada iguala al rozamiento, y el peso da la normal.",
+  "pasos": ["$f = 12$ N y $N = 240$ N.", "$\\mu = 12/240 = 0.05$."],
+  "porque_fallan": {"D": "Un factor cuatro de más.", "E": "Invierte el cociente."},
+  "confirma": "B"},
+
+ "hrw-c06-q005": {"idea": "Sobre suelo horizontal la deceleración por rozamiento es $\\mu g$: el peso se cancela y no hace falta la masa.",
+  "pasos": ["$\\mu mg = ma \\Rightarrow \\mu = a/g$.", "$\\mu = 0.61/9.8 = 0.062$."],
+  "porque_fallan": {"C": "Confunde el 0,61 con el coeficiente.", "E": "Devuelve la gravedad."},
+  "confirma": "A"},
+
+ "hrw-c06-q008": {"idea": "El rozamiento estático **no** vale $\\mu_s N$: vale lo que haga falta, hasta ese tope. Aquí no se alcanza.",
+  "pasos": ["Tope estático: $0.5 \\times 40 = 20$ N.", "La fuerza aplicada son 12 N, por debajo del tope.", "El cajón no se mueve y el rozamiento vale exactamente 12 N."],
+  "porque_fallan": {"D": "Da el tope máximo, que solo se alcanza justo antes de deslizar.", "C": "Usa el coeficiente cinético, que aquí no interviene."},
+  "confirma": "B"},
+
+ "hrw-c06-q009": {"idea": "Aquí sí se supera el tope, así que el bloque desliza y pasa a valer el rozamiento **cinético**.",
+  "pasos": ["Tope estático: $0.5 \\times 40 = 20$ N, y se aplican 24 N.", "El bloque se mueve: ahora $f = \\mu_k N = 0.4 \\times 40$.", "$f = 16$ N."],
+  "porque_fallan": {"D": "Usa el coeficiente estático, que ya no aplica una vez en movimiento.", "B": "No hay razón para ese valor."},
+  "confirma": "C"},
+
+ "hrw-c06-q010": {"idea": "«Al menos 200 N para empezar a moverlo» es exactamente el tope del rozamiento estático.",
+  "pasos": ["$\\mu_s = f_{max}/N = 200/800$.", "$\\mu_s = 0.25$."],
+  "porque_fallan": {"D": "Invierte el cociente.", "C": "Un factor dos de más."},
+  "confirma": "A"},
+
+ "hrw-c06-q011": {"idea": "La fuerza neta apunta en contra del movimiento, así que el objeto frena. Que después invierta el sentido es otra cuestión.",
+  "pasos": ["La fuerza aplicada va a la izquierda y supera al rozamiento.", "El objeto se mueve a la derecha: fuerza neta opuesta a la velocidad, o sea frenado."],
+  "porque_fallan": {"D": "Acelerar exigiría que la fuerza fuera en el sentido del movimiento.", "A": "Con fuerza neta no nula la velocidad no puede ser constante."},
+  "confirma": "C"},
+
+ "hrw-c06-q012": {"idea": "La fuerza se ajusta al tope **estático**, pero en cuanto arranca el rozamiento cae al **cinético**: la diferencia es lo que acelera.",
+  "pasos": ["$F = \\mu_s mg = 0.50mg$.", "Ya en movimiento: $f = \\mu_k mg = 0.40mg$.", "$a = \\dfrac{0.50mg - 0.40mg}{m} = 0.10g = 0.98$ m/s²."],
+  "porque_fallan": {"A": "Supone que las dos fuerzas se siguen equilibrando; no es así, porque el rozamiento baja al arrancar.", "D": "Usa $\\mu_s$ o $\\mu_k$ enteros en vez de su diferencia."},
+  "confirma": "B"},
+
+ "hrw-c06-q013": {"idea": "De la cinemática sale la deceleración, y $\\mu = a/g$.",
+  "pasos": ["$a = 15/4.0 = 3.75$ m/s².", "$\\mu = 3.75/9.8 = 0.38$."],
+  "porque_fallan": {"C": "Duplica la deceleración.", "E": "Un coeficiente mayor que uno es posible pero raro; aquí no sale."},
+  "confirma": "A"},
+
+ "hrw-c06-q019": {"idea": "Tirar hacia abajo aumenta la normal, así que hay que vencer más rozamiento. La componente vertical trabaja en contra.",
+  "pasos": ["Normal: $N = mg + F\\sin30°$.", "Umbral: $F\\cos30° = \\mu_s(mg + F\\sin30°)$.", "$0.866F = 0.40(117.6 + 0.5F) = 47.0 + 0.2F$.", "$0.666F = 47.0 \\Rightarrow F = 71$ N."],
+  "porque_fallan": {"A": "Olvida que el tirón hacia abajo aprieta el cajón contra el suelo: usa $N = mg$ y sale 54 N.", "C": "Justo ese resultado incompleto."},
+  "confirma": "E"},
+
+ "hrw-c06-q020": {"idea": "El ángulo óptimo para arrancar con la mínima fuerza es $\\arctan\\mu_s$: tirar algo hacia arriba alivia la normal.",
+  "pasos": ["$F = \\dfrac{\\mu_s mg}{\\cos\\theta + \\mu_s\\sin\\theta}$, y se minimiza cuando $\\tan\\theta = \\mu_s$.", "$\\theta = \\arctan 0.40 = 22°$, por **encima** de la horizontal."],
+  "porque_fallan": {"B": "Por debajo de la horizontal aumenta la normal y hace falta más fuerza.", "A": "Horizontal no es óptimo: subir un poco el tiro ayuda."},
+  "confirma": "C"},
+
+ "hrw-c06-q021": {"idea": "Mismo resultado con el coeficiente cinético.",
+  "pasos": ["$\\theta = \\arctan\\mu_k = \\arctan 0.50 = 27°$ sobre la horizontal."],
+  "porque_fallan": {"E": "Por debajo empeora.", "B": "60° levantaría demasiado y perdería componente horizontal útil."},
+  "confirma": "D"},
+
+ "hrw-c06-q022": {"idea": "El rozamiento tiene que sostener el peso, así que solo crece si hay algo **más** que sostener: una componente hacia abajo.",
+  "pasos": ["Con el borrador quieto, $f = mg$ sin más: apretar más no lo cambia.", "Apretar más sube el **tope** $\\mu_s N$, pero no el rozamiento real.", "Empujar algo hacia abajo añade una componente que el rozamiento también debe equilibrar: ahí sí crece."],
+  "porque_fallan": {"A": "Sube el tope, no el rozamiento efectivo. Esa distinción es el corazón del capítulo.", "E": "Empujar hacia arriba **reduce** lo que el rozamiento tiene que sostener."},
+  "confirma": "D"},
+
+ "hrw-c06-q023": {"idea": "Comprobar primero si desliza. Con 12 N el tope estático supera al peso, así que el libro se queda y el rozamiento iguala al peso.",
+  "pasos": ["$N = 12$ N (el empuje horizontal), y $W = 0.5(9.8) = 4.9$ N.", "Tope estático: $0.6 \\times 12 = 7.2$ N $> 4.9$ N: no desliza.", "Entonces $f = W = 4.9$ N."],
+  "porque_fallan": {"B": "Da el tope máximo, no el valor real.", "C": "La normal es el empuje horizontal, 12 N, no el peso."},
+  "confirma": "A"},
+
+ "hrw-c06-q024": {"idea": "Con solo 5 N el tope estático se queda corto: el libro resbala y entra el cinético.",
+  "pasos": ["Tope estático: $0.6 \\times 5.0 = 3.0$ N, menor que el peso de 4.9 N.", "Desliza, así que $f = \\mu_k N = 0.8 \\times 5.0$.", "$f = 4.0$ N."],
+  "porque_fallan": {"C": "Da el tope estático, pero ya está deslizando.", "B": "Supone que el rozamiento sigue igualando al peso; si lo hiciera, no caería."},
+  "confirma": "E"},
+
+ "hrw-c06-q025": {"idea": "Si no desliza, no acelera. Punto.",
+  "pasos": ["Tope estático: $0.6 \\times 12 = 7.2$ N $>$ peso de 4.9 N.", "El libro se queda quieto: $a = 0$."],
+  "porque_fallan": {"C": "Sería caída libre, que es lo que el rozamiento impide.", "D": "Sale de restar fuerzas como si estuviera deslizando."},
+  "confirma": "A"},
+
+ "hrw-c06-q026": {"idea": "Aquí sí desliza, y la aceleración es lo que sobra del peso tras descontar el rozamiento cinético.",
+  "pasos": ["$f_k = 0.80 \\times 5.0 = 4.0$ N y $W = 4.9$ N.", "Neto hacia abajo: $4.9 - 4.0 = 0.9$ N.", "$a = 0.9/0.50 = 1.8$ m/s²."],
+  "porque_fallan": {"E": "Sería sin rozamiento.", "D": "Usa el rozamiento como si fuera la aceleración."},
+  "confirma": "B"},
+
+ "hrw-c06-q029": {"idea": "El ángulo al que empieza a deslizar da directamente $\\mu_s = \\tan\\theta$. Y aquí la geometría da la tangente sin calcular ángulos.",
+  "pasos": ["Tabla de 10 m con un extremo a 6 m: $\\sin\\theta = 0.6$, luego $\\cos\\theta = 0.8$.", "$\\mu_s = \\tan\\theta = 0.6/0.8 = 0.75$."],
+  "porque_fallan": {"D": "Da el seno, no la tangente.", "A": "Da el coseno."},
+  "confirma": "E"},
+
+ "hrw-c06-q030": {"idea": "Deslizar a velocidad **constante** significa equilibrio, y ahí $\\mu_k = \\tan\\theta$.",
+  "pasos": ["$mg\\sin\\theta = \\mu_k mg\\cos\\theta$.", "$\\mu_k = \\tan 30° = 0.577$."],
+  "porque_fallan": {"A": "Da el seno de 30°.", "D": "Da el coseno.", "C": "Invierte la tangente."},
+  "confirma": "B"},
+
+ "hrw-c06-q031": {"idea": "Bajando por un plano con rozamiento, la aceleración es lo que queda tras restar el rozamiento a la componente del peso.",
+  "pasos": ["$a = g(\\sin\\theta - \\mu_k\\cos\\theta)$.", "$= 9.8(0.574 - 0.40 \\times 0.819) = 9.8(0.574-0.328)$.", "$a = 2.4$ m/s²."],
+  "porque_fallan": {"C": "Olvida el rozamiento: sería $g\\sin35° = 5.6$.", "A": "Supone equilibrio, que solo pasa si $\\mu = \\tan\\theta = 0.70$."},
+  "confirma": "B"},
+
+ "hrw-c06-q032": {"idea": "Primero comprobar si desliza a ese ángulo, y solo entonces decidir qué rozamiento vale.",
+  "pasos": ["Componente del peso: $mg\\sin25° = 49(0.423) = 20.7$ N.", "Tope estático: $0.50 \\times 49\\cos25° = 0.50(44.4) = 22.2$ N.", "$20.7 < 22.2$: no desliza, y el rozamiento iguala a la componente del peso, 21 N."],
+  "porque_fallan": {"B": "Usa $\\mu_k$ como si ya estuviera deslizando.", "D": "Da el tope estático, que no se alcanza."},
+  "confirma": "C"},
+
+ "hrw-c06-q033": {"idea": "Mismo montaje con cinco grados más, y ahora sí desliza: cambia el coeficiente que toca usar.",
+  "pasos": ["$mg\\sin30° = 24.5$ N frente a un tope estático de $0.50 \\times 42.4 = 21.2$ N.", "Se supera el tope: el cajón desliza.", "$f = \\mu_k N = 0.40 \\times 42.4 = 17 \\approx 18$ N."],
+  "porque_fallan": {"C": "Es la respuesta del caso anterior, a 25°, donde todavía no deslizaba.", "D": "Da el tope estático."},
+  "confirma": "B"},
+
+ "hrw-c06-q034": {"idea": "Fuerza **mínima**: el rozamiento estático ya ayuda al máximo, así que solo hay que aportar lo que falta.",
+  "pasos": ["Componente del peso: $mg\\sin30° = 24.5$ N hacia abajo.", "Rozamiento máximo hacia arriba: $0.50 \\times 49\\cos30° = 21.2$ N.", "Falta: $24.5 - 21.2 = 3.3$ N."],
+  "porque_fallan": {"C": "Da la componente del peso completa, ignorando la ayuda del rozamiento.", "A": "Sin ninguna fuerza el cajón deslizaría: 24,5 supera a 21,2."},
+  "confirma": "B"},
+
+ "hrw-c06-q035": {"idea": "Fuerza **máxima**: ahora el rozamiento apunta hacia abajo, resistiéndose a que el cajón suba.",
+  "pasos": ["Hay que vencer el peso **y** el rozamiento: $mg\\sin30° + \\mu_s mg\\cos30°$.", "$= 24.5 + 21.2 = 46$ N.", "Entre 3,3 y 46 N el cajón se queda quieto: ese es el rango de equilibrio."],
+  "porque_fallan": {"B": "Es el mínimo, con el rozamiento a favor.", "C": "Da solo la componente del peso."},
+  "confirma": "D"},
+
+ "hrw-c06-q036": {"idea": "B solo puede acelerar hasta $\\mu_s g$. Si el conjunto tiene que acelerar más, A se escapa por debajo.",
+  "pasos": ["Aceleración máxima de B: $a_{max} = \\mu_s g$.", "Mientras vayan juntos, esa aceleración exige $F = (m_A+m_B)a$.", "En el límite: $F = \\mu_s(m_A+m_B)g$."],
+  "porque_fallan": {"D": "Es la fuerza de rozamiento sobre B, no la que hay que aplicar a A: falta acelerar también la masa de A.", "C": "Olvida la masa de B."},
+  "confirma": "E"},
+
+ "hrw-c06-q043": {"idea": "Velocidad constante significa fuerza neta nula, por muchas fuerzas grandes que haya.",
+  "pasos": ["Empuje, rozamiento del aire, peso y sustentación se cancelan entre sí.", "La suma vectorial es cero."],
+  "porque_fallan": {"C": "Da una de las fuerzas, no la neta.", "B": "Suma peso y rozamiento, que ni siquiera van en la misma dirección."},
+  "confirma": "A"},
+
+ "hrw-c06-q044": {"idea": "Velocidad terminal: la resistencia del aire crece con la rapidez hasta igualar al peso, y entonces la aceleración se anula.",
+  "pasos": ["Al principio la gota acelera y el arrastre crece.", "Cuando arrastre y peso se igualan, la fuerza neta es cero.", "La velocidad se queda fija: eso es la velocidad terminal."],
+  "porque_fallan": {"D": "La gravedad sigue actuando; lo que pasa es que está compensada.", "E": "La gravedad sí puede acelerarla: lo hace al principio."},
+  "confirma": "B"},
+
+ "hrw-c06-q045": {"idea": "El arrastre va con el **cuadrado** de la rapidez, así que a tres veces la terminal vale nueve veces el peso.",
+  "pasos": ["A la velocidad terminal el arrastre iguala al peso: $D = mg$.", "A tres veces esa rapidez: $D = 9mg$, hacia arriba.", "Neto: $9mg - mg = 8mg$ hacia arriba, luego $a = 8g$ hacia arriba."],
+  "porque_fallan": {"C": "Supone que el arrastre nunca supera al peso, y sí puede si se lanza más rápido que la terminal.", "E": "Sería caída libre, sin aire."},
+  "confirma": "A"},
+
+ "hrw-c06-q046": {"idea": "Subiendo, gravedad y arrastre apuntan **los dos** hacia abajo: nunca se compensan y la pelota no deja de frenar.",
+  "pasos": ["Al subir, el arrastre se opone al movimiento, o sea hacia abajo.", "El peso también. Fuerza neta hacia abajo siempre.", "La velocidad terminal solo tiene sentido al **bajar**, donde las dos se oponen."],
+  "porque_fallan": {"A": "Confunde con la caída: al subir no hay equilibrio posible.", "C": "Solo aceleraría si algo empujara hacia arriba."},
+  "confirma": "B"},
+
+ "hrw-c06-q047": {"idea": "El arrastre crece con la rapidez, y la rapidez máxima del vuelo es la de salida.",
+  "pasos": ["Sube frenando y baja acelerando, pero al volver llega **más despacio** que salió: el aire le robó energía.", "Así que el momento de máxima rapidez, y por tanto de máximo arrastre, es justo al lanzarla."],
+  "porque_fallan": {"E": "Al aterrizar va más lenta que al salir, precisamente por el rozamiento del aire.", "C": "Arriba la rapidez es mínima, y con ella el arrastre."},
+  "confirma": "A"},
+
+ "hrw-c06-q048": {"idea": "Circular uniforme requiere una fuerza de módulo constante apuntando siempre al centro.",
+  "pasos": ["Si la fuerza tuviera componente tangencial, la rapidez cambiaría.", "Si el módulo cambiara, el radio cambiaría."],
+  "porque_fallan": {"B": "Una fuerza tangente aceleraría o frenaría el movimiento.", "C": "La aceleración es centrípeta, no tangencial."},
+  "confirma": "E"},
+
+ "hrw-c06-q049": {"idea": "En circular uniforme la aceleración tiene módulo constante $v^2/r$, aunque su **dirección** cambie continuamente.",
+  "pasos": ["$|a| = v^2/r$ es fijo si $v$ y $r$ lo son.", "La dirección gira, apuntando siempre al centro."],
+  "porque_fallan": {"B": "Sí acelera: la dirección cambia.", "C": "La «fuerza centrífuga» no existe en un sistema inercial: lo que hay es una fuerza hacia dentro."},
+  "confirma": "D"},
+
+ "hrw-c06-q050": {"idea": "La aceleración centrípeta no depende de la masa: solo de la rapidez y el radio.",
+  "pasos": ["$a = v^2/r = 1.0$ m/s² para los dos.", "Lo que sí difiere es la **fuerza**, que es el doble en el objeto de masa $2m$."],
+  "porque_fallan": {"C": "Ese es el cociente de las fuerzas, no el de las aceleraciones."},
+  "confirma": "A"},
+
+ "hrw-c06-q051": {"idea": "Fuerza centrípeta directa.",
+  "pasos": ["$F = \\dfrac{mv^2}{r} = \\dfrac{0.04(0.36)}{1.0}$.", "$F = 1.4\\times10^{-2}$ N."],
+  "porque_fallan": {"A": "Olvida elevar la velocidad al cuadrado.", "C": "Añade un $\\pi$ que no aparece en la fórmula."},
+  "confirma": "B"},
+
+ "hrw-c06-q052": {"idea": "De revoluciones por minuto a radianes por segundo, y luego $F = m\\omega^2r$.",
+  "pasos": ["$150$ rpm $= 2.5$ rev/s, luego $\\omega = 2\\pi(2.5) = 15.7$ rad/s.", "$a = \\omega^2 r = 247(0.6) = 148$ m/s².", "$F = 0.2(148) = 30$ N."],
+  "porque_fallan": {"D": "Da el peso de la piedra, que aquí no interviene: la superficie es horizontal.", "B": "Olvida convertir las revoluciones a radianes."},
+  "confirma": "E"},
+
+ "hrw-c06-q054": {"idea": "$F = mv^2/r$: con $v$ fija, la fuerza es inversamente proporcional al radio.",
+  "pasos": ["Doblar $r$ divide $F$ entre dos."],
+  "porque_fallan": {"A": "Invierte la relación.", "D": "Aplica un cuadrado al radio, que solo lleva primera potencia."},
+  "confirma": "B"},
+
+ "hrw-c06-q055": {"idea": "Masa lineal, velocidad al cuadrado: hay que combinar los dos factores.",
+  "pasos": ["Masa $\\times 3$ y velocidad $\\times\\tfrac12$, luego $v^2 \\times \\tfrac14$.", "$3 \\times \\tfrac14 = \\tfrac34$."],
+  "porque_fallan": {"A": "Trata la velocidad como lineal.", "C": "Eleva la masa al cuadrado en vez de la velocidad."},
+  "confirma": "B"},
+
+ "hrw-c06-q056": {"idea": "En órbita la gravedad es la fuerza centrípeta: la aceleración apunta al centro de la Tierra.",
+  "pasos": ["La rapidez es constante, pero la dirección cambia: hay aceleración.", "Esa aceleración es exactamente $g$ a esa altura, y apunta hacia el centro.", "El satélite **está** cayendo continuamente; lo que pasa es que la Tierra se curva bajo él."],
+  "porque_fallan": {"B": "Si la fuerza neta fuera cero iría en línea recta y se escaparía.", "C": "La velocidad es un vector: su dirección cambia."},
+  "confirma": "E"},
+
+ "hrw-c06-q057": {"idea": "La fuerza centrípeta va con el cuadrado de la rapidez: cuadruplicarla exige doblar la velocidad.",
+  "pasos": ["$F \\propto v^2$, y hace falta pasar de 200 N a 800 N: un factor 4.", "$v = 13\\sqrt{4} = 26$ m/s."],
+  "porque_fallan": {"E": "Multiplica la velocidad por 4, tratando la relación como lineal.", "C": "Un factor intermedio sin justificación."},
+  "confirma": "D"},
+
+ "hrw-c06-q058": {"idea": "Al límite del derrape, $\\mu g = v^2/R$: si $v$ se dobla, $R$ tiene que cuadruplicarse.",
+  "pasos": ["$R = \\dfrac{v^2}{\\mu g} \\propto v^2$.", "$v \\times 2 \\Rightarrow R \\times 4$."],
+  "porque_fallan": {"A": "Trata la relación como lineal.", "D": "Invierte el sentido: con más velocidad hace falta una curva más abierta, no más cerrada."},
+  "confirma": "B"},
+
+ "hrw-c06-q059": {"idea": "El rozamiento aporta toda la fuerza centrípeta: $\\mu g = v^2/r$.",
+  "pasos": ["$v = \\sqrt{\\mu g r} = \\sqrt{0.50(9.8)(30)}$.", "$= \\sqrt{147} = 12$ m/s."],
+  "porque_fallan": {"E": "Redondeo excesivo o un $\\mu$ mal aplicado.", "A": "Olvida la raíz o divide de más."},
+  "confirma": "D"},
+
+ "hrw-c06-q060": {"idea": "Comparar la fuerza centrípeta **necesaria** con la disponible. Si no llega, el coche no puede curvar tanto y se va por fuera.",
+  "pasos": ["Necesaria: $\\dfrac{mv^2}{r} = \\dfrac{1000(100)}{100} = 1000$ N.", "Disponible: 900 N.", "Falta fuerza hacia el centro, así que el coche describe una curva más abierta: se sale por fuera."],
+  "porque_fallan": {"A": "Sin fuerza suficiente hacia el centro no puede cerrarse más la curva: se abre.", "D": "Ir más rápido exigiría **más** fuerza todavía."},
+  "confirma": "E"},
+
+ "hrw-c06-q061": {"idea": "La cuerda se inclina lo justo para que su componente horizontal dé la centrípeta. La masa se cancela.",
+  "pasos": ["$a = \\dfrac{v^2}{r} = \\dfrac{324}{75} = 4.3$ m/s².", "$\\tan\\theta = a/g = 4.3/9.8 = 0.44$.", "$\\theta = 24°$."],
+  "porque_fallan": {"E": "La masa no hace falta: se cancela al dividir las ecuaciones horizontal y vertical.", "A": "Habría que suponer que no hay aceleración, y la hay."},
+  "confirma": "C"},
+
+ "hrw-c06-q064": {"idea": "Arriba, con aceleración centrípeta igual a $g$ y dirigida hacia abajo, la gravedad basta por sí sola: ni el asiento ni el cinturón hacen falta.",
+  "pasos": ["Necesario hacia abajo: $ma = mg$.", "El peso ya aporta exactamente $mg$.", "Luego el asiento no empuja y el cinturón no tira: los dos son cero. Es el punto de ingravidez aparente."],
+  "porque_fallan": {"D": "Añade una fuerza del cinturón que sobraría: la suma daría $2mg$ y la aceleración sería $2g$.", "C": "Pondría al asiento sosteniéndola, y arriba no hace falta."},
+  "confirma": "B"},
+
+ "hrw-c06-q065": {"idea": "Abajo del círculo, la tensión debe sostener el peso **y además** aportar la centrípeta.",
+  "pasos": ["$T - mg = \\dfrac{mv^2}{r}$.", "$T = 2.0(9.8) + \\dfrac{2.0(16)}{1.0} = 19.6 + 32$.", "$T = 52$ N."],
+  "porque_fallan": {"D": "Da solo la centrípeta, sin sostener el peso.", "B": "Resta en vez de sumar: ese es el caso del punto más alto."},
+  "confirma": "E"},
+
+ "hrw-c06-q066": {"idea": "Arriba, el peso ya apunta al centro, así que la tensión solo tiene que aportar lo que falta.",
+  "pasos": ["$T + mg = \\dfrac{mv^2}{r}$.", "$T = 32 - 19.6 = 12$ N."],
+  "porque_fallan": {"E": "Suma en vez de restar: ese es el caso del punto más bajo. Las dos preguntas son espejo.", "A": "Cero sería la velocidad mínima para completar el círculo, que aquí se supera."},
+  "confirma": "B"},
+
+ "hrw-c06-q067": {"idea": "Al girar más rápido hace falta más fuerza centrípeta, y el rozamiento la aporta. Pero ni la normal ni el tope cambian.",
+  "pasos": ["$N = mg$: no depende de la rapidez de giro.", "$f_{s,max} = \\mu N$: tampoco cambia.", "El rozamiento **real** es $mv^2/r$ y sí crece — hasta que alcanza el tope y la moneda sale despedida."],
+  "porque_fallan": {"E": "Supone que la normal crece con la velocidad, y no lo hace: la mesa es horizontal.", "D": "El rozamiento sí cambia: es lo único que puede curvar la trayectoria."},
+  "confirma": "C"},
+
+ "hrw-c06-q069": {"idea": "El mismo péndulo en una curva: la tangente del ángulo es la aceleración centrípeta entre la gravedad.",
+  "pasos": ["$a = \\dfrac{22^2}{45} = 10.8$ m/s².", "$\\tan\\theta = 10.8/9.8 = 1.10$.", "$\\theta = 48°$."],
+  "porque_fallan": {"B": "Sale de usar el arcoseno o de dividir al revés.", "E": "90° exigiría gravedad nula."},
+  "confirma": "C"},
+
+ "hrw-c06-q070": {"idea": "En un peralte sin rozamiento, $\\tan\\theta = v^2/(rg)$. Con el mismo ángulo, doblar la velocidad exige cuadruplicar el radio.",
+  "pasos": ["$r = \\dfrac{v^2}{g\\tan\\theta} \\propto v^2$.", "$v \\times 2 \\Rightarrow r \\times 4$."],
+  "porque_fallan": {"B": "Reducir el radio empeoraría: haría falta aún más fuerza.", "A": "Un factor dos trata la relación como lineal."},
+  "confirma": "C"},
+
+ "hrw-c06-q071": {"idea": "Peralte sin rozamiento: la componente horizontal de la normal aporta toda la centrípeta.",
+  "pasos": ["$\\tan\\theta = \\dfrac{v^2}{rg} = \\dfrac{144}{50(9.8)} = 0.294$.", "$\\theta = 16°$."],
+  "porque_fallan": {"D": "Sale de invertir el cociente o de usar el seno.", "A": "Sin peralte y sin rozamiento el coche no puede curvar."},
+  "confirma": "B"}
+}
