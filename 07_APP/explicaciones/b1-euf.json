@@ -1,0 +1,506 @@
+{
+ "euf-2020a-s1q01": {
+  "idea": "Equilibrio es donde la derivada del potencial se anula; la frecuencia sale de la segunda derivada, que es la constante elástica efectiva.",
+  "pasos": [
+   "$U(x) = \\tfrac{1}{2}ax^4 - bx^2$, así que $U' = 2ax^3 - 2bx = 2x(ax^2 - b)$.",
+   "Se anula en $x=0$ y en $x_0 = \\pm\\sqrt{b/a}$. Los de los extremos son los estables.",
+   "$U'' = 6ax^2 - 2b$, y en $x_0$ vale $6b - 2b = 4b$.",
+   "$\\omega = \\sqrt{U''/m} = \\sqrt{4b/m}$."
+  ],
+  "porque_fallan": {
+   "C": "$x=0$ también anula la derivada, pero ahí $U'' = -2b < 0$: es un **máximo**, equilibrio inestable.",
+   "B": "Acierta el punto y falla la frecuencia: sale de evaluar $U''$ sin sustituir $x_0^2 = b/a$."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q03": {
+  "idea": "Euler-Lagrange término a término. Y ojo: $\\phi$ es cíclica, así que su ecuación es la conservación de su momento.",
+  "pasos": [
+   "Para $\\theta$: $\\partial L/\\partial\\dot\\theta = mR^2\\dot\\theta$, y $\\partial L/\\partial\\theta = mR^2\\dot\\phi^2\\sin\\theta\\cos\\theta + aR\\sin\\theta$.",
+   "La ecuación queda $mR\\dot\\phi^2\\sin\\theta\\cos\\theta + a\\sin\\theta - mR\\ddot\\theta = 0$ tras dividir por $R$.",
+   "Para $\\phi$: no aparece en $L$, así que $p_\\phi = mR^2\\dot\\phi\\sin^2\\theta$ se conserva.",
+   "Derivando esa constante: $\\ddot\\phi\\sin^2\\theta + 2\\dot\\theta\\dot\\phi\\sin\\theta\\cos\\theta = 0$, y dividiendo por $\\sin\\theta$ sale $2\\dot\\theta\\dot\\phi\\cos\\theta + \\ddot\\phi\\sin\\theta = 0$."
+  ],
+  "porque_fallan": {
+   "C": "Da $\\ddot\\phi\\sin^2\\theta = 0$, que es olvidar derivar el $\\sin^2\\theta$ dentro de $p_\\phi$: el término con $\\dot\\theta\\dot\\phi$ es justo el que falta.",
+   "B": "Tiene el signo de $\\ddot\\theta$ cambiado."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q04": {
+  "idea": "Pasar a polares es mecánico; lo que decide la pregunta es integrar bien la fuerza para obtener su potencial, con el signo correcto.",
+  "pasos": [
+   "Energía cinética en polares: $T = \\tfrac{1}{2}m(\\dot r^2 + r^2\\dot\\theta^2)$.",
+   "El primer potencial: $xy = r^2\\sin\\theta\\cos\\theta$, luego $U_1 = ar^2\\sin\\theta\\cos\\theta$.",
+   "El segundo sale de $F = -dU/dr$: $U_2 = -\\int b\\,r^{-4}dr = \\dfrac{b}{3r^3}$.",
+   "$L = T - U_1 - U_2 = \\tfrac{1}{2}m\\dot r^2 + \\tfrac{1}{2}mr^2\\dot\\theta^2 - ar^2\\sin\\theta\\cos\\theta - \\dfrac{b}{3r^3}$."
+  ],
+  "porque_fallan": {
+   "B": "Suma el potencial en vez de restarlo: el lagrangiano es $T-U$.",
+   "D": "Integra mal la fuerza y deja $b/r$ en vez de $b/3r^3$. Con $r^{-4}$ la integral sube el exponente a $-3$ y aparece el tercio.",
+   "C": "Se olvida del término $\\tfrac{1}{2}mr^2\\dot\\theta^2$: en polares la cinética tiene dos piezas."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q05": {
+  "idea": "Órbita circular: la fuerza central hace de centrípeta. Y para la energía total hay que sumar la cinética **y** la potencial, no solo una.",
+  "pasos": [
+   "$U = \\tfrac{1}{4}kr^4$, luego $|F| = dU/dr = kr^3$.",
+   "Circular de radio $R$: $m\\omega_c^2 R = kR^3 \\Rightarrow \\omega_c = \\sqrt{kR^2/m}$.",
+   "Cinética: $\\tfrac{1}{2}m(\\omega_c R)^2 = \\tfrac{1}{2}m\\dfrac{kR^2}{m}R^2 = \\tfrac{1}{2}kR^4$.",
+   "$E_T = \\tfrac{1}{2}kR^4 + \\tfrac{1}{4}kR^4 = \\tfrac{3}{4}kR^4$."
+  ],
+  "porque_fallan": {
+   "B": "Da solo la energía potencial, sin la cinética de la órbita.",
+   "C": "Da solo la cinética, olvidando el potencial."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q06": {
+  "idea": "Sin fricción solo hay dos fuerzas: peso y normal. La componente horizontal de la normal es toda la centrípeta.",
+  "pasos": [
+   "Vertical: $N\\cos\\theta = mg$.",
+   "Horizontal: $N\\sin\\theta = \\dfrac{mv^2}{R}$.",
+   "Dividiendo una entre otra desaparecen $N$ y $m$: $\\tan\\theta = \\dfrac{v^2}{gR}$.",
+   "$v = \\sqrt{gR\\tan\\theta}$."
+  ],
+  "porque_fallan": {
+   "D": "Es la tangente invertida: se obtiene al dividir al revés. Compruébalo con el límite $\\theta\\to 0$, donde sin peralte y sin fricción no se puede tomar la curva a ninguna velocidad, o sea $v\\to0$. Solo la tangente en el numerador lo cumple.",
+   "B": "Usa el seno, que sería la componente de la normal sin dividir por $\\cos\\theta$."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q07": {
+  "idea": "Trabajo y energía, no cinemática: toda la cinética inicial se la come la fricción a lo largo del camino recorrido.",
+  "pasos": [
+   "$\\tfrac{1}{2}Mv_0^2 = \\mu M g\\,d$, con $d$ el camino total recorrido.",
+   "$d = \\dfrac{v_0^2}{2\\mu g}$.",
+   "Cada vuelta mide $2\\pi R$, así que $n = \\dfrac{d}{2\\pi R} = \\dfrac{v_0^2}{4\\pi\\mu g R}$."
+  ],
+  "porque_fallan": {
+   "C": "Le falta la $R$: es el camino recorrido dividido entre $2\\pi$, no entre la longitud de una vuelta.",
+   "E": "Pierde la $\\mu$, así que sin fricción daría un número finito de vueltas. Con $\\mu\\to0$ tiene que dar infinito."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q08": {
+  "idea": "Las dos cajas van juntas, así que primero se calcula la aceleración del conjunto y después se mira solo la caja pequeña.",
+  "pasos": [
+   "Masa total $3m$ y no hay fricción con el suelo, luego $a = \\dfrac{F}{3m}$.",
+   "Sobre la caja de masa $m$ la única fuerza horizontal es la fricción con la de abajo.",
+   "Esa fuerza tiene que valer exactamente $ma = \\dfrac{F}{3}$: es lo que hace falta para que acompañe al conjunto.",
+   "El coeficiente $\\mu$ no entra en el resultado: solo dice cuánta fricción **puede** haber, no cuánta hay."
+  ],
+  "porque_fallan": {
+   "C": "Usa la fricción máxima $\\mu mg$. Esa es la cota, no el valor: la fricción estática toma justo el valor necesario.",
+   "E": "Resta la fricción como si fuera una fuerza extra que frena, contándola dos veces."
+  },
+  "confirma": "D"
+ },
+
+ "euf-2020a-s1q09": {
+  "idea": "Misma lagrangiana que la anterior. $\\phi$ no aparece en $L$, así que es cíclica y su momento conjugado se conserva.",
+  "pasos": [
+   "Momentos conjugados: $p_\\theta = \\partial L/\\partial\\dot\\theta = mR^2\\dot\\theta$ y $p_\\phi = mR^2\\dot\\phi\\sin^2\\theta$.",
+   "La ecuación de $\\phi$ es $\\dfrac{d}{dt}\\left(mR^2\\dot\\phi\\sin^2\\theta\\right) = 0$.",
+   "Desarrollando y dividiendo por $\\sin\\theta$: $2\\dot\\theta\\dot\\phi\\cos\\theta + \\ddot\\phi\\sin\\theta = 0$.",
+   "Esa ecuación junto con $p_\\theta = mR^2\\dot\\theta$ es la combinación correcta."
+  ],
+  "porque_fallan": {
+   "D": "Empareja $\\ddot\\phi\\sin^2\\theta = 0$ —que olvida derivar el $\\sin^2\\theta$— con un momento que sí es correcto. Basta que una de las dos falle."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q10": {
+  "idea": "Hay dos movimientos que se persiguen: la fricción frena la traslación y a la vez acelera la rotación. Rueda cuando se encuentran.",
+  "pasos": [
+   "Traslación: $v(t) = v_0 - \\mu_c g\\,t$.",
+   "Rotación: el torque de la fricción es $\\mu_c MgR$, y con $I = \\tfrac{2}{5}MR^2$ da $\\alpha = \\dfrac{5\\mu_c g}{2R}$, luego $\\omega(t) = \\dfrac{5\\mu_c g}{2R}t$.",
+   "Rodadura sin deslizar es $v = \\omega R$: $v_0 - \\mu_c g t = \\dfrac{5}{2}\\mu_c g t$.",
+   "$v_0 = \\dfrac{7}{2}\\mu_c g t \\Rightarrow t = \\dfrac{2v_0}{7\\mu_c g}$."
+  ],
+  "porque_fallan": {
+   "D": "Lleva $\\mu_e$, el estático. Mientras la bola desliza el que actúa es el **cinético**; el estático solo entra una vez ya rueda.",
+   "C": "Sale de igualar sin sumar las dos contribuciones, quedándose con el 5 del momento de inercia en vez del 7."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s1q11": {
+  "idea": "La segunda ley: la aceleración es consecuencia de una resultante no nula. Todo lo demás de la lista invierte alguna de las tres leyes.",
+  "pasos": [
+   "$\\vec{F}_{res} = m\\vec{a}$: si hay aceleración, hay resultante, y al revés.",
+   "El par acción-reacción actúa sobre **cuerpos distintos**, nunca sobre el mismo.",
+   "En el punto más alto de un lanzamiento la velocidad es cero pero la aceleración sigue siendo $g$."
+  ],
+  "porque_fallan": {
+   "A": "Peso y normal actúan sobre el mismo cuerpo, así que no son un par acción-reacción. La reacción del peso está en la Tierra.",
+   "B": "Confunde velocidad nula con aceleración nula. En el punto más alto la aceleración es $g$.",
+   "D": "Dice justo lo contrario: para **cambiar** el movimiento la resultante tiene que ser distinta de cero.",
+   "E": "Movimiento rectilíneo uniforme significa aceleración nula, luego resultante nula."
+  },
+  "confirma": "C"
+ },
+
+ "euf-2020a-s2q05": {
+  "idea": "Medio oscilador: la pared infinita en $x<0$ obliga a que la función de onda se anule en el origen, y eso solo lo cumplen las soluciones impares del oscilador completo.",
+  "pasos": [
+   "Para $x>0$ la ecuación es la del oscilador armónico de siempre, así que las soluciones son las mismas funciones.",
+   "La condición de contorno $\\psi(0)=0$ elimina todas las soluciones pares, que en el origen valen distinto de cero.",
+   "Sobreviven las impares, que son las de $n$ impar.",
+   "$E_n = \\hbar\\omega\\left(n+\\tfrac{1}{2}\\right)$ con $n = 1,3,5,\\ldots$, o sea el primer nivel es $\\tfrac{3}{2}\\hbar\\omega$."
+  ],
+  "porque_fallan": {
+   "A": "Es el espectro del oscilador completo, sin imponer la pared.",
+   "C": "Se queda con las pares, que son exactamente las que la pared prohíbe."
+  },
+  "confirma": "B"
+ },
+
+ "euf-2020a-s2q06": {
+  "idea": "Valor esperado en una base propia: pesa cada autovalor por el **módulo al cuadrado** de su coeficiente, y no olvides normalizar.",
+  "pasos": [
+   "Norma: $|3|^2+|1|^2+|-1|^2+|7|^2 = 9+1+1+49 = 60$.",
+   "$\\langle H\\rangle = \\dfrac{\\sum_n n E_o |c_n|^2}{60} = \\dfrac{(1)(9)+(2)(1)+(3)(1)+(4)(49)}{60}E_o$.",
+   "$= \\dfrac{9+2+3+196}{60}E_o = \\dfrac{210}{60}E_o = \\dfrac{7}{2}E_o$."
+  ],
+  "porque_fallan": {
+   "D": "Sale de promediar los autovalores sin pesar, o de usar los coeficientes sin elevarlos al cuadrado.",
+   "E": "Toma solo el estado fundamental, como si el sistema estuviera en $|1\\rangle$."
+  },
+  "confirma": "B"
+ },
+
+ "euf-2020a-s2q07": {
+  "idea": "Al medir se proyecta sobre el subespacio del autovalor obtenido, y el resultado hay que **renormalizarlo**. Como $E_o$ está degenerado, el subespacio tiene dos dimensiones.",
+  "pasos": [
+   "$E_o$ corresponde a $|1\\rangle$ y $|2\\rangle$: es un autovalor doblemente degenerado.",
+   "Proyección: $\\tfrac{1}{\\sqrt6}|1\\rangle + \\tfrac{1}{\\sqrt2}|2\\rangle$, cuya norma al cuadrado es $\\tfrac16+\\tfrac12 = \\tfrac23$.",
+   "Dividiendo por $\\sqrt{2/3}$: los coeficientes quedan $\\tfrac{1}{\\sqrt6}\\sqrt{\\tfrac32} = \\tfrac12$ y $\\tfrac{1}{\\sqrt2}\\sqrt{\\tfrac32} = \\tfrac{\\sqrt3}{2}$.",
+   "El estado tras la medida es $\\tfrac12|1\\rangle + \\tfrac{\\sqrt3}{2}|2\\rangle$."
+  ],
+  "porque_fallan": {
+   "A": "Es la proyección repartida a partes iguales: olvida que los coeficientes originales eran distintos y solo renormaliza mal.",
+   "B": "Además cambia un signo que no estaba en el estado inicial."
+  },
+  "confirma": "E"
+ },
+
+ "euf-2020a-s2q08": {
+  "idea": "Simetría esférica del potencial equivale a invariancia rotacional del hamiltoniano, y eso es exactamente que conmute con $\\hat{L}^2$.",
+  "pasos": [
+   "El potencial de Coulomb solo depende de $r$, así que rotar el sistema no cambia $\\hat H$.",
+   "Los generadores de las rotaciones son las componentes del momento angular, luego $[\\hat H, \\hat L^2] = 0$ y también $[\\hat H, \\hat L_z] = 0$.",
+   "Por eso los estados se etiquetan con $n$, $\\ell$ y $m$: son observables compatibles."
+  ],
+  "porque_fallan": {
+   "A": "El espectro de Coulomb tiene parte discreta para los estados ligados **y** un continuo para $E>0$, que son los estados de dispersión.",
+   "C": "Los estados estacionarios no describen órbitas definidas: eso es el modelo de Bohr, que la mecánica cuántica sustituyó por densidades de probabilidad.",
+   "E": "$\\hat L_\\pm$ no son hermíticos —son uno el adjunto del otro—, así que no son observables por mucho que conmuten con $\\hat L^2$."
+  },
+  "confirma": "D"
+ },
+
+ "euf-2020a-s3q02": {
+  "idea": "La carga decae con $\\tau$, pero la energía va con la carga **al cuadrado**, así que decae con la mitad del tiempo característico.",
+  "pasos": [
+   "$Q(t) = Q_0 e^{-t/\\tau}$. Para $Q = Q_0/3$: $e^{t/\\tau} = 3 \\Rightarrow t_Q = \\tau\\ln 3$.",
+   "$U = \\dfrac{Q^2}{2C} = U_0 e^{-2t/\\tau}$.",
+   "Para $U = U_0/3$: $e^{2t/\\tau} = 3 \\Rightarrow t_U = \\dfrac{\\tau\\ln 3}{2}$.",
+   "La energía cae al tercio en la mitad de tiempo que la carga."
+  ],
+  "porque_fallan": {
+   "D": "Da el mismo tiempo para las dos, olvidando que la energía va con el cuadrado.",
+   "B": "Confunde el factor 3 con el logaritmo: el decaimiento es exponencial, así que el tiempo lleva $\\ln$."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s3q03": {
+  "idea": "Faraday encadenado: el campo del solenoide depende de la corriente, y derivar el coseno da seno.",
+  "pasos": [
+   "Dentro del solenoide $B = \\mu_0 n i = \\mu_0 n i_0\\cos(\\omega t)$.",
+   "Flujo por la espira: $\\Phi = BA = \\mu_0 n i_0 A\\cos(\\omega t)$.",
+   "$\\varepsilon = -\\dfrac{d\\Phi}{dt} = A\\omega\\mu_0 i_0 n\\,\\mathrm{sen}(\\omega t)$."
+  ],
+  "porque_fallan": {
+   "B": "Se queda con el coseno: es el flujo, no su derivada.",
+   "C": "Pone $n^2$. El campo del solenoide lleva una sola potencia de $n$; el cuadrado aparecería en la autoinductancia, no aquí."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s3q08": {
+  "idea": "Un anillo que gira en un campo uniforme es un alternador: el flujo va como el coseno del ángulo girado, y la corriente sale con la **misma** frecuencia de giro.",
+  "pasos": [
+   "Área: $A = \\pi(D/2)^2 = \\pi(0.05)^2 = 7.85\\times10^{-3}\\ \\mathrm{m^2}$.",
+   "$\\omega = 2\\pi f = 2\\pi(5.0) = 31.4\\ \\mathrm{rad/s}$.",
+   "Amplitud de la fem: $\\varepsilon_0 = BA\\omega = (2.0\\times10^{-3})(7.85\\times10^{-3})(31.4) = 4.9\\times10^{-4}\\ \\mathrm{V}$.",
+   "$I_0 = \\varepsilon_0/R = \\dfrac{4.9\\times10^{-4}}{4.9\\times10^{-3}} = 1.0\\times10^{-1}\\ \\mathrm{A}$, y la frecuencia es la de giro, 5,0 Hz."
+  ],
+  "porque_fallan": {
+   "C": "Acierta la corriente y parte la frecuencia por la mitad. La fem va como $\\mathrm{sen}(\\omega t)$ con el mismo $\\omega$ del giro: una vuelta, un ciclo.",
+   "E": "Dobla la frecuencia, que sería el caso si lo que oscilara fuera el cuadrado del flujo."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s3q11": {
+  "idea": "La autoinductancia es proporcional a la permeabilidad del medio; toda la geometría se cancela en el cociente.",
+  "pasos": [
+   "$L \\propto \\mu$, con el mismo factor geométrico en los dos casos.",
+   "$\\dfrac{L_A}{L_B} = \\dfrac{x\\mu_0}{x^2\\mu_0} = \\dfrac{1}{x} = x^{-1}$."
+  ],
+  "porque_fallan": {
+   "B": "Invierte el cociente.",
+   "E": "Eleva al cuadrado de más: la razón de las permeabilidades ya es $1/x$."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s4q01": {
+  "idea": "El umbral es que el fotón traiga al menos la energía en reposo de las dos partículas; la longitud de onda máxima corresponde a la energía mínima.",
+  "pasos": [
+   "Umbral de energía: $E = 2m_ec^2$.",
+   "$E = hc/\\lambda$, luego $\\lambda_{max} = \\dfrac{hc}{2m_ec^2} = \\dfrac{h}{2m_ec}$.",
+   "Es la mitad de la longitud de onda Compton del electrón."
+  ],
+  "porque_fallan": {
+   "C": "Olvida el factor 2: crea una sola partícula, no el par.",
+   "A": "Mete un 2 de más, quizá por confundir el umbral con la energía de cada una por separado."
+  },
+  "confirma": "B"
+ },
+
+ "euf-2020a-s4q02": {
+  "idea": "En una colisión relativista se conservan energía y momento; la velocidad del conjunto es el cociente entre el momento total y la energía total, sin que haga falta conocer $M$.",
+  "pasos": [
+   "Con $v = \\tfrac{4}{5}c$: $\\gamma = \\dfrac{1}{\\sqrt{1-0.64}} = \\dfrac{5}{3}$.",
+   "Energía total: $E = \\gamma mc^2 + mc^2 = \\tfrac{8}{3}mc^2$.",
+   "Momento total: $p = \\gamma mv = \\tfrac{5}{3}m(0.8c) = \\tfrac{4}{3}mc$.",
+   "$v' = \\dfrac{pc^2}{E} = \\dfrac{(4/3)mc\\,c^2}{(8/3)mc^2} = 0.5c = \\dfrac{5}{8}v$."
+  ],
+  "porque_fallan": {
+   "E": "$M$ no hace falta: la velocidad sale del cociente $pc^2/E$, y las dos cantidades se conservan.",
+   "D": "Supondría que la partícula en reposo no frena al conjunto."
+  },
+  "confirma": "C"
+ },
+
+ "euf-2020a-s4q03": {
+  "idea": "En el efecto fotoeléctrico la intensidad manda sobre el **número** de electrones y la frecuencia sobre su **energía**. Cada afirmación se decide con eso.",
+  "pasos": [
+   "I es falsa: a igual intensidad, la luz de 300 nm lleva fotones más energéticos, luego **menos** fotones por segundo y menos electrones.",
+   "II es verdadera: $K_{max} = hc/\\lambda - \\phi$ crece al bajar $\\lambda$.",
+   "III es verdadera: doblar la intensidad dobla el número de fotones y por tanto de electrones.",
+   "IV es falsa: la intensidad no cambia la energía de cada electrón. Solo II y III."
+  ],
+  "porque_fallan": {
+   "B": "Da por buena la I. Es la confusión clásica: más energía por fotón no significa más fotones — a igual potencia, significa justo lo contrario.",
+   "E": "Da por buena la IV, que es la predicción clásica que el efecto fotoeléctrico refutó."
+  },
+  "confirma": "C"
+ },
+
+ "euf-2020a-s4q05": {
+  "idea": "El radio de Bohr va con la inversa de la **masa reducida**, y con un muon el protón ya no es infinitamente pesado en comparación.",
+  "pasos": [
+   "$a \\propto 1/\\mu$ con $\\mu = \\dfrac{m_1m_2}{m_1+m_2}$.",
+   "En el hidrógeno $\\mu \\approx m_0$, porque el protón es 1800 veces más pesado que el electrón.",
+   "En el muónico: $\\mu = \\dfrac{(200m_0)(1800m_0)}{2000m_0} = 180\\,m_0$.",
+   "$a = a_0\\dfrac{m_0}{180m_0} = \\dfrac{a_0}{180}$."
+  ],
+  "porque_fallan": {
+   "B": "Usa la masa del muon sin más, $200m_0$, tratando al protón como infinitamente pesado. Con un muon esa aproximación ya no vale, y ese es todo el punto de la pregunta.",
+   "D": "Además invierte la dependencia: más masa da un radio **menor**, no mayor."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s4q06": {
+  "idea": "Compton relaciona el cambio de longitud de onda con el ángulo. Aquí la energía final te da la longitud final, y de ahí sale el ángulo.",
+  "pasos": [
+   "$E \\propto 1/\\lambda$, así que si la energía baja a un tercio, $\\lambda' = 3\\lambda = \\dfrac{3h}{2m_0c}$.",
+   "$\\Delta\\lambda = \\lambda' - \\lambda = 2\\lambda = \\dfrac{h}{m_0c}$.",
+   "Compton: $\\Delta\\lambda = \\dfrac{h}{m_0c}(1-\\cos\\theta)$, luego $1-\\cos\\theta = 1$.",
+   "$\\cos\\theta = 0 \\Rightarrow \\theta = 90°$."
+  ],
+  "porque_fallan": {
+   "E": "$180°$ da el desplazamiento máximo, $\\Delta\\lambda = 2h/m_0c$, el doble del que sale aquí.",
+   "A": "A $0°$ no hay desplazamiento y la energía no cambiaría."
+  },
+  "confirma": "C"
+ },
+
+ "euf-2020a-s4q07": {
+  "idea": "Es el principio de correspondencia: con $n$ grande el sistema cuántico se comporta como el clásico, donde los niveles se juntan y la partícula está en todas partes por igual.",
+  "pasos": [
+   "$E_n \\propto n^2$, así que $\\dfrac{\\Delta E_n}{E_n} = \\dfrac{(n+1)^2-n^2}{n^2} = \\dfrac{2n+1}{n^2} \\to 0$.",
+   "Los niveles no se acercan en valor absoluto —$\\Delta E_n$ crece—, pero sí en términos relativos.",
+   "Para $P_n$: con $n$ grande $\\sin^2$ oscila tan rápido que su promedio es $\\tfrac12$, y la densidad se vuelve uniforme.",
+   "La mitad central del pozo es la mitad del ancho, luego $P_n \\to \\tfrac12$."
+  ],
+  "porque_fallan": {
+   "A": "Dice que $\\Delta E_n/E_n$ diverge. Diverge $\\Delta E_n$ a secas, no el cociente: al dividir por $n^2$ el resultado tiende a cero.",
+   "E": "Acierta la energía y falla la probabilidad: una densidad uniforme sobre la mitad del pozo da $\\tfrac12$, no 1."
+  },
+  "confirma": "D"
+ },
+
+ "euf-2020a-s4q08": {
+  "idea": "Para que haya difracción la longitud de onda de De Broglie tiene que ser del orden del espaciado atómico. Con $hc = 1240$ eV·nm sale de cabeza.",
+  "pasos": [
+   "Condición: $\\lambda \\approx d = 0.4$ nm.",
+   "$E = \\dfrac{p^2}{2m} = \\dfrac{(hc)^2}{2(mc^2)\\lambda^2}$, que evita manejar unidades del SI.",
+   "$E = \\dfrac{(1240)^2}{2(511000)(0.4)^2}\\ \\mathrm{eV} = \\dfrac{1.54\\times10^6}{1.63\\times10^5}\\ \\mathrm{eV}$.",
+   "$E \\approx 9\\ \\mathrm{eV}$, es decir del orden de 10 eV."
+  ],
+  "porque_fallan": {
+   "E": "Mil electronvoltios darían una longitud de onda diez veces menor que el espaciado, y el patrón se perdería.",
+   "A": "A 0,1 eV la longitud de onda es mucho mayor que el cristal entero."
+  },
+  "confirma": "C"
+ },
+
+ "euf-2020a-s4q09": {
+  "idea": "El cuerpo **absorbe** por su sección transversal, un círculo, y **emite** por toda su superficie, una esfera. Ese factor 4 es toda la pregunta.",
+  "pasos": [
+   "Flujo solar a distancia $d$: $F = \\sigma T^4\\left(\\dfrac{R}{d}\\right)^2$.",
+   "Absorbe: $\\pi r^2 F$. Emite: $4\\pi r^2\\sigma T_b^4$.",
+   "Igualando y cancelando $\\pi r^2\\sigma$: $T^4\\dfrac{R^2}{d^2} = 4T_b^4$.",
+   "$T_b = T\\sqrt{\\dfrac{R}{2d}}$. El radio del cuerpo se cancela: no importa cómo de grande sea."
+  ],
+  "porque_fallan": {
+   "C": "Olvida el 2 del denominador, que es justo el factor 4 entre esfera y círculo elevado a un cuarto."
+  },
+  "confirma": "D"
+ },
+
+ "euf-2020a-s4q10": {
+  "idea": "Dos medidas, una incógnita: la primera da la función de trabajo y la segunda se calcula con ella. Y con $hc = 1240$ eV·nm no hace falta calculadora.",
+  "pasos": [
+   "A 400 nm: $hc/\\lambda = 1240/400 = 3.1$ eV, y $K = 1.0$ eV, luego $\\phi = 3.1 - 1.0 = 2.1$ eV.",
+   "A 300 nm: $hc/\\lambda = 1240/300 = 4.13$ eV.",
+   "$K = 4.13 - 2.1 \\approx 2.0$ eV."
+  ],
+  "porque_fallan": {
+   "D": "Un orden de magnitud de más: son energías de pocos electronvoltios, que es la escala de los enlaces químicos.",
+   "B": "Un orden de menos."
+  },
+  "confirma": "C"
+ },
+
+ "euf-2020a-s5q01": {
+  "idea": "Tres son definiciones correctas de manual; las dos que fallan son la de grados de libertad y la del alcance de la primera ley.",
+  "pasos": [
+   "(i) Correcta: un reservorio es relativo al experimento, no una propiedad absoluta del sistema.",
+   "(ii) Correcta: extensivas son las que escalan con el tamaño —volumen, energía, entropía—.",
+   "(iii) **Errada**: los grados de libertad son los términos **cuadráticos** de la energía, no todos los términos. El $cx^4$ de un oscilador anarmónico es un término y no aporta un grado de libertad de equipartición.",
+   "(iv) Correcta: ideal o no depende de presión y temperatura, no del gas.",
+   "(v) **Errada**: la primera ley es conservación de la energía, pero no dice nada de **cómo** se transporta el calor. Eso es conducción, convección y radiación."
+  ],
+  "porque_fallan": {
+   "A": "Da por buena la (v), confundiendo la contabilidad de la energía con el mecanismo del transporte.",
+   "C": "Marca la (iv) como errada, cuando sí es verdad que un mismo gas puede comportarse de las dos maneras."
+  },
+  "confirma": "D"
+ },
+
+ "euf-2020a-s5q02": {
+  "idea": "Estado estacionario significa que lo que entra por las paredes es exactamente lo que la máquina saca. Igualar esas dos cosas da una ecuación de segundo grado en la diferencia de temperaturas.",
+  "pasos": [
+   "Fuga de calor hacia dentro: $Q_2 = A(T_1 - T_2)$.",
+   "Carnot como refrigerador: $\\dfrac{Q_2}{W} = \\dfrac{T_2}{T_1-T_2}$, luego $Q_2 = \\dfrac{WT_2}{T_1-T_2}$.",
+   "Igualando y llamando $u = T_1-T_2$: $Au^2 + Wu - WT_1 = 0$.",
+   "$u = -\\dfrac{W}{2A} + \\sqrt{\\left(\\dfrac{W}{2A}\\right)^2 + \\dfrac{WT_1}{A}}$, y como $T_2 = T_1 - u$ sale $T_2 = T_1 + \\dfrac{W}{2A} \\pm \\sqrt{\\left(\\dfrac{W}{2A}\\right)^2 + \\dfrac{WT_1}{A}}$."
+  ],
+  "porque_fallan": {
+   "B": "Tiene el signo del término $WT_1/A$ cambiado dentro de la raíz. Con el menos, la raíz sería imaginaria para $W$ pequeño, que es justo el caso normal.",
+   "A": "Además cambia el signo de $W/2A$ fuera de la raíz."
+  },
+  "confirma": "D"
+ },
+
+ "euf-2020a-s5q03": {
+  "idea": "Aislado y hecho despacio es una expansión adiabática **reversible**: no es expansión libre, porque el gas empuja el pistón y hace trabajo. Por eso se enfría.",
+  "pasos": [
+   "El volumen se dobla: $V_f = 2V_i$.",
+   "Adiabática reversible: $TV^{\\gamma-1} = \\mathrm{cte}$, y monoatómico da $\\gamma = \\tfrac53$, luego $\\gamma-1 = \\tfrac23$.",
+   "$T_f = T_i\\left(\\dfrac{V_i}{V_f}\\right)^{2/3} = T_i\\,2^{-2/3}$."
+  ],
+  "porque_fallan": {
+   "B": "Tiene el exponente con el signo cambiado: el gas se expande, así que se enfría.",
+   "C": "Usa $\\gamma$ donde va $\\gamma-1$, o los invierte: $2^{-3/2}$ vendría de un exponente $3/2$."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s5q04": {
+  "idea": "La que falla es la tercera, y es el error más extendido de toda la termodinámica: la entropía que no puede disminuir es la del universo, no la de un sistema.",
+  "pasos": [
+   "(i) Correcta: la primera ley es conservación de la energía y el calor es energía en tránsito.",
+   "(ii) Correcta: energía interna, temperatura y presión son funciones de estado.",
+   "(iii) **Errada**: la entropía de un sistema sí puede disminuir —un refrigerador lo hace—, a costa de aumentar más la del entorno.",
+   "(iv) Correcta: un proceso reversible puede intercambiar calor; lo reversible es una isoterma, por ejemplo.",
+   "(v) Correcta: en un diagrama $T$–$S$ el ciclo de Carnot es literalmente un rectángulo, con dos isotermas y dos isoentrópicas."
+  ],
+  "porque_fallan": {
+   "A": "Da por buena la (iii) y marca mal la (iv) y la (v).",
+   "D": "Marca como erradas la (iv) y la (v), que son correctas."
+  },
+  "confirma": "C"
+ },
+
+ "euf-2020a-s5q06": {
+  "idea": "Contar microestados: enumera las configuraciones compatibles con la energía dada. El postulado fundamental dice que todas son igual de probables.",
+  "pasos": [
+   "$E = -g\\mu_Bh(m_1+m_2)$ y el enunciado fija $E = -g\\mu_Bh$, luego $m_1 + m_2 = 1$.",
+   "Con $m_i \\in \\{-1,0,1\\}$ las únicas parejas que suman 1 son $(0,1)$ y $(1,0)$.",
+   "Son 2 microestados accesibles.",
+   "Postulado fundamental: todos equiprobables, luego cada uno tiene probabilidad $\\tfrac12$."
+  ],
+  "porque_fallan": {
+   "D": "Cuenta los 9 estados **totales** del sistema, sin imponer la energía fija. La restricción es la mitad del problema.",
+   "B": "Cuenta 4, quizá tratando los espines como si fueran de $\\tfrac12$ con dos proyecciones cada uno."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s5q09": {
+  "idea": "La misma expansión adiabática reversible que la del gas monoatómico, pero con el $\\gamma$ del diatómico.",
+  "pasos": [
+   "Diatómico a temperatura ambiente: cinco grados de libertad, $\\gamma = \\tfrac75$, luego $\\gamma - 1 = \\tfrac25$.",
+   "$TV^{\\gamma-1} = \\mathrm{cte}$ con $V_f = 2V_i$.",
+   "$T_f = T_i\\,2^{-2/5}$.",
+   "Se enfría **menos** que el monoatómico: con más grados de libertad, la misma expansión cuesta menos temperatura."
+  ],
+  "porque_fallan": {
+   "E": "Es el resultado del monoatómico, $2^{-2/3}$: usa $\\gamma = 5/3$ en un gas diatómico.",
+   "C": "Invierte $\\gamma-1$: $5/2$ en vez de $2/5$."
+  },
+  "confirma": "A"
+ },
+
+ "euf-2020a-s5q10": {
+  "idea": "La equipartición se aplica **término a término**, y solo a los cuadráticos. El $cx^4$ no altera lo que aporta el momento.",
+  "pasos": [
+   "El hamiltoniano se separa: la parte de $p$ es independiente de la de $x$.",
+   "$p^2/2m$ es cuadrático en $p$, así que aporta $\\tfrac12k_BT$ y no le importa cómo sea el potencial.",
+   "$\\left\\langle \\dfrac{p^2}{2m}\\right\\rangle = \\dfrac{1}{2}k_BT$.",
+   "El $cx^4$ sí cambiaría $\\langle U\\rangle$ —aportaría $\\tfrac14k_BT$ por ser cuártico—, pero eso es otra pregunta."
+  ],
+  "porque_fallan": {
+   "A": "Cuenta $k_BT$ entero, que sería la energía total de un oscilador armónico, cinética más potencial.",
+   "E": "Da $\\tfrac32k_BT$, que es la cinética de una partícula libre en **tres** dimensiones. Aquí el oscilador es unidimensional.",
+   "B": "$\\tfrac14k_BT$ es lo que aportaría un término cuártico, no el cuadrático del momento."
+  },
+  "confirma": "D"
+ }
+}

@@ -57,6 +57,16 @@ ILEGIBLE = "\ufffd"
 
 LETRAS = {"a": "A", "b": "B", "c": "C", "d": "D", "e": "E"}
 
+# Preguntas que dependen de una gráfica que no se puede rescatar del PDF. Sin
+# ella no hay forma de responderlas —una pide leer una curva de velocidad y la
+# otra una de temperatura—, así que no entran, igual que las de HRW que se
+# quedan sin figura. El resto de las que citan una figura sí se sostienen solo
+# con el texto: dan el radio, el ángulo, las masas.
+SIN_FIGURA_RECUPERABLE = {
+    "euf-2020a-s1q12",   # "a figura mostra como varia a velocidade em função do tempo"
+    "euf-2020a-s5q05",   # "a figura mostra como a temperatura da amostra varia com o tempo"
+}
+
 # El EUF no rotula las áreas, así que se clasifica por el enunciado. En
 # portugués, que se parece lo bastante al español como para que las pistas
 # sean casi las mismas.
@@ -136,6 +146,9 @@ def extraer(crudo):
             return
         if not respuesta:
             descartes["sin_respuesta"] += 1
+            return
+        if f"euf-2020a-s{seccion}q{numero:02d}" in SIN_FIGURA_RECUPERABLE:
+            descartes["depende_de_grafica"] = descartes.get("depende_de_grafica", 0) + 1
             return
         # Glifos que pdftotext no supo mapear: la fórmula ya no dice lo mismo.
         if ILEGIBLE in enunciado + " ".join(opciones.values()):
