@@ -1,0 +1,171 @@
+{
+ "hrw-c03-q001": {"idea": "Lo que hace vectorial a una magnitud no es tener módulo y dirección, sino **sumarse** según la regla del paralelogramo.",
+  "pasos": ["Los desplazamientos sucesivos se combinan como vectores: el resultado depende de las direcciones.", "Hay magnitudes con módulo y dirección que no son vectores, como las rotaciones finitas: no conmutan."],
+  "porque_fallan": {"A": "Dar módulo y dirección es necesario pero no suficiente.", "E": "Estar asociado a un movimiento no define el carácter vectorial."},
+  "confirma": "B"},
+
+ "hrw-c03-q003": {"idea": "La suma de dos vectores está acotada por la desigualdad triangular: entre la diferencia y la suma de los módulos.",
+  "pasos": ["$|3-4| \\leq |R| \\leq 3+4$, o sea $1 \\leq |R| \\leq 7$.", "Cero está fuera del rango: haría falta que los módulos fueran iguales."],
+  "porque_fallan": {"E": "7 es el máximo, alcanzable si son paralelos y del mismo sentido.", "B": "1 es el mínimo, con sentidos opuestos."},
+  "confirma": "A"},
+
+ "hrw-c03-q004": {"idea": "Misma cota: entre 5 y 45.",
+  "pasos": ["$|25-20| = 5$ y $25+20 = 45$.", "12 cae dentro del intervalo."],
+  "porque_fallan": {"B": "3 está por debajo del mínimo.", "D": "47 y 50 superan el máximo."},
+  "confirma": "C"},
+
+ "hrw-c03-q005": {"idea": "Desigualdad triangular al revés: $|T| \\geq |S+T| - |S|$.",
+  "pasos": ["$|T| \\geq 12 - 6 = 6$.", "Así que $T$ mide al menos 6, y puede medir mucho más: con 20 también se puede lograr una suma de 12.", "No hay tope superior."],
+  "porque_fallan": {"C": "No hay cota superior: basta que $T$ apunte casi en contra.", "D": "Perpendicular tiene solución, pero no es obligatorio."},
+  "confirma": "A"},
+
+ "hrw-c03-q006": {"idea": "Multiplicar por $-1$ invierte el sentido y deja el módulo igual.",
+  "pasos": ["$|-\\vec A| = |\\vec A|$.", "La dirección es la misma recta, el sentido el opuesto."],
+  "porque_fallan": {"A": "El signo no cambia la magnitud.", "E": "Antiparalelo no es perpendicular."},
+  "confirma": "D"},
+
+ "hrw-c03-q008": {"idea": "Desarrollar el cuadrado: la condición equivale a que el producto escalar se anule, y eso no está entre las opciones.",
+  "pasos": ["$|\\vec A+\\vec B|^2 = A^2 + B^2 + 2\\vec A\\cdot\\vec B$.", "Igualar a $A^2+B^2$ exige $\\vec A\\cdot\\vec B = 0$.", "Eso significa perpendiculares —90°— o que uno sea nulo. Ninguna opción lo dice."],
+  "porque_fallan": {"D": "Dice 60°, y con ese ángulo el producto escalar no se anula.", "C": "Que uno sea cero es **una** manera de cumplirlo, no la única: por eso el «debe» sobra."},
+  "confirma": "E"},
+
+ "hrw-c03-q009": {"idea": "La suma alcanza su módulo máximo solo si los vectores apuntan igual.",
+  "pasos": ["$|\\vec A+\\vec B|^2 = A^2+B^2+2AB\\cos\\theta$.", "Para que valga $(A+B)^2$ hace falta $\\cos\\theta = 1$.", "$\\theta = 0$: paralelos y del mismo sentido."],
+  "porque_fallan": {"E": "Perpendiculares darían $\\sqrt{A^2+B^2}$, menor que $A+B$.", "B": "Sentidos opuestos dan la resta de los módulos."},
+  "confirma": "A"},
+
+ "hrw-c03-q010": {"idea": "La resta alcanza el módulo $A+B$ solo si los vectores son opuestos: restar uno que apunta al revés es sumar.",
+  "pasos": ["$|\\vec A-\\vec B|^2 = A^2+B^2-2AB\\cos\\theta$.", "Para llegar a $(A+B)^2$ hace falta $\\cos\\theta = -1$.", "$\\theta = 180°$."],
+  "porque_fallan": {"A": "Mismo sentido daría $|A-B|$, el mínimo."},
+  "confirma": "B"},
+
+ "hrw-c03-q012": {"idea": "Dos vectores son iguales si y solo si **todas** sus componentes coinciden. Ni módulos ni cocientes bastan.",
+  "pasos": ["Igual módulo no basta: hay infinitos vectores del mismo módulo.", "Igual cociente $A_y/A_x$ da la misma recta, pero puede ser otro módulo o el sentido opuesto."],
+  "porque_fallan": {"A": "Iguala módulos: permite cualquier orientación.", "D": "Iguala pendientes: mismo eje, pero quizá el doble de largo."},
+  "confirma": "C"},
+
+ "hrw-c03-q013": {"idea": "Entre el eje $+x$ y el $-y$ es el cuarto cuadrante: la componente $y$ sale negativa.",
+  "pasos": ["$A_y = -|A|\\sin 30° = -12(0.5)$.", "$A_y = -6$."],
+  "porque_fallan": {"C": "Acierta la magnitud y pierde el signo. El cuadrante es la mitad de la pregunta.", "E": "Da el módulo entero."},
+  "confirma": "D"},
+
+ "hrw-c03-q015": {"idea": "Multiplicar por un escalar multiplica el módulo por ese escalar.",
+  "pasos": ["$|\\vec A| = \\sqrt{6^2+8^2} = 10$ m.", "$|4\\vec A| = 40$ m."],
+  "porque_fallan": {"A": "Da el módulo sin multiplicar por 4.", "E": "Suma componentes en vez de escalarlas."},
+  "confirma": "D"},
+
+ "hrw-c03-q016": {"idea": "Módulo en tres dimensiones: raíz de la suma de los cuadrados.",
+  "pasos": ["$\\sqrt{10^2+10^2+5^2} = \\sqrt{225} = 15$ m."],
+  "porque_fallan": {"E": "Da la suma de cuadrados sin la raíz: saldría en metros cuadrados.", "D": "Suma las componentes."},
+  "confirma": "B"},
+
+ "hrw-c03-q017": {"idea": "Lo mismo, y los signos desaparecen al elevar al cuadrado.",
+  "pasos": ["$\\sqrt{4+36+9} = \\sqrt{49} = 7.00$ m."],
+  "porque_fallan": {"A": "Deja alguna componente fuera.", "E": "Suma los valores absolutos."},
+  "confirma": "C"},
+
+ "hrw-c03-q018": {"idea": "La componente $x$ es $|A|\\cos\\theta$: coseno, no seno.",
+  "pasos": ["$\\cos\\theta = 12/25 = 0.48$.", "$\\theta = 61°$."],
+  "porque_fallan": {"B": "Usa el arcoseno y da el complementario, 29°.", "A": "Lo mismo con otro redondeo."},
+  "confirma": "C"},
+
+ "hrw-c03-q019": {"idea": "Con las dos componentes, la tangente da el ángulo.",
+  "pasos": ["$\\tan\\theta = 45/25 = 1.8$.", "$\\theta = 61°$, primer cuadrante."],
+  "porque_fallan": {"A": "Invierte el cociente: sería el ángulo con el eje $y$."},
+  "confirma": "B"},
+
+ "hrw-c03-q020": {"idea": "Mismo cociente en valor absoluto, pero el cuadrante lo cambia todo: $x$ negativa y $y$ positiva es el segundo.",
+  "pasos": ["$\\tan^{-1}(45/25) = 61°$ es el ángulo de referencia.", "Segundo cuadrante: $180° - 61° = 119°$.", "La calculadora sola no lo sabe: hay que mirar los signos."],
+  "porque_fallan": {"B": "Es el ángulo de referencia, sin colocarlo en su cuadrante.", "E": "Sería el tercer cuadrante."},
+  "confirma": "C"},
+
+ "hrw-c03-q021": {"idea": "Sumar vectores es sumar componente a componente.",
+  "pasos": ["$x: 6$, $y: 8$, $z: -2$."],
+  "porque_fallan": {"B": "Es la resta.", "D": "Suma mal la componente $z$."},
+  "confirma": "A"},
+
+ "hrw-c03-q022": {"idea": "Restar es restar componente a componente, en el orden del enunciado.",
+  "pasos": ["$x: 2-4 = -2$, $y: 6-2 = 4$, $z: -3-1 = -4$."],
+  "porque_fallan": {"C": "Es $\\vec B-\\vec A$: el orden importa.", "A": "Es la suma."},
+  "confirma": "B"},
+
+ "hrw-c03-q023": {"idea": "Escalar primero, restar después.",
+  "pasos": ["$2\\vec B = 2\\hat i - 4\\hat j$.", "$\\vec A - 2\\vec B = (2-2)\\hat i + (-3+4)\\hat j = \\hat j$."],
+  "porque_fallan": {"B": "Pierde el signo del término en $j$.", "C": "Suma en vez de restar."},
+  "confirma": "A"},
+
+ "hrw-c03-q025": {"idea": "Rotar no cambia el módulo: esa es la única ecuación que hace falta.",
+  "pasos": ["$|A| = \\sqrt{16+100} = \\sqrt{116}$.", "Con $A_x' = 8$: $A_y' = \\sqrt{116-64} = \\sqrt{52} = 7.2$ m."],
+  "porque_fallan": {"A": "Dobla también la $y$: eso es un escalado, no una rotación.", "C": "Divide la $y$ entre dos."},
+  "confirma": "B"},
+
+ "hrw-c03-q026": {"idea": "Producto escalar: módulos por el **coseno**.",
+  "pasos": ["$L^2\\cos30° = L^2\\dfrac{\\sqrt3}{2}$."],
+  "porque_fallan": {"B": "Usaría $\\cos0°$.", "A": "Cero sería con 90°."},
+  "confirma": "C"},
+
+ "hrw-c03-q027": {"idea": "El escalar en componentes: multiplicar las homólogas y sumar. Da un **número**, no un vector.",
+  "pasos": ["$(2)(4)+(6)(2)+(-3)(1) = 8+12-3$.", "$= 17\\ \\mathrm{m^2}$."],
+  "porque_fallan": {"C": "Se come el signo del término en $z$.", "A": "Devuelve un vector: no es ni el escalar ni el vectorial."},
+  "confirma": "D"},
+
+ "hrw-c03-q028": {"idea": "La componente **a lo largo de** otro vector es el módulo por el coseno del ángulo.",
+  "pasos": ["$15\\cos65° = 15(0.423) = 6.3$ m."],
+  "porque_fallan": {"E": "Usa el seno: esa es la componente perpendicular, que es la otra pregunta del par.", "B": "Proyecta el corto sobre el largo, invirtiendo los papeles."},
+  "confirma": "C"},
+
+ "hrw-c03-q029": {"idea": "El coseno del ángulo es el producto escalar dividido entre el producto de los módulos.",
+  "pasos": ["$\\vec S\\cdot\\vec T = 3+0+8 = 11$.", "$|\\vec S| = 3$, $|\\vec T| = 5$.", "$\\cos\\theta = 11/15$."],
+  "porque_fallan": {"B": "Divide entre los módulos al cuadrado.", "E": "Se puede: el producto escalar existe siempre."},
+  "confirma": "D"},
+
+ "hrw-c03-q030": {"idea": "Misma magnitud y signo cambiado significa que los dos ángulos son suplementarios.",
+  "pasos": ["$\\cos\\theta = -\\cos(\\theta+20°)$ exige $\\theta + (\\theta+20°) = 180°$.", "$2\\theta = 160° \\Rightarrow \\theta = 80°$.", "Comprueba: $\\cos80° = 0.17$ y $\\cos100° = -0.17$. ✔"],
+  "porque_fallan": {"E": "A 90° el producto es cero, y cero no cambia de signo con la misma magnitud.", "C": "$\\cos70°$ y $\\cos90°$ no tienen igual magnitud."},
+  "confirma": "D"},
+
+ "hrw-c03-q031": {"idea": "Si la suma es más corta que cualquiera de los sumandos, el término cruzado tiene que restar: el producto escalar es negativo.",
+  "pasos": ["$A^2+B^2+2\\vec A\\cdot\\vec B < A^2$.", "$2\\vec A\\cdot\\vec B < -B^2 < 0$.", "El ángulo entre ellos es obtuso."],
+  "porque_fallan": {"C": "Antiparalelos es un caso posible, no obligatorio: basta con pasar de 90°."},
+  "confirma": "A"},
+
+ "hrw-c03-q032": {"idea": "Que la suma supere a cada sumando no obliga a nada: pasa con ángulos agudos y también con algunos obtusos.",
+  "pasos": ["La condición da $2\\vec A\\cdot\\vec B > -B^2$, que no fuerza el signo.", "Con dos vectores iguales a 90° la suma ya supera a cada uno, y el escalar es cero."],
+  "porque_fallan": {"A": "El escalar puede ser cero o algo negativo y cumplirse igual.", "C": "Paralelos es un caso, no una obligación."},
+  "confirma": "E"},
+
+ "hrw-c03-q033": {"idea": "Producto vectorial: módulos por el **seno**. Es el complemento del escalar.",
+  "pasos": ["$L^2\\sin60° = L^2\\dfrac{\\sqrt3}{2}$."],
+  "porque_fallan": {"A": "Usa $\\sin30°$.", "B": "Sería con 90°, donde el vectorial es máximo."},
+  "confirma": "C"},
+
+ "hrw-c03-q034": {"idea": "El módulo del vectorial va con el seno: resolver $\\sin(\\theta+20°) = 2\\sin\\theta$.",
+  "pasos": ["Desarrollando: $\\sin\\theta\\cos20° + \\cos\\theta\\sin20° = 2\\sin\\theta$.", "$\\tan\\theta = \\dfrac{\\sin20°}{2-\\cos20°} = \\dfrac{0.342}{1.06} = 0.323$.", "$\\theta = 18°$."],
+  "porque_fallan": {"D": "45° daría un factor 1,28, no 2.", "E": "A 90° el producto ya es máximo: no puede doblarse."},
+  "confirma": "B"},
+
+ "hrw-c03-q035": {"idea": "Perpendicular a la línea del corto significa **seno**, no coseno.",
+  "pasos": ["$15\\sin65° = 15(0.906) = 13.6 \\approx 14$ m."],
+  "porque_fallan": {"C": "Usa el coseno: esa es la componente a lo largo, la otra pregunta del par. Distinguirlas es todo el ejercicio."},
+  "confirma": "E"},
+
+ "hrw-c03-q036": {"idea": "El vector perpendicular al plano es el producto vectorial de los dos que lo definen.",
+  "pasos": ["$\\vec A = (3,-2,0)$ y $\\vec B = (2,3,-2)$.", "$x: (-2)(-2)-(0)(3) = 4$.", "$y: (0)(2)-(3)(-2) = 6$.", "$z: (3)(3)-(-2)(2) = 13$."],
+  "porque_fallan": {"E": "Sin componente $z$ estaría **en** el plano $xy$, no perpendicular al plano dado.", "B": "Cambia el signo de la primera componente."},
+  "confirma": "A"},
+
+ "hrw-c03-q037": {"idea": "Con $\\theta \\neq 90°$ el producto escalar **no** se anula, y eso es lo único falso de la lista.",
+  "pasos": ["$\\vec R = \\vec S\\times\\vec T$ es perpendicular a los dos, así que $\\vec R\\cdot\\vec S = 0$ y $\\vec R\\cdot\\vec T = 0$ siempre.", "Y $\\vec T\\times\\vec S = -\\vec R$: el vectorial es anticonmutativo.", "Pero $\\vec S\\cdot\\vec T = ST\\cos\\theta$ solo se anula si $\\theta = 90°$, y el enunciado lo excluye."],
+  "porque_fallan": {"C": "Es cierta por construcción: el vectorial es perpendicular a sus dos factores."},
+  "confirma": "E"},
+
+ "hrw-c03-q038": {"idea": "$\\hat j\\times\\hat k = \\hat i$, y luego $\\hat i\\cdot\\hat i = 1$.",
+  "pasos": ["El orden $\\hat i, \\hat j, \\hat k$ es cíclico y da signo positivo.", "$\\hat i\\cdot\\hat i = +1$.", "Este triple producto es el volumen del cubo unidad."],
+  "porque_fallan": {"C": "El signo saldría negativo con el orden invertido.", "D": "Confunde con la suma de los tres términos."},
+  "confirma": "B"},
+
+ "hrw-c03-q039": {"idea": "$\\hat k\\times\\hat i = \\hat j$, que es perpendicular a $\\hat k$: el escalar da cero.",
+  "pasos": ["$\\hat k\\times\\hat i = \\hat j$ y $\\hat k\\cdot\\hat j = 0$.", "En general, un triple producto con un vector repetido siempre se anula."],
+  "porque_fallan": {"B": "Exigiría que el resultado del vectorial coincidiera con $\\hat k$, y es perpendicular a él por construcción."},
+  "confirma": "A"}
+}

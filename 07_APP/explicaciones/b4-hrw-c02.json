@@ -1,0 +1,306 @@
+{
+ "hrw-c02-q001": {"idea": "Desplazamiento es $x_f - x_i$, y su magnitud es el valor absoluto. Hay que restar, no mirar los números sueltos.",
+  "pasos": ["A: $+2$. B: $-4$. C: $+6$. D: $-6$. E: $+8$.", "El de mayor magnitud es E, con 8 m."],
+  "porque_fallan": {"D": "Mide 6 m, igual que C: grande pero no el máximo.", "B": "Solo 4 m; el signo negativo no lo hace mayor."},
+  "confirma": "E"},
+
+ "hrw-c02-q002": {"idea": "Negativo significa que acabó a la izquierda de donde empezó, no que las coordenadas sean negativas.",
+  "pasos": ["B: $-8 - (-4) = -4$ m. ✔", "D: $-2 - (-4) = +2$ m: positivo, aunque las dos coordenadas sean negativas."],
+  "porque_fallan": {"D": "Las dos coordenadas son negativas, pero el movimiento fue hacia la derecha. Ese es el error que busca la pregunta."},
+  "confirma": "B"},
+
+ "hrw-c02-q003": {"idea": "Rapidez media es camino recorrido entre tiempo. Velocidad media es desplazamiento entre tiempo. No son lo mismo.",
+  "pasos": ["La rapidez usa la distancia total, que nunca es negativa.", "En un viaje de ida y vuelta la velocidad media es cero y la rapidez media no."],
+  "porque_fallan": {"A": "Solo coinciden si el movimiento no cambia de sentido.", "C": "Promediar velocidades inicial y final solo vale con aceleración constante."},
+  "confirma": "B"},
+
+ "hrw-c02-q004": {"idea": "Se acercan a la suma de sus rapideces: es un problema de una sola velocidad relativa.",
+  "pasos": ["Rapidez de acercamiento: $60 + 40 = 100$ km/h.", "$t = \\dfrac{150}{100} = 1.5$ h."],
+  "porque_fallan": {"A": "Usa solo uno de los dos coches.", "B": "Promedia las velocidades en vez de sumarlas."},
+  "confirma": "D"},
+
+ "hrw-c02-q005": {"idea": "La rapidez media **nunca** es el promedio de las rapideces si los tiempos son distintos: hay que sumar tiempos.",
+  "pasos": ["$t_1 = 40/80 = 0.5$ h. $t_2 = 40/40 = 1.0$ h.", "$t_{total} = 1.5$ h para 80 km.", "$\\bar v = 80/1.5 = 53$ km/h."],
+  "porque_fallan": {"A": "Promedia 80 y 40 y da 60… o se queda con la lenta. El coche pasa más tiempo yendo despacio, así que la media se acerca a la menor.", "C": "Se acerca, pero sigue siendo un promedio mal pesado."},
+  "confirma": "D"},
+
+ "hrw-c02-q006": {"idea": "Velocidad media es desplazamiento entre tiempo, y en un viaje de ida y vuelta el desplazamiento es cero.",
+  "pasos": ["Sale de Hither y vuelve a Hither: $\\Delta x = 0$.", "$\\bar v = 0/2 = 0$."],
+  "porque_fallan": {"B": "Ese es el valor de la **rapidez** media, que usa los 100 km recorridos."},
+  "confirma": "A"},
+
+ "hrw-c02-q007": {"idea": "La misma situación, pero ahora con el camino recorrido: 100 km en 2 horas.",
+  "pasos": ["Distancia total: $50 + 50 = 100$ km.", "$\\bar v_{rapidez} = 100/2 = 50$ km/h."],
+  "porque_fallan": {"A": "Cero es la **velocidad** media, no la rapidez. Las dos preguntas son espejo."},
+  "confirma": "B"},
+
+ "hrw-c02-q008": {"idea": "«Momentáneamente en reposo» significa velocidad cero: derivar y anular.",
+  "pasos": ["$v = \\dfrac{dx}{dt} = 16 - 9t^2$.", "$16 - 9t^2 = 0 \\Rightarrow t^2 = \\dfrac{16}{9}$.", "$t = 4/3 = 1.3$ s."],
+  "porque_fallan": {"A": "Sale de anular $x$ en vez de $v$: eso da cuándo vuelve al origen, que es otra cosa."},
+  "confirma": "B"},
+
+ "hrw-c02-q009": {"idea": "Con aceleración no constante no valen las fórmulas de cinemática: hay que integrar.",
+  "pasos": ["$x = \\displaystyle\\int_0^t bt'^2\\,dt'$.", "$x = \\dfrac{bt^3}{3}$."],
+  "porque_fallan": {"A": "Olvida el tercio que aparece al integrar.", "C": "Usa $x = \\tfrac12at^2$, que solo vale con aceleración constante."},
+  "confirma": "B"},
+
+ "hrw-c02-q010": {"idea": "Aceleración media es el cambio de velocidad entre el tiempo transcurrido, y aquí piden la magnitud.",
+  "pasos": ["$\\Delta v = 0 - 20 = -20$ cm/s.", "$\\Delta t = 8 - 3 = 5$ s.", "$|a| = 20/5 = 4.0$ cm/s²."],
+  "porque_fallan": {"A": "Divide entre 8 en vez de entre el intervalo de 5 s.", "E": "Divide entre 3."},
+  "confirma": "B"},
+
+ "hrw-c02-q011": {"idea": "Velocidad media es desplazamiento entre tiempo. No hay que derivar nada.",
+  "pasos": ["$x(0) = 0$; $x(4) = 28 - 48 = -20$ m.", "$\\bar v = \\dfrac{-20 - 0}{4} = -5$ m/s."],
+  "porque_fallan": {"A": "Pierde el signo: el objeto acaba a la izquierda de donde empezó.", "D": "Sale de evaluar la velocidad instantánea en algún punto, no de promediar."},
+  "confirma": "B"},
+
+ "hrw-c02-q012": {"idea": "Ojo: aquí dan la **velocidad**, no la posición. Para el desplazamiento hay que integrar.",
+  "pasos": ["$x(t) = \\displaystyle\\int (4t - 3t^2)dt = 2t^2 - t^3$.", "$x(0) = 0$ y $x(2) = 8 - 8 = 0$.", "$\\bar v = 0/2 = 0$: vuelve al punto de partida."],
+  "porque_fallan": {"E": "Sí se puede: la constante de integración se cancela al restar.", "B": "Sale de promediar $v(0)$ y $v(2)$, que no es la velocidad media salvo con aceleración constante."},
+  "confirma": "A"},
+
+ "hrw-c02-q013": {"idea": "Aceleración media es $\\Delta v/\\Delta t$, así que primero hay que derivar una vez para tener $v$.",
+  "pasos": ["$v = 8t - 9t^2$.", "$v(0) = 0$; $v(2) = 16 - 36 = -20$ m/s.", "$\\bar a = \\dfrac{-20}{2} = -10$ m/s²."],
+  "porque_fallan": {"E": "Sale de evaluar la aceleración instantánea en algún instante, no de promediar.", "D": "Pierde el signo."},
+  "confirma": "C"},
+
+ "hrw-c02-q014": {"idea": "Aceleración constante equivale a que la posición sea a lo sumo **cuadrática** en el tiempo.",
+  "pasos": ["Derivar dos veces: un $t^3$ deja una aceleración proporcional a $t$, que no es constante.", "Partículas 1 y 2 llevan $t^3$: aceleración variable.", "Partículas 3 y 4 son cuadráticas: aceleración constante."],
+  "porque_fallan": {"A": "Incluye las cúbicas, cuya aceleración crece con el tiempo.", "B": "Elige justo las dos que no cumplen."},
+  "confirma": "D"},
+
+ "hrw-c02-q015": {"idea": "Acelera —gana rapidez— cuando velocidad y aceleración tienen el **mismo signo**, sea cual sea.",
+  "pasos": ["1: $v = -8.1t^2$ y $a = -16.2t$: los dos negativos. ✔", "2: los dos positivos. ✔  3: los dos positivos. ✔", "4: $v = -3.4-5.4t$ y $a = -5.4$: los dos negativos. ✔", "Las cuatro ganan rapidez."],
+  "porque_fallan": {"B": "Descarta las que tienen velocidad negativa, confundiendo «ir hacia la izquierda» con «frenar»."},
+  "confirma": "A"},
+
+ "hrw-c02-q016": {"idea": "Hay que sacar los tiempos en los que pasa por cada punto: la velocidad media no es el promedio de las velocidades.",
+  "pasos": ["$x = \\tfrac12at^2 = 2t^2$. En $x=2$: $t=1$ s. En $x=8$: $t=2$ s.", "$\\Delta x = 6$ m en $\\Delta t = 1$ s.", "$\\bar v = 6$ m/s."],
+  "porque_fallan": {"E": "Es la correcta.", "C": "Sale de promediar $v(1)=4$ y $v(2)=8$… que daría 6 también; el error típico es otro reparto."},
+  "confirma": "E"},
+
+ "hrw-c02-q017": {"idea": "Velocidad constante implica aceleración **nula**, y cero no es variable.",
+  "pasos": ["Si $v$ no cambia, $a = dv/dt = 0$ en todo instante.", "Una aceleración variable exigiría que la velocidad cambiara."],
+  "porque_fallan": {"B": "Perfectamente posible: es un cuerpo frenando.", "C": "También: es el instante más alto de un lanzamiento vertical."},
+  "confirma": "E"},
+
+ "hrw-c02-q018": {"idea": "Ganar rapidez significa que velocidad y aceleración van en el mismo sentido, aunque los dos sean negativos.",
+  "pasos": ["Si $v<0$ y $a<0$, la velocidad se hace más negativa y su módulo crece.", "Es un cuerpo que va hacia la izquierda cada vez más rápido."],
+  "porque_fallan": {"A": "Signos opuestos: está frenando.", "E": "Con aceleración nula la rapidez no cambia."},
+  "confirma": "C"},
+
+ "hrw-c02-q019": {"idea": "El signo de la aceleración no dice nada sobre el de la velocidad ni sobre si acelera o frena.",
+  "pasos": ["Con $a>0$ y $v<0$ el cuerpo **frena**.", "Con $a>0$ y $v>0$ gana rapidez.", "Que $a$ además crezca no cambia ese análisis."],
+  "porque_fallan": {"D": "Solo si $v$ ya es positiva. Con $v$ negativa, una aceleración positiva frena.", "A": "La velocidad puede tener cualquier signo."},
+  "confirma": "E"},
+
+ "hrw-c02-q020": {"idea": "Cada sumando tiene que tener dimensiones de longitud.",
+  "pasos": ["$[at] = L \\Rightarrow [a] = L/T$.", "$[bt^2] = L \\Rightarrow [b] = L/T^2$."],
+  "porque_fallan": {"B": "Intercambia las dos.", "A": "Añade longitudes de más."},
+  "confirma": "C"},
+
+ "hrw-c02-q021": {"idea": "Ninguna de las afirmaciones se sostiene: hay que comprobarlas una a una.",
+  "pasos": ["$v = 12t$ y $a = 12$ m/s², no 6.", "El movimiento es sobre el eje $x$: la **trayectoria** es una recta. La parábola es la gráfica $x$ frente a $t$, que es otra cosa.", "$t$ puede ser negativo sin problema: describe el pasado.", "Y la velocidad cambia 12 m/s cada segundo, no 9,8."],
+  "porque_fallan": {"C": "Confunde la gráfica con la trayectoria. Es el error conceptual más común del capítulo.", "A": "Deriva una sola vez."},
+  "confirma": "E"},
+
+ "hrw-c02-q022": {"idea": "Derivar dos veces y evaluar.",
+  "pasos": ["$v = 27 - 12t^2$.", "$a = -24t$.", "En $t=1$: $a = -24$ m/s²."],
+  "porque_fallan": {"D": "Deriva mal el término cúbico, perdiendo un factor dos.", "A": "Confunde la velocidad inicial con la aceleración."},
+  "confirma": "E"},
+
+ "hrw-c02-q023": {"idea": "Evaluar en $t=0$: el término lineal da la velocidad y el cúbico no aporta aceleración inicial.",
+  "pasos": ["$v(0) = 27$ m/s.", "$a = -24t$, luego $a(0) = 0$."],
+  "porque_fallan": {"E": "Da la aceleración en $t=1$, no en $t=0$.", "A": "Confunde cuál de las dos se anula."},
+  "confirma": "C"},
+
+ "hrw-c02-q024": {"idea": "Aceleración variable: integrar para obtener la velocidad y luego anularla.",
+  "pasos": ["$v = 16 + \\displaystyle\\int_0^t(-0.50t')dt' = 16 - 0.25t^2$.", "$16 - 0.25t^2 = 0 \\Rightarrow t^2 = 64$.", "$t = 8.0$ s."],
+  "porque_fallan": {"B": "Usa $v = v_0 + at$ con $a = -0.5$, que no vale porque la aceleración no es constante.", "E": "Se come el factor de la integración."},
+  "confirma": "D"},
+
+ "hrw-c02-q025": {"idea": "Integrar otra vez, ahora la velocidad, para obtener la distancia.",
+  "pasos": ["$x = \\displaystyle\\int_0^{4}(16 - 0.25t^2)dt = 16t - \\dfrac{0.25t^3}{3}$.", "$x = 64 - \\dfrac{0.25(64)}{3} = 64 - 5.3$.", "$x = 59$ m."],
+  "porque_fallan": {"D": "Usa $x = v_0t/…$ con alguna fórmula de aceleración constante.", "B": "Se queda con el término de frenado solo."},
+  "confirma": "E"},
+
+ "hrw-c02-q026": {"idea": "Lo mismo hasta el instante en que para, que ya sabemos que es $t = 8$ s.",
+  "pasos": ["$x = 16(8) - \\dfrac{0.25(8)^3}{3} = 128 - \\dfrac{128}{3}$.", "$x = 128 - 42.7 = 85$ m."],
+  "porque_fallan": {"C": "Olvida restar el término de frenado: daría los 128 m del movimiento uniforme.", "B": "Integra hasta un tiempo equivocado."},
+  "confirma": "D"},
+
+ "hrw-c02-q027": {"idea": "Anular la velocidad para hallar el instante, y derivar para la aceleración en ese instante.",
+  "pasos": ["$98 - 2t^2 = 0 \\Rightarrow t = 7$ s.", "$a = dv/dt = -4t$.", "$a(7) = -28$ m/s²."],
+  "porque_fallan": {"A": "Confunde velocidad nula con aceleración nula: en el punto más alto de un tiro vertical pasa lo mismo y la gravedad sigue ahí.", "C": "Mete $g$ donde no toca."},
+  "confirma": "D"},
+
+ "hrw-c02-q028": {"idea": "Igual, pero partiendo de la posición: hay que derivar dos veces.",
+  "pasos": ["$v = 75 - 3t^2 = 0 \\Rightarrow t = 5$ s.", "$a = -6t$.", "$a(5) = -30$ m/s²."],
+  "porque_fallan": {"A": "Otra vez la confusión entre $v=0$ y $a=0$.", "D": "Sustituye por la gravedad sin motivo: aquí no hay caída libre."},
+  "confirma": "C"},
+
+ "hrw-c02-q029": {"idea": "Parte del reposo, así que $x = \\tfrac12at^2$.",
+  "pasos": ["$20 = \\tfrac12a(4)^2 = 8a$.", "$a = 2.5$ m/s²."],
+  "porque_fallan": {"A": "Divide la distancia entre el tiempo al cuadrado sin el factor $\\tfrac12$… o hace $20/(4\\cdot 4\\cdot 3)$.", "E": "Mete la gravedad, que no interviene."},
+  "confirma": "C"},
+
+ "hrw-c02-q031": {"idea": "Parte del reposo con aceleración constante: $v = at$.",
+  "pasos": ["$v = 5 \\times 5 = 25$ m/s."],
+  "porque_fallan": {"B": "Aplica $\\tfrac12at$, mezclando la fórmula de la distancia.", "D": "Multiplica por dos de más."},
+  "confirma": "C"},
+
+ "hrw-c02-q032": {"idea": "Aceleración opuesta a la velocidad: frena. Y hay que restar, no sumar.",
+  "pasos": ["Cambio de velocidad: $3 \\times 6 = 18$ m/s hacia el sur.", "$25 - 18 = 7$ m/s, todavía hacia el norte."],
+  "porque_fallan": {"C": "Suma en vez de restar, ignorando que la aceleración va en sentido contrario.", "B": "Se pasa de frenado: el coche aún no ha invertido el sentido."},
+  "confirma": "A"},
+
+ "hrw-c02-q033": {"idea": "Velocidad y aceleración en el mismo sentido: $x = v_0t + \\tfrac12at^2$, con los dos términos sumando.",
+  "pasos": ["$x = 12(3) + \\tfrac12(4)(9)$.", "$x = 36 + 18 = 54$ m."],
+  "porque_fallan": {"C": "Olvida el término de aceleración: sería movimiento uniforme.", "B": "Se queda con solo una parte."},
+  "confirma": "D"},
+
+ "hrw-c02-q034": {"idea": "La misma fórmula, con cuidado de no olvidar la velocidad inicial.",
+  "pasos": ["$x = 2(6) + \\tfrac12(2)(36)$.", "$x = 12 + 36 = 48$ m."],
+  "porque_fallan": {"D": "Olvida la velocidad inicial y se queda con los 36 m.", "A": "Se queda solo con el término de velocidad inicial."},
+  "confirma": "E"},
+
+ "hrw-c02-q035": {"idea": "Alcanzarse significa igualar posiciones. Las dos ecuaciones se cruzan cuando el coche recupera lo que perdió.",
+  "pasos": ["Camión: $x = 15t$. Coche: $x = \\tfrac12(3)t^2 = 1.5t^2$.", "$1.5t^2 = 15t \\Rightarrow t = 10$ s.", "La solución $t=0$ es el instante de partida."],
+  "porque_fallan": {"A": "Iguala velocidades en vez de posiciones: a los 5 s el coche va igual de rápido, pero todavía está detrás."},
+  "confirma": "B"},
+
+ "hrw-c02-q036": {"idea": "En caída libre la gravedad apunta hacia abajo todo el tiempo, suba o baje el cuerpo.",
+  "pasos": ["La aceleración es $g$ hacia abajo desde que sale hasta que cae.", "En el punto más alto la velocidad es cero, pero la aceleración sigue valiendo $g$."],
+  "porque_fallan": {"E": "En el punto más alto no hay excepción: es el error más repetido de todo el capítulo.", "C": "Confunde el sentido de la velocidad con el de la aceleración."},
+  "confirma": "A"},
+
+ "hrw-c02-q037": {"idea": "El desplazamiento sí cambia de signo: es positivo mientras sube y negativo mientras baja.",
+  "pasos": ["Tomando arriba como positivo, subir es $\\Delta y > 0$.", "Bajar es $\\Delta y < 0$.", "La **aceleración**, en cambio, no cambia de signo nunca."],
+  "porque_fallan": {"C": "Lo pone al revés.", "A": "Confunde desplazamiento con distancia recorrida, que sí es siempre positiva."},
+  "confirma": "D"},
+
+ "hrw-c02-q038": {"idea": "En el punto más alto la velocidad es cero pero la aceleración sigue siendo $g$ hacia abajo.",
+  "pasos": ["Si la aceleración fuera cero ahí, la pelota se quedaría flotando.", "Justo porque vale $g$, la velocidad pasa de positiva a negativa."],
+  "porque_fallan": {"A": "Es la confusión clásica entre velocidad nula y aceleración nula.", "C": "La gravedad nunca apunta hacia arriba."},
+  "confirma": "B"},
+
+ "hrw-c02-q039": {"idea": "Con aceleración constante la velocidad media es el promedio de la inicial y la final.",
+  "pasos": ["Empieza en 0 y tras un segundo va a 9,8 m/s.", "$\\bar v = \\dfrac{0+9.8}{2} = 4.9$ m/s.", "Y por tanto cae 4,9 m en ese primer segundo, no 9,8."],
+  "porque_fallan": {"D": "Confunde el cambio de **velocidad** —9,8 m/s— con la distancia caída, que es 4,9 m.", "B": "La distancia por segundo crece: 4,9, luego 14,7, luego 24,5…"},
+  "confirma": "A"},
+
+ "hrw-c02-q040": {"idea": "La aceleración es un cambio de **velocidad** por segundo, no una distancia por segundo.",
+  "pasos": ["Cada segundo la rapidez aumenta en 9,8 m/s.", "La distancia recorrida en cada segundo, en cambio, va creciendo."],
+  "porque_fallan": {"A": "Confunde 9,8 m/s² con 9,8 metros por segundo. Es la confusión que define el capítulo.", "D": "La aceleración es constante: eso es lo que dice el enunciado."},
+  "confirma": "C"},
+
+ "hrw-c02-q041": {"idea": "Mientras sube, la velocidad va hacia arriba y la aceleración hacia abajo: por eso frena.",
+  "pasos": ["Sentidos opuestos implica que la rapidez disminuye.", "Cuando llega a cero, la aceleración sigue igual y empieza a bajar."],
+  "porque_fallan": {"A": "Si fueran en el mismo sentido, subiría cada vez más rápido y no volvería nunca.", "D": "La velocidad es hacia arriba: está subiendo."},
+  "confirma": "B"},
+
+ "hrw-c02-q042": {"idea": "Tiro vertical: $y = v_0t - \\tfrac12gt^2$.",
+  "pasos": ["$y = 50(1) - \\tfrac12(10)(1)^2$.", "$y = 50 - 5 = 45$ m."],
+  "porque_fallan": {"C": "Olvida el término de la gravedad.", "A": "Resta $g$ entero en vez de $\\tfrac12 g t^2$."},
+  "confirma": "B"},
+
+ "hrw-c02-q043": {"idea": "La misma fórmula, pero conviene calcular antes de mirar las opciones.",
+  "pasos": ["$y = 50(6) - \\tfrac12(10)(36) = 300 - 180$.", "$y = 120$ m, que no está entre las cuatro primeras opciones."],
+  "porque_fallan": {"A": "Supone que ya cayó al suelo. El vuelo dura 10 s, así que a los 6 s sigue arriba y de hecho ya está bajando.", "B": "Sale de alguna combinación errónea de los dos términos."},
+  "confirma": "E"},
+
+ "hrw-c02-q044": {"idea": "Lanzado hacia **abajo**: los dos términos suman.",
+  "pasos": ["$d = v_0t + \\tfrac12gt^2 = 1.00(5) + \\tfrac12(9.80)(25)$.", "$d = 5 + 122.5 = 127.5$ m."],
+  "porque_fallan": {"A": "Olvida la velocidad inicial.", "C": "Duplica el término de la gravedad, olvidando el $\\tfrac12$."},
+  "confirma": "B"},
+
+ "hrw-c02-q045": {"idea": "$v = v_0 - gt$, y el signo del resultado dice el sentido.",
+  "pasos": ["$v = 35 - 10(5) = -15$ m/s.", "Negativo con el criterio de arriba positivo: 15 m/s hacia abajo.", "El objeto ya lleva 1,5 s cayendo, porque tardó 3,5 s en subir."],
+  "porque_fallan": {"C": "Pierde el signo y afirma que aún sube.", "D": "Suma en vez de restar."},
+  "confirma": "B"},
+
+ "hrw-c02-q046": {"idea": "En el vacío no hay resistencia del aire, así que la aceleración es $g$ constante: la pluma cae como una piedra.",
+  "pasos": ["Sin aire no hay velocidad terminal ni fuerza que dependa de la rapidez.", "La aceleración vale $9.8$ m/s² desde el principio hasta el final.", "Es el experimento de la pluma y el martillo en la Luna."],
+  "porque_fallan": {"B": "La velocidad terminal requiere aire; en vacío no existe.", "A": "La velocidad crece sin tope hasta llegar al suelo: tras 12 m ya va a 15 m/s."},
+  "confirma": "C"},
+
+ "hrw-c02-q047": {"idea": "«Durante el segundo segundo» es restar dos distancias acumuladas, no calcular una directamente.",
+  "pasos": ["$d(2) = \\tfrac12(9.8)(4) = 19.6$ m.", "$d(1) = \\tfrac12(9.8)(1) = 4.9$ m.", "Diferencia: $19.6 - 4.9 = 14.7 \\approx 15$ m."],
+  "porque_fallan": {"A": "Da lo que cae en el **primer** segundo.", "D": "Da la distancia acumulada en dos segundos, sin restar."},
+  "confirma": "C"},
+
+ "hrw-c02-q048": {"idea": "Misma resta, entre los instantes 3 y 4 segundos.",
+  "pasos": ["$d(4) - d(3) = \\tfrac12(9.8)(16 - 9)$.", "$= \\tfrac12(9.8)(7) = 34.3$ m.", "Fíjate: cada segundo cae más, en la proporción 1:3:5:7."],
+  "porque_fallan": {"B": "Confunde el aumento de velocidad con la distancia.", "C": "Sale de $\\tfrac12(9.8)(6)$, restando mal los cuadrados."},
+  "confirma": "D"},
+
+ "hrw-c02-q049": {"idea": "En cuanto se suelta, lo único que actúa sobre el proyectil es la gravedad. Da igual lo que haga el cohete.",
+  "pasos": ["La aceleración del cohete la producía su motor, que ya no empuja al proyectil.", "Inmediatamente después, el proyectil está en caída libre: $9.8$ m/s² hacia abajo.", "Su **velocidad** sí es la del cohete en ese instante, hacia arriba: por eso sigue subiendo un rato."],
+  "porque_fallan": {"C": "Confunde velocidad con aceleración: sube, pero frenando.", "B": "Ningún objeto libre cerca de la Tierra tiene aceleración nula."},
+  "confirma": "A"},
+
+ "hrw-c02-q050": {"idea": "La piedra hereda la velocidad del globo, que va hacia abajo: los dos términos suman.",
+  "pasos": ["$v = 10 + 9.8(20)$.", "$v = 10 + 196 = 206$ m/s."],
+  "porque_fallan": {"D": "Olvida la velocidad inicial heredada del globo.", "E": "Resta en vez de sumar, como si el globo subiera."},
+  "confirma": "C"},
+
+ "hrw-c02-q051": {"idea": "Parte del reposo: $h = \\tfrac12gt^2$, con el tiempo al cuadrado.",
+  "pasos": ["$h = \\tfrac12(9.80)(12.0)^2 = \\tfrac12(9.80)(144)$.", "$h = 706$ m."],
+  "porque_fallan": {"C": "Olvida elevar el tiempo al cuadrado o pierde un factor.", "B": "Multiplica $g$ por el tiempo sin más: eso da la velocidad final, no la altura."},
+  "confirma": "E"},
+
+ "hrw-c02-q052": {"idea": "Despejar el tiempo de $h = \\tfrac12gt^2$.",
+  "pasos": ["$175 = \\tfrac12(9.8)t^2 \\Rightarrow t^2 = 35.7$.", "$t = 6.0$ s."],
+  "porque_fallan": {"D": "Divide la altura entre $g$ sin la raíz ni el factor un medio.", "A": "Se queda corto por un factor cuatro en el cuadrado."},
+  "confirma": "C"},
+
+ "hrw-c02-q053": {"idea": "Altura máxima: $h = \\dfrac{v_0^2}{2g}$, que sale de anular la velocidad.",
+  "pasos": ["$h = \\dfrac{(19.5)^2}{2(9.8)} = \\dfrac{380}{19.6}$.", "$h = 19.4$ m."],
+  "porque_fallan": {"D": "Olvida el factor 2 del denominador.", "B": "Divide la velocidad entre $g$ sin elevarla al cuadrado."},
+  "confirma": "C"},
+
+ "hrw-c02-q054": {"idea": "Por simetría, la subida dura la mitad del vuelo: 1,0 s. Y en ese segundo la altura sale sola.",
+  "pasos": ["Sube durante 1,0 s y baja durante otro.", "$h = \\tfrac12(9.8)(1.0)^2 = 4.9$ m."],
+  "porque_fallan": {"E": "Usa los 2,0 s completos, como si toda la trayectoria fuera de subida.", "C": "Confunde la altura con el valor de $g$."},
+  "confirma": "A"},
+
+ "hrw-c02-q055": {"idea": "Lanzado hacia abajo: ecuación cuadrática con los dos términos en el mismo sentido.",
+  "pasos": ["$8 = 4t + \\tfrac12(9.8)t^2$, o sea $4.9t^2 + 4t - 8 = 0$.", "$t = \\dfrac{-4 + \\sqrt{16 + 156.8}}{9.8} = \\dfrac{-4 + 13.1}{9.8}$.", "$t = 0.93$ s. La raíz negativa se descarta."],
+  "porque_fallan": {"C": "Sale de olvidar la velocidad inicial: en caída libre pura serían 1,28 s.", "E": "Trata el movimiento como uniforme."},
+  "confirma": "B"},
+
+ "hrw-c02-q056": {"idea": "$v = \\sqrt{2gh}$, que evita tener que calcular el tiempo.",
+  "pasos": ["$v = \\sqrt{2(9.8)(190)} = \\sqrt{3724}$.", "$v = 61$ m/s."],
+  "porque_fallan": {"C": "Olvida la raíz.", "D": "Copia la altura como si fuera una velocidad."},
+  "confirma": "B"},
+
+ "hrw-c02-q057": {"idea": "$h = v_0^2/2g$: la altura es inversamente proporcional a la gravedad.",
+  "pasos": ["Doblar $g$ divide la altura entre dos.", "Con la misma velocidad inicial, en un planeta con el doble de gravedad se sube la mitad."],
+  "porque_fallan": {"C": "Invierte la relación.", "D": "Aplica el cuadrado donde no toca: la dependencia con $g$ es lineal."},
+  "confirma": "A"},
+
+ "hrw-c02-q058": {"idea": "La altura va con el **cuadrado** de la velocidad inicial, así que doblarla la cuadruplica.",
+  "pasos": ["$h \\propto v_0^2$.", "$2^2 = 4$, luego $4 \\times 100 = 400$ m."],
+  "porque_fallan": {"C": "Dobla la altura, tratando la relación como lineal.", "B": "Aplica una raíz de dos."},
+  "confirma": "E"},
+
+ "hrw-c02-q059": {"idea": "Misma dependencia cuadrática: diez veces la velocidad son cien veces la altura.",
+  "pasos": ["$\\left(\\dfrac{100}{10}\\right)^2 = 100$."],
+  "porque_fallan": {"A": "Traslada el cociente de velocidades sin elevarlo al cuadrado."},
+  "confirma": "B"},
+
+ "hrw-c02-q060": {"idea": "En una gráfica velocidad-tiempo, el área es velocidad por tiempo: eso es desplazamiento.",
+  "pasos": ["$\\displaystyle\\int v\\,dt = \\Delta x$.", "La **pendiente**, en cambio, es la aceleración."],
+  "porque_fallan": {"D": "El cambio de velocidad es la pendiente por el tiempo, no el área.", "A": "La aceleración es la pendiente."},
+  "confirma": "E"},
+
+ "hrw-c02-q062": {"idea": "La pendiente de la gráfica posición-tiempo es la velocidad, y con aceleración constante la velocidad crece.",
+  "pasos": ["$v = v_0 + at$ crece linealmente.", "Así que la pendiente de $x(t)$ aumenta: la curva se va empinando. Es una parábola."],
+  "porque_fallan": {"E": "Confunde el valor de la aceleración con la pendiente, que es una velocidad.", "B": "Pendiente constante sería velocidad constante, o sea aceleración nula."},
+  "confirma": "A"},
+
+ "hrw-c02-q063": {"idea": "Recta en la gráfica posición-tiempo significa pendiente constante, o sea velocidad constante.",
+  "pasos": ["Pendiente constante y positiva: se mueve siempre en el mismo sentido y al mismo ritmo.", "Aceleración nula."],
+  "porque_fallan": {"E": "Velocidad creciente daría una curva, no una recta.", "A": "El desplazamiento cambia: por eso la recta tiene pendiente."},
+  "confirma": "D"}
+}

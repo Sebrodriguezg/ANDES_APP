@@ -92,9 +92,20 @@ def construir_parches():
                     continue
                 # El menos tipográfico y el guion se usan indistintamente entre
                 # las dos extracciones: se registran las dos formas.
-                for a, b in ((n_rota, n_buena),
-                             (n_rota.replace("−", "-"), n_buena.replace("−", "-")),
-                             (n_rota.replace("-", "−"), n_buena.replace("-", "−"))):
+                # Variantes de escritura entre las dos extracciones: el menos
+                # tipográfico frente al guion, y el signo de multiplicar frente
+                # al comando LaTeX que produce nuestra lectura por geometría.
+                # Sin esta última, la pregunta del producto vectorial se quedó
+                # con "θ = 90°" en vez de "θ ≠ 90°", que invierte el enunciado.
+                variantes = []
+                for x, y in ((n_rota, n_buena),):
+                    for cambio in (lambda s: s,
+                                   lambda s: s.replace("−", "-"),
+                                   lambda s: s.replace("-", "−"),
+                                   lambda s: s.replace("×", "\\times"),
+                                   lambda s: s.replace("×", "\\times").replace("−", "-")):
+                        variantes.append((cambio(x), cambio(y)))
+                for a, b in variantes:
                     if a == b:
                         continue
                     if a in parches and parches[a] != b:
@@ -121,6 +132,39 @@ DIRECTOS = [
     (re.compile(r"(?<=/)(\s*)_\{0\}"), r"\1ε_{0}"),
     (re.compile(r"(µ_\{0\})(\s*)_\{0\}"), r"\1\2ε_{0}"),
 ]
+
+
+# Reparaciones por tarjeta, para los sitios donde el emparejamiento por ventana
+# no llega porque nuestro marcado de subíndices y superíndices cae justo dentro
+# del hueco. Son pocas y están verificadas una a una contra el PDF.
+POR_TARJETA = {
+    # "θ ≠ 90°". Con el igual, la opción E pasa a ser verdadera y la pregunta
+    # se queda sin respuesta correcta. El grado sale como ^{◦} en nuestra
+    # lectura y como ◦ en la de mutool, y ahí se rompía la coincidencia.
+    "hrw-c03-q037": [
+        ("enunciado", "θ = 90^{◦}", "θ ≠ 90^{◦}"),
+    ],
+    # Las cuatro primeras opciones quedaron idénticas al perderse los signos de
+    # distinto, y por eso el filtro de opciones repetidas descartaba la tarjeta
+    # entera. Con los ≠ repuestos vuelve al corpus.
+    "hrw-c17-q007": [
+        ("A", "f_{s} = f_{a} but λ_{s} = λ_{a}", "f_{s} = f_{a} but λ_{s} ≠ λ_{a}"),
+        ("C", "λ_{s} = λ_{a} but f_{s} = f_{a}", "λ_{s} = λ_{a} but f_{s} ≠ f_{a}"),
+        ("D", "λ_{s} = λ_{a} and f_{s} = f_{a}", "λ_{s} ≠ λ_{a} and f_{s} ≠ f_{a}"),
+    ],
+}
+
+
+def aplicar_por_tarjeta(tarjeta):
+    """Las correcciones declaradas para esa tarjeta, si las hay."""
+    for campo, viejo, nuevo in POR_TARJETA.get(tarjeta["id"], []):
+        if campo == "enunciado":
+            tarjeta["enunciado"] = tarjeta["enunciado"].replace(viejo, nuevo)
+        else:
+            op = tarjeta.get("opciones") or {}
+            if campo in op:
+                op[campo] = op[campo].replace(viejo, nuevo)
+    return tarjeta
 
 
 def compactar(texto):
@@ -184,6 +228,8 @@ def main():
                     t["opciones"][k] = n
                 if len(ejemplos) < args.muestra:
                     ejemplos.append((f"{t['id']} ({k})", v, n))
+        if not args.simular:
+            aplicar_por_tarjeta(t)
         if json.dumps(t, ensure_ascii=False) != antes or args.simular:
             pass
         tocadas += 1 if usados else 0

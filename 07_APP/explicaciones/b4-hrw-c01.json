@@ -1,0 +1,121 @@
+{
+ "hrw-c01-q001": {"idea": "El segundo se define por una transición del cesio-133, que es radiación de microondas, no ninguna de las opciones listadas.",
+  "pasos": ["Un segundo son 9 192 631 770 periodos de la transición hiperfina del cesio.", "La rotación de la Tierra se abandonó porque no es uniforme: se frena."],
+  "porque_fallan": {"A": "La Tierra se frena de forma irregular; por eso hay segundos intercalares.", "D": "Un péndulo depende de la gravedad local, que varía con el sitio."},
+  "confirma": "E"},
+
+ "hrw-c01-q003": {"idea": "El metro se define fijando la velocidad de la luz: es la distancia que recorre en $1/299\\,792\\,458$ de segundo.",
+  "pasos": ["Desde 1983 $c$ es una constante **exacta** por definición.", "Así el metro queda atado al segundo, y solo hay que mantener un patrón de tiempo."],
+  "porque_fallan": {"D": "La barra de París se abandonó en 1960: un objeto físico se deforma y no se puede reproducir.", "C": "El kriptón-86 fue el patrón entre 1960 y 1983, pero ya no."},
+  "confirma": "E"},
+
+ "hrw-c01-q004": {"idea": "Definir la yarda a partir del metro ata el sistema tradicional al patrón internacional, y así una sola definición sirve para los dos.",
+  "pasos": ["Con la yarda definida en metros, cualquier mejora del metro mejora automáticamente la yarda.", "No hace falta mantener dos patrones independientes."],
+  "porque_fallan": {"A": "La precisión no depende de la unidad elegida, sino del patrón.", "B": "Ninguna de las dos es más estable: son la misma cosa con otro número delante."},
+  "confirma": "C"},
+
+ "hrw-c01-q005": {"idea": "Una yarda son 0,914 m: prácticamente un metro.",
+  "pasos": ["1 yarda = 3 pies = 0,914 m.", "El error de tomarla como un metro es menor del 10 %."],
+  "porque_fallan": {"B": "0,1 m es un palmo.", "D": "100 m es la longitud de un campo de fútbol."},
+  "confirma": "C"},
+
+ "hrw-c01-q006": {"idea": "El área es longitud al cuadrado, así que ya está cubierta por la unidad de longitud. Una unidad base sería redundante.",
+  "pasos": ["Las unidades base son independientes entre sí por definición.", "El metro cuadrado es una unidad **derivada**, igual que el newton o el julio."],
+  "porque_fallan": {"E": "El área es importantísima; lo que pasa es que no necesita unidad propia.", "B": "El número de dimensiones del espacio no tiene nada que ver."},
+  "confirma": "D"},
+
+ "hrw-c01-q007": {"idea": "El kilogramo, y es la única unidad base que lleva prefijo.",
+  "pasos": ["Es una rareza histórica del SI.", "El gramo es la milésima parte, pero la base es el kilogramo."],
+  "porque_fallan": {"A": "El gramo es el submúltiplo, no la base.", "B": "La libra no es del SI."},
+  "confirma": "C"},
+
+ "hrw-c01-q010": {"idea": "Multiplicar mantisas y sumar exponentes.",
+  "pasos": ["$5.0 \\times 3.0 = 15$.", "$10^4 \\times 10^6 = 10^{10}$.", "$15\\times10^{10} = 1.5\\times10^{11}$: hay que renormalizar."],
+  "porque_fallan": {"B": "Olvida renormalizar el 15 a 1,5, que sube el exponente en uno."},
+  "confirma": "C"},
+
+ "hrw-c01-q011": {"idea": "Lo mismo con exponente negativo: se suman igual, con su signo.",
+  "pasos": ["$5.0 \\times 3.0 = 15$.", "$10^{4} \\times 10^{-6} = 10^{-2}$.", "$15\\times10^{-2} = 1.5\\times10^{-1}$."],
+  "porque_fallan": {"A": "Resta los exponentes en vez de sumarlos."},
+  "confirma": "B"},
+
+ "hrw-c01-q012": {"idea": "Para **sumar** hay que llevar los dos números al mismo exponente primero. Sumar mantisas sin más es el error clásico.",
+  "pasos": ["$5.0\\times10^5 = 0.50\\times10^6$.", "$0.50\\times10^6 + 3.0\\times10^6 = 3.5\\times10^6$."],
+  "porque_fallan": {"B": "Suma las mantisas dejando el exponente mayor, como si los dos fueran $10^6$.", "A": "Hace lo mismo con el exponente menor."},
+  "confirma": "E"},
+
+ "hrw-c01-q013": {"idea": "Dividir mantisas y **restar** exponentes, con cuidado del doble signo negativo.",
+  "pasos": ["$7.0/2.0 = 3.5$.", "$10^{6}/10^{-6} = 10^{6-(-6)} = 10^{12}$."],
+  "porque_fallan": {"C": "Suma los exponentes en vez de restarlos, y se cancelan.", "A": "Se come el doble signo y resta doce."},
+  "confirma": "E"},
+
+ "hrw-c01-q014": {"idea": "Los ceros a la izquierda solo sitúan la coma y no cuentan; el cero final después de la coma sí.",
+  "pasos": ["En 0,00150 los tres primeros ceros son posicionales.", "Quedan 1, 5 y 0: tres cifras significativas.", "Ese último cero se escribió a propósito, para indicar precisión."],
+  "porque_fallan": {"A": "Descarta el cero final, que sí es significativo.", "E": "Cuenta los ceros iniciales."},
+  "confirma": "B"},
+
+ "hrw-c01-q015": {"idea": "El cero tras la coma decimal es significativo: si no lo fuera, no se escribiría.",
+  "pasos": ["1, 5 y 0: tres cifras.", "Escribir 15,0 en vez de 15 afirma que se conoce la décima."],
+  "porque_fallan": {"B": "Ignora el cero final."},
+  "confirma": "C"},
+
+ "hrw-c01-q016": {"idea": "Al multiplicar, el resultado lleva tantas cifras significativas como el factor que menos tenga.",
+  "pasos": ["$3.2 \\times 2.7 = 8.64$ exacto.", "Los dos factores tienen dos cifras, así que el resultado también: 8,6."],
+  "porque_fallan": {"D": "Da todas las cifras de la calculadora, fingiendo una precisión que los datos no tienen.", "A": "Redondea a una sola cifra: se pasa de conservador."},
+  "confirma": "C"},
+
+ "hrw-c01-q018": {"idea": "Convertir millas a metros y horas a segundos, en el mismo paso.",
+  "pasos": ["$55\\ \\dfrac{\\mathrm{mi}}{\\mathrm{h}} \\times \\dfrac{1609\\ \\mathrm{m}}{1\\ \\mathrm{mi}} \\times \\dfrac{1\\ \\mathrm{h}}{3600\\ \\mathrm{s}}$.", "$= \\dfrac{55 \\times 1609}{3600} = 24.6\\ \\mathrm{m/s}$.", "Regla práctica: dividir las millas por hora entre 2,24 da metros por segundo."],
+  "porque_fallan": {"D": "Convierte a pies por segundo, que es otra unidad.", "C": "Divide entre 1500 en vez de entre 3600."},
+  "confirma": "B"},
+
+ "hrw-c01-q019": {"idea": "Pasar el radio a metros **antes** de elevar al cubo. Ese es todo el riesgo del ejercicio.",
+  "pasos": ["$r = 1.7\\ \\mathrm{cm} = 0.017\\ \\mathrm{m}$.", "$V = \\tfrac43\\pi r^3 = \\tfrac43\\pi(0.017)^3 = \\tfrac43\\pi(4.91\\times10^{-6})$.", "$V = 2.1\\times10^{-5}\\ \\mathrm{m^3}$."],
+  "porque_fallan": {"C": "Es el área de la superficie, no el volumen.", "E": "Se olvida de convertir centímetros a metros: seis órdenes de más."},
+  "confirma": "A"},
+
+ "hrw-c01-q020": {"idea": "Área de la esfera: $4\\pi r^2$, con el radio ya en metros.",
+  "pasos": ["$A = 4\\pi(0.017)^2 = 4\\pi(2.89\\times10^{-4})$.", "$A = 3.6\\times10^{-3}\\ \\mathrm{m^2}$."],
+  "porque_fallan": {"A": "Es el volumen, no el área. Fíjate en las unidades de cada opción: distinguirlas resuelve la pregunta sola."},
+  "confirma": "C"},
+
+ "hrw-c01-q021": {"idea": "Cilindro: área de la base por la altura. Ojo a que el radio va en centímetros y la altura en metros.",
+  "pasos": ["$r = 0.023\\ \\mathrm{m}$, $h = 1.4\\ \\mathrm{m}$.", "$V = \\pi r^2h = \\pi(5.29\\times10^{-4})(1.4)$.", "$V = 2.3\\times10^{-3}\\ \\mathrm{m^3}$."],
+  "porque_fallan": {"C": "Sale de tratar el radio como 2,3 cm sin convertir, o de usar el diámetro.", "A": "Órdenes de magnitud de más."},
+  "confirma": "D"},
+
+ "hrw-c01-q022": {"idea": "Superficie **total** significa las dos tapas más el lateral. Olvidar las tapas es el fallo típico.",
+  "pasos": ["Tapas: $2\\pi r^2 = 2\\pi(0.023)^2 = 3.3\\times10^{-3}\\ \\mathrm{m^2}$.", "Lateral: $2\\pi rh = 2\\pi(0.023)(0.014) = 2.0\\times10^{-3}\\ \\mathrm{m^2}$.", "Total: $5.3\\times10^{-3}\\ \\mathrm{m^2}$."],
+  "porque_fallan": {"A": "Da solo el lateral, sin las tapas.", "C": "Tiene unidades de volumen: se descarta sin calcular nada."},
+  "confirma": "D"},
+
+ "hrw-c01-q023": {"idea": "Al elevar al cubo, el factor de conversión también se eleva al cubo.",
+  "pasos": ["$1\\ \\mathrm{cm} = 10^{-2}\\ \\mathrm{m}$.", "$1\\ \\mathrm{cm^3} = (10^{-2})^3 = 10^{-6}\\ \\mathrm{m^3}$."],
+  "porque_fallan": {"C": "Aplica el factor una sola vez, como si fuera una longitud.", "A": "Lo eleva a la cuarta o mezcla con otra unidad."},
+  "confirma": "B"},
+
+ "hrw-c01-q024": {"idea": "Lo mismo al cuadrado: el factor se eleva a dos.",
+  "pasos": ["$1\\ \\mathrm{cm^2} = (10^{-2})^2 = 10^{-4}\\ \\mathrm{m^2}$."],
+  "porque_fallan": {"A": "Eleva al cubo: eso sería el volumen."},
+  "confirma": "B"},
+
+ "hrw-c01-q025": {"idea": "Convertir la arista a metros y luego elevar al cubo. En ese orden.",
+  "pasos": ["$1.5\\ \\mathrm{ft} = 1.5/3.281 = 0.457\\ \\mathrm{m}$.", "$V = (0.457)^3 = 9.6\\times10^{-2}\\ \\mathrm{m^3}$."],
+  "porque_fallan": {"C": "Multiplica por 3,281 en vez de dividir: convierte al revés.", "A": "Además eleva al cubo el factor equivocado."},
+  "confirma": "B"},
+
+ "hrw-c01-q026": {"idea": "Cada término de una suma tiene que tener las unidades del resultado. De ahí salen las de $a$ y las de $b$.",
+  "pasos": ["$v$ está en m/s, así que $at^2$ tiene que dar m/s.", "$[a] = \\dfrac{\\mathrm{m/s}}{\\mathrm{s^2}} = \\mathrm{m/s^3}$.", "Igual con $bt^3$: $[b] = \\mathrm{m/s^4}$."],
+  "porque_fallan": {"C": "Da las unidades de una aceleración y una sobreaceleración de la **posición**, no de la velocidad: se ha saltado un orden.", "A": "Multiplica por el tiempo en vez de dividir."},
+  "confirma": "D"},
+
+ "hrw-c01-q027": {"idea": "Despejar y dividir dimensiones como si fueran números.",
+  "pasos": ["$B = \\dfrac{A}{C} = \\dfrac{L/M}{L/T}$.", "$= \\dfrac{L}{M}\\cdot\\dfrac{T}{L} = \\dfrac{T}{M}$: la $L$ se cancela."],
+  "porque_fallan": {"C": "Invierte el cociente.", "B": "No cancela la longitud."},
+  "confirma": "A"},
+
+ "hrw-c01-q028": {"idea": "Igualar los exponentes de cada dimensión por separado da un sistema de dos ecuaciones.",
+  "pasos": ["$LT = (L^2T^{-1})^n(LT^2)^m = L^{2n+m}\\,T^{-n+2m}$.", "Longitud: $2n + m = 1$. Tiempo: $-n + 2m = 1$.", "De la primera $m = 1-2n$; sustituyendo: $-n + 2 - 4n = 1 \\Rightarrow n = \\tfrac15$.", "$m = 1 - \\tfrac25 = \\tfrac35$."],
+  "porque_fallan": {"E": "Sale de suponer simetría entre los dos exponentes, que aquí no hay.", "B": "Da enteros, pero el sistema no tiene solución entera."},
+  "confirma": "D"}
+}
