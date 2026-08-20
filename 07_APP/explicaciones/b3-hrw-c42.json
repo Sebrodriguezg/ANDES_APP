@@ -1,0 +1,301 @@
+{
+ "hrw-c42-q001": {"idea": "El átomo es la unidad más pequeña que sigue siendo ese elemento. Partirlo cambia de qué elemento se trata.",
+  "pasos": ["Lo que define al elemento es el número de protones.", "Un protón suelto no es hidrógeno con sus propiedades químicas; un átomo de hidrógeno sí."],
+  "porque_fallan": {"E": "Una molécula ya puede ser un compuesto de varios elementos: es más grande de lo necesario.", "B": "Un protón aislado no tiene electrones ni comportamiento químico."},
+  "confirma": "D"},
+
+ "hrw-c42-q002": {"idea": "El electrón es la más ligera de la lista con diferencia: unas dos mil veces menos que un nucleón.",
+  "pasos": ["$m_ec^2 = 0.511\\ \\mathrm{MeV}$ frente a $938\\ \\mathrm{MeV}$ del protón.", "Iones y átomos contienen nucleones, así que pesan aún más."],
+  "porque_fallan": {"C": "Un ion es un átomo al que le falta o le sobra un electrón: sigue teniendo su núcleo."},
+  "confirma": "B"},
+
+ "hrw-c42-q003": {"idea": "La masa del electrón es 1/1836 de la del protón. Es la comparación que ordena toda la física atómica.",
+  "pasos": ["$m_e = 9.11\\times10^{-31}$ kg, $m_p = 1.67\\times10^{-27}$ kg.", "Por eso casi toda la masa del átomo está en el núcleo."],
+  "porque_fallan": {"D": "La masa en reposo es una propiedad intrínseca: no se anula por estar quieto.", "B": "Ninguna masa es negativa."},
+  "confirma": "E"},
+
+ "hrw-c42-q004": {"idea": "El neutrón pesa un pelín más que el protón, y esa diferencia es la que permite que el neutrón libre se desintegre.",
+  "pasos": ["$m_n = 939.57$ MeV/c² frente a $m_p = 938.27$ MeV/c².", "La diferencia, 1,3 MeV, supera la masa del electrón: por eso $n \\to p + e^- + \\bar\\nu$ es posible."],
+  "porque_fallan": {"B": "Son parecidas pero no iguales, y esa pequeña diferencia decide la estabilidad.", "D": "No es exactamente la suma de protón más electrón: sobra energía, y ahí está la clave."},
+  "confirma": "C"},
+
+ "hrw-c42-q005": {"idea": "Un átomo de hidrógeno es esencialmente un protón: $1.67\\times10^{-27}$ kg.",
+  "pasos": ["El electrón aporta menos de una milésima.", "El orden de magnitud es $10^{-27}$ kg, que coincide con la unidad de masa atómica."],
+  "porque_fallan": {"B": "$10^{-31}$ es la masa del **electrón**, no del átomo."},
+  "confirma": "A"},
+
+ "hrw-c42-q006": {"idea": "La unidad de masa atómica se define como la doceava parte del carbono-12, y sale casi igual a la masa de un nucleón.",
+  "pasos": ["$1\\ \\mathrm{u} = 1.66\\times10^{-27}$ kg.", "En energía, $931.5$ MeV: el número que convierte defectos de masa en energías de ligadura."],
+  "porque_fallan": {"B": "$9.11\\times10^{-31}$ es la masa del electrón.", "A": "Confunde el número correcto con el exponente del electrón."},
+  "confirma": "C"},
+
+ "hrw-c42-q007": {"idea": "El número atómico es el número de protones, y es lo único que define de qué elemento se trata.",
+  "pasos": ["$Z$ = protones. Los neutrones pueden variar: eso son los isótopos.", "En un átomo neutro coincide con el número de electrones, y de ahí la química."],
+  "porque_fallan": {"A": "Eso es aproximadamente el número **másico** $A$.", "D": "Los neutrones son $A - Z$."},
+  "confirma": "B"},
+
+ "hrw-c42-q008": {"idea": "Los isótopos comparten $Z$ y difieren en $A$. Los neutrones son $A - Z$, así que hay que restar antes de afirmar nada.",
+  "pasos": ["Todos los átomos de hierro tienen $Z = 26$ protones.", "Con $A = 54$: neutrones $= 54 - 26 = 28$, no 54.", "Los cuatro isótopos tienen 28, 30, 31 y 32 neutrones."],
+  "porque_fallan": {"B": "Con $A = 56$ salen $56-26 = 30$ neutrones: esa sí es verdadera, y por eso no es la que se busca."},
+  "confirma": "C"},
+
+ "hrw-c42-q009": {"idea": "$A$ cuenta todos los nucleones y $Z$ solo los protones: la resta da los neutrones.",
+  "pasos": ["$N = A - Z$."],
+  "porque_fallan": {"C": "$A - 2Z$ no tiene sentido: contaría los protones dos veces.", "D": "$A$ son todos los nucleones, protones incluidos."},
+  "confirma": "B"},
+
+ "hrw-c42-q010": {"idea": "La química la deciden los electrones, y los isótopos tienen los mismos. Solo se distinguen por la masa.",
+  "pasos": ["Mismo $Z$ significa misma configuración electrónica.", "Se separan por métodos **físicos** —difusión, centrifugado, espectrometría— justo porque la química no los distingue."],
+  "porque_fallan": {"D": "Se separan precisamente por medios físicos: así se enriquece el uranio.", "E": "Tienen masas distintas: es lo único en lo que difieren."},
+  "confirma": "C"},
+
+ "hrw-c42-q011": {"idea": "Si hay cantidades casi iguales de dos isótopos, la masa atómica es su promedio.",
+  "pasos": ["$\\dfrac{79 + A}{2} = 79.942$.", "$A = 2(79.942) - 79 = 80.88 \\approx 81$."],
+  "porque_fallan": {"C": "80 daría una masa promedio de 79,5, por debajo de la medida.", "B": "Sería el caso de un solo isótopo."},
+  "confirma": "D"},
+
+ "hrw-c42-q012": {"idea": "Todos los núcleos tienen prácticamente la misma densidad: el volumen crece proporcionalmente al número de nucleones.",
+  "pasos": ["$R = R_0A^{1/3}$, luego $V \\propto A$.", "Masa $\\propto A$ y volumen $\\propto A$: la densidad no depende de $A$.", "Vale unos $2\\times10^{17}\\ \\mathrm{kg/m^3}$ para todos."],
+  "porque_fallan": {"A": "El valor está dos órdenes por debajo, y además la pregunta busca la propiedad general.", "C": "Es justo lo que **no** ocurre: la densidad es constante."},
+  "confirma": "E"},
+
+ "hrw-c42-q013": {"idea": "Los nucleones se empaquetan como bolas que se tocan: el volumen es proporcional a cuántos hay.",
+  "pasos": ["$R = R_0A^{1/3}$ con $R_0 = 1.2$ fm.", "$V = \\tfrac43\\pi R^3 \\propto A$."],
+  "porque_fallan": {"B": "El número atómico cuenta solo los protones; el volumen lo llenan todos los nucleones.", "D": "Igual con los neutrones."},
+  "confirma": "A"},
+
+ "hrw-c42-q014": {"idea": "Femto es $10^{-15}$, y es la escala natural del núcleo.",
+  "pasos": ["Un núcleo mide unos pocos femtómetros.", "El átomo entero es $10^{-10}$ m: cinco órdenes más grande."],
+  "porque_fallan": {"C": "$10^{-12}$ es el picómetro."},
+  "confirma": "D"},
+
+ "hrw-c42-q015": {"idea": "$R = R_0A^{1/3}$, y con $A = 64$ la raíz cúbica es exacta.",
+  "pasos": ["$64^{1/3} = 4$.", "$R = 1.2 \\times 4 = 4.8\\ \\mathrm{fm}$."],
+  "porque_fallan": {"B": "Usa $A^{2/3}$ o escala mal.", "D": "Está en la escala atómica, no nuclear."},
+  "confirma": "A"},
+
+ "hrw-c42-q016": {"idea": "La fuerza nuclear es de corto alcance y solo llega a los vecinos; la repulsión eléctrica llega a todos.",
+  "pasos": ["Un protón atrae por fuerza fuerte solo a los nucleones que tiene al lado, a un par de femtómetros.", "Y repele eléctricamente a **todos** los demás protones del núcleo.", "Por eso los núcleos grandes necesitan neutrones de sobra para aguantar."],
+  "porque_fallan": {"B": "Repele eléctricamente a todos, sí, pero también atrae a los vecinos por fuerza fuerte.", "A": "El alcance de la fuerza fuerte no llega a todo el núcleo grande."},
+  "confirma": "D"},
+
+ "hrw-c42-q017": {"idea": "A distancias nucleares la fuerza fuerte domina; la gravedad es siempre la más débil con diferencia.",
+  "pasos": ["Gravedad entre dos protones: unos 36 órdenes de magnitud por debajo de la eléctrica.", "A $10^{-16}$ m la nuclear es unas cien veces la eléctrica.", "Creciente: gravitatoria, eléctrica, nuclear."],
+  "porque_fallan": {"D": "Pone la nuclear por debajo de la eléctrica: entonces ningún núcleo se sostendría.", "A": "Pone la gravedad por encima de todo."},
+  "confirma": "C"},
+
+ "hrw-c42-q018": {"idea": "A $10^{-10}$ m —escala atómica— la fuerza fuerte ya no llega: solo queda la repulsión eléctrica.",
+  "pasos": ["El alcance de la nuclear es de unos pocos femtómetros, cien mil veces menos.", "La gravitatoria existe pero es despreciable frente a la eléctrica."],
+  "porque_fallan": {"C": "A esa distancia la nuclear es exactamente cero para efectos prácticos."},
+  "confirma": "B"},
+
+ "hrw-c42-q019": {"idea": "Energía de ligadura es lo que cuesta desmontar el núcleo entero en nucleones separados y en reposo.",
+  "pasos": ["No es arrancar una partícula: es separarlas todas.", "Equivale al defecto de masa por $c^2$."],
+  "porque_fallan": {"A": "Arrancar un solo nucleón es la energía de **separación**, otra magnitud.", "C": "Una partícula beta ni siquiera está en el núcleo antes de la desintegración."},
+  "confirma": "D"},
+
+ "hrw-c42-q020": {"idea": "El núcleo pesa **menos** que sus piezas por separado, y esa diferencia por $c^2$ es la energía de ligadura.",
+  "pasos": ["$\\Delta m = Zm_p + Nm_n - M > 0$: es el defecto de masa.", "$E_B = \\Delta m\\,c^2$, positiva por convenio."],
+  "porque_fallan": {"B": "Tiene el signo cambiado y daría una energía negativa.", "A": "$Mc^2$ es la energía en reposo del núcleo entero, muchísimo mayor."},
+  "confirma": "C"},
+
+ "hrw-c42-q021": {"idea": "Los núcleos estables tienen tantos o **más** neutrones que protones, y los hay ligeros y pesados. Ninguna de las afirmaciones se sostiene.",
+  "pasos": ["Los ligeros cumplen $N \\approx Z$; los pesados necesitan $N > Z$ para diluir la repulsión.", "Nunca $Z > N$ salvo en el hidrógeno y el helio-3.", "Y hay estables en todo el rango de masas, hasta el plomo."],
+  "porque_fallan": {"A": "Es al revés: sobran neutrones, no protones.", "D": "Un emisor beta es por definición inestable."},
+  "confirma": "E"},
+
+ "hrw-c42-q022": {"idea": "En los núcleos ligeros hay tantos protones como neutrones, así que $Z$ es la mitad de $A$.",
+  "pasos": ["$^{12}$C: 6 y 6. $^{16}$O: 8 y 8. $^{4}$He: 2 y 2.", "La repulsión eléctrica aún es manejable y la simetría sale favorable.", "En los pesados la línea se curva y $Z$ cae por debajo de $A/2$."],
+  "porque_fallan": {"B": "$Z = A$ solo valdría para el hidrógeno."},
+  "confirma": "C"},
+
+ "hrw-c42-q023": {"idea": "El máximo de la curva de energía de ligadura por nucleón está en el hierro-56.",
+  "pasos": ["Unos 8,8 MeV por nucleón alrededor de $A \\approx 56$.", "Por debajo libera energía la fusión; por encima, la fisión.", "Por eso el hierro es la ceniza final de las estrellas."],
+  "porque_fallan": {"A": "El helio-4 es notablemente estable para su tamaño, pero se queda en 7,1 MeV.", "E": "El uranio está pasado el máximo: por eso se fisiona."},
+  "confirma": "C"},
+
+ "hrw-c42-q024": {"idea": "Hay que mirar la relación entre neutrones y protones y compararla con la banda de estabilidad.",
+  "pasos": ["$^{115}$Nd con $Z = 60$ tiene $N = 55$: menos neutrones que protones.", "Para $A \\approx 115$ lo estable ronda $Z \\approx 49$, con $N/Z \\approx 1.35$.", "Un núcleo tan rico en protones sería extraordinariamente inestable."],
+  "porque_fallan": {"E": "El uranio-238 es inestable pero su vida media es de miles de millones de años: se detecta sin problema.", "D": "El plomo-208 es doblemente mágico: el núcleo estable más pesado que existe."},
+  "confirma": "B"},
+
+ "hrw-c42-q025": {"idea": "Semivida es el tiempo en que decae la mitad de la muestra, y no depende de cuánta muestra haya.",
+  "pasos": ["Tras una semivida queda el 50 %; tras dos, el 25 %; nunca llega a cero.", "Es una propiedad del isótopo, como su masa."],
+  "porque_fallan": {"A": "«La mitad del tiempo hasta desaparecer» no significa nada: nunca desaparece del todo.", "B": "Las semividas van de microsegundos a miles de millones de años."},
+  "confirma": "E"},
+
+ "hrw-c42-q026": {"idea": "El decaimiento es exponencial, y la constante que aparece en el exponente es $\\lambda = \\ln 2/T$.",
+  "pasos": ["$N = N_0e^{-\\lambda t}$ con $\\lambda T = \\ln 2$.", "$N = N_0e^{-t\\ln2/T}$.", "Comprueba con $t = T$: $e^{-\\ln2} = 1/2$. ✔"],
+  "porque_fallan": {"B": "Con $t = T$ daría $e^{-1} = 0.37$, no la mitad. Le falta el $\\ln 2$.", "C": "El producto $tT$ ni siquiera es adimensional."},
+  "confirma": "A"},
+
+ "hrw-c42-q028": {"idea": "Cada núcleo tiene la misma probabilidad de decaer por segundo, así que el ritmo total es proporcional a cuántos quedan.",
+  "pasos": ["$\\dfrac{dN}{dt} = -\\lambda N$.", "Esa proporcionalidad es lo que genera la exponencial.", "El núcleo no «envejece»: su probabilidad de decaer no depende de cuánto lleve existiendo."],
+  "porque_fallan": {"B": "El tiempo transcurrido no entra: solo importa cuántos quedan ahora.", "D": "La semivida es una constante, no cambia el ritmo instantáneo por sí sola."},
+  "confirma": "A"},
+
+ "hrw-c42-q029": {"idea": "Sale de imponer que a $t = T$ quede la mitad.",
+  "pasos": ["$N_0/2 = N_0e^{-\\lambda T}$.", "$e^{-\\lambda T} = \\tfrac12 \\Rightarrow \\lambda T = \\ln 2 \\approx 0.693$."],
+  "porque_fallan": {"B": "Le falta el $\\ln 2$: es la aproximación tosca.", "E": "$\\ln(1/2)$ es negativo, y ni $\\lambda$ ni $T$ lo son."},
+  "confirma": "D"},
+
+ "hrw-c42-q030": {"idea": "$\\lambda$ es una probabilidad por unidad de tiempo, así que sus unidades son el inverso de un tiempo.",
+  "pasos": ["En $N = N_0e^{-\\lambda t}$ el exponente tiene que ser adimensional.", "Luego $[\\lambda] = 1/[t]$: por segundo, por día, por año."],
+  "porque_fallan": {"C": "Una hora es un tiempo, no su inverso.", "A": "La masa no interviene."},
+  "confirma": "D"},
+
+ "hrw-c42-q031": {"idea": "La semivida es una constante del isótopo: no depende de la cantidad, ni del tiempo, ni de nada externo.",
+  "pasos": ["Sale de $\\lambda$, que es una propiedad del núcleo.", "Ni la presión, ni la temperatura, ni la química la alteran de forma apreciable.", "Por eso sirve para datar rocas y fósiles."],
+  "porque_fallan": {"A": "Si dependiera de cuántos núcleos hay, la datación radiactiva no funcionaría.", "C": "Es constante: ni crece ni decrece con el tiempo."},
+  "confirma": "E"},
+
+ "hrw-c42-q034": {"idea": "Si decae 7/8, queda 1/8, y un octavo son tres semividas.",
+  "pasos": ["$\\dfrac18 = \\left(\\dfrac12\\right)^3$: tres semividas.", "$3T = 15\\ \\mathrm{min} \\Rightarrow T = 5\\ \\mathrm{min}$."],
+  "porque_fallan": {"A": "Confunde el tiempo total con una sola semivida.", "D": "Divide entre cuatro: contaría 7/8 como cuatro semividas."},
+  "confirma": "B"},
+
+ "hrw-c42-q036": {"idea": "Contar semividas y dividir entre dos tantas veces.",
+  "pasos": ["$60/30 = 2$ semividas.", "$100\\% \\to 50\\% \\to 25\\%$."],
+  "porque_fallan": {"C": "Es una sola semivida.", "A": "Nunca llega a cero: el decaimiento es exponencial."},
+  "confirma": "B"},
+
+ "hrw-c42-q037": {"idea": "Cuatro semividas, o sea dividir entre dieciséis.",
+  "pasos": ["$26/6.5 = 4$ semividas.", "$48\\times10^{32}/2^4 = 48\\times10^{32}/16 = 3\\times10^{32}$."],
+  "porque_fallan": {"A": "Dos semividas en vez de cuatro.", "D": "Cambia el orden de magnitud sin motivo."},
+  "confirma": "C"},
+
+ "hrw-c42-q038": {"idea": "Un dieciseisavo son cuatro semividas.",
+  "pasos": ["$\\dfrac{1}{16} = \\left(\\dfrac12\\right)^4$.", "$4T = 14\\ \\mathrm{min} \\Rightarrow T = 3.5 = \\dfrac72\\ \\mathrm{min}$."],
+  "porque_fallan": {"E": "Divide entre tres: sería para 1/8.", "C": "Divide entre ocho."},
+  "confirma": "D"},
+
+ "hrw-c42-q039": {"idea": "El ritmo de decaimiento es proporcional a cuántos quedan, así que se divide entre cuatro en el mismo tiempo que la cantidad.",
+  "pasos": ["$R = \\lambda N$, luego $R$ cae con la misma exponencial que $N$.", "Un cuarto son dos semividas.", "$2 \\times 140 = 280$ días."],
+  "porque_fallan": {"D": "Sale de restar o de contar mal las semividas.", "B": "Trata la caída como si fuera lineal."},
+  "confirma": "E"},
+
+ "hrw-c42-q040": {"idea": "Alfa es un núcleo de helio y beta un electrón o positrón: los dos llevan carga. Gamma es un fotón y no.",
+  "pasos": ["Alfa: carga $+2e$. Beta: $\\mp e$. Gamma: neutro.", "Por eso alfa y beta se desvían en un campo magnético y gamma no."],
+  "porque_fallan": {"A": "Incluye gamma, que es radiación electromagnética sin carga."},
+  "confirma": "E"},
+
+ "hrw-c42-q041": {"idea": "Una partícula alfa es un núcleo de helio-4: dos protones y dos neutrones, sin electrones.",
+  "pasos": ["Carga $+2e$ y masa 4 u.", "Es extraordinariamente estable, y por eso se emite entera en vez de nucleón a nucleón."],
+  "porque_fallan": {"E": "Su carga es siempre positiva.", "C": "Un átomo de hidrógeno tiene un solo protón."},
+  "confirma": "A"},
+
+ "hrw-c42-q042": {"idea": "La alfa se lleva dos protones y dos neutrones: $A$ baja en 4 y $Z$ en 2.",
+  "pasos": ["$^A_ZX \\to\\ ^{A-4}_{Z-2}Y + ^4_2\\mathrm{He}$.", "Comprueba que los números cuadren a los dos lados: es la única regla que hace falta."],
+  "porque_fallan": {"B": "Baja $A$ en 2, pero la alfa se lleva cuatro nucleones.", "D": "No cambia $Z$, y la alfa se lleva dos protones."},
+  "confirma": "E"},
+
+ "hrw-c42-q043": {"idea": "Restar 4 al número másico y 2 al atómico.",
+  "pasos": ["$A: 214 - 4 = 210$.", "$Z: 84 - 2 = 82$, que es el plomo.", "$^{210}$Pb."],
+  "porque_fallan": {"C": "Sube el $Z$ en vez de bajarlo: eso sería una desintegración beta.", "D": "Sube el $A$."},
+  "confirma": "B"},
+
+ "hrw-c42-q044": {"idea": "Emitir una alfa baja el número atómico en dos.",
+  "pasos": ["El enunciado da $Z = 86$.", "$86 - 2 = 84$ protones."],
+  "porque_fallan": {"C": "Es el $Z$ de partida, sin restar.", "D": "Suma en vez de restar."},
+  "confirma": "A"},
+
+ "hrw-c42-q045": {"idea": "La emisión alfa es efecto túnel, y la probabilidad de tunelar depende exponencialmente de la altura y el ancho de la barrera coulombiana.",
+  "pasos": ["La alfa está atrapada tras una barrera de repulsión eléctrica.", "Escapar es tunelar, y la probabilidad cae exponencialmente con la barrera.", "Barreras algo más altas dan vidas medias enormemente más largas: por eso van de microsegundos a miles de millones de años."],
+  "porque_fallan": {"A": "Más energía de la alfa significa barrera relativa **menor** y por tanto vida media más corta, no más larga.", "E": "Emitir además un gamma no cambia el orden de magnitud de la vida media."},
+  "confirma": "C"},
+
+ "hrw-c42-q046": {"idea": "La energía liberada se reparte como energía cinética entre la alfa y el núcleo hijo, y casi toda se la lleva la alfa por ser mucho más ligera.",
+  "pasos": ["Conservación del momento: los dos salen con momentos iguales y opuestos.", "$K = p^2/2m$, así que el ligero se lleva casi toda la energía.", "Con un hijo de $A \\approx 220$, la alfa se queda con un 98 % aproximadamente."],
+  "porque_fallan": {"A": "Los fotones gamma aparecen a veces, pero son un extra: el grueso es cinética.", "E": "El calor es el resultado macroscópico posterior, no la forma inmediata."},
+  "confirma": "B"},
+
+ "hrw-c42-q048": {"idea": "Una partícula beta es un electrón ($\\beta^-$) o un positrón ($\\beta^+$) emitido por el **núcleo**.",
+  "pasos": ["No preexiste en el núcleo: se crea cuando un neutrón se convierte en protón o al revés.", "Por eso su masa es la del electrón, muchísimo menor que la de una alfa."],
+  "porque_fallan": {"A": "Eso es una alfa.", "D": "No cualquier negativa: es concretamente el electrón o su antipartícula."},
+  "confirma": "B"},
+
+ "hrw-c42-q049": {"idea": "Todas las betas son la misma partícula, así que comparten masa. Lo que **no** comparten es la energía.",
+  "pasos": ["La masa del electrón es universal.", "La energía varía de forma continua, porque el neutrino se lleva una parte impredecible.", "Y la carga puede ser negativa o positiva, según sea $\\beta^-$ o $\\beta^+$."],
+  "porque_fallan": {"C": "El espectro de energías es continuo, y ese hecho fue lo que obligó a postular el neutrino.", "D": "Distintas energías significan distintas velocidades."},
+  "confirma": "A"},
+
+ "hrw-c42-q050": {"idea": "En $\\beta^-$ un neutrón se convierte en protón: $Z$ sube en uno y $A$ no cambia.",
+  "pasos": ["$n \\to p + e^- + \\bar\\nu$.", "$A$ se conserva porque el número de nucleones no cambia.", "El elemento sí cambia: se desplaza un puesto a la derecha en la tabla."],
+  "porque_fallan": {"C": "El número másico se mantiene: el electrón no cuenta como nucleón.", "E": "Cambiar $Z$ es cambiar de elemento."},
+  "confirma": "B"},
+
+ "hrw-c42-q052": {"idea": "En $\\beta^+$ ocurre lo contrario: un protón pasa a neutrón, así que $Z$ **baja** en uno y $A$ se mantiene.",
+  "pasos": ["$p \\to n + e^+ + \\nu$.", "$A$ constante, $Z \\to Z-1$."],
+  "porque_fallan": {"D": "Sube el $Z$: eso es $\\beta^-$.", "A": "Baja el $A$, que no cambia en ninguna beta."},
+  "confirma": "E"},
+
+ "hrw-c42-q053": {"idea": "Siempre hay un neutrino o antineutrino. Se postuló precisamente para salvar la conservación de la energía.",
+  "pasos": ["$\\beta^-$ emite un antineutrino; $\\beta^+$, un neutrino.", "Sin él, la energía y el momento angular no cuadrarían."],
+  "porque_fallan": {"E": "Sin una tercera partícula el espectro de energías sería una línea, no continuo."},
+  "confirma": "B"},
+
+ "hrw-c42-q054": {"idea": "El espectro continuo es la huella del neutrino: la energía se reparte entre tres cuerpos de infinitas maneras.",
+  "pasos": ["Con solo dos productos, la cinemática fijaría una energía única para el electrón.", "Con tres, el reparto es continuo entre cero y el máximo disponible.", "Pauli propuso el neutrino en 1930 justo por esto, y se detectó en 1956."],
+  "porque_fallan": {"D": "La energía sí se conserva: eso es lo que el neutrino viene a salvar. Bohr llegó a dudarlo y se equivocó.", "A": "El neutrón de partida está en un estado nuclear bien definido."},
+  "confirma": "B"},
+
+ "hrw-c42-q055": {"idea": "$\\beta^-$ sube el número atómico en uno y deja el másico igual.",
+  "pasos": ["$Z: 81 \\to 82$, que es el plomo.", "$A$ sigue siendo 204.", "$^{204}$Pb."],
+  "porque_fallan": {"B": "Baja el $Z$ y además cambia el $A$.", "A": "Cambiar $Z$ significa que ya no es talio."},
+  "confirma": "C"},
+
+ "hrw-c42-q056": {"idea": "Cuadrar los dos números por separado: las alfas ajustan el másico y las betas corrigen el atómico.",
+  "pasos": ["Siete alfas bajan $A$ en 28: $235 - 28 = 207$. ✔ Cuadra con el plomo-207.", "Esas siete alfas bajan $Z$ en 14: $92 - 14 = 78$.", "Pero hace falta llegar a 82, así que sobran 4 unidades de carga.", "Cada $\\beta^-$ sube $Z$ en uno sin tocar $A$: hacen falta **4**."],
+  "porque_fallan": {"E": "Siete sería copiar el número de alfas.", "A": "Se queda corto: dejaría el $Z$ en 81."},
+  "confirma": "B"},
+
+ "hrw-c42-q059": {"idea": "Conservar $A$ y $Z$ a los dos lados de la reacción.",
+  "pasos": ["$A: 24 + 2 = 26$, y la alfa se lleva 4, luego el hijo tiene $22$.", "$Z: 12 + 1 = 13$, menos 2 de la alfa, queda $11$.", "$^{22}$Na con $Z = 11$."],
+  "porque_fallan": {"A": "Tiene $A = 23$: no cuadra el número másico.", "B": "$Z = 10$ no cuadra la carga."},
+  "confirma": "E"},
+
+ "hrw-c42-q060": {"idea": "Restar para saber qué falta: un nucleón con carga es un protón.",
+  "pasos": ["$A: 27 + 4 - 30 = 1$.", "$Z: 13 + 2 - 14 = 1$.", "Un nucleón con carga $+1$: un protón."],
+  "porque_fallan": {"E": "Un neutrón cuadraría el $A$ pero dejaría la carga desbalanceada.", "B": "Un positrón tiene $A = 0$."},
+  "confirma": "D"},
+
+ "hrw-c42-q061": {"idea": "El número másico no cambia y el atómico sube en uno: eso es $\\beta^-$, o sea un electrón.",
+  "pasos": ["$A: 66 \\to 66$, sin cambio.", "$Z: 29 \\to 30$, sube uno.", "Un neutrón se convirtió en protón emitiendo un electrón."],
+  "porque_fallan": {"C": "Un positrón **bajaría** el $Z$ a 28.", "B": "Un gamma no cambia ni $A$ ni $Z$."},
+  "confirma": "D"},
+
+ "hrw-c42-q062": {"idea": "Balance de nucleones y de carga: falta una partícula con $A=1$ y $Z=1$.",
+  "pasos": ["$A: 32 + 1 - 32 = 1$.", "$Z: 16 + 0 - 15 = 1$.", "Es un protón. La reacción es $(n,p)$."],
+  "porque_fallan": {"A": "Una alfa se llevaría 4 nucleones y 2 cargas.", "E": "Un electrón tiene $A = 0$."},
+  "confirma": "B"},
+
+ "hrw-c42-q063": {"idea": "Trabajar hacia atrás desde los productos, sumando $A$ y $Z$ de todo lo que sale.",
+  "pasos": ["Productos: un $\\beta^-$ ($A=0$, $Z=-1$) y dos alfas ($A=8$, $Z=4$).", "$A$ total de salida: $0 + 8 = 8$. Entró un neutrón con $A=1$, luego el original tenía $A = 7$.", "$Z$ total de salida: $-1 + 4 = 3$. El neutrón no aporta carga, luego el original tenía $Z = 3$.", "Era litio-7."],
+  "porque_fallan": {"C": "Acierta el $A$ y falla la carga: olvida que el beta se lleva una unidad negativa.", "E": "No descuenta el neutrón absorbido."},
+  "confirma": "D"},
+
+ "hrw-c42-q064": {"idea": "Restar de nuevo. Cuatro nucleones y dos cargas es una alfa.",
+  "pasos": ["$A: 23 + 1 - 20 = 4$.", "$Z: 11 + 1 - 10 = 2$.", "Es una partícula alfa."],
+  "porque_fallan": {"A": "Un neutrón dejaría tres nucleones sin colocar.", "C": "Un deuterón tiene $A=2$, $Z=1$."},
+  "confirma": "B"},
+
+ "hrw-c42-q065": {"idea": "Comprobar cuál de las opciones cuadra los dos balances a la vez.",
+  "pasos": ["Entrada: $A = 28+4 = 32$, $Z = 14+2 = 16$.", "Opción A: protón ($1,1$) más $^{31}$P ($31, 15$): suma $32$ y $16$. ✔", "Es la reacción $(\\alpha, p)$ clásica."],
+  "porque_fallan": {"B": "$^{32}$S con $Z=16$ más hidrógeno se pasaría de carga.", "C": "Un deuterón más $^{27}$Al da $A = 29$, no 32."},
+  "confirma": "A"},
+
+ "hrw-c42-q066": {"idea": "El becquerel mide **actividad**: desintegraciones por segundo. No dice nada de energía ni de daño.",
+  "pasos": ["1 Bq = 1 desintegración por segundo.", "Es una propiedad de la fuente, no de lo que recibe nadie."],
+  "porque_fallan": {"C": "La energía absorbida por kilogramo es el gray.", "D": "El efecto biológico es el sievert."},
+  "confirma": "A"},
+
+ "hrw-c42-q067": {"idea": "El gray es dosis **absorbida**: energía por unidad de masa del blanco.",
+  "pasos": ["1 Gy = 1 J/kg.", "Mide cuánta energía deposita la radiación, sin distinguir de qué tipo es."],
+  "porque_fallan": {"D": "El daño biológico depende además del tipo de radiación: eso lo pondera el sievert.", "A": "La actividad de la fuente es el becquerel."},
+  "confirma": "C"},
+
+ "hrw-c42-q068": {"idea": "El sievert es la dosis **equivalente**: el gray ponderado por lo dañino que es cada tipo de radiación.",
+  "pasos": ["$\\mathrm{Sv} = \\mathrm{Gy} \\times$ factor de calidad.", "Para gamma y beta el factor es 1; para alfa, unas 20 veces más.", "Un gray de alfas hace mucho más daño que un gray de gammas."],
+  "porque_fallan": {"C": "La energía a secas es el gray, sin ponderar.", "A": "La actividad es el becquerel."},
+  "confirma": "D"}
+}

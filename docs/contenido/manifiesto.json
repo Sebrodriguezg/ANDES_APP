@@ -1,11 +1,11 @@
 {
- "generado": "2026-08-19",
+ "generado": "2026-08-20",
  "cifrado": {
   "algoritmo": "AES-GCM-256",
   "kdf": "PBKDF2-SHA256",
   "iteraciones": 210000,
-  "sal": "Y/PG5MJKxQfUyXOrQ5FrYw==",
-  "canario": "kEjR0tIbw3gmzsWFgaQw3xKboKFkwH57zvXdsk6+ZSteXB8O"
+  "sal": "z1fY4xKPiq7IYrptt3DsvQ==",
+  "canario": "IvsNFnGNDrkrq62nILKZzc4D3UAurovMwoDlRX+TQJ8KMlFV"
  },
  "hoja": {
   "archivo": "hoja.bin",
