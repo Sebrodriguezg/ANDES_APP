@@ -1,0 +1,261 @@
+{
+ "hrw-c38-q001": {"idea": "$h$ tiene unidades de energía por tiempo, que es exactamente momento angular.",
+  "pasos": ["$E = hf$, luego $h = E/f$: julios por hercio, o sea J·s.", "El momento angular también es J·s: $L = I\\omega$ o $rp$.", "Por eso $\\hbar$ es la unidad natural del espín."],
+  "porque_fallan": {"C": "El momento lineal es kg·m/s, sin el segundo.", "E": "La frecuencia es el inverso de un tiempo."},
+  "confirma": "D"},
+
+ "hrw-c38-q002": {"idea": "La hache barrada es la de Planck dividida entre $2\\pi$, y aparece cuando se usa frecuencia angular en vez de frecuencia.",
+  "pasos": ["$\\hbar = h/2\\pi$.", "$E = hf = \\hbar\\omega$, porque $\\omega = 2\\pi f$."],
+  "porque_fallan": {"A": "Multiplica en vez de dividir."},
+  "confirma": "D"},
+
+ "hrw-c38-q003": {"idea": "La cuantización existe también en un péndulo, pero los escalones son tan minúsculos que la energía parece continua.",
+  "pasos": ["Con $f \\sim 1$ Hz, el escalón es $hf \\sim 6\\times10^{-34}$ J.", "La energía de un péndulo real es de julios: el número cuántico ronda $10^{33}$.", "Los niveles están tan juntos que no se distinguen."],
+  "porque_fallan": {"E": "$h$ es una constante universal: no tiene un valor distinto para cada sistema.", "C": "Es justo al revés: si estuvieran muy separados, la cuantización saltaría a la vista."},
+  "confirma": "B"},
+
+ "hrw-c38-q004": {"idea": "$E = hf$: la energía del fotón es proporcional a la frecuencia.",
+  "pasos": ["$\\dfrac{E_A}{E_B} = \\dfrac{f_A}{f_B} = 2$."],
+  "porque_fallan": {"E": "Elevaría al cuadrado, que sería la intensidad de una onda clásica, no la energía de un fotón."},
+  "confirma": "D"},
+
+ "hrw-c38-q005": {"idea": "$E = hc/\\lambda$: la energía es inversamente proporcional a la longitud de onda.",
+  "pasos": ["Si $\\lambda_A = 2\\lambda_B$, entonces $E_A = E_B/2$.", "Más larga la onda, menos energía por fotón: por eso las ondas de radio son inofensivas y los rayos X no."],
+  "porque_fallan": {"D": "Invierte la relación.", "B": "Aplica un cuadrado que no está en la fórmula."},
+  "confirma": "A"},
+
+ "hrw-c38-q006": {"idea": "Para un fotón, $p = E/c$: momento y energía son proporcionales.",
+  "pasos": ["$E = pc$ porque el fotón no tiene masa.", "$\\dfrac{p_A}{p_B} = \\dfrac{E_A}{E_B} = 2$."],
+  "porque_fallan": {"C": "Si la energía cambia, el momento también: están atados por la velocidad de la luz."},
+  "confirma": "D"},
+
+ "hrw-c38-q007": {"idea": "Más frecuencia, más energía por fotón. Los rayos X están muy por encima del visible.",
+  "pasos": ["Orden creciente de frecuencia: radio, microondas, infrarrojo, visible, ultravioleta, rayos X.", "Dentro del visible, el azul supera al amarillo, pero los dos quedan muy por debajo de los rayos X."],
+  "porque_fallan": {"A": "El azul es el más energético del visible, pero el visible entero está por debajo de los rayos X."},
+  "confirma": "C"},
+
+ "hrw-c38-q008": {"idea": "Como $p = E/c$, el de mayor energía es también el de mayor momento. Misma respuesta que la anterior.",
+  "pasos": ["Momento y energía del fotón son proporcionales.", "Los rayos X ganan en las dos cosas."],
+  "porque_fallan": {"D": "Las ondas de radio tienen la longitud de onda más larga y por tanto el momento más pequeño."},
+  "confirma": "C"},
+
+ "hrw-c38-q009": {"idea": "Ordenar por frecuencia creciente, que es lo mismo que por energía.",
+  "pasos": ["Radio es la de menor frecuencia con diferencia.", "Luego el amarillo, después el azul —dentro del visible, más energía cuanto más hacia el violeta—.", "Los rayos X, los últimos: 4, 2, 1, 3."],
+  "porque_fallan": {"C": "Pone el azul antes que el amarillo: va al revés, el azul tiene más energía.", "A": "Ordena por el número de la lista, sin pensar."},
+  "confirma": "B"},
+
+ "hrw-c38-q010": {"idea": "Flujo de fotones es intensidad dividida entre la energía de cada fotón. Con $hc = 1240$ eV·nm sale rápido.",
+  "pasos": ["$E_{fot} = \\dfrac{1240}{500} = 2.48\\ \\mathrm{eV} = 4.0\\times10^{-19}\\ \\mathrm{J}$.", "$\\Phi = \\dfrac{2000}{4.0\\times10^{-19}} = 5\\times10^{21}\\ \\mathrm{m^{-2}s^{-1}}$."],
+  "porque_fallan": {"A": "Cuatro órdenes de magnitud por debajo, quizá por usar eV sin convertir a julios."},
+  "confirma": "C"},
+
+ "hrw-c38-q011": {"idea": "La intensidad es la densidad de energía por la velocidad: concentración de fotones, por la energía de cada uno, por $c$.",
+  "pasos": ["$E_{fot} = 4.0\\times10^{-19}\\ \\mathrm{J}$ para 500 nm.", "$I = n\\,E_{fot}\\,c = (1.7\\times10^{13})(4.0\\times10^{-19})(3\\times10^{8})$.", "$I \\approx 2.0\\times10^{3}\\ \\mathrm{W/m^2}$."],
+  "porque_fallan": {"A": "Olvida multiplicar por $c$: la densidad de energía no es la intensidad."},
+  "confirma": "C"},
+
+ "hrw-c38-q012": {"idea": "A igual intensidad, si cada fotón lleva menos energía tiene que haber más fotones.",
+  "pasos": ["$I = \\Phi\\,E_{fot}$ con $I$ fija.", "$\\lambda_A > \\lambda_B$ implica $E_A < E_B$, luego $\\Phi_A > \\Phi_B$."],
+  "porque_fallan": {"B": "Confunde energía por fotón con energía total. La total es la misma en los dos haces.", "C": "Si el flujo fuera igual, las intensidades no lo serían."},
+  "confirma": "A"},
+
+ "hrw-c38-q013": {"idea": "El potencial de frenado es el voltaje que hace falta para detener incluso al electrón más rápido.",
+  "pasos": ["Se aplica un potencial inverso hasta que la corriente se anula.", "En ese punto $eV_0 = K_{max}$."],
+  "porque_fallan": {"B": "Es la energía cinética, no el potencial: se parecen numéricamente en electronvoltios pero no son lo mismo.", "A": "Eso es la función de trabajo."},
+  "confirma": "E"},
+
+ "hrw-c38-q014": {"idea": "$eV_0 = K_{max}$: el potencial de frenado mide la energía del electrón **después** de salir, no antes.",
+  "pasos": ["$K_{max} = hf - \\phi$ es lo que le queda al electrón tras pagar la función de trabajo.", "El potencial de frenado es proporcional justo a eso."],
+  "porque_fallan": {"C": "La energía antes de ser eyectado incluye lo que se gasta en escapar del metal.", "B": "Los menos energéticos son los que se frenan primero: no fijan el corte."},
+  "confirma": "D"},
+
+ "hrw-c38-q015": {"idea": "Cada fotón puede arrancar como mucho un electrón, así que el número de electrones sigue al número de fotones.",
+  "pasos": ["Más intensidad significa más fotones por segundo.", "Más fotones, más electrones — pero cada uno con la misma energía máxima.", "Ese desacoplo entre número y energía es el corazón del efecto fotoeléctrico."],
+  "porque_fallan": {"D": "La frecuencia fija la **energía** de cada electrón, no cuántos salen."},
+  "confirma": "E"},
+
+ "hrw-c38-q016": {"idea": "$A$ es la función de trabajo: la energía **mínima** para arrancar un electrón del material.",
+  "pasos": ["Umbral: $hf_0 = \\phi$, luego $f_0 = \\phi/h$.", "Por debajo de esa frecuencia ningún fotón tiene energía suficiente, por muchos que haya."],
+  "porque_fallan": {"E": "La intensidad no interviene en el umbral: ahí es donde falla la predicción clásica.", "C": "Sería el máximo, no el mínimo: el umbral lo fija el electrón más fácil de arrancar."},
+  "confirma": "D"},
+
+ "hrw-c38-q018": {"idea": "Energía del fotón menos función de trabajo, y el resto es la energía cinética que mide el potencial de frenado.",
+  "pasos": ["$E = hf = (4.14\\times10^{-15})(7.0\\times10^{14}) = 2.90\\ \\mathrm{eV}$.", "$K_{max} = 2.90 - 2.3 = 0.60\\ \\mathrm{eV}$.", "$V_0 = 0.60\\ \\mathrm{V}$."],
+  "porque_fallan": {"C": "Da la función de trabajo en vez de lo que sobra.", "D": "Da la energía del fotón sin restar nada."},
+  "confirma": "B"},
+
+ "hrw-c38-q019": {"idea": "La misma cuenta al revés: el potencial de frenado da la cinética, y restándola de la energía del fotón sale la función de trabajo.",
+  "pasos": ["$K_{max} = eV_0 = 1.8\\ \\mathrm{eV}$.", "$E = hf = (4.14\\times10^{-15})(6.8\\times10^{14}) = 2.8\\ \\mathrm{eV}$.", "$\\phi = 2.8 - 1.8 = 1.0\\ \\mathrm{eV}$."],
+  "porque_fallan": {"D": "Intercambia la cinética con la energía del fotón.", "A": "Suma en vez de restar."},
+  "confirma": "B"},
+
+ "hrw-c38-q020": {"idea": "El desplazamiento Compton depende **solo del ángulo**, no de la longitud de onda incidente. Lo que cambia es si se nota o no.",
+  "pasos": ["$\\Delta\\lambda = \\dfrac{h}{m_ec}(1-\\cos\\theta)$: en la fórmula no aparece $\\lambda$.", "El desplazamiento absoluto es idéntico para luz visible y rayos X.", "Lo que difiere es el desplazamiento **relativo**: unos picómetros sobre 500 nm es indetectable, sobre 10 pm es enorme."],
+  "porque_fallan": {"A": "Confunde desplazamiento absoluto con relativo. En absoluto son iguales.", "E": "Igual, en el otro sentido."},
+  "confirma": "B"},
+
+ "hrw-c38-q021": {"idea": "El desplazamiento máximo es $2h/mc$: cuanto más masiva la partícula, menor el efecto.",
+  "pasos": ["$\\Delta\\lambda_{max} = \\dfrac{2h}{mc}$.", "Con protones en vez de electrones, el efecto es 1836 veces menor.", "Por eso el Compton se observa con electrones."],
+  "porque_fallan": {"A": "La frecuencia incidente no entra en la fórmula del desplazamiento.", "E": "La carga tampoco aparece."},
+  "confirma": "C"},
+
+ "hrw-c38-q022": {"idea": "El desplazamiento es fijo en valor absoluto, así que se nota cuando la longitud de onda de partida es comparable a él: picómetros, o sea rayos X.",
+  "pasos": ["$\\Delta\\lambda \\sim 2.4\\ \\mathrm{pm}$ siempre.", "En luz visible, $\\lambda \\sim 500\\,000$ pm: el cambio relativo es de una parte en doscientas mil.", "En rayos X, $\\lambda \\sim 10$ pm: el cambio es de un 24 %."],
+  "porque_fallan": {"C": "El desplazamiento existe pero es indetectable frente a la longitud de onda visible."},
+  "confirma": "E"},
+
+ "hrw-c38-q023": {"idea": "El factor $(1-\\cos\\theta)$ es máximo cuando el coseno vale $-1$, o sea en retrodispersión.",
+  "pasos": ["$\\Delta\\lambda = \\lambda_C(1-\\cos\\theta)$.", "A $180°$: $1-(-1) = 2$, el valor máximo.", "A $0°$ el fotón no se desvía y no pierde nada."],
+  "porque_fallan": {"D": "A $90°$ el desplazamiento es $\\lambda_C$, la mitad del máximo.", "A": "A cero grados no hay desplazamiento en absoluto."},
+  "confirma": "E"},
+
+ "hrw-c38-q024": {"idea": "La frecuencia emergente depende de todo lo listado, así que no es independiente de nada de eso.",
+  "pasos": ["Depende de la frecuencia incidente y del ángulo, por la fórmula de Compton.", "Y está ligada a la energía de retroceso del electrón, porque la energía se conserva.", "Ninguna de las opciones es correcta."],
+  "porque_fallan": {"C": "El ángulo es justo el parámetro que gobierna el desplazamiento."},
+  "confirma": "E"},
+
+ "hrw-c38-q026": {"idea": "Despejar el ángulo de la fórmula de Compton a partir del desplazamiento medido.",
+  "pasos": ["$\\Delta\\lambda = 6.57 - 5.7 = 0.87\\ \\mathrm{pm}$.", "$1-\\cos\\theta = \\dfrac{0.87}{2.43} = 0.358$.", "$\\cos\\theta = 0.642 \\Rightarrow \\theta \\approx 50°$."],
+  "porque_fallan": {"B": "Es el suplementario: sale de un signo cambiado en el coseno.", "A": "Un ángulo tan pequeño daría un desplazamiento casi nulo."},
+  "confirma": "D"},
+
+ "hrw-c38-q027": {"idea": "El electrón se lleva lo que el fotón pierde. Primero el desplazamiento, luego la diferencia de energías.",
+  "pasos": ["$\\Delta\\lambda = 2.43(1-\\cos 50°) = 0.87\\ \\mathrm{pm}$, luego $\\lambda' = 4.37\\ \\mathrm{pm}$.", "$E = hc/\\lambda = 5.68\\times10^{-14}\\ \\mathrm{J}$ y $E' = 4.55\\times10^{-14}\\ \\mathrm{J}$.", "$K_e = E - E' = 1.1\\times10^{-14}\\ \\mathrm{J}$."],
+  "porque_fallan": {"A": "El electrón siempre retrocede si el fotón se desvía: la única excepción es $\\theta = 0$.", "E": "Da la energía del fotón entero, no lo que cede."},
+  "confirma": "B"},
+
+ "hrw-c38-q028": {"idea": "El momento del fotón dispersado sale directo de su longitud de onda: $p = h/\\lambda'$.",
+  "pasos": ["$\\lambda' = 4.37\\times10^{-12}\\ \\mathrm{m}$, del apartado anterior.", "$p = \\dfrac{6.63\\times10^{-34}}{4.37\\times10^{-12}} = 1.5\\times10^{-22}\\ \\mathrm{kg\\cdot m/s}$."],
+  "porque_fallan": {"C": "Usa la longitud de onda incidente en vez de la dispersada.", "A": "El fotón no desaparece: sigue existiendo con menos energía."},
+  "confirma": "B"},
+
+ "hrw-c38-q029": {"idea": "Dos prohibiciones simétricas: el fotoeléctrico no puede dar más de $hf$, y el Compton no puede acortar la longitud de onda.",
+  "pasos": ["$K_{max} = hf - \\phi < hf$: el proceso 1 es imposible y el 2 es lo normal.", "$\\Delta\\lambda = \\lambda_C(1-\\cos\\theta) \\geq 0$ siempre: el fotón cede energía, nunca la gana.", "Así que el 3 es posible y el 4 no. Quedan 2 y 3."],
+  "porque_fallan": {"C": "Incluye el 1, que exigiría que el electrón saliera con más energía de la que trajo el fotón.", "E": "Incluye el 4, que exigiría que el electrón en reposo le diera energía al fotón."},
+  "confirma": "D"},
+
+ "hrw-c38-q030": {"idea": "Medir una relación carga/masa presupone que el electrón es una partícula con carga y masa definidas.",
+  "pasos": ["Thomson desvió haces con campos eléctricos y magnéticos y midió $e/m$.", "Ese experimento trata al electrón como corpúsculo, no como onda."],
+  "porque_fallan": {"A": "La naturaleza ondulatoria de la materia la mostró Davisson-Germer, treinta años después.", "D": "La naturaleza corpuscular de la radiación la muestran el fotoeléctrico y el Compton."},
+  "confirma": "B"},
+
+ "hrw-c38-q031": {"idea": "Difractar es cosa de ondas. Si los electrones difractan, los electrones son ondas.",
+  "pasos": ["Davisson y Germer vieron picos de difracción al reflejar electrones en un cristal de níquel.", "Las posiciones coincidían con $\\lambda = h/p$, la predicción de De Broglie."],
+  "porque_fallan": {"C": "La doble rendija de Young es con luz: muestra la naturaleza ondulatoria de la **radiación**.", "D": "El Compton muestra lo contrario: que la radiación se comporta como partícula."},
+  "confirma": "A"},
+
+ "hrw-c38-q032": {"idea": "El fotoeléctrico va en el otro sentido: muestra que la **luz** es corpuscular, no que la materia sea ondulatoria.",
+  "pasos": ["Difracción, interferencia y efecto túnel de electrones sí son fenómenos ondulatorios de la materia.", "El principio de incertidumbre también sale de tratar la partícula como paquete de ondas.", "El fotoeléctrico es la excepción de la lista."],
+  "porque_fallan": {"C": "El efecto túnel solo se explica si la función de onda penetra la barrera: es ondulatorio puro."},
+  "confirma": "A"},
+
+ "hrw-c38-q033": {"idea": "La mejor evidencia es ver a los electrones hacer lo que solo hacen las ondas: difractar en un cristal.",
+  "pasos": ["Los planos atómicos actúan como una red de difracción de espaciado atómico.", "Los máximos aparecen donde predice Bragg con $\\lambda = h/p$."],
+  "porque_fallan": {"D": "La relación entre momento y longitud de onda es la hipótesis, no la evidencia: hay que comprobarla.", "A": "El fotoeléctrico habla de la luz."},
+  "confirma": "E"},
+
+ "hrw-c38-q034": {"idea": "Más energía es más momento, más momento es menos longitud de onda, y menos longitud de onda es menos difracción.",
+  "pasos": ["$\\lambda = h/p$ y $p = \\sqrt{2mK}$: subir $K$ acorta $\\lambda$.", "El ancho angular del máximo central va como $\\lambda/a$.", "Con $\\lambda$ menor, el patrón se estrecha."],
+  "porque_fallan": {"A": "Es la relación al revés.", "C": "El patrón depende de la longitud de onda, que sí cambia."},
+  "confirma": "B"},
+
+ "hrw-c38-q035": {"idea": "Misma energía cinética: la longitud de onda va con $1/\\sqrt{m}$, pero la frecuencia va con la energía y por tanto coincide.",
+  "pasos": ["$\\lambda = \\dfrac{h}{\\sqrt{2mK}}$: el electrón, más ligero, tiene $\\lambda$ mayor.", "$f = K/h$: misma $K$, misma frecuencia."],
+  "porque_fallan": {"A": "Invierte la longitud de onda y además cambia la frecuencia.", "B": "Acierta la longitud de onda y falla la frecuencia."},
+  "confirma": "D"},
+
+ "hrw-c38-q036": {"idea": "Mismo momento fija la longitud de onda, pero no la energía: con la misma $p$, el más ligero tiene más energía cinética.",
+  "pasos": ["$\\lambda = h/p$: mismo momento, misma longitud de onda.", "$K = \\dfrac{p^2}{2m}$: el electrón, más ligero, tiene mucha más energía.", "$f = K/h$, luego el electrón tiene mayor frecuencia."],
+  "porque_fallan": {"C": "Acierta la longitud de onda pero iguala las frecuencias: la masa rompe esa igualdad.", "A": "Cambia la longitud de onda, que aquí es lo único que está fijado."},
+  "confirma": "D"},
+
+ "hrw-c38-q037": {"idea": "Misma velocidad: el electrón tiene menos momento **y** menos energía, así que pierde en las dos comparaciones.",
+  "pasos": ["$p = mv$: el electrón tiene menos momento, luego $\\lambda = h/p$ es mayor.", "$K = \\tfrac12 mv^2$: el electrón tiene menos energía, luego $f = K/h$ es menor."],
+  "porque_fallan": {"B": "Acierta la longitud de onda y falla la frecuencia.", "D": "Iguala las longitudes de onda, que solo pasa si coinciden los momentos."},
+  "confirma": "E"},
+
+ "hrw-c38-q038": {"idea": "$\\lambda = h/mv$: el más ligero y lento tiene la onda más larga.",
+  "pasos": ["Electrón a $v_0$: momento pequeñísimo, $\\lambda$ enorme.", "Protón a $v_0$: momento 1836 veces mayor.", "Protón a $2v_0$: el doble aún. De menor a mayor longitud de onda: 3, 2, 1."],
+  "porque_fallan": {"A": "Lo pone al revés.", "E": "Empata a los dos protones, pero uno va al doble de velocidad."},
+  "confirma": "B"},
+
+ "hrw-c38-q039": {"idea": "$\\lambda = h/\\sqrt{2mK}$: gana en longitud de onda el más ligero, y entre iguales el de menos energía.",
+  "pasos": ["Electrón con $K_0$: masa mínima, $\\lambda$ máxima.", "Protón con $K_0$: mucho más momento.", "Protón con $2K_0$: aún más. Orden creciente: 3, 2, 1."],
+  "porque_fallan": {"A": "Invierte el orden.", "C": "Coloca el electrón en medio, cuando es el que tiene la onda más larga con diferencia."},
+  "confirma": "B"},
+
+ "hrw-c38-q040": {"idea": "De Broglie directo.",
+  "pasos": ["$\\lambda = \\dfrac{h}{p} = \\dfrac{6.63\\times10^{-34}}{5.0\\times10^{-24}}$.", "$\\lambda = 1.3\\times10^{-10}\\ \\mathrm{m}$, del orden de un átomo."],
+  "porque_fallan": {"A": "Dos órdenes de magnitud de más.", "C": "Sale de multiplicar en vez de dividir en algún paso."},
+  "confirma": "B"},
+
+ "hrw-c38-q041": {"idea": "Dos cuentas distintas: la frecuencia sale de $f = E/h$ y la longitud de onda de $\\lambda = h/\\sqrt{2mK}$. No están ligadas por $c$: el electrón no viaja a la velocidad de la luz.",
+  "pasos": ["$f = \\dfrac{E}{h} = \\dfrac{10 \\times 1.6\\times10^{-19}}{6.63\\times10^{-34}} = 2.4\\times10^{15}\\ \\mathrm{Hz}$.", "$p = \\sqrt{2mK} = 1.7\\times10^{-24}\\ \\mathrm{kg\\cdot m/s}$.", "$\\lambda = h/p = 3.9\\times10^{-10}\\ \\mathrm{m}$."],
+  "porque_fallan": {"C": "Acierta la frecuencia y falla la longitud de onda, probablemente por usar $\\lambda = c/f$, que solo vale para la luz.", "A": "La frecuencia está mal por muchos órdenes."},
+  "confirma": "D"},
+
+ "hrw-c38-q042": {"idea": "Para una onda de materia $f = E/h$, así que la frecuencia es proporcional a la energía.",
+  "pasos": ["$f = K/h$ en el caso no relativista.", "Doblar $K$ dobla $f$."],
+  "porque_fallan": {"D": "$\\sqrt2$ es el factor de la **longitud de onda**, no de la frecuencia. Ahí está la trampa: las dos no escalan igual."},
+  "confirma": "E"},
+
+ "hrw-c38-q043": {"idea": "$\\lambda \\propto 1/p$ y $K \\propto p^2$, así que doblar la longitud de onda divide la energía por cuatro.",
+  "pasos": ["$\\lambda \\times 2 \\Rightarrow p \\div 2$.", "$K = \\dfrac{p^2}{2m} \\Rightarrow K \\div 4$."],
+  "porque_fallan": {"D": "Escala la energía como $1/\\lambda$ en vez de $1/\\lambda^2$.", "A": "Invierte la relación."},
+  "confirma": "E"},
+
+ "hrw-c38-q044": {"idea": "La regla de Born: la probabilidad va con el **módulo al cuadrado** de la función de onda.",
+  "pasos": ["$P \\propto |\\psi|^2\\,dV$.", "El cuadrado es imprescindible: $\\psi$ puede ser negativa o compleja, y una probabilidad no."],
+  "porque_fallan": {"D": "La longitud de onda dice cómo se mueve, no dónde está."},
+  "confirma": "E"},
+
+ "hrw-c38-q045": {"idea": "Para pasar de densidad de probabilidad a probabilidad hay que integrar sobre el intervalo.",
+  "pasos": ["$P(a \\leq x \\leq b) = \\displaystyle\\int_a^b |\\psi(x)|^2\\,dx$.", "Evaluar $\\psi$ en los extremos no dice nada: la probabilidad es un área, no una diferencia."],
+  "porque_fallan": {"A": "Trata $\\psi$ como si fuera una primitiva; no lo es.", "D": "Integra $\\psi$ en vez de su módulo al cuadrado."},
+  "confirma": "E"},
+
+ "hrw-c38-q046": {"idea": "$|\\psi|^2$ es probabilidad **por unidad de volumen**: hay que integrarla para obtener una probabilidad.",
+  "pasos": ["Sus unidades son inversas de un volumen, en tres dimensiones.", "Solo tras integrar sobre una región sale un número adimensional entre 0 y 1."],
+  "porque_fallan": {"A": "Le falta el «por unidad de volumen». Sin integrar, $|\\psi|^2$ ni siquiera está acotada por uno."},
+  "confirma": "C"},
+
+ "hrw-c38-q047": {"idea": "La ecuación de Schrödinger gobierna la función de onda igual que Maxwell gobierna los campos.",
+  "pasos": ["Las dos son ecuaciones de onda que, dadas las condiciones iniciales, determinan la evolución.", "Bohr dio un modelo, no una ecuación de onda; Newton gobierna partículas clásicas."],
+  "porque_fallan": {"E": "El modelo de Bohr es anterior y postula órbitas, no una función de onda."},
+  "confirma": "D"},
+
+ "hrw-c38-q048": {"idea": "Incertidumbre: para reducir la del momento hay que ensanchar el paquete en posición.",
+  "pasos": ["$\\Delta x\\,\\Delta p \\geq \\hbar/2$.", "Menos $\\Delta p$ exige más $\\Delta x$, o sea una función de onda más ancha."],
+  "porque_fallan": {"A": "Estrecharla localiza mejor la partícula pero **aumenta** la incertidumbre del momento. Es la relación al revés."},
+  "confirma": "B"},
+
+ "hrw-c38-q049": {"idea": "La incertidumbre tiene una cota **inferior**, no un valor fijo: cualquier valor por encima es admisible.",
+  "pasos": ["$\\Delta p \\geq \\dfrac{\\hbar}{2\\Delta x} = \\dfrac{1.05\\times10^{-34}}{2 \\times 5\\times10^{-10}} \\approx 1\\times10^{-25}$.", "Las tres opciones ofrecidas son mayores que eso.", "Así que las tres son posibles."],
+  "porque_fallan": {"E": "El principio prohíbe valores **menores** que la cota, no mayores. Un estado puede estar mal definido en las dos cosas a la vez."},
+  "confirma": "D"},
+
+ "hrw-c38-q050": {"idea": "La partícula pasa o rebota: las dos probabilidades suman uno.",
+  "pasos": ["$T + R = 1$.", "$T = 1 - 0.80 = 0.20$."],
+  "porque_fallan": {"A": "Copia el coeficiente de reflexión.", "E": "Cero solo si la barrera fuera infinitamente ancha o alta."},
+  "confirma": "D"},
+
+ "hrw-c38-q051": {"idea": "Dentro de la barrera la función de onda decae exponencialmente, así que la transmisión cae exponencialmente con el espesor.",
+  "pasos": ["$\\psi \\sim e^{-kx}$ dentro de la barrera, con $k = \\sqrt{2m(U-E)}/\\hbar$.", "$T \\approx e^{-2kL}$.", "Esa sensibilidad brutal al espesor es lo que hace funcionar al microscopio de efecto túnel."],
+  "porque_fallan": {"C": "Una caída como $1/L$ sería mucho más suave: el túnel es mucho más sensible que eso.", "A": "No es cero: ese es todo el fenómeno."},
+  "confirma": "B"},
+
+ "hrw-c38-q052": {"idea": "No hace falta ninguna condición especial: cualquier partícula cuántica atraviesa una barrera finita con probabilidad no nula.",
+  "pasos": ["Si tuviera energía mayor que la barrera no sería efecto túnel, sino pasar por encima.", "No hace falta espín, ni masa grande, ni longitud de onda particular.", "Basta con que la barrera sea finita en altura y en anchura."],
+  "porque_fallan": {"A": "Eso es justo lo contrario del efecto túnel: el túnel ocurre con $E < U$."},
+  "confirma": "E"},
+
+ "hrw-c38-q053": {"idea": "$T \\approx e^{-2kL}$ con $k \\propto \\sqrt{U-E}$: bajar el espesor o la altura relativa aumenta la transmisión.",
+  "pasos": ["Reducir $L$ reduce el exponente directamente.", "Subir $E$ o bajar $U$ reduce $k$, y también ayuda.", "Subir los dos a la vez deja $U-E$ igual: no cambia nada."],
+  "porque_fallan": {"B": "Subir la barrera aumenta $k$ y reduce el túnel.", "D": "Si suben lo mismo, la diferencia $U-E$ no cambia y el túnel tampoco."},
+  "confirma": "C"},
+
+ "hrw-c38-q054": {"idea": "Lo que manda es el producto $\\sqrt{U-E}\\cdot L$ del exponente. Hay que calcularlo en cada barrera y comparar.",
+  "pasos": ["$T \\sim e^{-2kL}$ con $k \\propto \\sqrt{U-E}$.", "1: $\\sqrt{4E}\\cdot 2L = 4L\\sqrt{E}$. 2: $\\sqrt{9E}\\cdot L = 3L\\sqrt{E}$.", "3: $\\sqrt{16E}\\cdot L/2 = 2L\\sqrt{E}$. 4: $\\sqrt{25E}\\cdot L/3 = 1.7L\\sqrt{E}$.", "Mayor exponente es menor transmisión, así que de menos a más probable: 1, 2, 3, 4."],
+  "porque_fallan": {"B": "Lo pone al revés: ordena por altura de barrera olvidando que el espesor cae más rápido.", "C": "Empata la 1 y la 2, pero sus exponentes son 4 y 3."},
+  "confirma": "A"}
+}

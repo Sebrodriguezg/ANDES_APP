@@ -1,0 +1,211 @@
+{
+ "hrw-c41-q001": {"idea": "Solo los electrones cerca del nivel de Fermi participan: los de más abajo no tienen estados libres a los que ir.",
+  "pasos": ["El principio de exclusión bloquea a los electrones profundos: no pueden dispersarse porque los estados vecinos están ocupados.", "Los que están cerca de $E_F$ sí tienen estados libres justo encima.", "Y chocan contra las imperfecciones de la red, no entre ellos."],
+  "porque_fallan": {"C": "«Todos los electrones» no: la inmensa mayoría está congelada por Pauli.", "A": "Las colisiones electrón-electrón son mucho menos frecuentes que las de la red."},
+  "confirma": "B"},
+
+ "hrw-c41-q003": {"idea": "Lo que distingue a un aislante es el tamaño de la brecha entre la banda de valencia llena y la de conducción vacía.",
+  "pasos": ["En un aislante la brecha es de varios electronvoltios: la agitación térmica, de 0,025 eV, no basta para cruzarla.", "En un semiconductor es de en torno a 1 eV, y algunos electrones sí cruzan.", "En un metal las bandas se solapan o la de valencia está a medias."],
+  "porque_fallan": {"E": "Todos los sólidos cristalinos tienen bandas: es consecuencia de la periodicidad de la red.", "C": "Dentro de una banda las energías forman un cuasi-continuo, no un valor único."},
+  "confirma": "D"},
+
+ "hrw-c41-q004": {"idea": "La energía media de los electrones la fija el nivel de Fermi, que ronda los electronvoltios. La térmica de ambiente son 0,025 eV: un cambio despreciable.",
+  "pasos": ["$E_F \\sim 5$ eV frente a $kT \\sim 0.025$ eV: dos órdenes y medio de diferencia.", "Solo los electrones de una franja de anchura $kT$ alrededor de $E_F$ notan la temperatura.", "La media apenas se mueve: el cociente es prácticamente 1."],
+  "porque_fallan": {"A": "A 0 K la energía media **no** es cero: es del orden de $\\tfrac35 E_F$, y eso es lo sorprendente del gas de Fermi.", "C": "Exigiría que la temperatura ambiente cambiara la energía cien veces."},
+  "confirma": "B"},
+
+ "hrw-c41-q005": {"idea": "Los aislantes tienen brechas del orden de varios electronvoltios; la escala correcta es la decena, no la milésima.",
+  "pasos": ["Diamante: unos 5,5 eV. Cuarzo: unos 9 eV.", "Comparado con $kT = 0.025$ eV a temperatura ambiente, es un muro infranqueable.", "De las opciones, el orden de magnitud es 10."],
+  "porque_fallan": {"C": "0,1 eV sería un semiconductor de brecha muy estrecha, casi un metal.", "E": "1000 eV son rayos X: ninguna brecha de banda llega ahí."},
+  "confirma": "D"},
+
+ "hrw-c41-q010": {"idea": "La densidad de estados dice cuántos estados hay por unidad de energía, así que su variable natural es la energía.",
+  "pasos": ["$N(E) \\propto \\sqrt{E}$ para electrones libres en tres dimensiones.", "No depende de la temperatura: es una propiedad de la estructura, no de la ocupación."],
+  "porque_fallan": {"A": "La temperatura entra en la **probabilidad de ocupación**, no en cuántos estados existen.", "D": "El volumen escala el número total, pero la densidad se define por unidad de volumen."},
+  "confirma": "B"},
+
+ "hrw-c41-q011": {"idea": "Es una probabilidad: por fuerza está entre cero y uno.",
+  "pasos": ["$P(E) = \\dfrac{1}{e^{(E-E_F)/kT}+1}$.", "El denominador siempre supera a 1, así que $P < 1$; y es positivo, así que $P > 0$.", "Ese tope en 1 es justo lo que distingue Fermi-Dirac de Boltzmann: un estado no admite más de un electrón."],
+  "porque_fallan": {"B": "Una probabilidad mayor que uno no significa nada. Eso pasaría con Boltzmann a baja energía, y es su fallo."},
+  "confirma": "A"},
+
+ "hrw-c41-q012": {"idea": "La distribución de Fermi-Dirac: exponencial más uno, en el denominador. El «más uno» es lo que impone Pauli.",
+  "pasos": ["$P(E) = \\dfrac{1}{e^{(E-E_F)/kT}+1}$.", "Con $E = E_F$ el exponente es cero y sale $P = 1/2$.", "Muy por encima de $E_F$ el uno es despreciable y se recupera Boltzmann."],
+  "porque_fallan": {"A": "Una exponencial a secas puede superar la unidad: no vale como probabilidad.", "E": "Con un menos uno en el denominador sería Bose-Einstein, la de los bosones."},
+  "confirma": "C"},
+
+ "hrw-c41-q013": {"idea": "A cero absoluto los electrones llenan los estados de abajo arriba, y el último ocupado marca la energía de Fermi.",
+  "pasos": ["Por Pauli no pueden amontonarse todos abajo.", "Se apilan hasta $E_F$; por encima no hay ninguno.", "Ese apilamiento forzoso es lo que da a los metales su enorme energía a 0 K."],
+  "porque_fallan": {"C": "No es térmica: existe incluso a 0 K, donde no hay agitación."},
+  "confirma": "A"},
+
+ "hrw-c41-q014": {"idea": "En $E = E_F$ el exponente se anula y la fórmula da un medio, a cualquier temperatura.",
+  "pasos": ["$P(E_F) = \\dfrac{1}{e^0+1} = \\dfrac{1}{2}$.", "Es la definición operativa del nivel de Fermi a $T > 0$."],
+  "porque_fallan": {"C": "Uno es la ocupación muy por debajo de $E_F$."},
+  "confirma": "B"},
+
+ "hrw-c41-q015": {"idea": "La energía de Fermi la fija cuántos electrones hay que apilar por unidad de volumen.",
+  "pasos": ["$E_F \\propto n^{2/3}$, con $n$ la concentración de electrones de conducción.", "No depende del tamaño de la muestra: es una densidad, no un total.", "Y a temperaturas normales tampoco depende de $T$."],
+  "porque_fallan": {"B": "Duplicar el tamaño duplica electrones y volumen: la densidad, y por tanto $E_F$, no cambia.", "A": "La dependencia con la temperatura es despreciable."},
+  "confirma": "E"},
+
+ "hrw-c41-q016": {"idea": "Con $E_F \\sim 7$ eV, la velocidad de Fermi sale del orden de $10^6$ m/s. Muy rápida, y sin que la temperatura tenga nada que ver.",
+  "pasos": ["$v = \\sqrt{2E_F/m}$ con $E_F = 7\\ \\mathrm{eV} = 1.1\\times10^{-18}\\ \\mathrm{J}$.", "$v \\approx 1.6\\times10^{6}\\ \\mathrm{m/s}$.", "Es unas cien veces la velocidad térmica clásica a temperatura ambiente."],
+  "porque_fallan": {"C": "Confunde con la velocidad de **arrastre**, que sí es lentísima —milímetros por segundo— y es otra cosa.", "E": "Superaría la velocidad de la luz."},
+  "confirma": "A"},
+
+ "hrw-c41-q017": {"idea": "A cero absoluto la distribución es un escalón perfecto: todo lleno por debajo de $E_F$.",
+  "pasos": ["$T \\to 0$ hace que el exponente tienda a $-\\infty$ para $E < E_F$.", "$P \\to 1$."],
+  "porque_fallan": {"A": "Cero es la ocupación **por encima** de $E_F$."},
+  "confirma": "E"},
+
+ "hrw-c41-q018": {"idea": "El otro lado del mismo escalón: por encima de $E_F$ y a 0 K, no hay nadie.",
+  "pasos": ["Con $E > E_F$ y $T\\to0$, el exponente tiende a $+\\infty$.", "$P \\to 0$."],
+  "porque_fallan": {"E": "Uno es la ocupación por debajo de $E_F$."},
+  "confirma": "A"},
+
+ "hrw-c41-q019": {"idea": "Muy por encima de $E_F$ el «más uno» sobra y queda una exponencial: la cola de Boltzmann.",
+  "pasos": ["$\\dfrac{E-E_F}{kT} = \\dfrac{0.50}{0.0259} = 19.3$.", "$P \\approx e^{-19.3} = 4.1\\times10^{-9}$.", "Veinte $kT$ por encima ya es prácticamente inalcanzable."],
+  "porque_fallan": {"D": "Sale de un exponente mal calculado, quizá dividiendo entre 0,04.", "B": "Confunde el exponente con la probabilidad."},
+  "confirma": "E"},
+
+ "hrw-c41-q020": {"idea": "La distribución es simétrica respecto a $E_F$: la probabilidad de que falte un electrón abajo es la misma de que sobre uno arriba.",
+  "pasos": ["$1 - P(E_F - \\Delta) = P(E_F + \\Delta)$: es una identidad de la función de Fermi.", "Así que sale el mismo número que la pregunta anterior: $4.1\\times10^{-9}$.", "Cada hueco abajo se corresponde con un electrón arriba."],
+  "porque_fallan": {"A": "Uno sería si el estado estuviera casi siempre vacío, y está casi siempre lleno."},
+  "confirma": "E"},
+
+ "hrw-c41-q021": {"idea": "Cuántos estados hay, por la fracción que está ocupada: se multiplican.",
+  "pasos": ["$N_o(E) = N(E)\\,P(E)$.", "Integrando eso sobre la energía sale el número total de electrones."],
+  "porque_fallan": {"A": "Sumar magnitudes de distinta naturaleza —una densidad y una probabilidad— no tiene sentido dimensional."},
+  "confirma": "D"},
+
+ "hrw-c41-q022": {"idea": "Un hueco no es una partícula: es la **ausencia** de un electrón en una banda que por lo demás está llena.",
+  "pasos": ["Al faltar un electrón, el conjunto restante se comporta como una carga positiva móvil.", "Es una descripción colectiva muy cómoda, no un objeto real."],
+  "porque_fallan": {"B": "Un electrón con carga positiva es un positrón, que es otra cosa y existe de verdad.", "A": "El protón está en el núcleo y no participa en la conducción."},
+  "confirma": "E"},
+
+ "hrw-c41-q023": {"idea": "En una banda llena, por cada electrón que se mueve en un sentido hay otro moviéndose en el contrario: la suma da cero.",
+  "pasos": ["Los estados de momento $+k$ y $-k$ están todos ocupados.", "El campo no puede cambiar eso, porque no hay estados libres a los que promover a nadie.", "Las contribuciones se cancelan exactamente."],
+  "porque_fallan": {"C": "Sí se mueven, y muy rápido: lo que pasa es que se cancelan.", "A": "El campo sí ejerce fuerza sobre cada electrón."},
+  "confirma": "B"},
+
+ "hrw-c41-q024": {"idea": "En un semiconductor puro hay tantos electrones arriba como huecos abajo, y esa simetría pone el nivel de Fermi en mitad de la brecha.",
+  "pasos": ["El nivel de Fermi es donde la ocupación vale un medio.", "Con generación simétrica de pares electrón-hueco, ese punto cae en el centro de la brecha.", "Ahí no hay estados: es un nivel de referencia, no un estado ocupable."],
+  "porque_fallan": {"A": "Estaría en la banda de conducción en un semiconductor tipo n muy dopado."},
+  "confirma": "E"},
+
+ "hrw-c41-q025": {"idea": "Un semiconductor se reconoce por dos cosas a la vez: pocos portadores y resistividad alta.",
+  "pasos": ["Los metales tienen $n \\sim 10^{28}$–$10^{29}\\ \\mathrm{m^{-3}}$ y $\\rho \\sim 10^{-8}\\ \\Omega\\cdot\\mathrm{m}$.", "Un semiconductor tiene $n \\sim 10^{15}$ y $\\rho$ de órdenes positivos.", "La opción con $n = 10^{15}$ y $\\rho = 10^{3}$ cumple las dos."],
+  "porque_fallan": {"E": "Tiene pocos portadores pero resistividad de metal: incoherente, ese material no existe.", "A": "Es un metal de manual."},
+  "confirma": "D"},
+
+ "hrw-c41-q026": {"idea": "En un semiconductor **puro** cada electrón que sube deja un hueco: los números son exactamente iguales.",
+  "pasos": ["Cada excitación térmica crea un par electrón-hueco.", "Así que hay tantos electrones en conducción como huecos en valencia.", "Ninguna de las desigualdades ofrecidas se cumple."],
+  "porque_fallan": {"A": "Eso sería un semiconductor tipo n, o sea dopado.", "D": "Y eso un tipo p."},
+  "confirma": "E"},
+
+ "hrw-c41-q027": {"idea": "En un metal el número de portadores no cambia con la temperatura; lo que cambia es cuánto chocan.",
+  "pasos": ["Calentar agita más la red y acorta el tiempo medio entre colisiones.", "Menos tiempo libre, más resistividad: por eso el coeficiente es **positivo** en los metales."],
+  "porque_fallan": {"A": "El número de electrones de conducción en un metal es prácticamente fijo: eso es lo del semiconductor."},
+  "confirma": "D"},
+
+ "hrw-c41-q028": {"idea": "En un semiconductor manda el número de portadores, que crece exponencialmente con la temperatura y gana de largo al efecto de las colisiones.",
+  "pasos": ["Calentar promueve muchos más electrones a la banda de conducción.", "Ese aumento supera con creces la pérdida por colisiones.", "Por eso el coeficiente es **negativo**: al calentar, conduce mejor."],
+  "porque_fallan": {"D": "Las colisiones son lo que domina en un metal, no en un semiconductor puro."},
+  "confirma": "A"},
+
+ "hrw-c41-q029": {"idea": "Dos pistas contradictorias: resistividad alta como un semiconductor, pero coeficiente positivo como un metal. Eso es un semiconductor muy dopado.",
+  "pasos": ["Con dopaje fuerte hay tantos portadores que su número apenas cambia con la temperatura.", "Entonces domina el efecto de las colisiones y el coeficiente sale positivo, como en un metal.", "Pero la resistividad sigue siendo muy superior a la de un metal."],
+  "porque_fallan": {"B": "Un semiconductor puro tendría coeficiente **negativo**.", "A": "Un metal tendría una resistividad de $10^{-8}$, once órdenes menos."},
+  "confirma": "C"},
+
+ "hrw-c41-q030": {"idea": "Resistividad alta y coeficiente negativo: el retrato exacto de un semiconductor intrínseco.",
+  "pasos": ["Al calentar se generan muchos más pares electrón-hueco.", "La resistividad baja, o sea coeficiente negativo."],
+  "porque_fallan": {"C": "El muy dopado tiene coeficiente positivo, como acabamos de ver.", "A": "Un metal tiene resistividad once órdenes menor."},
+  "confirma": "B"},
+
+ "hrw-c41-q031": {"idea": "Resistividad de $10^{-8}$ y coeficiente positivo: eso solo puede ser un metal.",
+  "pasos": ["$7.8\\times10^{-8}\\ \\Omega\\cdot\\mathrm{m}$ está en el rango metálico.", "Y al calentar aumenta, que es el comportamiento metálico."],
+  "porque_fallan": {"B": "Un semiconductor puro tiene una resistividad diez órdenes mayor y coeficiente negativo."},
+  "confirma": "A"},
+
+ "hrw-c41-q032": {"idea": "Donante viene de donar: aporta un electrón de más a la banda de conducción.",
+  "pasos": ["Un átomo con cinco electrones de valencia en una red de cuatro enlaces deja uno suelto.", "Ese electrón queda en un nivel justo debajo de la banda de conducción y sube con muy poca energía.", "Resultado: material tipo n, más conductor."],
+  "porque_fallan": {"B": "Los huecos los aportan los **aceptores**.", "D": "Dopar siempre **reduce** la resistividad: hay más portadores."},
+  "confirma": "A"},
+
+ "hrw-c41-q033": {"idea": "Aceptor viene de aceptar: captura un electrón de la banda de valencia y deja un hueco.",
+  "pasos": ["Un átomo con tres electrones de valencia deja un enlace incompleto.", "Ese enlace acepta un electrón vecino y el hueco se propaga.", "Resultado: material tipo p."],
+  "porque_fallan": {"A": "Eso lo hacen los donantes.", "C": "Los aceptores **bajan** el nivel de Fermi, acercándolo a la banda de valencia."},
+  "confirma": "B"},
+
+ "hrw-c41-q034": {"idea": "El silicio tiene cuatro electrones de valencia; un aceptor tiene uno menos.",
+  "pasos": ["Con tres electrones —boro, aluminio, galio— falta uno para completar los cuatro enlaces.", "Ese enlace vacante es el hueco."],
+  "porque_fallan": {"C": "Cinco electrones es un **donante**, no un aceptor.", "B": "Cuatro es el propio silicio: no dopa nada."},
+  "confirma": "A"},
+
+ "hrw-c41-q035": {"idea": "Un donante tiene un electrón de valencia **más** que el silicio.",
+  "pasos": ["Con cinco —fósforo, arsénico, antimonio— sobra uno tras formar los cuatro enlaces.", "Ese electrón sobrante se libera con muy poca energía."],
+  "porque_fallan": {"C": "Tres es un aceptor.", "D": "Cuatro es el propio silicio."},
+  "confirma": "E"},
+
+ "hrw-c41-q036": {"idea": "Solo el efecto Hall distingue el **signo** del portador, y por tanto si es tipo n o tipo p.",
+  "pasos": ["El campo magnético desvía a los portadores hacia un lado según su signo.", "El voltaje transversal resultante cambia de signo entre tipo n y tipo p.", "La conductividad, en cambio, sale igual con electrones o con huecos."],
+  "porque_fallan": {"A": "La conductividad mide cuántos portadores hay y cuánto se mueven, pero no si son positivos o negativos."},
+  "confirma": "E"},
+
+ "hrw-c41-q037": {"idea": "Al difundirse los portadores dejan atrás los iones dopantes fijos, y esas cargas inmóviles son las que crean el campo.",
+  "pasos": ["Los electrones cruzan del lado n al p y los huecos al revés; se recombinan y desaparecen.", "Quedan los donantes ionizados —positivos— en el lado n y los aceptores —negativos— en el p.", "Esas cargas fijas son las que sostienen el campo de contacto."],
+  "porque_fallan": {"C": "En la zona de deplexión precisamente **no** hay portadores libres: por eso se llama así.", "E": "El campo existe sin polarización externa."},
+  "confirma": "D"},
+
+ "hrw-c41-q038": {"idea": "El campo de contacto dobla las bandas: en el lado n quedan más abajo, y esa diferencia es la barrera de potencial.",
+  "pasos": ["En equilibrio el nivel de Fermi tiene que ser el mismo a los dos lados.", "Como en el lado n está cerca de la banda de conducción y en el p cerca de la de valencia, las bandas se doblan.", "El fondo de la banda de conducción queda más bajo en el lado n."],
+  "porque_fallan": {"E": "Si estuvieran a la misma altura no habría barrera y la unión no rectificaría."},
+  "confirma": "B"},
+
+ "hrw-c41-q039": {"idea": "En equilibrio no es que no haya corrientes: hay dos, y se cancelan exactamente.",
+  "pasos": ["La difusión empuja portadores por el gradiente de concentración.", "El campo de contacto los empuja al revés: es la corriente de arrastre.", "En equilibrio se igualan y la corriente neta es cero."],
+  "porque_fallan": {"C": "La de arrastre no se anula: se compensa con la de difusión.", "B": "El campo existe, y es lo que sostiene el equilibrio."},
+  "confirma": "E"},
+
+ "hrw-c41-q040": {"idea": "La polarización directa se opone al campo de contacto, así que reduce la barrera y estrecha la zona vacía de portadores.",
+  "pasos": ["El voltaje aplicado cancela parte del potencial de contacto.", "Con menos campo hacen falta menos cargas fijas, y la zona de deplexión se estrecha.", "Por eso la corriente crece exponencialmente."],
+  "porque_fallan": {"C": "La directa **reduce** la diferencia de potencial de la unión: eso es lo que la abre.", "D": "El número de dopantes no cambia: son átomos fijos en la red."},
+  "confirma": "A"},
+
+ "hrw-c41-q041": {"idea": "Al bajar la barrera, muchos más portadores mayoritarios consiguen cruzarla: la corriente de difusión se dispara.",
+  "pasos": ["El número que cruza va como $e^{-eV_{barrera}/kT}$.", "Bajar la barrera aumenta ese factor exponencialmente.", "La de arrastre apenas cambia: depende de los minoritarios, que son pocos y los genera la temperatura."],
+  "porque_fallan": {"A": "La de arrastre está limitada por cuántos minoritarios se generan, no por la barrera.", "E": "Si no cambiara nada, el diodo no serviría de nada."},
+  "confirma": "B"},
+
+ "hrw-c41-q042": {"idea": "Inyección de minoritarios: en polarización directa, el lado p recibe una avalancha de electrones desde el lado n.",
+  "pasos": ["En el lado p los electrones son minoritarios y normalmente escasísimos.", "Al bajar la barrera, cruzan en cantidades enormes en términos relativos.", "El aumento es de varios órdenes de magnitud."],
+  "porque_fallan": {"A": "«Ligeramente» se queda corto: el cambio es exponencial en el voltaje.", "E": "Si no cambiara, no habría corriente."},
+  "confirma": "B"},
+
+ "hrw-c41-q043": {"idea": "La polarización inversa refuerza el campo de contacto, así que los mayoritarios se alejan de la unión en vez de cruzarla.",
+  "pasos": ["La barrera sube y la zona de deplexión se **ensancha**.", "Los huecos del lado p son mayoritarios y se ven empujados **lejos** de la unión, no hacia el lado n.", "Lo poco que circula es corriente de minoritarios, en sentido contrario."],
+  "porque_fallan": {"E": "Con polarización inversa la zona se ensancha, no se estrecha: esa afirmación también es falsa, pero la pregunta busca la del flujo de huecos."},
+  "confirma": "B"},
+
+ "hrw-c41-q046": {"idea": "En un MOSFET el voltaje de puerta modula el ancho del canal conductor, o sea de la zona de deplexión.",
+  "pasos": ["La puerta está aislada por un óxido: no inyecta corriente.", "Su campo atrae o repele portadores y así abre o cierra el canal.", "Controlar con voltaje y sin consumir corriente es lo que hace posible la electrónica digital moderna."],
+  "porque_fallan": {"A": "El dopaje se fija al fabricar el dispositivo y no se puede cambiar en operación."},
+  "confirma": "B"},
+
+ "hrw-c41-q047": {"idea": "Light Emitting Diode. Ninguna de las opciones lo dice.",
+  "pasos": ["Es un diodo que emite luz al recombinarse electrones y huecos en la unión."],
+  "porque_fallan": {"D": "Nada que ver con láseres ni con detonar nada."},
+  "confirma": "E"},
+
+ "hrw-c41-q048": {"idea": "La luz sale de la recombinación: un electrón de la banda de conducción cae a un hueco de la de valencia y emite un fotón con la energía de la brecha.",
+  "pasos": ["La polarización directa inyecta electrones y huecos en la misma región.", "Al recombinarse, la energía sobrante sale como fotón.", "Por eso el color depende de la brecha del material."],
+  "porque_fallan": {"A": "Excitar electrones hacia arriba **absorbe** luz: eso es un fotodiodo, el dispositivo inverso.", "E": "El calor da luz incandescente, de espectro continuo, no la línea del LED."},
+  "confirma": "B"},
+
+ "hrw-c41-q049": {"idea": "El fotón se lleva al menos la energía de la brecha, así que su longitud de onda es como mucho $hc/E_g$.",
+  "pasos": ["$\\lambda_{max} = \\dfrac{1240}{0.85} = 1459\\ \\mathrm{nm} \\approx 1.5\\times10^{-6}\\ \\mathrm{m}$.", "Una recombinación puede soltar **más** energía que la brecha, nunca menos.", "Así que las longitudes de onda quedan por debajo de ese tope: infrarrojo cercano."],
+  "porque_fallan": {"A": "Por encima significaría fotones con menos energía que la brecha, que no se pueden producir así.", "C": "No es un valor único: la recombinación reparte energías en un rango."},
+  "confirma": "B"}
+}

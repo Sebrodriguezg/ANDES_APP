@@ -1,0 +1,326 @@
+{
+ "hrw-c40-q002": {"idea": "El número cuántico magnético fija la **proyección** del momento angular orbital sobre el eje z, no su magnitud.",
+  "pasos": ["$L_z = m_\\ell\\hbar$.", "La magnitud la fija $\\ell$: $|L| = \\sqrt{\\ell(\\ell+1)}\\,\\hbar$."],
+  "porque_fallan": {"A": "La magnitud es cosa de $\\ell$.", "C": "La proyección del espín la fija $m_s$."},
+  "confirma": "D"},
+
+ "hrw-c40-q003": {"idea": "$m_s$ es al espín lo que $m_\\ell$ es al momento angular orbital: su proyección sobre z.",
+  "pasos": ["$S_z = m_s\\hbar$ con $m_s = \\pm\\tfrac12$.", "Solo dos valores, y por eso el haz de Stern-Gerlach se parte en dos."],
+  "porque_fallan": {"D": "Esa es la del momento angular **orbital**."},
+  "confirma": "C"},
+
+ "hrw-c40-q004": {"idea": "El principal empieza en 1, no en 0: con $n=0$ la función de onda sería idénticamente nula.",
+  "pasos": ["$n = 1, 2, 3, \\ldots$ sin tope superior.", "Los que empiezan en cero son $\\ell$ y $m_\\ell$."],
+  "porque_fallan": {"B": "Incluye el cero, que no existe para $n$.", "D": "Esos son los valores de $m_s$."},
+  "confirma": "E"},
+
+ "hrw-c40-q005": {"idea": "$\\ell$ va de 0 a $n-1$, así que hay exactamente $n$ valores.",
+  "pasos": ["Con $n=3$: $\\ell = 0, 1, 2$.", "Son tres."],
+  "porque_fallan": {"D": "Contaría hasta $\\ell = 3$, que ya exige $n \\geq 4$."},
+  "confirma": "C"},
+
+ "hrw-c40-q007": {"idea": "$m_\\ell$ recorre todos los enteros de $-\\ell$ a $+\\ell$, negativos incluidos.",
+  "pasos": ["Con $\\ell = 2$: $-2, -1, 0, 1, 2$.", "Son $2\\ell+1 = 5$ valores."],
+  "porque_fallan": {"B": "Olvida los negativos, que es el error más frecuente aquí.", "D": "Corresponde a $\\ell = 1$."},
+  "confirma": "E"},
+
+ "hrw-c40-q009": {"idea": "El número de valores de $L_z$ es $2\\ell+1$: de ahí se despeja $\\ell$ y luego la magnitud.",
+  "pasos": ["$2\\ell+1 = 7 \\Rightarrow \\ell = 3$.", "$|L| = \\sqrt{\\ell(\\ell+1)}\\,\\hbar = \\sqrt{12}\\,\\hbar$."],
+  "porque_fallan": {"B": "Usa $\\sqrt{\\ell}$ o directamente el número de estados bajo la raíz.", "C": "Usaría $\\ell^2$ en vez de $\\ell(\\ell+1)$: la magnitud del momento angular nunca es $\\ell\\hbar$."},
+  "confirma": "D"},
+
+ "hrw-c40-q010": {"idea": "Una subcapa tiene $2\\ell+1$ orbitales y dos electrones en cada uno: $2(2\\ell+1)$.",
+  "pasos": ["$\\ell = 3$ da $2\\ell+1 = 7$ valores de $m_\\ell$.", "Con el espín, $2 \\times 7 = 14$ estados."],
+  "porque_fallan": {"C": "Cuenta los orbitales sin duplicar por el espín."},
+  "confirma": "E"},
+
+ "hrw-c40-q011": {"idea": "Una capa entera tiene $2n^2$ estados. Sale de sumar $2(2\\ell+1)$ para todos los $\\ell$ posibles.",
+  "pasos": ["Con $n=3$: $\\ell = 0, 1, 2$ dan $2, 6, 10$ estados.", "$2+6+10 = 18 = 2(3)^2$."],
+  "porque_fallan": {"B": "Es $n^2$, sin el factor dos del espín."},
+  "confirma": "D"},
+
+ "hrw-c40-q012": {"idea": "$\\ell$ empieza en cero y llega hasta $n-1$.",
+  "pasos": ["Con $n=4$: $\\ell = 0, 1, 2, 3$."],
+  "porque_fallan": {"B": "Se salta el cero e incluye $\\ell=4$, prohibido.", "C": "$\\ell$ nunca es negativo."},
+  "confirma": "D"},
+
+ "hrw-c40-q013": {"idea": "Cuantización espacial no significa que el espacio esté cuantizado, sino que la **orientación** del momento angular solo admite ciertos ángulos.",
+  "pasos": ["$L_z$ solo puede valer $m_\\ell\\hbar$ con $m_\\ell$ entero.", "Eso restringe el ángulo entre $\\vec L$ y el eje $z$ a un conjunto discreto."],
+  "porque_fallan": {"A": "Es la lectura literal del nombre, y es falsa: el espacio es continuo."},
+  "confirma": "B"},
+
+ "hrw-c40-q014": {"idea": "El coseno del ángulo es la proyección dividida entre la magnitud, y ahí está el detalle: la magnitud lleva $\\sqrt{\\ell(\\ell+1)}$, no $\\ell$.",
+  "pasos": ["$\\cos\\theta = \\dfrac{L_z}{|L|} = \\dfrac{m_\\ell}{\\sqrt{\\ell(\\ell+1)}} = \\dfrac{2}{\\sqrt{12}} = 0.577$.", "$\\theta = 54.7°$."],
+  "porque_fallan": {"A": "Sale de usar $\\cos\\theta = m/\\ell = 2/3$, con la magnitud mal.", "D": "Corresponde a $m = \\ell$, el ángulo mínimo, no a $m=2$ con $\\ell=3$."},
+  "confirma": "E"},
+
+ "hrw-c40-q015": {"idea": "El ángulo mínimo se da con $m_\\ell = \\ell$, y nunca es cero: el momento angular jamás se alinea del todo con el eje.",
+  "pasos": ["$\\cos\\theta_{min} = \\dfrac{\\ell}{\\sqrt{\\ell(\\ell+1)}} = \\sqrt{\\dfrac{\\ell}{\\ell+1}} = \\sqrt{\\dfrac{5}{6}} = 0.913$.", "$\\theta_{min} = 24.1°$."],
+  "porque_fallan": {"A": "Cero exigiría $|L| = L_z$, imposible porque $\\sqrt{\\ell(\\ell+1)} > \\ell$ siempre. Es una consecuencia directa de la incertidumbre."},
+  "confirma": "C"},
+
+ "hrw-c40-q016": {"idea": "El magnetón de Bohr es el cuanto natural de momento magnético: $\\mu_B = e\\hbar/2m_e$.",
+  "pasos": ["$\\mu_z = -m_\\ell\\,\\mu_B$ para el momento orbital.", "Vale $9.27\\times10^{-24}$ J/T."],
+  "porque_fallan": {"C": "La permeabilidad es $\\mu_0$, otra cosa con símbolo parecido."},
+  "confirma": "A"},
+
+ "hrw-c40-q017": {"idea": "Capa es el conjunto con el mismo $n$. Subcapa añade el mismo $\\ell$.",
+  "pasos": ["Capa: mismo $n$, todos los $\\ell$ posibles.", "Las letras K, L, M nombran $n = 1, 2, 3$."],
+  "porque_fallan": {"C": "Eso es una **sub**capa: capa lleva solo el $n$."},
+  "confirma": "A"},
+
+ "hrw-c40-q018": {"idea": "Subcapa es mismo $n$ **y** mismo $\\ell$: es lo que se nombra 3p, 4d, etcétera.",
+  "pasos": ["El número y la letra dicen $n$ y $\\ell$ respectivamente.", "Dentro de una subcapa varían $m_\\ell$ y $m_s$."],
+  "porque_fallan": {"B": "Solo con $\\ell$ no basta: 2p y 3p tienen el mismo $\\ell$ y son subcapas distintas."},
+  "confirma": "C"},
+
+ "hrw-c40-q019": {"idea": "Con $n$ y $\\ell$ fijos hay $2(2\\ell+1)$ estados: los $m_\\ell$ por los dos espines.",
+  "pasos": ["$\\ell = 1$ da $m_\\ell = -1, 0, 1$: tres orbitales.", "$2 \\times 3 = 6$ estados. Es la subcapa 2p."],
+  "porque_fallan": {"B": "Olvida el espín o cuenta mal los $m_\\ell$.", "D": "Sería $\\ell = 1$ con cuatro orbitales, que no existe."},
+  "confirma": "C"},
+
+ "hrw-c40-q020": {"idea": "El espín del electrón es fijo: $m_s = \\pm\\tfrac12$, siempre y en cualquier átomo.",
+  "pasos": ["No depende de $n$, ni de $\\ell$, ni del campo externo.", "Es una propiedad intrínseca de la partícula."],
+  "porque_fallan": {"D": "El campo externo cambia la **energía** de cada proyección, no qué proyecciones existen."},
+  "confirma": "E"},
+
+ "hrw-c40-q021": {"idea": "Hace falta un campo **no uniforme**: solo un gradiente ejerce fuerza neta sobre un dipolo.",
+  "pasos": ["Un campo uniforme solo produce un par que hace precesar al dipolo, sin desviarlo.", "La fuerza es $F_z = \\mu_z\\,\\dfrac{dB_z}{dz}$: sin gradiente no hay desviación.", "Ese gradiente separa el haz según la proyección del espín."],
+  "porque_fallan": {"A": "Con campo uniforme la fuerza neta es cero y el haz no se abre. Es el punto entero del experimento."},
+  "confirma": "B"},
+
+ "hrw-c40-q023": {"idea": "Campo uniforme: par de fuerzas sí, fuerza neta no.",
+  "pasos": ["El polo norte y el polo sur del dipolo sienten fuerzas iguales y opuestas.", "$\\vec F = \\nabla(\\vec\\mu\\cdot\\vec B) = 0$ si $\\vec B$ es uniforme.", "Lo que sí hay es un torque $\\vec\\mu\\times\\vec B$."],
+  "porque_fallan": {"D": "$\\vec\\mu\\times\\vec B$ es el **torque**, no la fuerza."},
+  "confirma": "E"},
+
+ "hrw-c40-q024": {"idea": "La fuerza depende del gradiente del campo y del momento magnético, no de lo rápido que pase la partícula.",
+  "pasos": ["$F_z = \\mu_z\\,\\dfrac{dB_z}{dz}$: ahí no aparece $v$.", "La velocidad sí cambia cuánto **tiempo** actúa la fuerza, y por tanto la desviación final — pero no la fuerza."],
+  "porque_fallan": {"A": "Confunde con la fuerza magnética sobre una carga, $qv\\times B$, que sí depende de la velocidad. Aquí el átomo es neutro."},
+  "confirma": "E"},
+
+ "hrw-c40-q027": {"idea": "Las capas se nombran K, L, M, N… empezando en $n=1$.",
+  "pasos": ["K corresponde a $n=1$, la más interna."],
+  "porque_fallan": {"A": "$n=0$ no existe."},
+  "confirma": "B"},
+
+ "hrw-c40-q028": {"idea": "L es la segunda capa, $n=2$.",
+  "pasos": ["K es $n=1$, L es $n=2$, M es $n=3$."],
+  "porque_fallan": {"B": "Ese es la capa K."},
+  "confirma": "C"},
+
+ "hrw-c40-q029": {"idea": "El fotón más energético del espectro continuo sale cuando el electrón incidente entrega **toda** su energía cinética de golpe.",
+  "pasos": ["El bremsstrahlung reparte la energía del electrón en uno o varios fotones.", "El caso extremo es un solo fotón que se lo lleva todo: $hf_{max} = K$.", "De ahí el corte abrupto de longitud de onda mínima."],
+  "porque_fallan": {"D": "La energía de un electrón K del blanco da las líneas **características**, no el continuo.", "C": "La energía en reposo del electrón es 511 keV, muy por encima."},
+  "confirma": "B"},
+
+ "hrw-c40-q030": {"idea": "La longitud de onda de corte depende **solo** de la energía de los electrones incidentes, no del material del blanco.",
+  "pasos": ["$\\lambda_{min} = \\dfrac{hc}{K}$.", "Corte más corto significa electrones más energéticos.", "El número atómico del blanco gobierna las líneas características, no el corte."],
+  "porque_fallan": {"A": "El número atómico afecta a las líneas K, no al corte del continuo. Es la confusión central del tema."},
+  "confirma": "C"},
+
+ "hrw-c40-q031": {"idea": "El corte se alcanza cuando el electrón se frena por completo en un solo choque y todo va a parar a un fotón.",
+  "pasos": ["$hf_{max} = K$, luego $\\lambda_{min} = hc/K$.", "Cualquier otro reparto da fotones menos energéticos."],
+  "porque_fallan": {"A": "Arrancar un electrón de la capa K produce líneas características, no el corte."},
+  "confirma": "E"},
+
+ "hrw-c40-q032": {"idea": "Doblar la energía de los electrones acorta el corte a la mitad, pero no toca las líneas características: esas las fija el blanco.",
+  "pasos": ["$\\lambda_{min} = hc/K$: si $K$ se dobla, $\\lambda_{min}$ se divide entre dos.", "Las líneas K dependen de los niveles del átomo del blanco, que no han cambiado."],
+  "porque_fallan": {"C": "Movería también las líneas características, que son propias del material.", "A": "Más energía acorta la longitud de onda, no la alarga."},
+  "confirma": "B"},
+
+ "hrw-c40-q033": {"idea": "Las líneas características son transiciones **dentro del átomo del blanco**: un electrón cae al hueco dejado en una capa interna.",
+  "pasos": ["El electrón incidente arranca un electrón de la capa K.", "Otro de una capa superior cae a ese hueco y emite un fotón de energía bien definida.", "Por eso la energía depende del elemento y no del haz."],
+  "porque_fallan": {"B": "La dispersión del electrón incidente produce el fondo continuo."},
+  "confirma": "D"},
+
+ "hrw-c40-q034": {"idea": "Ley de Moseley: $\\sqrt{f} \\propto (Z-1)$. Un tercio de longitud de onda es el triple de frecuencia.",
+  "pasos": ["$\\lambda' = \\lambda/3 \\Rightarrow f' = 3f \\Rightarrow \\sqrt{f'} = \\sqrt3\\sqrt{f}$.", "$(Z'-1) = \\sqrt3\\,(27-1) = 1.732 \\times 26 = 45$.", "$Z' = 46$."],
+  "porque_fallan": {"C": "Sale de multiplicar $Z$ por algo pequeño, sin la raíz de Moseley.", "A": "Divide en vez de multiplicar."},
+  "confirma": "E"},
+
+ "hrw-c40-q035": {"idea": "La letra dice a qué capa **llega** el electrón y la griega de dónde viene: alfa es del nivel inmediatamente superior.",
+  "pasos": ["$K_\\alpha$: transición de $n=2$ a $n=1$.", "$K_\\beta$: de $n=3$ a $n=1$."],
+  "porque_fallan": {"C": "No tiene nada que ver con el potasio: K es el nombre de la capa $n=1$.", "A": "Tampoco con las partículas alfa."},
+  "confirma": "E"},
+
+ "hrw-c40-q036": {"idea": "L es la capa $n=2$ y beta indica que el electrón viene de dos niveles más arriba.",
+  "pasos": ["$L_\\beta$: transición de $n=4$ a $n=2$.", "$L_\\alpha$ sería de $n=3$ a $n=2$."],
+  "porque_fallan": {"A": "No es radiación beta: L es el nombre de la capa.", "C": "Tampoco es inductancia."},
+  "confirma": "D"},
+
+ "hrw-c40-q038": {"idea": "Moseley descubrió que la **raíz** de la frecuencia es lineal en $Z$. Esa linealidad es lo que ordenó la tabla periódica por número atómico.",
+  "pasos": ["$\\sqrt{f} = C(Z-1)$.", "Al graficar $\\sqrt f$ frente a $Z$ sale una recta limpia."],
+  "porque_fallan": {"A": "La frecuencia a secas va como $(Z-1)^2$: la gráfica sería una parábola."},
+  "confirma": "C"},
+
+ "hrw-c40-q039": {"idea": "El electrón que cae a la capa K ve el núcleo **apantallado** por el otro electrón que queda ahí, así que la carga efectiva es $Z-1$.",
+  "pasos": ["En la capa K quedan dos plazas; con una vacante, sigue habiendo un electrón.", "Ese electrón cancela una unidad de carga nuclear.", "De ahí el $b \\approx 1$ de la ley de Moseley."],
+  "porque_fallan": {"B": "El núcleo no pierde protones en el proceso.", "E": "Pauli explica por qué hay dos plazas, no el apantallamiento."},
+  "confirma": "D"},
+
+ "hrw-c40-q040": {"idea": "$\\lambda \\propto \\dfrac{1}{(Z-1)^2}$, así que el cociente sale de los cuadrados.",
+  "pasos": ["$\\dfrac{\\lambda_{Nb}}{\\lambda_{Ga}} = \\left(\\dfrac{Z_{Ga}-1}{Z_{Nb}-1}\\right)^2 = \\left(\\dfrac{30}{40}\\right)^2$.", "$= \\dfrac{9}{16}$."],
+  "porque_fallan": {"C": "Se queda en el cociente sin elevar al cuadrado.", "B": "Invierte: más $Z$ significa longitud de onda **menor**."},
+  "confirma": "A"},
+
+ "hrw-c40-q041": {"idea": "Pauli es de los fermiones, o sea de las partículas con espín semientero.",
+  "pasos": ["Electrones, protones y neutrones tienen espín $\\tfrac12$: lo obedecen.", "Fotones y otros bosones tienen espín entero y no: pueden amontonarse en el mismo estado, que es lo que hace posible el láser."],
+  "porque_fallan": {"A": "Los bosones no lo obedecen.", "B": "La carga no tiene nada que ver: el neutrón es neutro y sí es fermión."},
+  "confirma": "C"},
+
+ "hrw-c40-q042": {"idea": "«Un electrón por estado» es el enunciado literal del principio de exclusión.",
+  "pasos": ["Dos electrones no pueden compartir los cuatro números cuánticos.", "Es lo que da estructura a la tabla periódica: sin él todos los electrones caerían al 1s."],
+  "porque_fallan": {"A": "La naturaleza ondulatoria explica la cuantización, no la exclusión."},
+  "confirma": "D"},
+
+ "hrw-c40-q043": {"idea": "Hay que ver cuántas parejas $(n_x,n_y)$ dan esa energía, y multiplicar por dos por el espín.",
+  "pasos": ["$n_x^2+n_y^2 = 8$ solo se cumple con $(2,2)$.", "Un único estado espacial, con dos orientaciones de espín.", "Caben 2 electrones."],
+  "porque_fallan": {"D": "Sería el caso de una energía con dos parejas distintas, como $n_x^2+n_y^2=5$.", "A": "Olvida el espín."},
+  "confirma": "B"},
+
+ "hrw-c40-q044": {"idea": "Llenar de abajo arriba, dos electrones por estado espacial, y sumar las energías.",
+  "pasos": ["Niveles: $(1,1)=2$; $(1,2)$ y $(2,1)$, ambos $=5$.", "Dos electrones en $(1,1)$: $2\\times2 = 4$.", "Tres electrones más caben en los dos estados de energía 5: $3\\times5 = 15$.", "Total: $4+15 = 19$."],
+  "porque_fallan": {"B": "Suma las energías de los niveles sin contar cuántos electrones hay en cada uno.", "D": "Correspondería a seis electrones, no cinco."},
+  "confirma": "C"},
+
+ "hrw-c40-q045": {"idea": "El primer excitado del **sistema** es subir un electrón al siguiente nivel libre, el de energía 8.",
+  "pasos": ["Fundamental: 19, con el nivel 5 a medio llenar (tres de cuatro plazas).", "El salto más barato es mover un electrón de 5 al siguiente estado disponible, $(2,2)$ con energía 8.", "$19 - 5 + 8 = 22$."],
+  "porque_fallan": {"D": "Salta al nivel 10 en vez de al 8, olvidando el estado $(2,2)$.", "A": "Menor que el fundamental, imposible."},
+  "confirma": "B"},
+
+ "hrw-c40-q046": {"idea": "Contar las parejas de enteros positivos que dan esa suma de cuadrados.",
+  "pasos": ["$n_x^2+n_y^2 = 5$ se cumple con $(1,2)$ y $(2,1)$.", "Son dos estados de una partícula, distintos aunque tengan la misma energía: eso es degeneración."],
+  "porque_fallan": {"D": "Contaría también las orientaciones de espín, pero la pregunta pide estados de **partícula única** en el sentido espacial.", "A": "Pasa por alto que el cuadrado es simétrico y $(1,2)$ y $(2,1)$ son distintos."},
+  "confirma": "B"},
+
+ "hrw-c40-q048": {"idea": "El tercer electrón del litio no puede entrar en $n=1$ porque esas dos plazas ya están ocupadas.",
+  "pasos": ["La capa $n=1$ tiene solo dos estados: $(1,0,0,+\\tfrac12)$ y $(1,0,0,-\\tfrac12)$.", "El helio ya los usó los dos.", "El tercero está obligado a subir, y quien lo obliga es Pauli."],
+  "porque_fallan": {"B": "El principio de mínima energía diría que baje al $n=1$: es justo lo que Pauli impide."},
+  "confirma": "A"},
+
+ "hrw-c40-q049": {"idea": "Entre los estados que Pauli **sí** permite, el electrón elige el de menor energía. Esa es la otra mitad de la regla.",
+  "pasos": ["Pauli descarta $n=1$; quedan $n=2$ con $\\ell=0$ o $\\ell=1$, y todos los superiores.", "De todos los permitidos, $2s$ es el más bajo.", "Por eso el litio es 1s²2s¹ y no 1s²2p¹."],
+  "porque_fallan": {"A": "Pauli explica por qué **no** puede quedarse en $n=1$; que elija $2s$ y no $2p$ lo explica la energía mínima."},
+  "confirma": "B"},
+
+ "hrw-c40-q050": {"idea": "Sin espín, cada trío $(n,\\ell,m_\\ell)$ admite un solo electrón. El helio ya no cabría entero en la capa K.",
+  "pasos": ["El primer electrón ocupa $(1,0,0)$.", "El segundo no puede repetirlo, así que sube al siguiente estado disponible.", "Con $n=1$ solo existe $\\ell=0$, así que tiene que ir a $n=2$, $\\ell=0$."],
+  "porque_fallan": {"A": "Es la configuración real **con** espín; sin espín está prohibida.", "B": "Con $n=1$ el único $\\ell$ posible es 0."},
+  "confirma": "C"},
+
+ "hrw-c40-q051": {"idea": "El principio de mínima energía dice qué configuración es la fundamental: la de menor energía entre las permitidas.",
+  "pasos": ["Los electrones llenan de abajo arriba, respetando Pauli.", "No habla de átomos con más o menos número atómico, ni de transiciones."],
+  "porque_fallan": {"C": "Las transiciones hacia arriba requieren aportar energía, pero eso no es este principio."},
+  "confirma": "D"},
+
+ "hrw-c40-q052": {"idea": "Tres reglas: $\\ell \\leq n-1$, $|m_\\ell| \\leq \\ell$, y $m_s = \\pm\\tfrac12$. Basta que falle una.",
+  "pasos": ["Con $n=3$, $\\ell=1$: $m_\\ell$ solo puede ser $-1, 0, 1$.", "$m_\\ell = -2$ excede ese rango: imposible."],
+  "porque_fallan": {"C": "$n=3$, $\\ell=2$, $m_\\ell=-2$ cumple todo: $\\ell \\leq 2$ y $|m_\\ell| \\leq \\ell$.", "B": "$n=6$, $\\ell=2$ también es legal."},
+  "confirma": "D"},
+
+ "hrw-c40-q053": {"idea": "La letra codifica $\\ell$: s=0, p=1, d=2, f=3. Y $\\ell$ tiene que ser menor que $n$.",
+  "pasos": ["«2d» significa $n=2$, $\\ell=2$.", "Pero con $n=2$ el máximo es $\\ell = 1$.", "Por eso no existe 2d, ni 1p, ni 3f."],
+  "porque_fallan": {"D": "3d es $n=3$, $\\ell=2$: legal, porque $2 \\leq 3-1$."},
+  "confirma": "E"},
+
+ "hrw-c40-q054": {"idea": "En átomos multielectrónicos la energía depende de $n$ **y** de $\\ell$, así que ni siquiera la energía es común dentro de una capa.",
+  "pasos": ["La degeneración en $\\ell$ del hidrógeno se rompe por la repulsión entre electrones.", "Dentro de una capa varían $\\ell$, $m_\\ell$ y $m_s$, así que ninguna de las magnitudes listadas es común."],
+  "porque_fallan": {"A": "Solo es cierto en el hidrógeno, que el enunciado excluye expresamente."},
+  "confirma": "E"},
+
+ "hrw-c40-q055": {"idea": "Los lantánidos son la serie que rellena los orbitales 4f.",
+  "pasos": ["f corresponde a $\\ell = 3$.", "Son $n=4$, $\\ell=3$: catorce estados, y catorce elementos en la serie."],
+  "porque_fallan": {"C": "$n=4$, $\\ell=2$ es 4d, la serie de transición del quinto periodo."},
+  "confirma": "D"},
+
+ "hrw-c40-q056": {"idea": "Cada periodo empieza con un metal alcalino, cuyo electrón de valencia está en un orbital s, o sea $\\ell = 0$.",
+  "pasos": ["Litio, sodio, potasio: todos con un solo electrón $s$ fuera de capa cerrada.", "Ese electrón solitario y bien apantallado es lo que los hace tan reactivos."],
+  "porque_fallan": {"B": "$\\ell=1$ es un orbital p, que es donde acaba el periodo, no donde empieza."},
+  "confirma": "A"},
+
+ "hrw-c40-q057": {"idea": "Cada periodo termina con un gas noble, cuya subcapa p queda completa: $\\ell = 1$.",
+  "pasos": ["Neón, argón, criptón: configuración $\\ldots ns^2np^6$.", "El último electrón en entrar es un p."],
+  "porque_fallan": {"A": "El helio es la excepción, pero la regla general del final de periodo es la subcapa p llena."},
+  "confirma": "B"},
+
+ "hrw-c40-q058": {"idea": "Los que cierran periodo son los gases inertes, con todas sus subcapas llenas.",
+  "pasos": ["Capa cerrada significa que no hay electrones fáciles de ceder ni huecos que llenar.", "De ahí su inercia química."],
+  "porque_fallan": {"A": "Los alcalinos están al principio del periodo, no al final."},
+  "confirma": "E"},
+
+ "hrw-c40-q059": {"idea": "Los que abren periodo son los metales alcalinos, con un electrón suelto sobre capa cerrada.",
+  "pasos": ["Ese único electrón está muy apantallado y se cede con facilidad.", "Por eso son los elementos más reactivos de la tabla."],
+  "porque_fallan": {"E": "Los inertes cierran el periodo."},
+  "confirma": "A"},
+
+ "hrw-c40-q061": {"idea": "Ionizar es arrancar el electrón que menos cuesta, y ese es el **más** energético: el que está más arriba, menos ligado.",
+  "pasos": ["La energía de ionización se define sobre el electrón menos ligado.", "«Más energético» aquí significa con la energía menos negativa, o sea más cerca del cero."],
+  "porque_fallan": {"A": "El menos energético es el más interno, y arrancarlo cuesta mucho más.", "D": "Un fotón $K_\\alpha$ es una transición interna, no una ionización."},
+  "confirma": "B"},
+
+ "hrw-c40-q062": {"idea": "El electrón de valencia ve el núcleo casi cancelado por las capas internas: le queda una carga efectiva de unas pocas unidades.",
+  "pasos": ["Las capas cerradas apantallan casi toda la carga nuclear.", "Lo que sobrevive son entre 1 y 3 cargas elementales, según el elemento.", "Por eso las energías de valencia son de pocos electronvoltios y no de kiloelectronvoltios."],
+  "porque_fallan": {"A": "Sin apantallamiento el electrón de valencia estaría ligadísimo y ningún átomo reaccionaría."},
+  "confirma": "C"},
+
+ "hrw-c40-q064": {"idea": "La emisión **estimulada** copia el fotón que la provoca: misma energía, dirección, fase y polarización.",
+  "pasos": ["Un fotón incidente induce la transición y el fotón emitido nace idéntico a él.", "Esa clonación es la que produce un haz coherente.", "La emisión espontánea, en cambio, sale en cualquier dirección y fase."],
+  "porque_fallan": {"D": "Dos fotones de la misma energía pueden tener fases y direcciones distintas: eso es la luz de una bombilla.", "B": "Vienen de muchísimos átomos distintos."},
+  "confirma": "A"},
+
+ "hrw-c40-q065": {"idea": "Bombear sirve para conseguir más átomos arriba que abajo: la inversión de población.",
+  "pasos": ["En equilibrio térmico siempre hay más átomos abajo, y el medio absorbe más de lo que emite.", "Solo con la población invertida la emisión estimulada gana a la absorción.", "Sin bombeo no hay ganancia neta."],
+  "porque_fallan": {"C": "La emisión estimulada ocurre igualmente sin bombeo; lo que falta es que **domine**.", "A": "El estado metaestable es una propiedad del material, no algo que se consiga bombeando."},
+  "confirma": "D"},
+
+ "hrw-c40-q066": {"idea": "El nivel superior del láser es metaestable, y de ahí salen los fotones del haz.",
+  "pasos": ["Los átomos se acumulan en el metaestable porque tarda en decaer solo.", "La emisión estimulada los baja en avalancha."],
+  "porque_fallan": {"C": "Un estado que decae enseguida no acumula población y no sirve.", "E": "El bombeo lleva los átomos arriba, no produce los fotones del haz."},
+  "confirma": "A"},
+
+ "hrw-c40-q067": {"idea": "El nivel **superior** tiene que ser metaestable, para que la población se acumule ahí en vez de decaer sola.",
+  "pasos": ["Una vida media larga arriba permite juntar átomos antes de que se desexciten.", "Si el metaestable fuera el de abajo, se atascarían ahí y no habría inversión."],
+  "porque_fallan": {"A": "Al revés: un nivel inferior metaestable arruina el láser, porque se llena y no se vacía.", "D": "Más átomos abajo es exactamente lo contrario de la inversión."},
+  "confirma": "B"},
+
+ "hrw-c40-q068": {"idea": "La condición de fondo es la inversión de población: más arriba que abajo.",
+  "pasos": ["Si $N_{sup} > N_{inf}$, la emisión estimulada supera a la absorción y el haz se amplifica.", "Es la definición de medio con ganancia."],
+  "porque_fallan": {"C": "Esa es la situación normal, de equilibrio térmico, en la que el medio absorbe.", "E": "Hay láseres de estado sólido, líquidos y semiconductores."},
+  "confirma": "B"},
+
+ "hrw-c40-q069": {"idea": "Con más átomos arriba que abajo se emiten más fotones de los que se absorben, y el haz crece.",
+  "pasos": ["Absorción y emisión estimulada tienen la misma probabilidad por átomo.", "Gana la que tenga más átomos disponibles.", "Con la población invertida, gana la emisión."],
+  "porque_fallan": {"A": "La emisión espontánea sigue ocurriendo; lo que hace la inversión es que la estimulada la supere."},
+  "confirma": "C"},
+
+ "hrw-c40-q070": {"idea": "Metaestable significa que tarda mucho en decaer solo, así que los átomos se quedan ahí esperando a ser estimulados.",
+  "pasos": ["Una vida media larga frena la emisión espontánea.", "Eso da tiempo a que el bombeo acumule población."],
+  "porque_fallan": {"C": "Eso lo asegura la inversión de población, no la metaestabilidad. Son dos ingredientes distintos y complementarios."},
+  "confirma": "A"},
+
+ "hrw-c40-q072": {"idea": "En el láser de helio-neón el helio bombea y el neón emite: la transición láser es de neón a neón.",
+  "pasos": ["La descarga excita átomos de helio.", "El helio transfiere esa energía al neón por colisión, porque sus niveles casi coinciden.", "La luz roja de 633 nm sale de una transición entre dos niveles del neón."],
+  "porque_fallan": {"C": "El helio interviene en el bombeo, no en la transición que emite el haz."},
+  "confirma": "B"},
+
+ "hrw-c40-q073": {"idea": "Los espejos devuelven la luz al medio una y otra vez, multiplicando las emisiones estimuladas.",
+  "pasos": ["Cada pasada por el medio amplifica el haz.", "La cavidad además selecciona la dirección: solo sobrevive la luz paralela al eje.", "Uno de los espejos es parcialmente transparente, y por ahí sale el haz."],
+  "porque_fallan": {"A": "Algo de luz tiene que salir: si no, no habría láser útil.", "C": "Absorber fotones es lo contrario de lo que se busca."},
+  "confirma": "B"},
+
+ "hrw-c40-q074": {"idea": "La luz láser cumple las tres: monocromática, coherente y polarizada.",
+  "pasos": ["Monocromática porque procede de una transición concreta.", "Coherente porque la emisión estimulada copia la fase.", "Y polarizada por la geometría de la cavidad."],
+  "porque_fallan": {"D": "Deja fuera la polarización, que también se cumple."},
+  "confirma": "E"},
+
+ "hrw-c40-q075": {"idea": "Se enfoca bien porque es muy direccional: los rayos son casi paralelos y una lente los junta en un punto minúsculo.",
+  "pasos": ["La cavidad solo amplifica la luz que viaja paralela al eje.", "Un haz casi sin divergencia se puede concentrar hasta el límite de difracción."],
+  "porque_fallan": {"C": "Ser intenso no ayuda a enfocar: una bombilla potente sigue sin poder concentrarse.", "A": "La coherencia importa para interferometría, pero lo que permite el enfoque fino es la direccionalidad."},
+  "confirma": "E"},
+
+ "hrw-c40-q076": {"idea": "Light Amplification by Stimulated Emission of Radiation.",
+  "pasos": ["La «e» es de **emission**, y va con «stimulated»: es el mecanismo entero del aparato."],
+  "porque_fallan": {"C": "La energía está implícita, pero la sigla dice emisión."},
+  "confirma": "D"}
+}

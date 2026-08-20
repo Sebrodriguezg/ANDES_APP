@@ -1,0 +1,186 @@
+{
+ "hrw-c39-q001": {"idea": "Normalizar es exigir que la partícula esté en algún sitio: la probabilidad total vale uno.",
+  "pasos": ["$\\displaystyle\\int_{-\\infty}^{\\infty}|\\psi(x)|^2\\,dx = 1$.", "Se integra sobre la **posición**, no sobre el tiempo, y del módulo al cuadrado."],
+  "porque_fallan": {"E": "$|\\psi|^2 = 1$ en todo punto sería una densidad de probabilidad infinita al integrar.", "A": "Integra en el tiempo, que no es la variable del problema."},
+  "confirma": "B"},
+
+ "hrw-c39-q002": {"idea": "Pozo infinito: caben medias longitudes de onda enteras, y la energía va con el cuadrado del número cuántico.",
+  "pasos": ["$L = n\\lambda/2$, luego $\\lambda = 2L/n$.", "$E = \\dfrac{p^2}{2m} = \\dfrac{h^2}{2m\\lambda^2} \\propto n^2$.", "$E_n = \\dfrac{n^2h^2}{8mL^2}$."],
+  "porque_fallan": {"A": "Lineal en $n$ es el oscilador armónico, no el pozo.", "C": "$1/n^2$ es el átomo de hidrógeno: los niveles se juntan al subir, aquí se separan."},
+  "confirma": "E"},
+
+ "hrw-c39-q003": {"idea": "$E \\propto 1/L^2$: ensanchar el pozo baja la energía, y al cuadrado.",
+  "pasos": ["$E_1 = \\dfrac{h^2}{8mL^2}$.", "Doblar $L$ divide la energía por 4.", "$2.0/4 = 0.5\\ \\mathrm{eV}$."],
+  "porque_fallan": {"B": "Divide solo por dos: olvida el cuadrado.", "E": "Invierte la relación: un pozo más ancho confina menos y por tanto cuesta menos energía."},
+  "confirma": "A"},
+
+ "hrw-c39-q004": {"idea": "$E \\propto n^2$, así que el cociente es el de los cuadrados.",
+  "pasos": ["$\\dfrac{E_3}{E_1} = \\dfrac{3^2}{1^2} = 9$."],
+  "porque_fallan": {"C": "Usa la razón de los $n$ sin elevar al cuadrado.", "B": "Invierte el cociente."},
+  "confirma": "D"},
+
+ "hrw-c39-q005": {"idea": "Como $E \\propto n^2$, la diferencia entre niveles vecinos **crece** con $n$. Hay que restar cuadrados, no números.",
+  "pasos": ["Pareja 1 ($3\\to1$): $9-1 = 8$.", "Pareja 2 ($3\\to2$): $9-4 = 5$.", "Pareja 3 ($4\\to3$): $16-9 = 7$.", "De menor a mayor: 2, 3, 1."],
+  "porque_fallan": {"B": "Ordena por el salto en $n$, no en energía: el salto $4\\to3$ es de una unidad pero vale más que el $3\\to2$.", "A": "Ordena por el número de la lista."},
+  "confirma": "C"},
+
+ "hrw-c39-q007": {"idea": "En el estado fundamental $E \\propto \\dfrac{1}{mL^2}$: masa grande y pozo ancho confinan poco y cuestan poca energía.",
+  "pasos": ["$E_1 = \\dfrac{h^2}{8mL^2}$.", "1: $\\dfrac{1}{4\\cdot4} = \\dfrac{1}{16}$. 2: $\\dfrac{1}{2\\cdot4} = \\dfrac{1}{8}$.", "3: $\\dfrac{1}{4\\cdot1} = \\dfrac{1}{4}$. 4: $\\dfrac{1}{1\\cdot4} = \\dfrac{1}{4}$.", "De menor a mayor: 1, 2, y luego 3 y 4 empatadas."],
+  "porque_fallan": {"A": "No detecta el empate: 3 y 4 tienen el mismo producto $mL^2$ por caminos distintos.", "C": "Empata a 1 y 2, que difieren por un factor dos en la masa."},
+  "confirma": "B"},
+
+ "hrw-c39-q008": {"idea": "Los niveles del pozo dependen solo de la masa y del ancho. La temperatura no aparece por ningún lado.",
+  "pasos": ["$E_n = \\dfrac{n^2h^2}{8mL^2}$: no hay ningún $T$.", "La temperatura influiría en **qué nivel ocupa** la partícula, no en dónde están los niveles."],
+  "porque_fallan": {"A": "El estado fundamental no es cero: eso lo prohíbe el principio de incertidumbre."},
+  "confirma": "D"},
+
+ "hrw-c39-q011": {"idea": "La función de onda del pozo infinito es un seno que se anula en las paredes. Con $n$ semiondas hay $n+1$ ceros contando los extremos.",
+  "pasos": ["$\\psi_n \\propto \\sin(n\\pi x/L)$ se anula en $x = 0, L/n, 2L/n, \\ldots, L$.", "Son $n+1$ puntos: para $n=14$, quince nodos."],
+  "porque_fallan": {"C": "Cuenta $n-1$: son los nodos **interiores**, sin los extremos que el enunciado pide incluir.", "D": "Cuenta $n$."},
+  "confirma": "E"},
+
+ "hrw-c39-q012": {"idea": "Entre cada dos nodos consecutivos hay un máximo: con $n+1$ nodos salen $n$ máximos.",
+  "pasos": ["$|\\psi_n|^2 \\propto \\sin^2(n\\pi x/L)$ tiene $n$ jorobas.", "Para $n = 14$, catorce máximos."],
+  "porque_fallan": {"E": "Ese es el número de nodos, uno más que el de máximos."},
+  "confirma": "D"},
+
+ "hrw-c39-q013": {"idea": "En el centro del pozo, $\\sin^2(n\\pi/2)$ vale 1 si $n$ es impar y 0 si es par. Y entre los impares, el de menor $n$ tiene el pico más ancho.",
+  "pasos": ["$|\\psi|^2$ en $x = L/2$ vale $\\dfrac{2}{L}\\sin^2\\!\\left(\\dfrac{n\\pi}{2}\\right)$.", "Con $n$ par eso es **cero**: hay un nodo justo en el centro.", "Con $n$ impar es máximo. Entre $n=3$ y $n=5$, el de $n=3$ concentra más probabilidad **cerca** del centro, porque su joroba central es más ancha."],
+  "porque_fallan": {"C": "Con $n$ par el centro es un nodo: la probabilidad ahí es exactamente cero.", "A": "Lo mismo, $n=2$ tiene nodo central."},
+  "confirma": "B"},
+
+ "hrw-c39-q014": {"idea": "Igualar $n^2/L^2$ en los dos pozos. Al doblar el ancho hay que doblar $n$ para compensar.",
+  "pasos": ["$E \\propto \\dfrac{n^2}{L^2}$.", "Pozo A: $\\dfrac{1}{L^2}$. Pozo B: $\\dfrac{n^2}{4L^2}$.", "Igualando: $n^2 = 4 \\Rightarrow n = 2$."],
+  "porque_fallan": {"D": "Iguala $n$ con el factor de ancho al cuadrado en vez de con el ancho."},
+  "confirma": "B"},
+
+ "hrw-c39-q015": {"idea": "Sustituir en la fórmula del pozo infinito, con cuidado de elevar al cuadrado tanto $n$ como $L$.",
+  "pasos": ["$E = \\dfrac{n^2h^2}{8mL^2}$ con $n=3$, $L = 0.3$ nm.", "$E = \\dfrac{9(6.63\\times10^{-34})^2}{8(9.11\\times10^{-31})(0.3\\times10^{-9})^2}$.", "$E \\approx 6.0\\times10^{-18}\\ \\mathrm{J}$, unos 38 eV."],
+  "porque_fallan": {"C": "Es el estado fundamental, sin el factor $n^2 = 9$.", "A": "Muchos órdenes de magnitud abajo: seguramente por no elevar $L$ al cuadrado."},
+  "confirma": "E"},
+
+ "hrw-c39-q016": {"idea": "Con paredes finitas la función de onda no puede cortarse de golpe: penetra en la barrera y decae exponencialmente.",
+  "pasos": ["La ecuación de Schrödinger exige que $\\psi$ y su derivada sean continuas.", "Dentro de la barrera $\\psi \\sim e^{-kx}$: pequeña pero no nula.", "Esa penetración es lo que hace posible el efecto túnel."],
+  "porque_fallan": {"A": "Anularse en las paredes es el caso del pozo **infinito**.", "E": "$\\psi$ nunca es discontinua: eso daría energía cinética infinita."},
+  "confirma": "D"},
+
+ "hrw-c39-q017": {"idea": "Fuera del pozo la energía es menor que el potencial, así que la solución es una exponencial decreciente.",
+  "pasos": ["Para $E < U$, la ecuación da $\\psi'' = k^2\\psi$ con $k$ real.", "Las soluciones son $e^{+kx}$ y $e^{-kx}$; la creciente se descarta por no ser normalizable.", "Queda $\\psi = Ae^{-kx}$."],
+  "porque_fallan": {"B": "Crece sin límite: la probabilidad total sería infinita.", "A": "Un seno es la solución **dentro** del pozo, donde $E > U$.", "E": "Cero exacto solo con barreras infinitas."},
+  "confirma": "C"},
+
+ "hrw-c39-q018": {"idea": "En un pozo finito la función no se anula en las paredes, así que solo cuentan los nodos interiores: $n-1$.",
+  "pasos": ["El estado $n$ tiene $n-1$ nodos entre las paredes.", "Para $n=4$: tres nodos.", "En los bordes $\\psi \\neq 0$, así que no hay nodos ahí."],
+  "porque_fallan": {"D": "Contaría también los extremos, que es lo que pasa en el pozo infinito."},
+  "confirma": "C"},
+
+ "hrw-c39-q019": {"idea": "El número de estados ligados lo fija la profundidad del pozo: solo caben los niveles por debajo del borde.",
+  "pasos": ["Los estados ligados son los que tienen $E$ menor que la altura de las paredes.", "Profundizar el pozo mete más niveles por debajo del borde.", "Estrecharlo separa los niveles y **reduce** cuántos caben."],
+  "porque_fallan": {"C": "Estrechar sube todos los niveles y saca alguno del pozo.", "A": "El momento de la partícula no cambia la estructura de niveles: es el pozo el que la fija."},
+  "confirma": "D"},
+
+ "hrw-c39-q020": {"idea": "La misma idea dicha de otro modo: más profundo, más niveles ligados.",
+  "pasos": ["El número de estados ligados crece con la profundidad y con la anchura.", "Hacer el pozo más hondo baja el borde y deja sitio a un sexto nivel."],
+  "porque_fallan": {"E": "Estrecharlo separa más los niveles: caben menos, no más.", "A": "La energía de la partícula no cambia cuántos niveles existen."},
+  "confirma": "D"},
+
+ "hrw-c39-q021": {"idea": "El fotón se lleva la diferencia de energías. Con $hc = 1240$ eV·nm la longitud de onda sale de cabeza.",
+  "pasos": ["$\\Delta E = 5.5 - 3.2 = 2.3\\ \\mathrm{eV}$.", "$\\lambda = \\dfrac{1240}{2.3} = 539\\ \\mathrm{nm} = 5.4\\times10^{-7}\\ \\mathrm{m}$.", "Cae en el verde, dentro del visible."],
+  "porque_fallan": {"D": "Usaría una energía cercana a 11 eV: sale de sumar los dos niveles en vez de restarlos.", "B": "Corresponde a unos 4 eV."},
+  "confirma": "A"},
+
+ "hrw-c39-q022": {"idea": "Restar las energías —cuidado con los signos, las dos son negativas— y dividir entre $h$.",
+  "pasos": ["$\\Delta E = |-1.1\\times10^{-18} - (-2.4\\times10^{-18})| = 1.3\\times10^{-18}\\ \\mathrm{J}$.", "$f = \\dfrac{\\Delta E}{h} = \\dfrac{1.3\\times10^{-18}}{6.63\\times10^{-34}} = 2.0\\times10^{15}\\ \\mathrm{Hz}$."],
+  "porque_fallan": {"A": "Dos órdenes de más: probablemente por sumar las energías en vez de restarlas.", "C": "Dos órdenes de menos."},
+  "confirma": "B"},
+
+ "hrw-c39-q023": {"idea": "Energía del fotón primero, y luego $p = E/c$.",
+  "pasos": ["$\\Delta E = 7.5 - 3.2 = 4.3\\ \\mathrm{eV} = 6.9\\times10^{-19}\\ \\mathrm{J}$.", "$p = \\dfrac{E}{c} = \\dfrac{6.9\\times10^{-19}}{3\\times10^{8}} = 2.3\\times10^{-27}\\ \\mathrm{kg\\cdot m/s}$."],
+  "porque_fallan": {"D": "Usa la energía del nivel superior entera, sin restar.", "A": "Usa solo el nivel inferior."},
+  "confirma": "B"},
+
+ "hrw-c39-q024": {"idea": "El número cuántico principal fija la energía: $E_n = -13.6/n^2$ eV.",
+  "pasos": ["En el hidrógeno la energía depende solo de $n$.", "El momento angular lo fija $\\ell$, su componente $z$ la fija $m_\\ell$, y el espín $m_s$."],
+  "porque_fallan": {"B": "El momento angular orbital lo determina $\\ell$, no $n$. Que $\\ell < n$ los relaciona, pero no son lo mismo."},
+  "confirma": "A"},
+
+ "hrw-c39-q025": {"idea": "Los niveles del hidrógeno van como $-1/n^2$: se **juntan** al subir, hasta acumularse en cero.",
+  "pasos": ["$E_n = -\\dfrac{13.6\\ \\mathrm{eV}}{n^2}$.", "Es lo contrario del pozo infinito, donde iban como $n^2$ y se separaban.", "Por eso el hidrógeno tiene infinitos niveles ligados en un rango finito de energía."],
+  "porque_fallan": {"B": "$n^2$ es el pozo infinito. Confundir los dos es el error clásico del capítulo."},
+  "confirma": "D"},
+
+ "hrw-c39-q026": {"idea": "13,6 eV, la energía de Rydberg. Es de los números que conviene tener anclados.",
+  "pasos": ["$E_1 = -13.6\\ \\mathrm{eV}$, así que arrancar el electrón cuesta 13,6 eV."],
+  "porque_fallan": {"B": "3,4 eV es la del primer estado excitado, $n=2$.", "C": "10,2 eV es la diferencia entre los dos primeros niveles."},
+  "confirma": "A"},
+
+ "hrw-c39-q027": {"idea": "Primer estado excitado es $n=2$, y la energía va con $1/n^2$.",
+  "pasos": ["$E_2 = -\\dfrac{13.6}{4} = -3.4\\ \\mathrm{eV}$."],
+  "porque_fallan": {"C": "Divide por 2 en vez de por $2^2$.", "A": "Cero es el límite de ionización, $n\\to\\infty$."},
+  "confirma": "B"},
+
+ "hrw-c39-q028": {"idea": "Energía negativa significa estado ligado: hay que aportar energía para separar las dos partículas.",
+  "pasos": ["El cero se toma con electrón y protón infinitamente lejos y en reposo.", "Si el sistema tiene menos energía que eso, está atrapado.", "La cinética sigue siendo positiva; lo que es muy negativo es el potencial."],
+  "porque_fallan": {"A": "La energía cinética nunca es negativa.", "C": "Es justo al contrario: el signo negativo dice que **no** puede escapar sin ayuda."},
+  "confirma": "D"},
+
+ "hrw-c39-q029": {"idea": "Energía de excitación es lo que costó subir desde el fundamental, no lo que falta para escapar.",
+  "pasos": ["$E_2 - E_1 = -3.4 - (-13.6) = 10.2\\ \\mathrm{eV}$."],
+  "porque_fallan": {"B": "3,4 eV es la energía de **ionización** desde ese estado: lo que falta para llegar a cero. Es la pregunta de al lado.", "E": "13,6 eV es la ionización desde el fundamental."},
+  "confirma": "D"},
+
+ "hrw-c39-q030": {"idea": "Energía de ionización es lo que falta para llegar a cero, o sea el valor absoluto del nivel.",
+  "pasos": ["$E_2 = -3.4\\ \\mathrm{eV}$, luego hacen falta 3,4 eV para liberarlo."],
+  "porque_fallan": {"D": "10,2 eV es la energía de **excitación**: lo que costó llegar hasta ahí. Las dos preguntas son espejo una de la otra."},
+  "confirma": "B"},
+
+ "hrw-c39-q032": {"idea": "Segundo estado excitado es $n=3$, no $n=2$. Contar bien es la mitad del problema.",
+  "pasos": ["Fundamental $n=1$, primer excitado $n=2$, segundo excitado $n=3$.", "$E_3 = -\\dfrac{13.6}{9} = -1.5\\ \\mathrm{eV}$.", "$\\Delta E = -1.5 - (-13.6) = 12.1\\ \\mathrm{eV}$."],
+  "porque_fallan": {"C": "Sale de tomar $n=2$ como segundo excitado: daría 10,2 eV… o de otro desliz al contar.", "E": "13,6 eV sería la transición desde el continuo, $n = \\infty$."},
+  "confirma": "D"},
+
+ "hrw-c39-q033": {"idea": "El límite de una serie es la transición desde el continuo, $n = \\infty$, hasta el nivel que da nombre a la serie. Para Balmer, el $n=2$.",
+  "pasos": ["Lyman termina en $n=1$, Balmer en $n=2$, Paschen en $n=3$.", "El límite de serie es $\\infty \\to 2$, el fotón más energético de Balmer."],
+  "porque_fallan": {"D": "Ese es el límite de la serie de Lyman, en el ultravioleta.", "C": "No existe $n=0$."},
+  "confirma": "E"},
+
+ "hrw-c39-q034": {"idea": "Balmer importa porque cae en el visible: se descubrió antes que la teoría que la explica.",
+  "pasos": ["Sus transiciones terminan en $n=2$ y dan longitudes de onda de 656, 486, 434 nm…", "Lyman está en el ultravioleta y Paschen en el infrarrojo: no se ven a simple vista."],
+  "porque_fallan": {"D": "Los números cuánticos más bajos son los de Lyman.", "B": "El hidrógeno tiene infinitas series."},
+  "confirma": "C"},
+
+ "hrw-c39-q035": {"idea": "Complementariedad es de Bohr: onda y partícula son descripciones que se excluyen en cada experimento y se complementan en el conjunto.",
+  "pasos": ["Ningún montaje muestra las dos caras a la vez.", "Es distinto del principio de incertidumbre, que es de Heisenberg."],
+  "porque_fallan": {"E": "Schrödinger aportó la ecuación de onda, no el principio interpretativo."},
+  "confirma": "D"},
+
+ "hrw-c39-q036": {"idea": "Tres reglas, y basta con que falle una: $\\ell$ va de 0 a $n-1$, y $m_\\ell$ de $-\\ell$ a $+\\ell$.",
+  "pasos": ["$\\ell \\leq n-1$: con $n=4$, $\\ell$ puede ser 0, 1, 2 o 3.", "$|m_\\ell| \\leq \\ell$.", "La combinación $n=4$, $\\ell=3$, $m_\\ell=-3$ cumple las dos."],
+  "porque_fallan": {"B": "$\\ell = 4$ con $n = 4$ está prohibido: el máximo es $n-1 = 3$.", "C": "$\\ell$ no puede ser negativo.", "D": "$|m_\\ell| = 2$ con $\\ell = 1$ excede el máximo.", "E": "$\\ell = 3$ con $n = 2$ excede $n-1$."},
+  "confirma": "A"},
+
+ "hrw-c39-q037": {"idea": "Momento angular cero significa que no hay dirección privilegiada: la función de onda solo depende de $r$.",
+  "pasos": ["Con $\\ell = 0$ el armónico esférico es constante.", "$\\psi(r,\\theta,\\phi) = R(r)$: simetría esférica perfecta.", "Son los orbitales $s$."],
+  "porque_fallan": {"C": "Depender del ángulo es lo propio de $\\ell \\neq 0$, como los orbitales $p$."},
+  "confirma": "B"},
+
+ "hrw-c39-q038": {"idea": "Un estado con $\\ell=0$ es esférico por sí solo; los de $\\ell \\neq 0$ no lo son, pero la suma de toda la subcapa sí. Es el teorema de Unsöld.",
+  "pasos": ["Con $\\ell=0$ no hay dependencia angular: esférico.", "Un orbital $p_z$ individual apunta en una dirección: no es esférico.", "Pero sumando $p_x$, $p_y$ y $p_z$ la dependencia angular se cancela y queda esférico."],
+  "porque_fallan": {"C": "Incluye el 2, que es justo el caso no esférico.", "A": "Deja fuera el 3, que es el resultado interesante: por eso las capas cerradas son esféricas."},
+  "confirma": "D"},
+
+ "hrw-c39-q039": {"idea": "La densidad radial es la densidad de probabilidad multiplicada por el área de la cáscara esférica de radio $r$.",
+  "pasos": ["El volumen de una cáscara de espesor $dr$ es $4\\pi r^2\\,dr$.", "$P(r) = 4\\pi r^2|\\psi|^2$.", "Ese factor $r^2$ es el que hace que el máximo no esté en el núcleo, donde $|\\psi|^2$ es máximo."],
+  "porque_fallan": {"B": "Es la densidad de probabilidad por unidad de volumen, no por unidad de radio.", "A": "Le falta el cuadrado del módulo."},
+  "confirma": "C"},
+
+ "hrw-c39-q040": {"idea": "Si $P(r)$ ya es la densidad **radial**, el factor geométrico está dentro: solo hay que multiplicar por $dr$.",
+  "pasos": ["$P(r)\\,dr$ es directamente la probabilidad de encontrarlo entre $r$ y $r+dr$."],
+  "porque_fallan": {"C": "Metería el $4\\pi r^2$ dos veces: una ya está dentro de $P$.", "B": "$P$ ya es una densidad de probabilidad; elevarla al cuadrado no significa nada."},
+  "confirma": "A"},
+
+ "hrw-c39-q041": {"idea": "El máximo está justo en el radio de Bohr, unos 53 pm. Ese es el resultado que conecta la cuántica con el modelo antiguo.",
+  "pasos": ["$a_0 = 0.529\\ \\text{Å} = 52.9\\ \\mathrm{pm}$.", "$|\\psi|^2$ es máxima en el origen, pero el factor $4\\pi r^2$ la anula ahí y desplaza el pico a $a_0$."],
+  "porque_fallan": {"A": "0,5 pm es cien veces menor: del orden nuclear, no atómico.", "D": "500 pm sería un átomo diez veces más grande de lo que es."},
+  "confirma": "C"}
+}
