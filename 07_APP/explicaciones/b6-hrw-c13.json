@@ -1,0 +1,615 @@
+{
+ "hrw-c13-q001": {
+  "idea": "$G$ es una constante de la naturaleza: el mismo número en toda circunstancia y en todo lugar del universo.",
+  "pasos": [
+   "$G = 6{,}67\\times10^{-11}$ N·m²/kg², siempre.",
+   "$g$ sí varía de un sitio a otro, pero $g$ y $G$ son cosas distintas.",
+   "Vale para dos piedras igual que para dos galaxias."
+  ],
+  "porque_fallan": {
+   "A": "Confunde $G$ con $g$: la que depende del lugar es la minúscula.",
+   "C": "Si fuera máxima en la superficie de la Tierra, la Tierra sería un lugar privilegiado del universo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q002": {
+  "idea": "$a = F/m_{planeta} = GM_{Sol}/r^2$: la masa del planeta se cancela.",
+  "pasos": [
+   "$F = GM_{Sol}m_p/r^2$.",
+   "$a = F/m_p = GM_{Sol}/r^2$.",
+   "Proporcional a la masa del Sol e inversa al **cuadrado** de la distancia."
+  ],
+  "porque_fallan": {
+   "A": "La masa del planeta se cancela, como en la caída libre.",
+   "D": "Es al inverso del cuadrado, no al inverso de la distancia."
+  },
+  "confirma": "B"
+ },
+ "hrw-c13-q003": {
+  "idea": "Despeja $G$ de la ley y reduce a unidades base.",
+  "pasos": [
+   "$G = \\dfrac{Fr^2}{m_1m_2}$: N·m²/kg².",
+   "N $=$ kg·m/s², luego N·m²/kg² $=$ kg·m³/(s²·kg²).",
+   "$=$ m³/(kg·s²)."
+  ],
+  "porque_fallan": {
+   "B": "m/s² son las de $g$, no las de $G$.",
+   "A": "kg·m/s² es simplemente un newton."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q004": {
+  "idea": "La misma cuenta, dejada en newtons en vez de reducida a unidades base.",
+  "pasos": [
+   "$G = Fr^2/(m_1m_2)$.",
+   "N por m² dividido por kg².",
+   "N·m²/kg²."
+  ],
+  "porque_fallan": {
+   "E": "N·kg²/m² invierte masa y distancia.",
+   "B": "N·m/kg pierde un factor de longitud y otro de masa."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q005": {
+  "idea": "La reacción de «A tira de B» es siempre «B tira de A»: mismo par de cuerpos, papeles cambiados.",
+  "pasos": [
+   "Acción: la Tierra tira de la Luna.",
+   "Reacción: la Luna tira de la Tierra, con la misma magnitud y sentido opuesto.",
+   "Actúan sobre cuerpos distintos, por eso no se cancelan."
+  ],
+  "porque_fallan": {
+   "A": "La fuerza centrípeta sobre la Luna **es** esa misma fuerza gravitatoria, no su reacción.",
+   "D": "Las mareas son un efecto de la fuerza, no una fuerza de reacción."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q009": {
+  "idea": "Tercera ley de Newton. Las masas gigantescamente distintas no cambian nada.",
+  "pasos": [
+   "$F = GM_{Sol}m_T/r^2$: la fórmula es simétrica en las dos masas.",
+   "$F_1 = F_2$ exactamente.",
+   "Lo que sí es distinto es la **aceleración** de cada uno: $a = F/m$."
+  ],
+  "porque_fallan": {
+   "E": "«El Sol tira más porque es más grande» es la intuición equivocada de siempre.",
+   "B": "No hay ni una diferencia pequeña: son idénticas."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q010": {
+  "idea": "$g = GM/R^2$ en la superficie. Despeja el cociente.",
+  "pasos": [
+   "$g = \\dfrac{GM}{R^2}$.",
+   "$\\dfrac{g}{G} = \\dfrac{M}{R^2}$.",
+   "Así es como se «pesa» la Tierra: midiendo $g$, $G$ y $R$."
+  ],
+  "porque_fallan": {
+   "A": "$R^2/M$ es el inverso.",
+   "C": "$MR^2$ multiplicaría en vez de dividir; tampoco cuadran las unidades."
+  },
+  "confirma": "B"
+ },
+ "hrw-c13-q011": {
+  "idea": "$g \\propto M/R^2$, y el enunciado da el **diámetro**, que sirve igual porque la razón es la misma.",
+  "pasos": [
+   "$\\dfrac{g_V}{g_T} = \\dfrac{0{,}0558}{(0{,}381)^2} = \\dfrac{0{,}0558}{0{,}1452}$.",
+   "$= 0{,}384$.",
+   "$g_V = 0{,}384(9{,}8) = 3{,}8$ m/s²."
+  ],
+  "porque_fallan": {
+   "A": "0,21 m/s² usa solo la razón de masas, sin dividir por el radio al cuadrado.",
+   "E": "25 m/s² invierte la fracción."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q012": {
+  "idea": "Cuidado: la altitud es un **diámetro**, así que la distancia al centro es $R + 2R = 3R$.",
+  "pasos": [
+   "Un diámetro son $2R$ de altura sobre la superficie.",
+   "$r = R + 2R = 3R$.",
+   "$g' = g/9 = 9{,}8/9 = 1{,}1$ m/s²."
+  ],
+  "porque_fallan": {
+   "C": "2,5 m/s² es $g/4$: usa $r = 2R$, es decir, altitud de un **radio**.",
+   "B": "4,9 m/s² es $g/2$, que no corresponde a ninguna distancia sensata."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q013": {
+  "idea": "En caída libre nada pesa, así que las balanzas de a bordo no sirven. Lo único medible desde fuera es la aceleración de la nave.",
+  "pasos": [
+   "La nave va en caída libre: todo lo de dentro parece ingrávido.",
+   "Pero la nave entera **sí** acelera hacia el planeta, y eso se puede observar.",
+   "De $a = GM/r^2$ a esa distancia se extrapola $g = GM/R^2$ en la superficie."
+  ],
+  "porque_fallan": {
+   "B": "Un objeto de masa conocida dentro de la nave marca cero: está cayendo igual que la nave.",
+   "C": "El diámetro solo no basta: hace falta también la masa."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q014": {
+  "idea": "Cae desde $2R$ hasta $R$: la energía da $v = \\sqrt{GM/R}$, y la velocidad va con $\\sqrt M$.",
+  "pasos": [
+   "$\\tfrac12 v^2 = GM\\left(\\dfrac{1}{R}-\\dfrac{1}{2R}\\right) = \\dfrac{GM}{2R}$.",
+   "$v = \\sqrt{GM/R}$: proporcional a $\\sqrt M$ con $R$ fijo.",
+   "$v$ ×4 ⟹ $M$ ×16."
+  ],
+  "porque_fallan": {
+   "B": "4 es la razón de **velocidades**; la masa va con el cuadrado.",
+   "E": "32 no sale de ninguna potencia de 4."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q015": {
+  "idea": "$T = 2\\pi\\sqrt{L/g}$: en la Luna el péndulo va más lento, y el reloj marca **menos** de una hora.",
+  "pasos": [
+   "$T \\propto 1/\\sqrt g$: con $g$ menor, el período es mayor.",
+   "En el mismo tiempo real caben menos oscilaciones, en razón $\\sqrt{g_L/g_T}$.",
+   "El reloj marca $\\sqrt{1{,}6/9{,}8}\\,$ h $= 0{,}40$ h."
+  ],
+  "porque_fallan": {
+   "D": "$(1{,}6/9{,}8)$ sin raíz: el período va con la **raíz** de $g$.",
+   "A": "$(9{,}8/1{,}6)$ da más de una hora, y en la Luna el reloj se atrasa."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q016": {
+  "idea": "La masa es una propiedad intrínseca del cuerpo; el peso es una fuerza que depende de dónde estés.",
+  "pasos": [
+   "La masa no cambia al ir a la Luna; el peso sí.",
+   "Es un escalar, no un vector.",
+   "Y objetos del mismo tamaño pueden tener masas muy distintas: plomo frente a corcho."
+  ],
+  "porque_fallan": {
+   "A": "Lo que cambia con el lugar es el **peso**.",
+   "D": "El mismo tamaño no implica la misma masa: falta la densidad."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q017": {
+  "idea": "En caída libre, $a = g$ para todo cuerpo: la masa se cancela entre $F = GMm/R^2$ y $F = ma$.",
+  "pasos": [
+   "La pluma pesa menos, pero también tiene menos inercia: los dos efectos se compensan exactamente.",
+   "Sin aire, no hay nada que rompa esa igualdad.",
+   "En la Tierra el experimento falla solo por la resistencia del aire."
+  ],
+  "porque_fallan": {
+   "A": "Sí hay gravedad en la Luna: por eso caen.",
+   "E": "$G$ es la misma constante en todo el universo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q018": {
+  "idea": "$W \\propto M/R^2$: la masa divide por 100 y el radio, al cuadrado, multiplica por 16.",
+  "pasos": [
+   "$\\dfrac{W'}{W} = \\dfrac{1/100}{(1/4)^2} = \\dfrac{1/100}{1/16} = \\dfrac{16}{100} = 0{,}16$.",
+   "$W' = 600(0{,}16)$.",
+   "$= 96$ N."
+  ],
+  "porque_fallan": {
+   "A": "24 N usaría un radio $1/2$ en vez de $1/4$.",
+   "B": "48 N pierde un factor 2 en el cuadrado del radio."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q019": {
+  "idea": "Ley del inverso del cuadrado, medida desde el **centro** de la Tierra.",
+  "pasos": [
+   "El enunciado ya da la distancia desde el centro: $R \\to 3R$.",
+   "$W' = W/3^2 = 90/9$.",
+   "$= 10$ N."
+  ],
+  "porque_fallan": {
+   "B": "30 N divide por 3 en vez de por 9.",
+   "E": "810 N multiplica por 9: el peso disminuye al alejarse."
+  },
+  "confirma": "A"
+ },
+ "hrw-c13-q020": {
+  "idea": "La masa es invariante; el peso cae como $1/r^2$.",
+  "pasos": [
+   "Subir no añade ni quita materia: $m$ constante.",
+   "$r$ pasa de $R$ a $3R$ ⟹ el peso cae a un noveno.",
+   "Masa constante, peso menor."
+  ],
+  "porque_fallan": {
+   "D": "La masa no disminuye: es la cantidad de materia.",
+   "B": "El peso sí cambia, y bastante: se queda en el 11 %."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q021": {
+  "idea": "El dinamómetro mide **peso**, no masa. Donde menos pese el azúcar, más azúcar hay por newton.",
+  "pasos": [
+   "En el centro de la Tierra toda la masa queda «por fuera» y la atracción neta es cero.",
+   "El dinamómetro marcaría cero por mucha azúcar que se ponga.",
+   "Es el mejor negocio posible para el comprador."
+  ],
+  "porque_fallan": {
+   "D": "En la Luna $g$ es $1{,}6$, pequeña pero no nula: el centro de la Tierra gana.",
+   "E": "En Júpiter $g$ es mayor: el peor sitio para comprar al peso."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q022": {
+  "idea": "Mismo razonamiento: en el centro de la Tierra la fuerza gravitatoria neta es exactamente cero.",
+  "pasos": [
+   "Por el teorema de la cáscara, una capa esférica no atrae a nada de su interior.",
+   "En el centro, toda la Tierra es «capa exterior».",
+   "Peso cero, menos que en cualquier otro sitio."
+  ],
+  "porque_fallan": {
+   "A": "A 2000 millas el peso baja bastante, pero no llega a cero.",
+   "C": "En el ecuador la rotación descuenta un 0,3 %: nada comparado con cero."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q023": {
+  "idea": "Parte de tu peso aparente se pierde por la rotación. Si la Tierra girase más despacio, se perdería menos.",
+  "pasos": [
+   "Peso aparente $= mg - m\\omega^2 R\\cos^2(\\text{latitud})$.",
+   "100 vueltas al año en vez de 365 ⟹ $\\omega$ mucho menor.",
+   "El descuento se reduce y el peso aparente **sube** ligeramente."
+  ],
+  "porque_fallan": {
+   "E": "Disminuir sería si girara **más** deprisa.",
+   "B": "Salir volando pasaría con una rotación muchísimo más rápida, no más lenta."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q024": {
+  "idea": "La ingravidez es caída libre compartida: astronauta y nave caen con la misma aceleración, así que no se empujan.",
+  "pasos": [
+   "La gravedad a 400 km sigue valiendo el 90 % de la de la superficie.",
+   "Los dos tienen la misma $a = GM/r^2$, luego no hay fuerza de contacto entre ellos.",
+   "La sensación de peso viene del suelo empujándote, y ahí no hay tal empuje."
+  ],
+  "porque_fallan": {
+   "A": "La gravedad no tiene alcance limitado, y a esa altura es casi la misma.",
+   "C": "Aceleración tiene, y grande: es la centrípeta de la órbita."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q025": {
+  "idea": "Suma las cuatro energías potenciales y llévate el resultado a cero: el trabajo externo es $-U_i$.",
+  "pasos": [
+   "Del centro a cada esquina hay $a/\\sqrt2$ (media diagonal).",
+   "$U_i = 4\\left(-\\dfrac{Gm^2}{a/\\sqrt2}\\right) = -\\dfrac{4\\sqrt2\\,Gm^2}{a}$.",
+   "$W_{ext} = U_f - U_i = 0 - U_i = +\\dfrac{4\\sqrt2\\,Gm^2}{a}$."
+  ],
+  "porque_fallan": {
+   "D": "El signo negativo: hay que **hacer** trabajo para separar masas que se atraen.",
+   "A": "$4Gm^2/a$ usa $a$ como distancia al centro; la buena es $a/\\sqrt2$."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q026": {
+  "idea": "Traer una masa desde el infinito hasta un pozo de potencial libera energía: el trabajo externo sale **negativo**.",
+  "pasos": [
+   "La masa $2m$ queda a $d/2$ de cada una de las otras dos.",
+   "$U_f = 2\\left(-\\dfrac{G(m)(2m)}{d/2}\\right) = -\\dfrac{8Gm^2}{d}$.",
+   "$W_{ext} = U_f - 0 = -\\dfrac{8Gm^2}{d}$: negativo, porque la gravedad hace el trabajo y el agente tiene que frenarla.",
+   "**Ojo con la opción:** el libro imprime $-8Gm^2/d^2$, con un cuadrado de más. El coeficiente y el signo solo encajan con la D, pero el exponente es una errata del original."
+  ],
+  "porque_fallan": {
+   "A": "El signo positivo sería para **alejar** la masa, no para traerla.",
+   "E": "Cero exigiría que la masa no sintiera nada, y siente dos atracciones."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q027": {
+  "idea": "$v_{esc} = \\sqrt{2GM/R}$, luego $M \\propto v_{esc}^2 R$.",
+  "pasos": [
+   "$v^2 = 2GM/R \\Rightarrow M = \\dfrac{v^2R}{2G}$.",
+   "$v$ ×2 ⟹ $v^2$ ×4; y $R$ ×2.",
+   "$M' = 4\\times2 = 8$ masas terrestres."
+  ],
+  "porque_fallan": {
+   "B": "4 usa solo el cuadrado de la velocidad y olvida el radio doble.",
+   "A": "2 usa solo el radio."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q028": {
+  "idea": "$v_{esc} = \\sqrt{2GM/R}$ no contiene la masa del proyectil: se cancela.",
+  "pasos": [
+   "$\\tfrac12 mv^2 = GMm/R$: la $m$ del proyectil aparece a los dos lados.",
+   "$v = \\sqrt{2GM/R}$, independiente de $m$.",
+   "Los 2,0 kg escapan a los mismos 11 km/s."
+  ],
+  "porque_fallan": {
+   "C": "7,1 km/s divide por $\\sqrt2$: la masa no entra en la fórmula.",
+   "B": "5,5 km/s divide por 2, mismo error amplificado."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q029": {
+  "idea": "La misma idea, con números distintos: triplicar la carga no cambia la velocidad de escape.",
+  "pasos": [
+   "$v_{esc}$ depende solo de $M$ y $R$ del **planeta**.",
+   "La masa del vehículo se cancela.",
+   "$1{,}12\\times10^4$ m/s, igual que antes."
+  ],
+  "porque_fallan": {
+   "C": "$3{,}36\\times10^4$ multiplica por 3, como si la masa importara.",
+   "A": "$3{,}73\\times10^3$ divide por 3, el mismo error al revés."
+  },
+  "confirma": "B"
+ },
+ "hrw-c13-q030": {
+  "idea": "Conservación de la energía desde $r = 2R$ hasta $r = R$.",
+  "pasos": [
+   "$-\\dfrac{GMm}{2R} = \\tfrac12 mv^2 - \\dfrac{GMm}{R}$.",
+   "$\\tfrac12 v^2 = GM\\left(\\dfrac{1}{R}-\\dfrac{1}{2R}\\right) = \\dfrac{GM}{2R}$.",
+   "$v = \\sqrt{GM/R}$."
+  ],
+  "porque_fallan": {
+   "C": "$\\sqrt{2GM/R}$ es la velocidad de **escape**: la que tendría cayendo desde el infinito.",
+   "B": "$\\sqrt{GM/2R}$ pierde el factor 2 al despejar."
+  },
+  "confirma": "A"
+ },
+ "hrw-c13-q031": {
+  "idea": "Con media velocidad de escape queda solo un cuarto de la energía cinética: no llega ni de lejos al infinito.",
+  "pasos": [
+   "$v = \\tfrac12\\sqrt{2GM/R} \\Rightarrow \\tfrac12 v^2 = \\dfrac{GM}{4R}$.",
+   "$\\dfrac{GM}{4R} - \\dfrac{GM}{R} = -\\dfrac{GM}{r_{max}} \\Rightarrow -\\dfrac{3GM}{4R} = -\\dfrac{GM}{r_{max}}$.",
+   "$r_{max} = \\dfrac{4R}{3}$, y la **altitud** es $\\dfrac{4R}{3}-R = \\dfrac{R}{3}$."
+  ],
+  "porque_fallan": {
+   "D": "$R$ sería $r_{max} = 2R$, que exige más energía de la disponible.",
+   "C": "$R/2$ olvida restar el radio de la Tierra o despeja mal el tercio."
+  },
+  "confirma": "B"
+ },
+ "hrw-c13-q032": {
+  "idea": "Teorema de la cáscara: solo tira la masa **interior** a $r$. Y aquí esa masa crece como $r$.",
+  "pasos": [
+   "$M(r) \\propto r$ por enunciado.",
+   "$g = \\dfrac{GM(r)}{r^2} \\propto \\dfrac{r}{r^2}$.",
+   "$\\propto 1/r$."
+  ],
+  "porque_fallan": {
+   "E": "$1/r^2$ sería con toda la masa concentrada dentro, como fuera del planeta.",
+   "C": "Proporcional a $r$ es el caso de densidad **uniforme**, donde $M(r)\\propto r^3$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q033": {
+  "idea": "La cáscara no ejerce fuerza sobre una masa interior; por la tercera ley, la masa tampoco sobre la cáscara.",
+  "pasos": [
+   "Teorema de la cáscara: dentro del hueco, el campo de la corteza es nulo.",
+   "Fuerza sobre la partícula $= 0$.",
+   "La fuerza sobre la cáscara es la reacción: también cero."
+  ],
+  "porque_fallan": {
+   "C": "$GMm/d^2$ es el resultado válido **fuera** de la cáscara.",
+   "E": "No hay ninguna fórmula con $(R_1-d)$: la simetría lo cancela todo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c13-q034": {
+  "idea": "Desde fuera, una distribución con simetría esférica atrae como si toda su masa estuviera en el centro.",
+  "pasos": [
+   "$d > R_2$: la partícula está fuera de todo el material.",
+   "$F = GMm/d^2$, con $d$ medido al centro.",
+   "Los radios interior y exterior dejan de importar."
+  ],
+  "porque_fallan": {
+   "A": "Cero es el caso de **dentro** del hueco.",
+   "D": "$(R_2^2 - d^2)$ no aparece en ningún resultado del teorema de la cáscara."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q035": {
+  "idea": "En el espesor del material solo cuenta la masa por dentro de $d$, y hay que prorratearla por volumen.",
+  "pasos": [
+   "Fracción de masa dentro de $d$: $\\dfrac{d^3-R_1^3}{R_2^3-R_1^3}$ (los volúmenes van con el cubo).",
+   "$M(d) = M\\dfrac{d^3-R_1^3}{R_2^3-R_1^3}$.",
+   "$F = \\dfrac{GmM(d)}{d^2} = \\dfrac{GMm(d^3-R_1^3)}{d^2(R_2^3-R_1^3)}$."
+  ],
+  "porque_fallan": {
+   "B": "$GMm/d^2$ usaría toda la masa, incluida la que queda por fuera de $d$ y no tira.",
+   "E": "Le falta el $d^2$ del denominador y la normalización del volumen total."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q036": {
+  "idea": "La bomba sale con exactamente la velocidad del satélite y a la misma altura: su órbita es la misma órbita.",
+  "pasos": [
+   "«Soltar» no le da velocidad relativa ninguna.",
+   "Misma posición y misma velocidad ⟹ misma trayectoria.",
+   "Sigue orbitando junto al satélite, sin caer nunca (despreciando el aire)."
+  ],
+  "porque_fallan": {
+   "A": "Caer «justo debajo» sería si la bomba perdiera de golpe su velocidad orbital.",
+   "C": "No hay nada que la adelante ni la retrase."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q037": {
+  "idea": "Mismo principio que la bomba: la llave hereda la órbita completa del satélite.",
+  "pasos": [
+   "Al soltarla, su velocidad es la del satélite.",
+   "Misma velocidad y misma posición ⟹ misma órbita.",
+   "Se queda flotando al lado, aparentemente inmóvil respecto de él."
+  ],
+  "porque_fallan": {
+   "A": "Caer en vertical exigiría velocidad cero, y lleva unos 8 km/s.",
+   "D": "Salir por la tangente exigiría que la gravedad dejara de actuar."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q039": {
+  "idea": "Equilibrio significa aceleración cero, y la Tierra acelera continuamente hacia el Sol.",
+  "pasos": [
+   "En órbita circular hay aceleración centrípeta permanente: $a = v^2/r$.",
+   "Para la Tierra, unos $6\\times10^{-3}$ m/s²: pequeña pero no nula.",
+   "Fuerza neta distinta de cero ⟹ no hay equilibrio. La frase es falsa."
+  ],
+  "porque_fallan": {
+   "A": "Un cuerpo en movimiento **sí** puede estar en equilibrio: basta que vaya a velocidad constante.",
+   "B": "Que no caiga en el Sol no significa que no acelere hacia él; de hecho cae todo el rato."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q041": {
+  "idea": "La segunda ley de Kepler es la conservación del momento angular, disfrazada de geometría.",
+  "pasos": [
+   "La gravedad es central: siempre apunta a la estrella, luego su par respecto de ella es cero.",
+   "Par cero ⟹ $L = mvr_\\perp$ constante.",
+   "El área barrida por unidad de tiempo vale $L/2m$: constante también."
+  ],
+  "porque_fallan": {
+   "A": "La energía también se conserva, pero no es lo que da las áreas iguales.",
+   "B": "El momento lineal del planeta cambia sin parar: la gravedad lo está curvando."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q042": {
+  "idea": "Al alejarse, la energía cinética se convierte en potencial: el cometa frena.",
+  "pasos": [
+   "$E = \\tfrac12 mv^2 - GMm/r$ constante.",
+   "Si $r$ crece, el término potencial sube (se hace menos negativo) y la cinética baja.",
+   "Máxima velocidad en el perihelio, mínima en el afelio."
+  ],
+  "porque_fallan": {
+   "C": "Es al revés: el cometa va más lento cuanto más lejos.",
+   "E": "$L/(mr)$ da la componente **transversal** de la velocidad, no la rapidez total."
+  },
+  "confirma": "A"
+ },
+ "hrw-c13-q044": {
+  "idea": "El planeta interior gira más deprisa y tarda menos: $v \\propto 1/\\sqrt r$ y $T \\propto r^{3/2}$.",
+  "pasos": [
+   "$v = \\sqrt{GM/r}$: menos radio, más velocidad.",
+   "$T = 2\\pi\\sqrt{r^3/GM}$: menos radio, menos período.",
+   "Planeta 1 (interior): período menor, velocidad mayor."
+  ],
+  "porque_fallan": {
+   "C": "El período sí es menor, pero la velocidad es **mayor**, no menor.",
+   "A": "Mercurio da la vuelta en 88 días y la Tierra en 365: el interior tarda menos."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q045": {
+  "idea": "En el perihelio y el afelio la velocidad es perpendicular al radio, así que $L = mvr$ directamente.",
+  "pasos": [
+   "$L$ se conserva porque la gravedad es central.",
+   "En esos dos puntos $\\vec v \\perp \\vec r$, luego $L = mvr$ sin más.",
+   "$v_ar_a = v_pr_p$."
+  ],
+  "porque_fallan": {
+   "B": "$v/r$ constante sería velocidad angular constante, que es justo lo que **no** pasa.",
+   "A": "Las velocidades son distintas: por eso el cometa corre en el perihelio."
+  },
+  "confirma": "C"
+ },
+ "hrw-c13-q046": {
+  "idea": "Tercera ley de Kepler: $T^2 \\propto r^3$, con la Tierra como unidad.",
+  "pasos": [
+   "$T^2 = r^3 = 4^3 = 64$ (en años y unidades astronómicas).",
+   "$T = \\sqrt{64}$.",
+   "$= 8$ años."
+  ],
+  "porque_fallan": {
+   "D": "64 es $T^2$: falta la raíz.",
+   "A": "4 sería si el período fuera proporcional al radio."
+  },
+  "confirma": "B"
+ },
+ "hrw-c13-q047": {
+  "idea": "Kepler usa el **semieje mayor**, y la excentricidad no aparece en la fórmula del período.",
+  "pasos": [
+   "$\\dfrac{T_2}{T_1} = \\left(\\dfrac{a_2}{a_1}\\right)^{3/2} = \\left(\\dfrac{250}{150}\\right)^{3/2}$.",
+   "$= (1{,}667)^{1{,}5} = 2{,}15$.",
+   "$T_2 = 2{,}2$ años. Las excentricidades 0,20 y 0,30 son puro decorado."
+  ],
+  "porque_fallan": {
+   "C": "1,4 usa solo la razón de semiejes, sin la potencia 3/2.",
+   "A": "0,46 invierte la fracción: la órbita mayor tarda **más**."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q049": {
+  "idea": "El teorema del virial para órbita circular: $K = -U/2$, y $E = U/2 = -K$.",
+  "pasos": [
+   "Órbita circular: $\\dfrac{GMm}{r^2} = \\dfrac{mv^2}{r} \\Rightarrow mv^2 = \\dfrac{GMm}{r}$.",
+   "$K = \\tfrac12 mv^2 = \\dfrac{GMm}{2r}$ y $U = -\\dfrac{GMm}{r}$.",
+   "$K = -U/2$. (Y sale igual para cualquier radio.)"
+  ],
+  "porque_fallan": {
+   "B": "$K = -U$ daría energía total cero: el satélite estaría justo escapando.",
+   "E": "No depende del radio: la relación es la misma en toda órbita circular."
+  },
+  "confirma": "D"
+ },
+ "hrw-c13-q050": {
+  "idea": "Subir de órbita cuesta energía: la gravedad hace trabajo negativo, $U$ sube y —esto es lo contraintuitivo— $K$ **baja**.",
+  "pasos": [
+   "El satélite se aleja mientras la gravedad tira hacia dentro ⟹ trabajo gravitatorio negativo ⟹ $U$ aumenta.",
+   "$K = \\dfrac{GMm}{2r}$: al doblar $r$, la energía cinética se reduce a la mitad.",
+   "Órbitas altas son órbitas **lentas**."
+  ],
+  "porque_fallan": {
+   "D": "Acierta el signo del trabajo pero no lo demás: al subir se va más despacio.",
+   "A": "El trabajo de la gravedad es negativo, no positivo: la fuerza y el desplazamiento se oponen."
+  },
+  "confirma": "E"
+ },
+ "hrw-c13-q051": {
+  "idea": "La paradoja del satélite: el rozamiento le quita energía **total**, pero al bajar de órbita gana velocidad.",
+  "pasos": [
+   "$E = -\\dfrac{GMm}{2r}$ disminuye (se hace más negativa) ⟹ $r$ disminuye.",
+   "$v = \\sqrt{GM/r}$ ⟹ con menos $r$, más velocidad.",
+   "El aire lo frena y aun así acaba yendo más rápido."
+  ],
+  "porque_fallan": {
+   "B": "Es la intuición natural —«el aire frena»— y es la equivocada: frena y acelera.",
+   "C": "Espiralar hacia fuera exigiría **ganar** energía."
+  },
+  "confirma": "A"
+ },
+ "hrw-c13-q053": {
+  "idea": "La masa del planeta se cancela en todas las ecuaciones orbitales: es imposible sacarla de la órbita.",
+  "pasos": [
+   "$L$ conservado da $v_a$ a partir de $v_pr_p/r_a$.",
+   "$a = (r_p+r_a)/2$, y de la energía sale $M_{estrella}$; con Kepler, el período.",
+   "En ninguna de esas cuentas aparece $m_{planeta}$: se cancela siempre."
+  ],
+  "porque_fallan": {
+   "C": "$v_a$ sí sale, directamente de la conservación del momento angular.",
+   "E": "El semieje mayor es simplemente el promedio de perihelio y afelio."
+  },
+  "confirma": "B"
+ },
+ "hrw-c13-q054": {
+  "idea": "$r_{min} = a(1-e)$ y $r_{max} = a(1+e)$.",
+  "pasos": [
+   "$r_{min} = 1{,}5\\times10^7(0{,}80) = 1{,}2\\times10^7$ m.",
+   "$r_{max} = 1{,}5\\times10^7(1{,}20) = 1{,}8\\times10^7$ m.",
+   "Comprobación: su media es $1{,}5\\times10^7 = a$ ✔."
+  ],
+  "porque_fallan": {
+   "B": "$3{,}0\\times10^6$ es $ae$, la distancia del centro al foco, no el perigeo.",
+   "E": "Mezcla un perigeo mal calculado con el apogeo correcto."
+  },
+  "confirma": "A"
+ },
+ "hrw-c13-q055": {
+  "idea": "Ecuación vis-viva: $v^2 = GM\\left(\\dfrac{2}{r}-\\dfrac{1}{a}\\right)$. Es la conservación de la energía escrita para elipses.",
+  "pasos": [
+   "$GM = 6{,}67\\times10^{-11}(4{,}0\\times10^{30}) = 2{,}67\\times10^{20}$.",
+   "$\\dfrac{v^2}{GM} = \\dfrac{(3{,}5\\times10^4)^2}{2{,}67\\times10^{20}} = 4{,}59\\times10^{-12}$.",
+   "$\\dfrac{1}{a} = \\dfrac{2}{2{,}5\\times10^{11}} - 4{,}59\\times10^{-12} = 8{,}0\\times10^{-12} - 4{,}59\\times10^{-12} = 3{,}41\\times10^{-12}$.",
+   "$a = 2{,}9\\times10^{11}$ m $= 290\\times10^6$ km."
+  ],
+  "porque_fallan": {
+   "B": "$160\\times10^6$ km sale de suponer órbita circular con esa velocidad.",
+   "D": "$320\\times10^6$ km olvidaría algún término del paréntesis."
+  },
+  "confirma": "C"
+ }
+}

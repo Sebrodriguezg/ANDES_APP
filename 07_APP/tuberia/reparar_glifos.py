@@ -155,6 +155,42 @@ POR_TARJETA = {
     # Los «mucho mayor que» de las opciones B y C se perdieron y dejaban
     # «choose m_{B} m_{A}», que no dice nada. La respuesta (E) no depende de
     # ellos, pero sin el signo las dos opciones son ilegibles.
+    # Tres tarjetas de subcapas atómicas donde la ℓ del emparejamiento por
+    # ventana aterrizó en la opción equivocada: sobraba en unas y faltaba en
+    # otras. Los textos buenos salen de la lectura de mutool (líneas 52546 y
+    # siguientes), donde cada ℓ está marcada en su sitio.
+    "hrw-c40-q017": [
+        ("B", "the same value of", "the same value of ℓ"),
+        ("D", "value of ℓand the same value of m′",
+              "value of ℓ and the same value of m_{ℓ}"),
+    ],
+    "hrw-c40-q018": [
+        ("A", "only the same value of ℓ n", "only the same value of n"),
+        ("C", "only the same value of ℓ n", "only the same value of n"),
+        ("D", "value of ℓand the same value of m′",
+              "value of ℓ and the same value of m_{ℓ}"),
+    ],
+    "hrw-c40-q020": [
+        ("B", "depend on", "depend on ℓ"),
+    ],
+    # Dos tarjetas de gravitación donde el signo de raíz se perdió y sus
+    # restos («0_{0}», «0_{2}») aterrizaron en opciones que no eran la suya.
+    # Sin la raíz, B y E de la 13.30 quedaban idénticas. Textos buenos según
+    # la lectura de mutool, líneas 18417 y 18669.
+    "hrw-c13-q015": [
+        ("enunciado", "the Moon clock will record: √", "the Moon clock will record:"),
+        ("B", "1h 0_{0}", "1 h"),
+        ("C", "9.8/1.6 h", "√(9.8/1.6) h"),
+        ("E", "1.6/9.8 h", "√(1.6/9.8) h"),
+    ],
+    "hrw-c13-q030": [
+        ("enunciado", "is given by: 0_{0}", "is given by:"),
+        ("A", "GM/R", "√(GM/R)"),
+        ("B", "GM/2R 0_{0}_{2}", "√(GM/2R)"),
+        ("C", "2GM/R", "√(2GM/R)"),
+        ("D", "GM/R 0_{2}", "√(GM/R^{2})"),
+        ("E", "GM/2R", "√(GM/2R^{2})"),
+    ],
     "hrw-c09-q071": [
         ("B", "choose m_{B} m_{A}", "choose m_{B} ≫ m_{A}"),
         ("C", "choose m_{B} m_{A}", "choose m_{B} ≫ m_{A}"),
@@ -162,22 +198,66 @@ POR_TARJETA = {
 }
 
 
-# La flecha de vector se repone una vez por cada coincidencia de ventana, y en
-# cuatro tarjetas el mismo hueco cae dentro de varias ventanas: «→→→→F». Dos
-# flechas seguidas no existen en el texto original, así que colapsarlas es
-# seguro.
-FLECHAS_REPETIDAS = re.compile(r"→{2,}")
+# Un glifo se repone una vez por cada coincidencia de ventana, y cuando el
+# mismo hueco cae dentro de varias ventanas se acumula: «→→→→F», «ℓ ℓ ℓ ℓ».
+# Peor aún, el texto reparado vuelve a coincidir en la pasada siguiente, así
+# que el corpus crecía un glifo por ejecución. Colapsar las repeticiones deja
+# la reparación idempotente, y ninguno de estos tres caracteres aparece dos
+# veces seguidas en el texto original.
+GLIFOS_REPETIDOS = re.compile(r"(→|ℓ|ε)(?:\s*\1)+")
+
+
+# Opciones que se perdieron porque el PDF las metió dentro de la anterior y
+# nuestro lector no vio el salto. Se declara el texto recortado de la opción
+# que las absorbió y el texto de la que hay que devolver al sitio.
+OPCIONES_FUNDIDAS = {
+    # La B quedó incrustada dentro de la A: «... time^{-1} _{B.}_{mass ...}».
+    # Sin separarlas la tarjeta se queda en cuatro opciones y la A es ilegible.
+    "hrw-c11-q018": (
+        "A",
+        "mass \\cdot length \\cdot time^{-1}",
+        "B",
+        "mass \\cdot length^{-2} \\cdot time^{-2}",
+    ),
+}
+
+
+def separar_opciones_fundidas(tarjeta):
+    """Devuelve al sitio la opción que se coló dentro de la anterior."""
+    receta = OPCIONES_FUNDIDAS.get(tarjeta["id"])
+    if not receta:
+        return tarjeta
+    anfitriona, texto_anfitriona, perdida, texto_perdida = receta
+    op = tarjeta.get("opciones") or {}
+    if anfitriona in op and perdida not in op:
+        op[anfitriona] = texto_anfitriona
+        op[perdida] = texto_perdida
+        tarjeta["opciones"] = {k: op[k] for k in sorted(op)}
+    return tarjeta
 
 
 def aplicar_por_tarjeta(tarjeta):
-    """Las correcciones declaradas para esa tarjeta, si las hay."""
+    """Las correcciones declaradas para esa tarjeta, si las hay.
+
+    Solo hace falta guardarse de las recetas que *amplían* el texto («depend
+    on» → «depend on ℓ»): ahí el patrón sigue estando después de aplicarla y
+    volvería a dispararse en cada pasada, acumulando ℓ tras ℓ. Cuando el texto
+    viejo desaparece al sustituirlo, `replace` ya es idempotente por sí solo.
+    """
+    separar_opciones_fundidas(tarjeta)
+
+    def corregir(texto, viejo, nuevo):
+        if viejo in nuevo and nuevo in texto:
+            return texto
+        return texto.replace(viejo, nuevo)
+
     for campo, viejo, nuevo in POR_TARJETA.get(tarjeta["id"], []):
         if campo == "enunciado":
-            tarjeta["enunciado"] = tarjeta["enunciado"].replace(viejo, nuevo)
+            tarjeta["enunciado"] = corregir(tarjeta["enunciado"], viejo, nuevo)
         else:
             op = tarjeta.get("opciones") or {}
             if campo in op:
-                op[campo] = op[campo].replace(viejo, nuevo)
+                op[campo] = corregir(op[campo], viejo, nuevo)
     return tarjeta
 
 
@@ -207,9 +287,9 @@ def reparar_texto(texto, parches, contador):
         salida, n = patron.subn(reemplazo, salida)
         if n:
             contador[f"directo:{patron.pattern[:20]}"] += n
-    salida, n = FLECHAS_REPETIDAS.subn("→", salida)
+    salida, n = GLIFOS_REPETIDOS.subn(r"\1", salida)
     if n:
-        contador["flechas repetidas"] += n
+        contador["glifos repetidos"] += n
     return salida
 
 

@@ -358,6 +358,44 @@ class TestReparacionDeGlifos(unittest.TestCase):
         dos = self.R.reparar_texto(una, {}, c)
         self.assertEqual(una, dos)
 
+    def test_colapsa_los_glifos_que_se_repitieron(self):
+        # Cuando el mismo hueco cae dentro de varias ventanas, el glifo se
+        # reponía una vez por ventana: «→→→→F», «ℓ ℓ ℓ ℓ». Y como el texto ya
+        # reparado volvía a coincidir, el corpus crecía un glifo por ejecución
+        # hasta que alguien lo mirara. Tres capítulos llegaron a seis ℓ.
+        c = collections.Counter()
+        self.assertEqual(
+            self.R.reparar_texto("→→→→F is the net external force", {}, c),
+            "→F is the net external force")
+        self.assertEqual(
+            self.R.reparar_texto("depend on both n and ℓ ℓ ℓ ℓ", {}, c),
+            "depend on both n and ℓ")
+
+    def test_las_recetas_por_tarjeta_no_se_reaplican(self):
+        # Una receta que *añade* un glifo al final vuelve a encontrar su patrón
+        # en la pasada siguiente. Sin la guarda, «depend on ℓ» acababa siendo
+        # «depend on ℓ ℓ ℓ ℓ ℓ ℓ».
+        tarjeta = {"id": "hrw-c40-q020",
+                   "enunciado": "",
+                   "opciones": {"B": "depend on"}}
+        una = self.R.aplicar_por_tarjeta(dict(tarjeta, opciones={"B": "depend on"}))
+        self.assertEqual(una["opciones"]["B"], "depend on ℓ")
+        dos = self.R.aplicar_por_tarjeta(una)
+        self.assertEqual(dos["opciones"]["B"], "depend on ℓ")
+
+    def test_separa_la_opcion_que_se_fundio_con_la_anterior(self):
+        # La B de 11.18 venía incrustada dentro de la A y la tarjeta se
+        # quedaba en cuatro opciones.
+        t = self.R.separar_opciones_fundidas({
+            "id": "hrw-c11-q018",
+            "opciones": {
+                "A": "mass \\cdot length \\cdot time^{-1} _{B.}_{mass}",
+                "C": "mass^{2} \\cdot time^{-1}",
+            }})
+        self.assertEqual(len(t["opciones"]), 3)
+        self.assertNotIn("_{B.}", t["opciones"]["A"])
+        self.assertIn("length^{-2}", t["opciones"]["B"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

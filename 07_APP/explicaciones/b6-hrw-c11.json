@@ -1,0 +1,527 @@
+{
+ "hrw-c11-q003": {
+  "idea": "Rodar sin deslizar impone $v = \\omega R$. A la misma $v$, la $\\omega$ es inversa al radio.",
+  "pasos": [
+   "$\\omega = v/R$.",
+   "$R_2 = 2R_1$ con la misma $v$.",
+   "$\\omega_2 = \\omega_1/2$."
+  ],
+  "porque_fallan": {
+   "A": "Doblar la $\\omega$ sería si el radio fuera la mitad, no el doble.",
+   "B": "Igualdad solo si los radios coincidieran."
+  },
+  "confirma": "C"
+ },
+ "hrw-c11-q005": {
+  "idea": "Las ruedas motrices empujan el suelo hacia atrás; las libres son arrastradas y su rozamiento las frena.",
+  "pasos": [
+   "Tracción trasera: las ruedas de atrás son las que aplican par del motor.",
+   "Empujan el asfalto hacia atrás ⟹ el asfalto las empuja **hacia delante**.",
+   "Las delanteras solo ruedan porque el coche las arrastra; para hacerlas girar más deprisa hace falta un rozamiento **hacia atrás** en el punto de contacto."
+  ],
+  "porque_fallan": {
+   "A": "Si todas tuvieran rozamiento hacia delante, nada haría girar a las delanteras.",
+   "E": "Sin rozamiento el coche no podría acelerar en absoluto."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q006": {
+  "idea": "Dos ecuaciones: traslación con la fuerza neta y rotación con el par del rozamiento, unidas por $a = \\alpha R$.",
+  "pasos": [
+   "Rotación (par respecto del centro; $F$ actúa en el eje y no da par): $fR = \\tfrac12 MR^2\\dfrac{a}{R} \\Rightarrow f = \\tfrac12 Ma$.",
+   "Traslación: $F - f = Ma$.",
+   "$F = Ma + \\tfrac12 Ma = \\tfrac32 Ma$."
+  ],
+  "porque_fallan": {
+   "A": "$f = 0$ dejaría la rueda sin par: no podría girar más deprisa mientras rueda.",
+   "C": "$F = 2Ma$ y $f = Ma$ salen de usar $I = MR^2$, que es la del aro."
+  },
+  "confirma": "E"
+ },
+ "hrw-c11-q007": {
+  "idea": "El rozamiento estático tiene un techo, y ese techo pone el techo a la aceleración.",
+  "pasos": [
+   "De la pregunta anterior: $f = \\tfrac12 Ma$.",
+   "$f \\le \\mu_s Mg = 0{,}40\\,Mg$.",
+   "$\\tfrac12 Ma \\le 0{,}40\\,Mg \\Rightarrow a \\le 0{,}80\\,g$."
+  ],
+  "porque_fallan": {
+   "C": "$0{,}4g$ olvida el factor 2 que trae $I = \\tfrac12 MR^2$.",
+   "B": "$0{,}2g$ divide donde había que multiplicar."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q008": {
+  "idea": "Para un tubo de pared fina toda la masa está en el radio $R$: $I = MR^2$.",
+  "pasos": [
+   "$K_{rot} = \\tfrac12 I\\omega^2 = \\tfrac12 MR^2(v/R)^2 = \\tfrac12 Mv^2$.",
+   "$K_{tras} = \\tfrac12 Mv^2$.",
+   "Razón $= 1$."
+  ],
+  "porque_fallan": {
+   "B": "2 sería la razón para un disco ($I = \\tfrac12 MR^2$).",
+   "D": "1/2 invierte esa misma razón."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q009": {
+  "idea": "La esfera llega antes —$\\beta = 2/5$ frente a $1/2$—, pero **ninguna** de las razones ofrecidas es la correcta.",
+  "pasos": [
+   "$a = \\dfrac{g\\sin\\theta}{1+\\beta}$: menos $\\beta$, más aceleración. Gana la esfera.",
+   "La opción A dice «por tener mayor inercia»: falso, y además tienen la misma masa.",
+   "La opción C dice «porque recoge más energía rotacional»: es al revés, la esfera se lleva **menos** fracción a rotación, y por eso corre más."
+  ],
+  "porque_fallan": {
+   "C": "Acierta quién gana pero por el motivo contrario: quien menos energía mete en girar, más le queda para trasladarse.",
+   "D": "No llegan juntos: $\\beta$ es distinto."
+  },
+  "confirma": "E"
+ },
+ "hrw-c11-q011": {
+  "idea": "El aro tiene $I = MR^2$, el caso en que las dos energías se igualan.",
+  "pasos": [
+   "$K_{rot} = \\tfrac12 MR^2\\omega^2$ con $\\omega = v/R$.",
+   "$= \\tfrac12 Mv^2$.",
+   "Que es exactamente $K_{tras}$."
+  ],
+  "porque_fallan": {
+   "A": "La mitad corresponde al disco, no al aro.",
+   "C": "El doble no sale con ningún cuerpo rodante habitual."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q012": {
+  "idea": "En la rampa lisa el disco **sigue girando**: esa energía no se convierte en altura.",
+  "pasos": [
+   "Disco A (rueda): $\\tfrac12 Mv^2 + \\tfrac12 I\\omega^2 = \\tfrac34 Mv^2 = Mg(0{,}12)$.",
+   "De ahí $v^2 = 0{,}16\\,g$.",
+   "Disco B (sin rozamiento): solo sube lo que da la traslación, $\\tfrac12 Mv^2 = Mgh$.",
+   "$h = v^2/2g = 0{,}16g/2g = 0{,}080$ m $= 8$ cm."
+  ],
+  "porque_fallan": {
+   "C": "12 cm supondría que B sube lo mismo que A, y B se guarda la energía de giro.",
+   "E": "6 cm sería si B solo conservara la mitad de la traslación."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q014": {
+  "idea": "El punto de contacto está instantáneamente en reposo, y una fuerza aplicada en un punto que no se mueve no hace trabajo.",
+  "pasos": [
+   "Rodar sin deslizar ⟹ $v$ del punto de contacto $= 0$.",
+   "$W = \\int \\vec f\\cdot d\\vec r$ con $d\\vec r = 0$ en ese punto.",
+   "El rozamiento estático **sí existe** y **sí da par**, pero no disipa energía."
+  ],
+  "porque_fallan": {
+   "A": "Sí hay rozamiento: sin él el cilindro deslizaría en vez de rodar.",
+   "C": "El coeficiente cinético es irrelevante: aquí el rozamiento es estático."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q015": {
+  "idea": "$a = \\dfrac{g\\sin\\theta}{1+\\beta}$ depende solo de la **forma**, no de la masa ni del radio. Dos cilindros uniformes tienen el mismo $\\beta = 1/2$.",
+  "pasos": [
+   "El enunciado dice «uniformes»: los dos tienen $I = \\tfrac12 MR^2$.",
+   "$\\beta = I/MR^2 = 1/2$ para ambos.",
+   "Misma aceleración, misma llegada."
+  ],
+  "porque_fallan": {
+   "A": "La masa se cancela en la ecuación de la aceleración.",
+   "C": "La inercia rotacional en bruto tampoco importa: lo que cuenta es $I/MR^2$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c11-q016": {
+  "idea": "El bloque sobre rodamientos apenas gasta energía en girar, así que casi toda la potencial se le vuelve traslación.",
+  "pasos": [
+   "Bola: $\\beta = 2/5$, y $v = \\sqrt{2gh/(1+\\beta)}$.",
+   "Bloque: los rodamientos son 100 g de 4,1 kg, con radio minúsculo ⟹ $\\beta \\approx 0$.",
+   "$\\beta$ menor ⟹ $v$ mayor: el bloque llega más rápido."
+  ],
+  "porque_fallan": {
+   "C": "Solo serían iguales si el bloque también gastara $2/5$ en rotación.",
+   "B": "Es al revés: rodar cuesta velocidad."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q018": {
+  "idea": "$L = I\\omega$ tiene dimensiones $M L^2 T^{-1}$, y esa combinación no está entre las opciones.",
+  "pasos": [
+   "$[I] = M L^2$, $[\\omega] = T^{-1}$.",
+   "$[L] = M L^2 T^{-1}$.",
+   "La opción D tiene $T^{-2}$: eso es energía, no momento angular."
+  ],
+  "porque_fallan": {
+   "D": "$M L^2 T^{-2}$ son las dimensiones del **trabajo** o del par.",
+   "A": "$M L T^{-1}$ es el momento **lineal**."
+  },
+  "confirma": "E"
+ },
+ "hrw-c11-q019": {
+  "idea": "$L = I\\omega$: kg·m² por s⁻¹.",
+  "pasos": [
+   "$[I] = $ kg·m², $[\\omega] = $ s⁻¹.",
+   "$[L] = $ kg·m²/s.",
+   "Es la misma combinación que $mvr$: kg · (m/s) · m ✔."
+  ],
+  "porque_fallan": {
+   "A": "kg·m/s es el momento lineal.",
+   "B": "kg·m²/s² es un julio: energía."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q020": {
+  "idea": "La misma unidad, leída al revés.",
+  "pasos": [
+   "kg·m²/s $= $ (kg·m²)(1/s) $= I\\omega$.",
+   "La inercia rotacional sola sería kg·m², sin el segundo.",
+   "La energía rotacional lleva $s^{-2}$."
+  ],
+  "porque_fallan": {
+   "C": "La inercia rotacional es kg·m², sin dividir por el tiempo.",
+   "D": "El par es N·m $=$ kg·m²/s²."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q021": {
+  "idea": "$J = F\\Delta t = \\Delta p$: el newton·segundo es momento lineal.",
+  "pasos": [
+   "N·s $=$ (kg·m/s²)(s) $=$ kg·m/s.",
+   "Eso es $mv$.",
+   "El momento angular llevaría un metro más."
+  ],
+  "porque_fallan": {
+   "B": "El momento angular es N·m·s, con un metro de más.",
+   "A": "El trabajo es N·m, con metro en vez de segundo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q022": {
+  "idea": "Para una masa puntual en círculo, $L = mr^2\\omega$ (o $mvr$, que es lo mismo).",
+  "pasos": [
+   "$L = 2{,}0(0{,}50)^2(12)$.",
+   "$= 2{,}0(0{,}25)(12)$.",
+   "$= 6{,}0$ kg·m²/s."
+  ],
+  "porque_fallan": {
+   "B": "12 kg·m²/s usa $r$ en vez de $r^2$.",
+   "D": "72 es $mv\\omega$ o algo parecido; las unidades ya delatan que está mal ($s^{-2}$)."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q023": {
+  "idea": "Mano derecha sobre el globo: la Tierra gira de oeste a este, así que $\\vec L$ sale por el polo norte.",
+  "pasos": [
+   "Visto desde encima del polo norte, la rotación es antihoraria.",
+   "Los dedos siguen ese giro; el pulgar apunta hacia fuera del polo norte.",
+   "$\\vec L$ apunta al norte, a lo largo del eje."
+  ],
+  "porque_fallan": {
+   "A": "$\\vec L$ es paralelo al eje de rotación, nunca tangente al ecuador.",
+   "E": "Hacia el Sol apuntaría el momento angular **orbital** en algún instante, y ni eso."
+  },
+  "confirma": "C"
+ },
+ "hrw-c11-q026": {
+  "idea": "Sitúa la partícula y su velocidad a los 2,0 s y haz el producto vectorial $\\vec L = m(\\vec r\\times\\vec v)$.",
+  "pasos": [
+   "$\\vec r = (3{,}0 + \\tfrac12(4{,}0)(4))\\,\\hat\\imath + (\\tfrac12(-3{,}0)(4))\\,\\hat\\jmath = 11\\,\\hat\\imath - 6{,}0\\,\\hat\\jmath$ m.",
+   "$\\vec v = \\vec a\\,t = 8{,}0\\,\\hat\\imath - 6{,}0\\,\\hat\\jmath$ m/s.",
+   "$\\vec r\\times\\vec v = [(11)(-6{,}0) - (-6{,}0)(8{,}0)]\\hat k = (-66 + 48)\\hat k = -18\\,\\hat k$.",
+   "$\\vec L = 2{,}0(-18)\\hat k = -36\\,\\hat k$ kg·m²/s."
+  ],
+  "porque_fallan": {
+   "A": "No es cero: $\\vec r$ y $\\vec v$ no son paralelos.",
+   "D": "−96 sale de olvidar la posición inicial de 3,0 m."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q027": {
+  "idea": "El clip es una masa puntual en el borde: $L = mr^2\\omega$. Ojo con los gramos y los centímetros.",
+  "pasos": [
+   "$m = 0{,}015$ kg, $r = 0{,}30$ m.",
+   "$L = 0{,}015(0{,}30)^2(3{,}5) = 0{,}015(0{,}090)(3{,}5)$.",
+   "$= 4{,}7\\times10^{-3}$ kg·m²/s."
+  ],
+  "porque_fallan": {
+   "C": "$1{,}6\\times10^{-2}$ usa $r$ sin elevar al cuadrado.",
+   "A": "$1{,}4\\times10^{-3}$ pierde un factor 3,5 o similar."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q028": {
+  "idea": "Con el origen fuera del plano del círculo, $\\vec L$ tiene dos componentes: una a lo largo de $z$ y otra en el plano $xy$.",
+  "pasos": [
+   "$v = \\omega r = 12(0{,}50) = 6{,}0$ m/s, tangencial.",
+   "$\\vec r = 0{,}50\\,\\hat r + 0{,}75\\,\\hat k$ desde el origen.",
+   "$L_z = m(0{,}50)(6{,}0) = 6{,}0$; $L_{xy} = m(0{,}75)(6{,}0) = 9{,}0$.",
+   "$|\\vec L| = \\sqrt{6{,}0^2 + 9{,}0^2} = \\sqrt{117} = 11$ kg·m²/s."
+  ],
+  "porque_fallan": {
+   "A": "6,0 es solo la componente $z$: falta la del plano.",
+   "E": "20 suma las dos componentes en vez de componerlas como catetos."
+  },
+  "confirma": "C"
+ },
+ "hrw-c11-q029": {
+  "idea": "La componente $z$ es la que sale del brazo dentro del plano del círculo: no depende de dónde esté el origen sobre el eje.",
+  "pasos": [
+   "$L_z = m\\,r_{círculo}\\,v = 2{,}0(0{,}50)(6{,}0)$.",
+   "$= 6{,}0$ kg·m²/s.",
+   "Es el mismo valor que daría con el origen en el centro del círculo."
+  ],
+  "porque_fallan": {
+   "C": "11 es el **módulo** total, que incluye la parte del plano $xy$.",
+   "B": "9,0 es justo la componente perpendicular a $z$."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q030": {
+  "idea": "Esta componente viene del desplazamiento de 0,75 m a lo largo del eje.",
+  "pasos": [
+   "$L_{xy} = m\\,z\\,v$ con $z = 0{,}75$ m.",
+   "$= 2{,}0(0{,}75)(6{,}0)$.",
+   "$= 9{,}0$ kg·m²/s. (Va rotando con la partícula, pero su módulo es constante.)"
+  ],
+  "porque_fallan": {
+   "A": "Cero sería si el origen estuviera en el plano del círculo.",
+   "B": "6,0 es la componente $z$."
+  },
+  "confirma": "C"
+ },
+ "hrw-c11-q031": {
+  "idea": "Girar sobre un eje paralelo desplazado $h$ cambia la inercia por Steiner, y $L = I'\\omega$.",
+  "pasos": [
+   "$I' = I + Mh^2$.",
+   "$L' = I'\\omega = (I + Mh^2)\\omega$.",
+   "Siempre **mayor**: alejar el eje solo puede subir la inercia."
+  ],
+  "porque_fallan": {
+   "C": "Restar es imposible: $I$ por el centro de masa es el mínimo.",
+   "D": "$MR^2$ usaría el radio del disco, no la distancia entre ejes."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q032": {
+  "idea": "Los dos bloques contribuyen **en el mismo sentido**: uno baja por un lado y el otro sube por el otro, y ambos hacen girar la polea igual.",
+  "pasos": [
+   "Cada bloque aporta $mvR$ respecto del eje: $m_1vR + m_2vR$.",
+   "La polea aporta $I\\omega = I(v/R)$.",
+   "$L = (m_1+m_2)vR + Iv/R$."
+  ],
+  "porque_fallan": {
+   "A": "La resta sería si los bloques giraran la polea en sentidos opuestos, y no es el caso.",
+   "D": "$Iv/R^2$ tiene mal las dimensiones: $I\\omega$ pide dividir por $R$ una sola vez."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q033": {
+  "idea": "$\\vec\\tau = \\vec r\\times\\vec F$ con $\\vec r$ en $+x$. Busca qué dirección de $\\vec F$ da $-\\hat k$.",
+  "pasos": [
+   "$\\hat\\imath\\times\\hat\\jmath = +\\hat k$, luego $\\vec F$ en $+y$ daría par en $+z$.",
+   "$\\hat\\imath\\times(-\\hat\\jmath) = -\\hat k$ ✔.",
+   "$\\vec F$ en la dirección $-y$."
+  ],
+  "porque_fallan": {
+   "A": "$+y$ da el par en $+z$, el sentido contrario al pedido.",
+   "C": "Una fuerza a lo largo de $x$ es paralela a $\\vec r$: par nulo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q035": {
+  "idea": "$\\omega$ constante ⟹ $L$ constante ⟹ $\\tau = dL/dt = 0$.",
+  "pasos": [
+   "La única fuerza es la tensión, dirigida hacia el centro.",
+   "Respecto del centro, $\\vec r\\parallel\\vec F$: par cero.",
+   "Y coherente: si hubiera par, $\\omega$ cambiaría."
+  ],
+  "porque_fallan": {
+   "B": "6,0 es el valor del **momento angular** en kg·m²/s, no un par.",
+   "C": "Ningún par actúa: por eso el giro es uniforme."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q036": {
+  "idea": "Respecto del centro el par es cero, pero respecto de un origen desplazado sobre el eje ya no: la fuerza centrípeta tiene brazo.",
+  "pasos": [
+   "$F = m\\omega^2 r = 2{,}0(12)^2(0{,}50) = 144$ N, hacia el centro ($-\\hat r$).",
+   "$\\vec r = 0{,}50\\,\\hat r + 0{,}75\\,\\hat k$ desde el origen.",
+   "Solo la parte $0{,}75\\,\\hat k$ da par: $\\tau = 0{,}75(144) = 108$ N·m.",
+   "(Coherente con $L_{xy} = 9{,}0$ girando a 12 rad/s: $9{,}0\\times12 = 108$ ✔)."
+  ],
+  "porque_fallan": {
+   "A": "Cero solo respecto del centro del círculo.",
+   "D": "72 sale de usar 0,50 m de brazo en vez de 0,75."
+  },
+  "confirma": "E"
+ },
+ "hrw-c11-q037": {
+  "idea": "$\\vec\\tau = \\vec r\\times\\vec F$, con la posición al cabo de los 2,0 s.",
+  "pasos": [
+   "$\\vec F = m\\vec a = 2{,}0(4{,}0\\,\\hat\\imath - 3{,}0\\,\\hat\\jmath) = 8{,}0\\,\\hat\\imath - 6{,}0\\,\\hat\\jmath$ N.",
+   "$\\vec r = 11\\,\\hat\\imath - 6{,}0\\,\\hat\\jmath$ m (igual que en la 11.26).",
+   "$\\tau_z = (11)(-6{,}0) - (-6{,}0)(8{,}0) = -66 + 48 = -18$ N·m.",
+   "(Comprobación: $L = -36t/2$… en efecto $dL/dt = -18$ ✔)."
+  ],
+  "porque_fallan": {
+   "A": "No es cero: la fuerza no pasa por el origen.",
+   "D": "−144 confunde el par con algún producto de las componentes sin restar."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q040": {
+  "idea": "Toma el sistema entero (polea más bloques): la fuerza del eje actúa **en** el eje y no da par. Solo quedan los pesos.",
+  "pasos": [
+   "Peso de $m_1$: par $m_1gR$ en un sentido.",
+   "Peso de $m_2$: par $m_2gR$ en el otro.",
+   "$|\\tau_{neto}| = |m_1-m_2|gR$. Las tensiones son internas y se cancelan."
+  ],
+  "porque_fallan": {
+   "B": "Sumar los pesos daría par incluso con masas iguales, y entonces nada se movería.",
+   "C": "Las tensiones son internas al sistema elegido: no entran."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q041": {
+  "idea": "Sin par externo, $I\\omega$ se conserva: si $\\omega$ se multiplica por 4, $I$ se divide por 4.",
+  "pasos": [
+   "$I_0\\omega_0 = I(4\\omega_0)$.",
+   "$I = I_0/4$.",
+   "Y su energía cinética se **cuadruplica**: la pone el trabajo de sus músculos."
+  ],
+  "porque_fallan": {
+   "E": "$4I_0$ es al revés: encoger los brazos **reduce** la inercia.",
+   "B": "$I_0/2$ daría $\\omega = 2\\omega_0$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q042": {
+  "idea": "Extender los brazos sube $I$; con $L$ fijo, $\\omega$ y $K$ bajan. Lo único que no cambia es $L$.",
+  "pasos": [
+   "Sin par externo (plataforma sin rozamiento): $\\vec L$ constante.",
+   "$I$ sube ⟹ $\\omega = L/I$ baja.",
+   "$K = L^2/2I$ también baja."
+  ],
+  "porque_fallan": {
+   "A": "Al extender los brazos gira **más despacio**, no más deprisa.",
+   "D": "La energía cinética disminuye: el hombre hace trabajo negativo al frenar las manos."
+  },
+  "confirma": "E"
+ },
+ "hrw-c11-q043": {
+  "idea": "Las pesas se sueltan **llevándose su propio momento angular**: la parte que le queda al hombre no cambia, ni su $I$ ni su $L$.",
+  "pasos": [
+   "Al abrir las manos las pesas salen por la tangente con la $\\omega$ que tenían.",
+   "Se llevan exactamente su cuota de $L$; al hombre le queda la suya.",
+   "Su $I$ y su $L$ quedan iguales ⟹ $\\omega$ igual."
+  ],
+  "porque_fallan": {
+   "A": "Doblar la $\\omega$ exigiría que las pesas cedieran su momento angular al hombre, y no lo hacen: se lo llevan.",
+   "C": "Tampoco se frena: nada le quita momento angular a él."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q044": {
+  "idea": "El colapso lo provocan fuerzas **internas**: no pueden cambiar el momento angular total.",
+  "pasos": [
+   "$\\vec\\tau_{ext} = 0 \\Rightarrow \\vec L$ constante.",
+   "$L$ sigue valiendo $L$.",
+   "Lo que sí cambia: $I$ baja a $1/4$ y $\\omega$ sube ×4 (como una estrella de neutrones)."
+  ],
+  "porque_fallan": {
+   "E": "$4L$ es lo que le pasa a la **velocidad angular**, no al momento angular.",
+   "A": "$L/4$ es lo que le pasa a la inercia rotacional."
+  },
+  "confirma": "C"
+ },
+ "hrw-c11-q045": {
+  "idea": "Con $L$ fijo, $K = L^2/2I$: si $I$ sube, $K$ baja. Sin excepciones.",
+  "pasos": [
+   "Extender los brazos aumenta $I$ siempre.",
+   "$L$ es constante porque no hay par externo.",
+   "$K = L^2/2I$ disminuye necesariamente."
+  ],
+  "porque_fallan": {
+   "A": "Aumentar sería el caso de **encoger** los brazos, y ahí la energía la pone él.",
+   "D": "No hay ambigüedad: extender siempre sube $I$."
+  },
+  "confirma": "B"
+ },
+ "hrw-c11-q046": {
+  "idea": "Ese es justo el punto: lo que se conserva es $L$, mientras $I$, $\\omega$ y $K$ cambian.",
+  "pasos": [
+   "Plataforma sin rozamiento ⟹ ningún par externo respecto del eje.",
+   "$d\\vec L/dt = \\vec\\tau_{ext} = 0$.",
+   "$\\vec L$ constante, en módulo y dirección."
+  ],
+  "porque_fallan": {
+   "B": "Lo que disminuye es $\\omega$, no $L$.",
+   "E": "El eje no se inclina: no hay par que lo incline."
+  },
+  "confirma": "C"
+ },
+ "hrw-c11-q049": {
+  "idea": "El rozamiento entre disco y plato es **interno** al sistema: se lleva energía pero no momento angular.",
+  "pasos": [
+   "Sin par externo respecto del eje, $L$ total se conserva.",
+   "El plato frena y el disco acelera hasta girar juntos: $I_1\\omega_1 = (I_1+I_2)\\omega_f$.",
+   "La energía cinética sí baja: el rozamiento la convierte en calor."
+  ],
+  "porque_fallan": {
+   "A": "El momento angular **sí** se conserva; la energía mecánica no.",
+   "E": "Sumar momento angular y energía no tiene sentido: son magnitudes distintas."
+  },
+  "confirma": "D"
+ },
+ "hrw-c11-q050": {
+  "idea": "Choque perfectamente inelástico en versión angular: $L$ antes $=$ $L$ después, con el niño ya montado formando parte de $I$.",
+  "pasos": [
+   "Antes: $L = mvR$ (el niño, como masa puntual con brazo $R$).",
+   "Después: $L = (I + mR^2)\\omega$, porque el niño gira ahora con el tiovivo.",
+   "$\\omega = \\dfrac{mvR}{I + mR^2}$."
+  ],
+  "porque_fallan": {
+   "C": "$mRv/I$ olvida que el niño también contribuye a la inercia una vez montado.",
+   "B": "$v/R$ sería si el tiovivo no tuviera inercia ninguna."
+  },
+  "confirma": "E"
+ },
+ "hrw-c11-q051": {
+  "idea": "El niño arrastrándose hacia el borde es un proceso interno: $L$ se conserva y la inercia crece.",
+  "pasos": [
+   "$L = 600(0{,}80) = 480$ kg·m²/s (en el centro el niño no aporta inercia).",
+   "En el borde: $I_f = 600 + 20(3{,}0)^2 = 600 + 180 = 780$ kg·m².",
+   "$\\omega_f = 480/780 = 0{,}62$ rad/s."
+  ],
+  "porque_fallan": {
+   "C": "0,80 rad/s es la inicial: añadir inercia tiene que frenarlo.",
+   "E": "1,1 rad/s acelera, que es lo contrario de lo que pasa."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q052": {
+  "idea": "El choque es elástico (energía cinética conservada) y dura un instante, durante el cual los pares de la gravedad y la tensión son despreciables (momento angular conservado respecto del punto de suspensión).",
+  "pasos": [
+   "Elástico, por enunciado ⟹ $K$ se conserva en el choque.",
+   "Durante el contacto, el par externo respecto del punto fijo actúa un tiempo despreciable ⟹ $L$ se conserva.",
+   "Se conservan las dos cosas."
+  ],
+  "porque_fallan": {
+   "B": "También se conserva el momento angular respecto del punto de suspensión.",
+   "D": "La velocidad angular del péndulo ligero desde luego cambia: para eso choca."
+  },
+  "confirma": "A"
+ },
+ "hrw-c11-q053": {
+  "idea": "Al cortar la cuerda desaparece la única fuerza, luego desaparece el único par: $L$ respecto de C queda congelado.",
+  "pasos": [
+   "Antes de cortar: la tensión apunta a C, par cero, $L$ constante.",
+   "Después: sin fuerzas, la partícula va en línea recta a velocidad constante.",
+   "$L = mvd$ con $d$ la distancia perpendicular de C a esa recta, que es el radio del círculo: el mismo valor de antes."
+  ],
+  "porque_fallan": {
+   "A": "Nada le añade momento angular: no hay fuerzas.",
+   "D": "Tampoco cambia de dirección: sigue perpendicular al plano del movimiento."
+  },
+  "confirma": "C"
+ }
+}

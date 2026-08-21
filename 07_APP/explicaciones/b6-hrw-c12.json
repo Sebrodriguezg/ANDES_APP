@@ -1,0 +1,368 @@
+{
+ "hrw-c12-q001": {
+  "idea": "$\\tau_{neto} = I\\alpha$: el par es a la rotación lo que la fuerza a la traslación.",
+  "pasos": [
+   "Un par neto distinto de cero produce aceleración angular.",
+   "Aceleración lineal la produce la fuerza neta, no el par.",
+   "La inercia rotacional es una propiedad del cuerpo, no algo que un par «produzca»."
+  ],
+  "porque_fallan": {
+   "B": "El equilibrio rotacional es justo lo contrario: par neto **cero**.",
+   "A": "Un par puede existir con fuerza neta nula (dos fuerzas opuestas descentradas): giro sin traslación."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q002": {
+  "idea": "Fuerza neta cero y par neto cero son las condiciones de equilibrio: necesarias siempre, suficientes para resolver solo si el problema no es estáticamente indeterminado.",
+  "pasos": [
+   "Todo cuerpo rígido en equilibrio las cumple, sea elástico o no.",
+   "Pero no bastan para **calcular** las fuerzas cuando hay más incógnitas que ecuaciones.",
+   "Una mesa de cuatro patas es el ejemplo clásico: tres ecuaciones, cuatro fuerzas desconocidas."
+  ],
+  "porque_fallan": {
+   "D": "«Siempre suficientes» es falso: existen los problemas estáticamente indeterminados.",
+   "B": "No se limitan a los sólidos elásticos."
+  },
+  "confirma": "A"
+ },
+ "hrw-c12-q003": {
+  "idea": "Si la fuerza neta es cero, el par neto vale lo mismo respecto de cualquier punto. Lo que no vale es mezclar puntos distintos en la misma suma.",
+  "pasos": [
+   "El requisito es calcular **todos** los pares respecto del mismo punto.",
+   "Cuál sea ese punto da igual: si $\\sum\\vec F = 0$, el resultado no depende de la elección.",
+   "Por eso conviene elegirlo donde más incógnitas se anulen."
+  ],
+  "porque_fallan": {
+   "A": "El centro de masa es una elección cómoda, no obligatoria.",
+   "D": "Cada fuerza en su propio punto de aplicación daría par cero para todas: no dice nada."
+  },
+  "confirma": "E"
+ },
+ "hrw-c12-q004": {
+  "idea": "Primera condición de equilibrio: $\\sum\\vec F = 0$, lo que equivale a que se anule cada componente por separado.",
+  "pasos": [
+   "$\\sum F_x = 0$, $\\sum F_y = 0$, $\\sum F_z = 0$.",
+   "Eso es exactamente «la suma de las componentes en cualquier dirección es cero».",
+   "No hace falta que las fuerzas se emparejen ni que concurran en un punto."
+  ],
+  "porque_fallan": {
+   "B": "Las fuerzas no tienen que ir por parejas: tres fuerzas pueden equilibrarse entre sí.",
+   "E": "Que las líneas de acción concurran no es necesario ni suficiente."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q005": {
+  "idea": "Segunda condición: $\\sum\\vec\\tau = 0$ respecto de cualquier punto.",
+  "pasos": [
+   "Con la fuerza neta ya nula, el par neto es el mismo respecto de todo punto.",
+   "Luego basta comprobarlo en uno, y se cumple en todos.",
+   "Ese «cualquier punto» es lo que permite elegir el más conveniente."
+  ],
+  "porque_fallan": {
+   "C": "Equilibrar las fuerzas de dos en dos no es necesario.",
+   "A": "Aplicarlas todas en el mismo punto eliminaría los pares por definición: no es una condición, es un caso particular."
+  },
+  "confirma": "D"
+ },
+ "hrw-c12-q006": {
+  "idea": "El punto donde se puede concentrar todo el peso se llama, precisamente, centro de gravedad.",
+  "pasos": [
+   "Cada partícula recibe $m_ig$; el conjunto de esos pesos equivale a una sola fuerza.",
+   "El punto de aplicación de esa resultante es el centro de gravedad.",
+   "Coincide con el centro de masa cuando $g$ es uniforme, que es casi siempre."
+  ],
+  "porque_fallan": {
+   "A": "El centro de masa coincide, pero no es la definición: se define sin gravedad ninguna.",
+   "B": "El centro geométrico solo coincide si el cuerpo es uniforme."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q007": {
+  "idea": "La condición es que $g$ sea la misma en todos los puntos del cuerpo.",
+  "pasos": [
+   "$\\vec r_{cg} = \\dfrac{\\sum m_i g_i \\vec r_i}{\\sum m_i g_i}$.",
+   "Si todas las $g_i$ valen lo mismo, se cancelan y queda $\\vec r_{cm}$.",
+   "Con $g$ variable —un rascacielos, un satélite alargado— los dos puntos se separan."
+  ],
+  "porque_fallan": {
+   "A": "«Siempre» es falso, aunque en la práctica cotidiana lo parezca.",
+   "E": "Una distribución uniforme de masa no basta: hace falta $g$ uniforme."
+  },
+  "confirma": "D"
+ },
+ "hrw-c12-q008": {
+  "idea": "El centro de masa es geometría pura; el de gravedad depende de cómo pesa cada trozo, y eso cambia al girar el cuerpo en un campo no uniforme.",
+  "pasos": [
+   "Girar el cuerpo cambia qué partes quedan más abajo, donde $g$ es mayor.",
+   "El promedio pesado por $m_ig_i$ se desplaza.",
+   "El centro de masa, que solo pesa por $m_i$, no se entera."
+  ],
+  "porque_fallan": {
+   "A": "El centro de masa está fijo en el cuerpo, pase lo que pase.",
+   "C": "El centro geométrico es pura forma: tampoco depende de la orientación."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q009": {
+  "idea": "Con el centro de gravedad **por encima** del eje, cualquier giro lo baja: el equilibrio se rompe solo.",
+  "pasos": [
+   "En equilibrio el cg está justo encima del punto de apoyo.",
+   "Al rodar un poco, el cg desciende.",
+   "Energía potencial que baja ⟹ el desplazamiento se amplifica: inestable."
+  ],
+  "porque_fallan": {
+   "A": "Estable sería si el cg subiera al desplazarlo.",
+   "C": "Neutro sería si el cg no cambiara de altura, como en un cilindro uniforme."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q010": {
+  "idea": "Con el centro de gravedad **por debajo** del eje, girar lo sube: el cuerpo vuelve solo.",
+  "pasos": [
+   "Al rodar, el cg asciende.",
+   "La energía potencial aumenta ⟹ hay una fuerza recuperadora.",
+   "Estable, como un tentetieso."
+  ],
+  "porque_fallan": {
+   "B": "Inestable es el caso opuesto, con el cg arriba.",
+   "C": "Neutro exigiría que la altura del cg no cambiara."
+  },
+  "confirma": "A"
+ },
+ "hrw-c12-q011": {
+  "idea": "Dos ejes distintos, dos respuestas distintas: uno baja el centro de gravedad y el otro lo sube.",
+  "pasos": [
+   "Girando **sobre la arista**: el cg está justo encima, y cualquier inclinación lo baja ⟹ inestable.",
+   "Girando sobre un eje horizontal **perpendicular** a la arista: el cubo tendría que bascular apoyándose en un vértice, y eso levanta el centro de gravedad ⟹ estable.",
+   "Inestable, estable."
+  ],
+  "porque_fallan": {
+   "D": "El segundo eje sí es estable: bascular sobre un vértice cuesta energía.",
+   "A": "El primero no puede ser estable: el cg encima del apoyo es la definición de precario."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q015": {
+  "idea": "Las dos cuerdas entre las dos aguantan la resultante de peso y tirón horizontal, que se componen como catetos.",
+  "pasos": [
+   "$T_{total} = \\sqrt{160^2 + 100^2} = \\sqrt{25600+10000} = \\sqrt{35600}$.",
+   "$= 189$ N repartidos entre dos cuerdas.",
+   "$T = 189/2 = 94$ N."
+  ],
+  "porque_fallan": {
+   "D": "190 N es la tensión **total**: falta repartirla entre las dos cuerdas.",
+   "E": "260 N suma 160 y 100 en vez de componerlos como catetos."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q022": {
+  "idea": "El apoyo tiene que quedar en el nuevo centro de gravedad del conjunto tabla + peso.",
+  "pasos": [
+   "Con el extremo cargado en $x=0$ y el centro de la tabla en $x=3{,}0$ m, el apoyo va en $x$ tal que $160x = 80(3{,}0-x)$.",
+   "$160x + 80x = 240 \\Rightarrow x = 1{,}0$ m desde el extremo cargado.",
+   "Antes estaba en 3,0 m: se ha desplazado $3{,}0-1{,}0 = 2{,}0$ m respecto de la tabla."
+  ],
+  "porque_fallan": {
+   "D": "1,0 m es la distancia del apoyo **al extremo cargado**, no lo que se ha desplazado.",
+   "C": "1,5 m sería el punto medio entre el centro y el extremo, que no es donde cae el centro de gravedad."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q023": {
+  "idea": "Dos masas iguales: el punto de apoyo cae justo en el medio de sus dos posiciones.",
+  "pasos": [
+   "Regla uniforme de 240 g: su peso actúa en la marca de 50 cm.",
+   "Pesa de 240 g en la marca de 100 cm.",
+   "Masas iguales ⟹ el equilibrio está en el punto medio: $(50+100)/2 = 75$ cm."
+  ],
+  "porque_fallan": {
+   "C": "50 cm es el centro de la regla sola, sin la pesa.",
+   "E": "80 cm desplazaría demasiado: solo si la pesa fuera más grande."
+  },
+  "confirma": "A"
+ },
+ "hrw-c12-q028": {
+  "idea": "Escalera contra pared lisa: el ángulo límite da $\\mu_s = 1/(2\\tan\\theta)$, y ni la masa ni la longitud aparecen.",
+  "pasos": [
+   "Pares respecto del pie: $N_{pared}L\\sin\\theta = mg\\dfrac{L}{2}\\cos\\theta \\Rightarrow N_{pared} = \\dfrac{mg}{2\\tan\\theta}$.",
+   "Horizontal: $f = N_{pared}$; vertical: $N_{suelo} = mg$.",
+   "En el límite $f = \\mu_s mg$, luego $\\mu_s = \\dfrac{1}{2\\tan 75°} = \\dfrac{1}{2(3{,}73)} = 0{,}13$."
+  ],
+  "porque_fallan": {
+   "D": "La masa se cancela: aparece en los dos lados de la igualdad.",
+   "B": "0,27 olvida el factor 2 que viene del brazo $L/2$ del peso."
+  },
+  "confirma": "A"
+ },
+ "hrw-c12-q039": {
+  "idea": "Esfuerzo es fuerza por unidad de área.",
+  "pasos": [
+   "$\\sigma = F/A$.",
+   "$[\\sigma] = $ N/m², que es el pascal.",
+   "Mismas unidades que una presión, y por buenos motivos."
+  ],
+  "porque_fallan": {
+   "C": "N/m es una constante elástica de muelle, no un esfuerzo.",
+   "D": "N·m es un par o un trabajo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c12-q040": {
+  "idea": "Deformación es un cociente de longitudes: se va sin unidades.",
+  "pasos": [
+   "$\\varepsilon = \\Delta L/L$.",
+   "Metro entre metro: adimensional.",
+   "Por eso el módulo de Young tiene las unidades del esfuerzo a secas."
+  ],
+  "porque_fallan": {
+   "A": "N/m² es el **esfuerzo**, no la deformación.",
+   "C": "N/m tampoco: la deformación no lleva newtons por ninguna parte."
+  },
+  "confirma": "E"
+ },
+ "hrw-c12-q041": {
+  "idea": "$E = \\sigma/\\varepsilon$, y como $\\varepsilon$ es adimensional, $E$ hereda las unidades del esfuerzo.",
+  "pasos": [
+   "$\\sigma$ en N/m², $\\varepsilon$ sin unidades.",
+   "$E$ en N/m².",
+   "Para el acero, unos $2\\times10^{11}$ N/m²."
+  ],
+  "porque_fallan": {
+   "D": "N/m es la constante de un muelle concreto; $E$ es una propiedad del **material**.",
+   "E": "El julio es energía."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q042": {
+  "idea": "Young relaciona tracción o compresión con el estiramiento **relativo**: $\\sigma = E\\,\\Delta L/L$.",
+  "pasos": [
+   "La fuerza es perpendicular a la superficie: tracción o compresión.",
+   "La respuesta es un cambio de longitud, dividido por la longitud original.",
+   "Ese cociente adimensional es la deformación."
+  ],
+  "porque_fallan": {
+   "B": "El cambio relativo de **volumen** lo gobierna el módulo de compresibilidad.",
+   "A": "La cizalla la gobierna el módulo de cizalladura, con fuerzas paralelas a la cara."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q043": {
+  "idea": "La relación lineal entre esfuerzo y deformación solo vale en el tramo elástico, muy por debajo del límite de fluencia.",
+  "pasos": [
+   "Pasado el límite de fluencia la deformación deja de ser proporcional y además es permanente.",
+   "$E$ es la pendiente del tramo recto inicial.",
+   "Fuera de ese tramo, usar $E$ da un número sin sentido."
+  ],
+  "porque_fallan": {
+   "A": "Justo por debajo de la resistencia última ya se pasó el límite de fluencia hace rato.",
+   "D": "Muy por encima del límite de fluencia el material ya está deformado sin remedio."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q044": {
+  "idea": "La resistencia última es el esfuerzo al que la muestra se rompe.",
+  "pasos": [
+   "En el diagrama esfuerzo-deformación es el máximo antes del fallo.",
+   "Volver a la forma original es el comportamiento elástico, muy anterior.",
+   "Doblarse 180° es una deformación plástica concreta, no una definición."
+  ],
+  "porque_fallan": {
+   "A": "Recuperar la forma es lo propio del régimen **elástico**.",
+   "D": "Ningún material tiene su resistencia última definida por doblarse un ángulo concreto."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q045": {
+  "idea": "$\\Delta L = \\dfrac{FL}{AE}$: el largo multiplica y el área divide. Y el área va con el **cuadrado** del diámetro.",
+  "pasos": [
+   "Diámetro ×3 ⟹ área ×9.",
+   "Longitud ×3.",
+   "$\\Delta L' = \\Delta L\\cdot\\dfrac{3}{9} = \\dfrac{0{,}90}{3} = 0{,}30$ cm."
+  ],
+  "porque_fallan": {
+   "C": "0,90 cm supondría que los dos efectos se cancelan, y no: el área va al cuadrado.",
+   "D": "2,7 cm multiplica por 3 solo la longitud, olvidando el área."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q048": {
+  "idea": "«La tabla queda horizontal» significa que los dos soportes se comprimen lo mismo, y siendo idénticos, eso significa que aguantan la **misma fuerza**.",
+  "pasos": [
+   "Soportes iguales comprimidos igual ⟹ $F_1 = F_2 = F$, y $2F = (10+m)g$.",
+   "Pares respecto del soporte izquierdo (en $x=0$), con la tabla de 4,0 m y su centro en $x=2{,}0$ m, justo sobre el segundo soporte:",
+   "$F_2(2{,}0) = mg(0{,}50) + 10g(2{,}0) \\Rightarrow F_2 = 0{,}25mg + 10g$.",
+   "Y $F_1 = (10+m)g - F_2 = 0{,}75mg$. Igualando: $0{,}75m = 0{,}25m + 10 \\Rightarrow m = 20$ kg."
+  ],
+  "porque_fallan": {
+   "D": "10 kg es la masa de la **tabla**, no la del bloque.",
+   "A": "Sin bloque la tabla no quedaría horizontal: el soporte central cargaría más."
+  },
+  "confirma": "E"
+ },
+ "hrw-c12-q049": {
+  "idea": "El módulo de compresibilidad liga presión con cambio **relativo de volumen**: $p = -B\\,\\Delta V/V$.",
+  "pasos": [
+   "La presión actúa por igual en todas las caras.",
+   "La respuesta del cuerpo es encoger de volumen.",
+   "$\\Delta V/V$ es el cociente adimensional que $B$ relaciona con $p$."
+  ],
+  "porque_fallan": {
+   "C": "El cambio relativo de **longitud** es lo de Young.",
+   "A": "La cizalla es lo del módulo de cizalladura."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q050": {
+  "idea": "$\\Delta V/V = -p/B$, y aquí la razón es minúscula: el cambio se ve en el quinto decimal.",
+  "pasos": [
+   "$V_0 = 2^3 = 8{,}00$ cm³.",
+   "$\\Delta V/V = -\\dfrac{3{,}0\\times10^5}{3{,}5\\times10^9} = -8{,}6\\times10^{-5}$.",
+   "$\\Delta V = -8{,}6\\times10^{-5}(8{,}00) = -6{,}9\\times10^{-4}$ cm³.",
+   "$V = 8{,}00 - 0{,}00069 = 7{,}99931$ cm³."
+  ],
+  "porque_fallan": {
+   "C": "El volumen **aumenta** en esa opción: la presión comprime, no dilata.",
+   "A": "7,31 cm³ sería un cambio del 9 %, cuatro órdenes de magnitud de más."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q051": {
+  "idea": "Aquí $p$ y $B$ son del mismo orden, así que el cubo encoge de verdad. Y hay que sacar la **arista**, no el volumen.",
+  "pasos": [
+   "$\\Delta V/V = -\\dfrac{2{,}0\\times10^5}{4{,}7\\times10^5} = -0{,}426$.",
+   "$V = 8{,}0(1-0{,}426) = 4{,}60$ cm³.",
+   "$L = \\sqrt[3]{4{,}60} = 1{,}66$ cm."
+  ],
+  "porque_fallan": {
+   "B": "1,15 cm sería un volumen de 1,5 cm³: se ha aplicado la razón a la arista en vez de al volumen.",
+   "D": "2,0 cm es la arista original; con esta presión sí se nota el cambio."
+  },
+  "confirma": "C"
+ },
+ "hrw-c12-q052": {
+  "idea": "Cizallar es deslizar una cara respecto de la opuesta: las fuerzas van **paralelas** a las caras.",
+  "pasos": [
+   "Perpendiculares a caras opuestas darían compresión o tracción, no cizalla.",
+   "Paralelas a caras opuestas y en sentidos contrarios: el cubo se convierte en un romboide.",
+   "Ese es el esfuerzo cortante."
+  ],
+  "porque_fallan": {
+   "A": "Perpendicular a caras opuestas es compresión pura.",
+   "E": "Una sola fuerza aceleraría el cubo entero en vez de deformarlo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c12-q053": {
+  "idea": "$\\Delta x = \\dfrac{FL}{AG}$, la misma estructura que Young pero con el módulo de cizalladura.",
+  "pasos": [
+   "$AG = (1{,}0\\times10^{-5})(2{,}5\\times10^{10}) = 2{,}5\\times10^{5}$ N.",
+   "$\\Delta x = \\dfrac{50(10)}{2{,}5\\times10^{5}} = \\dfrac{500}{2{,}5\\times10^{5}}$.",
+   "$= 2{,}0\\times10^{-3}$ m, es decir unos 2 mm: la opción del orden del milímetro."
+  ],
+  "porque_fallan": {
+   "C": "1,9 cm se pasa por un factor 10.",
+   "A": "Cero exigiría rigidez infinita."
+  },
+  "confirma": "B"
+ }
+}
