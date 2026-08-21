@@ -200,7 +200,11 @@ def cargar_mc(figuras):
                 "nivel": r.get("nivel", "BASE"),
                 "idioma": r.get("idioma", "en"),
                 "enunciado": r["enunciado"],
-                "opciones": r["opciones"],
+                # Ocho preguntas traen las letras desordenadas —el propio PDF
+                # imprime «A, D, B, C, E»— y en el teléfono eso se lee como un
+                # error de la app. La clave va por letra, así que ordenar solo
+                # cambia el orden en que se pintan.
+                "opciones": {k: r["opciones"][k] for k in sorted(r["opciones"])},
                 "respuesta": r["respuesta"],
                 "etiquetas": r.get("etiquetas", []),
                 "familia": r.get("familia"),
@@ -255,8 +259,31 @@ def cargar_explicaciones_propias():
     """
     fuera = {}
     for ruta in sorted(EXPLICACIONES.glob("*.json")):
-        fuera.update(json.loads(ruta.read_text(encoding="utf-8")))
+        contenido = json.loads(ruta.read_text(encoding="utf-8"))
+        for ident, exp in contenido.items():
+            comprobar_forma(ruta.name, ident, exp)
+        fuera.update(contenido)
     return fuera
+
+
+def comprobar_forma(archivo, ident, exp):
+    """Se planta si una explicación no tiene la forma que espera la app.
+
+    El fallo típico al escribirlas a mano es cerrar la lista de `pasos` con
+    una llave en vez de un corchete. El JSON sigue siendo válido —queda un
+    objeto donde iba una lista— y la app renderizaría los pasos vacíos sin
+    quejarse. Más vale que reviente aquí.
+    """
+    if not isinstance(exp.get("idea"), str) or not exp["idea"].strip():
+        raise SystemExit(f"{archivo}: {ident} no tiene idea")
+    if not isinstance(exp.get("pasos"), list) or not exp["pasos"]:
+        raise SystemExit(f"{archivo}: {ident} tiene «pasos» que no es una lista")
+    if not all(isinstance(p, str) for p in exp["pasos"]):
+        raise SystemExit(f"{archivo}: {ident} tiene pasos que no son texto")
+    if not isinstance(exp.get("porque_fallan", {}), dict):
+        raise SystemExit(f"{archivo}: {ident} tiene «porque_fallan» que no es un objeto")
+    if exp.get("confirma") not in list("ABCDE"):
+        raise SystemExit(f"{archivo}: {ident} no declara a qué letra llega")
 
 
 def cargar_errores():

@@ -1,0 +1,498 @@
+{
+ "hrw-c14-q001": {
+  "idea": "Fluido es lo que fluye: cualquier cosa que no soporte esfuerzo cortante estático. Eso incluye líquidos y gases.",
+  "pasos": [
+   "Un sólido aguanta una fuerza tangencial sin moverse; un fluido, no: cede y fluye.",
+   "Los líquidos y los gases cumplen esa definición.",
+   "Ser metálico o transparente no tiene nada que ver."
+  ],
+  "porque_fallan": {
+   "A": "Deja fuera los líquidos, que también fluyen.",
+   "E": "El mercurio no es transparente y es un fluido de manual."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q002": {
+  "idea": "Lo propio del gas es que se expande hasta llenar el recipiente: no forma superficie libre.",
+  "pasos": [
+   "Un líquido en un vaso medio lleno tiene superficie: la que se ve.",
+   "Un gas ocupa todo el volumen disponible, sin superficie ninguna.",
+   "Fluir lo hacen los dos, así que eso no distingue."
+  ],
+  "porque_fallan": {
+   "D": "Fluir es la propiedad común a líquidos y gases, no la que los separa.",
+   "E": "Los líquidos también ejercen empuje; el aire también."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q004": {
+  "idea": "Con $p = \\rho g h$, cuanta más densidad, más baja la columna. Con agua el barómetro mediría diez metros.",
+  "pasos": [
+   "$h = p/\\rho g$: la altura es inversa a la densidad.",
+   "Mercurio: $\\rho = 13\\,600$ kg/m³ ⟹ $h = 760$ mm.",
+   "Agua: $\\rho = 1000$ ⟹ $h = 10{,}3$ m. Un barómetro de agua no cabe en una habitación."
+  ],
+  "porque_fallan": {
+   "B": "El punto de ebullición importa un poco (la presión de vapor), pero lo decisivo es la densidad.",
+   "A": "Ser metal no cambia la altura de la columna."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q005": {
+  "idea": "La presión manométrica es la presión **por encima** de la atmosférica.",
+  "pasos": [
+   "$p_{man} = p_{abs} - p_{atm}$ por definición.",
+   "Despejando: $p_{abs} = p_{man} + p_{atm}$.",
+   "Un neumático a «2 bares» tiene en realidad 3 bares absolutos."
+  ],
+  "porque_fallan": {
+   "A": "Restar es pasar de absoluta a manométrica, el camino inverso.",
+   "C": "Los 273 son de la escala Kelvin: aquí no pintan nada."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q006": {
+  "idea": "El barómetro tiene vacío arriba, así que mide desde el cero absoluto; el manómetro de tubo abierto tiene la atmósfera encima y mide la diferencia.",
+  "pasos": [
+   "Barómetro: columna cerrada con vacío en la parte superior ⟹ presión absoluta.",
+   "Manómetro abierto: un extremo al aire libre ⟹ mide $p - p_{atm}$.",
+   "Barómetros absoluta, manómetros manométrica."
+  ],
+  "porque_fallan": {
+   "A": "El barómetro no puede medir manométrica: no tiene la atmósfera como referencia interna.",
+   "B": "El manómetro abierto sí resta la atmósfera: por eso se llama así."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q007": {
+  "idea": "$\\Delta p = \\rho g\\,\\Delta h$, con las unidades en el SI.",
+  "pasos": [
+   "$\\rho = 8{,}5\\times10^2$ kg/m³, $\\Delta h = 1{,}0$ mm $= 1{,}0\\times10^{-3}$ m.",
+   "$\\Delta p = 850(9{,}8)(1{,}0\\times10^{-3})$.",
+   "$= 8{,}3$ Pa."
+  ],
+  "porque_fallan": {
+   "C": "0,85 Pa olvida el factor $g$.",
+   "D": "1,2 Pa parece salir de dividir por la densidad en vez de multiplicar."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q008": {
+  "idea": "$p = F/A$ con $F$ fija (su peso): máxima presión donde mínima área.",
+  "pasos": [
+   "El peso es el mismo en todas las posturas.",
+   "El área de contacto es mínima de puntillas sobre un pie.",
+   "Ahí la presión es máxima."
+  ],
+  "porque_fallan": {
+   "D": "Tumbado el área es máxima, luego la presión es **mínima**.",
+   "E": "El área cambia mucho entre posturas; la presión también."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q010": {
+  "idea": "La presión en un fluido en reposo depende solo de la profundidad, y es la misma en todas las direcciones.",
+  "pasos": [
+   "$p = p_0 + \\rho g h$: solo entra $h$.",
+   "A la misma altura, la misma presión, esté donde esté el punto.",
+   "Y no depende de la dirección: la presión es un escalar."
+  ],
+  "porque_fallan": {
+   "A": "En puntos a distinta profundidad la presión es distinta.",
+   "B": "La presión no tiene dirección: la que la tiene es la fuerza que ejerce sobre una superficie."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q011": {
+  "idea": "La presión **en la superficie** es la atmosférica: no sabe nada de lo que hay debajo.",
+  "pasos": [
+   "$p_{superficie} = p_{atm}$, punto.",
+   "Aumentar la densidad del líquido sube la presión en el **fondo**, no en la superficie. Esa es la falsa.",
+   "Aumentar la profundidad tampoco la toca (C es verdadera), ni el área (A), ni varía de un punto a otro de la superficie (B)."
+  ],
+  "porque_fallan": {
+   "E": "Es verdadera: si sube la atmosférica, sube la de la superficie, que es la misma cosa.",
+   "C": "También verdadera: la profundidad no afecta a lo que pasa arriba."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q012": {
+  "idea": "La presión en el fondo solo depende de la profundidad, no de la forma ni de cuánto líquido haya. Es la paradoja hidrostática.",
+  "pasos": [
+   "$p = p_{atm} + \\rho g h$, con la misma $h$ y el mismo $\\rho$ en todas las latas.",
+   "Misma presión en todos los fondos.",
+   "La **fuerza** sí cambia, porque $F = pA$ y las áreas son distintas."
+  ],
+  "porque_fallan": {
+   "B": "La fuerza es $pA$: con áreas distintas, fuerzas distintas.",
+   "A": "El peso depende del volumen, que sí cambia con la forma."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q013": {
+  "idea": "La fuerza necesaria es la diferencia de presiones por el área de la tapa.",
+  "pasos": [
+   "$\\Delta p = F/A = 600/(80\\times10^{-4}) = 7{,}5\\times10^4$ Pa.",
+   "$p_{dentro} = p_{atm} - \\Delta p = 1{,}01\\times10^5 - 7{,}5\\times10^4$.",
+   "$= 2{,}6\\times10^4$ Pa."
+  ],
+  "porque_fallan": {
+   "C": "$7{,}5\\times10^4$ es la **diferencia**, no la presión interior.",
+   "E": "$1{,}76\\times10^5$ suma en vez de restar: dentro hay menos presión, está parcialmente al vacío."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q014": {
+  "idea": "Truco del área proyectada: la fuerza neta sobre una superficie curva es la presión por el área de su **sombra** plana.",
+  "pasos": [
+   "La parte curva del hemisferio proyecta un círculo de radio $R$.",
+   "Área proyectada $= \\pi R^2$.",
+   "$F = p\\,\\pi R^2$. (Equivale a decir que la tapa plana aguanta esa misma fuerza.)"
+  ],
+  "porque_fallan": {
+   "A": "$2\\pi R^2$ es el área **de la superficie** curva; las componentes laterales se cancelan y no toda contribuye.",
+   "E": "$(4/3)\\pi R^3$ es un volumen: ni siquiera tiene dimensiones de área."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q017": {
+  "idea": "En el fondo del tubo la presión tiene que ser la misma por los dos lados. Y ojo: si el agua sube 3 cm a la izquierda, la diferencia de niveles de agua es de 6 cm.",
+  "pasos": [
+   "El agua sube 3 cm en la rama izquierda y baja 3 cm en la derecha: desnivel de agua $= 6$ cm.",
+   "Ese desnivel lo compensa la columna de aceite: $\\rho_{ac}h = \\rho_{ag}(6)$.",
+   "$h = 6/0{,}75 = 8$ cm."
+  ],
+  "porque_fallan": {
+   "D": "4 cm usa 3 cm de desnivel en vez de 6: se olvida de que el líquido que sube por un lado baja por el otro.",
+   "E": "La sección no hace falta: se cancela porque el tubo es uniforme."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q018": {
+  "idea": "Igual que la anterior: la columna de agua equilibra un desnivel de mercurio que vale **el doble** de lo que sube un lado.",
+  "pasos": [
+   "Si el mercurio sube $x$ a la derecha, baja $x$ a la izquierda: desnivel $2x$.",
+   "$\\rho_{ag}(10) = \\rho_{Hg}(2x) \\Rightarrow 1{,}0(10) = 14(2x)$.",
+   "$x = 10/28 = 0{,}36$ cm."
+  ],
+  "porque_fallan": {
+   "B": "0,72 cm es el desnivel total $2x$, no lo que sube la rama derecha.",
+   "E": "70 cm invierte la razón de densidades."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q019": {
+  "idea": "Con el cubo acelerando, la superficie del agua se inclina y la presión sube por el lado de atrás.",
+  "pasos": [
+   "El agua tiene que acelerar hacia la derecha, y eso exige una fuerza neta hacia la derecha.",
+   "Esa fuerza la da un gradiente de presión: más presión a la izquierda que a la derecha.",
+   "El agua se amontona en la pared trasera (izquierda)."
+  ],
+  "porque_fallan": {
+   "C": "A la derecha la presión es menor: es el lado hacia el que acelera.",
+   "A": "Solo serían iguales sin aceleración."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q020": {
+  "idea": "En un ascensor que sube acelerando, la gravedad efectiva es $g+a$.",
+  "pasos": [
+   "Toma el fluido como si estuviera en un campo $g_{ef} = g + a$.",
+   "$\\Delta p = \\rho\\,g_{ef}\\,\\Delta h$.",
+   "$= \\rho(g+a)\\Delta h$."
+  ],
+  "porque_fallan": {
+   "B": "$\\rho g\\Delta h$ es el caso sin aceleración.",
+   "A": "$\\rho a\\Delta h$ olvidaría la gravedad, que sigue ahí."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q021": {
+  "idea": "Bajando acelerando, la gravedad efectiva es $g-a$: el fluido «pesa menos».",
+  "pasos": [
+   "$g_{ef} = g - a$.",
+   "$\\Delta p = \\rho(g-a)\\Delta h$.",
+   "Caso extremo $a = g$ (caída libre): la presión se iguala en todo el fluido."
+  ],
+  "porque_fallan": {
+   "C": "$(g+a)$ es el caso de subir acelerando.",
+   "B": "$\\rho g\\Delta h$ ignora la aceleración."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q022": {
+  "idea": "La frase es cierta, pero es pura geometría: el principio de Arquímedes habla de la **fuerza**, no del volumen.",
+  "pasos": [
+   "Un cuerpo sumergido del todo ocupa un hueco igual a su volumen: obvio.",
+   "Arquímedes dice algo más fuerte: el empuje **vale el peso** del fluido desplazado.",
+   "Y el principio de Pascal es otra cosa: la transmisión de presiones."
+  ],
+  "porque_fallan": {
+   "B": "El principio de Arquímedes es sobre el empuje, no sobre el volumen desplazado.",
+   "E": "La frase no es falsa: es verdadera y trivial."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q023": {
+  "idea": "Si flota, el empuje iguala al peso. Y el peso del objeto es siempre el mismo.",
+  "pasos": [
+   "Flotar significa equilibrio: $F_{empuje} = mg$.",
+   "$mg$ no depende del fluido.",
+   "Luego el empuje es idéntico en los tres. Lo que cambia es el **volumen** sumergido."
+  ],
+  "porque_fallan": {
+   "B": "El fluido más denso da el mismo empuje, solo que hundiendo menos el objeto.",
+   "D": "El volumen desplazado sí cambia: $V = m/\\rho_{fluido}$."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q024": {
+  "idea": "$V_{despl} = m/\\rho_{fluido}$: cuanto más denso el fluido, menos volumen hay que desplazar.",
+  "pasos": [
+   "El empuje es el mismo (el peso), así que $\\rho_{fluido}V = $ constante.",
+   "$V \\propto 1/\\rho$.",
+   "De menor a mayor volumen: el más denso primero: 3 ($1{,}1\\rho_0$), luego 2, luego 1."
+  ],
+  "porque_fallan": {
+   "A": "1, 2, 3 es el orden inverso: el fluido menos denso obliga a desplazar **más**.",
+   "E": "No son iguales: si lo fueran, el empuje sería distinto en cada uno."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q026": {
+  "idea": "El hielo flotante ya desplaza exactamente el volumen de agua que dará al fundirse.",
+  "pasos": [
+   "Flotando, el hielo desplaza un volumen de agua cuyo **peso** es el suyo.",
+   "Al fundirse se convierte en agua de ese mismo peso.",
+   "Ocupa justo el hueco que dejaba: el nivel no se mueve. (Es el argumento que descarta al hielo marino como causa de subida del nivel del mar.)"
+  ],
+  "porque_fallan": {
+   "A": "Si subiera y rebosara, el hielo flotante estaría creando agua de la nada.",
+   "C": "Bajar pasaría si el hielo estuviera apoyado en el fondo, no flotando."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q027": {
+  "idea": "El corcho es menos denso que el agua, así que al liberarse sigue flotando y sigue desplazando su propio peso. Nada cambia.",
+  "pasos": [
+   "Antes: el bloque hielo+corcho flota y desplaza el peso del conjunto.",
+   "Después: el agua de fusión llena su hueco y el corcho flota aparte, desplazando su propio peso.",
+   "La suma es la misma: el nivel no varía."
+  ],
+  "porque_fallan": {
+   "B": "Bajaría si el inserto fuera **más** denso que el agua —una piedra—, porque al hundirse desplazaría solo su volumen, no su peso.",
+   "A": "Subir exigiría crear volumen que antes no se desplazaba."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q028": {
+  "idea": "Si el cofre está apoyado a ras del fondo, no hay agua debajo que empuje hacia arriba: solo la que empuja desde arriba.",
+  "pasos": [
+   "El empuje de Arquímedes nace de que la presión abajo es mayor que arriba.",
+   "Con el cofre sellado contra el fondo, no hay cara inferior mojada.",
+   "Queda solo la presión sobre la tapa: fuerza neta hacia **abajo**. Es el efecto de la ventosa."
+  ],
+  "porque_fallan": {
+   "A": "Hacia arriba sería el empuje habitual, que exige agua por debajo.",
+   "C": "Cero sería si las presiones de arriba y abajo se compensaran."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q029": {
+  "idea": "Al añadir agua, la bola pasa a desplazar también agua: gana un empuje extra y sube un poco.",
+  "pasos": [
+   "El acero ($7{,}8$) es menos denso que el mercurio ($13{,}6$): la bola flota, medio hundida.",
+   "El agua cubre la parte que asomaba y aporta su propio empuje.",
+   "Empuje total mayor ⟹ la bola sube ligeramente."
+  ],
+  "porque_fallan": {
+   "E": "Hundirse más exigiría **perder** empuje, y el agua solo puede añadir.",
+   "C": "El mercurio es 13 veces más denso: se queda debajo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q030": {
+  "idea": "El empuje viene de la **diferencia** de presiones entre abajo y arriba, y quitar la atmósfera resta lo mismo en los dos sitios.",
+  "pasos": [
+   "$F_{empuje} = \\rho g V_{sumergido}$: la presión atmosférica no aparece.",
+   "Quitar el aire baja $p_0$ por igual en toda la superficie del líquido.",
+   "El corcho flota exactamente igual."
+  ],
+  "porque_fallan": {
+   "A": "Hundirse exigiría que el empuje dependiera de la presión absoluta, y depende del gradiente.",
+   "B": "Tampoco sube: el término que cambia se cancela arriba y abajo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q031": {
+  "idea": "El empuje es proporcional a la densidad del líquido, así que con la mitad de densidad, la mitad de empuje.",
+  "pasos": [
+   "En agua: $F_{empuje} = 30 - 20 = 10$ N.",
+   "Con $\\rho/2$: empuje $= 5$ N.",
+   "Lectura $= 30 - 5 = 25$ N."
+  ],
+  "porque_fallan": {
+   "A": "20 N es la lectura en agua entera.",
+   "C": "30 N sería en el vacío, sin empuje ninguno."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q032": {
+  "idea": "La fracción sumergida de un cuerpo que flota es exactamente la razón de densidades.",
+  "pasos": [
+   "$\\rho_{cuerpo}V g = \\rho_{agua}V_{sum}g$.",
+   "$\\dfrac{\\rho_{cuerpo}}{\\rho_{agua}} = \\dfrac{V_{sum}}{V} = 0{,}60$.",
+   "$\\rho = 0{,}60$ g/cm³."
+  ],
+  "porque_fallan": {
+   "A": "0,4 es la fracción que asoma, no la que se hunde.",
+   "E": "Más de 0,6 lo hundiría más del 60 %."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q033": {
+  "idea": "Un cuerpo que flota desplaza siempre su **propio peso** de fluido, sea cual sea el fluido.",
+  "pasos": [
+   "El barco pesa 16 000 N: eso es lo que desplaza en agua dulce.",
+   "En agua salada sigue pesando 16 000 N.",
+   "Desplaza 16 000 N de agua salada: menos **volumen**, el mismo peso."
+  ],
+  "porque_fallan": {
+   "B": "17 600 multiplica por 1,17: eso sería el peso del mismo **volumen**, y el volumen es justo lo que cambia.",
+   "A": "14 500 divide por 1,17, el mismo error al revés."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q034": {
+  "idea": "La pérdida aparente de peso **es** el empuje, y el empuje da el volumen.",
+  "pasos": [
+   "$F_{empuje} = 1400 - 900 = 500$ N.",
+   "$F_{empuje} = \\rho g V \\Rightarrow V = \\dfrac{500}{998(9{,}8)}$.",
+   "$= 5{,}1\\times10^{-2}$ m³."
+  ],
+  "porque_fallan": {
+   "B": "0,60 m³ olvida el factor $g$ (usa 500/998 sin más… y ni eso).",
+   "A": "0,14 m³ divide 1400 por 998 y por 10: mezcla el peso total con el empuje."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q035": {
+  "idea": "Con agua más densa hace falta desplazar menos volumen para el mismo peso: el barco emerge un poco.",
+  "pasos": [
+   "El peso del barco no cambia ⟹ el empuje tampoco.",
+   "$V_{sum} = \\dfrac{peso}{\\rho g}$ con $\\rho$ mayor ⟹ $V_{sum}$ menor.",
+   "El barco flota más alto. (Por eso los buques llevan las marcas Plimsoll con líneas distintas para agua dulce y salada.)"
+  ],
+  "porque_fallan": {
+   "D": "El empuje no cambia: sigue siendo el peso del barco.",
+   "B": "Hundirse más es lo que pasa al pasar de salada a dulce."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q036": {
+  "idea": "La carga máxima es la que hunde la balsa justo del todo: masa desplazada menos masa propia.",
+  "pasos": [
+   "$V = 3{,}0\\times3{,}0\\times1{,}0 = 9{,}0$ m³.",
+   "Masa de la balsa: $150(9{,}0) = 1350$ kg.",
+   "Masa de agua desplazada con la balsa entera sumergida: $1020(9{,}0) = 9180$ kg.",
+   "Carga $= 9180 - 1350 = 7800$ kg."
+  ],
+  "porque_fallan": {
+   "C": "9200 kg es el desplazamiento **total**: falta descontar la balsa.",
+   "A": "1350 kg es la masa de la balsa, no lo que puede cargar."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q037": {
+  "idea": "Mismo esquema, con números redondos: la lata puede desplazar como mucho su volumen de agua.",
+  "pasos": [
+   "$1000$ cm³ de agua pesan $1000$ g.",
+   "La lata ya aporta 100 g.",
+   "Carga máxima $= 1000 - 100 = 900$ g."
+  ],
+  "porque_fallan": {
+   "C": "1000 g es el desplazamiento total, incluida la lata.",
+   "D": "1100 g suma en vez de restar: se hundiría."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q038": {
+  "idea": "Sumergida del todo, la madera recibe más empuje del que pesa. Hay que aportar la diferencia.",
+  "pasos": [
+   "$V = \\dfrac{160}{0{,}60(1000)(9{,}8)} = 2{,}72\\times10^{-2}$ m³.",
+   "Empuje con el bloque entero bajo el agua: $1000(9{,}8)(2{,}72\\times10^{-2}) = 267$ N.",
+   "Fuerza extra $= 267 - 160 = 107 \\approx 110$ N. (Atajo: $160(1/0{,}60 - 1) = 107$.)"
+  ],
+  "porque_fallan": {
+   "B": "64 N es el 40 % de 160: casi, pero la razón correcta es $160/0{,}60 - 160$.",
+   "E": "240 N es el empuje completo mal calculado, sin restar el peso."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q039": {
+  "idea": "El criterio «el huevo justo flota» fija la **densidad** de la salmuera igualándola a la del huevo.",
+  "pasos": [
+   "Flotar justo al ras significa $\\rho_{disolución} = \\rho_{huevo}$.",
+   "Para que el método dé siempre la misma concentración, todos los huevos deben tener la misma densidad.",
+   "El tamaño y la forma dan igual: la densidad no depende de ellos."
+  ],
+  "porque_fallan": {
+   "A": "Dos huevos de volúmenes distintos flotan igual si tienen la misma densidad.",
+   "B": "Lo mismo con el peso: lo que manda es el cociente peso/volumen."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q040": {
+  "idea": "El empuje equivale al peso del líquido desplazado, y la balanza está graduada en gramos: se puede trabajar directamente con masas.",
+  "pasos": [
+   "Líquido desplazado: $8$ cm³ × $2$ g/cm³ $= 16$ g.",
+   "Lectura $= 20 - 16$.",
+   "$= 4$ g."
+  ],
+  "porque_fallan": {
+   "C": "12 g resta $8$ en vez de $16$: falta multiplicar por la densidad.",
+   "E": "No flota: su densidad es $20/8 = 2{,}5$ g/cm³, mayor que la del líquido."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q041": {
+  "idea": "La «pérdida» de 30 g da el volumen; el volumen y la masa dan la densidad.",
+  "pasos": [
+   "Masa de líquido desplazado: 30 g ⟹ $V = 30/2{,}0 = 15$ cm³.",
+   "Ese es el volumen del objeto.",
+   "$\\rho = 210/15 = 14$ g/cm³."
+  ],
+  "porque_fallan": {
+   "A": "7,0 divide 210 entre 30: eso es una razón de masas, no una densidad.",
+   "C": "1,4 se equivoca en un factor 10."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q042": {
+  "idea": "Para el mismo peso aparente, el cuerpo **menos** denso tiene que pesar más en el aire, porque el agua le quita una fracción mayor.",
+  "pasos": [
+   "$W_{ap} = W\\left(1 - \\dfrac{\\rho_{agua}}{\\rho}\\right)$.",
+   "Aluminio ($\\rho = 2{,}7$): el factor vale $0{,}63$ ⟹ $W = W_{ap}/0{,}63 = 1{,}6\\,W_{ap}$.",
+   "Acero ($\\rho = 7{,}8$): el factor vale $0{,}87$ ⟹ $W = 1{,}15\\,W_{ap}$.",
+   "El pistón de aluminio pesa más en el aire."
+  ],
+  "porque_fallan": {
+   "B": "El hacha de acero es la que menos pierde en el agua, luego la que menos peso necesita en el aire.",
+   "A": "Solo pesarían igual si tuvieran la misma densidad."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q043": {
+  "idea": "La lectura es $W - F_{empuje}$, y el empuje va con la densidad del líquido.",
+  "pasos": [
+   "$F_{empuje} = \\rho_{líquido}\\,gV$ con $V$ fijo (la esfera es la misma).",
+   "Menos densidad ⟹ menos empuje ⟹ más lectura.",
+   "El máximo es con el líquido menos denso."
+  ],
+  "porque_fallan": {
+   "B": "El líquido más denso da el máximo empuje y por tanto la lectura **menor**.",
+   "C": "La presión atmosférica se cancela: no afecta al empuje."
+  },
+  "confirma": "A"
+ }
+}

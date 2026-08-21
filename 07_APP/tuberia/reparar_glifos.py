@@ -191,6 +191,16 @@ POR_TARJETA = {
         ("D", "GM/R 0_{2}", "√(GM/R^{2})"),
         ("E", "GM/2R", "√(GM/2R^{2})"),
     ],
+    # Otra tanda de raíces perdidas: las cuatro primeras opciones se quedaban
+    # en «2π L/(g + a)», que sin la raíz no es la fórmula de nada.
+    "hrw-c15-q048": [
+        ("enunciado", "L, g, and a is: 0_{0}", "L, g, and a is:"),
+        ("A", "2π L/g", "2π√(L/g)"),
+        ("B", "2π L/(g + a) 0_{0}_{-}", "2π√(L/(g + a))"),
+        ("C", "2π L/(g a)", "2π√(L/(g - a))"),
+        ("D", "2π L/a 0", "2π√(L/a)"),
+        ("E", "(1/2π) g/L", "(1/2π)√(g/L)"),
+    ],
     "hrw-c09-q071": [
         ("B", "choose m_{B} m_{A}", "choose m_{B} ≫ m_{A}"),
         ("C", "choose m_{B} m_{A}", "choose m_{B} ≫ m_{A}"),

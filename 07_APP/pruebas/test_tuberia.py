@@ -328,6 +328,36 @@ class TestGlifosPerdidos(unittest.TestCase):
                               en_contexto=False), "aislado")
 
 
+class TestFormaDeLasExplicaciones(unittest.TestCase):
+    """Que una explicación mal escrita no llegue al teléfono.
+
+    Al escribirlas a mano se cuela con facilidad una llave donde iba un
+    corchete: el JSON sigue siendo válido, `pasos` queda como objeto vacío y
+    la app pinta la explicación sin ningún paso. Pasó dos veces el mismo día.
+    """
+
+    BUENA = {"idea": "x", "pasos": ["a"], "porque_fallan": {}, "confirma": "A"}
+
+    def test_una_explicacion_correcta_pasa(self):
+        C.comprobar_forma("t.json", "x-1", self.BUENA)
+
+    def test_pasos_como_objeto_revienta(self):
+        with self.assertRaises(SystemExit):
+            C.comprobar_forma("t.json", "x-1", dict(self.BUENA, pasos={"a": "b"}))
+
+    def test_pasos_vacios_revientan(self):
+        with self.assertRaises(SystemExit):
+            C.comprobar_forma("t.json", "x-1", dict(self.BUENA, pasos=[]))
+
+    def test_sin_letra_confirmada_revienta(self):
+        with self.assertRaises(SystemExit):
+            C.comprobar_forma("t.json", "x-1", dict(self.BUENA, confirma="Z"))
+
+    def test_idea_vacia_revienta(self):
+        with self.assertRaises(SystemExit):
+            C.comprobar_forma("t.json", "x-1", dict(self.BUENA, idea="   "))
+
+
 class TestReparacionDeGlifos(unittest.TestCase):
     """Que reponer los glifos no se lleve por delante otra cosa."""
 

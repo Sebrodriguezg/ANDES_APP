@@ -1,0 +1,471 @@
+{
+ "hrw-c14-q044": {
+  "idea": "La densidad relativa sale del cociente entre el peso y la pérdida aparente.",
+  "pasos": [
+   "$F_{empuje} = 0{,}50 - 0{,}45 = 0{,}05$ N.",
+   "Densidad relativa $= \\dfrac{W}{F_{empuje}} = \\dfrac{\\rho_{metal}}{\\rho_{agua}}$.",
+   "$= 0{,}50/0{,}05 = 10$."
+  ],
+  "porque_fallan": {
+   "C": "9 saldría con una pérdida de $0{,}0556$ N: revisa la resta.",
+   "E": "12 no sale de estos números."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q045": {
+  "idea": "El empuje actúa en el **centro de carena**: el centro de gravedad del fluido que ocuparía el hueco.",
+  "pasos": [
+   "El empuje es la resultante de las presiones sobre la superficie mojada.",
+   "Esa resultante equivale al peso del fluido desplazado, aplicado donde estaría su centro de masa.",
+   "No coincide en general con el centro de gravedad del objeto, y de esa diferencia sale la estabilidad de un barco."
+  ],
+  "porque_fallan": {
+   "B": "El centro de gravedad del objeto es donde actúa el **peso**, no el empuje.",
+   "D": "El centro geométrico solo coincide si la parte sumergida es simétrica y uniforme."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q046": {
+  "idea": "Para que el barco se enderece, el empuje tiene que producir un par contrario al de la inclinación.",
+  "pasos": [
+   "El barco se inclinó en sentido horario (visto desde popa); hace falta un par antihorario.",
+   "El empuje apunta hacia arriba; aplicado a la **derecha** del centro de gravedad da par antihorario.",
+   "Al escorar, la carena se desplaza hacia el lado hundido y genera justo ese par."
+  ],
+  "porque_fallan": {
+   "D": "A la izquierda el par reforzaría la escora y el barco volcaría.",
+   "A": "«Encima» o «debajo» no da par: hace falta desplazamiento **horizontal**."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q047": {
+  "idea": "La aceleración multiplica por el mismo factor el peso del corcho y el empuje: la fracción sumergida no cambia.",
+  "pasos": [
+   "Gravedad efectiva $g+a$ para todo lo que hay en el ascensor.",
+   "Peso aparente del corcho: $m(g+a)$. Empuje: $\\rho V_{sum}(g+a)$.",
+   "Al igualarlos, $(g+a)$ se cancela: $V_{sum}$ es el mismo de antes."
+  ],
+  "porque_fallan": {
+   "A": "Hundirse más exigiría que el peso creciera y el empuje no, y crecen los dos igual.",
+   "D": "No hay transitorio: la relación se cumple en todo instante."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q048": {
+  "idea": "El aire también da empuje, y ese empuje resta más, proporcionalmente, a la bola menos densa.",
+  "pasos": [
+   "$ma = mg - \\rho_{aire}Vg \\Rightarrow a = g\\left(1 - \\dfrac{\\rho_{aire}}{\\rho_{bola}}\\right)$.",
+   "Mismo tamaño ⟹ mismo $V$ ⟹ mismo empuje absoluto.",
+   "La bola densa lo nota menos: acelera más."
+  ],
+  "porque_fallan": {
+   "C": "Sería exacto en el vacío; con aire, el empuje rompe la igualdad.",
+   "B": "La ligera es justo la que más frena en proporción."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q049": {
+  "idea": "Principio de Pascal: un aumento de presión se transmite íntegro a todo el fluido y a las paredes.",
+  "pasos": [
+   "Pisar el freno sube la presión en el cilindro maestro.",
+   "Ese aumento llega **sin disminuir** a cada pinza.",
+   "Multiplicando por el área de cada pistón se obtiene la fuerza de frenado."
+  ],
+  "porque_fallan": {
+   "A": "Que la presión sea la misma a un mismo nivel es hidrostática, no Pascal.",
+   "E": "Que la presión crezca con la profundidad tampoco es lo que usa un freno."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q050": {
+  "idea": "Ninguna de las cuatro afirmaciones describe bien el principio de Pascal.",
+  "pasos": [
+   "Vale también para fluidos compresibles, solo que ahí la transmisión no es instantánea ni exacta en el transitorio.",
+   "No explica la flotación: eso es Arquímedes.",
+   "Ni la variación de la presión con la profundidad: eso es $\\rho gh$."
+  ],
+  "porque_fallan": {
+   "B": "Flotar es cosa de Arquímedes.",
+   "C": "La presión mayor en el fondo es hidrostática pura."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q051": {
+  "idea": "El gato hidráulico es Pascal puro: misma presión, distinta área, distinta fuerza.",
+  "pasos": [
+   "$p = F_1/A_1 = F_2/A_2$.",
+   "$F_2 = F_1(A_2/A_1)$: multiplicación de fuerza.",
+   "El precio es el recorrido: el pistón grande sube muy poco."
+  ],
+  "porque_fallan": {
+   "A": "Arquímedes es la flotación.",
+   "E": "La segunda ley no dice nada sobre transmisión de presiones."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q052": {
+  "idea": "Pascal dice **sin disminuir**: el aumento de presión llega igual, no multiplicado por el área.",
+  "pasos": [
+   "$\\Delta p$ es el mismo en todo el fluido.",
+   "Lo que se multiplica por el área es la **fuerza**, no la presión.",
+   "La presión sube $\\Delta p$ en el pistón grande también."
+  ],
+  "porque_fallan": {
+   "A": "$2\\Delta p$ confunde presión con fuerza: la fuerza sí se duplica.",
+   "E": "Si no cambiara, el gato no funcionaría."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q053": {
+  "idea": "La razón de fuerzas es la razón de **áreas**, y las áreas van con el cuadrado del diámetro.",
+  "pasos": [
+   "$\\dfrac{A_{grande}}{A_{pequeño}} = \\left(\\dfrac{8{,}0}{2{,}0}\\right)^2 = 16$.",
+   "$F_{pequeño} = \\dfrac{1600}{16}$.",
+   "$= 100$ N."
+  ],
+  "porque_fallan": {
+   "D": "400 N usa la razón de **diámetros** (4) en vez de la de áreas (16).",
+   "A": "6,25 N divide por 256: eleva el 16 al cuadrado otra vez."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q054": {
+  "idea": "El pistón ancho tiene cuatro veces el área, así que hace falta cuatro veces la fuerza para conseguir la misma presión.",
+  "pasos": [
+   "Para expulsar el corcho hace falta $p = 16/A_{estrecha}$.",
+   "Pascal: esa presión debe alcanzarse en todo el fluido.",
+   "$F = p\\,A_{ancha} = 16\\dfrac{A_{ancha}}{A_{estrecha}} = 16(2)^2 = 64$ N."
+  ],
+  "porque_fallan": {
+   "D": "32 N usa la razón de diámetros; el área va con el cuadrado.",
+   "A": "4 N invierte la razón: en el lado ancho hace falta **más** fuerza, no menos."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q055": {
+  "idea": "El fluido es incompresible: el volumen que baja por un lado sube por el otro.",
+  "pasos": [
+   "$A_{estrecha}\\,d = A_{ancha}\\,x$.",
+   "$A_{ancha} = 4A_{estrecha}$.",
+   "$x = d/4$."
+  ],
+  "porque_fallan": {
+   "C": "$d/2$ usa la razón de diámetros en vez de la de áreas.",
+   "D": "$4d$ invierte el sentido: el pistón ancho se mueve **menos**."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q056": {
+  "idea": "Un sistema hidráulico ideal no crea energía: multiplica la fuerza y divide el recorrido en la misma proporción.",
+  "pasos": [
+   "La fuerza en el lado ancho es 4 veces mayor.",
+   "Su desplazamiento es 4 veces menor.",
+   "$W = F\\,d$ queda igual: $W$."
+  ],
+  "porque_fallan": {
+   "D": "$4W$ sería una máquina que crea energía de la nada.",
+   "E": "$W/4$ sería perderla; sin rozamiento no se pierde nada."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q057": {
+  "idea": "Incompresible es una condición sobre la **densidad**: no cambia, ni con el tiempo ni de un punto a otro.",
+  "pasos": [
+   "$\\rho$ constante es la definición.",
+   "Que la presión o la velocidad no cambien con el tiempo es «estacionario», otra cosa.",
+   "Y desde luego la velocidad puede cambiar de un punto a otro: para eso está la ecuación de continuidad."
+  ],
+  "porque_fallan": {
+   "B": "Esa es la definición de flujo **estacionario**.",
+   "C": "La velocidad cambia en cuanto la tubería se estrecha."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q058": {
+  "idea": "Estacionario significa que el campo de velocidades no cambia **con el tiempo**, aunque sí de punto a punto.",
+  "pasos": [
+   "En cada punto fijo del espacio, $\\vec v$ es siempre la misma.",
+   "Una molécula concreta sí cambia de velocidad: al pasar por un estrechamiento acelera.",
+   "Y la presión sí varía de un punto a otro."
+  ],
+  "porque_fallan": {
+   "A": "Confunde el punto del espacio con la partícula: la molécula sí acelera.",
+   "B": "La presión varía de punto a punto; lo que no varía es en el tiempo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q059": {
+  "idea": "Es el término de Bernoulli dividido por $\\rho$: tiene que dar velocidad al cuadrado.",
+  "pasos": [
+   "$p$ en kg/(m·s²); $\\rho$ en kg/m³.",
+   "$p/\\rho = \\dfrac{\\text{kg}}{\\text{m·s}^2}\\cdot\\dfrac{\\text{m}^3}{\\text{kg}}$.",
+   "$= $ m²/s². (Coherente: en Bernoulli $p/\\rho$ se suma a $v^2/2$.)"
+  ],
+  "porque_fallan": {
+   "C": "N/m² es la propia presión, sin dividir.",
+   "A": "m² le falta el tiempo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q060": {
+  "idea": "Caudal másico $= \\rho A v$.",
+  "pasos": [
+   "$A = \\pi(0{,}015)^2 = 7{,}07\\times10^{-4}$ m².",
+   "$\\dot m = 1000(7{,}07\\times10^{-4})(7{,}0)$.",
+   "$= 4{,}9$ kg/s."
+  ],
+  "porque_fallan": {
+   "C": "7,0 kg/s es la velocidad con unidades cambiadas.",
+   "D": "48 kg/s usa el radio en centímetros sin convertir."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q061": {
+  "idea": "Caudal volumétrico $= Av$: lo mismo, sin la densidad.",
+  "pasos": [
+   "$A = 7{,}07\\times10^{-4}$ m².",
+   "$Q = 7{,}07\\times10^{-4}(7{,}0)$.",
+   "$= 4{,}9\\times10^{-3}$ m³/s. (Es el resultado anterior dividido por 1000, como debe ser.)"
+  ],
+  "porque_fallan": {
+   "C": "4,9 m³/s pierde el factor $10^{-3}$: sería casi cinco toneladas de agua por segundo.",
+   "D": "7,0 m³/s es la velocidad, no el caudal."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q062": {
+  "idea": "$\\rho_1A_1v_1 = \\rho_2A_2v_2$ dice que la masa que entra por segundo es la que sale.",
+  "pasos": [
+   "Nada se acumula ni desaparece dentro del tubo.",
+   "Con $\\rho$ constante queda $A_1v_1 = A_2v_2$.",
+   "Es conservación de la masa, no de la energía: esa es Bernoulli."
+  ],
+  "porque_fallan": {
+   "A": "La energía da Bernoulli, que es otra ecuación.",
+   "D": "El volumen se conserva solo si el fluido es incompresible; la masa siempre."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q065": {
+  "idea": "$Av$ constante, con $A \\propto d^2$: la velocidad va con el **inverso del cuadrado** del diámetro.",
+  "pasos": [
+   "$\\dfrac{v_2}{v_1} = \\left(\\dfrac{d_1}{d_2}\\right)^2 = \\left(\\dfrac{1{,}0}{3{,}0}\\right)^2 = \\dfrac{1}{9}$.",
+   "$v_2 = 3{,}0/9$.",
+   "$= 0{,}33$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "1 m/s divide por 3: se olvida el cuadrado del área.",
+   "A": "9 m/s multiplica en vez de dividir: al ensanchar, el agua va **más despacio**."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q067": {
+  "idea": "La misma continuidad, con la razón al cuadrado.",
+  "pasos": [
+   "$v_2 = v_1\\left(\\dfrac{d_1}{d_2}\\right)^2 = 5{,}0\\left(\\dfrac{6{,}0}{8{,}0}\\right)^2$.",
+   "$= 5{,}0(0{,}5625)$.",
+   "$= 2{,}8$ m/s."
+  ],
+  "porque_fallan": {
+   "B": "3,7 m/s usa la razón de diámetros sin elevar al cuadrado.",
+   "D": "8,8 m/s invierte la fracción: el tubo ancho es el lento."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q068": {
+  "idea": "Todo el caudal de la manguera sale repartido entre los 25 agujeros: compara el área total de los agujeros con la de la manguera.",
+  "pasos": [
+   "$A_{manguera} = \\pi(0{,}50)^2 = 0{,}785$ cm².",
+   "$A_{agujeros} = 25\\,\\pi(0{,}025)^2 = 25(1{,}96\\times10^{-3}) = 4{,}91\\times10^{-2}$ cm².",
+   "$v = 2{,}0\\dfrac{0{,}785}{0{,}0491} = 2{,}0(16{,}0) = 32$ m/s."
+  ],
+  "porque_fallan": {
+   "E": "800 m/s olvida dividir entre los 25 agujeros: sería la velocidad por un solo agujero.",
+   "A": "2,0 m/s es la velocidad en la manguera, antes de estrecharse."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q069": {
+  "idea": "Bernoulli es el teorema del trabajo y la energía aplicado a un tubo de corriente.",
+  "pasos": [
+   "$p + \\tfrac12\\rho v^2 + \\rho gy$ es energía por unidad de volumen: de presión, cinética y potencial.",
+   "Que la suma se conserve a lo largo de una línea de corriente es conservación de la energía.",
+   "La masa da la continuidad, que es la otra ecuación."
+  ],
+  "porque_fallan": {
+   "B": "La masa da $A_1v_1 = A_2v_2$.",
+   "E": "La presión no es una magnitud que se conserve: es justo la que varía."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q070": {
+  "idea": "La gravedad **sí** entra en Bernoulli: es el término $\\rho gy$.",
+  "pasos": [
+   "$p + \\tfrac12\\rho v^2 + \\rho gy = $ constante: ahí está la $g$.",
+   "Lo que sí se desprecia es la viscosidad, el rozamiento y la turbulencia.",
+   "Y se supone flujo laminar por líneas de corriente."
+  ],
+  "porque_fallan": {
+   "B": "La viscosidad sí se desprecia: es una de las hipótesis reales.",
+   "A": "El flujo laminar por líneas de corriente también se supone."
+  },
+  "confirma": "D"
+ },
+ "hrw-c14-q071": {
+  "idea": "Solo aparecen **diferencias** de altura, así que el cero se pone donde convenga.",
+  "pasos": [
+   "Bernoulli iguala dos puntos: lo que cuenta es $y_2 - y_1$.",
+   "Cualquier constante añadida a las dos alturas se cancela.",
+   "El origen es libre, igual que en la energía potencial gravitatoria."
+  ],
+  "porque_fallan": {
+   "A": "Desde el centro de la Tierra el término $\\rho gy$ sería absurdamente grande, y aun así funcionaría: eso demuestra que da igual.",
+   "C": "Medir desde el punto más bajo es una elección cómoda, no obligatoria."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q072": {
+  "idea": "Continuidad manda que acelere; Bernoulli manda que, al acelerar, la presión baje.",
+  "pasos": [
+   "$A$ menor ⟹ $v$ mayor (continuidad).",
+   "Tubería horizontal ⟹ $p + \\tfrac12\\rho v^2$ constante.",
+   "$v$ sube ⟹ $p$ baja. Es el efecto Venturi."
+  ],
+  "porque_fallan": {
+   "C": "Que suban las dos violaría Bernoulli: la energía tiene que salir de algún sitio.",
+   "D": "La velocidad no puede bajar en un estrechamiento: el caudal es el mismo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q074": {
+  "idea": "Sección constante ⟹ velocidad constante; horizontal ⟹ altura constante. Bernoulli obliga entonces a presión constante.",
+  "pasos": [
+   "Continuidad: $A$ constante ⟹ $v$ constante.",
+   "Horizontal: $y$ constante.",
+   "Bernoulli: $p$ constante. Caída nula.",
+   "(En la realidad sí hay caída, y se debe justo a la viscosidad que Bernoulli desprecia.)"
+  ],
+  "porque_fallan": {
+   "B": "Depender de la longitud es lo que pasa con viscosidad; sin ella, no.",
+   "C": "La velocidad es la misma en los dos extremos: no puede producir diferencia."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q075": {
+  "idea": "Del extremo estrecho al ancho el fluido **frena**, así que Bernoulli haría subir la presión. Si aun así baja, algo tiene que compensarlo: la altura.",
+  "pasos": [
+   "$A$ crece ⟹ $v$ baja ⟹ el término $\\tfrac12\\rho v^2$ baja.",
+   "Si la tubería fuera horizontal, $p$ tendría que **subir**, y el enunciado dice lo contrario.",
+   "La única explicación es que $\\rho gy$ crezca: el fluido sube."
+  ],
+  "porque_fallan": {
+   "A": "El fluido va del estrecho al ancho: frena, no acelera.",
+   "E": "Horizontal daría $p_{salida} > p_{entrada}$, justo lo contrario de lo observado."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q076": {
+  "idea": "La continuidad no admite excepciones: si sale menos de lo que entra, se está perdiendo por el camino.",
+  "pasos": [
+   "$\\rho A_1v_1 = \\rho A_2v_2$ vale sea cual sea la geometría.",
+   "Ni la pendiente ni el rozamiento ni un cambio de diámetro alteran el **caudal**: alteran la velocidad y la presión.",
+   "40 L/min que entran y 24 que salen solo se explican por una fuga."
+  ],
+  "porque_fallan": {
+   "D": "El rozamiento baja la presión, no el caudal.",
+   "C": "Un diámetro distinto cambia la velocidad, pero $Av$ se mantiene."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q077": {
+  "idea": "Bernoulli con $v = 0$ se reduce a la hidrostática: $p + \\rho gy$ constante.",
+  "pasos": [
+   "Fluido en reposo ⟹ $v = 0$ en todos los puntos.",
+   "Queda $p_1 + \\rho gy_1 = p_2 + \\rho gy_2$, es decir $\\Delta p = -\\rho g\\Delta y$.",
+   "La gravedad sigue actuando: no se pone $g = 0$."
+  ],
+  "porque_fallan": {
+   "B": "Anular $g$ borraría la variación de presión con la profundidad, que sigue existiendo.",
+   "E": "Sí se puede: la hidrostática es el caso particular de Bernoulli con $v = 0$."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q078": {
+  "idea": "Tubería horizontal: la diferencia de presiones se convierte entera en diferencia de energía cinética.",
+  "pasos": [
+   "$\\Delta p = \\tfrac12\\rho(v_2^2 - v_1^2)$.",
+   "$v_2^2 = v_1^2 + \\dfrac{2\\Delta p}{\\rho} = 16 + \\dfrac{2(4500)}{1000} = 16 + 9 = 25$.",
+   "$v_2 = 5{,}0$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "4,0 m/s es la velocidad en el extremo ancho, sin cambio.",
+   "B": "3,4 m/s sale de restar en vez de sumar: en el extremo estrecho el agua va **más rápido**."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q079": {
+  "idea": "El chorro acelera al caer, y por continuidad se estrecha. Dos ecuaciones: caída libre y $Av$ constante.",
+  "pasos": [
+   "$v^2 = 5{,}0^2 + 2(9{,}8)(0{,}50) = 25 + 9{,}8 = 34{,}8 \\Rightarrow v = 5{,}9$ m/s.",
+   "$A_2 = A_1\\dfrac{v_1}{v_2} = 3{,}0\\times10^{-5}\\dfrac{5{,}0}{5{,}9}$.",
+   "$= 2{,}5\\times10^{-5}$ m²."
+  ],
+  "porque_fallan": {
+   "D": "$3{,}0\\times10^{-5}$ supondría que el chorro no se estrecha, y se ve que sí.",
+   "A": "$1{,}5\\times10^{-5}$ estrecha el doble de lo que corresponde."
+  },
+  "confirma": "C"
+ },
+ "hrw-c14-q080": {
+  "idea": "Teorema de Torricelli: $v = \\sqrt{2gh}$, la misma velocidad que tendría cayendo desde esa altura.",
+  "pasos": [
+   "Bernoulli entre la superficie (velocidad casi nula, presión atmosférica) y el agujero (misma presión).",
+   "$\\tfrac12\\rho v^2 = \\rho gh \\Rightarrow v = \\sqrt{2gh}$.",
+   "$v = \\sqrt{2(9{,}8)(30)} = \\sqrt{588} = 24$ m/s."
+  ],
+  "porque_fallan": {
+   "D": "No hace falta el área del agujero: se cancela en el planteamiento.",
+   "C": "44 m/s sale de olvidar el factor 2 o de usar $\\sqrt{2g}\\,h$."
+  },
+  "confirma": "B"
+ },
+ "hrw-c14-q081": {
+  "idea": "Torricelli da $v = \\sqrt{2gh}$: solo depende de la profundidad, no del tamaño del agujero.",
+  "pasos": [
+   "Los dos agujeros están a la misma profundidad.",
+   "$v = \\sqrt{2gh}$ no contiene el área por ninguna parte.",
+   "Misma velocidad. Lo que sí es cuatro veces mayor es el **caudal** del agujero grande."
+  ],
+  "porque_fallan": {
+   "A": "El doble de radio da el doble de… nada en la velocidad; da cuatro veces el caudal.",
+   "B": "Cuatro veces es la razón de áreas, no de velocidades."
+  },
+  "confirma": "E"
+ },
+ "hrw-c14-q082": {
+  "idea": "Sección uniforme ⟹ misma velocidad arriba y abajo ⟹ el término cinético se cancela y queda la hidrostática pura.",
+  "pasos": [
+   "Continuidad con $A$ constante: $v_{arriba} = v_{abajo}$.",
+   "Bernoulli: $\\Delta p = -\\rho g\\Delta y$, sin rastro de la velocidad.",
+   "Es la misma diferencia que si el fluido estuviera quieto, sea cual sea el caudal."
+  ],
+  "porque_fallan": {
+   "B": "El caudal no entra: los términos cinéticos son iguales en los dos extremos y se restan.",
+   "D": "La densidad sí entra, y de lleno: es el factor de $\\rho g\\Delta y$."
+  },
+  "confirma": "A"
+ },
+ "hrw-c14-q084": {
+  "idea": "Al soplar aumentas la velocidad del aire sobre esa rama, y por Bernoulli baja la presión: el agua sube.",
+  "pasos": [
+   "$p + \\tfrac12\\rho v^2$ constante en el aire que pasa por encima.",
+   "$v$ mayor ⟹ $p$ menor sobre esa columna.",
+   "Menos presión encima ⟹ el agua asciende un poco. Es el mismo principio del pulverizador."
+  ],
+  "porque_fallan": {
+   "B": "Bajar exigiría que soplar **aumentara** la presión, y ocurre lo contrario.",
+   "C": "Sí cambia: es un efecto pequeño pero perfectamente medible."
+  },
+  "confirma": "A"
+ }
+}

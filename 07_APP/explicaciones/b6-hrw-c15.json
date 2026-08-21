@@ -1,0 +1,731 @@
+{
+ "hrw-c15-q001": {
+  "idea": "La definición de movimiento armónico simple es $F = -kx$: fuerza proporcional al desplazamiento y opuesta a él.",
+  "pasos": [
+   "$F = -kx$ da $a = -(k/m)x$, y de ahí la solución sinusoidal.",
+   "La amplitud es una condición inicial, no algo de lo que dependa la fuerza en cada instante.",
+   "Si la fuerza fuera proporcional a $x^2$ el movimiento sería periódico, pero no armónico."
+  ],
+  "porque_fallan": {
+   "A": "La amplitud la fija cómo se arranca, no la ley de fuerza.",
+   "C": "Proporcional a la velocidad es una fuerza de **amortiguamiento**, no de recuperación."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q002": {
+  "idea": "Que la aceleración varíe sinusoidalmente con el tiempo es equivalente a $a = -\\omega^2 x$: eso **es** el armónico simple.",
+  "pasos": [
+   "$x = x_m\\cos(\\omega t + \\varphi) \\Rightarrow a = -\\omega^2 x_m\\cos(\\omega t+\\varphi)$.",
+   "Al revés también: aceleración sinusoidal en el tiempo obliga a que $x$ lo sea.",
+   "Amplitud pequeña es una condición que **suele** llevar al armónico, pero no lo garantiza."
+  ],
+  "porque_fallan": {
+   "A": "Amplitud pequeña acerca al armónico en muchos casos, pero no en todos.",
+   "C": "Moverse sobre un arco de circunferencia es el péndulo, que solo es armónico para ángulos pequeños."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q003": {
+  "idea": "$a = -\\omega^2 x$: el módulo de la aceleración es proporcional al desplazamiento.",
+  "pasos": [
+   "En el centro, $x = 0$ y $a = 0$.",
+   "En los extremos, $x = x_m$ y $|a| = \\omega^2 x_m$: máxima.",
+   "La velocidad hace justo lo contrario, así que $a$ y $v$ nunca son máximas a la vez."
+  ],
+  "porque_fallan": {
+   "D": "La aceleración es **mínima** donde la velocidad es máxima: en el centro.",
+   "E": "Nada impide que supere $g$: basta un muelle rígido o una amplitud grande."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q004": {
+  "idea": "Arrancando en el equilibrio, $x = x_m\\sin(2\\pi t/T)$. Busca dónde el seno se aleja más de cero.",
+  "pasos": [
+   "En $0{,}5T$, $T$ y $1{,}5T$ el seno vale exactamente 0: está en el equilibrio.",
+   "En $0{,}7T$: $\\sin(1{,}4\\pi) = -0{,}95$.",
+   "En $1{,}4T$: $\\sin(2{,}8\\pi) = +0{,}59$. Gana $0{,}7T$."
+  ],
+  "porque_fallan": {
+   "C": "En $t = T$ ha completado un ciclo entero: vuelve al equilibrio.",
+   "D": "$1{,}4T$ da 0,59 de amplitud, menos que el 0,95 de $0{,}7T$."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q005": {
+  "idea": "Arranca en el extremo positivo, así que $x = x_m\\cos(2\\pi t/T)$. Tres cuartos de ciclo son $270°$.",
+  "pasos": [
+   "$x(0{,}75T) = x_m\\cos(3\\pi/2) = 0$: está en el centro.",
+   "$v = -x_m\\omega\\sin(3\\pi/2) = +x_m\\omega$: positiva.",
+   "En el centro y yendo hacia $+x_m$."
+  ],
+  "porque_fallan": {
+   "B": "Hacia $-x_m$ es lo que pasa a $0{,}25T$, un cuarto de ciclo antes.",
+   "C": "Volver a $+x_m$ en reposo ocurre a $T$, no a $0{,}75T$."
+  },
+  "confirma": "A"
+ },
+ "hrw-c15-q006": {
+  "idea": "Equilibrio significa fuerza neta cero, y $F = -kx$ se anula solo en $x = 0$.",
+  "pasos": [
+   "En el centro la fuerza recuperadora es nula: ahí sí está en equilibrio.",
+   "Pasa por ese punto a toda velocidad, pero equilibrio es sobre la fuerza, no sobre el movimiento.",
+   "En los extremos la fuerza es máxima: justo lo contrario del equilibrio."
+  ],
+  "porque_fallan": {
+   "C": "En los extremos la fuerza es máxima, aunque la velocidad sea cero.",
+   "A": "Estar en movimiento no impide estar en equilibrio: lo impide tener fuerza neta."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q007": {
+  "idea": "Lo único de la lista que cambia dentro de un ciclo es la aceleración.",
+  "pasos": [
+   "Amplitud, período y masa son constantes del movimiento.",
+   "La rapidez cambia: máxima en el centro, nula en los extremos.",
+   "La aceleración cambia también, y en fase opuesta."
+  ],
+  "porque_fallan": {
+   "A": "La rapidez varía todo el rato: por eso pasa deprisa por el centro.",
+   "B": "La amplitud es constante mientras no haya amortiguamiento."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q008": {
+  "idea": "En los extremos la aceleración es **máxima**, y su valor depende de $\\omega$ y de la amplitud: puede ser cualquier cosa.",
+  "pasos": [
+   "$|a|_{max} = \\omega^2 x_m$: no es cero.",
+   "Comparada con $g$ puede ser mayor o menor según el muelle y la amplitud.",
+   "Y no cambia de signo de golpe: pasa por cero suavemente en el centro."
+  ],
+  "porque_fallan": {
+   "A": "Cero es la aceleración en el **centro**, no en los extremos.",
+   "B": "No hay ninguna razón para que sea menor que $g$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q009": {
+  "idea": "Ir hasta el extremo y volver al mismo sitio no cuesta medio ciclo: cuesta $T/3$.",
+  "pasos": [
+   "Escribe $x = x_m\\sin\\theta$: en $x = x_m/2$ subiendo, $\\theta = \\pi/6$.",
+   "La siguiente vez en $x_m/2$ es bajando: $\\theta = 5\\pi/6$.",
+   "$\\Delta\\theta = 2\\pi/3 \\Rightarrow \\Delta t = T/3$, que no está entre las opciones."
+  ],
+  "porque_fallan": {
+   "B": "$T/2$ sería si hubiera partido del **centro**: entonces sí, medio ciclo.",
+   "C": "$T/4$ es lo que tarda en llegar al extremo desde el centro, no desde la mitad."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q010": {
+  "idea": "El período es el tiempo por oscilación: divide el tiempo entre el número de ciclos.",
+  "pasos": [
+   "$T = 10\\ \\text{s}/20 = 0{,}50$ s.",
+   "Es un tiempo, así que va en segundos.",
+   "(Su inverso, 2 Hz, es la frecuencia.)"
+  ],
+  "porque_fallan": {
+   "A": "2 Hz es la **frecuencia**: unidades de inverso de tiempo.",
+   "D": "2 s invierte la división: 20 ciclos en 10 s van más rápido que uno cada 2 s."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q011": {
+  "idea": "La frecuencia es el número de ciclos por segundo: el inverso del período.",
+  "pasos": [
+   "$f = 20/10$.",
+   "$= 2$ Hz.",
+   "Coherente con $T = 0{,}50$ s de la pregunta anterior."
+  ],
+  "porque_fallan": {
+   "E": "0,50 s es el período, con unidades de tiempo.",
+   "C": "0,05 Hz invierte y además pierde un factor 10."
+  },
+  "confirma": "A"
+ },
+ "hrw-c15-q012": {
+  "idea": "$\\omega = 2\\pi f$: la frecuencia angular es la ordinaria multiplicada por $2\\pi$.",
+  "pasos": [
+   "$f = 2{,}0$ Hz.",
+   "$\\omega = 2\\pi(2{,}0)$.",
+   "$= 12{,}6$ rad/s."
+  ],
+  "porque_fallan": {
+   "D": "6,3 rad/s es $2\\pi(1)$: se ha usado 1 Hz.",
+   "C": "2,0 rad/s es la frecuencia sin convertir."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q013": {
+  "idea": "$\\omega = 2\\pi f$, luego $f = \\omega/2\\pi$.",
+  "pasos": [
+   "Una vuelta completa son $2\\pi$ radianes de fase.",
+   "$f$ vueltas por segundo son $2\\pi f$ radianes por segundo.",
+   "Despejando: $f = \\omega/2\\pi$."
+  ],
+  "porque_fallan": {
+   "B": "$f = 2\\pi\\omega$ es la relación invertida.",
+   "C": "$\\omega/\\pi$ pierde el factor 2."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q015": {
+  "idea": "El isocronismo: en el armónico simple el período **no** depende de la amplitud.",
+  "pasos": [
+   "$T = 2\\pi\\sqrt{m/k}$: solo masa y constante del muelle.",
+   "Doblar la amplitud dobla la fuerza recuperadora **y** la distancia a recorrer: los dos efectos se cancelan.",
+   "El período sigue siendo $T$."
+  ],
+  "porque_fallan": {
+   "B": "$2T$ supondría que recorrer el doble tarda el doble, olvidando que también va el doble de rápido.",
+   "C": "$T/2$ es el error contrario."
+  },
+  "confirma": "A"
+ },
+ "hrw-c15-q016": {
+  "idea": "$|a| = \\omega^2|x|$: máxima donde el desplazamiento es máximo.",
+  "pasos": [
+   "En los extremos $|x| = x_m$ y la fuerza recuperadora es máxima.",
+   "Ahí la velocidad es cero: el objeto está dando la vuelta.",
+   "En el centro pasa lo contrario: $a = 0$, $v$ máxima."
+  ],
+  "porque_fallan": {
+   "A": "Con desplazamiento cero la fuerza es cero y la aceleración también.",
+   "C": "La rapidez máxima ocurre justo donde la aceleración es **nula**."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q017": {
+  "idea": "En los extremos el objeto se para para dar la vuelta: desplazamiento máximo y velocidad nula.",
+  "pasos": [
+   "Toda la energía está en el muelle: $E = \\tfrac12 kx_m^2$, cinética cero.",
+   "Velocidad cero ⟹ energía cinética cero ⟹ momento cero.",
+   "Y la aceleración ahí es máxima, no cero."
+  ],
+  "porque_fallan": {
+   "A": "La aceleración es cero en el **centro**, donde el desplazamiento es mínimo.",
+   "D": "La energía cinética máxima está en el centro."
+  },
+  "confirma": "C"
+ },
+ "hrw-c15-q018": {
+  "idea": "Es el mismo hecho de nuevo: la aceleración es máxima en el desplazamiento máximo.",
+  "pasos": [
+   "$a = -\\omega^2 x$ liga las dos cosas directamente.",
+   "La velocidad, en cambio, es máxima donde $x = 0$.",
+   "Y el período no depende de la amplitud."
+  ],
+  "porque_fallan": {
+   "B": "La velocidad es máxima en el centro, no en el desplazamiento máximo.",
+   "C": "El período es independiente de la amplitud: ese es el isocronismo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c15-q019": {
+  "idea": "$x_m$ y $\\varphi$ son las dos constantes de integración: hacen falta las dos condiciones iniciales para fijarlas.",
+  "pasos": [
+   "$x(0) = x_m\\cos\\varphi$ y $v(0) = -x_m\\omega\\sin\\varphi$.",
+   "Dos ecuaciones, dos incógnitas: $x_m$ y $\\varphi$.",
+   "Con una sola no basta: el mismo desplazamiento inicial admite infinitas amplitudes según la velocidad."
+  ],
+  "porque_fallan": {
+   "C": "El desplazamiento inicial solo da una ecuación: falta la velocidad.",
+   "A": "La frecuencia la fijan $k$ y $m$, no las condiciones iniciales."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q020": {
+  "idea": "La amplitud sale de la energía, y la energía la fijan **juntas** la posición y la velocidad iniciales.",
+  "pasos": [
+   "$E = \\tfrac12 kx_0^2 + \\tfrac12 mv_0^2 = \\tfrac12 kx_m^2$.",
+   "Misma amplitud ⟺ misma energía ⟺ misma combinación de $x_0$ y $v_0$.",
+   "Cada una por separado no basta: se pueden compensar."
+  ],
+  "porque_fallan": {
+   "A": "Mismo desplazamiento inicial con velocidades distintas da amplitudes distintas.",
+   "C": "La misma fase inicial tampoco basta: falta el tamaño."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q021": {
+  "idea": "Para escalar la amplitud hay que escalar la energía, y para eso hay que doblar los **dos** términos.",
+  "pasos": [
+   "$x_m^2 \\propto x_0^2 + (m/k)v_0^2$.",
+   "Doblando solo uno, el otro término estropea la proporción.",
+   "Doblando los dos, todo el paréntesis se multiplica por 4 y $x_m$ por 2."
+  ],
+  "porque_fallan": {
+   "A": "Solo el desplazamiento deja intacto el término de velocidad.",
+   "D": "Doblar uno y reducir el otro descompensa aún más."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q022": {
+  "idea": "Estar en fase significa ir sincronizados, y eso exige el mismo ritmo: el mismo período.",
+  "pasos": [
+   "Si los períodos difieren, la diferencia de fase crece sin parar.",
+   "Antes o después uno adelanta al otro: es imposible mantenerse en fase.",
+   "Masas, amplitudes o constantes distintas dan igual mientras $\\sqrt{k/m}$ coincida."
+  ],
+  "porque_fallan": {
+   "A": "Dos masas distintas con constantes proporcionales tienen el mismo período: pueden ir en fase.",
+   "C": "Dos amplitudes distintas pueden estar perfectamente sincronizadas."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q023": {
+  "idea": "Cada derivada adelanta la fase en $\\pi/2$, y $a$ es la derivada de $v$.",
+  "pasos": [
+   "$x = x_m\\cos\\omega t$.",
+   "$v = x_m\\omega\\cos(\\omega t + \\pi/2)$.",
+   "$a = x_m\\omega^2\\cos(\\omega t + \\pi)$: adelanta a $v$ en $\\pi/2$."
+  ],
+  "porque_fallan": {
+   "E": "$\\pi$ es el desfase entre la **aceleración y el desplazamiento**, que están en oposición.",
+   "A": "Cero significaría que aceleran y frenan a la vez, y no: $a$ es máxima donde $v$ es cero."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q024": {
+  "idea": "Impón las dos condiciones sobre $x(t) = x_m\\cos(\\omega t+\\varphi)$ y mira en qué cuadrante cae $\\varphi$.",
+  "pasos": [
+   "$x(0) = x_m\\cos\\varphi = 0 \\Rightarrow \\varphi = \\pi/2$ o $3\\pi/2$.",
+   "$v(0) = -x_m\\omega\\sin\\varphi < 0 \\Rightarrow \\sin\\varphi > 0$.",
+   "$\\sin(\\pi/2) = +1$ ✔, luego $\\varphi = \\pi/2$."
+  ],
+  "porque_fallan": {
+   "D": "$3\\pi/2$ da $\\sin\\varphi = -1$ y por tanto velocidad inicial **positiva**.",
+   "A": "$\\varphi = 0$ daría $x(0) = x_m$, no cero."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q025": {
+  "idea": "Dos signos, dos condiciones: el coseno negativo y el seno positivo sitúan la fase en el segundo cuadrante.",
+  "pasos": [
+   "$x(0) < 0 \\Rightarrow \\cos\\varphi < 0$.",
+   "$v(0) < 0 \\Rightarrow -\\sin\\varphi < 0 \\Rightarrow \\sin\\varphi > 0$.",
+   "Coseno negativo con seno positivo: entre $\\pi/2$ y $\\pi$."
+  ],
+  "porque_fallan": {
+   "C": "Entre $\\pi$ y $3\\pi/2$ el seno es negativo, y saldría velocidad inicial positiva.",
+   "A": "En el primer cuadrante el coseno es positivo: el desplazamiento inicial saldría hacia $+x$."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q026": {
+  "idea": "El estiramiento estático ya contiene el cociente $k/M$: $Mg = kx_0$.",
+  "pasos": [
+   "$\\dfrac{k}{M} = \\dfrac{g}{x_0} = \\dfrac{9{,}8}{9{,}0\\times10^{-3}} = 1089$ s⁻².",
+   "$\\omega = \\sqrt{1089}$.",
+   "$= 33$ rad/s. No hace falta conocer $M$: se cancela."
+  ],
+  "porque_fallan": {
+   "E": "Sí se puede: la masa desaparece al usar el estiramiento estático.",
+   "D": "1140 rad/s es $k/M$ sin la raíz cuadrada."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q028": {
+  "idea": "$v_{max} = \\omega x_m$: saca $\\omega$ del muelle y despeja la amplitud.",
+  "pasos": [
+   "$\\omega = \\sqrt{k/m} = \\sqrt{500/0{,}20} = \\sqrt{2500} = 50$ rad/s.",
+   "$x_m = v_{max}/\\omega = 5{,}0/50$.",
+   "$= 0{,}10$ m."
+  ],
+  "porque_fallan": {
+   "D": "25 m multiplica en vez de dividir por $\\omega$.",
+   "A": "0,0020 m divide por $\\omega^2$."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q030": {
+  "idea": "Lee $x_m$ y $\\omega$ directamente de la expresión y multiplícalos. La velocidad **máxima** es un número, no una función.",
+  "pasos": [
+   "$x_m = 2$ m, $\\omega = 50$ rad/s.",
+   "$v_{max} = \\omega x_m = 50(2)$.",
+   "$= 100$ m/s."
+  ],
+  "porque_fallan": {
+   "A": "$100\\sin(50t)$ es $-v(t)$, la velocidad instantánea, no su máximo.",
+   "D": "200 multiplica por 2 de más."
+  },
+  "confirma": "C"
+ },
+ "hrw-c15-q031": {
+  "idea": "$\\omega^2 = k/m$, y $\\omega$ se lee del argumento del coseno.",
+  "pasos": [
+   "$\\omega = 50$ rad/s ⟹ $\\omega^2 = 2500$.",
+   "$k = m\\omega^2 = 3(2500)$.",
+   "$= 7500$ N/m."
+  ],
+  "porque_fallan": {
+   "C": "150 N/m es $m\\omega$, sin elevar al cuadrado.",
+   "B": "100 N/m no sale de ninguna combinación de 3 y 50."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q032": {
+  "idea": "Promediando sobre un ciclo, $\\langle\\cos^2\\rangle = \\langle\\sin^2\\rangle = 1/2$: la energía se reparte a partes iguales.",
+  "pasos": [
+   "$U = \\tfrac12 kx_m^2\\cos^2(\\omega t+\\varphi)$, $K = \\tfrac12 kx_m^2\\sin^2(\\omega t+\\varphi)$.",
+   "Los promedios de $\\cos^2$ y $\\sin^2$ valen ambos $1/2$.",
+   "$K_{med} = U_{med} = E/2$."
+  ],
+  "porque_fallan": {
+   "D": "$K = 0$ cuando $U = 0$ es falso: en el centro $U = 0$ y $K$ es **máxima**.",
+   "E": "$K + U$ vale $E$, que es positiva, no cero."
+  },
+  "confirma": "C"
+ },
+ "hrw-c15-q033": {
+  "idea": "En el extremo toda la energía es potencial, y la energía total es la suma de las dos que dan.",
+  "pasos": [
+   "$E = K + U = 5 + 3 = 8$ J en cualquier punto.",
+   "En $x = x_m$ la velocidad es cero: $K = 0$.",
+   "Luego $U = 8$ J."
+  ],
+  "porque_fallan": {
+   "C": "$K = 8$, $U = 0$ es la situación en el **centro**, no en el extremo.",
+   "A": "Los valores 5 y 3 corresponden al punto original, no al extremo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q034": {
+  "idea": "$U = \\tfrac12 kx^2$ depende del **cuadrado**: en $-x_1$ vale exactamente lo mismo que en $+x_1$.",
+  "pasos": [
+   "$U(-x_1) = \\tfrac12 k(-x_1)^2 = \\tfrac12 kx_1^2 = U(x_1) = 3$ J.",
+   "$E$ se conserva ⟹ $K = 8 - 3 = 5$ J.",
+   "Los mismos valores. Solo cambia el **sentido** de la velocidad, y eso no afecta a la energía."
+  ],
+  "porque_fallan": {
+   "B": "La energía potencial no puede ser negativa con $U = 0$ en el origen y $U \\propto x^2$.",
+   "D": "$K = 0$ solo en los extremos, y $-x_1$ no lo es."
+  },
+  "confirma": "A"
+ },
+ "hrw-c15-q035": {
+  "idea": "$E = \\tfrac12 kx_m^2$: la masa no entra al calcular la amplitud.",
+  "pasos": [
+   "$x_m = \\sqrt{2E/k} = \\sqrt{2(6{,}0)/200}$.",
+   "$= \\sqrt{0{,}060}$.",
+   "$= 0{,}24$ m."
+  ],
+  "porque_fallan": {
+   "A": "0,06 m es $2E/k$ sin la raíz.",
+   "D": "4,9 m sale de usar la masa donde va la constante del muelle."
+  },
+  "confirma": "C"
+ },
+ "hrw-c15-q036": {
+  "idea": "Toda la energía pasa a cinética en el centro: $E = \\tfrac12 mv_{max}^2$. Ahora sí entra la masa.",
+  "pasos": [
+   "$v_{max} = \\sqrt{2E/m} = \\sqrt{2(6{,}0)/0{,}25}$.",
+   "$= \\sqrt{48}$.",
+   "$= 6{,}9$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "0,24 es la **amplitud** en metros, no la velocidad.",
+   "D": "4,9 m/s usaría $k$ en lugar de $m$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q037": {
+  "idea": "Suma las dos energías iniciales y conviértelas todas en cinética.",
+  "pasos": [
+   "$E = \\tfrac12(200)(0{,}15)^2 + \\tfrac12(0{,}25)(3{,}0)^2 = 2{,}25 + 1{,}125 = 3{,}375$ J.",
+   "$v_{max} = \\sqrt{2E/m} = \\sqrt{2(3{,}375)/0{,}25} = \\sqrt{27}$.",
+   "$= 5{,}2$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "3,7 m/s olvida sumar la energía del muelle a la cinética inicial.",
+   "E": "13 m/s exagera: comprueba la raíz."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q038": {
+  "idea": "La misma energía de antes, pero ahora convertida toda en potencial del muelle.",
+  "pasos": [
+   "$E = 3{,}375$ J (del apartado anterior).",
+   "$x_m = \\sqrt{2E/k} = \\sqrt{2(3{,}375)/200} = \\sqrt{0{,}03375}$.",
+   "$= 0{,}18$ m. Comprobación: $v_{max} = \\omega x_m = 28{,}3(0{,}18) = 5{,}2$ ✔."
+  ],
+  "porque_fallan": {
+   "A": "0,13 m olvida la energía cinética inicial y usa solo… ni eso.",
+   "D": "5,2 m es la **velocidad** máxima en m/s, con unidades cambiadas."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q040": {
+  "idea": "$U \\propto x^2$: a media amplitud, la potencial es solo la **cuarta** parte del total.",
+  "pasos": [
+   "$U = \\tfrac12 k(x_m/2)^2 = \\tfrac14\\left(\\tfrac12 kx_m^2\\right) = E/4 = 12{,}5$ J.",
+   "$K = E - U = 50 - 12{,}5$.",
+   "$= 37{,}5$ J."
+  ],
+  "porque_fallan": {
+   "B": "12,5 J es la energía **potencial**: la pregunta pide la cinética.",
+   "C": "25 J supondría que a media amplitud la energía se reparte a medias, y va con el cuadrado."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q042": {
+  "idea": "$T = 2\\pi\\sqrt{L/g}$: el período va con la **raíz** de la longitud.",
+  "pasos": [
+   "$L \\to 2L$.",
+   "$T \\to T\\sqrt2$.",
+   "Un 41 % más largo, no el doble."
+  ],
+  "porque_fallan": {
+   "D": "Doblar sería si $T$ fuera proporcional a $L$, y va con $\\sqrt L$.",
+   "C": "Dividir por $\\sqrt2$ es lo que pasa al **acortar** el péndulo a la mitad."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q043": {
+  "idea": "$T \\propto 1/\\sqrt g$: con menos gravedad, período más largo.",
+  "pasos": [
+   "$g \\to g/10$.",
+   "$T \\to T\\sqrt{10}$.",
+   "$= \\sqrt{10} \\approx 3{,}2$ s."
+  ],
+  "porque_fallan": {
+   "E": "10 s olvida la raíz.",
+   "B": "$1/\\sqrt{10}$ invierte: con menos $g$ el péndulo va **más lento**."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q044": {
+  "idea": "En el régimen armónico $a_{max} = \\omega^2 s_m$: proporcional a la amplitud, y $\\omega$ no depende de ella.",
+  "pasos": [
+   "$\\omega = \\sqrt{g/L}$: el mismo con $1°$ que con $4°$.",
+   "$a_{max} = \\omega^2 L\\theta_{max} \\propto \\theta_{max}$.",
+   "$\\theta$ ×4 ⟹ $a_{max}$ ×4."
+  ],
+  "porque_fallan": {
+   "E": "16 aplicaría un cuadrado que no está: la relación es lineal en la amplitud.",
+   "A": "1/4 invierte el sentido: más amplitud, más aceleración."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q045": {
+  "idea": "$f = \\dfrac{1}{2\\pi}\\sqrt{g/L}$: para doblar $f$ hay que dividir $L$ por 4. Y la masa no aparece.",
+  "pasos": [
+   "$f \\propto 1/\\sqrt L$.",
+   "$2f$ exige $\\sqrt L \\to \\sqrt L/2$, es decir $L \\to L/4$.",
+   "La masa se cancela en el péndulo simple: cambiarla no sirve de nada."
+  ],
+  "porque_fallan": {
+   "C": "$L/2$ sube la frecuencia solo en un factor $\\sqrt2$.",
+   "E": "La masa no entra en el período de un péndulo simple."
+  },
+  "confirma": "D"
+ },
+ "hrw-c15-q046": {
+  "idea": "La tensión aguanta el peso **y además** aporta la fuerza centrípeta, que va con $v^2$: la suma no es sinusoidal.",
+  "pasos": [
+   "$T = mg\\cos\\theta + \\dfrac{mv^2}{L}$.",
+   "$\\cos\\theta$ y $v^2$ oscilan al **doble** de frecuencia que $\\theta$, y ninguno es una sinusoide pura.",
+   "Máxima abajo, mínima en los extremos, pero no con forma de seno."
+  ],
+  "porque_fallan": {
+   "A": "Constante sería si el péndulo girara en círculo horizontal, no si oscila.",
+   "B": "Sinusoidal es $\\theta(t)$; la tensión depende de $\\cos\\theta$ y de $v^2$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q047": {
+  "idea": "Media oscilación con longitud $L$ y media con $L/2$: el período resultante es la media de los dos medios períodos.",
+  "pasos": [
+   "Antes de sujetar: medio ciclo con período $T$, aporta $T/2$.",
+   "Después: medio ciclo con longitud $L/2$, período $T/\\sqrt2$, aporta $T/(2\\sqrt2)$.",
+   "$T_{nuevo} = \\dfrac{T}{2}\\left(1 + \\dfrac{1}{\\sqrt2}\\right) = 0{,}854\\,T$: ninguna de las opciones dadas."
+  ],
+  "porque_fallan": {
+   "C": "$T/2$ supondría que el período se parte por la mitad, y la longitud entra bajo raíz.",
+   "B": "$T$ ignoraría que media oscilación transcurre con la cuerda acortada."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q048": {
+  "idea": "En un ascensor acelerado la gravedad efectiva es $g+a$, y eso es lo que va en la fórmula del péndulo.",
+  "pasos": [
+   "En el sistema del ascensor aparece una fuerza inercial hacia abajo de módulo $ma$.",
+   "$g_{ef} = g + a$.",
+   "$T = 2\\pi\\sqrt{L/(g+a)}$: el péndulo va **más rápido**."
+  ],
+  "porque_fallan": {
+   "C": "$(g-a)$ corresponde a un ascensor que **baja** acelerando.",
+   "A": "$2\\pi\\sqrt{L/g}$ ignora la aceleración del ascensor."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q049": {
+  "idea": "En un péndulo físico la masa está arriba y abajo en la fórmula: se cancela.",
+  "pasos": [
+   "$T = 2\\pi\\sqrt{\\dfrac{I}{mgd}}$.",
+   "Con la misma forma y tamaño, $I \\propto m$: escribe $I = \\beta mR^2$.",
+   "$T = 2\\pi\\sqrt{\\dfrac{\\beta mR^2}{mgd}}$: la $m$ se va. Los tres tienen el mismo período."
+  ],
+  "porque_fallan": {
+   "A": "Ordenarlos por masa supondría que la masa influye, y se cancela.",
+   "B": "El orden inverso comete el mismo error al revés."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q050": {
+  "idea": "Aro colgado del borde: $I = 2MR^2$ y $d = R$, así que $T = 2\\pi\\sqrt{2R/g}$. Solo importa el radio.",
+  "pasos": [
+   "$T = 2\\pi\\sqrt{\\dfrac{2MR^2}{MgR}} = 2\\pi\\sqrt{\\dfrac{2R}{g}}$: la masa se cancela.",
+   "$T \\propto \\sqrt R$: el aro de menor radio tiene el período más corto.",
+   "Radios: 50, 40, 30, 20, 10 cm para los aros 1 a 5 ⟹ de menor a mayor período: 5, 4, 3, 2, 1."
+  ],
+  "porque_fallan": {
+   "A": "1, 2, 3, 4, 5 ordena por masa creciente, que es justo lo que no cuenta.",
+   "E": "Mezcla los dos criterios."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q051": {
+  "idea": "Hay un punto óptimo: pegado al centro el par recuperador es minúsculo, y muy lejos la inercia crece. El mínimo está en $a = L/\\sqrt{12}$.",
+  "pasos": [
+   "$T = 2\\pi\\sqrt{\\dfrac{L^2/12 + a^2}{ga}}$ por Steiner.",
+   "Minimizando $\\dfrac{L^2/12 + a^2}{a}$: la derivada se anula en $a = L/\\sqrt{12}$.",
+   "Con $L = 1{,}0$ m: $a = 0{,}289$ m, y de las opciones la más cercana es 0,3 m."
+  ],
+  "porque_fallan": {
+   "A": "Con $a = 0{,}1$ m el par recuperador es tan pequeño que el período se dispara.",
+   "E": "Con $a = 0{,}5$ m está pivotado en el extremo: mucha inercia, período largo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c15-q052": {
+  "idea": "La longitud equivalente es $I/(Md)$: el péndulo simple que oscilaría al mismo ritmo.",
+  "pasos": [
+   "Varilla colgada de un extremo: $I = ML^2/3$, $d = L/2$.",
+   "$L_{eq} = \\dfrac{I}{Md} = \\dfrac{ML^2/3}{ML/2} = \\dfrac{2L}{3}$.",
+   "Con $L = 1{,}0$ m: $67$ cm."
+  ],
+  "porque_fallan": {
+   "B": "50 cm es la distancia al centro de masa, no la longitud equivalente.",
+   "D": "100 cm sería la varilla entera, y una varilla oscila más rápido que un péndulo simple de su misma longitud."
+  },
+  "confirma": "C"
+ },
+ "hrw-c15-q053": {
+  "idea": "Esfera pivotada tangente: $T = 2\\pi\\sqrt{7R/5g}$. Solo cuenta el radio.",
+  "pasos": [
+   "Steiner: $I = \\tfrac25 MR^2 + MR^2 = \\tfrac75 MR^2$, con $d = R$.",
+   "$T = 2\\pi\\sqrt{\\dfrac{(7/5)MR^2}{MgR}} = 2\\pi\\sqrt{\\dfrac{7R}{5g}}$.",
+   "$T \\propto \\sqrt R$: gana el de mayor radio."
+  ],
+  "porque_fallan": {
+   "A": "La masa se cancela, como en todo péndulo físico de forma fija.",
+   "C": "Una inercia rotacional mayor puede venir de más masa, y entonces no alarga el período."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q054": {
+  "idea": "Circunferencia: misma amplitud, misma frecuencia y desfase de $\\pi/2$. Es la descomposición del movimiento circular uniforme.",
+  "pasos": [
+   "$x = R\\cos\\omega t$, $y = R\\sin\\omega t$ da $x^2+y^2 = R^2$.",
+   "Eso exige amplitudes iguales y frecuencias iguales.",
+   "Con frecuencias distintas salen figuras de Lissajous, nunca una circunferencia."
+  ],
+  "porque_fallan": {
+   "A": "Con frecuencias distintas la trayectoria se cierra en figuras de Lissajous.",
+   "C": "Amplitudes distintas dan una elipse, no una circunferencia."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q055": {
+  "idea": "Misma frecuencia y amplitudes distintas: elipse (o un segmento, si están en fase).",
+  "pasos": [
+   "$x = A\\cos\\omega t$, $y = B\\cos(\\omega t+\\delta)$ con $A\\neq B$.",
+   "Eliminando $t$ sale la ecuación de una elipse.",
+   "Con $A = B$ y $\\delta = \\pi/2$ esa elipse degenera en circunferencia."
+  ],
+  "porque_fallan": {
+   "B": "La circunferencia pide amplitudes **iguales**, y el enunciado dice que difieren.",
+   "C": "Parábolas e hipérbolas no son curvas cerradas: no las puede recorrer un movimiento acotado y periódico."
+  },
+  "confirma": "A"
+ },
+ "hrw-c15-q056": {
+  "idea": "Con amortiguamiento, ninguna de las cuatro afirmaciones se sostiene.",
+  "pasos": [
+   "El desplazamiento es una sinusoide **multiplicada por una exponencial decreciente**: no es sinusoidal.",
+   "La velocidad, lo mismo.",
+   "La frecuencia amortiguada $\\omega' = \\sqrt{\\omega_0^2 - (b/2m)^2}$ es constante en el tiempo, no decreciente.",
+   "Y la energía mecánica desde luego no se conserva: eso es lo que hace el amortiguamiento."
+  ],
+  "porque_fallan": {
+   "D": "La energía mecánica decae: se la lleva la fuerza de amortiguamiento.",
+   "C": "La frecuencia es menor que la natural, pero no va disminuyendo con el tiempo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c15-q057": {
+  "idea": "La energía decae como $e^{-bt/m}$: el ritmo lo fija el cociente $b/m$, no $b$ solo.",
+  "pasos": [
+   "$E(t) = E_0e^{-bt/m}$.",
+   "$b/m$: A $\\to 8/50 = 0{,}16$; B $\\to 5/50 = 0{,}10$; C $\\to 8/10 = 0{,}80$.",
+   "D $\\to 6/8 = 0{,}75$; E $\\to 4/2 = 2{,}0$. El mínimo es B."
+  ],
+  "porque_fallan": {
+   "E": "Tiene el $b$ más pequeño, pero también la masa más pequeña: su cociente es el peor de todos.",
+   "D": "0,75 está siete veces por encima de B."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q058": {
+  "idea": "Resonancia: la respuesta es máxima cuando se fuerza a la frecuencia natural.",
+  "pasos": [
+   "La amplitud estacionaria tiene un máximo pronunciado en $\\omega_{aplicada} \\approx \\omega_0$.",
+   "Ahí la fuerza aplicada empuja siempre en el sentido del movimiento.",
+   "Con amortiguamiento pequeño, el pico está prácticamente en $\\omega_0$."
+  ],
+  "porque_fallan": {
+   "C": "Al doble de la natural la fuerza empuja a destiempo y la amplitud es mucho menor.",
+   "D": "La relación con la frecuencia natural es justamente lo decisivo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c15-q059": {
+  "idea": "Sin amortiguamiento la amplitud en resonancia crecería sin límite. Lo que la frena es la disipación.",
+  "pasos": [
+   "En estado estacionario, la energía que mete la fuerza por ciclo iguala a la que disipa el amortiguamiento.",
+   "Ese equilibrio fija la amplitud.",
+   "Con $b \\to 0$, la amplitud resonante $\\to\\infty$."
+  ],
+  "porque_fallan": {
+   "B": "Las condiciones iniciales se olvidan: el transitorio muere y queda solo el estado estacionario.",
+   "D": "La gravedad solo desplaza la posición de equilibrio, no limita la amplitud."
+  },
+  "confirma": "A"
+ },
+ "hrw-c15-q060": {
+  "idea": "Pasado el transitorio queda solo el estado estacionario, y ahí la amplitud es constante.",
+  "pasos": [
+   "La solución es transitorio (que decae como $e^{-bt/2m}$) más estacionario.",
+   "Al cabo de un tiempo largo el transitorio ha desaparecido.",
+   "Queda una oscilación a la frecuencia de la fuerza, con amplitud fija."
+  ],
+  "porque_fallan": {
+   "B": "Decaer es lo que hace el transitorio, no el estado estacionario.",
+   "A": "Crecer indefinidamente exigiría amortiguamiento nulo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c15-q061": {
+  "idea": "En estado estacionario la energía del oscilador es constante, así que lo que disipa el amortiguamiento tiene que entrar por algún lado: la fuerza aplicada.",
+  "pasos": [
+   "$\\langle E\\rangle$ constante ⟹ lo que entra iguala a lo que sale, ciclo a ciclo.",
+   "Lo que sale lo disipa el amortiguamiento.",
+   "Lo que entra lo aporta la fuerza sinusoidal externa."
+  ],
+  "porque_fallan": {
+   "A": "La energía del muelle solo va y viene dentro del sistema: no es una fuente neta.",
+   "D": "El rozamiento es el que **consume**, no el que aporta."
+  },
+  "confirma": "E"
+ }
+}
