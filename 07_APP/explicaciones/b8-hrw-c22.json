@@ -1,0 +1,420 @@
+{
+ "hrw-c22-q001": {
+  "idea": "$\\vec E = \\vec F/q_0$: el campo se define como fuerza por unidad de carga.",
+  "pasos": [
+   "Se mide poniendo una carga de prueba y viendo qué fuerza siente.",
+   "Energía y momento vienen después, integrando o multiplicando.",
+   "El campo es una magnitud vectorial que existe aunque no haya carga de prueba."
+  ],
+  "porque_fallan": {
+   "C": "La energía potencial se relaciona con el **potencial**, no con el campo directamente.",
+   "E": "El campo es precisamente lo que queda al **dividir** por la carga de prueba."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q002": {
+  "idea": "La carga de prueba solo tiene que ser lo bastante pequeña para no alterar lo que mide. Su valor concreto da igual.",
+  "pasos": [
+   "$\\vec E = \\lim_{q_0\\to0}\\vec F/q_0$: se toma pequeña para no reorganizar las cargas de la fuente.",
+   "Cero no vale: sin carga no hay fuerza que medir.",
+   "Ni 1 C ni la carga del electrón son obligatorias: el cociente $F/q_0$ sale igual."
+  ],
+  "porque_fallan": {
+   "A": "Con carga cero no hay fuerza y el cociente queda indeterminado.",
+   "B": "1 C es una carga enorme: destrozaría cualquier distribución que quisiera medirse."
+  },
+  "confirma": "E"
+ },
+ "hrw-c22-q003": {
+  "idea": "El campo lo producen las cargas fuentes, no la de prueba: los dos miden lo mismo.",
+  "pasos": [
+   "$\\vec E = \\vec F/q_0$: la carga de prueba se cancela en el cociente.",
+   "B mide una fuerza el doble de grande y en sentido opuesto, pero divide por $-2q_0$.",
+   "El resultado es idéntico, en módulo y en dirección."
+  ],
+  "porque_fallan": {
+   "D": "El signo de la carga de prueba invierte la fuerza **y** el divisor: se cancela.",
+   "B": "La magnitud doble de la fuerza se compensa al dividir por la carga doble."
+  },
+  "confirma": "A"
+ },
+ "hrw-c22-q004": {
+  "idea": "$E = F/q$: newton entre culombio.",
+  "pasos": [
+   "$\\vec E = \\vec F/q_0$ directamente.",
+   "N/C.",
+   "Equivale al voltio por metro, que es como suele darse en la práctica."
+  ],
+  "porque_fallan": {
+   "B": "C/N es el inverso.",
+   "E": "C/m² es una densidad superficial de carga."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q005": {
+  "idea": "N/C $=$ V/m $=$ J/(C·m). Las tres son la misma cosa.",
+  "pasos": [
+   "1 V $=$ 1 J/C.",
+   "V/m $=$ J/(C·m).",
+   "Y N/C $=$ (J/m)/C $=$ J/(C·m) ✔"
+  ],
+  "porque_fallan": {
+   "B": "J/C es el voltio: un **potencial**, no un campo. Falta dividir por la longitud.",
+   "D": "J/m es una fuerza, sin dividir por la carga."
+  },
+  "confirma": "A"
+ },
+ "hrw-c22-q006": {
+  "idea": "Las cuatro afirmaciones son falsas, y por motivos distintos que conviene tener claros.",
+  "pasos": [
+   "No son trayectorias: una carga soltada en reposo sigue la línea solo si esta es recta.",
+   "No son vectores: son curvas cuya **tangente** da la dirección del campo.",
+   "No forman bucles cerrados: nacen en cargas positivas y mueren en negativas (el campo electrostático es conservativo).",
+   "Y no se cruzan nunca: en el cruce el campo tendría dos direcciones."
+  ],
+  "porque_fallan": {
+   "C": "Los bucles cerrados son de las líneas de campo **magnético**, que no tienen principio ni fin.",
+   "A": "Solo coinciden con la trayectoria si la línea es recta; si se curva, la inercia desvía la carga."
+  },
+  "confirma": "E"
+ },
+ "hrw-c22-q007": {
+  "idea": "El número de líneas lo fija la carga encerrada, no el tamaño de la superficie.",
+  "pasos": [
+   "Toda línea que sale de la carga atraviesa las dos esferas.",
+   "Ninguna nace ni muere en el espacio vacío entre ellas.",
+   "Razón 1. Lo que sí cae es la **densidad** de líneas, como $1/r^2$."
+  ],
+  "porque_fallan": {
+   "C": "4 es la razón de **áreas**: eso explica que la densidad baje, no que haya más líneas.",
+   "E": "1/4 sería si las líneas se destruyeran por el camino."
+  },
+  "confirma": "A"
+ },
+ "hrw-c22-q008": {
+  "idea": "En un cruce el campo tendría dos direcciones a la vez, y eso es imposible.",
+  "pasos": [
+   "La tangente a la línea da **la** dirección de $\\vec E$ en ese punto.",
+   "Dos tangentes distintas en el mismo punto significan dos direcciones de $\\vec E$.",
+   "El campo es un vector bien definido en cada punto: el dibujo está mal."
+  ],
+  "porque_fallan": {
+   "D": "El campo nunca apunta en dos direcciones: se suman vectorialmente y queda una sola.",
+   "A": "Ni con dos ni con doscientas cargas las líneas se cruzan."
+  },
+  "confirma": "E"
+ },
+ "hrw-c22-q009": {
+  "idea": "La densidad de líneas codifica la intensidad: apretadas donde el campo es fuerte.",
+  "pasos": [
+   "Ese es el convenio del dibujo, y por eso las líneas se apiñan cerca de las cargas.",
+   "Las líneas apuntan **hacia** una carga negativa, no en sentido contrario.",
+   "Y una carga soltada en reposo solo sigue la línea si esta es recta."
+  ],
+  "porque_fallan": {
+   "D": "Al curvarse la línea, la inercia lanza la carga por fuera: la trayectoria se separa.",
+   "C": "Las líneas entran en las cargas negativas: son sumideros."
+  },
+  "confirma": "B"
+ },
+ "hrw-c22-q011": {
+  "idea": "Ley de Coulomb dividida por la carga de prueba.",
+  "pasos": [
+   "$F = kqq_0/r^2$.",
+   "$E = F/q_0 = kq/r^2$.",
+   "Inverso del cuadrado, como la fuerza."
+  ],
+  "porque_fallan": {
+   "A": "$kq/r$ es el **potencial**, no el campo.",
+   "E": "$kq^2/r^2$ eleva la carga fuente al cuadrado: sobra la de prueba, que ya se dividió."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q014": {
+  "idea": "$E = kq/r^2$, con el radio en metros.",
+  "pasos": [
+   "$r = 0{,}10$ m ⟹ $r^2 = 0{,}010$ m².",
+   "$E = 9\\times10^9\\dfrac{2\\times10^{-9}}{0{,}010} = \\dfrac{18}{0{,}010}$.",
+   "$= 1800$ N/C."
+  ],
+  "porque_fallan": {
+   "C": "18 N/C olvida dividir por $r^2$.",
+   "B": "180 N/C usa $r = 10$ cm como si fueran metros a medias."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q015": {
+  "idea": "$E \\propto 1/r^2$: dividir el campo por 4 exige doblar la distancia.",
+  "pasos": [
+   "$E'/E = (r/r')^2 = 1/4$.",
+   "$r'/r = 2$.",
+   "$r' = 2(2) = 4$ m."
+  ],
+  "porque_fallan": {
+   "E": "8 m divide el campo por 16.",
+   "A": "1 m lo **multiplica** por 4."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q016": {
+  "idea": "La misma relación en el otro sentido: acercarse a la mitad multiplica el campo por 4.",
+  "pasos": [
+   "$r$ pasa de 2 m a 1 m: se divide por 2.",
+   "$E \\propto 1/r^2$ ⟹ se multiplica por $2^2$.",
+   "$4E$."
+  ],
+  "porque_fallan": {
+   "B": "$2E$ olvida el cuadrado.",
+   "E": "$E/4$ va en el sentido contrario: más cerca es más campo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c22-q018": {
+  "idea": "Entre las dos cargas, los campos apuntan en sentidos opuestos solo si las cargas tienen el **mismo signo**. Y el punto no tiene por qué estar en el medio.",
+  "pasos": [
+   "Con el mismo signo, ambos campos empujan hacia fuera de su carga: entre ellas se oponen.",
+   "Se anulan donde $|q_1|/d_1^2 = |q_2|/d_2^2$, que cae más cerca de la carga pequeña.",
+   "Con signos opuestos, entre ellas los dos campos van en el mismo sentido y nunca se anulan."
+  ],
+  "porque_fallan": {
+   "E": "Con signos opuestos el campo entre ellas se **suma**: nunca es cero ahí.",
+   "B": "Solo estaría en el medio si las magnitudes coincidieran."
+  },
+  "confirma": "C"
+ },
+ "hrw-c22-q022": {
+  "idea": "En el punto medio los dos campos apuntan **en el mismo sentido**: del positivo hacia el negativo. Se suman.",
+  "pasos": [
+   "$r = 2$ m desde cada una.",
+   "Del $+8$ nC: $E_1 = 9\\times10^9(8\\times10^{-9})/4 = 18$ N/C, alejándose de él.",
+   "Del $-2$ nC: $E_2 = 9\\times10^9(2\\times10^{-9})/4 = 4{,}5$ N/C, hacia él: **el mismo sentido**.",
+   "$E = 18 + 4{,}5 = 22{,}5$ N/C."
+  ],
+  "porque_fallan": {
+   "B": "13 500 N/C sale de usar la separación en algún sitio equivocado.",
+   "A": "$9\\times10^9$ es la constante de Coulomb sin más."
+  },
+  "confirma": "E"
+ },
+ "hrw-c22-q023": {
+  "idea": "Dos vectores que forman $60°$ no pueden cancelarse por muy bien que se elijan sus módulos.",
+  "pasos": [
+   "Desde el tercer vértice, las direcciones hacia las otras dos forman $60°$ entre sí.",
+   "Dos vectores solo se anulan si son antiparalelos, es decir, a $180°$.",
+   "Como el campo sí es cero, tiene que haber al menos una carga más aportando."
+  ],
+  "porque_fallan": {
+   "A": "Ni siquiera con cargas iguales y opuestas: los dos campos formarían $60°$ o $120°$, nunca $180°$.",
+   "C": "Cargas idénticas dan una resultante hacia fuera, no cero."
+  },
+  "confirma": "E"
+ },
+ "hrw-c22-q024": {
+  "idea": "El campo de las dos cargas iguales en el tercer vértice apunta a lo largo de la mediatriz, así que la tercera carga tiene que estar en esa recta.",
+  "pasos": [
+   "Por simetría, la resultante de las dos primeras es paralela a la mediatriz del segmento que las une.",
+   "Para cancelarla hace falta un campo antiparalelo, o sea también sobre esa recta.",
+   "Su magnitud y signo se ajustan con la distancia: no están fijados."
+  ],
+  "porque_fallan": {
+   "E": "El centro del triángulo está sobre la mediatriz, pero no es el único punto posible.",
+   "C": "La carga puede tener cualquier valor: se compensa acercándola o alejándola."
+  },
+  "confirma": "A"
+ },
+ "hrw-c22-q028": {
+  "idea": "Teorema de la cáscara: dentro, cero; fuera, como si toda la carga estuviera en el centro.",
+  "pasos": [
+   "Dentro, las contribuciones de la corteza se cancelan exactamente en todo punto.",
+   "Fuera, $E = kQ/r^2 \\neq 0$.",
+   "Solo dentro."
+  ],
+  "porque_fallan": {
+   "C": "En el centro es cero, pero también en cualquier otro punto interior.",
+   "E": "Fuera es donde el campo **no** es cero."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q029": {
+  "idea": "$\\vec F = q\\vec E$: sin campo, no hay fuerza. El movimiento de la partícula no interviene.",
+  "pasos": [
+   "La fuerza eléctrica no depende de la velocidad (eso es la magnética).",
+   "Moverse a lo largo o perpendicular a una línea da igual.",
+   "Solo se anula donde $\\vec E = 0$."
+  ],
+  "porque_fallan": {
+   "D": "Moverse perpendicular no cancela nada: eso pasaría con una fuerza magnética, y ni siquiera.",
+   "E": "Una distribución con carga total nula puede tener campo intenso: un dipolo, por ejemplo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c22-q030": {
+  "idea": "$F = qE$.",
+  "pasos": [
+   "$F = 0{,}02(400)$.",
+   "$= 8{,}0$ N.",
+   "Las opciones con $10^{-5}$ vienen de confundir la carga con la del electrón."
+  ],
+  "porque_fallan": {
+   "D": "0,08 N pierde un factor 100.",
+   "E": "$2\\times10^{11}$ divide en vez de multiplicar."
+  },
+  "confirma": "A"
+ },
+ "hrw-c22-q031": {
+  "idea": "Módulo $qE$, y el signo negativo del electrón invierte el sentido respecto al campo.",
+  "pasos": [
+   "$F = 1{,}6\\times10^{-19}(200) = 3{,}2\\times10^{-17}$ N.",
+   "El electrón tiene carga negativa.",
+   "La fuerza va en sentido **opuesto** al campo: hacia $-x$."
+  ],
+  "porque_fallan": {
+   "C": "El módulo bien, pero el sentido es el del campo solo para cargas positivas.",
+   "A": "200 N sería la fuerza sobre una carga de 1 C."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q032": {
+  "idea": "El electrón siente fuerza **contraria** al campo, así que si va en el sentido del campo, frena.",
+  "pasos": [
+   "$\\vec E$ al norte ⟹ $\\vec F = -e\\vec E$ al sur.",
+   "El electrón viaja al norte: fuerza y velocidad opuestas.",
+   "Frena. (Y si la región es larga, acabaría dando la vuelta.)"
+  ],
+  "porque_fallan": {
+   "A": "Acelerar sería el caso de una carga **positiva** viajando en el sentido del campo.",
+   "C": "No hay componente lateral: fuerza y velocidad están sobre la misma recta."
+  },
+  "confirma": "B"
+ },
+ "hrw-c22-q033": {
+  "idea": "Ahora la fuerza es perpendicular a la velocidad: el electrón se desvía sin cambiar de rapidez (al principio).",
+  "pasos": [
+   "$\\vec E$ al oeste ⟹ $\\vec F = -e\\vec E$ al **este**.",
+   "Va al norte y lo empujan al este: se curva hacia el este.",
+   "Es un tiro parabólico eléctrico."
+  ],
+  "porque_fallan": {
+   "D": "Al oeste iría una carga positiva; el electrón hace lo contrario.",
+   "B": "Frenar exigiría fuerza antiparalela a la velocidad, y aquí es perpendicular."
+  },
+  "confirma": "C"
+ },
+ "hrw-c22-q035": {
+  "idea": "$\\vec p = q\\vec d$ apuntando **de la carga negativa a la positiva**, que es al revés que el campo del dipolo.",
+  "pasos": [
+   "$|p| = qd = (6\\times10^{-6})(3\\times10^{-3}) = 1{,}8\\times10^{-8}$ C·m.",
+   "La positiva está en el origen y la negativa en $x = +3\\times10^{-3}$.",
+   "De la negativa a la positiva es hacia $-x$."
+  ],
+  "porque_fallan": {
+   "C": "Que la carga neta sea cero es justamente la condición de dipolo: el momento no se anula.",
+   "A": "El sentido $+x$ iría de la positiva a la negativa, que es la convención contraria."
+  },
+  "confirma": "B"
+ },
+ "hrw-c22-q036": {
+  "idea": "En un campo **uniforme** las dos fuerzas del dipolo son iguales y opuestas: la fuerza neta es cero.",
+  "pasos": [
+   "$\\vec F = q\\vec E + (-q)\\vec E = 0$.",
+   "Lo que sí hay es par: las dos fuerzas están descentradas.",
+   "Fuerza neta distinta de cero solo aparece en un campo **no** uniforme."
+  ],
+  "porque_fallan": {
+   "C": "Paralela al campo sería la fuerza sobre una carga suelta, no sobre un dipolo neutro.",
+   "A": "Ninguna dirección: el vector es nulo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c22-q037": {
+  "idea": "$\\vec\\tau = \\vec p\\times\\vec E$: se anula solo si $\\vec p$ y $\\vec E$ son paralelos o antiparalelos.",
+  "pasos": [
+   "$|\\tau| = pE\\sin\\theta$.",
+   "$\\sin\\theta = 0$ cuando $\\theta = 0°$ o $180°$.",
+   "Basta con que no sean paralelos para que haya par; máximo a $90°$."
+  ],
+  "porque_fallan": {
+   "C": "Perpendicular da el par **máximo**, pero no es la única situación con par.",
+   "E": "La uniformidad no importa para el par: importa para la fuerza neta."
+  },
+  "confirma": "B"
+ },
+ "hrw-c22-q038": {
+  "idea": "Producto vectorial: el resultado es perpendicular a los dos factores.",
+  "pasos": [
+   "$\\vec\\tau = \\vec p\\times\\vec E$.",
+   "Todo producto vectorial es perpendicular a ambos vectores.",
+   "Su sentido lo da la regla de la mano derecha, y siempre tiende a alinear $\\vec p$ con $\\vec E$."
+  ],
+  "porque_fallan": {
+   "B": "Paralelo a los dos es imposible salvo que sean paralelos entre sí, y entonces el par es cero.",
+   "E": "Sí está relacionado: es exactamente $\\vec p\\times\\vec E$."
+  },
+  "confirma": "C"
+ },
+ "hrw-c22-q040": {
+  "idea": "Despeja $p$ de $\\tau = pE\\sin\\theta$.",
+  "pasos": [
+   "$p = \\dfrac{\\tau}{E\\sin\\theta} = \\dfrac{2{,}5\\times10^{-7}}{300\\sin25°}$.",
+   "$\\sin25° = 0{,}423$, luego el denominador vale $126{,}8$.",
+   "$p = 2{,}0\\times10^{-9}$ C·m."
+  ],
+  "porque_fallan": {
+   "A": "$8{,}3\\times10^{-10}$ olvida el $\\sin25°$ y divide solo por 300.",
+   "B": "$9{,}2\\times10^{-10}$ usa el coseno en lugar del seno."
+  },
+  "confirma": "C"
+ },
+ "hrw-c22-q041": {
+  "idea": "Alinearse es caer hacia el mínimo de energía: el campo hace trabajo positivo y $U$ baja.",
+  "pasos": [
+   "$U = -\\vec p\\cdot\\vec E = -pE\\cos\\theta$: mínima cuando $\\theta = 0$.",
+   "Girar hacia la alineación baja $U$.",
+   "$W = -\\Delta U > 0$: el campo trabaja a favor, como la gravedad al caer."
+  ],
+  "porque_fallan": {
+   "A": "Trabajo positivo y energía potencial creciente son incompatibles: $W = -\\Delta U$.",
+   "E": "Sí hay trabajo: por eso una brújula gira sola."
+  },
+  "confirma": "B"
+ },
+ "hrw-c22-q042": {
+  "idea": "$U = -pE\\cos\\theta$, y el trabajo del campo es $-\\Delta U$.",
+  "pasos": [
+   "Inicial ($\\theta = 90°$): $U_i = 0$.",
+   "Final ($\\theta = 0$): $U_f = -pE = -(2\\times10^{-9})(300) = -6\\times10^{-7}$ J.",
+   "$W = U_i - U_f = +6\\times10^{-7}$ J."
+  ],
+  "porque_fallan": {
+   "B": "El signo negativo: el campo hace trabajo **positivo** al alinear el dipolo.",
+   "E": "$12\\times10^{-7}$ sería girar de $180°$ a $0$, el doble de recorrido energético."
+  },
+  "confirma": "D"
+ },
+ "hrw-c22-q044": {
+  "idea": "Millikan midió la **carga** del electrón, y encontró que siempre venía en múltiplos de un mismo valor.",
+  "pasos": [
+   "Equilibró gotitas cargadas entre la gravedad y un campo eléctrico: $qE = mg$.",
+   "Las cargas medidas eran siempre múltiplos enteros de $1{,}6\\times10^{-19}$ C.",
+   "Combinado con el $e/m$ de Thomson, dio la masa del electrón. Pero el experimento mide la carga."
+  ],
+  "porque_fallan": {
+   "C": "El cociente carga/masa lo midió Thomson con tubos de rayos catódicos.",
+   "A": "La masa salió después, combinando los dos resultados."
+  },
+  "confirma": "B"
+ },
+ "hrw-c22-q045": {
+  "idea": "Suspendida significa equilibrio: $|q|E = mg$. Y el signo lo decide la dirección del campo.",
+  "pasos": [
+   "$mg = 2\\times10^{-4}(9{,}8) = 1{,}96\\times10^{-3}$ N.",
+   "$|q| = mg/E = 1{,}96\\times10^{-3}/300 = 6{,}5\\times10^{-6}$ C.",
+   "El campo apunta hacia **abajo** y la fuerza tiene que ir hacia arriba: la carga es negativa."
+  ],
+  "porque_fallan": {
+   "C": "El módulo bien pero el signo mal: con carga positiva la fuerza iría hacia abajo, sumándose al peso.",
+   "A": "$1{,}5\\times10^{-6}$ sale de olvidar el factor $g$."
+  },
+  "confirma": "D"
+ }
+}

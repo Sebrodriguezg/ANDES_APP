@@ -1,0 +1,512 @@
+{
+ "hrw-c21-q001": {
+  "idea": "El amperio se define como carga por segundo, así que el culombio es amperio por segundo.",
+  "pasos": [
+   "$I = dq/dt$, luego $1\\ \\text{A} = 1\\ \\text{C/s}$.",
+   "Despejando: $1\\ \\text{C} = 1\\ \\text{A}\\cdot\\text{s}$.",
+   "Es la misma relación que entre velocidad y distancia."
+  ],
+  "porque_fallan": {
+   "A": "A/s es una **variación** de corriente, no una carga.",
+   "E": "N·m² no tiene nada que ver: eso aparece en la constante de Coulomb."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q002": {
+  "idea": "Corriente por tiempo es carga, se llame el tiempo segundo u hora.",
+  "pasos": [
+   "kA·h $=$ (10³ A)(3600 s) $= 3{,}6\\times10^6$ C.",
+   "Es carga, igual que el A·h que aparece en las baterías.",
+   "El kW·h sí es energía, pero eso lleva vatios, no amperios."
+  ],
+  "porque_fallan": {
+   "E": "El kilovatio·hora es energía; con amperios en vez de vatios, es carga.",
+   "A": "La corriente sería el amperio a secas, sin multiplicar por tiempo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q003": {
+  "idea": "$e = 1{,}6\\times10^{-19}$ C. Es un número que hay que tener grabado.",
+  "pasos": [
+   "$e = 1{,}602\\times10^{-19}$ C.",
+   "El orden de magnitud es $10^{-19}$.",
+   "De ahí que un culombio sea una carga enorme: $6{,}25\\times10^{18}$ electrones."
+  ],
+  "porque_fallan": {
+   "C": "$10^{19}$ con signo positivo en el exponente es el **número de electrones** por culombio, no la carga de uno.",
+   "B": "$10^{-23}$ recuerda a la constante de Boltzmann, que es otra cosa."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q004": {
+  "idea": "Cuenta electrones: 2 por átomo, un mol de átomos, y multiplica por $e$.",
+  "pasos": [
+   "$N_e = 2(6{,}02\\times10^{23}) = 1{,}20\\times10^{24}$ electrones.",
+   "$q = 1{,}20\\times10^{24}(1{,}6\\times10^{-19})$.",
+   "$= 1{,}9\\times10^5$ C."
+  ],
+  "porque_fallan": {
+   "B": "$9{,}6\\times10^4$ es la carga de **un** mol de electrones (la constante de Faraday): falta el factor 2 del helio.",
+   "D": "$3{,}8\\times10^5$ dobla de más."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q005": {
+  "idea": "Pasa de kilogramos a moles con la masa molar y reutiliza el resultado anterior.",
+  "pasos": [
+   "$1$ kg de helio $= 1000/4 = 250$ mol.",
+   "Cada mol aporta $1{,}9\\times10^5$ C.",
+   "$q = 250(1{,}9\\times10^5) = 4{,}8\\times10^7$ C."
+  ],
+  "porque_fallan": {
+   "B": "$2{,}4\\times10^7$ olvida el factor 2 de los dos electrones por átomo.",
+   "E": "$1{,}9\\times10^8$ usa 1000 mol: se ha saltado la división por la masa molar."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q006": {
+  "idea": "$q = It$ con corriente constante.",
+  "pasos": [
+   "$q = 2(2)$.",
+   "$= 4$ C.",
+   "Los $10^{-19}$ de las otras opciones son la carga del electrón, un distractor."
+  ],
+  "porque_fallan": {
+   "D": "2 C es la carga en **un** segundo.",
+   "A": "$3{,}2\\times10^{-19}$ es la carga de dos electrones."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q007": {
+  "idea": "Primero la carga, después divide por $e$.",
+  "pasos": [
+   "$q = It = 4$ C.",
+   "$N = q/e = 4/(1{,}6\\times10^{-19})$.",
+   "$= 2{,}5\\times10^{19}$ electrones."
+  ],
+  "porque_fallan": {
+   "D": "$1{,}3\\times10^{19}$ usa 2 C en vez de 4.",
+   "C": "$6{,}3\\times10^{18}$ es el número de electrones en **un** culombio."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q008": {
+  "idea": "El signo de la carga es una convención que eligió Franklin. Nada en la física obliga a que el vidrio salga positivo.",
+  "pasos": [
+   "Franklin llamó «positivo» a lo que adquiere el vidrio frotado con seda, sin saber qué se movía.",
+   "Resultó que lo que se mueve son electrones, y que van del vidrio a la seda.",
+   "Por esa elección arbitraria la corriente convencional va al revés que los electrones."
+  ],
+  "porque_fallan": {
+   "B": "Es al revés: el protón salió positivo **porque** se había elegido así el vidrio.",
+   "D": "Que las cargas iguales se repelan no distingue el signo positivo del negativo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c21-q009": {
+  "idea": "Lo que se mueve en la materia ordinaria son electrones. Cargar en negativo es añadirlos.",
+  "pasos": [
+   "Los protones están amarrados en el núcleo: no se transfieren frotando.",
+   "Exceso de electrones ⟹ carga neta negativa.",
+   "Los átomos completos son neutros: añadirlos o quitarlos no carga nada."
+  ],
+  "porque_fallan": {
+   "D": "Quitar electrones deja el objeto **positivo**.",
+   "A": "Los átomos neutros no aportan carga neta."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q010": {
+  "idea": "El reverso: cargar en positivo es quitar electrones.",
+  "pasos": [
+   "Déficit de electrones ⟹ los protones que quedan dominan.",
+   "Carga neta positiva.",
+   "Los neutrones no tienen carga: quitarlos o ponerlos no cambia nada eléctrico."
+  ],
+  "porque_fallan": {
+   "C": "Añadir electrones lo deja negativo.",
+   "A": "Los neutrones son neutros, como su nombre indica."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q011": {
+  "idea": "El caucho queda negativo, así que los electrones fueron **de la lana al caucho**.",
+  "pasos": [
+   "Solo se transfieren electrones, no protones.",
+   "Si la varilla acaba negativa, ganó electrones.",
+   "Y los ganó de la lana, que queda positiva."
+  ],
+  "porque_fallan": {
+   "B": "Si los electrones salieran de la varilla, esta quedaría positiva.",
+   "E": "La carga no se crea: se transfiere. Es un principio de conservación."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q012": {
+  "idea": "Aislante es un material por el que los electrones no circulan con facilidad. Nada más.",
+  "pasos": [
+   "Tiene electrones, y muchísimos: lo que no tiene son electrones **libres**.",
+   "Es eléctricamente neutro como cualquier material sin cargar.",
+   "Puede ser un elemento puro (el azufre) o un cristal o no."
+  ],
+  "porque_fallan": {
+   "A": "Todo material tiene electrones: los del vidrio están ligados, no ausentes.",
+   "C": "Un aislante sin cargar tiene tantos electrones como protones."
+  },
+  "confirma": "B"
+ },
+ "hrw-c21-q013": {
+  "idea": "Lo que distingue a un conductor es cuántos electrones puede mover, no cuántos tiene.",
+  "pasos": [
+   "Con el mismo número de átomos, el número total de electrones y de protones es parecido.",
+   "En un metal, cada átomo cede uno o dos electrones a una «nube» común.",
+   "Esos electrones casi libres son los que conducen."
+  ],
+  "porque_fallan": {
+   "B": "El número total de electrones es prácticamente el mismo: lo que cambia es cuántos están sueltos.",
+   "D": "Los protones no se mueven nunca en un sólido."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q016": {
+  "idea": "La varilla positiva atrae los electrones libres de la bola hacia el lado cercano: la bola sigue neutra pero se polariza.",
+  "pasos": [
+   "El lado cercano queda con exceso de electrones (negativo) y el lejano, deficitario (positivo).",
+   "La atracción del lado cercano gana porque está **más cerca** y la fuerza va como $1/r^2$.",
+   "Resultado neto: atracción, sin que la bola haya ganado ni perdido carga."
+  ],
+  "porque_fallan": {
+   "B": "La bola no se carga: solo redistribuye lo que ya tenía. Su carga neta sigue siendo cero.",
+   "D": "La cuerda no interviene: el efecto se ve igual con una cuerda perfecta."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q017": {
+  "idea": "La atracción es ambigua: la produce tanto una carga negativa como un objeto **neutro** polarizado.",
+  "pasos": [
+   "Negativo ⟹ atracción, claro.",
+   "Pero neutro también, por polarización: es la pregunta anterior.",
+   "Y funciona con conductores (electrones libres) y con aislantes (dipolos inducidos). No se puede concluir nada."
+  ],
+  "porque_fallan": {
+   "B": "Podría ser negativo, pero también neutro: la atracción no distingue.",
+   "D": "Un aislante neutro también se polariza y también es atraído."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q018": {
+  "idea": "La **repulsión** sí es concluyente: solo se repelen cargas del mismo signo.",
+  "pasos": [
+   "Un objeto neutro nunca se repele: la polarización siempre atrae.",
+   "Luego el objeto tiene carga neta.",
+   "Y del mismo signo que la varilla: positiva."
+  ],
+  "porque_fallan": {
+   "B": "Negativo sería atraído, no repelido.",
+   "E": "Sí se puede concluir: por eso la repulsión es la prueba fiable y la atracción no."
+  },
+  "confirma": "A"
+ },
+ "hrw-c21-q020": {
+  "idea": "Al tocarse, dos conductores comparten la carga: los dos acaban positivos.",
+  "pasos": [
+   "El contacto los convierte en un solo conductor.",
+   "La carga positiva se reparte entre los dos (a partes iguales si son idénticos).",
+   "Los dos quedan positivos."
+  ],
+  "porque_fallan": {
+   "C": "Para que B saliera negativa haría falta que A ganara carga, y A solo puede cederla.",
+   "D": "A no queda neutra: se queda con parte de su carga."
+  },
+  "confirma": "A"
+ },
+ "hrw-c21-q021": {
+  "idea": "Divergir **más** significa más carga en las hojas, y eso solo lo consigue un objeto del mismo signo.",
+  "pasos": [
+   "El electroscopio ya es positivo: sus hojas se repelen.",
+   "Un objeto positivo cerca repele más carga positiva hacia las hojas.",
+   "Divergen más. Un objeto negativo haría lo contrario."
+  ],
+  "porque_fallan": {
+   "D": "Un objeto negativo atraería carga positiva hacia el pomo y las hojas se cerrarían.",
+   "E": "Un objeto neutro se polariza y actúa como si fuera de signo contrario: también las cerraría un poco."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q022": {
+  "idea": "El caso opuesto: una varilla negativa atrae carga positiva hacia el pomo y deja las hojas con menos.",
+  "pasos": [
+   "La varilla negativa atrae carga positiva del electroscopio hacia arriba.",
+   "Las hojas se quedan con menos carga positiva.",
+   "Se repelen menos: tienden a juntarse."
+  ],
+  "porque_fallan": {
+   "D": "No se descarga: la carga sigue toda dentro, solo se ha redistribuido.",
+   "E": "Sí pasa algo, y es perfectamente visible."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q023": {
+  "idea": "Cargar por inducción deja el objeto con el signo **contrario** al de la varilla.",
+  "pasos": [
+   "La varilla positiva atrae electrones desde tierra hacia el electroscopio.",
+   "Al quitar la tierra y luego la varilla, esos electrones se quedan.",
+   "El electroscopio queda negativo: sus hojas han ganado electrones."
+  ],
+  "porque_fallan": {
+   "C": "Perder electrones lo dejaría positivo, que es lo que pasa por **contacto**, no por inducción.",
+   "B": "Los protones no se mueven."
+  },
+  "confirma": "A"
+ },
+ "hrw-c21-q024": {
+  "idea": "El orden importa: primero la varilla cerca, después la tierra, después quitar la tierra y por último retirar la varilla.",
+  "pasos": [
+   "**4**: acercar la varilla (sin tocar) para separar cargas.",
+   "**1**: conectar a tierra, y la carga del signo de la varilla se escapa.",
+   "**2**: quitar la tierra, que deja atrapada la carga contraria.",
+   "**5**: retirar la varilla. Si se retirara antes de quitar la tierra, todo volvería a la normalidad."
+  ],
+  "porque_fallan": {
+   "D": "4, 1, 5, 2 retira la varilla antes de desconectar la tierra: la carga se escapa y el electroscopio queda neutro.",
+   "C": "Empezar tocando (paso 3) es cargar por **contacto**, no por inducción."
+  },
+  "confirma": "B"
+ },
+ "hrw-c21-q025": {
+  "idea": "La llama está parcialmente ionizada, y esos iones neutralizan la carga del aislante.",
+  "pasos": [
+   "El calor de la combustión arranca electrones: el gas de la llama conduce.",
+   "Los iones del signo adecuado son atraídos por el objeto cargado.",
+   "Al llegar, lo neutralizan. (Es el principio de los ionizadores antiestáticos.)"
+  ],
+  "porque_fallan": {
+   "A": "Calentar un aislante no lo vuelve conductor sin más: hacen falta portadores libres.",
+   "E": "Que los átomos vayan más rápido no basta si siguen siendo neutros."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q026": {
+  "idea": "Al mover carga de un objeto al otro, la suma se conserva: hay que maximizar el **producto** con suma fija.",
+  "pasos": [
+   "Cargas finales: $Q-q$ y $q$. $F \\propto q(Q-q)$.",
+   "$\\dfrac{d}{dq}[qQ - q^2] = Q - 2q = 0$.",
+   "$q = Q/2$: repartida a partes iguales. (Es el mismo resultado que maximizar un rectángulo de perímetro fijo.)"
+  ],
+  "porque_fallan": {
+   "B": "$q = Q$ dejaría el primer objeto sin carga: fuerza cero.",
+   "E": "$q = 0$ es el otro extremo, también con fuerza cero."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q027": {
+  "idea": "Dos efectos opuestos: las cargas dividen por 16 y la distancia multiplica por 4.",
+  "pasos": [
+   "Cada carga a $1/4$ ⟹ el producto a $1/16$.",
+   "Distancia a $d/2$ ⟹ $1/d^2$ se multiplica por 4.",
+   "$F' = F\\dfrac{4}{16} = F/4$."
+  ],
+  "porque_fallan": {
+   "A": "$F/16$ solo aplica el efecto de las cargas y olvida el acercamiento.",
+   "E": "$F$ supondría que los dos efectos se cancelan, y no lo hacen."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q028": {
+  "idea": "Cada contacto reparte a partes iguales. Hay que seguir la contabilidad paso a paso.",
+  "pasos": [
+   "Inicio: A $= q$, B $= q$, C $= 0$. Fuerza original $F = kq^2/d^2$.",
+   "C toca A: se reparten $q$ ⟹ A $= q/2$, C $= q/2$.",
+   "C toca B: se reparten $q/2 + q = 3q/2$ ⟹ B $= 3q/4$, C $= 3q/4$.",
+   "$F' = k\\dfrac{(q/2)(3q/4)}{d^2} = \\dfrac{3}{8}F$."
+  ],
+  "porque_fallan": {
+   "B": "$F/4$ sale de suponer que las dos quedan a la mitad, y B acaba con $3q/4$.",
+   "A": "$F/2$ solo divide una de las dos cargas."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q029": {
+  "idea": "Tercera ley de Newton. Las cargas distintas no la rompen, igual que las masas distintas no la rompen en gravitación.",
+  "pasos": [
+   "$F = k\\dfrac{(2Q)(Q)}{r^2}$ es una sola expresión, simétrica en las dos cargas.",
+   "La fuerza de X sobre Y y la de Y sobre X son iguales y opuestas.",
+   "Lo que sí puede diferir es la **aceleración** de cada una."
+  ],
+  "porque_fallan": {
+   "A": "«El doble de carga, el doble de fuerza» es la intuición errónea: el 2Q ya está dentro de la única fórmula.",
+   "C": "Cuatro veces confundiría además con el cuadrado de la distancia."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q030": {
+  "idea": "Despeja la constante de la ley de Coulomb.",
+  "pasos": [
+   "$F = \\dfrac{1}{4\\pi\\varepsilon_0}\\dfrac{q_1q_2}{r^2} \\Rightarrow \\dfrac{1}{4\\pi\\varepsilon_0} = \\dfrac{Fr^2}{q_1q_2}$.",
+   "$= $ N·m²/C².",
+   "Su valor es $8{,}99\\times10^9$, que conviene recordar como $9\\times10^9$."
+  ],
+  "porque_fallan": {
+   "C": "$N^2m^2/C^2$ eleva el newton al cuadrado: la fuerza aparece una sola vez.",
+   "B": "N·m/C es un potencial multiplicado por algo, no la constante."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q031": {
+  "idea": "Módulo con la ley de Coulomb y sentido por los signos: opuestos se atraen.",
+  "pasos": [
+   "$F = 9\\times10^9\\dfrac{(5{,}0)(2{,}0)}{(10)^2} = 9\\times10^9\\dfrac{10}{100}$.",
+   "$= 9{,}0\\times10^8$ N.",
+   "Signos opuestos ⟹ atracción ⟹ hacia la carga negativa."
+  ],
+  "porque_fallan": {
+   "B": "El módulo bien pero el sentido al revés: cargas de distinto signo se atraen.",
+   "C": "$9{,}0\\times10^9$ olvida dividir por los 100 m² del denominador."
+  },
+  "confirma": "A"
+ },
+ "hrw-c21-q032": {
+  "idea": "Despeja $q$ de la ley de Coulomb con las dos cargas iguales.",
+  "pasos": [
+   "$4{,}0 = 9\\times10^9\\dfrac{q^2}{(2{,}0)^2} \\Rightarrow q^2 = \\dfrac{4{,}0(4{,}0)}{9\\times10^9}$.",
+   "$q^2 = 1{,}78\\times10^{-9}$.",
+   "$q = 4{,}2\\times10^{-5}$ C."
+  ],
+  "porque_fallan": {
+   "B": "$2{,}1\\times10^{-5}$ es la mitad: falta el 4 del $r^2$ en el numerador.",
+   "D": "$1{,}9\\times10^5$ invierte el signo del exponente."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q035": {
+  "idea": "Con cargas de **signo opuesto** las dos fuerzas nunca pueden cancelarse: donde son antiparalelas, sus módulos no coinciden.",
+  "pasos": [
+   "Entre las dos cargas, ambas fuerzas apuntan en el mismo sentido: se suman.",
+   "Fuera del segmento, apuntan en sentidos contrarios, pero la carga cercana siempre gana por el $1/r^2$.",
+   "Con módulos iguales, no hay punto de equilibrio a distancia finita."
+  ],
+  "porque_fallan": {
+   "A": "En el punto medio las dos fuerzas apuntan hacia el mismo lado: es donde el campo es **máximo**.",
+   "C": "Fuera del segmento, la más cercana domina siempre."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q036": {
+  "idea": "En el origen las distancias son $a$ y $2a$: la carga lejana necesita ser cuatro veces mayor para compensar el $1/r^2$.",
+  "pasos": [
+   "$\\dfrac{k|q_1|}{a^2} = \\dfrac{k|q_2|}{(2a)^2} = \\dfrac{k|q_2|}{4a^2}$.",
+   "$|q_2| = 4|q_1|$.",
+   "Están a lados opuestos del origen, así que con el **mismo signo** sus fuerzas ya se oponen: $q_2 = 4q_1$."
+  ],
+  "porque_fallan": {
+   "D": "$-4q_1$ pondría las dos fuerzas en el mismo sentido y se sumarían.",
+   "A": "$2q_1$ usa la razón de distancias sin elevarla al cuadrado."
+  },
+  "confirma": "B"
+ },
+ "hrw-c21-q037": {
+  "idea": "Con cargas **iguales** sí hay equilibrio, y está justo en el medio.",
+  "pasos": [
+   "Entre las dos, las fuerzas apuntan en sentidos opuestos.",
+   "Se igualan donde las distancias son iguales, porque las cargas lo son.",
+   "El punto medio. (Es un equilibrio inestable en la dirección de la línea.)"
+  ],
+  "porque_fallan": {
+   "C": "Fuera del segmento las dos fuerzas van en el mismo sentido: se suman.",
+   "E": "Sí existe: es el caso opuesto al de la 21.35, con las cargas del mismo signo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c21-q038": {
+  "idea": "Dos fuerzas perpendiculares de igual módulo: se componen como catetos, no se suman.",
+  "pasos": [
+   "De cada carga: $F = 9\\times10^9\\dfrac{(2\\times10^{-6})^2}{(2{,}0)^2} = 9{,}0\\times10^{-3}$ N.",
+   "Una a lo largo de $-x$ y otra de $-y$: perpendiculares.",
+   "$F_{total} = 9{,}0\\times10^{-3}\\sqrt2 = 1{,}3\\times10^{-2}$ N."
+  ],
+  "porque_fallan": {
+   "D": "$1{,}8\\times10^{-2}$ suma los módulos, como si fueran paralelas.",
+   "A": "$9{,}0\\times10^{-3}$ es la fuerza de **una sola** carga."
+  },
+  "confirma": "C"
+ },
+ "hrw-c21-q039": {
+  "idea": "Por simetría, cada trocito del anillo tiene su opuesto tirando al revés: todo se cancela.",
+  "pasos": [
+   "El centro equidista de todos los puntos del anillo.",
+   "A cada elemento $dQ$ le corresponde otro diametralmente opuesto, a la misma distancia.",
+   "Las fuerzas se anulan de dos en dos: resultante cero."
+  ],
+  "porque_fallan": {
+   "A": "Usar $R$ daría un número distinto de cero, y la simetría lo prohíbe.",
+   "C": "$2\\pi R$ es la longitud de la circunferencia, no una distancia al centro."
+  },
+  "confirma": "D"
+ },
+ "hrw-c21-q041": {
+  "idea": "Maximiza $F_x = kQq\\,\\dfrac{d}{(a^2+d^2)^{3/2}}$: cerca del origen la componente $x$ es pequeña, y lejos lo es la fuerza entera.",
+  "pasos": [
+   "$F_x \\propto \\dfrac{d}{(a^2+d^2)^{3/2}}$.",
+   "Derivando e igualando a cero: $(a^2+d^2) - 3d^2 = 0$.",
+   "$a^2 = 2d^2 \\Rightarrow d = a/\\sqrt2$."
+  ],
+  "porque_fallan": {
+   "A": "En $d=0$ la fuerza es puramente vertical: componente $x$ nula.",
+   "C": "$2a$ está pasado: la fuerza total ya ha caído demasiado."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q042": {
+  "idea": "Divide las dos fuerzas: el $r^2$ se cancela porque las dos van con el inverso del cuadrado.",
+  "pasos": [
+   "$F_E = kQq/r^2$; $F_G = GMm/r^2$.",
+   "$\\dfrac{F_E}{F_G} = \\dfrac{kQq}{GMm}$: sin $r$.",
+   "Para el hidrógeno el cociente vale unos $2\\times10^{39}$: la gravedad es irrelevante en el átomo."
+  ],
+  "porque_fallan": {
+   "A": "$kQq/GMmr^2$ deja un $r^2$ que se cancela: la razón no depende de la distancia.",
+   "D": "$GMm/kQq$ es el inverso, un número minúsculo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q043": {
+  "idea": "La atracción de Coulomb hace de fuerza centrípeta. Igualas y despejas $r$.",
+  "pasos": [
+   "$\\dfrac{kq^2}{r^2} = \\dfrac{mv^2}{r} \\Rightarrow r = \\dfrac{kq^2}{mv^2}$.",
+   "$kq^2 = 9\\times10^9(5\\times10^{-6})^2 = 0{,}225$.",
+   "$mv^2 = 0{,}020(49) = 0{,}98$. $r = 0{,}225/0{,}98 = 0{,}23$ m."
+  ],
+  "porque_fallan": {
+   "C": "0,62 m saldría de olvidar algún factor al cuadrado en la velocidad.",
+   "A": "Cero no tiene sentido: la órbita existe."
+  },
+  "confirma": "B"
+ },
+ "hrw-c21-q044": {
+  "idea": "Corteza esférica **aislante** con carga uniforme: el campo interior es cero en todas partes, y la carga no puede moverse para cambiarlo.",
+  "pasos": [
+   "Teorema de la cáscara (el mismo que en gravitación): dentro de una capa esférica uniforme, el campo es nulo.",
+   "El globo es un aislante: su carga se queda donde está aunque $q$ se acerque a la pared.",
+   "Fuerza cero en cualquier punto interior."
+  ],
+  "porque_fallan": {
+   "A": "Cerca de la pared, la parte cercana atrae más pero hay mucha más carga al otro lado: se compensa exactamente.",
+   "D": "«La misma y distinta de cero» es imposible: no hay ninguna dirección privilegiada en el centro."
+  },
+  "confirma": "E"
+ },
+ "hrw-c21-q045": {
+  "idea": "El mismo montaje pero con una corteza **conductora**, y ahí está toda la diferencia: su carga sí puede moverse, y $q$ la reordena.",
+  "pasos": [
+   "$q$ induce carga $-q$ en la superficie interior, concentrada en la zona más próxima a $q$.",
+   "Esa carga inducida atrae a $q$ hacia la pared: es la fuerza imagen.",
+   "Cuanto más cerca está de la pared, más concentrada queda la carga inducida y mayor es la fuerza.",
+   "(«Despreciar la polarización» aquí significa ignorar la respuesta dieléctrica del material; lo que sí actúa es la carga libre del conductor.)"
+  ],
+  "porque_fallan": {
+   "E": "Cero es la respuesta del **aislante** (la 21.44), donde la carga no puede reorganizarse.",
+   "B": "En el centro, por simetría, la fuerza es exactamente cero: es el mínimo, no el máximo."
+  },
+  "confirma": "A"
+ }
+}

@@ -205,6 +205,18 @@ POR_TARJETA = {
         ("enunciado", "a distance_{2} .", "a distance ℓ_{2}."),
         ("enunciado", "point if_{1} -_{2} is:", "point if ℓ_{1} - ℓ_{2} is:"),
     ],
+    # La esfera se llama B y el enunciado seguía en la línea siguiente con
+    # «B. As a result:». El lector lo tomó por la opción B y se comió su
+    # texto real, dejando la pregunta con cuatro opciones y un enunciado
+    # cortado a media frase.
+    "hrw-c21-q020": [
+        ("enunciado",
+         "contact with an uncharged metal sphere",
+         "contact with an uncharged metal sphere B. As a result:"),
+        ("A", "both spheres are positively charged B. A is positively charged and B is neutral",
+              "both spheres are positively charged"),
+        ("B", "As a result:", "A is positively charged and B is neutral"),
+    ],
     "hrw-c15-q048": [
         ("enunciado", "L, g, and a is: 0_{0}", "L, g, and a is:"),
         ("A", "2π L/g", "2π√(L/g)"),
