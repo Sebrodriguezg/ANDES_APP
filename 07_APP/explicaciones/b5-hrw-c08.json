@@ -1,0 +1,449 @@
+{
+ "hrw-c08-q001": {
+  "idea": "La marca de una fuerza conservativa es que en un camino cerrado no hace trabajo neto.",
+  "pasos": [
+   "$\\oint \\vec F\\cdot d\\vec r = 0$ define lo conservativo.",
+   "Equivale a decir que su trabajo depende solo de los extremos, no del camino.",
+   "El rozamiento falla: en un viaje de ida y vuelta resta las dos veces."
+  ],
+  "porque_fallan": {
+   "C": "La segunda ley la obedece cualquier fuerza.",
+   "E": "Hay fuerzas no conservativas que no son de rozamiento, como el empuje de un motor."
+  },
+  "confirma": "A"
+ },
+ "hrw-c08-q002": {
+  "idea": "Una fuerza no conservativa no viola ninguna ley: simplemente su trabajo depende del camino.",
+  "pasos": [
+   "Cumple la segunda y la tercera ley igual que cualquier otra.",
+   "Hace trabajo, y bastante: el rozamiento lo hace todo el rato.",
+   "Lo único que no cumple es la independencia del camino."
+  ],
+  "porque_fallan": {
+   "C": "El rozamiento es no conservativo y hace trabajo continuamente.",
+   "A": "Ninguna fuerza real viola la segunda ley."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q003": {
+  "idea": "La energía mecánica se conserva si las fuerzas no conservativas no hacen trabajo neto. Ninguna de las condiciones ofrecidas es la correcta.",
+  "pasos": [
+   "No basta con que no haya fuerzas externas: puede haber rozamiento interno.",
+   "Ni con que se muevan a lo largo de una recta.",
+   "La condición es sobre el **trabajo** de las no conservativas."
+  ],
+  "porque_fallan": {
+   "D": "«Siempre» es falso: el rozamiento destruye energía mecánica a diario.",
+   "A": "Una fuerza externa que no haga trabajo neto no rompe la conservación."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q004": {
+  "idea": "Definición operativa: el trabajo depende solo de los puntos inicial y final.",
+  "pasos": [
+   "Eso permite definir una energía potencial asociada.",
+   "Es equivalente a que el trabajo en un circuito cerrado sea cero."
+  ],
+  "porque_fallan": {
+   "A": "El trabajo neto **de todas** las fuerzas iguala el cambio de energía cinética, sea o no conservativa cada una.",
+   "E": "No serlo no basta: hay fuerzas no conservativas que no son de rozamiento."
+  },
+  "confirma": "D"
+ },
+ "hrw-c08-q005": {
+  "idea": "La energía potencial es función de la posición: si vuelven al punto de partida, su cambio es cero.",
+  "pasos": [
+   "$\\Delta U$ depende solo de las posiciones inicial y final, que coinciden.",
+   "La energía cinética sí puede haber cambiado, porque las fuerzas externas hicieron trabajo."
+  ],
+  "porque_fallan": {
+   "C": "La energía mecánica puede cambiar: las fuerzas externas aportan o quitan.",
+   "A": "La cinética total no tiene por qué volver a su valor."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q006": {
+  "idea": "Vuelven a las mismas posiciones, así que la potencial es la misma. Y la cinética bajó: falta energía mecánica.",
+  "pasos": [
+   "Misma posición implica misma energía potencial.",
+   "Las rapideces pasaron de 5 y 10 a 4 y 7: la cinética total disminuyó.",
+   "Luego la energía mecánica disminuyó, y hubo fuerzas no conservativas."
+  ],
+  "porque_fallan": {
+   "A": "La potencial no cambió: dependen solo de dónde están.",
+   "B": "La energía mecánica bajó, no subió."
+  },
+  "confirma": "C"
+ },
+ "hrw-c08-q007": {
+  "idea": "Energía cinética es energía de movimiento. El tornado es lo único de la lista que se mueve.",
+  "pasos": [
+   "El muelle enrollado, las pesas levantadas, la gasolina y la batería son todos energía **potencial** almacenada."
+  ],
+  "porque_fallan": {
+   "D": "La gasolina guarda energía química, que es potencial."
+  },
+  "confirma": "C"
+ },
+ "hrw-c08-q008": {
+  "idea": "Sin movimiento no hay energía cinética. El ascensor parado es el único quieto.",
+  "pasos": [
+   "Estrella fugaz, hélice girando, péndulo en el punto más bajo y ciclón: todos en movimiento.",
+   "El péndulo abajo es donde **más** cinética tiene."
+  ],
+  "porque_fallan": {
+   "C": "En el punto más bajo el péndulo va a su máxima rapidez."
+  },
+  "confirma": "D"
+ },
+ "hrw-c08-q009": {
+  "idea": "Un muelle enrollado y quieto guarda energía potencial elástica, sin movimiento.",
+  "pasos": [
+   "La deformación almacena energía potencial.",
+   "Al soltarse, se convertirá en cinética."
+  ],
+  "porque_fallan": {
+   "C": "Mientras esté quieto no hay cinética."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q010": {
+  "idea": "Un cuerpo en reposo puede hacer trabajo si puede moverse hacia donde su energía potencial **disminuye**.",
+  "pasos": [
+   "La energía potencial que se pierde es la que sale como trabajo.",
+   "Una piedra en lo alto puede trabajar al caer; en el suelo, no."
+  ],
+  "porque_fallan": {
+   "A": "Tener energía potencial no basta: hay que poder liberarla."
+  },
+  "confirma": "D"
+ },
+ "hrw-c08-q011": {
+  "idea": "Gramo por centímetro entre segundo al cuadrado es una **fuerza**, no una energía: le falta una distancia.",
+  "pasos": [
+   "$\\mathrm{g\\cdot cm/s^2}$ es la dina, unidad de fuerza en el sistema cgs.",
+   "Vatio·segundo, julio, kg·m²/s² y pie·libra sí son energía."
+  ],
+  "porque_fallan": {
+   "D": "$\\mathrm{kg\\cdot m^2/s^2}$ es exactamente el julio."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q012": {
+  "idea": "Energía es fuerza por distancia, y la distancia es velocidad por tiempo.",
+  "pasos": [
+   "$[E] = [F][L] = [F][V][T]$.",
+   "Comprueba: $\\mathrm{N \\cdot (m/s) \\cdot s = N\\cdot m}$. ✔"
+  ],
+  "porque_fallan": {
+   "C": "Divide por el tiempo: eso daría potencia entre algo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q014": {
+  "idea": "La energía potencial gravitatoria va con la altura, así que es máxima en el punto más alto de la trayectoria.",
+  "pasos": [
+   "La pelota sube por encima del green antes de caer.",
+   "En el punto más alto la cinética es mínima y la potencial máxima."
+  ],
+  "porque_fallan": {
+   "C": "Al aterrizar ya ha bajado desde el máximo.",
+   "A": "Antes del golpe está en el suelo, en el mínimo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q016": {
+  "idea": "Sin rozamiento, la cinética ganada es la potencial perdida: solo cuentan los 60 m caídos.",
+  "pasos": [
+   "$K = mgh = 6.0(9.8)(60)$.",
+   "$K = 3500$ J.",
+   "Los 80 m del enunciado son un distractor: aún no ha llegado abajo."
+  ],
+  "porque_fallan": {
+   "A": "Usa los 80 m completos, como si ya hubiera tocado el suelo.",
+   "C": "Usa los 20 m que le quedan."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q017": {
+  "idea": "El aumento de potencial da el **ascenso**, y la pregunta pide la altura sobre el suelo: hay que sumar los 20 m de partida.",
+  "pasos": [
+   "$\\Delta h = \\dfrac{\\Delta U}{mg} = \\dfrac{500}{2(9.8)} = 25.5$ m.",
+   "Altura final: $20 + 25.5 = 46$ m."
+  ],
+  "porque_fallan": {
+   "B": "Da el ascenso, olvidando sumar la altura inicial.",
+   "A": "Divide por una masa o gravedad equivocada."
+  },
+  "confirma": "C"
+ },
+ "hrw-c08-q018": {
+  "idea": "Subiendo a velocidad constante: la cinética no cambia, la aceleración es cero y la tensión es constante. Pero la **potencial sube**, así que la mecánica también.",
+  "pasos": [
+   "I ✔: sin aceleración, la tensión iguala al peso y es constante.",
+   "II ✔: rapidez constante.",
+   "IV ✔: aceleración cero.",
+   "III ✗ y V ✗: al subir, la potencial aumenta y con ella la energía mecánica."
+  ],
+  "porque_fallan": {
+   "A": "Daría por buenas la III y la V: si la potencial no cambiara, el ascensor no estaría subiendo.",
+   "D": "Incluye la III."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q019": {
+  "idea": "En el punto más alto solo queda la componente vertical de la velocidad convertida en altura.",
+  "pasos": [
+   "$v_y = 10\\sin60° = 8.66$ m/s.",
+   "$h = \\dfrac{v_y^2}{2g} = \\dfrac{75}{19.6} = 3.83$ m.",
+   "$U = mgh = 0.50(9.8)(3.83) = 18.75$ J."
+  ],
+  "porque_fallan": {
+   "A": "Usa la energía cinética inicial completa, olvidando que la componente horizontal se conserva.",
+   "C": "Usa la mitad de la velocidad."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q021": {
+  "idea": "Lo que se pierde de energía mecánica es exactamente el trabajo del rozamiento, y siempre resta.",
+  "pasos": [
+   "$f = \\mu mg\\cos25° = 0.25(2.2)(9.8)(0.906) = 4.88$ N.",
+   "$\\Delta E = -fd = -4.88(2.0) = -9.8$ J."
+  ],
+  "porque_fallan": {
+   "C": "Signo cambiado: el rozamiento nunca aumenta la energía mecánica.",
+   "A": "Con rozamiento la energía mecánica siempre cambia."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q024": {
+  "idea": "La fuerza es menos la derivada del potencial, así que el potencial es menos la integral de la fuerza.",
+  "pasos": [
+   "$U = -\\displaystyle\\int F\\,dx = -\\int 8x^3dx$.",
+   "$U = -2x^4$, tomando cero en el origen."
+  ],
+  "porque_fallan": {
+   "A": "Le falta el signo menos de la definición.",
+   "E": "Añade una constante que el enunciado fija en cero."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q025": {
+  "idea": "Conservación: la energía total se calcula donde se conoce todo, y se aplica donde haga falta.",
+  "pasos": [
+   "En $x = 1.0$: $U = 8 + 2 = 10$ J y $K = \\tfrac12(0.20)(25) = 2.5$ J.",
+   "$E = 12.5$ J, constante.",
+   "En $x = 0$ el potencial se anula, así que $K = 12.5$ J.",
+   "$v = \\sqrt{2(12.5)/0.20} = 11$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "Olvida sumar la energía potencial que se libera.",
+   "B": "Confunde energía con velocidad."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q027": {
+  "idea": "La fuerza da la compresión, y la compresión da la energía almacenada.",
+  "pasos": [
+   "$x = F/k = 10/20 = 0.50$ m.",
+   "$U = \\tfrac12kx^2 = \\tfrac12(20)(0.25) = 2.5$ J."
+  ],
+  "porque_fallan": {
+   "C": "Multiplica fuerza por desplazamiento sin el factor un medio: el muelle no ejerce fuerza constante.",
+   "A": "Confunde la compresión con la energía."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q028": {
+  "idea": "Toda la energía elástica pasa a cinética del perdigón.",
+  "pasos": [
+   "$U = \\tfrac12kx^2 = \\tfrac12(20)(0.070)^2$.",
+   "$= \\tfrac12(20)(4.9\\times10^{-3}) = 4.9\\times10^{-2}$ J.",
+   "La masa del perdigón no hace falta para la energía: solo para la velocidad."
+  ],
+  "porque_fallan": {
+   "D": "Olvida el factor un medio.",
+   "B": "Confunde centímetros con metros en algún paso."
+  },
+  "confirma": "C"
+ },
+ "hrw-c08-q029": {
+  "idea": "En la máxima elongación toda la energía es elástica: de ahí sale la amplitud.",
+  "pasos": [
+   "$E = \\tfrac12kA^2 \\Rightarrow A = \\sqrt{2E/k}$.",
+   "$A = \\sqrt{0.24/80} = 0.055$ m."
+  ],
+  "porque_fallan": {
+   "C": "Olvida el factor 2 al despejar.",
+   "E": "Divide al revés."
+  },
+  "confirma": "D"
+ },
+ "hrw-c08-q030": {
+  "idea": "En el equilibrio toda la energía es cinética: de ahí sale la rapidez máxima.",
+  "pasos": [
+   "$E = \\tfrac12mv_{max}^2 \\Rightarrow v_{max} = \\sqrt{2E/m}$.",
+   "$= \\sqrt{0.24/0.50} = 0.69$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "Olvida el factor 2.",
+   "A": "Confunde masa con constante elástica."
+  },
+  "confirma": "D"
+ },
+ "hrw-c08-q031": {
+  "idea": "Con un estado intermedio se calcula la energía total, y de ahí la rapidez máxima.",
+  "pasos": [
+   "En $x = 0.040$ m: $U = \\tfrac12(80)(0.0016) = 0.064$ J y $K = \\tfrac12(0.50)(0.25) = 0.063$ J.",
+   "$E = 0.127$ J.",
+   "$v_{max} = \\sqrt{2E/m} = \\sqrt{0.253/0.50} = 0.71$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "Usa solo la cinética de ese instante, olvidando la energía guardada en el muelle.",
+   "A": "Confunde la rapidez dada con la máxima."
+  },
+  "confirma": "D"
+ },
+ "hrw-c08-q032": {
+  "idea": "Toda la cinética pasa a elástica: $\\tfrac12mv^2 = \\tfrac12kx^2$.",
+  "pasos": [
+   "$x = v\\sqrt{m/k} = 2\\sqrt{0.5/800}$.",
+   "$= 2(0.025) = 0.05$ m, o sea 5 cm."
+  ],
+  "porque_fallan": {
+   "D": "Un factor de conversión mal aplicado entre metros y centímetros.",
+   "B": "Olvida la raíz o el factor un medio."
+  },
+  "confirma": "C"
+ },
+ "hrw-c08-q034": {
+  "idea": "La caída total son los 10 m **más** los 2 m que la red se estira: toda esa altura acaba en la red.",
+  "pasos": [
+   "$h = 10 + 2 = 12$ m.",
+   "$U_{red} = Wh = 700(12) = 8400$ J.",
+   "Olvidar los 2 m es el error que busca la pregunta."
+  ],
+  "porque_fallan": {
+   "D": "Usa solo los 10 m de la ventana a la red.",
+   "C": "Usa solo los 2 m del estiramiento."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q039": {
+  "idea": "La condición límite arriba del rizo es que el peso baste como centrípeta, y de ahí sale la altura de partida.",
+  "pasos": [
+   "Arriba: $mg = \\dfrac{mv^2}{R} \\Rightarrow v^2 = gR$.",
+   "Conservación desde la altura de partida hasta el tope del rizo: la energía sobrante es $\\tfrac12mv^2 = \\tfrac12mgR$.",
+   "Esa energía corresponde a una altura $R/2$ **por encima** del punto más alto del rizo.",
+   "Medido desde el suelo serían $2.5R$; medido desde el tope, $R/2$."
+  ],
+  "porque_fallan": {
+   "E": "Sin altura extra sobre el tope, la velocidad ahí sería cero y el objeto se despegaría.",
+   "D": "$2R$ es la altura del propio rizo, no el exceso necesario."
+  },
+  "confirma": "B"
+ },
+ "hrw-c08-q044": {
+  "idea": "Los puntos de retorno son donde toda la energía es potencial: se resuelve $U(x) = E$.",
+  "pasos": [
+   "$8x^2 + 2x^4 = 9.0$. Con $u = x^2$: $2u^2 + 8u - 9 = 0$.",
+   "$u = \\dfrac{-8+\\sqrt{64+72}}{4} = 0.92$.",
+   "$x = \\pm\\sqrt{0.92} = \\pm 0.96$ m."
+  ],
+  "porque_fallan": {
+   "B": "Resuelve la ecuación sin el término cuártico.",
+   "D": "Da un intervalo asimétrico, imposible en un potencial par."
+  },
+  "confirma": "A"
+ },
+ "hrw-c08-q045": {
+  "idea": "Primero la energía total con los datos de $x = 1.0$, y luego el punto donde el potencial la iguala.",
+  "pasos": [
+   "$E = U(1) + K = 10 + \\tfrac12(0.20)(25) = 12.5$ J.",
+   "$8x^2+2x^4 = 12.5$: con $u = x^2$, $2u^2+8u-12.5 = 0$.",
+   "$u = 1.20 \\Rightarrow x = 1.1$ m.",
+   "Va en el sentido positivo, así que se detiene en el punto de retorno de la derecha."
+  ],
+  "porque_fallan": {
+   "B": "Da el punto de retorno del otro lado, pero la partícula va hacia $+x$.",
+   "E": "Resuelve con una energía equivocada."
+  },
+  "confirma": "C"
+ },
+ "hrw-c08-q052": {
+  "idea": "La fuerza es menos la derivada del potencial. Hay que derivar los dos términos y cambiar el signo.",
+  "pasos": [
+   "$U = -mgx + \\tfrac12kx^2$.",
+   "$\\dfrac{dU}{dx} = -mg + kx$.",
+   "$F = -\\dfrac{dU}{dx} = mg - kx$."
+  ],
+  "porque_fallan": {
+   "D": "Olvida cambiar el signo: eso es la derivada, no la fuerza.",
+   "A": "Integra en vez de derivar."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q055": {
+  "idea": "La energía térmica es la energía del movimiento **desordenado** de las partículas individuales, no del movimiento del cuerpo entero.",
+  "pasos": [
+   "La pelota como conjunto tiene energía cinética macroscópica: eso no es térmica.",
+   "Lo térmico es la agitación de las moléculas del aire y de la propia pelota."
+  ],
+  "porque_fallan": {
+   "B": "La energía cinética de la pelota es mecánica, no térmica.",
+   "A": "La interacción gravitatoria da energía potencial."
+  },
+  "confirma": "D"
+ },
+ "hrw-c08-q057": {
+  "idea": "Lo que se conserva siempre es el **total**: cinética de los dos, potencial e interna.",
+  "pasos": [
+   "Las fuerzas no conservativas convierten mecánica en interna, pero no destruyen energía.",
+   "$K_A + K_B + U + E_{int}$ es constante para un sistema aislado."
+  ],
+  "porque_fallan": {
+   "D": "Deja fuera la interna: eso solo se conserva si todas las fuerzas son conservativas.",
+   "A": "Además olvida la cinética de B."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q058": {
+  "idea": "El rozamiento convierte cinética en energía interna. La potencial no interviene en una mesa horizontal.",
+  "pasos": [
+   "El bloque frena: pierde cinética.",
+   "Esa energía calienta el bloque y la mesa: sube la interna.",
+   "La altura no cambia, así que la potencial gravitatoria se queda igual."
+  ],
+  "porque_fallan": {
+   "A": "La energía no desaparece: reaparece como interna.",
+   "D": "La potencial no cambia en una superficie horizontal."
+  },
+  "confirma": "E"
+ },
+ "hrw-c08-q059": {
+  "idea": "La potencial perdida se reparte entre cinética y energía interna. Hay que restar lo que se llevó el aire.",
+  "pasos": [
+   "$U = mgh = 0.025(9.8)(80) = 19.6$ J.",
+   "$K = 19.6 - 15 = 4.6$ J.",
+   "$v = \\sqrt{2(4.6)/0.025} = 19$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "Olvida restar los 15 J: sería la caída libre ideal, unos 40 m/s.",
+   "E": "Suma en vez de restar."
+  },
+  "confirma": "A"
+ },
+ "hrw-c08-q060": {
+  "idea": "Vuelve al mismo nivel, así que la potencial no cambia: toda la energía mecánica perdida se fue en calentar el aire.",
+  "pasos": [
+   "$\\Delta K = \\tfrac12(5)(150^2-200^2) = \\tfrac12(5)(-17500) = -43\\,750$ J.",
+   "$\\Delta U = 0$ porque sale y llega al mismo nivel.",
+   "La interna **aumenta** en 44 000 J: la energía no se pierde, cambia de forma."
+  ],
+  "porque_fallan": {
+   "D": "Signo cambiado: la interna sube cuando la mecánica baja.",
+   "E": "Si no cambiara, la bala llegaría con los mismos 200 m/s."
+  },
+  "confirma": "C"
+ }
+}

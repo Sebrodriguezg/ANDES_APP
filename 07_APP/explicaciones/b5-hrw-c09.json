@@ -1,0 +1,880 @@
+{
+ "hrw-c09-q001": {
+  "idea": "Las cuatro afirmaciones son falsas, y cada una por un motivo distinto que conviene tener claro.",
+  "pasos": [
+   "El centro de masa puede caer **fuera** del cuerpo: el de un anillo o una herradura está en el aire.",
+   "«Toda la masa concentrada ahí» es una ficción de cálculo, no un hecho físico.",
+   "Con fuerza neta cero el centro de masa no *acelera*, pero puede ir moviéndose a velocidad constante.",
+   "Un cilindro **no uniforme** tiene el centro de masa fuera del eje."
+  ],
+  "porque_fallan": {
+   "A": "Anillo, herradura, bumerán: el centro de masa está en el hueco.",
+   "C": "Fuerza neta cero implica aceleración cero, no reposo.",
+   "D": "Solo si el cilindro es uniforme."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q003": {
+  "idea": "Por simetría, el centro de masa de un disco uniforme está en su centro geométrico.",
+  "pasos": [
+   "Para cada trozo de masa hay otro idéntico diametralmente opuesto.",
+   "Las contribuciones se cancelan de dos en dos.",
+   "$x_{cm}=y_{cm}=0$: el centro."
+  ],
+  "porque_fallan": {
+   "B": "$R/2$ es el centro de masa de un **semidisco**… y ni siquiera: ese vale $4R/3\\pi$.",
+   "C": "$R/3$ es la altura del centro de masa de un triángulo, no de un disco."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q004": {
+  "idea": "El centro de masa se va hacia donde está la masa, y el Sol tiene el 99,8 % de la del sistema solar.",
+  "pasos": [
+   "$M_{Sol}\\approx 2\\times10^{30}$ kg frente a $6\\times10^{24}$ de la Tierra.",
+   "El Sol pesa unas 300 000 veces más que la Tierra y tres millones de veces más que Marte.",
+   "El centro de masa cae prácticamente dentro del Sol."
+  ],
+  "porque_fallan": {
+   "D": "El centro geométrico ignora la masa, que es justo lo que manda aquí.",
+   "A": "La Tierra es masa despreciable frente al Sol."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q005": {
+  "idea": "La atmósfera es una cáscara casi esférica, y el centro de masa de una cáscara está en su centro.",
+  "pasos": [
+   "La capa de aire rodea la Tierra por completo y con simetría casi perfecta.",
+   "Cada porción de aire tiene su opuesta al otro lado del planeta.",
+   "Todo se cancela salvo el centro: el centro de la Tierra."
+  ],
+  "porque_fallan": {
+   "B": "«Cerca de la superficie» sería cierto si la atmósfera fuera un solo casquete, no una envoltura.",
+   "A": "Confunde dónde está el aire con dónde está el centro de masa del conjunto."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q008": {
+  "idea": "$v_{cm}=\\sum m_i v_i / \\sum m_i$, con los signos del eje.",
+  "pasos": [
+   "Tomo positivo el sentido de A: $v_A=+2{,}0$, $v_B=-3{,}0$ m/s.",
+   "$v_{cm}=\\dfrac{4(2{,}0)+8(-3{,}0)}{12}=\\dfrac{8-24}{12}=-1{,}33$ m/s.",
+   "El signo negativo dice que va en el sentido de **B**."
+  ],
+  "porque_fallan": {
+   "A": "El módulo está bien pero el sentido al revés: B tiene el doble de masa y va más rápido, gana.",
+   "C": "2,7 m/s sale de promediar velocidades sin pesar por la masa."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q009": {
+  "idea": "Sitúo cada pelota a los 2,0 s con cinemática y luego promedio pesando por la masa.",
+  "pasos": [
+   "Pelota 1 (0,50 kg): $y=25-\\tfrac12(9{,}8)(2)^2=25-19{,}6=5{,}4$ m.",
+   "Pelota 2 (0,25 kg): $y=15(2)-19{,}6=30-19{,}6=10{,}4$ m.",
+   "$y_{cm}=\\dfrac{0{,}50(5{,}4)+0{,}25(10{,}4)}{0{,}75}=\\dfrac{2{,}70+2{,}60}{0{,}75}=7{,}1$ m."
+  ],
+  "porque_fallan": {
+   "E": "10,4 m es la altura de la segunda pelota sola, sin promediar.",
+   "C": "5,0 m se parece a la de la primera pelota, tampoco es el promedio."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q010": {
+  "idea": "Misma media pesada, pero con velocidades. Ambas están en caída libre, así que ambas han restado $gt$.",
+  "pasos": [
+   "$v_1=0-9{,}8(2)=-19{,}6$ m/s; $v_2=15-19{,}6=-4{,}6$ m/s.",
+   "$v_{cm}=\\dfrac{0{,}50(-19{,}6)+0{,}25(-4{,}6)}{0{,}75}=\\dfrac{-9{,}80-1{,}15}{0{,}75}=-14{,}6$ m/s.",
+   "Unos 15 m/s **hacia abajo**."
+  ],
+  "porque_fallan": {
+   "D": "El módulo correcto pero hacia arriba: a los 2 s la segunda pelota ya está bajando también.",
+   "A": "11 m/s sale de promediar sin pesar por la masa."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q011": {
+  "idea": "La única fuerza externa sobre el sistema es la gravedad, y actúa sobre toda la masa.",
+  "pasos": [
+   "$M a_{cm}=F_{ext}=Mg$ hacia abajo.",
+   "La masa se cancela: $a_{cm}=g$.",
+   "No importa cómo se reparta entre las dos pelotas: las dos caen con $g$, luego el centro de masa también."
+  ],
+  "porque_fallan": {
+   "C": "0,75g mezcla la masa total con algo; la masa se cancela siempre.",
+   "E": "$g/0{,}75$ es dividir por la masa total sin haber multiplicado antes."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q012": {
+  "idea": "En la máquina de Atwood el centro de masa **acelera**, pero no con $g$: el techo sostiene parte del peso.",
+  "pasos": [
+   "El bloque pesado baja acelerando y el ligero sube: el centro de masa baja acelerando.",
+   "Luego ni está en reposo (A), ni su velocidad es constante (C).",
+   "La fuerza externa neta no es cero (B): hay tensión del techo además del peso.",
+   "Y precisamente por esa tensión $a_{cm}<g$ (D)."
+  ],
+  "porque_fallan": {
+   "D": "Solo valdría si la polea no sostuviera nada; hay tensión externa.",
+   "B": "El techo tira hacia arriba: fuerza externa distinta de cero."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q013": {
+  "idea": "El muelle es una fuerza **interna**: el centro de masa sigue el mismo parabólico que si nada hubiera explotado.",
+  "pasos": [
+   "Desde el punto más alto, el centro de masa arranca con velocidad vertical nula.",
+   "Cae en caída libre: $\\Delta y=\\tfrac12 g t^2 = \\tfrac12(9{,}8)(2{,}0)^2$.",
+   "$\\Delta y = 19{,}6 \\approx 20$ m por debajo del punto más alto."
+  ],
+  "porque_fallan": {
+   "D": "Justamente **no** hacen falta: la fuerza interna no cambia el movimiento del centro de masa.",
+   "C": "31 m es la **altura** del punto más alto, $(35\\sin45°)^2/2g$, no la caída en 2 s."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q014": {
+  "idea": "$M\\vec a_{cm}=\\vec F_{ext,neta}$. Velocidad constante ⟺ fuerza externa neta cero.",
+  "pasos": [
+   "Las fuerzas internas se cancelan de par en par por la tercera ley: nunca importan.",
+   "Lo único que puede acelerar el centro de masa es lo externo.",
+   "Si la suma de las externas es cero, $\\vec v_{cm}$ no cambia."
+  ],
+  "porque_fallan": {
+   "A": "Las internas suman cero **siempre**, así que no es condición de nada.",
+   "C": "Que empiece en reposo no impide que empiece a acelerar."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q015": {
+  "idea": "Quedarse quieto pide dos cosas: no acelerar y no llevar velocidad inicial.",
+  "pasos": [
+   "Externas nulas ⟹ $\\vec v_{cm}$ constante.",
+   "Y si además esa constante era cero, el centro de masa no se mueve.",
+   "Las dos condiciones juntas, no una sola."
+  ],
+  "porque_fallan": {
+   "B": "Las internas suman cero siempre; eso no garantiza nada.",
+   "C": "El rozamiento estático es interno o externo según el sistema, pero la condición correcta es sobre la suma de externas."
+  },
+  "confirma": "A"
+ },
+ "hrw-c09-q016": {
+  "idea": "Sin fuerzas horizontales externas, el centro de masa del conjunto hombre + canoa no se mueve: ni se desplaza ni acaba con velocidad.",
+  "pasos": [
+   "El hombre avanza hacia la proa, luego la canoa retrocede para compensar.",
+   "El desplazamiento de la canoa queda hacia atrás respecto de su posición original.",
+   "Cuando él se sienta, todo el sistema vuelve a estar en reposo: la canoa **no** se está moviendo."
+  ],
+  "porque_fallan": {
+   "D": "Acierta el desplazamiento pero deja la canoa en movimiento; al final del proceso todo está parado.",
+   "A": "El sentido es el contrario: el hombre va hacia delante, la canoa hacia atrás."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q017": {
+  "idea": "Se encuentran en el centro de masa, y cada uno recorre una distancia inversamente proporcional a su masa.",
+  "pasos": [
+   "Los pesos valen como masas para la proporción: 640 y 3200 N, total 3840 N.",
+   "El oso recorre $d_{oso}=20\\cdot\\dfrac{640}{3840}$.",
+   "$=20/6=3{,}3$ m."
+  ],
+  "porque_fallan": {
+   "E": "17 m es lo que recorre el **cazador**, que es el ligero.",
+   "C": "10 m sería el punto medio, y solo valdría si pesaran igual."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q018": {
+  "idea": "Mismo reparto inverso a la masa: el pesado se mueve menos.",
+  "pasos": [
+   "Masa total 100 kg, longitud 10 m.",
+   "$d_{60}=10\\cdot\\dfrac{40}{100}=4$ m.",
+   "(El de 40 kg recorre 6 m, y $4+6=10$ ✔)."
+  ],
+  "porque_fallan": {
+   "C": "6 m es lo del chico de 40 kg: el reparto es inverso, no directo.",
+   "E": "Las fuerzas internas son irrelevantes: el centro de masa no se mueve pase lo que pase."
+  },
+  "confirma": "A"
+ },
+ "hrw-c09-q019": {
+  "idea": "La segunda ley del centro de masa usa la fuerza **externa** neta y la masa **total**.",
+  "pasos": [
+   "$\\vec F_{ext,neta}=M\\vec a_{cm}$.",
+   "Las internas se cancelan por la tercera ley y desaparecen de la ecuación.",
+   "$M$ es la suma de todas las masas del sistema."
+  ],
+  "porque_fallan": {
+   "A": "Las internas suman cero: no pueden ser las que aparecen ahí.",
+   "E": "La gravedad es un caso particular, no la ley general."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q021": {
+  "idea": "Si el sistema arrancó en reposo, su momento total es cero para siempre. Basta comprobar si lo es.",
+  "pasos": [
+   "$p = 2{,}0(+0{,}50) + 4{,}0(-0{,}30) = 1{,}0 - 1{,}2 = -0{,}2$ kg·m/s.",
+   "No es cero, y las únicas externas (peso y normal) son verticales: el momento horizontal se conserva.",
+   "Luego tampoco era cero al principio: alguna masa estaba en movimiento."
+  ],
+  "porque_fallan": {
+   "C": "Es justo lo contrario de lo que dice el cálculo.",
+   "A": "El estado del muelle no se puede deducir de las velocidades en un solo instante."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q022": {
+  "idea": "Toda la energía del muelle debería aparecer como cinética. Lo que falte es lo perdido.",
+  "pasos": [
+   "Energía inicial: $\\tfrac12 k x^2=\\tfrac12(100)(0{,}10)^2=0{,}50$ J.",
+   "Partieron del reposo, así que $p=0$: $2{,}0(0{,}36)=4{,}0\\,v_2 \\Rightarrow v_2=0{,}18$ m/s.",
+   "$K=\\tfrac12(2{,}0)(0{,}36)^2+\\tfrac12(4{,}0)(0{,}18)^2=0{,}130+0{,}065=0{,}194$ J.",
+   "Perdida $=0{,}50-0{,}194=0{,}31$ J."
+  ],
+  "porque_fallan": {
+   "A": "El enunciado ya insinúa que hay pérdida al preguntar por ella; y los números no cuadran sin ella.",
+   "D": "0,81 J supera la energía disponible: imposible perder más de lo que había."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q023": {
+  "idea": "$p=mv$ tiene unidades kg·m/s, y por el teorema del impulso eso es exactamente N·s.",
+  "pasos": [
+   "$1\\ \\text{N}\\cdot\\text{s} = 1\\ \\frac{\\text{kg·m}}{\\text{s}^2}\\cdot\\text{s} = 1\\ \\frac{\\text{kg·m}}{\\text{s}}$. ✔",
+   "Es el mismo contenido del impulso: $J=\\Delta p$.",
+   "Las demás no tienen esas dimensiones."
+  ],
+  "porque_fallan": {
+   "B": "gramo·s no tiene la longitud por ninguna parte.",
+   "E": "N/s son newton por segundo: es la variación de una fuerza, no un momento."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q024": {
+  "idea": "$\\vec p = m\\vec v$: solo entran masa y velocidad.",
+  "pasos": [
+   "La inercia **es** la masa: sí influye.",
+   "Rapidez y velocidad son el módulo y el vector: sí influyen.",
+   "La aceleración dice cómo *cambia* el momento, no cuánto vale ahora."
+  ],
+  "porque_fallan": {
+   "A": "Inercia y masa son lo mismo.",
+   "C": "La rapidez es el módulo de la velocidad, y ahí está."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q025": {
+  "idea": "Con $K$ fija, $p=\\sqrt{2mK}$: el momento va como la raíz de la masa.",
+  "pasos": [
+   "$K=p^2/2m \\Rightarrow p=\\sqrt{2mK}$.",
+   "$\\dfrac{p_A}{p_B}=\\sqrt{\\dfrac{m_A}{m_B}}=\\sqrt{9}=3$.",
+   "Razón 3:1."
+  ],
+  "porque_fallan": {
+   "E": "9:1 es la razón de masas; el momento va con la raíz.",
+   "B": "1:3 invierte el sentido: más masa con la misma energía significa **más** momento."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q026": {
+  "idea": "Con $p$ fija, $K=p^2/2m$: gana energía el **ligero**, y el ligero es el rápido.",
+  "pasos": [
+   "Mismo $p$ y $K$ mayor exige $m$ menor.",
+   "Y con $p=mv$ fijo, menos masa significa más velocidad.",
+   "Luego Q se mueve más rápido que P."
+  ],
+  "porque_fallan": {
+   "A": "Más peso con el mismo momento significa **menos** energía cinética.",
+   "C": "Si pesaran igual y tuvieran el mismo momento, tendrían la misma energía."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q028": {
+  "idea": "El momento es vectorial: al rebotar cambia de signo, y los cambios se **suman**.",
+  "pasos": [
+   "Positivo alejándose de la pared: $p_i=-2{,}0$, $p_f=+1{,}5$ (por kg de masa, $m=1{,}0$).",
+   "$\\Delta p = 1{,}5-(-2{,}0)=3{,}5$ kg·m/s.",
+   "Sentido: alejándose de la pared."
+  ],
+  "porque_fallan": {
+   "B": "0,5 sale de restar los módulos, olvidando que la velocidad cambia de signo. Es el fallo clásico.",
+   "E": "El módulo bien, el sentido al revés: la pared empuja hacia fuera."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q029": {
+  "idea": "$d\\vec p/dt=\\vec F_{ext,neta}$. Si el momento cambia, hay fuerza externa. Y punto.",
+  "pasos": [
+   "Las internas no pueden cambiar el momento total: se cancelan por pares.",
+   "Luego el cambio solo puede venir de fuera.",
+   "No hace falta que sea la gravedad ni nada concreto: cualquier externa vale."
+  ],
+  "porque_fallan": {
+   "A": "Las fuerzas internas existen casi siempre y no cambian el momento total.",
+   "C": "Si el momento cambia, la velocidad del centro de masa **no** es constante."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q030": {
+  "idea": "El coche es el sistema; lo que lo acelera tiene que ser externo, y lo único horizontal de fuera es el rozamiento de la carretera sobre las ruedas.",
+  "pasos": [
+   "Motor, transmisión, pie: todo interno. No pueden acelerar el conjunto.",
+   "Las ruedas empujan la carretera hacia atrás; la carretera empuja el coche hacia delante.",
+   "Ese rozamiento estático es la fuerza externa que acelera."
+  ],
+  "porque_fallan": {
+   "C": "El motor es interno al coche: no puede mover el centro de masa.",
+   "D": "La normal es vertical y no acelera horizontalmente."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q031": {
+  "idea": "En caída libre el peso es constante, así que el impulso es simplemente $mgt$.",
+  "pasos": [
+   "$v = gt = 9{,}8(4{,}0)=39{,}2$ m/s.",
+   "$p = mv = 2{,}5(39{,}2)=98$ kg·m/s.",
+   "(Igual: $p=mgt=2{,}5(9{,}8)(4{,}0)$.)"
+  ],
+  "porque_fallan": {
+   "C": "39 es la **velocidad**, no el momento: falta multiplicar por 2,5 kg.",
+   "D": "24 sale de multiplicar $mg$ por algo que no es el tiempo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c09-q032": {
+  "idea": "Momento total cero antes y después: los momentos son iguales y opuestos.",
+  "pasos": [
+   "$64(0{,}0017) = 0{,}109$ kg·m/s hacia delante para ella.",
+   "La piedra lleva ese mismo módulo hacia atrás: $v = 0{,}109/0{,}10 = 1{,}1$ m/s.",
+   "Sentido contrario al de ella."
+  ],
+  "porque_fallan": {
+   "A": "El módulo bien pero hacia delante: si los dos van hacia delante el momento total no sería cero.",
+   "D": "0,0017 m/s es la velocidad de **ella**; la piedra es 640 veces más ligera y va mucho más rápido."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q033": {
+  "idea": "El mismo retroceso, con los pesos convertidos a masas (o dejados como pesos: la razón es la misma).",
+  "pasos": [
+   "$m_{hombre}v_{hombre}=m_{zapato}v_{zapato}$.",
+   "Con pesos: $720\\,v = 4{,}0(15) = 60$.",
+   "$v = 60/720 = 8{,}3\\times10^{-2}$ m/s."
+  ],
+  "porque_fallan": {
+   "D": "15 m/s es la del zapato; el hombre pesa 180 veces más.",
+   "E": "$2{,}7\\times10^3$ sale de dividir al revés."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q034": {
+  "idea": "Partían en reposo: los momentos finales son iguales y opuestos.",
+  "pasos": [
+   "$120\\,v_A = 90(0{,}5) = 45$ kg·m/s.",
+   "$v_A = 45/120 = 0{,}375$ m/s.",
+   "≈ 0,38 m/s, en sentido opuesto a B."
+  ],
+  "porque_fallan": {
+   "C": "0,5 m/s sería si tuvieran la misma masa; A es más pesado y sale más lento.",
+   "D": "0,67 es dividir al revés (120/90 en vez de 90/120)."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q035": {
+  "idea": "La explosión es interna: no puede cambiar el momento total, por muy violenta que sea.",
+  "pasos": [
+   "Las fuerzas de la explosión son internas al proyectil.",
+   "El único externo, la gravedad, actúa durante un instante despreciable.",
+   "Justo después, el momento total es el mismo de justo antes."
+  ],
+  "porque_fallan": {
+   "B": "Sí aumenta la energía cinética, pero el momento no «se convierte» en energía: son magnitudes distintas.",
+   "D": "Ninguna fuerza interna puede aumentar el momento total."
+  },
+  "confirma": "A"
+ },
+ "hrw-c09-q036": {
+  "idea": "Momento total cero: $Mv_{rifle}+mv=0$.",
+  "pasos": [
+   "El rifle parte en reposo y está libre de retroceder.",
+   "$v_{rifle} = -mv/M$.",
+   "El signo negativo es el retroceso."
+  ],
+  "porque_fallan": {
+   "B": "$-Mv/m$ invierte las masas: el rifle es el pesado, retrocede **lento**.",
+   "A": "$-mv$ es un momento, no una velocidad; ni siquiera tiene las unidades."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q037": {
+  "idea": "Por la tercera ley, el momento que recibe el arma es el mismo que se lleva su bala. La masa del arma no entra.",
+  "pasos": [
+   "$p_{arma} = p_{bala} = m_{bala}v$ en módulo.",
+   "Misma $v$, bala 1 con el doble de masa ⟹ el doble de momento.",
+   "Razón 2:1. El «tres veces más pesada» del arma es un distractor."
+  ],
+  "porque_fallan": {
+   "D": "3:1 usa la masa de las **armas**, que no interviene en el momento impartido.",
+   "E": "6:1 multiplica ambos factores; solo cuenta la bala."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q040": {
+  "idea": "En un choque el centro de masa no se entera: su velocidad es la misma antes y después.",
+  "pasos": [
+   "B se aleja de A, luego lleva signo contrario: $v_B=-2{,}0$ m/s.",
+   "$v_{cm}=\\dfrac{0{,}20(3{,}0)+0{,}40(-2{,}0)}{0{,}60}=\\dfrac{0{,}60-0{,}80}{0{,}60}=-0{,}33$ m/s.",
+   "Rapidez 0,33 m/s, y sigue valiendo tras el choque."
+  ],
+  "porque_fallan": {
+   "A": "Sería cero solo si los momentos se cancelaran exactamente; aquí no.",
+   "E": "5,0 m/s es la velocidad **relativa** de acercamiento, no la del centro de masa."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q042": {
+  "idea": "La arena se marcha llevándose exactamente la velocidad que tenía: no empuja el carro en ningún sentido.",
+  "pasos": [
+   "A diferencia de un cohete, la arena no sale **expulsada** con velocidad relativa.",
+   "Sale con velocidad relativa cero respecto del carro: no hay empuje.",
+   "Sin fuerzas horizontales, $a=0$; el carro sigue igual, solo más ligero."
+  ],
+  "porque_fallan": {
+   "B": "El agujero está detrás, pero la arena no se impulsa: solo se cae.",
+   "C": "No hay ninguna fuerza horizontal, ni constante ni variable."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q043": {
+  "idea": "El empuje es la reacción del combustible expulsado sobre el cohete: $T=R\\,v_{rel}$.",
+  "pasos": [
+   "El cohete empuja el gas hacia atrás.",
+   "Por la tercera ley, el gas empuja el cohete hacia delante.",
+   "Funciona en el vacío: no necesita nada contra lo que apoyarse."
+  ],
+  "porque_fallan": {
+   "A": "No es gravitatoria: los cohetes funcionan en el espacio profundo.",
+   "D": "No hace falta atmósfera; la idea de «empujar contra el aire» es un mito."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q044": {
+  "idea": "$T=R\\,v_{rel}$. La velocidad del cohete respecto de fuera **no** entra.",
+  "pasos": [
+   "$R = 100$ kg/s, $v_{rel}=1500$ m/s.",
+   "$T = 100(1500) = 1{,}5\\times10^5$ N.",
+   "Los 2500 m/s son un distractor: solo cuenta la velocidad relativa del escape."
+  ],
+  "porque_fallan": {
+   "E": "$2{,}5\\times10^5$ usa los 2500 m/s, que es la velocidad del cohete respecto del exterior.",
+   "D": "$2{,}9\\times10^5$ suma las dos velocidades; no se suman."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q045": {
+  "idea": "Ecuación de Tsiolkovski: $\\Delta v = v_{rel}\\ln(M_i/M_f)$.",
+  "pasos": [
+   "Si el 80 % era combustible, queda el 20 %: $M_i/M_f = 1/0{,}20 = 5$.",
+   "$\\Delta v = 1500\\ln 5 = 1500(1{,}609)$.",
+   "$= 2414 \\approx 2400$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "1200 m/s sería $0{,}8\\times1500$: la relación no es proporcional, es logarítmica.",
+   "A": "3600 m/s pasa de largo; $\\ln 5$ vale 1,6, no 2,4."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q047": {
+  "idea": "El teorema del impulso lo dice literalmente: $\\vec J = \\Delta\\vec p$.",
+  "pasos": [
+   "$J = \\int F\\,dt$, dimensiones N·s.",
+   "N·s $=$ kg·m/s $=$ dimensiones de momento.",
+   "Son la misma magnitud dimensional."
+  ],
+  "porque_fallan": {
+   "C": "Energía es N·m, no N·s: sobra un metro y falta un segundo.",
+   "A": "Fuerza es N a secas; el impulso es fuerza **por tiempo**."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q048": {
+  "idea": "El momento se conserva cuando el impulso externo neto es cero, sea el choque como sea.",
+  "pasos": [
+   "Elástico o inelástico da igual: eso afecta a la energía, no al momento.",
+   "Lo que importa es que las externas no metan impulso durante el choque.",
+   "En la práctica: choque breve y externas pequeñas frente a las de contacto."
+  ],
+  "porque_fallan": {
+   "A": "«Sin cambio en la energía cinética» es la definición de elástico, y el momento se conserva también en los inelásticos.",
+   "E": "Misma confusión: la elasticidad es irrelevante para el momento."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q049": {
+  "idea": "Tercera ley de Newton, sin más. Las fuerzas mutuas son iguales y opuestas durante el mismo tiempo.",
+  "pasos": [
+   "$\\vec F_{XY} = -\\vec F_{YX}$ en todo instante.",
+   "Actúan durante el mismo intervalo, luego $\\vec J_{XY} = -\\vec J_{YX}$.",
+   "Mismos módulos. Las masas y velocidades son puro decorado."
+  ],
+  "porque_fallan": {
+   "B": "La masa doble de Y no divide el impulso: divide el **cambio de velocidad**.",
+   "A": "Sería cierto para el cambio de velocidad de X frente al de Y, no para el impulso."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q050": {
+  "idea": "$J = F\\Delta t = \\Delta p$. Fuerzas iguales durante tiempos iguales dan momentos iguales.",
+  "pasos": [
+   "Ambos parten del reposo: $p_f = J = F\\Delta t$, el mismo para los dos.",
+   "El ligero acaba más rápido y con más energía cinética, pero con el mismo momento.",
+   "Confundir «más rápido» con «más momento» es el error típico."
+  ],
+  "porque_fallan": {
+   "A": "El ligero sí lleva más velocidad, pero la pregunta compara el momento.",
+   "D": "El momento es igual, no mayor."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q051": {
+  "idea": "Otra vez el rebote: las velocidades tienen signos opuestos y los módulos se suman.",
+  "pasos": [
+   "Positivo hacia arriba: $v_i = -30$, $v_f = +20$ m/s.",
+   "$J = m\\Delta v = 0{,}2(20-(-30)) = 0{,}2(50) = 10$ N·s.",
+   "Hacia arriba."
+  ],
+  "porque_fallan": {
+   "C": "2,0 N·s sale de restar los módulos (30 − 20) en lugar de sumarlos.",
+   "B": "El módulo bien, el sentido al revés: la acera empuja hacia arriba."
+  },
+  "confirma": "A"
+ },
+ "hrw-c09-q052": {
+  "idea": "Calcula el impulso primero, que es lo directo, y descarta con él.",
+  "pasos": [
+   "$J = F\\Delta t = 1{,}0(1{,}0) = 1{,}0$ kg·m/s. Ese es el momento adquirido. ✔",
+   "Comprobando el resto: $v = p/m = 0{,}1$ m/s (no 1 m/s).",
+   "$x = \\tfrac12 at^2 = \\tfrac12(0{,}1)(1) = 5$ cm (no 10).",
+   "$K = p^2/2m = 1/20 = 0{,}05$ J."
+  ],
+  "porque_fallan": {
+   "A": "1 m/s olvida dividir por los 10 kg.",
+   "B": "10 cm sale de olvidar el factor ½."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q054": {
+  "idea": "Impulso y cambio de momento son la misma cosa: el número es idéntico.",
+  "pasos": [
+   "$J = \\Delta p = +50$ kg·m/s $= +50$ N·s.",
+   "La masa de 2,0 kg no interviene: solo haría falta para la velocidad.",
+   "Es una pregunta de definición disfrazada de cálculo."
+  ],
+  "porque_fallan": {
+   "A": "+25 divide por la masa; eso da el cambio de **velocidad**, no el impulso.",
+   "E": "+100 multiplica por la masa, que ya está dentro del momento."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q055": {
+  "idea": "El airbag no cambia el impulso, cambia el **tiempo**: mismo $\\Delta p$ repartido en más segundos es menos fuerza.",
+  "pasos": [
+   "La cabeza tiene que pasar de $v$ a 0 en los dos casos: $\\Delta p$ idéntico.",
+   "Luego el impulso también es idéntico.",
+   "$F_{med} = \\Delta p/\\Delta t$: alargando $\\Delta t$ baja $F$. El parabrisas frena en milisegundos."
+  ],
+  "porque_fallan": {
+   "A": "El cambio de momento es el mismo con airbag y sin él: ese es justo el quid.",
+   "B": "El impulso tampoco cambia; lo que cambia es cómo se reparte en el tiempo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q057": {
+  "idea": "$F_{med}\\,T = \\Delta p$, y aquí $\\Delta p = mv$ porque la pelota salía del reposo.",
+  "pasos": [
+   "$\\Delta p = mv - 0 = mv$.",
+   "$F_{med} = \\Delta p / T = mv/T$.",
+   "Comprobación dimensional: kg·m/s² = N ✔."
+  ],
+  "porque_fallan": {
+   "A": "$mvT$ tiene dimensiones de momento×tiempo: hay que **dividir** por T, no multiplicar.",
+   "C": "$\\tfrac12 mv^2T$ mezcla energía con tiempo; no es una fuerza."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q058": {
+  "idea": "El cambio de momento sí se puede calcular; la fuerza **media** no, porque falta el tiempo de contacto.",
+  "pasos": [
+   "$v = \\sqrt{2(9{,}8)(5{,}0)} = 9{,}9$ m/s al llegar.",
+   "$m = 640/9{,}8 = 65$ kg; $\\Delta p = 2mv = 1{,}3\\times10^3$ kg·m/s.",
+   "$F_{med} = \\Delta p/\\Delta t$, y $\\Delta t$ no aparece en el enunciado."
+  ],
+  "porque_fallan": {
+   "D": "640 N es el peso, que no tiene nada que ver con la fuerza de la red.",
+   "C": "Cualquier número concreto exigiría inventarse el tiempo de contacto."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q059": {
+  "idea": "Un choque entre masas iguales admite cualquier grado de elasticidad: no obliga a nada de lo que se afirma.",
+  "pasos": [
+   "**Sí** pueden quedar pegados (choque perfectamente inelástico).",
+   "El choque **no** tiene por qué ser elástico.",
+   "El primero solo se para si el choque es elástico, no siempre.",
+   "Y el momento se conserva siempre que no haya impulso externo."
+  ],
+  "porque_fallan": {
+   "C": "«El primero se para» vale solo en el choque **elástico** entre masas iguales.",
+   "A": "Quedarse pegados es el caso perfectamente inelástico, perfectamente posible."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q060": {
+  "idea": "El sistema de referencia del centro de masa es, por definición, aquel en el que el momento **total** es cero.",
+  "pasos": [
+   "$\\vec p_{tot} = M\\vec v_{cm}$ en cualquier sistema.",
+   "Si el sistema se mueve con $\\vec v_{cm}$, entonces $\\vec v_{cm}' = 0$.",
+   "Luego $\\vec p_{tot}' = 0$."
+  ],
+  "porque_fallan": {
+   "A": "El momento de **uno solo** no se anula: se anula la suma.",
+   "C": "El «momento medio» es el total dividido por dos: se anula, pero la formulación estándar y correcta es la del total."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q061": {
+  "idea": "Inelástico significa que se pierde energía cinética. El momento se conserva igual que siempre.",
+  "pasos": [
+   "El momento se conserva en **todo** choque sin impulso externo.",
+   "Lo que distingue al inelástico es que parte de $K$ se va a calor y deformación.",
+   "Elástico ⟺ $K$ también se conserva."
+  ],
+  "porque_fallan": {
+   "A": "El momento se conserva también en los inelásticos: es lo que los hace resolubles.",
+   "C": "«Ni energía ni momento» sería el caso perfectamente inelástico… y el momento sí se conserva ahí también."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q062": {
+  "idea": "Choque perfectamente inelástico. Los pesos sirven como masas si se usan de forma consistente.",
+  "pasos": [
+   "$4{,}0\\,\\text{N}(3{,}0) = (4{,}0+8{,}0)\\,v$ (los $g$ se cancelan).",
+   "$12 = 12\\,v$.",
+   "$v = 1{,}0$ m/s."
+  ],
+  "porque_fallan": {
+   "C": "2,0 m/s saldría si las masas fueran iguales.",
+   "E": "3,0 m/s es la velocidad inicial: al pegarse tiene que bajar."
+  },
+  "confirma": "A"
+ },
+ "hrw-c09-q063": {
+  "idea": "La bala se incrusta: perfectamente inelástico. Ojo con los gramos.",
+  "pasos": [
+   "$m_{bala} = 0{,}00300$ kg.",
+   "$0{,}00300(400) = (0{,}00300+3{,}00)\\,v$ ⟹ $1{,}20 = 3{,}003\\,v$.",
+   "$v = 0{,}40$ m/s."
+  ],
+  "porque_fallan": {
+   "A": "1,33 m/s sale de olvidar la masa de la bala en el denominador y usar mal los números.",
+   "D": "40,0 m/s es un factor 100 de más: revisa la conversión de gramos a kilos."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q064": {
+  "idea": "Calcula primero la velocidad común, luego el cambio de momento **de uno solo** de los carros.",
+  "pasos": [
+   "$v = \\dfrac{2(3)}{2+4} = 1$ m/s.",
+   "Carro de 4 kg: $\\Delta p = 4(1) - 0 = 4$ N·s.",
+   "(El de 2 kg: $2(1)-2(3) = -4$ N·s. Iguales y opuestos ✔)."
+  ],
+  "porque_fallan": {
+   "C": "6 N·s es el momento **total** del sistema, no el impulso sobre un carro.",
+   "A": "Cero es el impulso **neto sobre el sistema**; sobre cada carro no lo es."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q065": {
+  "idea": "Péndulo balístico: dos etapas. Energía **después** del choque, momento **durante** el choque. Nunca al revés.",
+  "pasos": [
+   "Subida: $v_{bloque} = \\sqrt{2(9{,}8)(0{,}0030)} = 0{,}2425$ m/s.",
+   "Choque (momento): $0{,}0030\\,v = (10{,}003)(0{,}2425) = 2{,}426$.",
+   "$v = 2{,}426/0{,}0030 = 8{,}1\\times10^2$ m/s."
+  ],
+  "porque_fallan": {
+   "A": "El calor no impide el cálculo: por eso se usa momento en el choque y energía solo después.",
+   "C": "24 m/s sale de aplicar conservación de energía **durante** el choque, que es justo lo que no vale."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q066": {
+  "idea": "Al quedar pegados, toda la energía cinética que queda es la del centro de masa: $K = \\tfrac12 M v_{cm}^2$.",
+  "pasos": [
+   "$M = 3{,}0+2{,}0 = 5{,}0$ kg.",
+   "$40 = \\tfrac12(5{,}0)v_{cm}^2 \\Rightarrow v_{cm}^2 = 16$.",
+   "$v_{cm} = 4{,}0$ m/s."
+  ],
+  "porque_fallan": {
+   "A": "Cero solo si los momentos iniciales se cancelaran; entonces la energía final sería cero, no 40 J.",
+   "B": "2,8 m/s sale de usar solo una de las masas."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q067": {
+  "idea": "Los momentos se cancelan exactamente, así que el conjunto queda parado y se pierde **toda** la energía cinética.",
+  "pasos": [
+   "$p = 2{,}0(50) + 4{,}0(-25) = 100-100 = 0$: quedan en reposo.",
+   "$K_i = \\tfrac12(2{,}0)(50)^2 + \\tfrac12(4{,}0)(25)^2 = 2500+1250 = 3750$ J.",
+   "$K_f = 0$, luego se pierden 3750 J."
+  ],
+  "porque_fallan": {
+   "B": "2500 J es solo la energía de A.",
+   "D": "5000 J supera la energía disponible."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q068": {
+  "idea": "La energía cinética que sobrevive es la del movimiento del centro de masa; la relativa se pierde entera.",
+  "pasos": [
+   "$K = K_{cm} + K_{rel}$ siempre.",
+   "Al quedar pegados, $K_{rel} = 0$.",
+   "Queda $K = \\tfrac12 M v_{cm}^2$."
+  ],
+  "porque_fallan": {
+   "A": "Si se conservara toda la energía inicial, el choque sería elástico, no inelástico.",
+   "D": "La energía de uno de los objetos no es la que sobrevive; sobrevive la del conjunto moviéndose junto."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q069": {
+  "idea": "El hombre se lleva su momento a cero, así que todo el momento del sistema queda en el carro.",
+  "pasos": [
+   "$p_{tot} = (75+30)(2{,}0) = 210$ kg·m/s.",
+   "Cae con velocidad horizontal nula ⟹ todo el momento va al carro: $30\\,v = 210$, $v = 7{,}0$ m/s.",
+   "**Cambio** de rapidez del carro: $7{,}0 - 2{,}0 = 5{,}0$ m/s."
+  ],
+  "porque_fallan": {
+   "E": "7,0 m/s es la velocidad **final**, no el cambio. Lee bien qué se pide.",
+   "B": "2,0 m/s es la inicial."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q070": {
+  "idea": "Elástico = se conservan las dos cosas, momento y energía cinética.",
+  "pasos": [
+   "El momento se conserva en todo choque sin impulso externo.",
+   "Lo que añade la elasticidad es la conservación de $K$.",
+   "Dos ecuaciones, dos incógnitas: por eso los elásticos se resuelven completos."
+  ],
+  "porque_fallan": {
+   "D": "«Momento sí, energía no» es la definición de **inelástico**.",
+   "A": "El momento se conserva siempre."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q071": {
+  "idea": "La transferencia de energía en un choque elástico frontal es máxima con masas iguales.",
+  "pasos": [
+   "$\\dfrac{K_B}{K_A} = \\dfrac{4m_Am_B}{(m_A+m_B)^2}$, que vale 1 cuando $m_B = m_A$.",
+   "Con $m_B = m_A$, A se para y B se lleva **toda** la energía.",
+   "(Para máxima **velocidad** de B haría falta $m_B \\ll m_A$; para máximo **momento**, $m_B \\gg m_A$.)"
+  ],
+  "porque_fallan": {
+   "A": "Con masas iguales B sale a la velocidad de A; con $m_B$ muy pequeña sale hasta a $2v$.",
+   "D": "Con masas iguales la velocidad de retroceso de B es máxima entre las «razonables», no mínima."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q072": {
+  "idea": "Choque elástico contra una pared: el ligero rebota con la misma rapidez.",
+  "pasos": [
+   "$v_A' = \\dfrac{m_A-m_B}{m_A+m_B}v_A$.",
+   "Con $m_B \\gg m_A$ la fracción tiende a $-1$.",
+   "$v_A' = -5{,}0$ m/s: mismo módulo, sentido invertido."
+  ],
+  "porque_fallan": {
+   "A": "Cero sería el resultado con masas **iguales**.",
+   "E": "$-10$ m/s duplicaría la rapidez: eso viola la conservación de la energía."
+  },
+  "confirma": "C"
+ },
+ "hrw-c09-q073": {
+  "idea": "El caso opuesto: el pesado apenas se entera y el ligero sale al **doble** de velocidad.",
+  "pasos": [
+   "$v_B' = \\dfrac{2m_A}{m_A+m_B}v_A$, y con $m_A \\gg m_B$ el factor tiende a 2.",
+   "$v_B' = 2(10) = 20$ m/s.",
+   "Comprobación intuitiva: en el marco del pesado, el ligero llega a $v$ y rebota a $-v$; volviendo al laboratorio, $v + v = 2v$."
+  ],
+  "porque_fallan": {
+   "B": "10 m/s sería si el ligero se limitara a acompañar al pesado.",
+   "E": "Sí se puede saber: el límite de masas extremas está bien definido."
+  },
+  "confirma": "D"
+ },
+ "hrw-c09-q074": {
+  "idea": "Fórmulas del choque elástico frontal con blanco en reposo, con $m_B = 2m_A$.",
+  "pasos": [
+   "$v_A' = \\dfrac{m-2m}{3m}v = -\\dfrac{v}{3}$.",
+   "$v_B' = \\dfrac{2m}{3m}v = \\dfrac{2v}{3}$.",
+   "Comprobación de momento: $m(-v/3) + 2m(2v/3) = -v/3 + 4v/3 = mv$ ✔."
+  ],
+  "porque_fallan": {
+   "D": "$-2v/3, v/3$ intercambia los dos resultados.",
+   "C": "$-v, v$ no conserva el momento: $-mv + 2mv = mv$… conserva momento pero no energía ($\\tfrac12 mv^2 + mv^2 \\neq \\tfrac12 mv^2$)."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q075": {
+  "idea": "El momento total es exactamente cero, y en ese caso el choque elástico se limita a invertir las dos velocidades. Ninguno gana ni pierde energía.",
+  "pasos": [
+   "$p = 2{,}0(50) + 4{,}0(-25) = 0$: el laboratorio **ya es** el sistema del centro de masa.",
+   "En el sistema del centro de masa, un choque elástico solo invierte los signos: $50 \\to -50$ y $-25 \\to +25$.",
+   "Cada rapidez es la misma, luego cada energía cinética es la misma: transferencia nula."
+  ],
+  "porque_fallan": {
+   "C": "5000 J es el doble de la energía de A; ni siquiera se transfiere nada.",
+   "D": "7500 J es el doble de la energía total del sistema."
+  },
+  "confirma": "A"
+ },
+ "hrw-c09-q076": {
+  "idea": "Misma fórmula que en la q071: la transferencia es total cuando las masas coinciden.",
+  "pasos": [
+   "$\\dfrac{K_{transferida}}{K_i} = \\dfrac{4m_1m_2}{(m_1+m_2)^2}$.",
+   "Esa expresión vale 1 si y solo si $m_1 = m_2$.",
+   "De ahí que los moderadores de neutrones usen hidrógeno: protón y neutrón pesan casi lo mismo."
+  ],
+  "porque_fallan": {
+   "C": "Si el incidente es mucho más masivo, sigue de largo y transfiere poco.",
+   "A": "Si es mucho más ligero, rebota y se lleva casi toda su energía de vuelta."
+  },
+  "confirma": "E"
+ },
+ "hrw-c09-q079": {
+  "idea": "La energía cinética **aumenta**, y eso solo es posible si algo la aportó.",
+  "pasos": [
+   "Antes: dos carros a 1 m/s. Después: los mismos a 2 m/s. $K$ se multiplica por 4.",
+   "El momento sí se conserva: era cero antes y es cero después.",
+   "Un choque no puede crear energía; tuvo que liberarse de algún sitio (un muelle comprimido, un explosivo)."
+  ],
+  "porque_fallan": {
+   "A": "El momento sí se conserva: cero antes, cero después. Compruébalo.",
+   "C": "Elástico significa que $K$ se **mantiene**, y aquí se cuadruplica."
+  },
+  "confirma": "B"
+ },
+ "hrw-c09-q080": {
+  "idea": "El momento se conserva (la pólvora es interna) pero la energía se duplica. Dos ecuaciones, dos incógnitas.",
+  "pasos": [
+   "Momento: $v_1 + v_2 = 5{,}0$ (masas iguales, se cancelan).",
+   "Energía: $\\tfrac12 m(v_1^2+v_2^2) = 2\\cdot\\tfrac12 m(5{,}0)^2 \\Rightarrow v_1^2+v_2^2 = 50$.",
+   "De $(v_1+v_2)^2 = 25 = 50 + 2v_1v_2$ sale $v_1v_2 = -12{,}5$.",
+   "Raíces de $t^2 - 5t - 12{,}5 = 0$: $t = 6{,}8$ y $t = -1{,}8$. El incidente es el que rebota: rapidez 1,8 m/s."
+  ],
+  "porque_fallan": {
+   "C": "6,8 m/s es la velocidad del bloque **golpeado**, el que sale disparado hacia delante.",
+   "B": "5,0 m/s es la inicial; la explosión tiene que cambiarla."
+  },
+  "confirma": "A"
+ }
+}

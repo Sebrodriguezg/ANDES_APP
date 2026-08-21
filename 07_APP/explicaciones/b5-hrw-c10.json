@@ -1,0 +1,863 @@
+{
+ "hrw-c10-q001": {
+  "idea": "Un radián es el ángulo cuyo arco mide igual que el radio: $360°/2\\pi$.",
+  "pasos": [
+   "$1\\ \\text{rad} = \\dfrac{180°}{\\pi} = \\dfrac{180}{3{,}1416}$.",
+   "$= 57{,}3°$.",
+   "Vale la pena memorizarlo: 57°, «un poco menos de 60»."
+  ],
+  "porque_fallan": {
+   "C": "45° es $\\pi/4$ rad, no 1 rad.",
+   "E": "90° es $\\pi/2 \\approx 1{,}57$ rad."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q002": {
+  "idea": "La circunferencia completa subtiende un arco $2\\pi r$ sobre un radio $r$.",
+  "pasos": [
+   "$\\theta = s/r = 2\\pi r / r$.",
+   "$= 2\\pi$ rad.",
+   "Media vuelta son $\\pi$; un cuarto, $\\pi/2$."
+  ],
+  "porque_fallan": {
+   "D": "$\\pi$ rad es **media** vuelta, 180°.",
+   "B": "57 es el número de **grados** en un radián, no de radianes en una vuelta."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q003": {
+  "idea": "Una vuelta son $2\\pi$ rad, y un minuto son 60 s.",
+  "pasos": [
+   "$\\omega = \\dfrac{2\\pi\\ \\text{rad}}{60\\ \\text{s}}$.",
+   "$= \\dfrac{6{,}283}{60}$.",
+   "$= 0{,}105$ rad/s."
+  ],
+  "porque_fallan": {
+   "A": "0,0524 es $\\pi/60$: falta el factor 2 de la vuelta completa.",
+   "E": "6,28 rad/s sería una vuelta por **segundo**."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q004": {
+  "idea": "Velocidad angular constante significa exactamente eso: el mismo ángulo barrido en el mismo tiempo.",
+  "pasos": [
+   "$\\omega = \\Delta\\theta/\\Delta t$ constante ⟺ ángulos iguales en tiempos iguales.",
+   "La **velocidad** de un punto del borde no es constante: cambia de dirección todo el rato.",
+   "Y su **aceleración** tampoco: es centrípeta, de módulo fijo pero girando con el punto."
+  ],
+  "porque_fallan": {
+   "A": "El módulo es constante, pero la velocidad es un vector y su dirección gira.",
+   "B": "Mismo problema: la aceleración centrípeta apunta siempre al centro, luego rota."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q005": {
+  "idea": "$T = 2\\pi/\\omega$.",
+  "pasos": [
+   "$T = \\dfrac{2\\pi}{3{,}0}$.",
+   "$= \\dfrac{6{,}283}{3{,}0}$.",
+   "$= 2{,}1$ s."
+  ],
+  "porque_fallan": {
+   "A": "0,33 s es $1/\\omega$: falta el $2\\pi$ de la vuelta.",
+   "C": "1,0 s confunde el radián con la vuelta."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q006": {
+  "idea": "Pasa las vueltas a radianes y divide por el tiempo.",
+  "pasos": [
+   "$100\\ \\text{rev} = 100(2\\pi) = 628$ rad.",
+   "$\\omega = 628/10$.",
+   "$= 63$ rad/s."
+  ],
+  "porque_fallan": {
+   "C": "10 rad/s es 100/10: se ha quedado en rev/s sin convertir.",
+   "D": "31 rad/s usa $\\pi$ en vez de $2\\pi$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q007": {
+  "idea": "El segundero da una vuelta por minuto: $T = 60$ s.",
+  "pasos": [
+   "$\\omega = 2\\pi/T = 2\\pi/60$.",
+   "$= \\pi/30$ rad/s.",
+   "(Las opciones dicen «m/s» por una errata del original; son rad/s.)"
+  ],
+  "porque_fallan": {
+   "B": "$\\pi/60$ olvida el factor 2 de la vuelta completa.",
+   "A": "$\\pi/1800$ es el **minutero**: 3600 s por vuelta."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q008": {
+  "idea": "El minutero da una vuelta por hora: $T = 3600$ s.",
+  "pasos": [
+   "$\\omega = 2\\pi/3600$.",
+   "$= \\pi/1800$ rad/s.",
+   "Es 60 veces más lento que el segundero, y así sale."
+  ],
+  "porque_fallan": {
+   "E": "$\\pi/60$ sería una vuelta cada 120 s.",
+   "C": "$\\pi$ rad/s es media vuelta por segundo: un minutero enloquecido."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q009": {
+  "idea": "Cinemática angular con $\\theta = \\omega_0 t + \\tfrac12\\alpha t^2$: exactamente igual que la lineal.",
+  "pasos": [
+   "$450 = 20(9{,}0) + \\tfrac12\\alpha(9{,}0)^2$.",
+   "$450 - 180 = 40{,}5\\,\\alpha \\Rightarrow 270 = 40{,}5\\,\\alpha$.",
+   "$\\alpha = 6{,}7$ rad/s²."
+  ],
+  "porque_fallan": {
+   "E": "11 rad/s² sale de olvidar la velocidad inicial: $450 = \\tfrac12\\alpha(81)$.",
+   "C": "5,6 usa 450/81 sin el factor ½ ni la $\\omega_0$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q010": {
+  "idea": "Convierte a rad/s antes de dividir, que es donde se cae todo el mundo.",
+  "pasos": [
+   "$300\\ \\text{rev/min} = 5{,}0\\ \\text{rev/s} = 5{,}0(2\\pi) = 31{,}4$ rad/s.",
+   "$\\alpha_{med} = \\Delta\\omega/\\Delta t = 31{,}4/10$.",
+   "$= 3{,}14$ rad/s²."
+  ],
+  "porque_fallan": {
+   "B": "30 rad/s² es un factor 10 de más: revisa la conversión de rev/min.",
+   "C": "30 rev/s² no está ni en las unidades pedidas."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q011": {
+  "idea": "Sin tiempo en el enunciado, la ecuación que toca es $\\omega^2 = \\omega_0^2 + 2\\alpha\\theta$.",
+  "pasos": [
+   "$(2\\pi)^2 = \\omega_0^2 + 2(\\pi)(\\pi)$.",
+   "$4\\pi^2 - 2\\pi^2 = \\omega_0^2 = 2\\pi^2$.",
+   "$\\omega_0 = \\pi\\sqrt2$ rad/s."
+  ],
+  "porque_fallan": {
+   "C": "$\\pi$ rad/s daría $\\omega^2 = \\pi^2 + 2\\pi^2 = 3\\pi^2$, no $4\\pi^2$.",
+   "A": "Desde el reposo llegaría a $\\sqrt{2\\pi^2} = \\pi\\sqrt2$, no a $2\\pi$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q012": {
+  "idea": "Convierte rev/s a rad/s y divide.",
+  "pasos": [
+   "$12\\ \\text{rev/s} = 24\\pi$ rad/s.",
+   "$|\\alpha| = 24\\pi/6$.",
+   "$= 4\\pi$ rad/s²."
+  ],
+  "porque_fallan": {
+   "B": "2 es 12/6 sin convertir a radianes.",
+   "E": "72 mezcla números sin sentido dimensional."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q013": {
+  "idea": "Mismo esquema: a radianes primero.",
+  "pasos": [
+   "$0{,}75\\ \\text{rev/s} = 1{,}5\\pi$ rad/s.",
+   "$|\\alpha| = 1{,}5\\pi/30$.",
+   "$= 0{,}05\\pi = \\pi/20$ rad/s²."
+  ],
+  "porque_fallan": {
+   "C": "$\\pi/40$ divide de más por 2.",
+   "E": "0,75 es la velocidad inicial en rev/s, sin dividir por el tiempo ni convertir."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q014": {
+  "idea": "Dos conversiones a la vez: vueltas a radianes y minutos a segundos.",
+  "pasos": [
+   "$2\\ \\text{rev/s} = 4\\pi$ rad/s de aumento.",
+   "Por minuto, es decir, por 60 s: $\\alpha = 4\\pi/60$.",
+   "$= \\pi/15$ rad/s²."
+  ],
+  "porque_fallan": {
+   "E": "$4\\pi$ olvida dividir por los 60 s del minuto.",
+   "C": "1/30 olvida convertir las vueltas a radianes."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q015": {
+  "idea": "«Sentido opuesto» significa que la velocidad angular cambia de signo: el salto es de 36, no de 18.",
+  "pasos": [
+   "$\\omega_0 = +18$, $\\omega_f = -18$ rad/s.",
+   "$\\Delta\\omega = -36$ rad/s con $|\\alpha| = 2{,}0$.",
+   "$t = 36/2{,}0 = 18$ s."
+  ],
+  "porque_fallan": {
+   "C": "9,0 s es lo que tarda solo en **pararse**; falta acelerar otro tanto al revés.",
+   "E": "36 s dobla de más el tiempo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q016": {
+  "idea": "$\\alpha = \\Delta\\omega/\\Delta t$, con signo.",
+  "pasos": [
+   "$\\Delta\\omega = 24 - 36 = -12$ rad/s.",
+   "$\\alpha = -12/6{,}0$.",
+   "$= -2{,}0$ rad/s²: está frenando."
+  ],
+  "porque_fallan": {
+   "A": "El módulo bien, el signo mal: la velocidad **disminuye**.",
+   "D": "−3,0 sale de dividir por 4 en vez de por 6."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q017": {
+  "idea": "La misma cuenta, pero ojo: con $\\omega$ negativa, «acercarse a cero» es acelerar en **positivo**.",
+  "pasos": [
+   "$\\Delta\\omega = -24 - (-36) = +12$ rad/s.",
+   "$\\alpha = +12/6{,}0 = +2{,}0$ rad/s².",
+   "La rueda frena, pero $\\alpha$ es positiva porque $\\omega$ es negativa. Es el par de la q016 y está puesto adrede."
+  ],
+  "porque_fallan": {
+   "B": "−2,0 es el reflejo de la pregunta anterior; aquí los signos se invierten.",
+   "E": "−6,0 no sale de ninguna cuenta razonable."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q018": {
+  "idea": "Sin tiempo, otra vez $\\omega^2 = \\omega_0^2 + 2\\alpha\\theta$ con $\\omega = 0$.",
+  "pasos": [
+   "$0 = 18^2 - 2(2{,}0)\\theta$.",
+   "$\\theta = 324/4{,}0$.",
+   "$= 81$ rad."
+  ],
+  "porque_fallan": {
+   "B": "160 rad dobla: se ha olvidado el 2 del denominador.",
+   "C": "245 no sale de ninguna combinación de 18 y 2,0."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q019": {
+  "idea": "Convierte las vueltas a radianes antes de meterlas en la fórmula.",
+  "pasos": [
+   "$\\theta = 10(2\\pi) = 62{,}8$ rad.",
+   "$\\omega^2 = 2(4{,}0)(62{,}8) = 503$.",
+   "$\\omega = 22$ rad/s."
+  ],
+  "porque_fallan": {
+   "D": "250 rad/s olvida la raíz cuadrada.",
+   "A": "16 rad/s sale de usar 10 rad en vez de 10 vueltas."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q020": {
+  "idea": "$\\theta = \\tfrac12\\alpha t^2$ desde el reposo.",
+  "pasos": [
+   "$62{,}8 = \\tfrac12(4{,}0)t^2 = 2{,}0\\,t^2$.",
+   "$t^2 = 31{,}4$.",
+   "$t = 5{,}6$ s."
+  ],
+  "porque_fallan": {
+   "C": "2,2 s sale de usar 10 rad en vez de 10 vueltas.",
+   "D": "2,8 s es $5{,}6/2$: olvida el factor ½ mal aplicado."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q021": {
+  "idea": "Con $\\alpha$ variable no valen las fórmulas de aceleración constante: hay que integrar dos veces.",
+  "pasos": [
+   "$\\omega = \\int 6t^2\\,dt = 2t^3$ (parte del reposo).",
+   "$\\theta = \\int 2t^3\\,dt = \\tfrac12 t^4$.",
+   "$\\theta = (1/2)t^4$ rad."
+  ],
+  "porque_fallan": {
+   "A": "$(1/8)t^4$ divide de más: $6/(3\\cdot4) = 1/2$, no 1/8.",
+   "E": "12 rad es una constante; $\\theta$ tiene que crecer con el tiempo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q022": {
+  "idea": "Usa el $\\theta(t)$ que acabas de integrar y despeja.",
+  "pasos": [
+   "$\\theta = 10(2\\pi) = 62{,}8$ rad $= \\tfrac12 t^4$.",
+   "$t^4 = 125{,}7$.",
+   "$t = 125{,}7^{1/4} = 3{,}3$ s."
+  ],
+  "porque_fallan": {
+   "A": "2,8 s aplicaría la fórmula de $\\alpha$ constante, que aquí no vale.",
+   "E": "5,3 s pasa de largo; comprueba la raíz cuarta."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q023": {
+  "idea": "Con el tiempo de la pregunta anterior, evalúa $\\omega(t) = 2t^3$.",
+  "pasos": [
+   "$t = 3{,}35$ s.",
+   "$\\omega = 2(3{,}35)^3 = 2(37{,}6)$.",
+   "$= 75$ rad/s."
+  ],
+  "porque_fallan": {
+   "A": "63 rad/s es $10(2\\pi)$: eso es el ángulo, no la velocidad.",
+   "D": "130 rad/s dobla de más."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q024": {
+  "idea": "Integra la desaceleración y busca cuándo $\\omega$ llega a cero.",
+  "pasos": [
+   "$\\omega(t) = 27 - \\int_0^t 3s^2\\,ds = 27 - t^3$.",
+   "$27 - t^3 = 0$.",
+   "$t = 3{,}0$ s."
+  ],
+  "porque_fallan": {
+   "E": "7,3 s sale de tratar $\\alpha$ como constante.",
+   "A": "1,7 s es $\\sqrt{3}$: raíz cuadrada donde toca cúbica."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q025": {
+  "idea": "Regla de la mano derecha: dedos en el sentido del giro, pulgar en el de $\\vec\\omega$.",
+  "pasos": [
+   "$\\vec\\omega$ sale de la página ⟹ el pulgar apunta hacia ti.",
+   "Los dedos se curvan en sentido antihorario.",
+   "El eje es, por construcción, perpendicular a la página."
+  ],
+  "porque_fallan": {
+   "A": "Horario correspondería a $\\vec\\omega$ **entrando** en la página.",
+   "C": "El vector es perpendicular a la página, luego el eje también."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q026": {
+  "idea": "Igual que en una dimensión: $\\vec\\alpha$ opuesta a $\\vec\\omega$ significa frenar.",
+  "pasos": [
+   "$\\vec\\omega$ sale, $\\vec\\alpha$ entra: son antiparalelos.",
+   "El módulo de $\\omega$ disminuye.",
+   "Si siguiera, la rueda se pararía y giraría al revés, pero de momento solo frena."
+  ],
+  "porque_fallan": {
+   "B": "Acelerar exigiría $\\vec\\alpha$ paralela a $\\vec\\omega$, saliendo también.",
+   "D": "El eje no cambia: los dos vectores están sobre la misma recta."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q027": {
+  "idea": "$\\theta = s/r$, con **radio**, no diámetro. Ahí está la trampa.",
+  "pasos": [
+   "Diámetro 40 m ⟹ $r = 20$ m.",
+   "$\\theta = 3000/20$.",
+   "$= 150$ rad."
+  ],
+  "porque_fallan": {
+   "B": "75 rad usa el diámetro en vez del radio.",
+   "D": "314 rad mete un $\\pi$ que aquí no pinta nada: $s/r$ ya da radianes."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q030": {
+  "idea": "El cordón se desenrolla a razón de $s = r\\theta$; y otra vez, diámetro no es radio.",
+  "pasos": [
+   "$r = 1{,}5$ cm $= 0{,}015$ m.",
+   "$\\theta = s/r = 4{,}0/0{,}015 = 267$ rad.",
+   "$t = \\sqrt{2\\theta/\\alpha} = \\sqrt{267} = 16$ s."
+  ],
+  "porque_fallan": {
+   "E": "130 s usa el diámetro y además pierde el factor 2.",
+   "C": "8,0 s duplica el radio: el enunciado da **diámetro** 3,0 cm."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q031": {
+  "idea": "Velocidad angular constante ⟹ solo hay aceleración centrípeta, $a = \\omega^2 r$.",
+  "pasos": [
+   "$\\omega = 5\\ \\text{rev/s} = 10\\pi$ rad/s.",
+   "$a = (10\\pi)^2(0{,}10) = 100\\pi^2(0{,}10)$.",
+   "$= 10\\pi^2$ m/s² ($\\approx 99$ m/s²)."
+  ],
+  "porque_fallan": {
+   "D": "$1000\\pi^2$ olvida multiplicar por el radio 0,10.",
+   "B": "0,50 m/s² usa 5 rad/s sin convertir las vueltas."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q032": {
+  "idea": "El punto de contacto de una rueda que rueda sin deslizar está instantáneamente **en reposo**: su aceleración es puramente centrípeta, hacia el eje.",
+  "pasos": [
+   "Velocidad del barro en ese instante: cero. Luego no hay componente tangencial que lo lleve al norte.",
+   "El coche va a velocidad constante ⟹ $\\alpha = 0$ ⟹ no hay aceleración tangencial.",
+   "Queda $a_r = \\omega^2 r$ apuntando al centro de la rueda: **verticalmente hacia arriba**."
+  ],
+  "porque_fallan": {
+   "B": "Al norte iría la velocidad del barro un poco después, no su aceleración ahora.",
+   "D": "Cero sería si el barro no girara; sí gira, y a $\\omega$ constante."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q033": {
+  "idea": "Sin deslizamiento, $v = \\omega r$ en el borde.",
+  "pasos": [
+   "$v = 10$ cm/s $= 0{,}10$ m/s, $r = 0{,}050$ m.",
+   "$\\omega = v/r = 0{,}10/0{,}050$.",
+   "$= 2{,}0$ rad/s."
+  ],
+  "porque_fallan": {
+   "C": "10 rad/s toma la velocidad en cm/s y la divide por el radio en cm mal.",
+   "D": "25 rad/s divide al revés en algún sitio."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q034": {
+  "idea": "Mientras el trozo está pegado al cilindro tiene aceleración centrípeta; en cuanto sale, se mueve en línea recta y a velocidad constante: aceleración cero.",
+  "pasos": [
+   "Sobre el cilindro: $a = v^2/r = (0{,}10)^2/0{,}050 = 0{,}20$ m/s².",
+   "Fuera del cilindro: la cuerda va recta a rapidez constante ⟹ $a = 0$.",
+   "El cambio es de 0,20 a 0: $|\\Delta a| = 0{,}20$ m/s²."
+  ],
+  "porque_fallan": {
+   "A": "Sí hay cambio: el trozo pasa de girar a ir recto.",
+   "C": "0,020 pierde un factor 10 en la conversión de centímetros."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q035": {
+  "idea": "$a_t = \\alpha r$, con radio. Diámetro 1,2 m ⟹ $r = 0{,}60$ m.",
+  "pasos": [
+   "$a_t = 5{,}0(0{,}60)$.",
+   "$= 3{,}0$ m/s².",
+   "Y sí, es m/s², no rad/s²: la tangencial es una aceleración lineal."
+  ],
+  "porque_fallan": {
+   "D": "6,0 m/s² usa el diámetro en vez del radio.",
+   "A": "5,0 rad/s² es la propia $\\alpha$, con las unidades equivocadas además."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q036": {
+  "idea": "$v = \\omega r$: a la misma $\\omega$, la rapidez es proporcional al radio.",
+  "pasos": [
+   "Punto del borde: $v_1 = \\omega R$.",
+   "Punto a media distancia: $v_2 = \\omega(R/2)$.",
+   "$v_1/v_2 = 2$."
+  ],
+  "porque_fallan": {
+   "D": "4 sería si dependiera de $r^2$; la rapidez es lineal en $r$.",
+   "C": "1/2 invierte la razón: el borde va **más** rápido."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q037": {
+  "idea": "$a_t = \\alpha r$: también proporcional al radio.",
+  "pasos": [
+   "$a_{t,borde} = \\alpha R$, $a_{t,medio} = \\alpha R/2$.",
+   "Razón 2.",
+   "Misma estructura que la pregunta anterior."
+  ],
+  "porque_fallan": {
+   "D": "4 confunde con la radial… que tampoco: la radial también es lineal en $r$.",
+   "A": "1 sería si $a_t$ no dependiera del radio."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q038": {
+  "idea": "$a_r = \\omega^2 r$: el cuadrado está en $\\omega$, no en $r$. Sigue siendo lineal en el radio.",
+  "pasos": [
+   "$a_{r,borde} = \\omega^2 R$, $a_{r,medio} = \\omega^2 R/2$.",
+   "Razón 2.",
+   "Es el error clásico: ver el cuadrado y aplicarlo al radio."
+  ],
+  "porque_fallan": {
+   "D": "4 aplica el cuadrado al radio; el cuadrado es de la velocidad angular.",
+   "A": "1 ignora la dependencia del radio."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q039": {
+  "idea": "Ahora sí toca el cuadrado: mismo radio, distinta $\\omega$.",
+  "pasos": [
+   "$a_r = \\omega^2 R$, con $R$ igual en ambas ruedas.",
+   "$\\omega_B = 2\\omega_A$.",
+   "$a_B/a_A = (2)^2 = 4$."
+  ],
+  "porque_fallan": {
+   "B": "2 es la razón de velocidades angulares; la aceleración va con el cuadrado.",
+   "A": "1 ignoraría la diferencia de giro."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q040": {
+  "idea": "$a_t$ se queda fija y $a_r$ crece sin freno: el vector engorda y se va tumbando hacia el centro.",
+  "pasos": [
+   "$a_t = \\alpha r$: constante, porque $\\alpha$ lo es.",
+   "$a_r = \\omega^2 r$ con $\\omega = \\alpha t$: crece como $t^2$.",
+   "El módulo total $\\sqrt{a_r^2+a_t^2}$ crece, y la dirección tiende a la radial porque $a_r$ domina."
+  ],
+  "porque_fallan": {
+   "C": "«Más tangente» es al revés: la tangencial es la que se queda quieta.",
+   "E": "El ángulo sí cambia, porque una componente crece y la otra no."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q041": {
+  "idea": "Para multiplicar el módulo por 4 hay que multiplicar **las dos componentes** por 4.",
+  "pasos": [
+   "$a_r = \\omega^2 r$: para que se multiplique por 4, $\\omega$ debe multiplicarse por 2.",
+   "$a_t = \\alpha r$: para que se multiplique por 4, $\\alpha$ debe multiplicarse por 4.",
+   "Solo así $|\\vec a| = \\sqrt{a_r^2+a_t^2}$ queda multiplicado por 4 sin cambiar de dirección."
+  ],
+  "porque_fallan": {
+   "A": "Con $\\omega\\times4$ la radial se multiplica por 16, no por 4.",
+   "C": "Con $\\omega\\times2$ y $\\alpha\\times2$, la radial va ×4 pero la tangencial solo ×2: el módulo no escala limpiamente."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q046": {
+  "idea": "$I = \\sum m_i r_i^2$: solo geometría y masa. La rapidez de giro no aparece.",
+  "pasos": [
+   "Diámetro y distribución de masa: entran por $r_i$.",
+   "Masa y composición: entran por $m_i$ (la composición fija la densidad).",
+   "$\\omega$ no está en la fórmula. $I$ es una propiedad del cuerpo, no de su movimiento."
+  ],
+  "porque_fallan": {
+   "C": "La distribución de masa es justo lo que más importa.",
+   "A": "El diámetro fija los $r_i$ y por tanto sí influye."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q047": {
+  "idea": "Compara los coeficientes de $MR^2$: cuanto más lejos del eje esté la masa, mayor $I$.",
+  "pasos": [
+   "Esfera maciza $2/5 = 0{,}40$; disco $1/2 = 0{,}50$.",
+   "Esfera hueca $2/3 = 0{,}67$; aro $1 = 1{,}00$.",
+   "Orden creciente: 1 (maciza), 3 (disco), 2 (hueca), 4 (aro)."
+  ],
+  "porque_fallan": {
+   "A": "1,2,3,4 pone la esfera hueca antes que el disco: 0,67 > 0,50.",
+   "B": "4,3,2,1 es el orden **decreciente**."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q049": {
+  "idea": "Misma masa y mismo grosor: el más denso ocupa menos volumen, luego tiene menos radio, luego menos $I$.",
+  "pasos": [
+   "$M = \\rho\\,(\\pi R^2 h)$ con $M$ y $h$ fijos ⟹ $R^2 \\propto 1/\\rho$.",
+   "$I = \\tfrac12 MR^2 \\propto 1/\\rho$.",
+   "Más denso ⟹ menor $I$."
+  ],
+  "porque_fallan": {
+   "B": "El menos denso es más ancho y por eso tiene **más** inercia rotacional.",
+   "D": "$I$ no depende de la velocidad angular."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q050": {
+  "idea": "Igual que el anterior: el plomo es mucho más denso, luego el cilindro es más delgado.",
+  "pasos": [
+   "Misma masa y misma longitud ⟹ $R^2 \\propto 1/\\rho$.",
+   "$I = \\tfrac12 MR^2$ con $M$ fija ⟹ $I \\propto 1/\\rho$.",
+   "El de plomo tiene **menos** inercia rotacional."
+  ],
+  "porque_fallan": {
+   "A": "«Plomo = pesado = más inercia» falla: las masas son iguales por enunciado.",
+   "D": "Los radios se deducen de la densidad; no hacen falta como dato."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q051": {
+  "idea": "$I = \\sum m r^2$: sacar masa de donde $r$ es pequeño y ponerla donde $r$ es grande sube $I$ sin tocar la masa total.",
+  "pasos": [
+   "El material cerca del eje contribuye poquísimo ($r^2$ minúsculo).",
+   "Movido al borde contribuye con $R^2$.",
+   "Perforar cerca del eje y añadir en el borde: $I$ sube."
+  ],
+  "porque_fallan": {
+   "A": "Es exactamente lo contrario: bajaría $I$.",
+   "E": "Sí se puede: la inercia depende de dónde está la masa, no solo de cuánta hay."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q052": {
+  "idea": "Las inercias rotacionales se suman, y la masa puntual aporta $mr^2$.",
+  "pasos": [
+   "$I_{peso} = 2{,}0(0{,}40)^2 = 0{,}32$ kg·m².",
+   "$I_{total} = 0{,}70 + 0{,}32$.",
+   "$= 1{,}0$ kg·m²."
+  ],
+  "porque_fallan": {
+   "D": "0,86 usa $mr/2$ o algún factor ½ que aquí no toca: la masa es puntual.",
+   "C": "0,70 ignora el peso añadido."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q053": {
+  "idea": "Teorema de Steiner: $I = I_{cm} + Md^2$, con $d$ la distancia entre ejes.",
+  "pasos": [
+   "$d = L/2$ del centro al extremo.",
+   "$I = \\dfrac{ML^2}{12} + M\\left(\\dfrac{L}{2}\\right)^2 = \\dfrac{ML^2}{12} + \\dfrac{ML^2}{4}$.",
+   "$= \\dfrac{ML^2}{12} + \\dfrac{3ML^2}{12} = \\dfrac{ML^2}{3}$."
+  ],
+  "porque_fallan": {
+   "B": "$ML^2/6$ sale de sumar $ML^2/12$ consigo mismo: falta el $Md^2$ bien calculado.",
+   "A": "$ML^2/12$ es el valor por el centro; mover el eje siempre **aumenta** $I$."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q054": {
+  "idea": "Steiner otra vez, con $d = R$ para un eje tangente a la superficie.",
+  "pasos": [
+   "$I = \\tfrac25 MR^2 + MR^2$.",
+   "$= \\tfrac25 MR^2 + \\tfrac55 MR^2$.",
+   "$= \\tfrac75 MR^2$."
+  ],
+  "porque_fallan": {
+   "C": "$3/5$ suma $1/5$ en vez de 1 entero.",
+   "D": "$5/2$ invierte la fracción del valor por el centro."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q055": {
+  "idea": "Cuidado con la distancia: del techo al **centro** de la esfera hay $3R$ de cuerda más $R$ de radio.",
+  "pasos": [
+   "$d = 3R + R = 4R$.",
+   "$I = \\tfrac25 MR^2 + M(4R)^2 = \\tfrac25 MR^2 + 16MR^2$.",
+   "$= \\dfrac{2 + 80}{5}MR^2 = \\dfrac{82}{5}MR^2$."
+  ],
+  "porque_fallan": {
+   "D": "$47/5$ usa $d = 3R$: olvida el radio de la esfera.",
+   "C": "$16MR^2$ es solo el término de Steiner, sin sumar la inercia propia."
+  },
+  "confirma": "E"
+ },
+ "hrw-c10-q056": {
+  "idea": "$\\tau = rF\\sin\\phi$: máximo con $r$ máximo y $\\phi = 90°$.",
+  "pasos": [
+   "$r$ máximo: en el borde.",
+   "$\\sin\\phi = 1$: fuerza perpendicular al radio, es decir, tangencial.",
+   "Las dos cosas a la vez: en el borde y tangencialmente."
+  ],
+  "porque_fallan": {
+   "A": "Cerca del eje $r$ es pequeño y el par también.",
+   "E": "En ángulo se pierde el factor $\\sin\\phi$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q059": {
+  "idea": "No es una definición: es un teorema que se demuestra aplicando $F = ma$ a cada partícula y sumando.",
+  "pasos": [
+   "Para cada partícula, $F_{t,i} = m_i a_{t,i} = m_i r_i\\alpha$.",
+   "Multiplicando por $r_i$ y sumando: $\\sum \\tau_i = (\\sum m_i r_i^2)\\alpha = I\\alpha$.",
+   "Sale de la segunda ley, no de un postulado nuevo."
+  ],
+  "porque_fallan": {
+   "A": "El par se define aparte, como $\\vec r\\times\\vec F$.",
+   "E": "No hace falta ningún principio adicional a las leyes de Newton."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q062": {
+  "idea": "$\\alpha = \\tau/I$ con $I$ fija: maximizar $\\alpha$ es maximizar el par.",
+  "pasos": [
+   "Una fuerza **radial** pasa por el eje: brazo cero, par cero.",
+   "Tangencial da $\\sin\\phi = 1$.",
+   "Y en el borde el brazo es máximo."
+  ],
+  "porque_fallan": {
+   "A": "Tangencial está bien, pero a mitad de radio el par es la mitad.",
+   "D": "Radial en el borde da par **cero**: la línea de acción pasa por el eje."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q063": {
+  "idea": "$\\tau = FR$ y luego $\\alpha = \\tau/I$. La longitud del cilindro es decorado.",
+  "pasos": [
+   "$\\tau = 1{,}0(0{,}10) = 0{,}10$ N·m.",
+   "$\\alpha = 0{,}10/0{,}020$.",
+   "$= 5{,}0$ rad/s²."
+  ],
+  "porque_fallan": {
+   "C": "10 rad/s² usa la longitud 0,20 m en vez del radio.",
+   "A": "2,5 divide de más por 2."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q064": {
+  "idea": "Igual: $\\alpha = FR/I$.",
+  "pasos": [
+   "$\\tau = 5{,}0(0{,}40) = 2{,}0$ N·m.",
+   "$\\alpha = 2{,}0/2{,}0$.",
+   "$= 1{,}0$ rad/s²."
+  ],
+  "porque_fallan": {
+   "D": "2,5 rad/s² es $F/I$ sin multiplicar por el radio.",
+   "E": "10 rad/s² olvida dividir por $I$."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q065": {
+  "idea": "Una fuerza aplicada **a lo largo del eje** de rotación no produce par respecto de ese eje.",
+  "pasos": [
+   "$\\vec\\tau = \\vec r\\times\\vec F$, y aquí $\\vec F$ es paralela al eje.",
+   "La componente del par a lo largo del eje es cero.",
+   "$\\alpha = 0$: el disco ni acelera ni frena."
+  ],
+  "porque_fallan": {
+   "B": "0,40 rad/s² sería si la fuerza fuera **tangencial** al borde.",
+   "E": "Los 8,0 N y los 0,25 m son datos que aquí no llegan a usarse."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q066": {
+  "idea": "Par constante ⟹ $\\alpha$ constante ⟹ vale $\\omega^2 = 2\\alpha\\theta$.",
+  "pasos": [
+   "$\\tau = 8{,}0(0{,}25) = 2{,}0$ N·m; $\\alpha = 2{,}0/5{,}0 = 0{,}40$ rad/s².",
+   "Media vuelta: $\\theta = \\pi$ rad.",
+   "$\\omega = \\sqrt{2(0{,}40)(\\pi)} = \\sqrt{2{,}51} = 1{,}6$ rad/s."
+  ],
+  "porque_fallan": {
+   "C": "0,80 rad/s usa $\\theta = 0{,}5$ en vez de $\\pi$: media vuelta son $\\pi$ radianes.",
+   "E": "3,2 rad/s dobla el resultado."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q067": {
+  "idea": "Para un aro delgado toda la masa está a distancia $R$: $I = MR^2$, sin fracciones.",
+  "pasos": [
+   "$I = 1{,}0(2{,}0)^2 = 4{,}0$ kg·m².",
+   "$\\tau = I\\alpha = 4{,}0(7{,}0)$.",
+   "$= 28$ N·m."
+  ],
+  "porque_fallan": {
+   "B": "14 N·m usa $I = MR^2/2$, que es la del **disco**, no la del aro.",
+   "A": "7,0 N·m es la propia $\\alpha$ sin multiplicar por $I$."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q068": {
+  "idea": "Saca $\\alpha$ de la cinemática angular y luego $\\tau = I\\alpha$.",
+  "pasos": [
+   "$\\theta = 5{,}0(2\\pi) = 31{,}4$ rad.",
+   "$\\alpha = \\dfrac{\\omega^2-\\omega_0^2}{2\\theta} = \\dfrac{36-25}{62{,}8} = 0{,}175$ rad/s².",
+   "$\\tau = 12(0{,}175) = 2{,}1$ N·m."
+  ],
+  "porque_fallan": {
+   "B": "0,18 N·m es la propia $\\alpha$: falta multiplicar por $I = 12$.",
+   "E": "3,6 N·m sale de usar 5,0 rad en vez de 5,0 vueltas."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q070": {
+  "idea": "Dos ecuaciones acopladas: la del disco con pares y la de la masa con fuerzas, unidas por $a = \\alpha R$.",
+  "pasos": [
+   "Disco: $9{,}0 - T(0{,}080) = I\\alpha = 0{,}12\\,(a/0{,}080) = 1{,}5\\,a$.",
+   "Masa (sube): $T - 10(9{,}8) = 10\\,a \\Rightarrow T = 98 + 10a$.",
+   "Sustituyendo: $9{,}0 - 0{,}080(98+10a) = 1{,}5a \\Rightarrow 1{,}16 = 2{,}3\\,a$.",
+   "$a = 0{,}50$ m/s²."
+  ],
+  "porque_fallan": {
+   "D": "12 m/s² supera a $g$ sin justificación; el par apenas basta para levantar los 98 N.",
+   "C": "6,2 m/s² sale de olvidar el peso de la masa en la ecuación."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q071": {
+  "idea": "El eje del disco no acelera, así que sobre el disco la suma de fuerzas verticales es cero: soporte $=$ su peso $+$ la tensión.",
+  "pasos": [
+   "$a = \\dfrac{mg}{m + M/2} = \\dfrac{2{,}0(9{,}8)}{2{,}0+0{,}35} = 8{,}34$ m/s².",
+   "$T = m(g-a) = 2{,}0(9{,}8-8{,}34) = 2{,}9$ N.",
+   "$F_{soporte} = Mg + T = 0{,}70(9{,}8) + 2{,}9 = 6{,}9 + 2{,}9$.",
+   "$= 9{,}8$ N."
+  ],
+  "porque_fallan": {
+   "A": "6,9 N es solo el peso del disco: falta la tensión de la cuerda.",
+   "D": "26 N sumaría el peso **entero** de la masa colgada, y la masa está cayendo, así que tira con menos."
+  },
+  "confirma": "B"
+ },
+ "hrw-c10-q074": {
+  "idea": "Si la polea tiene inercia, hace falta un par neto para girarla, y ese par solo puede venir de una diferencia de tensiones.",
+  "pasos": [
+   "$\\tau_{neto} = (T_1 - T_2)R = I\\alpha \\neq 0$ porque la polea acelera.",
+   "Luego $T_1 \\neq T_2$.",
+   "La tensión mayor está del lado del bloque **pesado**, que es el que baja."
+  ],
+  "porque_fallan": {
+   "C": "Tensiones iguales solo valen para una polea sin masa.",
+   "E": "La cuerda tira de los dos bloques; si no, el ligero no subiría."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q075": {
+  "idea": "Sin deslizamiento, la velocidad del borde de la polea es la de la cuerda: $\\omega = v/R$.",
+  "pasos": [
+   "$\\omega = 2{,}0/0{,}030 = 66{,}7$ rad/s.",
+   "$K = \\tfrac12 I\\omega^2 = \\tfrac12(4{,}5\\times10^{-3})(66{,}7)^2$.",
+   "$= \\tfrac12(4{,}5\\times10^{-3})(4444) = 10$ J."
+  ],
+  "porque_fallan": {
+   "A": "0,15 J sale de usar $v$ directamente donde va $\\omega$: hay que dividir por el radio, y 0,030 m es pequeño.",
+   "B": "0,30 J duplica ese mismo error."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q076": {
+  "idea": "Compara las tres energías con los mismos números: el radio pequeño dispara la $\\omega$ de la polea.",
+  "pasos": [
+   "Polea: 10 J (calculado en la pregunta anterior, a $v = 2{,}0$ m/s).",
+   "Bloque pesado: $\\tfrac12(4{,}0)(2{,}0)^2 = 8{,}0$ J.",
+   "Bloque ligero: $\\tfrac12(2{,}0)(2{,}0)^2 = 4{,}0$ J.",
+   "Gana la polea, y por poco: es contraintuitivo pero sale de los números."
+  ],
+  "porque_fallan": {
+   "A": "El bloque pesado se queda en 8,0 J, por debajo de los 10 J de la polea.",
+   "D": "Los bloques no tienen la misma energía: tienen la misma rapidez pero distinta masa."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q077": {
+  "idea": "$W = \\tau\\theta$, con $\\theta$ en radianes.",
+  "pasos": [
+   "$\\tau = 2{,}0(0{,}25) = 0{,}50$ N·m.",
+   "$\\theta = \\pi$ rad (media vuelta).",
+   "$W = 0{,}50(\\pi) = 1{,}6$ J."
+  ],
+  "porque_fallan": {
+   "B": "2,5 J usa 5,0 en lugar de $\\pi$ o mezcla el radio.",
+   "D": "10 J usa $\\theta$ en vueltas y algún factor de más."
+  },
+  "confirma": "A"
+ },
+ "hrw-c10-q078": {
+  "idea": "A velocidad angular constante, el motor tiene que compensar exactamente el par resistente: $P = \\tau\\omega$.",
+  "pasos": [
+   "$\\omega$ constante ⟹ par neto cero ⟹ el motor aporta 0,80 N·m.",
+   "$P = 0{,}80(20) = 16$ W.",
+   "$W = 16(60) = 960$ J."
+  ],
+  "porque_fallan": {
+   "A": "Cero es el trabajo **neto** (la energía cinética no cambia); el motor sí trabaja, y la madera se lo lleva todo.",
+   "B": "480 J usa 30 s en vez de los 60 del minuto."
+  },
+  "confirma": "C"
+ },
+ "hrw-c10-q079": {
+  "idea": "Calcula el ángulo girado y multiplica por el par. O, equivalentemente, usa $W = \\Delta K$.",
+  "pasos": [
+   "$\\theta = \\tfrac12(2{,}0)(5{,}0)^2 = 25$ rad.",
+   "$\\tau = I\\alpha = 6{,}0(2{,}0) = 12$ N·m.",
+   "$W = 12(25) = 300$ J. (Comprobación: $\\omega = 10$ rad/s, $\\tfrac12(6{,}0)(100) = 300$ J ✔)."
+  ],
+  "porque_fallan": {
+   "C": "60 J es $\\tau\\cdot5$: confunde el tiempo con el ángulo.",
+   "B": "30 J deja fuera el par entero."
+  },
+  "confirma": "D"
+ },
+ "hrw-c10-q081": {
+  "idea": "$W = \\tau\\theta$ con $\\tau$ constante: el trabajo depende solo del ángulo, y cada vuelta tiene el mismo ángulo.",
+  "pasos": [
+   "Primera vuelta: $\\theta = 2\\pi$ ⟹ $W_1 = 2\\pi\\tau$.",
+   "Segunda vuelta: $\\theta = 2\\pi$ también ⟹ $W_2 = 2\\pi\\tau$.",
+   "Iguales. Lo que **no** es igual es el tiempo que tarda: la segunda vuelta va mucho más rápida."
+  ],
+  "porque_fallan": {
+   "D": "Cuatro veces sería si comparásemos intervalos de **tiempo** iguales, no de ángulo.",
+   "B": "El doble tampoco: el par y el ángulo son los mismos en las dos vueltas."
+  },
+  "confirma": "A"
+ }
+}

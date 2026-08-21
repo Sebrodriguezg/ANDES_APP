@@ -152,7 +152,21 @@ POR_TARJETA = {
         ("C", "λ_{s} = λ_{a} but f_{s} = f_{a}", "λ_{s} = λ_{a} but f_{s} ≠ f_{a}"),
         ("D", "λ_{s} = λ_{a} and f_{s} = f_{a}", "λ_{s} ≠ λ_{a} and f_{s} ≠ f_{a}"),
     ],
+    # Los «mucho mayor que» de las opciones B y C se perdieron y dejaban
+    # «choose m_{B} m_{A}», que no dice nada. La respuesta (E) no depende de
+    # ellos, pero sin el signo las dos opciones son ilegibles.
+    "hrw-c09-q071": [
+        ("B", "choose m_{B} m_{A}", "choose m_{B} ≫ m_{A}"),
+        ("C", "choose m_{B} m_{A}", "choose m_{B} ≫ m_{A}"),
+    ],
 }
+
+
+# La flecha de vector se repone una vez por cada coincidencia de ventana, y en
+# cuatro tarjetas el mismo hueco cae dentro de varias ventanas: «→→→→F». Dos
+# flechas seguidas no existen en el texto original, así que colapsarlas es
+# seguro.
+FLECHAS_REPETIDAS = re.compile(r"→{2,}")
 
 
 def aplicar_por_tarjeta(tarjeta):
@@ -193,6 +207,9 @@ def reparar_texto(texto, parches, contador):
         salida, n = patron.subn(reemplazo, salida)
         if n:
             contador[f"directo:{patron.pattern[:20]}"] += n
+    salida, n = FLECHAS_REPETIDAS.subn("→", salida)
+    if n:
+        contador["flechas repetidas"] += n
     return salida
 
 
