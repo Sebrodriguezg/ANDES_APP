@@ -1,0 +1,419 @@
+{
+ "hrw-c23-q001": {
+  "idea": "Densidad volumétrica es carga entre volumen de esfera, con el radio en metros.",
+  "pasos": [
+   "$V = \\tfrac43\\pi r^3 = \\tfrac43\\pi(0{,}027)^3 = 8{,}24\\times10^{-5}$ m³.",
+   "$\\rho = \\dfrac{6{,}3\\times10^{-8}}{8{,}24\\times10^{-5}}$.",
+   "$= 7{,}6\\times10^{-4}$ C/m³."
+  ],
+  "porque_fallan": {
+   "B": "$6{,}9\\times10^{-6}$ divide por el **área** $4\\pi r^2$: eso da una densidad superficial.",
+   "C": "Además de usar el área, la deja en C/m²: no es lo que se pide."
+  },
+  "confirma": "E"
+ },
+ "hrw-c23-q002": {
+  "idea": "En un conductor aislado la carga vive en la superficie: multiplica $\\sigma$ por el área de la esfera.",
+  "pasos": [
+   "$A = 4\\pi r^2 = 4\\pi(0{,}027)^2 = 9{,}16\\times10^{-3}$ m².",
+   "$Q = \\sigma A = 6{,}9\\times10^{-6}(9{,}16\\times10^{-3})$.",
+   "$= 6{,}3\\times10^{-8}$ C. (Es la pregunta anterior al revés.)"
+  ],
+  "porque_fallan": {
+   "B": "$2{,}1\\times10^{-8}$ usa $\\pi r^2$, el área de un círculo, no de la esfera.",
+   "A": "$5{,}6\\times10^{-10}$ se equivoca en la potencia del radio."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q003": {
+  "idea": "El volumen de una corteza es la diferencia de los volúmenes de las dos esferas.",
+  "pasos": [
+   "$V = \\tfrac43\\pi(R_2^3 - R_1^3) = \\tfrac43\\pi(0{,}045^3 - 0{,}037^3)$.",
+   "$= \\tfrac43\\pi(9{,}11\\times10^{-5} - 5{,}07\\times10^{-5}) = 1{,}70\\times10^{-4}$ m³.",
+   "$Q = 6{,}1\\times10^{-4}(1{,}70\\times10^{-4}) = 1{,}0\\times10^{-7}$ C."
+  ],
+  "porque_fallan": {
+   "D": "$2{,}3\\times10^{-7}$ usa la esfera de radio exterior **entera**, sin descontar el hueco.",
+   "B": "$1{,}3\\times10^{-7}$ resta los radios antes de elevarlos al cubo, que no es lo mismo."
+  },
+  "confirma": "A"
+ },
+ "hrw-c23-q004": {
+  "idea": "Volumen de cilindro: $\\pi r^2 h$. Otra vez con todo en metros.",
+  "pasos": [
+   "$V = \\pi(0{,}021)^2(0{,}088) = \\pi(4{,}41\\times10^{-4})(0{,}088)$.",
+   "$= 1{,}22\\times10^{-4}$ m³.",
+   "$\\rho = 6{,}1\\times10^{-7}/1{,}22\\times10^{-4} = 5{,}0\\times10^{-3}$ C/m³."
+  ],
+  "porque_fallan": {
+   "C": "$8{,}5\\times10^{-4}$ usa el área lateral $2\\pi rh$ en vez del volumen.",
+   "B": "Las unidades C/m² ya delatan que se ha dividido por un área."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q005": {
+  "idea": "$\\Phi = EA\\cos\\theta$ con $\\theta$ medido entre el campo y la **normal** a la superficie. Girar el papel $25°$ inclina la normal $25°$.",
+  "pasos": [
+   "De frente (normal paralela al campo): $\\Phi_{max} = 25$ N·m²/C.",
+   "Al girar el papel $25°$, la normal forma $25°$ con el campo.",
+   "$\\Phi = 25\\cos25° = 25(0{,}906) = 23$ N·m²/C."
+  ],
+  "porque_fallan": {
+   "B": "12 usaría $\\sin25°$ o un ángulo mucho mayor: confunde el ángulo del papel con el de la normal.",
+   "A": "Cero exigiría girar el papel $90°$, poniéndolo de canto."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q006": {
+  "idea": "El plano $yz$ tiene por normal a $\\hat\\imath$: solo sobrevive la componente $x$ del campo.",
+  "pasos": [
+   "$\\vec A = 2{,}0\\,\\hat\\imath$ m².",
+   "$\\Phi = \\vec E\\cdot\\vec A = (24)(2{,}0)$.",
+   "$= 48$ N·m²/C. Las componentes $y$ y $z$ resbalan por la superficie sin atravesarla."
+  ],
+  "porque_fallan": {
+   "E": "60 usa la componente $y$ (30), que es paralela al plano y no aporta flujo.",
+   "A": "32 usa la componente $z$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q007": {
+  "idea": "En la ley de Gauss lo que importa es la carga **neta** encerrada: $+q+q-2q = 0$, luego la integral se anula.",
+  "pasos": [
+   "$\\oint\\vec E\\cdot d\\vec A = q_{enc}/\\varepsilon_0$ con $q_{enc}$ la suma algebraica.",
+   "$+q + q - 2q = 0 \\Rightarrow$ integral cero.",
+   "Ojo: la integral es cero, pero $\\vec E$ **no** es cero sobre la superficie: entra tanto flujo como sale."
+  ],
+  "porque_fallan": {
+   "B": "Carga neta nula anula la **integral**, no el campo: las líneas entran por un lado y salen por otro.",
+   "A": "$\\vec E$ en la integral es el campo **total**, incluidas las cargas de fuera."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q008": {
+  "idea": "El flujo depende **solo** de la carga encerrada. Cambia si la carga deja de estar dentro.",
+  "pasos": [
+   "Cambiar la forma o el tamaño de la superficie no cambia $q_{enc}$: el flujo se mantiene.",
+   "Descentrar la carga tampoco: sigue dentro.",
+   "Sacarla fuera sí: $q_{enc}$ pasa de $q$ a 0. Y una carga añadida **fuera** no cambia nada."
+  ],
+  "porque_fallan": {
+   "A": "Un cubo del mismo volumen encierra la misma carga: mismo flujo.",
+   "E": "Una carga colocada fuera no aporta flujo neto: lo que entra por un lado sale por el otro."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q009": {
+  "idea": "Flujo neto cero no significa campo cero: es el error clásico sobre la ley de Gauss.",
+  "pasos": [
+   "Sin carga dentro, lo que entra por un lado sale por el otro: el flujo **neto** se anula.",
+   "Pero el campo puede ser intensísimo en cada punto de la superficie.",
+   "Piensa en una caja vacía metida en un campo uniforme: flujo cero, campo enorme."
+  ],
+  "porque_fallan": {
+   "D": "Es cierta: la ley de Gauss vale para cualquier superficie cerrada, por retorcida que sea.",
+   "C": "También es cierta: aplicando Gauss a una esfera y usando la simetría sale la ley de Coulomb."
+  },
+  "confirma": "E"
+ },
+ "hrw-c23-q010": {
+  "idea": "Un tubo de cartón está abierto por los dos extremos: no encierra ningún volumen.",
+  "pasos": [
+   "La ley de Gauss exige una superficie **cerrada**, que separe un dentro de un fuera.",
+   "El tubo no lo hace: se puede salir por los extremos sin atravesarlo.",
+   "Que sea aislante o que no encierre carga son irrelevantes: una superficie gaussiana es matemática, no física."
+  ],
+  "porque_fallan": {
+   "C": "Las superficies gaussianas son imaginarias: no tienen material ninguno.",
+   "B": "Encerrar carga cero está permitido; el flujo sale cero y ya está."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q011": {
+  "idea": "El aula entera es una superficie cerrada con los 25 µC dentro: $\\Phi = q/\\varepsilon_0$, sin más datos.",
+  "pasos": [
+   "$\\Phi = \\dfrac{25\\times10^{-6}}{8{,}85\\times10^{-12}}$.",
+   "$= 2{,}8\\times10^6$ N·m²/C.",
+   "Las dimensiones del aula no hacen falta: ahí está la potencia de la ley de Gauss."
+  ],
+  "porque_fallan": {
+   "E": "Justo lo contrario: el flujo no depende de la geometría, solo de la carga.",
+   "A": "Cero sería si la carga se hubiera quedado en la antesala."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q012": {
+  "idea": "La ley de Gauss da el flujo **total**; repartirlo entre las caras exige simetría, y descentrar la carga la rompe.",
+  "pasos": [
+   "$\\Phi_{total} = q/\\varepsilon_0$, eso sí se sabe.",
+   "Con la carga en el centro, la simetría reparte a partes iguales: $q/6\\varepsilon_0$ por cara.",
+   "Descentrada, cada cara recibe una fracción distinta y Gauss no la determina: haría falta integrar."
+  ],
+  "porque_fallan": {
+   "D": "$q/6\\varepsilon_0$ solo vale con la carga **centrada**.",
+   "B": "$q/\\varepsilon_0$ es el flujo por las seis caras juntas."
+  },
+  "confirma": "E"
+ },
+ "hrw-c23-q014": {
+  "idea": "Con la carga en el centro, las seis caras son equivalentes: cada una se lleva un sexto.",
+  "pasos": [
+   "$\\Phi_{total} = q/\\varepsilon_0$.",
+   "Simetría perfecta entre las seis caras.",
+   "$\\Phi_{cara} = q/6\\varepsilon_0$."
+  ],
+  "porque_fallan": {
+   "A": "$q/\\varepsilon_0$ es el total, no lo de una cara.",
+   "B": "$q/4\\pi\\varepsilon_0$ mezcla la constante de Coulomb: aquí no aparece ningún $\\pi$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q015": {
+  "idea": "Suma los tres flujos de cada cilindro: la suma es el flujo neto, y su signo es el de la carga encerrada.",
+  "pasos": [
+   "Cilindro 1: $+2+4-6 = 0$. Cilindro 2: $+3-2+6 = +7$.",
+   "Cilindro 3: $-2-5+3 = -4$. Cilindro 4: $+2-5-3 = -6$.",
+   "De la más negativa a la más positiva: 4 ($-6$), 3 ($-4$), 1 ($0$), 2 ($+7$)."
+  ],
+  "porque_fallan": {
+   "B": "4, 3, 2, 1 acierta los dos primeros pero pone el $+7$ antes del $0$.",
+   "A": "1, 2, 3, 4 es el orden de la tabla, no el de las cargas."
+  },
+  "confirma": "E"
+ },
+ "hrw-c23-q017": {
+  "idea": "La papelera es casi una superficie cerrada y no encierra carga: el flujo total es cero, así que los lados y el fondo compensan exactamente la boca.",
+  "pasos": [
+   "Flujo por la boca: $\\Phi = EA = 300\\,\\pi(0{,}15)^2 = 300(0{,}0707) = 21$ N·m²/C.",
+   "Flujo total por la superficie cerrada: cero (no hay carga dentro).",
+   "Luego lados $+$ fondo aportan $-21$: en magnitud, 21."
+  ],
+  "porque_fallan": {
+   "E": "No hace falta conocer las áreas laterales: la ley de Gauss las esquiva por completo.",
+   "A": "Cero es el flujo **total**, no el de los lados y el fondo por separado."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q018": {
+  "idea": "Dentro del metal el campo es cero, así que una superficie gaussiana en el espesor no puede encerrar carga neta.",
+  "pasos": [
+   "Toma una esfera gaussiana dentro del material del cascarón: ahí $\\vec E = 0$, luego $q_{enc} = 0$.",
+   "$q_{enc} = q_{centro} + q_{interior} = -3 + q_{interior} = 0$.",
+   "$q_{interior} = +3$ C."
+  ],
+  "porque_fallan": {
+   "B": "$-3$ C es la carga del **centro**; la inducida tiene el signo contrario.",
+   "E": "$+7$ C es lo que va a la superficie **exterior**."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q019": {
+  "idea": "El cascarón tiene 10 C en total; si 3 C se han ido a la cara interior, quedan 7 C para la exterior.",
+  "pasos": [
+   "Carga total del cascarón: $+10$ C, que se reparte entre las dos superficies.",
+   "Interior: $+3$ C (pregunta anterior).",
+   "Exterior: $10 - 3 = +7$ C. (Comprobación: el total encerrado desde fuera es $-3+10 = +7$ ✔)."
+  ],
+  "porque_fallan": {
+   "D": "$+3$ C es lo de la cara **interior**.",
+   "C": "Cero exigiría que toda la carga se hubiera ido dentro."
+  },
+  "confirma": "E"
+ },
+ "hrw-c23-q020": {
+  "idea": "Dentro del metal el campo total debe anularse, y eso fija $\\sigma = \\varepsilon_0 E$. El signo lo dan las líneas: mueren en la carga negativa.",
+  "pasos": [
+   "El campo apunta **hacia** la cara izquierda: las líneas entran por ahí y terminan en carga negativa.",
+   "Izquierda negativa, derecha positiva.",
+   "$\\sigma = \\varepsilon_0 E = 8{,}85\\times10^{-12}(30) = 2{,}7\\times10^{-10}$ C/m².",
+   "**Ojo:** el libro imprime $10^{-9}$ en las cinco opciones. El valor 2,7 (y no 5,3, que sería $2\\varepsilon_0E$) junto con el patrón de signos identifica la letra sin ambigüedad; el exponente es errata del original."
+  ],
+  "porque_fallan": {
+   "B": "Los signos invertidos: la cara donde **entran** las líneas es la negativa.",
+   "E": "La lámina es neutra en total, pero eso no impide que sus dos caras se carguen con signos opuestos."
+  },
+  "confirma": "A"
+ },
+ "hrw-c23-q023": {
+  "idea": "Dentro de una esfera con carga uniforme solo cuenta la carga interior a $r$, y esa crece como $r^3$: el campo acaba siendo proporcional a $r$.",
+  "pasos": [
+   "$q_{enc} = Q\\dfrac{(R/2)^3}{R^3} = Q/8$.",
+   "$E = \\dfrac{q_{enc}}{4\\pi\\varepsilon_0(R/2)^2} = \\dfrac{Q/8}{4\\pi\\varepsilon_0 R^2/4}$.",
+   "$= \\dfrac{Q}{8\\pi\\varepsilon_0R^2}$."
+  ],
+  "porque_fallan": {
+   "A": "$Q/4\\pi\\varepsilon_0R^2$ es el campo en la **superficie**, con toda la carga contando.",
+   "B": "$Q/\\pi\\varepsilon_0R^2$ usa toda la carga a la distancia $R/2$: olvida que la mayor parte queda fuera."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q024": {
+  "idea": "Dos contribuciones que apuntan en **sentidos opuestos** sobre el eje $x$, y se restan.",
+  "pasos": [
+   "De la esfera, en $x = R/2$: $E_1 = \\dfrac{Q}{8\\pi\\varepsilon_0R^2}$ hacia $+x$ (resultado anterior).",
+   "De la carga puntual en $x = 2R$, a distancia $3R/2$: $E_2 = \\dfrac{Q}{4\\pi\\varepsilon_0(3R/2)^2} = \\dfrac{Q}{9\\pi\\varepsilon_0R^2}$ hacia $-x$.",
+   "$E = \\dfrac{Q}{\\pi\\varepsilon_0R^2}\\left(\\dfrac18 - \\dfrac19\\right) = \\dfrac{Q}{72\\pi\\varepsilon_0R^2}$."
+  ],
+  "porque_fallan": {
+   "D": "$17Q/72\\pi\\varepsilon_0R^2$ **suma** las dos contribuciones en vez de restarlas.",
+   "B": "$Q/8\\pi\\varepsilon_0R^2$ es solo la de la esfera, ignorando la carga puntual."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q025": {
+  "idea": "La superficie interior no encierra nada: la carga está en el espesor del cascarón, por fuera de ella.",
+  "pasos": [
+   "Una gaussiana pegada a la cara interior encierra solo el hueco, que está vacío.",
+   "$q_{enc} = 0$.",
+   "$\\Phi = 0$. (Y de ahí que el campo en la cavidad también sea nulo.)"
+  ],
+  "porque_fallan": {
+   "B": "$Q/\\varepsilon_0$ es el flujo por la superficie **exterior**.",
+   "D": "$Q/4\\pi\\varepsilon_0$ mezcla la constante de Coulomb: en la ley de Gauss no aparece el $4\\pi$."
+  },
+  "confirma": "A"
+ },
+ "hrw-c23-q026": {
+  "idea": "La superficie exterior encierra toda la carga del cascarón.",
+  "pasos": [
+   "$q_{enc} = Q$.",
+   "$\\Phi = Q/\\varepsilon_0$.",
+   "No depende del grosor ni del radio: solo de la carga."
+  ],
+  "porque_fallan": {
+   "A": "Cero es lo de la superficie **interior**.",
+   "C": "$2Q/\\varepsilon_0$ contaría la carga dos veces."
+  },
+  "confirma": "B"
+ },
+ "hrw-c23-q027": {
+  "idea": "El total por la superficie cerrada es $Q/\\varepsilon_0$; réstale lo que sale por la parte curva.",
+  "pasos": [
+   "$\\Phi_{total} = \\dfrac{6{,}6\\times10^{-7}}{8{,}85\\times10^{-12}} = 7{,}5\\times10^4$ N·m²/C.",
+   "$\\Phi_{base} = \\Phi_{total} - \\Phi_{curva} = 7{,}5\\times10^4 - 9{,}8\\times10^4$.",
+   "$= -2{,}3\\times10^4$ N·m²/C: negativo, o sea entrante."
+  ],
+  "porque_fallan": {
+   "B": "El signo: por la parte curva sale **más** flujo del total, así que por la base tiene que entrar.",
+   "A": "Cero solo si la curva se llevara exactamente todo el flujo, y se lleva de más."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q028": {
+  "idea": "Hilo largo: el campo cae como $1/r$, no como $1/r^2$. La simetría es cilíndrica, no esférica.",
+  "pasos": [
+   "$E = \\dfrac{\\lambda}{2\\pi\\varepsilon_0 r} \\propto 1/r$.",
+   "Doblar la distancia divide el campo por 2.",
+   "$E = 20/2 = 10$ N/C."
+  ],
+  "porque_fallan": {
+   "E": "5 N/C aplica $1/r^2$, que es lo de una carga **puntual**.",
+   "C": "40 N/C va en el sentido contrario: alejarse debilita el campo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q029": {
+  "idea": "Dentro de la cavidad solo cuenta la carga central: el cascarón, por simetría esférica, no aporta nada ahí.",
+  "pasos": [
+   "Gaussiana esférica de radio $r < R_1$: encierra solo $q$.",
+   "$E(4\\pi r^2) = q/\\varepsilon_0$.",
+   "$E = \\dfrac{q}{4\\pi\\varepsilon_0 r^2}$. La carga $Q$ del cascarón queda fuera y su campo interior es nulo."
+  ],
+  "porque_fallan": {
+   "D": "$(q+Q)$ es lo que se ve desde **fuera** del cascarón.",
+   "A": "Cero sería si no hubiera carga en el centro."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q030": {
+  "idea": "Desde fuera, todo se comporta como si la carga total estuviera concentrada en el centro.",
+  "pasos": [
+   "Gaussiana de radio $r > R_2$: encierra $q$ y $Q$.",
+   "$E(4\\pi r^2) = (q+Q)/\\varepsilon_0$.",
+   "$E = \\dfrac{q+Q}{4\\pi\\varepsilon_0 r^2}$."
+  ],
+  "porque_fallan": {
+   "B": "$Q$ sola olvida la carga central, que también contribuye desde fuera.",
+   "C": "$q$ sola olvida la del cascarón."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q031": {
+  "idea": "La cara interior lleva carga $-q$, y en el **espesor del conductor** su campo es el de una corteza vista desde fuera.",
+  "pasos": [
+   "La carga central $q$ induce $-q$ en la superficie interior.",
+   "En un punto del material ($R_1 < r < R_2$) esa corteza queda por dentro: actúa como carga puntual $-q$ en el centro.",
+   "Magnitud: $\\dfrac{q}{4\\pi\\varepsilon_0 r^2}$. (Y es justo lo que cancela el campo de $q$, dejando cero dentro del metal.)"
+  ],
+  "porque_fallan": {
+   "A": "Cero es el campo **total** en el conductor, no el de la carga inducida por separado.",
+   "E": "$Q$ es la carga puesta en el cascarón; la de la cara interior vale $-q$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c23-q032": {
+  "idea": "La misma contabilidad que en la esfera, pero por unidad de longitud: la cara interior anula al hilo, y la exterior recoge el resto.",
+  "pasos": [
+   "Dentro del metal $\\vec E = 0$ ⟹ una gaussiana cilíndrica ahí no encierra carga neta.",
+   "$\\lambda_f + \\lambda_{interior} = 0 \\Rightarrow \\lambda_{interior} = -\\lambda_f$.",
+   "El cascarón tiene $\\lambda_c$ en total: $\\lambda_{exterior} = \\lambda_c - (-\\lambda_f) = \\lambda_c + \\lambda_f$."
+  ],
+  "porque_fallan": {
+   "A": "$\\lambda_f$ en la cara interior tendría el signo equivocado: la inducción es de signo contrario.",
+   "D": "Mezcla las dos densidades sin respetar que la interior solo depende del hilo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c23-q033": {
+  "idea": "Placa grande: el campo es **uniforme**, no depende de la distancia.",
+  "pasos": [
+   "$E = \\dfrac{\\sigma}{2\\varepsilon_0}$: no aparece $r$ por ningún lado.",
+   "Cerca de una placa infinita, alejarse no cambia nada.",
+   "$E = 30$ N/C a los 4 cm también."
+  ],
+  "porque_fallan": {
+   "D": "15 N/C aplica $1/r$, que es lo del hilo.",
+   "E": "7,5 N/C aplica $1/r^2$, que es lo de la carga puntual. Las tres geometrías dan tres leyes distintas: puntual $1/r^2$, hilo $1/r$, plano constante."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q036": {
+  "idea": "Dentro del metal el campo total es cero, así que el de las cargas superficiales tiene que cancelar exactamente el de $Q$.",
+  "pasos": [
+   "Con $Q$ positiva, su campo dentro de la lámina apunta **alejándose** de $Q$.",
+   "Para que la suma sea cero, el de las cargas inducidas apunta **hacia** $Q$.",
+   "(Con $Q$ negativa se invierten los dos, y la conclusión «hacia $Q$» sigue siendo la correcta con el signo relativo adecuado.)"
+  ],
+  "porque_fallan": {
+   "D": "Alejándose de $Q$ es la dirección del campo de $Q$, no la de las cargas inducidas.",
+   "A": "«Hacia la superficie» no es una dirección definida: la lámina tiene dos caras."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q037": {
+  "idea": "En un conductor cargado toda la carga se va a la superficie **exterior**: la interior está limpia.",
+  "pasos": [
+   "Una gaussiana dentro del metal encierra carga neta cero ⟹ la cara interior no tiene carga.",
+   "La bolita toca esa cara interior descargada.",
+   "Sale prácticamente sin carga. (Es el fundamento del pozo de Faraday, y así se demostró la ley del inverso del cuadrado con enorme precisión.)"
+  ],
+  "porque_fallan": {
+   "A": "Positiva sería si tocara la cara **exterior**, donde sí está la carga.",
+   "E": "Da igual dónde toque por dentro: toda la cara interior está descargada."
+  },
+  "confirma": "C"
+ },
+ "hrw-c23-q038": {
+  "idea": "La cara interior induce $-q$ y la exterior se queda con lo que sobra para que el cascarón siga sumando $Q$.",
+  "pasos": [
+   "Campo nulo en el metal ⟹ carga encerrada nula ⟹ interior $= -q$.",
+   "El cascarón tenía $Q$ en total: exterior $= Q - (-q) = Q + q$.",
+   "Comprobación: desde fuera se ve $q + Q$, como debe ser."
+  ],
+  "porque_fallan": {
+   "B": "$q$ en la interior tiene el signo cambiado: la inducción es opuesta.",
+   "A": "$0$ en la interior dejaría campo dentro del metal."
+  },
+  "confirma": "D"
+ }
+}
