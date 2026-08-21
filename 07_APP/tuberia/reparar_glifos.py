@@ -193,6 +193,18 @@ POR_TARJETA = {
     ],
     # Otra tanda de raíces perdidas: las cuatro primeras opciones se quedaban
     # en «2π L/(g + a)», que sin la raíz no es la fórmula de nada.
+    # Las dos distancias de estas preguntas son ℓ₁ y ℓ₂; al perderse la ele
+    # quedaba «One travels a distance_{1} to get...», que no se entiende.
+    "hrw-c16-q049": [
+        ("enunciado", "a distance_{1} to", "a distance ℓ_{1} to"),
+        ("enunciado", "a distance_{2} .", "a distance ℓ_{2}."),
+        ("enunciado", "point if_{1} -_{2} is:", "point if ℓ_{1} - ℓ_{2} is:"),
+    ],
+    "hrw-c16-q050": [
+        ("enunciado", "a distance_{1} to", "a distance ℓ_{1} to"),
+        ("enunciado", "a distance_{2} .", "a distance ℓ_{2}."),
+        ("enunciado", "point if_{1} -_{2} is:", "point if ℓ_{1} - ℓ_{2} is:"),
+    ],
     "hrw-c15-q048": [
         ("enunciado", "L, g, and a is: 0_{0}", "L, g, and a is:"),
         ("A", "2π L/g", "2π√(L/g)"),

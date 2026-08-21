@@ -1,0 +1,432 @@
+{
+ "hrw-c16-q001": {
+  "idea": "La forma $f(x-at)$ ya lo dice todo: un perfil rígido que se desplaza con velocidad $a$. Lo que **no** se sigue es que la velocidad valga $x/t$.",
+  "pasos": [
+   "$y$ depende de $x$ y $t$ solo por la combinación $x-at$: el perfil no se deforma.",
+   "Ese argumento se mantiene constante si $x$ avanza a razón de $a$: la onda viaja hacia $+x$ con velocidad $a$.",
+   "$x/t$ es la velocidad media de un móvil que partió del origen, y aquí no hay tal cosa: la onda ya existe en todas partes."
+  ],
+  "porque_fallan": {
+   "D": "Sí se sigue: $a$ es exactamente la velocidad de propagación.",
+   "B": "Sí se sigue: esa es la esencia de depender solo de $x-at$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q005": {
+  "idea": "Frecuencia y período son inversos. Nada más.",
+  "pasos": [
+   "$T$ es el tiempo de un ciclo.",
+   "$f$ es el número de ciclos por segundo.",
+   "$f = 1/T$. La velocidad no interviene."
+  ],
+  "porque_fallan": {
+   "C": "$f = vT$ mezcla velocidad con tiempo: no tiene las dimensiones de una frecuencia.",
+   "D": "$v/T$ tiene dimensiones de aceleración."
+  },
+  "confirma": "A"
+ },
+ "hrw-c16-q006": {
+  "idea": "La frecuencia angular es la fase recorrida por segundo: $2\\pi$ radianes por ciclo.",
+  "pasos": [
+   "Un ciclo son $2\\pi$ rad de fase y dura $T$.",
+   "$\\omega = 2\\pi/T$.",
+   "Equivalentemente, $\\omega = 2\\pi f$."
+  ],
+  "porque_fallan": {
+   "A": "$1/T$ es la frecuencia ordinaria, en Hz, sin el $2\\pi$.",
+   "C": "$vT$ es una longitud de onda, no una frecuencia."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q007": {
+  "idea": "$k$ es el número de onda angular: $\\lambda = 2\\pi/k$, exactamente como $T = 2\\pi/\\omega$.",
+  "pasos": [
+   "La fase avanza $2\\pi$ al recorrer una longitud de onda: $k\\lambda = 2\\pi$.",
+   "$\\lambda = 2\\pi/k$.",
+   "$k$ es al espacio lo que $\\omega$ es al tiempo."
+  ],
+  "porque_fallan": {
+   "E": "$k/2\\pi$ es el inverso: el número de ondas por metro, no la longitud de onda.",
+   "A": "$2\\pi k/\\omega$ mezcla las dos variables sin sentido dimensional."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q009": {
+  "idea": "La velocidad de fase es $v = \\omega/k$: se sigue de exigir que la fase sea constante.",
+  "pasos": [
+   "$kx + \\omega t = $ constante ⟹ $k\\,dx = -\\omega\\,dt$.",
+   "$|dx/dt| = \\omega/k$.",
+   "Equivale a $v = \\lambda f$, escrito con $\\omega$ y $k$."
+  ],
+  "porque_fallan": {
+   "C": "$\\omega k$ tiene dimensiones de $1/(\\text{m·s})$: no es una velocidad.",
+   "D": "$2\\pi/k$ es la longitud de onda."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q010": {
+  "idea": "El número de onda angular es el coeficiente que multiplica a $x$ dentro del seno: aquí, 3,0.",
+  "pasos": [
+   "$y = 0{,}1\\sin(3x + 10t)$ con $x$ en metros.",
+   "$k = 3{,}0$ rad/m; $\\omega = 10$ rad/s.",
+   "**Ojo:** el libro imprime la opción como «3,0 rad/cm». El valor 3,0 solo aparece en esa opción, así que la letra no tiene duda; la unidad es errata del original, arrastrada de que $y$ va en centímetros."
+  ],
+  "porque_fallan": {
+   "B": "$3\\pi$ mete un $\\pi$ que no está: el 3 ya es el número de onda angular, no hay que multiplicarlo por nada.",
+   "A": "0,10 es la **amplitud**, en centímetros."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q011": {
+  "idea": "La frecuencia angular es el coeficiente de $t$: 10 rad/s.",
+  "pasos": [
+   "$y = 0{,}1\\sin(3x - 10t)$ con $t$ en segundos.",
+   "$\\omega = 10$ rad/s directamente del argumento.",
+   "(Si quisieras la frecuencia en hertz: $f = 10/2\\pi = 1{,}6$ Hz.)"
+  ],
+  "porque_fallan": {
+   "C": "$10\\pi$ multiplica por $\\pi$ sin motivo: el 10 ya es $\\omega$.",
+   "B": "$3\\pi$ confunde el coeficiente de $x$ con el de $t$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q012": {
+  "idea": "$v = \\lambda f$.",
+  "pasos": [
+   "$v = 300(0{,}07)$.",
+   "$= 21$ m/s.",
+   "Unos 75 km/h: razonable para el oleaje de fondo."
+  ],
+  "porque_fallan": {
+   "A": "0,00021 divide en vez de multiplicar.",
+   "D": "210 m/s se pasa por un factor 10."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q013": {
+  "idea": "El tiempo por ciclo es el período, y crestas adyacentes están separadas una longitud de onda.",
+  "pasos": [
+   "$\\lambda = 5{,}0$ cm, $v = 20$ cm/s.",
+   "$T = \\lambda/v = 5{,}0/20$.",
+   "$= 0{,}25$ s."
+  ],
+  "porque_fallan": {
+   "B": "4,0 s invierte la división: sería la **frecuencia** mal leída.",
+   "A": "100 s multiplica en vez de dividir."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q015": {
+  "idea": "Dos condiciones a la vez: desplazamiento nulo fija $\\varphi$ a $0°$ o $180°$, y el signo de la velocidad elige entre las dos.",
+  "pasos": [
+   "$y(0,0) = y_m\\sin(-\\varphi) = 0 \\Rightarrow \\varphi = 0°$ o $180°$.",
+   "$v_y = \\partial y/\\partial t = -\\omega y_m\\cos(kx-\\omega t-\\varphi)$; en $(0,0)$ vale $-\\omega y_m\\cos\\varphi$.",
+   "Para que sea positiva hace falta $\\cos\\varphi < 0$: $\\varphi = 180°$."
+  ],
+  "porque_fallan": {
+   "B": "$90°$ daría desplazamiento inicial $-y_m$, no cero.",
+   "E": "$270°$ daría desplazamiento $+y_m$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q016": {
+  "idea": "Velocidad nula fija $\\varphi$ a $90°$ o $270°$; el signo del desplazamiento elige.",
+  "pasos": [
+   "$v_y(0,0) = -\\omega y_m\\cos\\varphi = 0 \\Rightarrow \\varphi = 90°$ o $270°$.",
+   "$y(0,0) = -y_m\\sin\\varphi > 0 \\Rightarrow \\sin\\varphi < 0$.",
+   "$\\sin 270° = -1$ ✔, luego $\\varphi = 270°$."
+  ],
+  "porque_fallan": {
+   "B": "$90°$ da $\\sin\\varphi = +1$ y por tanto desplazamiento **negativo**.",
+   "D": "$180°$ daría velocidad distinta de cero."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q017": {
+  "idea": "Escribe las dos condiciones iniciales y divídelas: la $y_m$ se cancela y queda la tangente.",
+  "pasos": [
+   "$y_0 = y_m\\sin(-\\varphi) = -y_m\\sin\\varphi$.",
+   "$v_0 = -\\omega y_m\\cos(-\\varphi) = -\\omega y_m\\cos\\varphi$.",
+   "$\\dfrac{y_0}{v_0} = \\dfrac{\\tan\\varphi}{\\omega} \\Rightarrow \\tan\\varphi = \\dfrac{\\omega y_0}{v_0}$."
+  ],
+  "porque_fallan": {
+   "A": "$v_0/\\omega y_0$ es el inverso.",
+   "C": "$\\omega v_0/y_0$ coloca la velocidad donde va el desplazamiento."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q018": {
+  "idea": "Cada punto de la cuerda solo sube y baja, y lo hace en armónico simple con la misma $\\omega$ que la onda.",
+  "pasos": [
+   "Fijando $x$, $y(t) = y_m\\sin(kx-\\omega t)$ es una sinusoide en el tiempo de frecuencia angular $\\omega$.",
+   "El punto no avanza con la onda: la onda transporta energía, no materia.",
+   "Y su movimiento es rectilíneo (transversal), no circular."
+  ],
+  "porque_fallan": {
+   "A": "Moverse con la onda es lo que **no** hace: la cuerda no viaja.",
+   "E": "Circular sería si tuviera también componente longitudinal, como las olas del mar."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q019": {
+  "idea": "La velocidad transversal máxima es $\\omega y_m$: el producto del coeficiente de $t$ por la amplitud.",
+  "pasos": [
+   "Onda 1: $3{,}0 \\times 2{,}0 = 6{,}0$ mm/s.",
+   "Onda 2: $4{,}0 \\times 1{,}0 = 4{,}0$ mm/s.",
+   "Onda 3: $8{,}0 \\times 1{,}0 = 8{,}0$ mm/s. De menor a mayor: 2, 1, 3."
+  ],
+  "porque_fallan": {
+   "A": "1, 2, 3 ordena por amplitud, y hay que multiplicar además por $\\omega$.",
+   "E": "3, 1, 2 es el orden de mayor a menor, invertido."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q022": {
+  "idea": "Con la misma tensión, $v = \\sqrt{\\tau/\\mu}$ delata la densidad lineal. Calcula $v = \\omega/k$ para las cinco.",
+  "pasos": [
+   "A: $4/2 = 2$; **B: $10/4 = 2{,}5$**; C: $12/6 = 2$.",
+   "D: $16/8 = 2$; E: $20/10 = 2$.",
+   "B es la única con velocidad distinta, luego es la de densidad lineal distinta (menor, porque va más rápido)."
+  ],
+  "porque_fallan": {
+   "A": "$v = 2$, igual que C, D y E: es del grupo mayoritario.",
+   "E": "También $v = 2$: los números grandes engañan, pero el cociente es el mismo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q023": {
+  "idea": "Igual que en cualquier armónico simple: velocidad máxima donde el desplazamiento es nulo.",
+  "pasos": [
+   "$v_y = -\\omega y_m\\cos(\\cdot)$ y $y = y_m\\sin(\\cdot)$: están desfasados $90°$.",
+   "Cuando el seno vale cero, el coseno vale $\\pm1$.",
+   "Máxima rapidez al pasar por la posición de equilibrio."
+  ],
+  "porque_fallan": {
+   "B": "En el desplazamiento máximo la velocidad es **cero**: el punto está dando la vuelta.",
+   "A": "La aceleración máxima coincide con el desplazamiento máximo, o sea con velocidad nula."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q024": {
+  "idea": "Dos cantidades distintas que se confunden: la velocidad de la **onda** es $\\omega/k$, la del **punto** es $\\omega y_m$.",
+  "pasos": [
+   "Velocidad de onda: $6/3 = 2$; $12/4 = 3$; $11/5 = 2{,}2$. Gana la 2.",
+   "Velocidad transversal máxima: $6(2) = 12$; $12(3) = 36$; $11(4) = 44$. Gana la 3.",
+   "Onda 2 la más rápida como onda, onda 3 la de mayor velocidad transversal."
+  ],
+  "porque_fallan": {
+   "C": "La onda 3 no es la más rápida: $11/5 = 2{,}2$ frente al 3 de la onda 2.",
+   "B": "La onda 1 tiene la menor velocidad transversal máxima de las tres."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q025": {
+  "idea": "Misma relación que en el oscilador armónico: $v = \\omega\\sqrt{y_m^2 - y^2}$.",
+  "pasos": [
+   "$v_s = \\omega y_m$ es la rapidez máxima.",
+   "En $y = y_m/2$: $v = \\omega y_m\\sqrt{1 - 1/4} = \\omega y_m\\dfrac{\\sqrt3}{2}$.",
+   "$v = \\dfrac{\\sqrt3}{2}v_s \\approx 0{,}87\\,v_s$."
+  ],
+  "porque_fallan": {
+   "A": "$v_s/2$ supondría una relación lineal, y la relación va con la raíz de la diferencia de cuadrados.",
+   "D": "$3v_s/4$ es $(\\sqrt3/2)^2$: falta la raíz."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q026": {
+  "idea": "$v_{max} = \\omega y_m = 2\\pi f y_m$. La velocidad de la onda no hace falta.",
+  "pasos": [
+   "$\\omega = 2\\pi(100) = 628$ rad/s.",
+   "$v_{max} = 628(0{,}020)$.",
+   "$= 13$ m/s."
+  ],
+  "porque_fallan": {
+   "E": "Sí hay información suficiente: frecuencia y amplitud bastan.",
+   "B": "4,0 m/s olvida el factor $2\\pi$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q027": {
+  "idea": "La misma fórmula. La longitud de onda de 0,040 m es un distractor.",
+  "pasos": [
+   "$\\omega = 2\\pi(100) = 628$ rad/s.",
+   "$v_{max} = 628(2{,}0\\times10^{-3})$.",
+   "$= 1{,}3$ m/s. (La velocidad de la **onda** sería $\\lambda f = 4$ m/s: esa es la opción C, y es otra cosa.)"
+  ],
+  "porque_fallan": {
+   "C": "4 m/s es la velocidad de propagación de la onda, no la de un punto de la cuerda.",
+   "A": "0,2 m/s olvida el $2\\pi$ y algún factor más."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q028": {
+  "idea": "$a_{max} = \\omega^2 y_m$: ahora la frecuencia angular va al cuadrado.",
+  "pasos": [
+   "$\\omega = 628$ rad/s ⟹ $\\omega^2 = 3{,}95\\times10^5$.",
+   "$a_{max} = 3{,}95\\times10^5(2{,}0\\times10^{-3})$.",
+   "$= 790$ m/s²."
+  ],
+  "porque_fallan": {
+   "C": "395 es $\\omega^2 y_m$ con la amplitud a la mitad; revisa el 2,0 mm.",
+   "B": "130 sale de usar $\\omega$ sin elevar al cuadrado."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q029": {
+  "idea": "$v = \\sqrt{\\tau/\\mu}$: la velocidad la fija el **medio**, no la onda.",
+  "pasos": [
+   "Solo entran la tensión y la densidad lineal de masa.",
+   "Frecuencia y longitud de onda se ajustan entre sí para dar esa $v$: $v = \\lambda f$.",
+   "La amplitud no influye en absoluto (mientras la onda sea pequeña)."
+  ],
+  "porque_fallan": {
+   "A": "La frecuencia la fija el generador; la velocidad, la cuerda.",
+   "B": "La longitud de onda es consecuencia de las otras dos, no causa."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q030": {
+  "idea": "El tiempo es $d/v$ con $v = \\sqrt{\\tau/\\mu}$: entran distancia, tensión y densidad. La forma del pulso no.",
+  "pasos": [
+   "Un pulso de cualquier forma viaja a la misma velocidad en una cuerda ideal: no hay dispersión.",
+   "Cambiar $\\mu$, $\\tau$ o la distancia AB sí cambia el tiempo.",
+   "Cambiar la forma, no."
+  ],
+  "porque_fallan": {
+   "D": "La tensión sí altera el tiempo: es lo que fija la velocidad.",
+   "A": "La densidad lineal también, por la misma razón."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q032": {
+  "idea": "En un medio dado $v$ es fija, y $f = v/\\lambda$.",
+  "pasos": [
+   "$v = \\lambda f$ con $v$ constante.",
+   "$f \\propto 1/\\lambda$.",
+   "La amplitud no entra por ningún lado."
+  ],
+  "porque_fallan": {
+   "B": "Proporcional a $\\lambda$ daría $v$ creciendo con el cuadrado de la longitud de onda.",
+   "D": "La amplitud es independiente de la frecuencia."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q033": {
+  "idea": "Primero la velocidad con tensión y densidad; después la frecuencia con la longitud de onda.",
+  "pasos": [
+   "$v = \\sqrt{\\tau/\\mu} = \\sqrt{0{,}40/0{,}0010} = \\sqrt{400} = 20$ m/s.",
+   "$f = v/\\lambda = 20/0{,}20$.",
+   "$= 100$ Hz."
+  ],
+  "porque_fallan": {
+   "E": "2000 Hz usa $\\lambda$ en centímetros sin convertir.",
+   "B": "0,25 Hz invierte la división."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q034": {
+  "idea": "La frecuencia la impone el oscilador y no cambia; la velocidad sube $\\sqrt2$ y arrastra a la longitud de onda.",
+  "pasos": [
+   "$f = 100$ Hz lo fija el generador: la cuerda no puede cambiarlo.",
+   "$v = \\sqrt{\\tau/\\mu} \\to v\\sqrt2$ al doblar la tensión.",
+   "$\\lambda = v/f \\to 10\\sqrt2 = 14$ cm."
+  ],
+  "porque_fallan": {
+   "B": "141 Hz aplica el $\\sqrt2$ a la frecuencia, que es justo lo que no puede cambiar.",
+   "C": "100 Hz está bien, pero 20 cm dobla la longitud de onda en vez de multiplicarla por $\\sqrt2$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q035": {
+  "idea": "La velocidad la fija el medio y no depende de la fuente. Si la frecuencia se dobla, lo que se parte por la mitad es la longitud de onda.",
+  "pasos": [
+   "$v$ depende solo del medio: se queda igual.",
+   "$v = \\lambda f$ con $v$ fija.",
+   "$f \\to 2f \\Rightarrow \\lambda \\to \\lambda/2$."
+  ],
+  "porque_fallan": {
+   "E": "Doblar las dos cosas doblaría también $v$, y el medio no lo permite.",
+   "A": "$2\\lambda$ va en el sentido contrario: más frecuencia, ondas más cortas."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q037": {
+  "idea": "$t = L/v$ con $v = \\sqrt{\\tau/\\mu}$. Al doblar longitud **y** tensión, el tiempo crece como $\\sqrt{L}$ efectivo.",
+  "pasos": [
+   "Mismo material ⟹ misma $\\mu$. $t = L\\sqrt{\\mu/\\tau}$.",
+   "Cuerda 1: $t_1 = L\\sqrt{\\mu/\\tau}$.",
+   "Cuerda 2: $2L\\sqrt{\\mu/2\\tau} = \\sqrt2\\,t_1 = 1{,}41\\,t_1$. Cuerda 3: $3L\\sqrt{\\mu/3\\tau} = \\sqrt3\\,t_1 = 1{,}73\\,t_1$.",
+   "Llegan en el orden 1, 2, 3."
+  ],
+  "porque_fallan": {
+   "E": "No tardan lo mismo: la tensión crece como $L$, pero la velocidad solo como $\\sqrt L$.",
+   "B": "3, 2, 1 es el orden inverso: la cuerda más larga tarda **más**, aunque esté más tensa."
+  },
+  "confirma": "A"
+ },
+ "hrw-c16-q038": {
+  "idea": "$v = \\sqrt{\\tau/\\mu}$ con la misma tensión: la cuerda más ligera es la más rápida.",
+  "pasos": [
+   "$\\mu_I = 4\\mu_{II}$.",
+   "$\\dfrac{v_{II}}{v_I} = \\sqrt{\\dfrac{\\mu_I}{\\mu_{II}}} = \\sqrt4 = 2$.",
+   "Al pasar de I a II la velocidad se **duplica**. (La frecuencia, en cambio, nunca cambia al pasar de un medio a otro: la impone la fuente.)"
+  ],
+  "porque_fallan": {
+   "D": "Disminuir es el sentido contrario: la cuerda II es cuatro veces más ligera.",
+   "A": "La frecuencia no cambia jamás en una unión: es lo que garantiza que las dos cuerdas se muevan juntas en el nudo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q039": {
+  "idea": "La potencia transmitida va con el **cuadrado** de la amplitud: $P = \\tfrac12\\mu v\\omega^2 y_m^2$.",
+  "pasos": [
+   "Mismas cuerdas, misma tensión, misma frecuencia ⟹ $\\mu$, $v$ y $\\omega$ iguales.",
+   "$P \\propto y_m^2$.",
+   "Amplitud doble ⟹ potencia cuádruple."
+  ],
+  "porque_fallan": {
+   "B": "El doble sería si la potencia fuera lineal en la amplitud.",
+   "E": "Ocho veces sería un cubo; el exponente es 2."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q040": {
+  "idea": "Idéntica a la anterior: $P \\propto y_m^2$.",
+  "pasos": [
+   "$P = \\tfrac12\\mu v\\omega^2y_m^2$.",
+   "Todo igual salvo la amplitud, que se duplica.",
+   "$P$ se multiplica por $2^2 = 4$."
+  ],
+  "porque_fallan": {
+   "B": "Dos veces olvida el cuadrado.",
+   "C": "Un cuarto va en el sentido opuesto."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q041": {
+  "idea": "La potencia instantánea es $F_\\perp v_y$, y $v_y$ es máxima donde el desplazamiento es mínimo.",
+  "pasos": [
+   "$P = -F\\dfrac{\\partial y}{\\partial x}\\dfrac{\\partial y}{\\partial t}$: las dos derivadas son máximas a la vez.",
+   "Eso ocurre al pasar por $y = 0$, donde la velocidad transversal es máxima.",
+   "En el desplazamiento máximo la velocidad es cero y no se entrega nada."
+  ],
+  "porque_fallan": {
+   "B": "En el desplazamiento máximo la potencia es **cero**: el extremo está parado.",
+   "A": "La aceleración máxima coincide con el desplazamiento máximo, o sea con potencia nula."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q042": {
+  "idea": "El reverso de la anterior: potencia nula donde la velocidad transversal es nula.",
+  "pasos": [
+   "$P = F_\\perp v_y$ y en el extremo del recorrido $v_y = 0$.",
+   "Fuerza sin desplazamiento no transmite potencia.",
+   "Eso pasa en el desplazamiento máximo."
+  ],
+  "porque_fallan": {
+   "E": "En el desplazamiento mínimo la potencia es **máxima**.",
+   "A": "La aceleración mínima ocurre en $y=0$, donde la potencia es máxima."
+  },
+  "confirma": "B"
+ }
+}

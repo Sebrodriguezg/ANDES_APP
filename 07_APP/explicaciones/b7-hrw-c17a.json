@@ -1,0 +1,353 @@
+{
+ "hrw-c17-q001": {
+  "idea": "La velocidad del sonido la fija el medio: $v = \\sqrt{B/\\rho}$. Nada de la onda influye.",
+  "pasos": [
+   "Entran el módulo de compresibilidad y la densidad del medio.",
+   "Amplitud, intensidad y tono son propiedades de la onda, no del aire.",
+   "Por eso los graves y los agudos de una orquesta llegan a la vez al fondo de la sala."
+  ],
+  "porque_fallan": {
+   "C": "Si el tono cambiara la velocidad, la música llegaría desordenada desde el fondo del auditorio.",
+   "A": "Un grito y un susurro viajan exactamente a la misma velocidad."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q002": {
+  "idea": "La luz llega instantáneamente a efectos prácticos; el retraso es todo del sonido.",
+  "pasos": [
+   "$d = vt = 340(3)$.",
+   "$= 1020$ m.",
+   "Unos 1000 m. (De ahí la regla de contar segundos y dividir entre tres para tener kilómetros.)"
+  ],
+  "porque_fallan": {
+   "E": "«Mucho más de 1000 m» sobra: la cuenta da justo 1020.",
+   "A": "El rayo no se mueve; el retraso es porque el sonido es lento."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q003": {
+  "idea": "Compresión y rarefacción adyacentes son los dos extremos del ciclo: media longitud de onda.",
+  "pasos": [
+   "Una compresión y la siguiente compresión distan $\\lambda$.",
+   "La rarefacción cae justo en medio.",
+   "$3{,}0/2 = 1{,}5$ m. Ni la velocidad ni la frecuencia hacen falta."
+  ],
+  "porque_fallan": {
+   "A": "$\\lambda/4$ es la distancia de una compresión al punto de presión ambiente.",
+   "D": "La velocidad no hace falta: la pregunta es puramente geométrica."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q004": {
+  "idea": "$\\lambda = v/f$.",
+  "pasos": [
+   "$\\lambda = 340/170$.",
+   "$= 2{,}0$ m.",
+   "Coherente: 170 Hz es un sonido grave, de onda larga."
+  ],
+  "porque_fallan": {
+   "A": "0,5 m invierte la división.",
+   "E": "340 m es la velocidad con las unidades cambiadas."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q005": {
+  "idea": "Esa es la definición de longitud de onda: lo que avanza la onda en un período.",
+  "pasos": [
+   "$d = vT$.",
+   "$v = \\lambda f$ y $T = 1/f$, luego $vT = \\lambda$.",
+   "El tamaño del diapasón no interviene."
+  ],
+  "porque_fallan": {
+   "A": "La longitud del diapasón no tiene nada que ver con la longitud de onda en el aire.",
+   "C": "330 m es lo que recorre en **un segundo**, no en un período."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q006": {
+  "idea": "Comprimir gas es subirle la presión: donde más apretado está, más presión hay.",
+  "pasos": [
+   "$p = p_0 + \\Delta p$ con $\\Delta p$ máximo en la compresión.",
+   "Ahí el desplazamiento del aire es **nulo** (nodo de desplazamiento) pero la presión es máxima.",
+   "En la rarefacción la presión es mínima."
+  ],
+  "porque_fallan": {
+   "C": "La presión ambiente se da en los puntos intermedios, no en la compresión máxima.",
+   "B": "El mínimo corresponde a la rarefacción."
+  },
+  "confirma": "A"
+ },
+ "hrw-c17-q007": {
+  "idea": "La frecuencia la impone la fuente y no cambia al pasar de la cuerda al aire; la velocidad sí, y con ella la longitud de onda.",
+  "pasos": [
+   "La cuerda empuja el aire a su ritmo: $f_s = f_a$. Si no, se desincronizarían.",
+   "$v$ en la cuerda y $v$ en el aire son muy distintas.",
+   "$\\lambda = v/f$ ⟹ $\\lambda_s \\neq \\lambda_a$."
+  ],
+  "porque_fallan": {
+   "B": "Longitudes de onda iguales exigirían velocidades iguales, y no lo son.",
+   "C": "La frecuencia es justo lo que **no** puede cambiar."
+  },
+  "confirma": "A"
+ },
+ "hrw-c17-q008": {
+  "idea": "Los batidos son la envolvente lenta que aparece al sumar dos tonos de frecuencias parecidas.",
+  "pasos": [
+   "$\\cos\\omega_1t + \\cos\\omega_2t = 2\\cos\\left(\\frac{\\Delta\\omega}{2}t\\right)\\cos\\left(\\frac{\\bar\\omega}{1}t\\right)$.",
+   "El primer factor modula lentamente la amplitud: eso se oye como pulsaciones.",
+   "$f_{batido} = |f_1-f_2|$."
+  ],
+  "porque_fallan": {
+   "A": "Con frecuencias **iguales** no hay batido: la suma es un tono estable.",
+   "E": "El movimiento relativo entre fuente y observador es el efecto Doppler, otra cosa."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q009": {
+  "idea": "Lo único indispensable es que las frecuencias difieran poco.",
+  "pasos": [
+   "$f_{batido} = |f_1-f_2|$: si es cero no hay batido, y si es grande se oyen dos tonos separados.",
+   "No hace falta que viajen en sentidos opuestos ni que tengan la misma amplitud.",
+   "Las amplitudes iguales solo hacen que el mínimo llegue a silencio total."
+  ],
+  "porque_fallan": {
+   "C": "Longitudes de onda iguales significan frecuencias iguales: justo lo que impide el batido.",
+   "D": "Las amplitudes iguales ayudan a oírlo, pero no son necesarias."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q010": {
+  "idea": "La misma idea, formulada al revés: frecuencias ligeramente distintas.",
+  "pasos": [
+   "«Ligeramente» importa: si la diferencia pasa de unos 20 Hz, el oído deja de percibir pulsaciones.",
+   "Con la misma frecuencia el batido tendría frecuencia cero.",
+   "Las amplitudes son irrelevantes para que exista el fenómeno."
+  ],
+  "porque_fallan": {
+   "B": "La misma frecuencia da batido de 0 Hz: no se oye ninguna pulsación.",
+   "D": "Amplitudes distintas no producen batidos por sí solas."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q011": {
+  "idea": "$f_{batido} = |f_1-f_2|$. Solo cuenta la **diferencia**, no lo agudos que sean.",
+  "pasos": [
+   "A: 1 Hz. B: 4 Hz. C: 6 Hz.",
+   "**D: 11 Hz.** E: 2 Hz.",
+   "Gana D, aunque C y E suenen mucho más agudos."
+  ],
+  "porque_fallan": {
+   "E": "8420 y 8422 son frecuencias altísimas, pero difieren solo en 2 Hz.",
+   "C": "6 Hz de diferencia, la mitad que D."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q012": {
+  "idea": "Diferencia de 2 Hz: dos pulsaciones por segundo.",
+  "pasos": [
+   "$|352-350| = 2$ Hz.",
+   "El tono que se oye es el promedio, 351 Hz, con la intensidad subiendo y bajando 2 veces por segundo.",
+   "Nada de Doppler: los diapasones están quietos."
+  ],
+  "porque_fallan": {
+   "B": "351 es la frecuencia del **tono**, no la del batido.",
+   "E": "702 es la suma, que no significa nada aquí."
+  },
+  "confirma": "A"
+ },
+ "hrw-c17-q013": {
+  "idea": "La resta directa.",
+  "pasos": [
+   "$260 - 256 = 4$.",
+   "Cuatro batidos por segundo.",
+   "El tono percibido sería el promedio, 258 Hz."
+  ],
+  "porque_fallan": {
+   "E": "258 es el promedio: el tono, no las pulsaciones.",
+   "D": "8 dobla la diferencia sin motivo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q014": {
+  "idea": "La cera **añade masa**, así que baja la frecuencia: 250 Hz, no 262.",
+  "pasos": [
+   "Más masa oscilante ⟹ menor frecuencia: $f = 256 - 6 = 250$ Hz.",
+   "$T = 1/f = 1/250$.",
+   "$= 0{,}004$ s."
+  ],
+  "porque_fallan": {
+   "A": "0,006 s toma los 6 batidos como si fueran el período.",
+   "D": "0,003 s correspondería a 333 Hz, que no sale de estos números."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q015": {
+  "idea": "El tono es la percepción de la frecuencia; el volumen, la de la amplitud.",
+  "pasos": [
+   "Más frecuencia ⟹ tono más agudo.",
+   "Más amplitud ⟹ más fuerte, mismo tono.",
+   "Distancia, fase y velocidad no cambian la nota que oyes."
+  ],
+  "porque_fallan": {
+   "A": "La amplitud es el volumen, no el tono.",
+   "E": "La velocidad es la misma para todas las notas."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q016": {
+  "idea": "Una octava es, por definición, doblar la frecuencia.",
+  "pasos": [
+   "La 440 Hz y la la de la octava siguiente son 880 Hz.",
+   "Razón exacta 2:1.",
+   "El 8 del nombre viene de contar ocho notas de la escala diatónica, no de la razón."
+  ],
+  "porque_fallan": {
+   "A": "8 es de donde viene el nombre, pero no es la razón de frecuencias.",
+   "E": "$\\sqrt2$ es el tritono, media octava en escala temperada."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q017": {
+  "idea": "La energía no se pierde por el camino, así que la potencia total es la misma; lo que se reparte sobre más área es la intensidad.",
+  "pasos": [
+   "Toda la potencia emitida atraviesa cualquier esfera centrada en la fuente.",
+   "$I = P/4\\pi r^2$: la misma potencia sobre un área mayor.",
+   "Misma potencia, menor intensidad."
+  ],
+  "porque_fallan": {
+   "E": "La intensidad sí cambia: cae como $1/r^2$.",
+   "A": "La potencia no aumenta al alejarse: no hay ninguna fuente extra."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q018": {
+  "idea": "$P = I\\,(4\\pi r^2)$: la intensidad por el área de la esfera.",
+  "pasos": [
+   "$4\\pi r^2 = 4\\pi(5{,}0)^2 = 314$ m².",
+   "$P = 0{,}50(314)$.",
+   "$= 157 \\approx 160$ W."
+  ],
+  "porque_fallan": {
+   "A": "39 W usa $\\pi r^2$ (un círculo) en vez de la esfera entera.",
+   "D": "320 W dobla el área de la esfera."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q019": {
+  "idea": "El cero de la escala de decibelios, $I_0 = 10^{-12}$ W/m², es el umbral de audición a 1000 Hz.",
+  "pasos": [
+   "$\\beta = 10\\log(I/I_0)$ con ese $I_0$ de referencia.",
+   "Se eligió porque es aproximadamente lo mínimo audible a 1 kHz.",
+   "El umbral del dolor está unos 120 dB por encima."
+  ],
+  "porque_fallan": {
+   "B": "El umbral del dolor son ~120 dB, el otro extremo de la escala.",
+   "D": "Una conversación normal ronda los 60 dB."
+  },
+  "confirma": "A"
+ },
+ "hrw-c17-q020": {
+  "idea": "$\\Delta\\beta = 10\\log(I_A/I_B)$.",
+  "pasos": [
+   "$I_A/I_B = 100$.",
+   "$\\Delta\\beta = 10\\log 100 = 10(2)$.",
+   "$= +20$ dB."
+  ],
+  "porque_fallan": {
+   "E": "+100 dB confunde el factor de intensidad con los decibelios.",
+   "C": "+10 dB corresponde a un factor 10, no 100."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q021": {
+  "idea": "Cada 10 dB son un factor 10 en intensidad.",
+  "pasos": [
+   "$+10$ dB ⟹ $I \\to 10I$.",
+   "$6 \\times 10$.",
+   "$= 60$ µW/cm²."
+  ],
+  "porque_fallan": {
+   "E": "12 dobla, que serían unos 3 dB.",
+   "D": "600 aplica un factor 100, o sea 20 dB."
+  },
+  "confirma": "A"
+ },
+ "hrw-c17-q022": {
+  "idea": "La relación inversa: $10 = 10\\log x \\Rightarrow x = 10$.",
+  "pasos": [
+   "$\\Delta\\beta = 10\\log(I_2/I_1) = 10$.",
+   "$\\log(I_2/I_1) = 1$.",
+   "$I_2/I_1 = 10$. (Y 3 dB es aproximadamente doblar.)"
+  ],
+  "porque_fallan": {
+   "E": "100 corresponde a 20 dB.",
+   "A": "El factor 2 son unos 3 dB."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q023": {
+  "idea": "Convierte los decibelios en razón de intensidades y luego usa $I \\propto 1/r^2$.",
+  "pasos": [
+   "$-14$ dB ⟹ $I_P/I_1 = 10^{-1{,}4} = 0{,}0398$.",
+   "$\\dfrac{I_P}{I_1} = \\left(\\dfrac{1{,}0}{r}\\right)^2 \\Rightarrow r = \\dfrac{1}{\\sqrt{0{,}0398}}$.",
+   "$= 5{,}0$ m."
+  ],
+  "porque_fallan": {
+   "E": "25 m olvida la raíz: eso sería $1/0{,}0398$.",
+   "C": "2,0 m correspondería a $-6$ dB."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q024": {
+  "idea": "$f \\propto \\sqrt\\tau$: para subir el tono, más tensión. Es lo único que el afinador puede tocar.",
+  "pasos": [
+   "$f_1 = \\dfrac{1}{2L}\\sqrt{\\tau/\\mu}$.",
+   "Las clavijas ajustan $\\tau$; $L$ y $\\mu$ están fijadas por la construcción del piano.",
+   "Más tensión, tono más alto."
+  ],
+  "porque_fallan": {
+   "C": "Acortar la cuerda subiría el tono, pero en un piano la longitud no se puede cambiar.",
+   "A": "Aflojar baja el tono."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q025": {
+  "idea": "Despeja $\\tau$ de $f = \\frac{1}{2L}\\sqrt{\\tau/\\mu}$ con $\\mu = M/L$.",
+  "pasos": [
+   "$f^2 = \\dfrac{\\tau}{4L^2\\mu} = \\dfrac{\\tau}{4L^2(M/L)} = \\dfrac{\\tau}{4LM}$.",
+   "$\\tau = 4LMf^2$.",
+   "Comprobación dimensional: m·kg·s⁻² = N ✔."
+  ],
+  "porque_fallan": {
+   "D": "$4f^2L^3/M$ tiene la masa dividiendo: dimensionalmente imposible.",
+   "C": "$2Mf^2/L$ pone $L$ en el denominador cuando va en el numerador."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q026": {
+  "idea": "Con $\\tau = 4LMf^2$ y la **misma cuerda** estirada (masa constante, se adelgaza al alargarse), mantener $f$ exige $\\tau \\propto L$.",
+  "pasos": [
+   "$f^2 = \\dfrac{\\tau}{4LM}$ con $M$ fija: mantener $f$ pide $\\tau/L$ constante.",
+   "$L \\to 1{,}05L \\Rightarrow \\tau \\to 1{,}05\\tau$: aumento del 5 %.",
+   "**El supuesto importa:** aquí «de densidad dada» significa que es la misma cuerda estirada, así que $\\mu = M/L$ **baja** al alargarla. Si en cambio se usara un trozo más largo de la misma cuerda (con $\\mu$ fija), $f \\propto \\sqrt\\tau/L$ y haría falta subir la tensión un 10 %."
+  ],
+  "porque_fallan": {
+   "D": "El 10 % es la respuesta con $\\mu$ constante, es decir con una cuerda más larga del mismo carrete.",
+   "B": "Bajar la tensión bajaría aún más la frecuencia, que ya ha bajado al alargar."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q029": {
+  "idea": "Si al subir $f_B$ el batido **crece**, es que B ya iba por encima y se aleja más.",
+  "pasos": [
+   "$f_{batido} = |f_A - f_B| = 3$ Hz al principio.",
+   "Tensar B sube $f_B$. Si fuera $f_B < f_A$, la diferencia se acortaría y el batido bajaría.",
+   "Como sube a 6 Hz, tenía que ser $f_B > f_A$, y lo sigue siendo."
+  ],
+  "porque_fallan": {
+   "C": "Si A fuera la más alta, tensar B acercaría las dos frecuencias y el batido bajaría.",
+   "A": "Para que B adelantara a A, el batido tendría que pasar antes por cero."
+  },
+  "confirma": "D"
+ }
+}

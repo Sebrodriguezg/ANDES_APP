@@ -1,0 +1,353 @@
+{
+ "hrw-c16-q043": {
+  "idea": "Para que la suma vuelva a ser una viajera sinusoidal hacen falta dos cosas: misma frecuencia y **mismo sentido**.",
+  "pasos": [
+   "Misma frecuencia y mismo sentido ⟹ el argumento $kx-\\omega t$ es común y sale factor: la suma es sinusoidal.",
+   "Sentidos opuestos dan una onda **estacionaria**, que no viaja.",
+   "Las amplitudes pueden ser distintas: solo cambia la amplitud resultante."
+  ],
+  "porque_fallan": {
+   "A": "Las amplitudes iguales no son necesarias; lo que hace falta es la misma frecuencia.",
+   "D": "Sentidos opuestos producen una estacionaria, no una viajera."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q044": {
+  "idea": "El resultado viaja hacia $-x$ (forma $kx+\\omega t$), así que las dos componentes tienen que viajar hacia $-x$. Y sus amplitudes deben poder sumar $y_m$.",
+  "pasos": [
+   "Las dos componentes deben llevar $kx+\\omega t$: descarta B, C y D.",
+   "Quedan A ($y_m/3$ cada una) y E ($0{,}7y_m$ cada una).",
+   "Amplitud resultante $= 2A\\cos(\\varphi/2)$: con $y_m/3$ el máximo posible es $2y_m/3 < y_m$; con $0{,}7y_m$ se alcanza $y_m$ eligiendo $\\varphi \\approx 89°$."
+  ],
+  "porque_fallan": {
+   "A": "Viajan bien, pero dos amplitudes de $y_m/3$ nunca suman $y_m$: como mucho $0{,}67\\,y_m$.",
+   "C": "Una viaja hacia $+x$ y otra hacia $-x$: eso da una estacionaria."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q045": {
+  "idea": "La interferencia constructiva total exige que las dos ondas se sumen siempre igual: mismo sentido y misma fase.",
+  "pasos": [
+   "En sentidos opuestos la fase relativa cambia de un punto a otro: no hay refuerzo total en todas partes.",
+   "En el mismo sentido y en fase, las crestas coinciden siempre.",
+   "Amplitud resultante $= y_{1m}+y_{2m}$."
+  ],
+  "porque_fallan": {
+   "D": "$180°$ da interferencia **destructiva**.",
+   "A": "En sentidos opuestos se forma una estacionaria, con nodos y vientres."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q046": {
+  "idea": "El reverso: mismo sentido y $180°$ de desfase.",
+  "pasos": [
+   "Mismo sentido para que la fase relativa sea la misma en todo punto.",
+   "Desfase $\\pi$ para que cada cresta caiga sobre un valle.",
+   "Con amplitudes iguales, la suma se anula en toda la cuerda."
+  ],
+  "porque_fallan": {
+   "C": "En fase da refuerzo total, no cancelación.",
+   "B": "En sentidos opuestos queda una estacionaria: se anula en los nodos, no en todas partes."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q047": {
+  "idea": "La resultante de dos fasores va de la suma a la diferencia de módulos: el mínimo es $|y_{1m}-y_{2m}|$ en oposición de fase.",
+  "pasos": [
+   "Amplitud resultante $= \\sqrt{y_{1m}^2+y_{2m}^2+2y_{1m}y_{2m}\\cos\\varphi}$.",
+   "Mínima con $\\cos\\varphi = -1$, es decir $\\varphi = 180°$.",
+   "Entonces vale $|y_{1m}-y_{2m}|$, que es cero solo si las amplitudes coinciden."
+  ],
+  "porque_fallan": {
+   "D": "En fase se obtiene el **máximo**, $y_{1m}+y_{2m}$.",
+   "A": "La suma de amplitudes es el máximo, no el mínimo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q048": {
+  "idea": "Dos ondas iguales desfasadas $\\varphi$ dan amplitud $2y_m\\cos(\\varphi/2)$. El **medio** ángulo es la clave.",
+  "pasos": [
+   "$A = 2y_m\\cos(\\varphi/2)$ con $\\varphi = 50°$.",
+   "$A = 2y_m\\cos 25° = 2y_m(0{,}906)$.",
+   "$= 1{,}8\\,y_m$."
+  ],
+  "porque_fallan": {
+   "B": "$1{,}3\\,y_m$ sale de usar $\\cos 50°$ sin partir el ángulo por la mitad.",
+   "A": "$0{,}64\\,y_m$ es $\\cos 50°$ a secas, sin el factor 2."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q049": {
+  "idea": "Fuentes en fase: lo que decide es la diferencia de camino. Media longitud de onda de más equivale a media vuelta de fase.",
+  "pasos": [
+   "Desfase $= \\dfrac{2\\pi}{\\lambda}(\\ell_1-\\ell_2)$.",
+   "Mínimo (destructivo) cuando ese desfase es $\\pi$, $3\\pi$, $5\\pi$…",
+   "Es decir, cuando $\\ell_1-\\ell_2$ es un múltiplo **impar** de $\\lambda/2$."
+  ],
+  "porque_fallan": {
+   "C": "Un múltiplo entero de $\\lambda$ da el **máximo**.",
+   "E": "Un múltiplo de $\\pi$ es un desfase, no una distancia: las unidades no cuadran."
+  },
+  "confirma": "A"
+ },
+ "hrw-c16-q050": {
+  "idea": "El caso complementario: refuerzo cuando la diferencia de camino cabe un número entero de longitudes de onda.",
+  "pasos": [
+   "Desfase $= \\dfrac{2\\pi}{\\lambda}(\\ell_1-\\ell_2) = 2\\pi n$.",
+   "$\\ell_1-\\ell_2 = n\\lambda$.",
+   "Las dos ondas llegan en fase y las amplitudes se suman."
+  ],
+  "porque_fallan": {
+   "A": "Un múltiplo impar de $\\lambda/2$ da el **mínimo**.",
+   "B": "$\\lambda/4$ da un desfase de $90°$: ni máximo ni mínimo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q052": {
+  "idea": "En un extremo fijo la reflexión invierte la onda: desfase de $\\pi$.",
+  "pasos": [
+   "El punto fijo no puede moverse, así que la suma de incidente y reflejada debe anularse ahí.",
+   "Eso exige que sean opuestas en ese punto: desfase $\\pi$.",
+   "No depende de la frecuencia ni de la velocidad: es una condición de contorno."
+  ],
+  "porque_fallan": {
+   "A": "Desfase cero es lo de un extremo **libre**, donde la reflexión no invierte.",
+   "E": "La condición de contorno no sabe nada de la frecuencia."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q053": {
+  "idea": "La reflejada tiene que cancelar a la incidente **en $x=L$**, y ahí es donde aparece el término $-2kL$.",
+  "pasos": [
+   "Incidente en $x=L$: $y_m\\sin(kL-\\omega t)$.",
+   "Opción D en $x=L$: $y_m\\sin(kL+\\omega t-2kL) = y_m\\sin(\\omega t - kL) = -y_m\\sin(kL-\\omega t)$.",
+   "Suman cero en el extremo fijo, para todo $t$ ✔."
+  ],
+  "porque_fallan": {
+   "B": "$-y_m\\sin(kx+\\omega t)$ solo cancela si el extremo está en $x=0$.",
+   "A": "Sin ningún cambio de signo ni de fase, la suma en $x=L$ no se anula."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q054": {
+  "idea": "Extremo fijo: se invierte. Y nada más: ni cambia de rapidez ni de amplitud.",
+  "pasos": [
+   "Inversión $\\Rightarrow$ desfase de $180°$.",
+   "La rapidez la fija la cuerda, que es la misma.",
+   "La amplitud, en una cuerda ideal, tampoco cambia."
+  ],
+  "porque_fallan": {
+   "A": "En fase se refleja en un extremo **libre**.",
+   "D": "La velocidad depende solo de la tensión y la densidad: no cambia al rebotar."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q055": {
+  "idea": "Una estacionaria es la superposición de dos viajeras iguales en sentidos opuestos. Todo lo demás son afirmaciones falsas.",
+  "pasos": [
+   "$\\sin(kx-\\omega t)+\\sin(kx+\\omega t) = 2\\sin kx\\cos\\omega t$: espacio y tiempo separados.",
+   "Puede ser transversal (una cuerda) o longitudinal (una columna de aire): no está obligada a ninguna de las dos.",
+   "Los nodos están separados $\\lambda/2$ exactamente, no menos."
+  ],
+  "porque_fallan": {
+   "D": "Los nodos están a media longitud de onda, no más cerca.",
+   "B": "El aire en un tubo de órgano forma estacionarias longitudinales."
+  },
+  "confirma": "A"
+ },
+ "hrw-c16-q056": {
+  "idea": "Busca dos ondas de la misma amplitud y frecuencia viajando en **sentidos opuestos**.",
+  "pasos": [
+   "En B: $\\cos(3x-2t)$ viaja hacia $+x$ y $\\cos(2t+3x)$ hacia $-x$.",
+   "Mismas amplitudes (6,0 mm) y mismos $k$ y $\\omega$.",
+   "Su suma es $2(6{,}0\\ \\text{mm})\\cos 3x\\cos 2t$: espacio y tiempo separados, que es la firma de una estacionaria."
+  ],
+  "porque_fallan": {
+   "E": "$\\sin(3x)+\\cos(2t)$ es una suma, no un producto: no tiene nodos fijos donde $y=0$ siempre.",
+   "A": "El segundo término, $\\cos(3x+2{,}0)$, no depende del tiempo: no es una onda viajera."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q057": {
+  "idea": "Sujetar el punto medio obliga a que ahí haya un nodo, y eso solo lo cumplen los armónicos **pares**.",
+  "pasos": [
+   "Armónicos originales: 50, 100, 150, 200 Hz ($n = 1,2,3,4$).",
+   "Con nodo forzado en el centro sobreviven los de $n$ par: 100, 200, 300, 400 Hz.",
+   "Visto de otro modo: son dos cuerdas de longitud $L/2$, cuyo fundamental es 100 Hz."
+  ],
+  "porque_fallan": {
+   "D": "25 Hz sería si la cuerda se **alargara** al doble, no si se acortara.",
+   "A": "Los armónicos impares tienen vientre en el centro: la abrazadera los mata."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q058": {
+  "idea": "En una cuerda fija en los dos extremos los armónicos son múltiplos enteros del fundamental, y su separación **es** el fundamental.",
+  "pasos": [
+   "100, 150, 200, 250: separación constante de 50 Hz.",
+   "Ese 50 Hz es el fundamental.",
+   "La serie completa es 50, 100, 150, 200…: falta el 50."
+  ],
+  "porque_fallan": {
+   "D": "125 Hz no es múltiplo de 50: rompería la serie.",
+   "A": "25 Hz daría separaciones de 25 Hz, y las observadas son de 50."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q059": {
+  "idea": "Los nodos de una estacionaria están separados media longitud de onda.",
+  "pasos": [
+   "$y_1+y_2 = 2A\\sin kx\\cos kvt$: nodos donde $\\sin kx = 0$, es decir $kx = n\\pi$.",
+   "$x_n = n\\pi/k$: separación $\\pi/k$.",
+   "Y en efecto $\\pi/k = \\lambda/2$."
+  ],
+  "porque_fallan": {
+   "E": "$2\\pi/k$ es la longitud de onda **entera**: hay un nodo cada media.",
+   "A": "$vt/\\pi$ depende del tiempo, y la posición de los nodos es fija."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q060": {
+  "idea": "El mismo hecho, dicho con $\\lambda$.",
+  "pasos": [
+   "Nodos consecutivos difieren en $\\pi$ de fase espacial.",
+   "$\\pi$ de fase equivale a media longitud de onda.",
+   "Separación $= \\lambda/2$. (Entre nodo y vientre hay $\\lambda/4$.)"
+  ],
+  "porque_fallan": {
+   "A": "$\\lambda/4$ es la distancia de un nodo al vientre contiguo.",
+   "D": "$\\lambda$ entera es la separación entre nodos **alternos**."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q062": {
+  "idea": "Del nodo 2 al 5 hay **tres** intervalos, no cinco ni dos. Ahí está la trampa.",
+  "pasos": [
+   "$5 - 2 = 3$ intervalos entre nodos, y cada uno vale $\\lambda/2$.",
+   "$3(\\lambda/2) = 60$ cm ⟹ $\\lambda/2 = 20$ cm.",
+   "$\\lambda = 40$ cm."
+  ],
+  "porque_fallan": {
+   "D": "20 cm es la separación entre nodos, que es media longitud de onda.",
+   "C": "30 cm sale de contar dos intervalos en vez de tres."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q063": {
+  "idea": "Cuerda fija en los dos extremos: $\\lambda = 2L/n$. La longitud de onda no puede pasar de $2L$.",
+  "pasos": [
+   "$2L = 200$ cm es el máximo posible (el fundamental).",
+   "Valores permitidos: 200, 100, 66,7, 50 cm…",
+   "400 cm supera a $2L$: imposible."
+  ],
+  "porque_fallan": {
+   "B": "200 cm es justamente el fundamental: perfectamente posible.",
+   "D": "66,7 cm es $200/3$, el tercer armónico."
+  },
+  "confirma": "A"
+ },
+ "hrw-c16-q064": {
+  "idea": "La misma regla en símbolos: $\\lambda = 2L/n$ con $n = 1, 2, 3\\ldots$",
+  "pasos": [
+   "$n=1 \\to 2L$; $n=2 \\to L$; $n=3 \\to 2L/3$; $n=4 \\to L/2$.",
+   "Todas esas están entre las opciones.",
+   "$4L$ exigiría $n = 1/2$: no existe medio armónico en una cuerda fija por los dos lados."
+  ],
+  "porque_fallan": {
+   "B": "$2L$ es el fundamental.",
+   "D": "$2L/3$ es el tercer armónico."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q065": {
+  "idea": "Cuenta cuántas medias longitudes de onda caben, y de ahí los nodos.",
+  "pasos": [
+   "$\\lambda/2 = 2{,}5$ m, y en 20 m caben $20/2{,}5 = 8$ segmentos.",
+   "8 segmentos tienen 9 nodos contando los dos extremos.",
+   "Excluyendo los extremos: $9 - 2 = 7$."
+  ],
+  "porque_fallan": {
+   "E": "8 es el número de **segmentos**, no de nodos interiores.",
+   "B": "4 sale de dividir la longitud entre $\\lambda$ en vez de entre $\\lambda/2$."
+  },
+  "confirma": "D"
+ },
+ "hrw-c16-q066": {
+  "idea": "«Tres segmentos» significa que caben tres medias longitudes de onda.",
+  "pasos": [
+   "$3(\\lambda/2) = 100$ cm.",
+   "$\\lambda = 200/3$.",
+   "$= 66{,}7$ cm. (La frecuencia no hace falta.)"
+  ],
+  "porque_fallan": {
+   "A": "33,3 cm es la longitud de un segmento, o sea $\\lambda/2$.",
+   "E": "La frecuencia no hace falta: la geometría basta."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q067": {
+  "idea": "$f_1 = \\dfrac{1}{2L}\\sqrt{\\tau/\\mu}$: la frecuencia va con la **raíz** de la tensión.",
+  "pasos": [
+   "$f \\propto \\sqrt\\tau$.",
+   "Para que $f$ se duplique, $\\sqrt\\tau$ debe duplicarse.",
+   "$\\tau$ debe multiplicarse por 4. (Por eso afinar una guitarra requiere tanto giro de clavija para tan poco cambio de nota.)"
+  ],
+  "porque_fallan": {
+   "A": "Doblar la tensión sube la frecuencia solo un factor $\\sqrt2$, un tritono escaso.",
+   "C": "$\\sqrt2$ de tensión sube la frecuencia un factor $2^{1/4}$."
+  },
+  "confirma": "B"
+ },
+ "hrw-c16-q068": {
+  "idea": "Una onda estacionaria no transporta energía neta: la potencia media es cero en **todos** los puntos.",
+  "pasos": [
+   "Es la suma de dos viajeras que llevan la misma potencia en sentidos opuestos.",
+   "Los flujos se cancelan punto a punto.",
+   "En el nodo la velocidad es siempre cero; en el vientre la pendiente es siempre cero. En ambos, potencia nula."
+  ],
+  "porque_fallan": {
+   "D": "«La misma, distinta de cero» olvida que los dos flujos opuestos se cancelan.",
+   "A": "En el vientre hay mucho movimiento pero ninguna transmisión neta."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q069": {
+  "idea": "Un extremo fijo y otro libre: nodo en uno, vientre en el otro, y entre ellos cabe **un cuarto** de longitud de onda.",
+  "pasos": [
+   "Fundamental: $L = \\lambda/4$.",
+   "$\\lambda = 4L = 4(40)$.",
+   "$= 160$ cm."
+  ],
+  "porque_fallan": {
+   "D": "80 cm sería $2L$: el fundamental de una cuerda fija por los **dos** extremos.",
+   "C": "40 cm es la longitud de la cuerda."
+  },
+  "confirma": "E"
+ },
+ "hrw-c16-q070": {
+  "idea": "Con un extremo libre solo existen los armónicos impares: $\\lambda = 4L/(2n-1)$.",
+  "pasos": [
+   "Los modos son $\\lambda = 4L,\\ 4L/3,\\ 4L/5\\ldots$",
+   "El segundo de la serie es $4L/3 = 4(30)/3$.",
+   "$= 40$ cm."
+  ],
+  "porque_fallan": {
+   "D": "60 cm sería $2L$, que aquí no es un modo permitido.",
+   "E": "120 cm es $4L$: ese es el **fundamental**, no el segundo modo."
+  },
+  "confirma": "C"
+ },
+ "hrw-c16-q071": {
+  "idea": "Saca $\\lambda$ del modo fundamental y aplica $f = v/\\lambda$.",
+  "pasos": [
+   "Extremo libre: $\\lambda = 4L = 160$ cm.",
+   "$f = v/\\lambda = 320/160$.",
+   "$= 2$ Hz."
+  ],
+  "porque_fallan": {
+   "D": "4 Hz usa $\\lambda = 2L$, la fórmula de la cuerda fija por los dos extremos.",
+   "C": "8 Hz usa $\\lambda = L$."
+  },
+  "confirma": "E"
+ }
+}

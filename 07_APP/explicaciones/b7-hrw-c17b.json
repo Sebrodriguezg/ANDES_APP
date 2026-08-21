@@ -1,0 +1,353 @@
+{
+ "hrw-c17-q030": {
+  "idea": "Un tubo cerrado por un extremo solo tiene armónicos **impares**, y el fundamental de A cae justo en un armónico par de B.",
+  "pasos": [
+   "Tubo A: $f_A = v/4L$.",
+   "Tubo B (longitud $2L$): $f_n = (2n-1)\\dfrac{v}{8L}$, o sea $\\dfrac{v}{8L},\\ \\dfrac{3v}{8L},\\ \\dfrac{5v}{8L}\\ldots$",
+   "$f_A = v/4L = 2v/8L$: haría falta el factor 2, que es par. No existe."
+  ],
+  "porque_fallan": {
+   "B": "El «segundo armónico» de un tubo cerrado no existe: solo hay 1º, 3º, 5º…",
+   "C": "El tercero de B vale $3v/8L$, no $2v/8L$."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q031": {
+  "idea": "El modo más corto de un tubo cerrado es $L = \\lambda/4$.",
+  "pasos": [
+   "$\\lambda = 4L = 4(0{,}425) = 1{,}70$ m.",
+   "$v = \\lambda f = 1{,}70(200)$.",
+   "$= 340$ m/s."
+  ],
+  "porque_fallan": {
+   "E": "940 m/s usaría $\\lambda = 4{,}7$ m: demasiado.",
+   "B": "170 m/s usa $\\lambda = 2L$, la fórmula del tubo abierto."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q032": {
+  "idea": "Tubo cerrado: $L$ tiene que ser un múltiplo **impar** de $\\lambda/4$.",
+  "pasos": [
+   "Nodo de desplazamiento en el extremo cerrado, vientre en el abierto.",
+   "Entre nodo y vientre cabe $\\lambda/4$, y luego se añade de $\\lambda/2$ en $\\lambda/2$.",
+   "Permitidos: $\\lambda/4$, $3\\lambda/4$, $5\\lambda/4$, $7\\lambda/4$… $2\\lambda/4$ es par: imposible."
+  ],
+  "porque_fallan": {
+   "C": "$3\\lambda/4$ es el segundo modo permitido.",
+   "E": "$7\\lambda/4$ es el cuarto."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q033": {
+  "idea": "La distancia entre resonancias sucesivas es siempre $\\lambda/2$, sea el tubo abierto o cerrado.",
+  "pasos": [
+   "$\\lambda/2 = 20$ cm ⟹ $\\lambda = 40$ cm $= 0{,}40$ m.",
+   "$v = \\lambda f = 0{,}40(1024)$.",
+   "$= 410$ m/s."
+  ],
+  "porque_fallan": {
+   "D": "205 m/s toma los 20 cm como longitud de onda entera.",
+   "C": "102 cm/s se equivoca de unidades por completo."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q034": {
+  "idea": "Igual: 17 cm entre resonancias es media longitud de onda.",
+  "pasos": [
+   "$\\lambda = 2(0{,}17) = 0{,}34$ m.",
+   "$f = v/\\lambda = 340/0{,}34$.",
+   "$= 1000$ Hz."
+  ],
+  "porque_fallan": {
+   "C": "2000 Hz toma los 17 cm como longitud de onda completa.",
+   "A": "500 Hz dobla la longitud de onda de más."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q035": {
+  "idea": "Extremo abierto: el aire se mueve libremente pero la presión queda fijada a la atmosférica. Extremo cerrado: al revés.",
+  "pasos": [
+   "Abierto: vientre de desplazamiento y **nodo de presión**.",
+   "Cerrado: la pared impide el movimiento ⟹ **nodo de desplazamiento** (y vientre de presión).",
+   "Presión y desplazamiento van siempre desfasados un cuarto de onda."
+  ],
+  "porque_fallan": {
+   "A": "El extremo cerrado es vientre de presión, no nodo.",
+   "D": "El extremo abierto no puede ser nodo de desplazamiento: ahí el aire se mueve al máximo."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q036": {
+  "idea": "$f_1 = v/4L$ para un tubo cerrado: inversa a la longitud.",
+  "pasos": [
+   "$\\lambda_1 = 4L$.",
+   "$f_1 = v/\\lambda_1 = v/4L$.",
+   "$f_1 \\propto 1/L$: los tubos largos del órgano son los graves."
+  ],
+  "porque_fallan": {
+   "A": "Proporcional a $L$ haría que los tubos largos sonaran agudos.",
+   "E": "$\\sqrt L$ es la dependencia de una cuerda con la **tensión**, no de un tubo con la longitud."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q037": {
+  "idea": "Calcula el fundamental de cada uno: $v/4L$ si está cerrado por un extremo, $v/2L$ si está abierto por los dos.",
+  "pasos": [
+   "A (2,3 m, cerrado): $340/9{,}2 = 37$ Hz. B (3,3 m, cerrado): $340/13{,}2 = 26$ Hz.",
+   "**C (1,6 m, abierto): $340/3{,}2 = 106$ Hz.** D (3,0 m, abierto): $340/6{,}0 = 57$ Hz.",
+   "Gana C: el más corto y además abierto por los dos extremos."
+  ],
+  "porque_fallan": {
+   "A": "37 Hz: es largo y encima cerrado, la peor combinación para agudos.",
+   "D": "57 Hz: abierto, pero casi el doble de largo que C."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q038": {
+  "idea": "El más corto que resuena es el fundamental: $L = \\lambda/4$.",
+  "pasos": [
+   "$\\lambda = v/f = 340/218 = 1{,}56$ m.",
+   "$L = \\lambda/4 = 1{,}56/4$.",
+   "$= 0{,}39$ m $= 39$ cm."
+  ],
+  "porque_fallan": {
+   "D": "78 cm es $\\lambda/2$: la fórmula del tubo abierto por los dos extremos.",
+   "E": "1,56 cm confunde metros con centímetros: eso es $\\lambda$ entera mal escalada."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q039": {
+  "idea": "Abierto por los dos extremos: $f_1 = v/2L$.",
+  "pasos": [
+   "$\\lambda_1 = 2L = 6{,}0$ m.",
+   "$f = 340/6{,}0$.",
+   "$= 57$ Hz."
+  ],
+  "porque_fallan": {
+   "C": "28 Hz usa $\\lambda = 4L$, es decir, supone el tubo cerrado.",
+   "E": "70 Hz no sale de ninguna combinación de estos números."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q040": {
+  "idea": "Tubo cerrado, modo fundamental: $L = \\lambda/4$.",
+  "pasos": [
+   "$\\lambda = 340/512 = 0{,}664$ m.",
+   "$L = 0{,}664/4$.",
+   "$= 0{,}166$ m $\\approx 17$ cm."
+  ],
+  "porque_fallan": {
+   "D": "33 cm es $\\lambda/2$: la del tubo abierto.",
+   "E": "66 cm es $\\lambda$ entera."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q041": {
+  "idea": "Tubo cerrado: solo armónicos impares, así que tras el fundamental viene el **triple**, no el doble.",
+  "pasos": [
+   "$f_1 = v/4L = 340/2{,}0 = 170$ Hz.",
+   "El siguiente modo es $3f_1 = 510$ Hz.",
+   "170 y 510 Hz."
+  ],
+  "porque_fallan": {
+   "A": "170 y 340 supone armónicos consecutivos, que es lo propio del tubo **abierto**.",
+   "C": "340 Hz sería el fundamental de un tubo abierto de esa longitud."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q044": {
+  "idea": "Abierto por los dos extremos: todos los armónicos, $f_n = n\\,v/2L$.",
+  "pasos": [
+   "$f_1 = 340/(2\\times0{,}85) = 340/1{,}70 = 200$ Hz.",
+   "Tercer armónico: $3(200)$.",
+   "$= 600$ Hz."
+  ],
+  "porque_fallan": {
+   "A": "200 Hz es el fundamental, no el tercer armónico.",
+   "C": "400 Hz es el segundo armónico."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q045": {
+  "idea": "Mismo tono significa mismo fundamental; lo que distingue a los instrumentos es la mezcla de armónicos, o sea el timbre.",
+  "pasos": [
+   "Trompeta y clarinete tocan el mismo fundamental: por eso suena la misma nota.",
+   "Cada uno refuerza armónicos distintos: el clarinete, por su tubo cerrado, favorece los impares.",
+   "Esa firma espectral es lo que el oído reconoce."
+  ],
+  "porque_fallan": {
+   "B": "La frecuencia fundamental es la misma: por eso suenan «la misma nota».",
+   "A": "Se pueden tocar a la misma intensidad y seguirían distinguiéndose."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q046": {
+  "idea": "Válvulas y vara cambian la longitud del tubo, y con ella la serie de frecuencias disponibles.",
+  "pasos": [
+   "$f_n \\propto 1/L$: alargar el tubo baja toda la serie armónica.",
+   "Con los labios el músico elige el armónico; con las válvulas, la serie.",
+   "Combinando ambas cosas cubre toda la escala cromática."
+  ],
+  "porque_fallan": {
+   "C": "El contenido armónico lo cambia la embocadura y el estilo, no las válvulas.",
+   "E": "El volumen depende de cuánto aire se sopla."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q049": {
+  "idea": "Doppler: la fuente que se acerca comprime los frentes y el observador detecta más frecuencia.",
+  "pasos": [
+   "El tono percibido es la frecuencia percibida.",
+   "Fuente acercándose ⟹ $f' = f\\dfrac{v}{v-v_s} > f$.",
+   "La velocidad del sonido no cambia; lo que cambia es cuántos frentes llegan por segundo."
+  ],
+  "porque_fallan": {
+   "D": "La longitud de onda **disminuye** al acercarse la fuente.",
+   "A": "La velocidad del sonido en el aire es siempre la misma."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q051": {
+  "idea": "Fuente quieta: la longitud de onda no cambia. El observador simplemente atraviesa más frentes por segundo.",
+  "pasos": [
+   "$\\lambda = v/f = 2{,}0/5{,}0 = 0{,}40$ m.",
+   "El barco se los cruza a $v + v_o = 2{,}0 + 10 = 12$ m/s de velocidad relativa.",
+   "$f' = 12/0{,}40 = 30$ Hz."
+  ],
+  "porque_fallan": {
+   "D": "25 Hz olvida sumar la velocidad de la propia onda.",
+   "A": "5,0 Hz es la emitida: el barco se mueve, tiene que notar la diferencia."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q052": {
+  "idea": "Mismo esquema: la distancia entre crestas ya viene dada.",
+  "pasos": [
+   "$\\lambda = 2{,}0$ m (cresta a cresta).",
+   "Velocidad relativa de acercamiento: $5{,}0 + 3{,}0 = 8{,}0$ m/s.",
+   "$f' = 8{,}0/2{,}0 = 4{,}0$ Hz."
+  ],
+  "porque_fallan": {
+   "C": "2,0 Hz es la frecuencia con el barco parado, $5{,}0/2{,}0$.",
+   "B": "1,5 Hz usa solo la velocidad del barco."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q053": {
+  "idea": "$f' = f\\dfrac{v+v_o}{v}$ con $v_o = v$ da exactamente $2f$.",
+  "pasos": [
+   "Observador acercándose a la fuente quieta: $f' = f\\dfrac{v+v_o}{v}$.",
+   "Con $v_o = v$: $f' = f\\dfrac{2v}{v}$.",
+   "$= 2f$. (El infinito es lo que sale cuando la **fuente** alcanza la velocidad del sonido, que es otra cosa.)"
+  ],
+  "porque_fallan": {
+   "E": "Infinito corresponde a $v_s \\to v$ con la fuente moviéndose, no el observador.",
+   "A": "Cero sería si se alejara a la velocidad del sonido: nunca lo alcanzaría el frente."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q054": {
+  "idea": "Sin velocidad relativa entre fuente y observador, no hay desplazamiento Doppler.",
+  "pasos": [
+   "$f' = f\\dfrac{v+v_o}{v+v_s}$ con $v_o = v_s = 100$ en el mismo sentido.",
+   "$f' = 1000\\dfrac{440}{440} = 1000$ Hz.",
+   "Los dos corren igual: la distancia entre ellos no cambia."
+  ],
+  "porque_fallan": {
+   "D": "1830 Hz es el resultado si se acercan uno al otro, no si van en caravana.",
+   "A": "294 Hz sería alejándose mutuamente."
+  },
+  "confirma": "C"
+ },
+ "hrw-c17-q055": {
+  "idea": "Acercándose ambos: numerador con $+$, denominador con $-$.",
+  "pasos": [
+   "$f' = f\\dfrac{v+v_o}{v-v_s} = 1000\\dfrac{340+100}{340-100}$.",
+   "$= 1000\\dfrac{440}{240}$.",
+   "$= 1830$ Hz."
+  ],
+  "porque_fallan": {
+   "C": "1000 Hz es el caso de la pregunta anterior, con los dos en el mismo sentido.",
+   "A": "294 Hz invierte los signos: es el caso de alejamiento mutuo."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q056": {
+  "idea": "Dos sonidos llegan al observador: el directo de una fuente que se **aleja** y el reflejado de una fuente que se **acerca** a la pared. El batido es su diferencia.",
+  "pasos": [
+   "Directo (fuente alejándose del observador): $f_1 = 1000\\dfrac{340}{340+20} = 944$ Hz.",
+   "La pared recibe $1000\\dfrac{340}{340-20} = 1063$ Hz y lo reemite tal cual: la pared está quieta y el observador también.",
+   "$f_{batido} = 1063 - 944 = 118$ Hz."
+  ],
+  "porque_fallan": {
+   "A": "11 Hz saldría de comparar una de las dos con la frecuencia emitida, no entre sí.",
+   "B": "86 Hz usa un solo desplazamiento en vez de los dos opuestos."
+  },
+  "confirma": "D"
+ },
+ "hrw-c17-q057": {
+  "idea": "Mover la fuente y mover el observador **no** son equivalentes: la primera cambia la longitud de onda, la segunda solo el ritmo de encuentro.",
+  "pasos": [
+   "I (fuente hacia el observador): $f' = 1000\\dfrac{340}{340-100} = 1417$ Hz.",
+   "II (observador hacia la fuente): $f' = 1000\\dfrac{340+100}{340} = 1294$ Hz.",
+   "Distintas. La asimetría desaparece solo cuando $v \\ll$ velocidad del sonido."
+  ],
+  "porque_fallan": {
+   "B": "Suponer que dan lo mismo es el error clásico: solo coinciden en el límite de velocidades pequeñas.",
+   "D": "773 Hz corresponde a alejamiento, no a acercamiento."
+  },
+  "confirma": "A"
+ },
+ "hrw-c17-q058": {
+  "idea": "El viento no aparece en la fórmula: hay que pasarse al sistema de referencia del **aire** y medir ahí las dos velocidades.",
+  "pasos": [
+   "Toma como positivo el sentido de la fuente al detector. El viento sopla en ese sentido a 3 m/s.",
+   "Fuente alejándose del detector: $-5$ respecto al suelo, luego $-5-3 = -8$ respecto al aire ⟹ $v_S = 8$ m/s alejándose.",
+   "Detector acercándose: $-7$ respecto al suelo, luego $-7-3 = -10$ respecto al aire ⟹ $v_D = 10$ m/s acercándose."
+  ],
+  "porque_fallan": {
+   "A": "7 y 5 son las velocidades respecto al **suelo**, e ignoran que el medio se mueve.",
+   "E": "Resta el viento en vez de sumarlo en las dos: cambia el signo por error."
+  },
+  "confirma": "B"
+ },
+ "hrw-c17-q059": {
+  "idea": "El estampido es el cono de choque que se forma cuando la fuente adelanta a sus propias ondas.",
+  "pasos": [
+   "Con $v_s > v$ los frentes emitidos quedan detrás y se envuelven en un cono.",
+   "En la superficie de ese cono la interferencia es constructiva: un pulso de presión enorme.",
+   "Frecuencia, altitud y forma de la trayectoria no tienen nada que ver."
+  ],
+  "porque_fallan": {
+   "C": "La altitud cambia dónde se oye, no si se produce.",
+   "B": "La frecuencia emitida es irrelevante: lo que importa es la velocidad del avión."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q060": {
+  "idea": "$\\sin\\theta = v/v_{avión}$: el inverso del número de Mach.",
+  "pasos": [
+   "$\\sin\\theta = 340/400 = 0{,}85$.",
+   "$\\theta = \\arcsin(0{,}85)$.",
+   "$= 58°$."
+  ],
+  "porque_fallan": {
+   "B": "32° es el complementario: sale de usar el arcocoseno.",
+   "A": "Sí hay onda de choque: 400 > 340."
+  },
+  "confirma": "E"
+ },
+ "hrw-c17-q061": {
+  "idea": "Cuando el estampido llega al suelo, el avión ya está lejos: la distancia horizontal sale de la geometría del cono.",
+  "pasos": [
+   "Medio ángulo del cono: $\\theta = 58{,}2°$ (de la pregunta anterior).",
+   "El observador está sobre la superficie del cono: $\\tan\\theta = h/d$.",
+   "$d = h/\\tan\\theta = 10\\,000/1{,}61 = 6200$ m."
+  ],
+  "porque_fallan": {
+   "E": "16 000 m usa la tangente al revés.",
+   "D": "12 000 m sale de tomar la hipotenusa en vez del cateto horizontal."
+  },
+  "confirma": "B"
+ }
+}
