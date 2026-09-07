@@ -8,6 +8,8 @@ import * as almacen from './almacen.js';
 import { construir, tarjetaCierre, tarjetaReanudar, pintarOrdinal } from './tarjetas.js';
 
 const POR_LOTE = 6;
+// Atraso a partir del cual el repaso ocupa la mitad del lote en vez de un tercio.
+const ATRASO_GRANDE = 30;
 
 let cola = [];
 let indiceTanda = 0;
@@ -121,8 +123,55 @@ async function cargarRepaso() {
   return tarjetas;
 }
 
+/* Cuántas de la cola no son repaso. Contar la cola entera era el bug: con 50
+   preguntas pendientes de repasar la cola nunca bajaba del mínimo, así que no
+   se cargaba ninguna tanda nueva y el feed servía repaso hasta agotarlo. */
+export function cuantasNuevas(lista, pendientes = repasoPendiente) {
+  let n = 0;
+  for (const t of lista) if (!pendientes.has(t.id)) n++;
+  return n;
+}
+
+/** Cupos de repaso en un lote. Nunca el lote entero: siempre entra algo nuevo. */
+export function cupoDeRepaso(pendientes, cuantos) {
+  const proporcion = pendientes > ATRASO_GRANDE ? 0.5 : 1 / 3;
+  return Math.max(0, Math.min(Math.round(cuantos * proporcion), pendientes, cuantos - 1));
+}
+
+/** Mezcla las dos listas repartiéndolas parejo, para que el repaso no salga en bloque. */
+export function intercalar(repaso, nuevas) {
+  if (!repaso.length) return [...nuevas];
+  if (!nuevas.length) return [...repaso];
+  const salida = [];
+  let r = 0, n = 0;
+  while (r < repaso.length || n < nuevas.length) {
+    // Sirve del lado que va más atrasado respecto a su propia proporción.
+    const tocaRepaso = (r + 0.5) / repaso.length <= (n + 0.5) / nuevas.length;
+    if (tocaRepaso && r < repaso.length) salida.push(repaso[r++]);
+    else if (n < nuevas.length) salida.push(nuevas[n++]);
+    else salida.push(repaso[r++]);
+  }
+  return salida;
+}
+
+/* Arma un lote con cupo reservado para cada lado. Si un lado se queda corto
+   —no hay repaso pendiente, o se agotó el corpus— el otro completa el lote.
+   `tomar` se inyecta para poder probarlo sin el sorteo ponderado. */
+export function componerLote(pendientes, nuevas, cuantos, tomar) {
+  const deRepaso = tomar(pendientes, cupoDeRepaso(pendientes.length, cuantos));
+  const deNuevas = tomar(nuevas, cuantos - deRepaso.length);
+
+  const faltan = cuantos - deRepaso.length - deNuevas.length;
+  if (faltan > 0) {
+    const ya = new Set([...deRepaso, ...deNuevas].map(t => t.id));
+    const resto = [...pendientes, ...nuevas].filter(t => !ya.has(t.id));
+    deRepaso.push(...tomar(resto, faltan));
+  }
+  return intercalar(deRepaso, deNuevas);
+}
+
 async function asegurarCola(minimo) {
-  while (cola.length < minimo && indiceTanda < datos.numeroDeTandas()) {
+  while (cuantasNuevas(cola) < minimo && indiceTanda < datos.numeroDeTandas()) {
     try {
       const tanda = await datos.cargarTanda(indiceTanda++);
       cola.push(...tanda);
@@ -134,9 +183,9 @@ async function asegurarCola(minimo) {
   }
   // Si se agotó el corpus, se vuelve a empezar: lo visto reaparece con poco peso,
   // así que en la práctica salen primero las falladas y las que quedaron sin ver.
-  if (!cola.length && datos.numeroDeTandas()) {
+  if (!cuantasNuevas(cola) && datos.numeroDeTandas()) {
     indiceTanda = 0;
-    cola = await datos.cargarTanda(indiceTanda++);
+    cola.push(...await datos.cargarTanda(indiceTanda++));
   }
 }
 
@@ -181,7 +230,9 @@ async function pintarLote() {
     return;
   }
 
-  const elegidas = elegir(cola, POR_LOTE);
+  const pendientes = cola.filter(t => repasoPendiente.has(t.id));
+  const nuevas = cola.filter(t => !repasoPendiente.has(t.id));
+  const elegidas = componerLote(pendientes, nuevas, POR_LOTE, elegir);
 
   for (const t of elegidas) {
     cola = cola.filter(x => x.id !== t.id);
@@ -200,7 +251,7 @@ function cabeceraRepaso(n) {
   nodo.className = 'cabecera-repaso';
   nodo.innerHTML = `
     <span class="rotulo">Hoy toca repasar</span>
-    <span class="cuenta">${n} ${n === 1 ? 'pregunta' : 'preguntas'} que fallaste</span>`;
+    <span class="cuenta">${n} ${n === 1 ? 'pregunta' : 'preguntas'} que fallaste, intercaladas con las nuevas</span>`;
   return nodo;
 }
 
