@@ -19,6 +19,7 @@ Uso:
 Lee el INSTRUCTIVO.md que está al lado antes de empezar.
 """
 import csv
+import json
 import os
 import sys
 import datetime as dt
@@ -31,6 +32,9 @@ CLAVES = os.path.join(BASE, "claves")
 GRAF = os.path.join(BASE, "graficas")
 
 EXAMEN = dt.date(2026, 11, 23)
+# El cronograma manda: es el mismo archivo que lee la app, generado desde PLAN.md.
+CRONOGRAMA = os.path.join(BASE, os.pardir, "docs", "contenido", "cronograma.json")
+S1_INICIO = dt.date(2026, 8, 24)   # respaldo si el archivo no está
 META = 72.0   # % de acierto objetivo
 
 AREAS = ["mecanica", "electromagnetismo", "relatividad",
@@ -144,10 +148,23 @@ def dias_restantes():
     return (EXAMEN - dt.date.today()).days
 
 
-def semana_actual():
-    inicio = dt.date(2026, 8, 17)
-    d = (dt.date.today() - inicio).days
-    return max(1, min(14, d // 7 + 1))
+def semana_actual(hoy=None):
+    """Semana del cronograma, S0 a S13.
+
+    Se contaba desde el 17 de agosto llamando a esa semana la 1, pero el 17 es
+    el S0 y S1 arranca el 24. Salía una semana de más: el medidor decía 4 el día
+    que la app decía S3. Ahora la verdad se lee del cronograma."""
+    hoy = hoy or dt.date.today()
+    iso = hoy.isoformat()
+    try:
+        with open(CRONOGRAMA, encoding="utf-8") as f:
+            for s in json.load(f)["semanas"]:
+                if s["inicio"] <= iso <= s["fin"]:
+                    return int(s["id"].lstrip("Ss"))
+    except Exception:
+        pass
+    d = (hoy - S1_INICIO).days
+    return 0 if d < 0 else min(13, d // 7 + 1)
 
 
 # ---------------------------------------------------------------- SVG
@@ -733,7 +750,7 @@ def cmd_reporte():
     L = []
     L.append("# Reporte de seguimiento\n")
     L.append(f"*Generado el {hoy.isoformat()} — faltan **{dias} días** para el examen "
-             f"(23 de noviembre de 2026). Semana {semana_actual()} de 14.*\n")
+             f"(23 de noviembre de 2026). Semana S{semana_actual()} de S13.*\n")
     L.append("> **Para Claude:** este archivo es el estado actual de la preparación. "
              "Léelo al inicio de la sesión para saber dónde está Sebastián sin volver a preguntar. "
              "Se regenera con `python3 06_SEGUIMIENTO/medidor.py reporte`.\n")
@@ -822,7 +839,7 @@ def cmd_reporte():
          ".kpi b{display:block;font-size:1.5rem;color:#1F3864}",
          "li{margin:.45rem 0;line-height:1.45}@media print{body{max-width:none}}</style></head><body>",
          "<h1>Tablero de preparación</h1>",
-         f"<p>{hoy.isoformat()} — faltan <b>{dias} días</b> para el examen. Semana {semana_actual()} de 14.</p>",
+         f"<p>{hoy.isoformat()} — faltan <b>{dias} días</b> para el examen. Semana S{semana_actual()} de S13.</p>",
          "<div class='kpi'>",
          f"<div><b>{glob:.0f}%</b>acierto global</div>",
          f"<div><b>{len(A['sims'])}</b>simulacros</div>",
@@ -855,7 +872,7 @@ def cmd_estado():
     ok = sum(v[0] for v in A["por_area"].values())
     tot = sum(v[1] for v in A["por_area"].values())
     mapa_terminal()
-    print(f"  Faltan {dias_restantes()} días. Semana {semana_actual()} de 14.")
+    print(f"  Faltan {dias_restantes()} días. Semana S{semana_actual()} de S13.")
     print(f"  Acierto global: {100.0*ok/tot if tot else 0:.1f}%  ({ok}/{tot})")
     print(f"  Horas acumuladas: {sum(A['horas'].values()):.1f}")
     if A["por_area"]:
