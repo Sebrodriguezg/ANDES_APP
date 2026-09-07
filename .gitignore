@@ -9,6 +9,8 @@
 
 # Excepción: el cronograma es material propio, generado desde cronograma.tex
 !cronograma.pdf
+# Los formularios propios sí van al repo: son el entregable de cada semana.
+!04_ESTUDIO/formularios/*.pdf
 
 # ---------------------------------------------------------------
 # Artefactos de compilación
