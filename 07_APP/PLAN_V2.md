@@ -182,4 +182,27 @@ Uniandes son baratas y valiosas, mientras que los GRE escaneados son caros.
 
 ---
 
+## Pendiente — entra por el formulario, se decide con calma
+
+**La Hoja se escribe sola con tus errores.** *(Pedido el 15 de septiembre.)*
+Cada pregunta fallada tiene una expresión o un detalle asociado que hay que
+recordar. Que al fallar, esa expresión se acumule en la pestaña Hoja. Convierte
+la Hoja en el formulario propio por área que pide el plan, escrito por los
+fallos reales en vez de a mano. Encaja con F13 («formulario acumulado») y se
+apoya en la columna `causa` de F8.
+
+**El EUF, reescrito.** Las 34 preguntas salieron del corpus el 18 de septiembre
+por estar en portugués, pero el problema de fondo es peor: la extracción dejó
+las fracciones partidas (`1 ... 2` en vez de `½`), los kets como `|ni` y los
+subíndices sueltos. Traducirlas sin reparar la notación no sirve de nada. Son
+34 preguntas de nivel ALTO de un examen de posgrado brasileño —el material más
+parecido al de Uniandes que hay en el corpus—, así que merecen rehacerse a
+mano, una por una, no con un reemplazo automático.
+
+**Las 3 tarjetas del ETS con opciones cosidas** (`q013`, `q020`, `q023`) también
+salieron. Son recuperables recortándolas del PDF a dos columnas, como se hizo
+con las figuras.
+
+---
+
 *Escrito el 16 de agosto de 2026 · 99 días para el examen*

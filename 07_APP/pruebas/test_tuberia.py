@@ -427,5 +427,32 @@ class TestReparacionDeGlifos(unittest.TestCase):
         self.assertIn("length^{-2}", t["opciones"]["B"])
 
 
+class TestFiltrosDelCorpus(unittest.TestCase):
+    """Las dos trampas que Sebastián reportó desde la app y nadie filtraba.
+
+    El portugués lo reportó tres veces —17 de agosto, 9 y 16 de septiembre—
+    antes de que el corpus lo dejara fuera.
+    """
+
+    def setUp(self):
+        import construir_contenido as C
+        self.C = C
+
+    def test_el_portugues_del_euf_no_entra(self):
+        self.assertNotIn("pt", self.C.IDIOMAS)
+        self.assertIn("es", self.C.IDIOMAS)
+        self.assertIn("en", self.C.IDIOMAS)
+
+    def test_la_opcion_cosida_del_ets_pasa_del_umbral(self):
+        # Caso congelado: la opción E de ets-gr1775-q013 traía el texto de las
+        # preguntas 15 y 17 cosido dentro, 1.172 caracteres.
+        cosida = "_{(C) (B)} II_{II 1.5} and_{only} III_{8 m/s} " * 30
+        self.assertGreater(len(cosida), self.C.MAX_OPCION)
+
+    def test_la_opcion_legitima_mas_larga_del_corpus_sobrevive(self):
+        # hrw-c33-q030, 190 caracteres. El umbral no puede comérsela.
+        self.assertLess(190, self.C.MAX_OPCION)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

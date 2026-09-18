@@ -46,6 +46,17 @@ SEMILLA_POR_DEFECTO = 2026
 # multiplicar sin operandos.
 RE_BASURA_FORMULA = re.compile(r"\}\s*\}|^\s*\\times|\\times\s*$|\\times\s*\\times")
 
+# Idiomas que Sebastián lee. El EUF es brasileño y entró entero en portugués:
+# lo reportó tres veces desde la app antes de que nadie lo filtrara.
+IDIOMAS = {"es", "en"}
+
+# Una opción más larga que esto no es una opción: es basura de extracción. El
+# PDF del ETS va a dos columnas y el texto de dos preguntas distintas terminó
+# cosido dentro de una sola opción —1.172 caracteres en el peor caso—, así que
+# la tarjeta se veía truncada en el teléfono. La opción legítima más larga de
+# todo el corpus mide 190.
+MAX_OPCION = 300
+
 AREAS = [
     "mecanica", "electromagnetismo", "termo_estadistica",
     "moderna_cuantica", "relatividad", "optica_ondas",
@@ -179,11 +190,19 @@ def cargar_mc(figuras):
             if pendiente and not fig:
                 continue
 
+            # Una pregunta que no se puede leer no se puede estudiar.
+            if r.get("idioma", "en") not in IDIOMAS:
+                continue
+
             # Dos opciones idénticas hacen la pregunta imposible de responder.
             # El filtro va aquí y no en cada extractor para que valga también
             # para las fuentes que se añadan después.
             textos = [v.strip() for v in r.get("opciones", {}).values() if v.strip()]
             if len(set(textos)) < len(textos):
+                continue
+
+            # Opciones cosidas entre sí por la extracción a dos columnas.
+            if any(len(v) > MAX_OPCION for v in textos):
                 continue
 
             # Basura de fórmula descompuesta en el texto. Se comprueba también
