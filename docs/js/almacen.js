@@ -14,6 +14,9 @@ const INICIAL = {
   simulacros: [],    // {fecha, n, aciertos, pct, minutos, porArea}
   meta_diaria: 30,
   tanda_actual: 0,
+  // Lo que hay que recordar de cada pregunta fallada, escrito por Sebastián.
+  // {id, codigo, area, texto, ts}. Alimenta la sección "Lo tuyo" de la Hoja.
+  expresiones: [],
 };
 
 /* Escalera de repaso espaciado, en días. Una tarjeta fallada vuelve mañana; con
@@ -159,6 +162,45 @@ export function anotarCausa(id, causa) {
     }
   }
   return false;
+}
+
+/* Cada pregunta fallada deja una expresión o un detalle que hay que recordar.
+   Anotarlo en el momento del fallo —no después— es lo que lo vuelve tuyo, y
+   es lo que convierte la Hoja en el formulario propio que pide el plan.
+   Reescribir sobre la misma tarjeta sustituye: la segunda versión siempre es
+   mejor que la primera. */
+export function anotarExpresion(id, texto, meta = {}) {
+  const limpio = (texto || '').trim().slice(0, 280);
+  estado.expresiones = estado.expresiones || [];
+  const i = estado.expresiones.findIndex(e => e.id === id);
+  if (!limpio) {
+    if (i >= 0) estado.expresiones.splice(i, 1);
+    guardar();
+    return null;
+  }
+  const entrada = {
+    id,
+    codigo: meta.codigo || '',
+    area: meta.area || 'transversal',
+    texto: limpio,
+    ts: Date.now(),
+  };
+  if (i >= 0) estado.expresiones[i] = entrada;
+  else estado.expresiones.push(entrada);
+  guardar();
+  return entrada;
+}
+
+/** Lo anotado, agrupado por área y con lo más reciente arriba dentro de cada una. */
+export function expresionesPorArea() {
+  const salida = {};
+  for (const e of (estado.expresiones || [])) (salida[e.area] ||= []).push(e);
+  for (const lista of Object.values(salida)) lista.sort((a, b) => b.ts - a.ts);
+  return salida;
+}
+
+export function expresionDe(id) {
+  return (estado.expresiones || []).find(e => e.id === id) || null;
 }
 
 /** La última respuesta dada a una tarjeta, si ya la respondiste. */

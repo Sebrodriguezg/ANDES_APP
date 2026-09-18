@@ -230,6 +230,43 @@ await prueba('la meta diaria se acota a un rango sensato', a => {
   assert.ok(a.metaDiaria() <= 200);
 });
 
+await prueba('una expresión anotada al fallar va a su área', a => {
+  a.anotarExpresion('q1', 'a = g senθ/(1 + I/MR²)',
+                    { codigo: 'HRW 11.7', area: 'mecanica' });
+  const porArea = a.expresionesPorArea();
+  assert.equal(porArea.mecanica.length, 1);
+  assert.equal(porArea.mecanica[0].codigo, 'HRW 11.7');
+  assert.ok(porArea.mecanica[0].texto.includes('senθ'));
+});
+
+await prueba('reescribir la misma tarjeta sustituye, no duplica', a => {
+  a.anotarExpresion('q1', 'primera version', { area: 'mecanica' });
+  a.anotarExpresion('q1', 'segunda, mejor', { area: 'mecanica' });
+  assert.equal(a.expresionesPorArea().mecanica.length, 1);
+  assert.equal(a.expresionDe('q1').texto, 'segunda, mejor');
+});
+
+await prueba('borrar el texto quita la entrada', a => {
+  a.anotarExpresion('q1', 'algo', { area: 'mecanica' });
+  a.anotarExpresion('q1', '   ');
+  assert.equal(a.expresionDe('q1'), null);
+  assert.deepEqual(a.expresionesPorArea(), {});
+});
+
+await prueba('lo más reciente de cada área va arriba', a => {
+  a.anotarExpresion('q1', 'vieja', { area: 'electromagnetismo' });
+  a.anotarExpresion('q2', 'nueva', { area: 'electromagnetismo' });
+  a.expresionesPorArea().electromagnetismo[0].ts += 1000;
+  const l = a.expresionesPorArea().electromagnetismo;
+  assert.equal(l.length, 2);
+  assert.ok(l[0].ts >= l[1].ts);
+});
+
+await prueba('sin área declarada cae en transversal', a => {
+  a.anotarExpresion('q9', 'un detalle suelto');
+  assert.equal(a.expresionesPorArea().transversal.length, 1);
+});
+
 console.log();
 if (fallos) {
   console.log(`${fallos} prueba(s) fallaron`);

@@ -15,6 +15,7 @@
      vistazo dónde está el peligro. */
 
 import * as datos from './datos.js';
+import * as almacen from './almacen.js';
 import { renderFormula } from './formula.js';
 import { escapar, mate } from './mate.js';
 
@@ -34,6 +35,7 @@ const SIN_EVALUAR = { clase: 'virgen', texto: 'Sin evaluar aún' };
 
 const SECCIONES = [
   ['reparto', 'Reparto'],
+  ['tuyo', 'Lo tuyo'],
   ['patrones', 'Patrones'],
   ['ecuaciones', 'Ecuaciones'],
   ['constantes', 'Constantes'],
@@ -51,6 +53,19 @@ function barraReparto(reparto) {
       <span class="nb">${escapar(r.nombre)}</span>
       <span class="np">${r.preguntas} preg.</span>
     </div>`).join('')}</div>`;
+}
+
+function fichaExpresion(e) {
+  const fecha = new Date(e.ts).toLocaleDateString('es-CO',
+    { day: 'numeric', month: 'short' });
+  return `
+    <article class="hoja-mia">
+      <header>
+        <span class="codigo">${escapar(e.codigo || '—')}</span>
+        <span class="cuando">${escapar(fecha)}</span>
+      </header>
+      <div class="cuerpo">${mate(escapar(e.texto))}</div>
+    </article>`;
 }
 
 function fichaPatron(t) {
@@ -189,6 +204,16 @@ export async function pintar() {
   const fallados = patrones.filter(p => p.estado_d1 === 'fallado').length;
   const acertados = patrones.filter(p => p.estado_d1 === 'acertado').length;
 
+  const mias = almacen.expresionesPorArea();
+  const nMias = Object.values(mias).reduce((n, l) => n + l.length, 0);
+  const gruposMios = ORDEN_AREAS.map(a => {
+    const suyas = mias[a];
+    if (!suyas?.length) return '';
+    return `
+      <h3 class="hoja-area" style="--color-area:var(--${a})">${nombreArea(a)}</h3>
+      ${suyas.map(fichaExpresion).join('')}`;
+  }).join('');
+
   const gruposEcuaciones = ORDEN_AREAS.map(a => {
     const suyas = ecuaciones.filter(e => e.area === a);
     if (!suyas.length) return '';
@@ -217,6 +242,19 @@ export async function pintar() {
         bien hecha y rápida: <strong>ahí es donde se aprueba</strong>. El resto
         son patrones de pregrado superior, que no son difíciles <em>si los has
         visto</em> y son imposibles <em>si no</em>.</p>
+    </section>
+
+    <section id="hoja-tuyo">
+      <h2 class="seccion">Lo tuyo</h2>
+      ${nMias ? `
+        <p class="hoja-lectura">Lo que anotaste al fallar, ${nMias === 1
+          ? 'una entrada' : `${nMias} entradas`}. Esta sección no la escribió
+          nadie más: son tus propios errores convertidos en formulario, que es
+          justo lo que el plan pide y lo que de verdad se repasa el 22 de
+          noviembre.</p>
+        ${gruposMios}`
+      : `<p class="hoja-lectura">Todavía vacía. Cuando falles una pregunta en el
+          feed y anotes qué había que recordar, aparece aquí, bajo su área.</p>`}
     </section>
 
     <section id="hoja-patrones">

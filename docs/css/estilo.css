@@ -784,6 +784,49 @@ ul.lista li::marker { color: var(--texto-tenue); }
 }
 .pregunta-rapida.resuelta .rotulo { color: var(--ok); }
 
+/* Lo que hay que recordar de la pregunta fallada. Va a la Hoja. */
+.pregunta-rapida.expresion .rotulo { color: var(--acento); }
+.fila-expresion { display: flex; gap: 7px; }
+.fila-expresion input {
+  flex: 1 1 auto; min-width: 0;
+  padding: 9px 11px;
+  background: var(--tarjeta-alta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  color: var(--texto); font-size: .82rem;
+}
+.fila-expresion input:focus {
+  outline: none; border-color: var(--acento);
+}
+.fila-expresion button {
+  flex: 0 0 auto; padding: 9px 13px;
+  background: var(--tarjeta-alta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  color: var(--texto-suave); font-size: .78rem; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.fila-expresion button:hover { border-color: var(--acento); color: var(--texto); }
+.pregunta-rapida .pie {
+  display: block; margin-top: 7px;
+  font-size: .72rem; color: var(--texto-tenue);
+}
+
+/* Sección «Lo tuyo» de la Hoja: el formulario escrito por tus propios fallos. */
+.hoja-mia {
+  margin: 8px 0; padding: 11px 13px;
+  background: var(--tarjeta);
+  border-left: 2px solid var(--acento);
+  border-radius: var(--radio);
+}
+.hoja-mia header {
+  display: flex; justify-content: space-between; gap: 10px;
+  margin-bottom: 6px;
+  font-family: var(--mono); font-size: .6rem;
+  letter-spacing: .1em; color: var(--texto-tenue);
+}
+.hoja-mia .cuerpo { font-size: .86rem; color: var(--texto); line-height: 1.5; }
+
 .opcion.elegida { border-left-color: var(--acento); }
 
 /* ── Repaso espaciado ───────────────────────────────────────── */

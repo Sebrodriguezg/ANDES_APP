@@ -377,7 +377,42 @@ function tarjetaMC(t, alResponder) {
         almacen.anotarCausa(t.id, b.dataset.causa);
         caja.innerHTML = `<span class="rotulo">Anotado: ${escapar(b.textContent)}</span>`;
         caja.classList.add('resuelta');
+        pedirExpresion();
       });
+    });
+  }
+
+  /** Lo que hay que recordar de la pregunta, escrito en el momento del fallo.
+   *  Es idea de Sebastián (15 de septiembre): cada pregunta fallada tiene una
+   *  expresión o un detalle asociado, y si se anota ahí mismo, la Hoja se
+   *  convierte sola en el formulario propio que pide el plan. Lo escribe él:
+   *  el corpus no trae la fórmula de cada pregunta, y copiada de otro no
+   *  serviría igual. */
+  function pedirExpresion() {
+    if (nodo.querySelector('.pregunta-rapida.expresion')) return;
+    const previa = almacen.expresionDe(t.id);
+    const caja = elemento(`
+      <div class="pregunta-rapida expresion">
+        <span class="rotulo">¿Qué hay que recordar de esta?</span>
+        <form class="fila-expresion">
+          <input type="text" maxlength="280" autocomplete="off"
+                 placeholder="la expresión, la trampa, el caso límite…"
+                 value="${escapar(previa?.texto || '')}">
+          <button type="submit">Guardar</button>
+        </form>
+        <span class="pie">Va a la Hoja, en ${escapar(nombreArea(t.area))}.</span>
+      </div>`);
+    nodo.append(caja);
+
+    caja.querySelector('form').addEventListener('submit', ev => {
+      ev.preventDefault();
+      const texto = caja.querySelector('input').value;
+      almacen.anotarExpresion(t.id, texto, { codigo: t.codigo, area: t.area });
+      caja.innerHTML = texto.trim()
+        ? `<span class="rotulo">Guardado en la Hoja</span>
+           <span class="pie">${mate(escapar(texto.trim()))}</span>`
+        : '<span class="rotulo">Sin anotar</span>';
+      caja.classList.add('resuelta');
     });
   }
 
