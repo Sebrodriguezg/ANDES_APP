@@ -1,0 +1,423 @@
+{
+  "hrw-c24-q002": {
+    "idea": "Energía potencial de dos cargas: $U=kq_1q_2/r$, con el signo de las cargas incluido.",
+    "pasos": [
+      "$U=\\dfrac{kq_1q_2}{r}=\\dfrac{(8{,}99\\times10^{9})(5{,}5\\times10^{-8})(-2{,}3\\times10^{-8})}{0{,}035}$.",
+      "El producto de cargas es $-1{,}265\\times10^{-15}$ C².",
+      "$U=-3{,}2\\times10^{-4}$ J. Negativa porque las cargas se atraen."
+    ],
+    "porque_fallan": {
+      "A": "El mismo número con signo positivo: se perdió el signo de la carga negativa. En energía potencial el signo **es** la respuesta.",
+      "C": "Divide por $r^2$ en vez de por $r$. Eso es la fuerza, no la energía.",
+      "E": "Cero sería el valor a separación infinita, que es la referencia, no el resultado."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q003": {
+    "idea": "$\\Delta U$ solo depende de las distancias inicial y final: $\\Delta U=kq_1q_2\\left(\\frac1{r_f}-\\frac1{r_i}\\right)$.",
+    "pasos": [
+      "$r_i=3{,}5$ cm, $r_f=4{,}3$ cm. La trayectoria no importa: el campo es conservativo.",
+      "$\\frac1{0{,}043}-\\frac1{0{,}035}=23{,}3-28{,}6=-5{,}3$ m⁻¹.",
+      "$\\Delta U=(8{,}99\\times10^{9})(-1{,}265\\times10^{-15})(-5{,}3)=+6{,}0\\times10^{-5}$ J."
+    ],
+    "porque_fallan": {
+      "A": "Calcula $U$ en un solo punto, no la diferencia.",
+      "D": "El signo al revés: alejar cargas que se atraen **aumenta** la energía potencial.",
+      "E": "Cero solo si $r_f=r_i$, y aquí pasa de 3,5 a 4,3 cm."
+    },
+    "confirma": "C"
+  },
+  "hrw-c24-q004": {
+    "idea": "Misma distancia inicial y final: la energía potencial no cambia, se mueva como se mueva.",
+    "pasos": [
+      "Sale de $x=3{,}5$ cm y llega a $y=3{,}5$ cm: en ambos casos $r=3{,}5$ cm.",
+      "$U$ depende solo de $r$, así que $U_f=U_i$.",
+      "$\\Delta U=0$."
+    ],
+    "porque_fallan": {
+      "A": "Es el valor de $U$ en cualquiera de los dos puntos, no su diferencia.",
+      "B": "El mismo error con signo. Compáralo con la pregunta anterior: allí sí cambia $r$, aquí no.",
+      "C": "Divide por $r^2$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c24-q005": {
+    "idea": "La energía de un sistema de cargas es la suma sobre **pares**, cada par una sola vez.",
+    "pasos": [
+      "Tres cargas dan tres pares: 1-2 ($r=1$ cm), 1-3 ($r=2$ cm) y 2-3 ($r=1$ cm).",
+      "$U=k\\left[\\frac{(1)(2)}{0{,}01}+\\frac{(1)(-3)}{0{,}02}+\\frac{(2)(-3)}{0{,}01}\\right]\\times10^{-16}$.",
+      "$=k\\,(2-1{,}5-6)\\times10^{-14}=(8{,}99\\times10^{9})(-5{,}5\\times10^{-14})$.",
+      "$U=-4{,}9\\times10^{-4}$ J."
+    ],
+    "porque_fallan": {
+      "A": "El valor correcto con el signo cambiado: domina el par 2-3, que es atractivo y está cerca.",
+      "C": "Cuenta algún par dos veces.",
+      "E": "Las contribuciones no se cancelan: los dos términos negativos pesan más."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q006": {
+    "idea": "Pedir $U=0$ es pedir que la atracción de la tercera carga cancele la repulsión de las dos primeras.",
+    "pasos": [
+      "$U=\\dfrac{kq^2}{0{,}05}-\\dfrac{kq^2}{|x|}-\\dfrac{kq^2}{|x-0{,}05|}=0$.",
+      "Queda $\\dfrac1{0{,}05}=\\dfrac1{|x|}+\\dfrac1{|x-0{,}05|}$, es decir $20$ m⁻¹ a la izquierda.",
+      "Con $x=13$ cm: $\\frac1{0{,}13}+\\frac1{0{,}08}=7{,}7+12{,}5=20{,}2\\approx20$. ✓"
+    ],
+    "porque_fallan": {
+      "B": "El punto medio anula el **campo** entre dos cargas iguales, no la energía del sistema.",
+      "D": "Tentador por simétrico, pero da $\\frac1{0{,}10}+\\frac1{0{,}05}=30\\neq20$.",
+      "E": "Por simetría daría lo mismo que $x=10$ cm, y tampoco cumple."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q007": {
+    "idea": "Las cuatro afirmaciones confunden campo con potencial, o el sentido del movimiento espontáneo.",
+    "pasos": [
+      "A: un protón es positivo y va de **alto** a bajo potencial, no al revés.",
+      "B: el potencial depende de la referencia y del resto de cargas; un conductor negativo puede estar a potencial positivo.",
+      "C y D: $\\vec E=-\\nabla V$. Que $V$ valga cero no dice nada de su derivada, ni al revés — en el punto medio entre dos cargas iguales y opuestas, $V=0$ y $E\\neq0$."
+    ],
+    "porque_fallan": {
+      "A": "Invierte el sentido: las cargas positivas caen hacia potenciales bajos, como las masas caen hacia abajo.",
+      "C": "$E=0$ significa que $V$ es **constante** ahí, no que valga cero.",
+      "D": "El error inverso, y el más común: $V$ es un número, $E$ su pendiente."
+    },
+    "confirma": "E"
+  },
+  "hrw-c24-q010": {
+    "idea": "Energía es carga por diferencia de potencial. El tiempo sobra.",
+    "pasos": [
+      "$W=q\\,\\Delta V=(30)(1{,}0\\times10^{8})$.",
+      "$W=3{,}0\\times10^{9}$ J.",
+      "Los $2{,}0\\times10^{-2}$ s solo harían falta si preguntaran la **potencia**."
+    ],
+    "porque_fallan": {
+      "A": "Divide por el tiempo: eso da potencia en watts, no energía.",
+      "C": "Multiplica por el tiempo en vez de ignorarlo.",
+      "E": "Usa el tiempo como si fuera el voltaje."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q015": {
+    "idea": "Toda la energía eléctrica se vuelve cinética: $eV=\\tfrac12 m v^2$.",
+    "pasos": [
+      "$v=\\sqrt{2eV/m}$.",
+      "Todo lo demás es constante, así que $v\\propto\\sqrt V$."
+    ],
+    "porque_fallan": {
+      "A": "Confunde energía con velocidad: lo que crece lineal con $V$ es la **energía**.",
+      "B": "No sale de ninguna ecuación del problema.",
+      "E": "Invierte la dependencia."
+    },
+    "confirma": "C"
+  },
+  "hrw-c24-q016": {
+    "idea": "En el máximo acercamiento toda la cinética se volvió potencial: $\\tfrac12 mv^2=kQq/d$, luego $d\\propto q/m$.",
+    "pasos": [
+      "$d=\\dfrac{2kQq}{mv^2}$, con $v$ igual para las cuatro.",
+      "Partícula 1: $q_0/m_0=1$. Partícula 2: $2q_0/2m_0=1$. Empatan.",
+      "Partícula 3: $(q_0/2)/(2m_0)=1/4$. Partícula 4: $2q_0/(m_0/2)=4$.",
+      "De menor a mayor: 3, luego 1 y 2 empatadas, luego 4."
+    ],
+    "porque_fallan": {
+      "A": "Ordena por número de partícula, no por $q/m$.",
+      "B": "El orden correcto pero invertido: confunde «más cerca» con «más lejos».",
+      "E": "Coloca bien el empate pero invierte 3 y 4."
+    },
+    "confirma": "C"
+  },
+  "hrw-c24-q017": {
+    "idea": "El trabajo sobre una carga $q$ al cruzar una diferencia de potencial $V$ es $qV$, sin importar la separación.",
+    "pasos": [
+      "$K_f=qV$ con $q=2e$.",
+      "$K_f=2eV$.",
+      "La distancia $d$ no aparece: cambia el campo, no el trabajo total."
+    ],
+    "porque_fallan": {
+      "A": "Usa carga $e$ en vez de $2e$ y encima divide por dos.",
+      "B": "Mete $d$ en el denominador. $V/d$ es el campo, y por $e$ da una fuerza.",
+      "C": "$eVd$ tiene unidades de energía por metro: no es energía.",
+      "D": "$Vd/e$ tampoco tiene unidades de energía. El descarte dimensional se lleva tres opciones de un golpe."
+    },
+    "confirma": "E"
+  },
+  "hrw-c24-q018": {
+    "idea": "El electronvoltio es una **energía**: la que gana un electrón al caer 1 voltio.",
+    "pasos": [
+      "$1\\ \\text{eV}=e\\times1\\ \\text{V}=1{,}6\\times10^{-19}$ J.",
+      "Es energía, no fuerza ni campo."
+    ],
+    "porque_fallan": {
+      "A": "Describe una fuerza, en newtons.",
+      "B": "También fuerza, y sin sentido físico definido.",
+      "E": "Ese es el julio: 1 C por 1 V. El electronvoltio usa la carga del electrón, no un coulomb."
+    },
+    "confirma": "C"
+  },
+  "hrw-c24-q019": {
+    "idea": "La energía ganada al cruzar un voltio depende de la **carga**, no de la masa.",
+    "pasos": [
+      "El protón tiene carga $+e$, de la misma magnitud que la del electrón.",
+      "$W=q\\,\\Delta V=e\\times1\\ \\text{V}=1$ eV.",
+      "La masa 1840 veces mayor cambia la velocidad final, no la energía."
+    ],
+    "porque_fallan": {
+      "B": "Usa la razón de masas como si la energía dependiera de ella.",
+      "D": "Mezcla la razón de masas con la raíz que aparece en la velocidad.",
+      "E": "El mismo error, invertido."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q021": {
+    "idea": "Unidas por un cable quedan al **mismo potencial**, y en esferas $V=kq/R$: la grande se lleva más carga.",
+    "pasos": [
+      "$\\dfrac{kq_1}{R}=\\dfrac{kq_2}{2R}\\Rightarrow q_2=2q_1$.",
+      "Con $q_1+q_2=Q$: $q_1=Q/3$ y $q_2=2Q/3$.",
+      "Reparto proporcional al radio, no al volumen ni a la superficie."
+    ],
+    "porque_fallan": {
+      "A": "Reparto por igual: eso pasaría solo si los radios fueran iguales.",
+      "C": "Invierte el reparto: la carga se acumula donde el radio es **mayor**.",
+      "D": "El cable no vacía la esfera pequeña; las deja al mismo potencial, no a carga cero."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q023": {
+    "idea": "Fuera de una esfera conductora, $V=kQ/R$ y $E=kQ/R^2$: el potencial es el campo por el radio.",
+    "pasos": [
+      "$E=\\dfrac{kQ}{R^2}$ justo fuera de la superficie.",
+      "$V=\\dfrac{kQ}{R}=\\left(\\dfrac{kQ}{R^2}\\right)R$.",
+      "$V=ER$."
+    ],
+    "porque_fallan": {
+      "A": "Cero es el campo **dentro** del conductor, no el potencial.",
+      "B": "Divide en vez de multiplicar. El chequeo dimensional lo caza: $E/R$ va en V/m².",
+      "E": "Una potencia de más en $R$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c24-q024": {
+    "idea": "De la densidad superficial sale la carga total, y de ahí el potencial de la esfera.",
+    "pasos": [
+      "$Q=\\sigma\\,4\\pi R^2=(2\\times10^{-6})(4\\pi)(0{,}05)^2=6{,}28\\times10^{-8}$ C.",
+      "$V=\\dfrac{kQ}{R}=\\dfrac{(8{,}99\\times10^{9})(6{,}28\\times10^{-8})}{0{,}05}$.",
+      "$V=1{,}1\\times10^{4}$ V.",
+      "Atajo: $V=\\sigma R/\\varepsilon_0$ da lo mismo en un paso."
+    ],
+    "porque_fallan": {
+      "B": "Usa $2\\pi R^2$, media esfera.",
+      "D": "Divide por $R^2$ en vez de por $R$: eso es el campo.",
+      "E": "Olvida convertir los 5 cm a metros."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q025": {
+    "idea": "Dentro de un conductor el campo es cero, así que el potencial es constante e igual al de la superficie.",
+    "pasos": [
+      "$\\vec E=0$ dentro $\\Rightarrow V$ no varía.",
+      "El centro está al mismo potencial que la cáscara: $V$."
+    ],
+    "porque_fallan": {
+      "B": "Confunde campo con potencial: lo que vale cero dentro es el **campo**.",
+      "C": "No hay ninguna inversión de signo al entrar.",
+      "D": "El potencial no se duplica: es constante."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q026": {
+    "idea": "El potencial siempre decrece en la dirección del campo, y el campo apunta hacia afuera: el máximo está en el centro.",
+    "pasos": [
+      "Fuera, $V=kQ/r$ decrece con la distancia.",
+      "Dentro de la esfera uniforme sigue subiendo hacia el centro: $V=\\frac{kQ}{2R}\\left(3-\\frac{r^2}{R^2}\\right)$.",
+      "El máximo es $V(0)=\\frac{3kQ}{2R}$, vez y media el de la superficie."
+    ],
+    "porque_fallan": {
+      "B": "La superficie es donde el **campo** es máximo, no el potencial.",
+      "D": "Justo fuera el potencial ya empezó a caer.",
+      "E": "Lejos tiende a cero, que es el mínimo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q027": {
+    "idea": "En la superficie, una esfera cargada uniformemente se comporta como una carga puntual en el centro.",
+    "pasos": [
+      "$V=\\dfrac{kQ}{R}=\\dfrac{(8{,}99\\times10^{9})(7\\times10^{-8})}{0{,}05}$.",
+      "$V=1{,}3\\times10^{4}$ V, positivo porque la carga lo es.",
+      "Que sea no conductora no cambia nada **en la superficie**: solo cambia el interior."
+    ],
+    "porque_fallan": {
+      "A": "El signo cambiado, sin motivo: la carga es positiva.",
+      "C": "Divide por $R^2$: eso da el campo, no el potencial.",
+      "E": "Cero es el potencial en el infinito."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q028": {
+    "idea": "Al fundirse se conservan el **volumen** y la **carga**; el radio crece como la raíz cúbica de 8.",
+    "pasos": [
+      "$R=8^{1/3}r=2r$ y $Q=8q$.",
+      "$V'=\\dfrac{kQ}{R}=\\dfrac{k\\,8q}{2r}=4\\dfrac{kq}{r}$.",
+      "$V'=4V$."
+    ],
+    "porque_fallan": {
+      "A": "Reparte el potencial como si se dividiera entre las gotas.",
+      "E": "Multiplica la carga por 8 pero olvida que el radio también creció.",
+      "C": "Escala solo el radio y no la carga."
+    },
+    "confirma": "D"
+  },
+  "hrw-c24-q029": {
+    "idea": "La misma idea que la esfera hueca: dentro del metal el potencial es constante.",
+    "pasos": [
+      "$\\vec E=0$ en el interior del conductor.",
+      "El centro está al potencial de la superficie: 400 V.",
+      "El dato de la carga sobra."
+    ],
+    "porque_fallan": {
+      "B": "Invierte el signo sin razón.",
+      "C": "Es la carga, no el potencial: el dato que sobraba.",
+      "D": "Confunde el campo nulo con potencial nulo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q030": {
+    "idea": "Del potencial sale la carga, y de la carga la densidad superficial.",
+    "pasos": [
+      "$Q=\\dfrac{VR}{k}=\\dfrac{(100)(0{,}05)}{8{,}99\\times10^{9}}=5{,}56\\times10^{-10}$ C.",
+      "$\\sigma=\\dfrac{Q}{4\\pi R^2}=\\dfrac{5{,}56\\times10^{-10}}{3{,}14\\times10^{-2}}$.",
+      "$\\sigma=+1{,}8\\times10^{-8}$ C/m², positiva porque el potencial lo es.",
+      "Atajo: $\\sigma=\\varepsilon_0 V/R$."
+    ],
+    "porque_fallan": {
+      "A": "Un par de órdenes de magnitud arriba: revisa la conversión de cm a m.",
+      "B": "Además del valor, el signo: el potencial es +100 V.",
+      "D": "Signo negativo con un valor que tampoco sale."
+    },
+    "confirma": "E"
+  },
+  "hrw-c24-q031": {
+    "idea": "$V=kQ/R$ es lineal en la carga y el radio no cambia.",
+    "pasos": [
+      "$V\\propto Q$ a radio fijo.",
+      "Doblar $Q$ dobla $V$."
+    ],
+    "porque_fallan": {
+      "A": "El potencial no es independiente de la carga.",
+      "C": "Cuadrático sería la **energía** almacenada, $U=\\frac12 QV$.",
+      "D": "Invierte la relación."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q033": {
+    "idea": "$\\vec E=-\\nabla V$: el campo apunta hacia donde el potencial **baja**, y si el gradiente es uniforme el campo también.",
+    "pasos": [
+      "El potencial crece hacia el oeste, luego decrece hacia el este.",
+      "$\\vec E$ apunta al este.",
+      "«Aumenta uniformemente» significa gradiente constante: el campo no varía con la posición."
+    ],
+    "porque_fallan": {
+      "A": "Acierta la dirección pero no lee «uniformemente»: gradiente constante es campo constante.",
+      "C": "Invierte el sentido y además lo hace variable.",
+      "D": "El sentido al revés: el campo va de potencial alto a bajo, no al contrario."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q034": {
+    "idea": "El potencial es menos la integral del campo: $V=-\\int E\\,dx$.",
+    "pasos": [
+      "$V=-\\int Cx^2\\,dx$.",
+      "$V=-\\dfrac{Cx^3}{3}$ (tomando $V=0$ en el origen).",
+      "El signo menos no es decorativo: el potencial **baja** en la dirección del campo."
+    ],
+    "porque_fallan": {
+      "A": "Deriva en vez de integrar, y encima sin signo.",
+      "B": "Deriva con el signo bien: $dE/dx$, no $\\int E\\,dx$.",
+      "C": "Integra bien pero pierde el signo. Es el error más frecuente del capítulo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c24-q036": {
+    "idea": "El campo eléctrico es conservativo: en un camino cerrado el trabajo es cero.",
+    "pasos": [
+      "Sale de la superficie de 5,0 V y vuelve a la de 5,0 V.",
+      "$W=q\\,\\Delta V=q(5{,}0-5{,}0)=0$.",
+      "Ni la carga ni el camino importan: solo los extremos, y coinciden."
+    ],
+    "porque_fallan": {
+      "B": "Calcula solo el tramo de ida, y además con la carga mal escalada.",
+      "C": "Usa 5,0 V como si fuera la diferencia.",
+      "D": "$q\\,\\Delta V=(6{,}0)(1{,}0)=6$ J sería la ida sola, y ni siquiera en esas unidades."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q037": {
+    "idea": "Las equipotenciales son siempre perpendiculares al campo. En una carga puntual el campo es radial.",
+    "pasos": [
+      "$V=kq/r$ depende solo de $r$.",
+      "$V$ constante $\\Rightarrow r$ constante.",
+      "Eso es una esfera centrada en la carga."
+    ],
+    "porque_fallan": {
+      "A": "Radialmente hacia afuera van las **líneas de campo**, que son perpendiculares a las equipotenciales.",
+      "B": "Los planos aparecen cuando el campo es uniforme, no radial.",
+      "E": "Cilindros salen de una línea de carga infinita, no de un punto."
+    },
+    "confirma": "D"
+  },
+  "hrw-c24-q038": {
+    "idea": "$\\vec E=C(x\\hat\\imath+y\\hat\\jmath)$ es radial en el plano $xy$ y no tiene componente $z$.",
+    "pasos": [
+      "En coordenadas cilíndricas, $\\vec E=C\\rho\\,\\hat\\rho$ con $\\rho=\\sqrt{x^2+y^2}$.",
+      "$V=-\\int C\\rho\\,d\\rho=-C\\rho^2/2$: depende solo de $\\rho$.",
+      "$V$ constante $\\Rightarrow\\rho$ constante: cilindros con eje en $z$."
+    ],
+    "porque_fallan": {
+      "B": "El eje está en $z$, no en $x$: el campo no depende de $z$, y por eso la simetría es alrededor de ese eje.",
+      "C": "Serían esferas si el campo tuviera también componente $z$, con $\\vec E=C\\vec r$.",
+      "D": "Planos paralelos a $xy$ corresponderían a un campo en la dirección $z$, que aquí es nulo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c24-q039": {
+    "idea": "Si $V$ depende de una sola coordenada, las equipotenciales son los planos donde esa coordenada es constante.",
+    "pasos": [
+      "$V=-7{,}5x^2+3x$ no contiene $y$ ni $z$.",
+      "$V$ constante $\\Rightarrow x$ constante.",
+      "El plano $x=$ cte es paralelo al plano $yz$."
+    ],
+    "porque_fallan": {
+      "A": "Un plano paralelo al eje $x$ contiene direcciones en las que $V$ sí cambia.",
+      "C": "Esferas exigirían dependencia en $r$, con las tres coordenadas.",
+      "E": "No hace falta la carga: el potencial ya está dado, y de él sale todo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q041": {
+    "idea": "Traer una carga desde el infinito sin hacer trabajo significa llegar a un punto con $V=0$.",
+    "pasos": [
+      "Para un dipolo, $V=\\dfrac{kp\\cos\\theta}{r^2}$, con $\\theta$ medido desde el momento dipolar.",
+      "$V=0$ cuando $\\cos\\theta=0$, es decir $\\theta=90^\\circ$.",
+      "Ese es el plano —o la línea— perpendicular al momento dipolar, la mediatriz del dipolo."
+    ],
+    "porque_fallan": {
+      "A": "Sobre el eje del dipolo $\\cos\\theta=\\pm1$: es donde $|V|$ es **máximo**, no nulo.",
+      "C": "A 45° el coseno vale $\\sqrt2/2$, no cero.",
+      "D": "A 30° tampoco: solo se anula exactamente a 90°."
+    },
+    "confirma": "B"
+  },
+  "hrw-c24-q042": {
+    "idea": "$V=kp\\cos\\theta/r^2$ igualado a una constante no da ninguna superficie elemental.",
+    "pasos": [
+      "La condición es $\\cos\\theta/r^2=$ cte, que mezcla ángulo y distancia.",
+      "Las superficies son lóbulos, uno a cada lado del dipolo, no esferas ni cilindros ni planos.",
+      "La única excepción es $V=0$, que sí es el plano perpendicular al dipolo — una entre infinitas."
+    ],
+    "porque_fallan": {
+      "A": "Esferas serían si $V$ dependiera solo de $r$, y aquí depende también de $\\theta$.",
+      "C": "Ese plano es solo la equipotencial $V=0$, no la familia entera.",
+      "D": "Un plano paralelo al momento dipolar corta regiones con potenciales distintos."
+    },
+    "confirma": "E"
+  }
+}
