@@ -63,9 +63,9 @@ function fichaExpresion(e) {
       <header>
         <span class="codigo">${escapar(e.codigo || '—')}</span>
         <span class="cuando">${escapar(fecha)}</span>
-        <button type="button" class="editar" data-editar>editar</button>
       </header>
       <div class="cuerpo">${renderMixto(e.texto, mate)}</div>
+      <button type="button" class="editar" data-editar>✎ Editar</button>
     </article>`;
 }
 
@@ -304,7 +304,8 @@ export async function pintar() {
           ? 'una entrada' : `${nMias} entradas`}. Esta sección no la escribió
           nadie más: son tus propios errores convertidos en formulario, que es
           justo lo que el plan pide y lo que de verdad se repasa el 22 de
-          noviembre.</p>
+          noviembre. <strong>Toca cualquiera para corregirla</strong>; se
+          previsualiza mientras escribes.</p>
         ${gruposMios}`
       : `<p class="hoja-lectura">Todavía vacía. Cuando falles una pregunta en el
           feed y anotes qué había que recordar, aparece aquí, bajo su área.</p>`}
@@ -369,8 +370,9 @@ export async function pintar() {
   // El índice no puede navegar por href: la app enruta con el hash, así que un
   // "#hoja-patrones" dispararía hashchange y saltaría a la vista Hoy.
   caja.addEventListener('click', ev => {
-    const boton = ev.target.closest('[data-editar]');
-    if (boton) abrirEdicion(boton.closest('.hoja-mia'));
+    // Vale el botón o la nota entera: en el teléfono un botón de 9 px no se ve.
+    const ficha = ev.target.closest('.hoja-mia');
+    if (ficha && !ev.target.closest('.editor-nota')) abrirEdicion(ficha);
   });
 
   const enlaces = [...caja.querySelectorAll('.hoja-indice button')];

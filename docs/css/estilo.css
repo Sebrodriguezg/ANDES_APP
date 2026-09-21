@@ -826,15 +826,18 @@ ul.lista li::marker { color: var(--texto-tenue); }
   letter-spacing: .1em; color: var(--texto-tenue);
 }
 .hoja-mia .cuerpo { font-size: .86rem; color: var(--texto); line-height: 1.5; }
-.hoja-mia header .editar {
-  margin-left: auto; padding: 2px 7px;
-  background: none; border: 1px solid var(--borde); border-radius: 4px;
-  color: var(--texto-tenue);
-  font-family: var(--mono); font-size: .58rem; letter-spacing: .1em;
-  text-transform: uppercase; cursor: pointer;
+.hoja-mia > .editar {
+  display: block; width: 100%; margin-top: 10px; padding: 8px 10px;
+  background: color-mix(in srgb, var(--acento) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--acento) 45%, transparent);
+  border-radius: var(--radio);
+  color: var(--acento); font-size: .76rem; cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.hoja-mia header .editar:hover { border-color: var(--acento); color: var(--texto); }
+.hoja-mia > .editar:hover {
+  background: color-mix(in srgb, var(--acento) 18%, transparent);
+}
+.hoja-mia:has(.editor-nota) > .editar { display: none; }
 
 /* Editor de una nota, con vista previa en vivo: así se ve si la fórmula
    compila antes de guardarla. */
