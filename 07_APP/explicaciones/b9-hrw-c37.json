@@ -1,0 +1,731 @@
+{
+  "hrw-c37-q001": {
+    "idea": "Un **postulado** es un punto de partida; lo demás son consecuencias que se deducen de él.",
+    "pasos": ["Postulado 1: las leyes de la física son iguales en todo marco inercial.", "Postulado 2: la velocidad de la luz es la misma para todos.", "De ahí salen la dilatación y la contracción, no al revés."],
+    "porque_fallan": {
+      "A": "Es una consecuencia, no un punto de partida.",
+      "B": "También consecuencia.",
+      "C": "La dualidad es mecánica cuántica, otra teoría."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q002": {
+    "idea": "La dilatación temporal sí es una consecuencia: sale de aplicar los postulados a un reloj de luz.",
+    "pasos": ["$\\Delta t=\\gamma\\Delta\\tau$ con $\\gamma\\geq1$: el reloj en movimiento atrasa."],
+    "porque_fallan": {
+      "B": "Las varillas se **acortan**, no se alargan.",
+      "D": "Eso es el postulado, no la consecuencia.",
+      "C": "La dualidad pertenece a la cuántica."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q003": {
+    "idea": "La contracción de longitudes: lo que se mueve se acorta en la dirección del movimiento.",
+    "pasos": ["$L=L_0/\\gamma$."],
+    "porque_fallan": {
+      "A": "Los relojes en movimiento van **más despacio**, no más rápido.",
+      "D": "Es el postulado.",
+      "C": "Otra teoría."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q004": {
+    "idea": "La relatividad **conserva** energía y momento, no necesita éter, y los relojes móviles atrasan.",
+    "pasos": ["Lo que cambia son las expresiones de $E$ y $p$, no su conservación.", "El éter es justo lo que la teoría hace innecesario."],
+    "porque_fallan": {
+      "A": "Van más lentos, no más rápidos.",
+      "B": "La energía se conserva, con $E=\\gamma mc^2$.",
+      "D": "El momento también, con $p=\\gamma mv$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q005": {
+    "idea": "$t'=\\gamma(t-vx/c^2)$: con $t$ igual, el evento de mayor $x$ tiene menor $t'$.",
+    "pasos": [
+      "En $x=+a$: $t'=-\\gamma va/c^2$. En $x=-a$: $t'=+\\gamma va/c^2$.",
+      "El de $+a$ es menor, luego ocurre **antes** para el observador que se mueve hacia $+x$."
+    ],
+    "porque_fallan": {
+      "B": "Es el orden para un observador que se mueva hacia $-x$.",
+      "C": "El orden no depende de $a$ ni de $v$: el signo de $-vx/c^2$ lo fija.",
+      "D": "La simultaneidad no se conserva al cambiar de marco: ese es el punto."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q006": {
+    "idea": "El término que rompe la simultaneidad es $-vx/c^2$, y aquí los eventos difieren en $y$, no en $x$.",
+    "pasos": ["$\\Delta x=0\\Rightarrow\\Delta t'=\\gamma(\\Delta t-v\\Delta x/c^2)=0$.", "Separación perpendicular al movimiento: la simultaneidad se conserva."],
+    "porque_fallan": {
+      "A": "La coordenada $y$ no entra en la transformación del tiempo.",
+      "B": "Lo mismo.",
+      "C": "Ninguna velocidad los desincroniza si están separados solo en $y$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q007": {
+    "idea": "Para el pasajero del tren, E y G están en reposo, equidistantes, y las señales llegan a la vez: las mandaron a la vez.",
+    "pasos": [
+      "En el marco del tren no hay contracción de su propia longitud: $S'$ está justo en el medio.",
+      "Llegada simultánea más distancias iguales implica emisión simultánea.",
+      "Ninguna de las cuatro opciones dice eso."
+    ],
+    "porque_fallan": {
+      "A": "Las distancias sí son iguales en el marco del tren.",
+      "B": "No hay desfase en la emisión según $S'$.",
+      "D": "Lo mismo, invertido."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q008": {
+    "idea": "El tiempo propio lo mide un solo reloj que está presente en **los dos** eventos: mismas coordenadas.",
+    "pasos": ["$\\Delta\\tau$ es el intervalo medido donde $\\Delta x=0$.", "Es el menor de todos los intervalos temporales posibles."],
+    "porque_fallan": {
+      "A": "Si ocurrieran a la vez no habría intervalo temporal propio que medir.",
+      "C": "Esa condición define un intervalo tipo luz.",
+      "D": "El chiste de Boston: el lugar es irrelevante."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q009": {
+    "idea": "El tiempo propio del viaje lo mide el reloj que **hace** el viaje.",
+    "pasos": ["La nave exploradora está presente en la salida y en la llegada: para ella $\\Delta x=0$."],
+    "porque_fallan": {
+      "A": "La Enterprise ve salir y llegar desde otro sitio: para ella los eventos están separados.",
+      "C": "La Tierra, aún más.",
+      "D": "Cualquier otro marco mide un intervalo mayor."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q010": {
+    "idea": "La cápsula tiene que **alcanzar** a B, así que va más rápido que B: por encima de 0,8c.",
+    "pasos": [
+      "Suma relativista: nada supera $c$, pero la cápsula debe ir más deprisa que 0,8c.",
+      "0,95c cumple las dos cosas."
+    ],
+    "porque_fallan": {
+      "C": "A la misma velocidad que B no la alcanzaría nunca.",
+      "A": "Más lenta que B: se alejaría de ella.",
+      "E": "Va hacia delante: es donde está B."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q011": {
+    "idea": "Simultáneos en algún marco significa intervalo **tipo espacio**: la separación espacial gana.",
+    "pasos": ["Hace falta $c\\Delta t<\\Delta x$, es decir $\\Delta x/\\Delta t>c$.", "Ni la luz podría unirlos: no hay relación causal posible."],
+    "porque_fallan": {
+      "B": "Con $\\Delta x/\\Delta t<c$ el intervalo es tipo tiempo: existe un marco donde ocurren en el mismo **sitio**, no a la vez.",
+      "A": "No siempre existe: depende del tipo de intervalo.",
+      "E": "Sí existe, si son tipo espacio."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q012": {
+    "idea": "Mismo sitio en algún marco significa intervalo **tipo tiempo**: hay un observador que puede estar en los dos eventos.",
+    "pasos": ["Ese observador viaja a $v=\\Delta x/\\Delta t$, y para que sea posible hace falta $\\Delta x/\\Delta t<c$."],
+    "porque_fallan": {
+      "C": "Con $\\Delta x/\\Delta t>c$ haría falta viajar más rápido que la luz.",
+      "A": "Depende del tipo de intervalo.",
+      "D": "El caso límite exige exactamente $c$: imposible para un observador con masa."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q014": {
+    "idea": "Sus 15 años son tiempo **propio**; en la Tierra pasa $\\gamma$ veces más.",
+    "pasos": [
+      "$\\gamma=\\dfrac{1}{\\sqrt{1-0{,}64}}=\\dfrac{1}{0{,}6}=1{,}667$.",
+      "$\\Delta t=(15)(1{,}667)=25$ años.",
+      "$1992+25=2017$."
+    ],
+    "porque_fallan": {
+      "C": "Suma los 15 años sin dilatar.",
+      "D": "Usa un $\\gamma$ menor.",
+      "A": "Divide en vez de multiplicar."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q015": {
+    "idea": "El marco donde coinciden en el espacio es el que viaja con la velocidad que une los dos eventos.",
+    "pasos": ["$v=\\dfrac{\\Delta x}{\\Delta t}=\\dfrac{100}{0{,}60\\times10^{-6}}=1{,}67\\times10^{8}$ m/s.", "$=0{,}56c$."],
+    "porque_fallan": {
+      "D": "Superaría $c$: ese marco no existiría.",
+      "B": "Un factor dos por debajo.",
+      "A": "Los eventos están separados: hace falta moverse."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q016": {
+    "idea": "El intervalo es invariante: $c^2\\Delta\\tau^2=c^2\\Delta t^2-\\Delta x^2$.",
+    "pasos": [
+      "$\\Delta t=0{,}42$ µs y $\\Delta x/c=\\dfrac{100}{3\\times10^{8}}=0{,}33$ µs.",
+      "$\\Delta\\tau=\\sqrt{0{,}42^2-0{,}33^2}=\\sqrt{0{,}176-0{,}111}$.",
+      "$\\Delta\\tau=0{,}26$ µs."
+    ],
+    "porque_fallan": {
+      "D": "Es $\\Delta t$ en el marco dado, no el tiempo propio.",
+      "B": "Resta los tiempos en vez de sus cuadrados.",
+      "A": "El intervalo es tipo tiempo: el propio no se anula."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q017": {
+    "idea": "El reloj que mide el tiempo propio es el que está en los dos eventos: viaja a $\\Delta x/\\Delta t$.",
+    "pasos": ["$v=\\dfrac{100}{0{,}37\\times10^{-6}}=2{,}7\\times10^{8}=0{,}90c$."],
+    "porque_fallan": {
+      "E": "Superaría $c$.",
+      "C": "Corresponde a otro intervalo.",
+      "A": "Un reloj en reposo no está en los dos eventos."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q018": {
+    "idea": "Primero la velocidad, luego $\\gamma$, y el tiempo propio es el del cohete.",
+    "pasos": [
+      "$v=\\dfrac{8{,}4\\times10^{15}}{3{,}16\\times10^{7}}=2{,}66\\times10^{8}=0{,}89c$.",
+      "$\\gamma=\\dfrac{1}{\\sqrt{1-0{,}787}}=2{,}17$.",
+      "$\\Delta\\tau=\\dfrac{1}{2{,}17}=0{,}46$ años."
+    ],
+    "porque_fallan": {
+      "C": "Es el tiempo del marco externo, no el propio.",
+      "D": "Multiplica por $\\gamma$ en vez de dividir.",
+      "A": "Un factor dos por debajo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q019": {
+    "idea": "«Atrasa un factor 10» significa $\\gamma=10$.",
+    "pasos": ["$\\sqrt{1-\\beta^2}=\\dfrac{1}{10}\\Rightarrow\\beta^2=1-0{,}01$.", "$\\beta=0{,}995$."],
+    "porque_fallan": {
+      "D": "Con 0,900c el factor es 2,3, no 10.",
+      "C": "Con 0,990c el factor es 7,1.",
+      "A": "Con 0,100c el efecto es del 0,5 %."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q020": {
+    "idea": "La vida propia se dilata por $\\gamma$ en el laboratorio.",
+    "pasos": ["$\\gamma=\\dfrac{1}{\\sqrt{1-0{,}9801}}=7{,}09$.", "$t=(2)(7{,}09)=14$ µs."],
+    "porque_fallan": {
+      "A": "Es justo lo que la relatividad niega: por eso los muones llegan al suelo.",
+      "B": "Divide en vez de multiplicar.",
+      "D": "Seis órdenes de magnitud fuera."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q021": {
+    "idea": "La distancia recorrida es velocidad por vida **dilatada**.",
+    "pasos": ["$d=v(\\gamma T)=\\beta c\\,T(1-\\beta^2)^{-1/2}$.", "Sin la dilatación, el haz se extinguiría mucho antes."],
+    "porque_fallan": {
+      "D": "Multiplica por $\\sqrt{1-\\beta^2}$ en vez de dividir: acorta en vez de alargar.",
+      "C": "$\\beta vT$ mete la velocidad dos veces.",
+      "B": "Esa raíz es el factor Doppler, no el de dilatación."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q022": {
+    "idea": "$T$ es el tiempo del laboratorio, ya dilatado; el propio se obtiene **dividiendo** por $\\gamma$.",
+    "pasos": ["$\\tau=\\dfrac{T}{\\gamma}=T\\sqrt{1-v^2/c^2}$.", "El propio siempre es el menor."],
+    "porque_fallan": {
+      "C": "Multiplica por $\\gamma$: daría un tiempo propio **mayor** que el del laboratorio, imposible.",
+      "A": "No es el factor relativista.",
+      "E": "Mezcla la transformación completa donde bastaba la dilatación."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q023": {
+    "idea": "Medir una longitud exige marcar los dos extremos **a la vez en el marco donde se mide**.",
+    "pasos": ["Si las marcas no son simultáneas en el laboratorio, el objeto se mueve entre una y otra.", "La simultaneidad en el marco del objeto daría su longitud propia, no la medida."],
+    "porque_fallan": {
+      "A": "A tiempos distintos el objeto se desplaza y la medida no significa nada.",
+      "B": "Simultáneo para el objeto es otro par de eventos.",
+      "D": "Lo mismo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q024": {
+    "idea": "$L=L_0/\\gamma$, despejando la velocidad.",
+    "pasos": ["$\\gamma=\\dfrac{1}{0{,}31}=3{,}23$.", "$\\beta=\\sqrt{1-1/\\gamma^2}=\\sqrt{1-0{,}096}=0{,}95$."],
+    "porque_fallan": {
+      "B": "Toma la longitud contraída como si fuera $\\beta$.",
+      "C": "Corresponde a una contracción hasta 0,72 m.",
+      "A": "A 0,096c la contracción sería inapreciable."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q025": {
+    "idea": "La contracción es **solo** en la dirección del movimiento. De lado, la longitud no cambia.",
+    "pasos": ["Las dimensiones transversales son invariantes.", "La regla sigue midiendo 1,0 m."],
+    "porque_fallan": {
+      "C": "Es lo que mediría moviéndose **a lo largo** de su longitud.",
+      "B": "Un factor aún mayor de contracción.",
+      "D": "Nada se alarga en relatividad especial."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q026": {
+    "idea": "El dispositivo mide el tiempo que tarda en pasarle por delante la nave **contraída**.",
+    "pasos": [
+      "$\\gamma=\\dfrac{1}{0{,}6}=1{,}667$, luego $L=\\dfrac{100}{1{,}667}=60$ m.",
+      "$\\Delta t=\\dfrac{60}{0{,}8\\times3\\times10^{8}}=0{,}25$ µs."
+    ],
+    "porque_fallan": {
+      "C": "Usa los 100 m sin contraer.",
+      "A": "Aplica la contracción dos veces.",
+      "E": "Multiplica por $\\gamma$ en lugar de dividir."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q027": {
+    "idea": "Las marcas son simultáneas en el laboratorio, pero **no** en el marco de la regla.",
+    "pasos": [
+      "$\\Delta t'=\\gamma\\left(\\Delta t-\\dfrac{v\\Delta x}{c^2}\\right)$ con $\\Delta t=0$ y $\\Delta x=L=L_0/\\gamma$.",
+      "$|\\Delta t'|=\\dfrac{vL_0}{c^2}=\\dfrac{(0{,}95)(3\\times10^{8})(1)}{9\\times10^{16}}$.",
+      "$=3{,}2\\times10^{-9}$ s."
+    ],
+    "porque_fallan": {
+      "A": "Simultáneo en un marco no significa simultáneo en el otro: ese es todo el problema.",
+      "B": "Un orden de magnitud por debajo.",
+      "E": "Un orden por encima."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q028": {
+    "idea": "$L/L_0=1/\\gamma=4/5$.",
+    "pasos": ["$\\gamma=1{,}25$.", "$\\beta=\\sqrt{1-1/1{,}5625}=\\sqrt{0{,}36}=0{,}6$."],
+    "porque_fallan": {
+      "D": "Toma la razón $4/5$ como si fuera $\\beta$.",
+      "B": "Demasiado lento para contraer un 20 %.",
+      "E": "A más de 0,95c la contracción pasaría del 68 %."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q030": {
+    "idea": "El reloj lee tiempo **propio**: el del laboratorio dividido por $\\gamma$.",
+    "pasos": [
+      "$\\Delta t=\\dfrac{180}{0{,}6\\times3\\times10^{8}}=1{,}0$ µs en el laboratorio.",
+      "$\\gamma=1{,}25$, luego $\\Delta\\tau=\\dfrac{1{,}0}{1{,}25}=0{,}80$ µs."
+    ],
+    "porque_fallan": {
+      "C": "Es el tiempo del laboratorio, sin dilatar.",
+      "D": "Multiplica por $\\gamma$ en vez de dividir.",
+      "A": "Confunde $\\beta$ con el factor de dilatación."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q031": {
+    "idea": "Si el marco 2 se mueve hacia $-x$, en las transformaciones $v$ entra con signo cambiado: los dos signos se vuelven **más**.",
+    "pasos": [
+      "Con $v$ hacia $+x$: $x_2=\\gamma(x_1-vt_1)$ y $t_2=\\gamma(t_1-vx_1/c^2)$.",
+      "Aquí el movimiento es hacia $-x$: sustituye $v\\to-v$.",
+      "Quedan $x_2=\\gamma(x_1+vt_1)$ y $t_2=\\gamma(t_1+vx_1/c^2)$."
+    ],
+    "porque_fallan": {
+      "A": "Es el caso de movimiento hacia $+x$.",
+      "B": "Cambia el signo en una sola de las dos ecuaciones: deben cambiar juntas.",
+      "C": "Lo mismo, en la otra."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q032": {
+    "idea": "Transformación de Lorentz directa, con $\\gamma$ para 0,90c.",
+    "pasos": [
+      "$\\gamma=\\dfrac{1}{\\sqrt{1-0{,}81}}=2{,}29$ y $vt=(0{,}9)(3\\times10^{8})(0{,}9\\times10^{-6})=243$ m.",
+      "$x'=2{,}29(500-243)=590$ m.",
+      "$t'=2{,}29\\left(0{,}9-\\dfrac{(0{,}9)(500)}{300}\\right)$ µs $=2{,}29(0{,}9-1{,}5)=-1{,}4$ µs."
+    ],
+    "porque_fallan": {
+      "B": "Usa los signos del movimiento hacia $-x$.",
+      "A": "No transforma: son las coordenadas originales.",
+      "D": "Olvida el factor $\\gamma$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q033": {
+    "idea": "La misma cuenta con los signos invertidos, porque el marco va hacia $-x$.",
+    "pasos": [
+      "$x'=2{,}29(500+243)=1700$ m.",
+      "$t'=2{,}29(0{,}9+1{,}5)=5{,}5$ µs."
+    ],
+    "porque_fallan": {
+      "E": "Son los signos del movimiento hacia $+x$.",
+      "A": "Sin transformar.",
+      "C": "Olvida $\\gamma$ en alguna de las dos."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q034": {
+    "idea": "Primero resuelve el encuentro en S, que es fácil, y **después** transforma ese único evento.",
+    "pasos": [
+      "En S los frentes se encuentran en el punto medio: $x=300$ m, $t=300/c=1{,}0$ µs.",
+      "$\\gamma=3{,}20$ y $vt=(0{,}95)(3\\times10^{8})(10^{-6})=285$ m.",
+      "$x'=3{,}20(300-285)=48$ m y $t'=3{,}20(1{,}0-0{,}95)=0{,}16$ µs."
+    ],
+    "porque_fallan": {
+      "A": "Son las coordenadas en S, sin transformar.",
+      "E": "Aplica $\\gamma$ a la coordenada sin restar $vt$ antes.",
+      "C": "Transforma cada destello por separado en vez del evento del encuentro."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q035": {
+    "idea": "Suma relativista de velocidades: $u=\\dfrac{u'+v}{1+u'v/c^2}$.",
+    "pasos": ["$u=\\dfrac{0{,}4c+0{,}6c}{1+0{,}24}=\\dfrac{1{,}0c}{1{,}24}$.", "$u=\\dfrac{25c}{31}=0{,}81c$."],
+    "porque_fallan": {
+      "E": "La suma galileana daría exactamente $c$, y ahí está el error clásico.",
+      "A": "Resta en vez de sumar.",
+      "C": "Pone el producto en el numerador."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q036": {
+    "idea": "Se alejan en sentidos opuestos: las velocidades se suman, pero relativísticamente.",
+    "pasos": ["$u=\\dfrac{0{,}8c+0{,}5c}{1+(0{,}8)(0{,}5)}=\\dfrac{1{,}3c}{1{,}4}$.", "$u=0{,}93c$: menor que $c$, como debe ser."],
+    "porque_fallan": {
+      "D": "Es la suma galileana, $1{,}3c$: supera la velocidad de la luz.",
+      "A": "Resta en vez de sumar.",
+      "B": "Ignora una de las dos velocidades."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q037": {
+    "idea": "Cambiar al marco del cohete es restar $v$, con el denominador relativista.",
+    "pasos": ["$u'=\\dfrac{u-v}{1-uv/c^2}$."],
+    "porque_fallan": {
+      "D": "El signo del denominador va con la resta del numerador.",
+      "B": "$1-v^2/c^2$ es el denominador de $\\gamma^2$, no el de la suma de velocidades.",
+      "E": "Suma en vez de restar."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q038": {
+    "idea": "Cada uno ve al otro acercarse: se suman 0,70c y 0,70c, relativísticamente.",
+    "pasos": ["$u=\\dfrac{1{,}40c}{1+0{,}49}=\\dfrac{1{,}40c}{1{,}49}=0{,}94c$."],
+    "porque_fallan": {
+      "E": "La suma galileana, que supera $c$.",
+      "D": "Solo la luz alcanza exactamente $c$.",
+      "A": "Promedia en vez de sumar."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q039": {
+    "idea": "Es el efecto Doppler: la frecuencia cambia porque la fuente se acerca o se aleja.",
+    "pasos": ["Las galaxias lejanas muestran corrimiento al rojo: se alejan."],
+    "porque_fallan": {
+      "B": "La refracción atmosférica desvía la luz, no cambia su frecuencia.",
+      "A": "La interferencia redistribuye intensidad.",
+      "C": "La difracción tampoco cambia la frecuencia."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q041": {
+    "idea": "Alejarse es corrimiento al rojo: menos frecuencia y más longitud de onda.",
+    "pasos": ["$f$ y $\\lambda$ van siempre en sentidos opuestos, porque $c=\\lambda f$."],
+    "porque_fallan": {
+      "A": "Frecuencia y longitud de onda no pueden subir las dos.",
+      "B": "Ni bajar las dos.",
+      "C": "Es el caso de acercamiento."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q042": {
+    "idea": "Para el jefe de estación, E va delante **alejándose** y G detrás **acercándose**.",
+    "pasos": [
+      "Fuente que se aleja: corrimiento al rojo. La lámpara amarilla de E se ve roja.",
+      "Fuente que se acerca: corrimiento al azul. La de G se ve azul."
+    ],
+    "porque_fallan": {
+      "C": "Invierte quién se aleja y quién se acerca.",
+      "B": "Sin movimiento relativo no habría desplazamiento: es lo que ve el pasajero, no el jefe de estación.",
+      "D": "Los dos no pueden acercarse a la vez."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q043": {
+    "idea": "Los pasajeros están en reposo respecto a la lámpara: no hay Doppler.",
+    "pasos": ["El efecto depende del movimiento **relativo** entre fuente y observador.", "Dentro de la nave, ese movimiento es cero."],
+    "porque_fallan": {
+      "C": "El rojo es lo que vería un observador en Tierra.",
+      "D": "El violeta, uno que se acercara.",
+      "A": "Nada cambia a bordo: ese es el principio de relatividad."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q044": {
+    "idea": "Doppler relativista longitudinal: $\\dfrac{\\lambda'}{\\lambda}=\\sqrt{\\dfrac{1+\\beta}{1-\\beta}}$.",
+    "pasos": [
+      "$\\dfrac{1500}{500}=3\\Rightarrow\\dfrac{1+\\beta}{1-\\beta}=9$.",
+      "$1+\\beta=9-9\\beta\\Rightarrow\\beta=0{,}8$."
+    ],
+    "porque_fallan": {
+      "E": "A $c$ el corrimiento sería infinito.",
+      "B": "Usa la fórmula clásica $\\Delta\\lambda/\\lambda=v/c$, que daría $2c$.",
+      "C": "No sale de la raíz."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q045": {
+    "idea": "Acercándose, la longitud de onda se **acorta**: $\\lambda'=\\lambda\\sqrt{\\dfrac{1-\\beta}{1+\\beta}}$.",
+    "pasos": ["$\\sqrt{\\dfrac{0{,}1}{1{,}9}}=0{,}229$.", "$\\lambda'=(500)(0{,}229)=115$ nm."],
+    "porque_fallan": {
+      "D": "Es el caso de alejamiento: la razón invertida.",
+      "C": "Sin movimiento relativo no habría cambio.",
+      "A": "Un factor cuatro de más."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q046": {
+    "idea": "Alejándose, la razón se invierte y la longitud de onda crece.",
+    "pasos": ["$\\lambda'=(500)\\sqrt{\\dfrac{1{,}9}{0{,}1}}=(500)(4{,}36)=2200$ nm."],
+    "porque_fallan": {
+      "B": "Es el caso de acercamiento.",
+      "C": "Hay movimiento relativo: sí hay cambio.",
+      "E": "Un factor cuatro de más."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q047": {
+    "idea": "La reflexión aplica el Doppler **dos veces**: la nave recibe corrida y reemite corrida otra vez.",
+    "pasos": [
+      "Cada tramo aporta $\\sqrt{\\dfrac{1-\\beta}{1+\\beta}}$, y el producto da $\\dfrac{1-\\beta}{1+\\beta}$.",
+      "$f'=(6{,}0\\times10^{14})\\dfrac{0{,}1}{1{,}9}=3{,}2\\times10^{13}$ Hz."
+    ],
+    "porque_fallan": {
+      "B": "Aplica el factor una sola vez.",
+      "C": "Supone que la reflexión no corre la frecuencia.",
+      "D": "Corre al azul: la nave se aleja."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q048": {
+    "idea": "Despeja $\\beta$ de $\\dfrac{f'}{f}=\\sqrt{\\dfrac{1-\\beta}{1+\\beta}}$.",
+    "pasos": [
+      "$\\left(\\dfrac{4}{6}\\right)^2=\\dfrac{1-\\beta}{1+\\beta}=0{,}444$.",
+      "$0{,}444+0{,}444\\beta=1-\\beta\\Rightarrow\\beta=0{,}38$."
+    ],
+    "porque_fallan": {
+      "A": "Usa la fórmula clásica $\\Delta f/f=v/c$, que daría 0,33c.",
+      "E": "Olvida elevar al cuadrado antes de despejar.",
+      "C": "No sale de la ecuación."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q049": {
+    "idea": "$K=(\\gamma-1)mc^2$, nunca $\\tfrac12mv^2$.",
+    "pasos": ["$\\gamma=\\dfrac{1}{\\sqrt{1-0{,}36}}=1{,}25$.", "$K=0{,}25mc^2$."],
+    "porque_fallan": {
+      "A": "Es $\\tfrac12mv^2$: la fórmula clásica, que aquí ya se queda corta.",
+      "E": "Es $\\gamma mc^2$, la energía **total**, no la cinética.",
+      "D": "Es la energía en reposo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q050": {
+    "idea": "Compara la fórmula clásica con la exacta a 0,6c.",
+    "pasos": [
+      "Clásica: $\\tfrac12m(0{,}6c)^2=0{,}18mc^2$.",
+      "Exacta: $0{,}25mc^2$.",
+      "$\\dfrac{0{,}25-0{,}18}{0{,}25}=28\\%$ por debajo."
+    ],
+    "porque_fallan": {
+      "D": "El 1 % correspondería a velocidades mucho menores, en torno a 0,1c.",
+      "A": "A 0,6c la diferencia ya es enorme.",
+      "C": "El error va en la otra dirección y con otro tamaño."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q051": {
+    "idea": "La energía cinética depende de la **rapidez**, no de la dirección.",
+    "pasos": ["$K=(\\gamma-1)mc^2$ y $\\gamma$ solo contiene $v^2$.", "Misma rapidez antes y después: $\\Delta K=0$."],
+    "porque_fallan": {
+      "D": "Confunde el cambio de **momento**, que sí se duplica en magnitud, con el de energía.",
+      "A": "Invertir el sentido no cuesta energía neta.",
+      "B": "Tampoco."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q052": {
+    "idea": "El trabajo es la diferencia de energías cinéticas relativistas.",
+    "pasos": [
+      "$\\gamma(0{,}90)=2{,}29$ y $\\gamma(0{,}95)=3{,}20$.",
+      "$mc^2=(9{,}11\\times10^{-31})(9\\times10^{16})=8{,}2\\times10^{-14}$ J.",
+      "$W=(3{,}20-2{,}29)(8{,}2\\times10^{-14})=7{,}4\\times10^{-14}$ J."
+    ],
+    "porque_fallan": {
+      "B": "Es la energía cinética a 0,95c, no la diferencia.",
+      "A": "Usa un solo $\\gamma$.",
+      "E": "Un orden de magnitud por debajo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q053": {
+    "idea": "$K=(\\gamma-1)mc^2$ con $\\gamma=3{,}20$.",
+    "pasos": ["$K=(2{,}20)(8{,}2\\times10^{-14})=1{,}8\\times10^{-13}$ J."],
+    "porque_fallan": {
+      "E": "Usa $\\gamma$ sin restar 1: eso es la energía **total**.",
+      "A": "Es la energía en reposo.",
+      "C": "Un $\\gamma$ ligeramente distinto."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q054": {
+    "idea": "$p=\\gamma mv$, con el $\\gamma$ que ya tienes.",
+    "pasos": ["$p=(3{,}20)(9{,}11\\times10^{-31})(0{,}95)(3\\times10^{8})$.", "$p=8{,}3\\times10^{-22}$ kg·m/s."],
+    "porque_fallan": {
+      "A": "Olvida el factor $\\gamma$: sería $mv$ clásico.",
+      "C": "Usa un $\\gamma$ menor.",
+      "E": "Un factor ligeramente por encima."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q055": {
+    "idea": "$E=mc^2$ en su lectura profunda: toda energía tiene inercia.",
+    "pasos": ["Un cuerpo caliente, un resorte comprimido o un núcleo ligado pesan distinto que sus partes sueltas."],
+    "porque_fallan": {
+      "B": "La masa en reposo no cambia con la velocidad: lo que crece es $\\gamma m$.",
+      "C": "El momento se conserva, con la definición relativista.",
+      "D": "De lado no hay contracción."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q056": {
+    "idea": "$E=2mc^2$ significa $\\gamma=2$, y de ahí sale $v$ y luego $p$.",
+    "pasos": [
+      "$\\gamma=2\\Rightarrow v=c\\sqrt{1-1/4}=\\dfrac{\\sqrt3}{2}c$.",
+      "$p=\\gamma mv=2m\\dfrac{\\sqrt3}{2}c=\\sqrt3\\,mc$.",
+      "Comprueba con $E^2=(pc)^2+(mc^2)^2$: $4=3+1$. ✓"
+    ],
+    "porque_fallan": {
+      "E": "Sería $\\gamma\\beta=2$, que corresponde a otra energía.",
+      "C": "Corresponde a $\\gamma\\beta=1$.",
+      "A": "Demasiado pequeño para $\\gamma=2$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q057": {
+    "idea": "$K=mc^2$ significa $\\gamma-1=1$, es decir $\\gamma=2$.",
+    "pasos": ["$v=c\\sqrt{1-1/4}=0{,}87c$."],
+    "porque_fallan": {
+      "B": "A 0,50c, $\\gamma=1{,}15$ y $K=0{,}15mc^2$.",
+      "D": "A $c$ la energía sería infinita.",
+      "E": "La masa se cancela: no hace falta."
+    },
+    "confirma": "C"
+  },
+  "hrw-c37-q058": {
+    "idea": "Sin masa, la única velocidad posible es $c$.",
+    "pasos": ["$E=\\gamma mc^2$ con $m=0$ exige $\\gamma=\\infty$, o sea $v=c$.", "Y entonces $E=pc$, finita."],
+    "porque_fallan": {
+      "D": "Por debajo de $c$ una partícula sin masa tendría energía nula.",
+      "C": "En reposo no existiría.",
+      "B": "Nada supera $c$."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q059": {
+    "idea": "Para $m=0$, la relación $E^2=(pc)^2+(mc^2)^2$ se reduce a $E=pc$.",
+    "pasos": ["$p=E/c$. Es la relación del fotón."],
+    "porque_fallan": {
+      "A": "$Ec$ no tiene unidades de momento.",
+      "E": "$E/c^2$ tiene unidades de masa.",
+      "B": "Tampoco."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q060": {
+    "idea": "$p=\\gamma mv=2mc$ significa $\\gamma\\beta=2$.",
+    "pasos": [
+      "$\\dfrac{\\beta}{\\sqrt{1-\\beta^2}}=2\\Rightarrow\\beta^2=4(1-\\beta^2)$.",
+      "$\\beta^2=\\dfrac45\\Rightarrow\\beta=0{,}89$."
+    ],
+    "porque_fallan": {
+      "A": "Trata $p=2mc$ como si fuera $p=mv$ clásico.",
+      "C": "Solo las partículas sin masa van a $c$.",
+      "D": "Daría $\\gamma\\beta=0{,}58$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c37-q061": {
+    "idea": "En el límite ultrarrelativista la masa deja de contar: $E\\approx pc$, y $K\\approx E$.",
+    "pasos": ["$E^2=(pc)^2+(mc^2)^2$ con $pc\\gg mc^2$ da $E\\approx pc$.", "Es el régimen de los fotones y de los electrones de alta energía."],
+    "porque_fallan": {
+      "B": "El cuadrado es el límite **clásico**, $K=p^2/2m$.",
+      "C": "No sale de ninguna aproximación.",
+      "D": "La energía crece con el momento, no decrece."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q062": {
+    "idea": "Con $K\\ll mc^2$ se recupera la mecánica clásica: $K=p^2/2m$.",
+    "pasos": ["Desarrollando $E=\\sqrt{(pc)^2+(mc^2)^2}$ para $pc\\ll mc^2$."],
+    "porque_fallan": {
+      "A": "Lineal en $p$ es el límite ultrarrelativista, el opuesto.",
+      "C": "No corresponde a ningún límite.",
+      "D": "La energía crece con el momento."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q063": {
+    "idea": "De $E^2=(pc)^2+(mc^2)^2$ sale $pc\\leq E$, con igualdad solo si $m=0$.",
+    "pasos": ["El término $(mc^2)^2$ es no negativo, así que $(pc)^2\\leq E^2$."],
+    "porque_fallan": {
+      "A": "$p$ puede superar $mc$ sin problema: basta con $\\gamma\\beta>1$.",
+      "C": "$K/c$ es menor que $E/c$: la cota es más floja de lo necesario y además falsa.",
+      "E": "Sí hay cota, para energía dada."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q064": {
+    "idea": "Con $p$ conocido, usa $E^2=(pc)^2+(mc^2)^2$ y resta la energía en reposo.",
+    "pasos": [
+      "$pc=(4{,}0\\times10^{-22})(3\\times10^{8})=1{,}2\\times10^{-13}$ J y $mc^2=8{,}2\\times10^{-14}$ J.",
+      "$E=\\sqrt{(1{,}2\\times10^{-13})^2+(8{,}2\\times10^{-14})^2}=1{,}45\\times10^{-13}$ J.",
+      "$K=E-mc^2=6{,}3\\times10^{-14}$ J."
+    ],
+    "porque_fallan": {
+      "B": "Es la energía en reposo, no la cinética.",
+      "D": "Es la energía total.",
+      "C": "Usa $p^2/2m$, que aquí no vale: la partícula es relativista."
+    },
+    "confirma": "A"
+  },
+  "hrw-c37-q065": {
+    "idea": "Con $K$ y $p$, despeja la masa de $E^2=(pc)^2+(mc^2)^2$ escribiendo $E=K+mc^2$.",
+    "pasos": [
+      "$(K+mc^2)^2=(pc)^2+(mc^2)^2\\Rightarrow K^2+2Kmc^2=(pc)^2$.",
+      "$mc^2=\\dfrac{(pc)^2-K^2}{2K}=\\dfrac{(5{,}1\\times10^{-10})^2-(3{,}2\\times10^{-10})^2}{6{,}4\\times10^{-10}}$.",
+      "$mc^2=2{,}46\\times10^{-10}$ J, luego $m=2{,}7\\times10^{-27}$ kg."
+    ],
+    "porque_fallan": {
+      "A": "Es la masa del electrón, que no cuadra con estos números.",
+      "C": "Olvida restar $K^2$.",
+      "E": "Un factor por encima."
+    },
+    "confirma": "B"
+  },
+  "hrw-c37-q066": {
+    "idea": "El radio ciclotrónico con el momento **relativista**: $r=\\dfrac{\\gamma mv}{qB}$.",
+    "pasos": [
+      "$\\gamma=3{,}20$ y $p=\\gamma mv=8{,}3\\times10^{-22}$ kg·m/s.",
+      "$r=\\dfrac{8{,}3\\times10^{-22}}{(1{,}6\\times10^{-19})(1{,}8)}=2{,}9\\times10^{-3}$ m."
+    ],
+    "porque_fallan": {
+      "B": "Olvida $\\gamma$: usa el momento clásico y sale tres veces menor.",
+      "A": "Varios factores por debajo.",
+      "E": "Un factor por encima."
+    },
+    "confirma": "D"
+  },
+  "hrw-c37-q067": {
+    "idea": "Del radio sale el momento relativista, y de $\\gamma\\beta$ se despeja $\\beta$.",
+    "pasos": [
+      "$p=qBr=(1{,}6\\times10^{-19})(2{,}8)(1{,}7\\times10^{-3})=7{,}6\\times10^{-22}$.",
+      "$\\gamma\\beta=\\dfrac{p}{mc}=\\dfrac{7{,}6\\times10^{-22}}{2{,}73\\times10^{-22}}=2{,}79$.",
+      "$\\beta^2=\\dfrac{2{,}79^2}{1+2{,}79^2}=0{,}886\\Rightarrow\\beta=0{,}94$."
+    ],
+    "porque_fallan": {
+      "E": "Trata $p/mc$ como si fuera $\\beta$ directamente: daría más de $c$.",
+      "D": "Solo lo sin masa alcanza $c$.",
+      "B": "Usa el momento clásico."
+    },
+    "confirma": "C"
+  }
+}
