@@ -1,0 +1,576 @@
+{
+  "hrw-c25-q001": {
+    "idea": "$C=Q/V$, y el voltio es julio por coulomb.",
+    "pasos": ["$[C]=\\dfrac{\\text{C}}{\\text{V}}=\\dfrac{\\text{C}}{\\text{J/C}}=\\dfrac{\\text{C}^2}{\\text{J}}$."],
+    "porque_fallan": {
+      "A": "J/C es el voltio, no el faradio.",
+      "B": "V/C es el inverso de la capacitancia.",
+      "D": "C/J le falta un coulomb: es $1/V$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c25-q002": {
+    "idea": "Un faradio es un coulomb por voltio.",
+    "pasos": ["$C=Q/V\\Rightarrow 1\\ \\text{F}=1\\ \\text{C}/1\\ \\text{V}$."],
+    "porque_fallan": {
+      "A": "J/V es un coulomb, no un faradio.",
+      "D": "V/C es el inverso.",
+      "E": "N/C es campo eléctrico."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q003": {
+    "idea": "«Un condensador con carga $Q$» significa $+Q$ en una placa y $-Q$ en la otra: la carga neta es cero.",
+    "pasos": [
+      "Las líneas de campo salen de una placa y terminan en la otra.",
+      "Eso obliga a cargas iguales y opuestas.",
+      "$Q$ es la carga de **una** placa, no la del conjunto."
+    ],
+    "porque_fallan": {
+      "A": "Dos cargas iguales se repelerían y no habría campo confinado entre placas.",
+      "B": "Reparte $Q$ entre las placas: $Q$ ya es la carga de cada una.",
+      "E": "Una placa descargada dejaría el campo sin dónde terminar."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q004": {
+    "idea": "$C=Q/V$, con las unidades en el SI.",
+    "pasos": ["$C=\\dfrac{1\\times10^{-3}}{100}=1\\times10^{-5}$ F.", "$=10$ µF."],
+    "porque_fallan": {
+      "A": "Un factor 2 de más, quizá por repartir la carga entre las dos placas.",
+      "C": "Error de una potencia de diez al pasar de mC a C.",
+      "D": "Confunde el voltaje con la capacitancia."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q005": {
+    "idea": "$V=Q/C$, y con $C=1$ F el número es directo.",
+    "pasos": ["$V=\\dfrac{2}{1}=2$ V."],
+    "porque_fallan": {
+      "B": "Divide al revés y encima con un factor diez.",
+      "C": "No sale de ninguna combinación de los datos.",
+      "D": "$C/Q$ en vez de $Q/C$."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q006": {
+    "idea": "$C=\\varepsilon_0 A/d$: más área, más capacitancia; más separación, menos.",
+    "pasos": [
+      "$C=Q/V$ con $V=Ed$ y $E=\\sigma/\\varepsilon_0=Q/(\\varepsilon_0 A)$.",
+      "$V=\\dfrac{Qd}{\\varepsilon_0 A}$, luego $C=\\dfrac{\\varepsilon_0 A}{d}$."
+    ],
+    "porque_fallan": {
+      "A": "Invierte $A$ y $d$: haría que separar las placas aumentara la capacitancia.",
+      "D": "El factor 2 sobra; aparece en la energía, no aquí.",
+      "E": "Ni siquiera tiene unidades de faradio."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q007": {
+    "idea": "La capacitancia es pura geometría y material: no depende de cuánta carga le pongas.",
+    "pasos": [
+      "$C=\\kappa\\varepsilon_0 A/d$.",
+      "Cargar más sube $Q$ y sube $V$ en la misma proporción, así que $C$ no cambia."
+    ],
+    "porque_fallan": {
+      "B": "$C$ es la **razón** $Q/V$, no crece con la carga.",
+      "C": "El dieléctrico multiplica la capacitancia por $\\kappa$: sí influye.",
+      "E": "Es inversamente proporcional a la separación."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q008": {
+    "idea": "Ordenar por $A/d$, que es lo único que entra en $C=\\varepsilon_0 A/d$.",
+    "pasos": [
+      "1: $A_0/d_0=1$. 2: $2A_0/2d_0=1$. Empatan.",
+      "3: $2A_0/(d_0/2)=4$. 4: $(A_0/2)/(2d_0)=1/4$. 5: $A_0/(d_0/2)=2$.",
+      "De menor a mayor: 4, luego 1 y 2 empatados, luego 5, luego 3."
+    ],
+    "porque_fallan": {
+      "A": "Ordena por número de condensador.",
+      "B": "El orden invertido.",
+      "C": "Coloca el 5 y el 3 al principio: son los dos mayores, no los menores."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q009": {
+    "idea": "$C\\propto A/d$: acercar las placas es lo único de la lista que la sube.",
+    "pasos": ["Disminuir $d$ aumenta $\\varepsilon_0 A/d$."],
+    "porque_fallan": {
+      "A": "La carga no entra en $C$.",
+      "C": "Separar las placas la **baja**.",
+      "E": "Reducir el área también la baja."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q010": {
+    "idea": "$C\\propto A/d$: si ambos se duplican, la razón no cambia.",
+    "pasos": ["$\\dfrac{2A}{2d}=\\dfrac{A}{d}$.", "$C$ queda igual."],
+    "porque_fallan": {
+      "A": "Cuenta el área y olvida la separación.",
+      "B": "Cuenta la separación y olvida el área.",
+      "E": "Multiplica ambos efectos en vez de dividirlos."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q011": {
+    "idea": "Aislado significa carga fija. Doblar el área dobla $C$, y con $Q$ fija $V=Q/C$ se reduce a la mitad.",
+    "pasos": [
+      "$Q$ constante porque el condensador está aislado.",
+      "$C=\\varepsilon_0A/d$ se duplica.",
+      "$V=Q/C$ se reduce a la mitad. Y $\\sigma=Q/A$ también, así que $E=\\sigma/\\varepsilon_0$ se reduce a la mitad."
+    ],
+    "porque_fallan": {
+      "A": "El campo baja, no sube: la misma carga repartida en el doble de área.",
+      "C": "La carga no cambia: nadie la quitó, el condensador está aislado.",
+      "D": "La densidad se **reduce** a la mitad, por la misma razón."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q012": {
+    "idea": "Con carga fija, separar las placas no cambia ni el campo ni la densidad: solo sube $V$.",
+    "pasos": [
+      "$\\sigma=Q/A$ no cambia, y $E=\\sigma/\\varepsilon_0$ tampoco.",
+      "$C$ se reduce a la mitad, luego $V=Q/C$ se **duplica**.",
+      "Ninguna de las cuatro afirmaciones describe eso."
+    ],
+    "porque_fallan": {
+      "A": "El campo entre placas no depende de la separación: depende de $\\sigma$.",
+      "B": "$V$ se duplica, no se reduce a la mitad. Es el error inverso.",
+      "D": "La densidad no cambia: ni el área ni la carga se tocaron."
+    },
+    "confirma": "E"
+  },
+  "hrw-c25-q013": {
+    "idea": "Separar las placas baja $C$, y con $Q$ fija eso sube $V$.",
+    "pasos": ["$C=\\varepsilon_0A/d$ disminuye.", "$V=Q/C$ aumenta."],
+    "porque_fallan": {
+      "A": "La capacitancia baja, no sube.",
+      "C": "Si $C$ cambia y $Q$ no, $V$ tiene que cambiar.",
+      "E": "La capacitancia sí cambia: depende de $d$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q014": {
+    "idea": "$E=\\sigma/\\varepsilon_0=Q/(\\varepsilon_0 A)$ es lineal en la carga.",
+    "pasos": ["Doblar $Q$ dobla $\\sigma$ y dobla $E$.", "$C$ no cambia: es geometría."],
+    "porque_fallan": {
+      "A": "$C$ no depende de la carga.",
+      "C": "El campo sube, no baja.",
+      "E": "La densidad se duplica junto con la carga."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q016": {
+    "idea": "Del campo a la diferencia de potencial: $V=Ed$ con $E=Q/(\\varepsilon_0 A)$.",
+    "pasos": [
+      "$E=\\dfrac{4\\times10^{-6}}{(8{,}85\\times10^{-12})(0{,}2)}=2{,}3\\times10^{6}$ V/m.",
+      "$V=Ed=(2{,}3\\times10^{6})(1\\times10^{-4})$.",
+      "$V\\approx2\\times10^{2}$ V."
+    ],
+    "porque_fallan": {
+      "B": "Olvida el $\\varepsilon_0$ o lo coloca al revés.",
+      "C": "Un factor 2 de menos; revisa $E=\\sigma/\\varepsilon_0$, sin el medio.",
+      "E": "No convierte los 0,1 mm a metros."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q017": {
+    "idea": "Condensador esférico: $C=4\\pi\\varepsilon_0\\dfrac{ab}{b-a}$.",
+    "pasos": [
+      "$V=\\dfrac{Q}{4\\pi\\varepsilon_0}\\left(\\frac1a-\\frac1b\\right)=\\dfrac{Q}{4\\pi\\varepsilon_0}\\dfrac{b-a}{ab}$.",
+      "$C=Q/V\\propto\\dfrac{ab}{b-a}$.",
+      "Comprobación: si $b\\to\\infty$ queda $C\\propto a$, la esfera aislada."
+    ],
+    "porque_fallan": {
+      "B": "$b-a$ sola crece cuando las superficies se separan, y la capacitancia debería bajar.",
+      "C": "Tiene unidades de área, no de longitud.",
+      "E": "En el límite $b\\to\\infty$ tiende a cero, no al valor de la esfera aislada."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q018": {
+    "idea": "Una esfera aislada es el caso $b\\to\\infty$ del condensador esférico: $C=4\\pi\\varepsilon_0R$.",
+    "pasos": ["$V=kQ/R$, luego $C=Q/V=R/k=4\\pi\\varepsilon_0R$.", "$C\\propto R$."],
+    "porque_fallan": {
+      "B": "$R^2$ aparece en el área, no en la capacitancia.",
+      "C": "Invierte la dependencia: una esfera más grande almacena **más** carga al mismo potencial.",
+      "D": "El mismo error, al cuadrado."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q020": {
+    "idea": "$C=\\dfrac{2\\pi\\varepsilon_0 L}{\\ln(b/a)}$: sube con la longitud y con el radio interno.",
+    "pasos": [
+      "Más $L$: más capacitancia, directamente.",
+      "Más $a$ (con $b$ fijo): $\\ln(b/a)$ se achica y $C$ crece.",
+      "Las dos cosas a la vez es la opción B."
+    ],
+    "porque_fallan": {
+      "A": "Las dos al revés.",
+      "C": "Aumentar el radio externo agranda $\\ln(b/a)$ y baja $C$; y acortar también baja.",
+      "D": "Ambos cambios separan los conductores: $C$ baja."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q021": {
+    "idea": "En serie la carga es la misma en todos y los voltajes se reparten.",
+    "pasos": [
+      "La carga $Q$ que pasa por la batería es la que queda en cada condensador: $Q$.",
+      "Los dos son idénticos, así que $V$ se reparte por igual: $V/2$ cada uno."
+    ],
+    "porque_fallan": {
+      "A": "Reparte también la carga: eso es lo que pasa en **paralelo**.",
+      "B": "El voltaje total no cae entero sobre cada uno.",
+      "C": "Mezcla el reparto de paralelo con el voltaje de serie."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q022": {
+    "idea": "En paralelo el voltaje es el mismo y las cargas se reparten.",
+    "pasos": [
+      "Ambos ven los bornes de la batería: $V$ cada uno.",
+      "La carga total $Q$ se reparte entre dos idénticos: $Q/2$."
+    ],
+    "porque_fallan": {
+      "A": "Reparte también el voltaje: eso es **serie**.",
+      "B": "La carga total no queda entera en cada uno.",
+      "D": "El caso de serie, invertido."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q023": {
+    "idea": "En serie la carga es común; el voltaje se reparte al revés que la capacitancia: $V=Q/C$.",
+    "pasos": ["Misma $Q$ en los dos.", "$V_2=Q/2$ µF y $V_1=Q/1$ µF, luego $V_2=V_1/2$."],
+    "porque_fallan": {
+      "A": "En serie las cargas son iguales, no proporcionales a $C$.",
+      "B": "Lo mismo, invertido.",
+      "C": "El de mayor capacitancia se lleva **menos** voltaje, no más."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q024": {
+    "idea": "En paralelo el voltaje es común y la carga sigue a la capacitancia: $Q=CV$.",
+    "pasos": ["Mismo $V$.", "$Q_2=2\\,\\mu\\text{F}\\cdot V$ y $Q_1=1\\,\\mu\\text{F}\\cdot V$: el doble."],
+    "porque_fallan": {
+      "B": "Invierte la proporción.",
+      "C": "En paralelo el voltaje es el mismo para los dos, por definición.",
+      "D": "Lo mismo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q025": {
+    "idea": "En serie lo común es la carga: las placas interiores están aisladas y su carga neta es cero.",
+    "pasos": [
+      "La carga inducida obliga a que todos lleven la misma $Q$.",
+      "$V=Q/C$ difiere si las capacitancias difieren, y $U=Q^2/2C$ también."
+    ],
+    "porque_fallan": {
+      "B": "El voltaje es lo común en paralelo, no en serie.",
+      "C": "La energía depende de $C$, que puede ser distinta.",
+      "D": "$U$ solo coincidiría si además las capacitancias fueran iguales."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q026": {
+    "idea": "En paralelo lo común es el voltaje: los dos están conectados a los mismos nodos.",
+    "pasos": ["Mismo $V$.", "$Q=CV$ y $U=\\tfrac12CV^2$ dependen de $C$, que puede diferir."],
+    "porque_fallan": {
+      "A": "La carga es lo común en serie.",
+      "C": "La energía depende de $C$.",
+      "E": "$U$ solo coincidiría con capacitancias iguales."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q027": {
+    "idea": "En paralelo las capacitancias se suman, como se suman las áreas de placa.",
+    "pasos": ["Mismo $V$, cargas que se suman: $Q_{tot}=(C_1+C_2)V$.", "$C_{eq}=C_1+C_2$."],
+    "porque_fallan": {
+      "A": "Esa es la fórmula de **serie**.",
+      "C": "Ni siquiera tiene unidades de capacitancia.",
+      "D": "Un cociente de capacitancias es adimensional."
+    },
+    "confirma": "E"
+  },
+  "hrw-c25-q028": {
+    "idea": "En serie se suman los inversos: $1/C_{eq}=1/C_1+1/C_2$.",
+    "pasos": ["$\\dfrac1{C_{eq}}=\\dfrac{C_1+C_2}{C_1C_2}$.", "$C_{eq}=\\dfrac{C_1C_2}{C_1+C_2}$, menor que cualquiera de los dos."],
+    "porque_fallan": {
+      "B": "Es $1/C_{eq}$, no $C_{eq}$: se olvidó invertir al final.",
+      "C": "Sin unidades correctas.",
+      "E": "Esa es la de paralelo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q029": {
+    "idea": "En serie todos llevan la misma carga, y el equivalente lleva esa misma.",
+    "pasos": ["$Q_{eq}=Q_1=Q_2$."],
+    "porque_fallan": {
+      "B": "Sumar cargas es lo que corresponde al paralelo.",
+      "C": "Las cargas son iguales: su diferencia es cero.",
+      "D": "Un producto de cargas no tiene unidades de carga."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q030": {
+    "idea": "En paralelo el equivalente recoge toda la carga: la suma.",
+    "pasos": ["$Q_{eq}=Q_1+Q_2=(C_1+C_2)V$."],
+    "porque_fallan": {
+      "A": "Solo contaría uno de los dos.",
+      "C": "La diferencia no tiene sentido físico aquí.",
+      "D": "El producto no tiene unidades de carga."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q031": {
+    "idea": "Dos iguales en serie dan $C/2$; en paralelo dan $2C$. La razón es $1/4$.",
+    "pasos": ["Serie: $\\dfrac{C\\cdot C}{2C}=\\dfrac{C}{2}$.", "Paralelo: $2C$.", "$\\dfrac{C/2}{2C}=\\dfrac14$."],
+    "porque_fallan": {
+      "A": "Invierte la comparación.",
+      "C": "Compara la serie con un solo condensador, no con la combinación en paralelo.",
+      "E": "Serie y paralelo nunca dan lo mismo con dos condensadores iguales."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q032": {
+    "idea": "Primero el paralelo, luego la serie.",
+    "pasos": ["Los dos en paralelo: $2C$.", "En serie con el tercero: $\\dfrac{(2C)(C)}{2C+C}=\\dfrac{2C}{3}$."],
+    "porque_fallan": {
+      "B": "Trata los tres como si se cancelaran.",
+      "C": "Invierte la fracción.",
+      "E": "Suma los tres como si estuvieran todos en paralelo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q033": {
+    "idea": "En serie los dos llevan la misma carga, y es menor que la de cualquiera cargado solo.",
+    "pasos": [
+      "Serie: $C_{eq}=\\frac{2}{3}$ µF, luego $P=Q=\\frac23 V$ (en µC con $V$ en voltios).",
+      "Por separado: $R=2V$ y $S=1V$.",
+      "$R>S>Q=P$."
+    ],
+    "porque_fallan": {
+      "B": "Pone la serie por encima: en serie la carga siempre es menor.",
+      "C": "Rompe la igualdad $P=Q$, que es justo lo que define la conexión en serie.",
+      "D": "Empareja mal: $R$ y $P$ no coinciden."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q039": {
+    "idea": "$U=\\tfrac12QV$ cuando te dan carga y voltaje.",
+    "pasos": ["$U=\\tfrac12(10)(40)=200$ J."],
+    "porque_fallan": {
+      "A": "Olvida el factor $\\tfrac12$.",
+      "B": "Divide en vez de multiplicar.",
+      "D": "$Q/V$ por un medio: eso es media capacitancia."
+    },
+    "confirma": "E"
+  },
+  "hrw-c25-q040": {
+    "idea": "En serie la carga común es menor, y la energía $U=Q^2/2C$ cae con ella.",
+    "pasos": [
+      "Serie: $Q=\\frac23V$. $P=\\dfrac{Q^2}{2(2)}=\\dfrac{V^2}{9}$ y $Q_{en}=\\dfrac{Q^2}{2(1)}=\\dfrac{2V^2}{9}$.",
+      "Por separado: $R=\\tfrac12(2)V^2=V^2$ y $S=\\tfrac12(1)V^2=\\dfrac{V^2}{2}$.",
+      "$R>S>Q>P$."
+    ],
+    "porque_fallan": {
+      "A": "Coloca $P$ por encima de $S$: en serie se almacena menos.",
+      "B": "Invierte por completo serie y separado.",
+      "C": "Intercambia $P$ y $Q$: el de menor capacitancia guarda **más** energía a carga fija."
+    },
+    "confirma": "E"
+  },
+  "hrw-c25-q041": {
+    "idea": "$u=\\tfrac12\\varepsilon_0E^2$ es la densidad de energía del campo: julios por metro cúbico.",
+    "pasos": [
+      "En un condensador plano, $U=\\tfrac12CV^2$ y el volumen es $Ad$.",
+      "$\\dfrac{U}{Ad}=\\tfrac12\\varepsilon_0E^2$.",
+      "La energía vive en el campo, no en las placas."
+    ],
+    "porque_fallan": {
+      "A": "Energía por faradio no es ninguna magnitud del formalismo.",
+      "B": "Energía por coulomb es un potencial, en voltios.",
+      "C": "Le falta dividir por el volumen."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q042": {
+    "idea": "La carga se reparte a la mitad y la energía va como $Q^2$: se pierde la mitad.",
+    "pasos": [
+      "Cada uno queda con $Q/2$.",
+      "$U_{tot}=2\\cdot\\dfrac{(Q/2)^2}{2C}=\\dfrac{Q^2}{4C}$, la mitad de $\\dfrac{Q^2}{2C}$.",
+      "De 4 J quedan 2 J. La mitad se disipa en los cables, siempre."
+    ],
+    "porque_fallan": {
+      "A": "La energía no crece al conectar: no hay fuente.",
+      "C": "Parece conservarse, pero la redistribución de carga siempre disipa.",
+      "E": "Se pierde la mitad, no tres cuartos."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q044": {
+    "idea": "Batería desconectada: $Q$ fija. Duplicar $d$ reduce $C$ a la mitad y $U=Q^2/2C$ se duplica.",
+    "pasos": [
+      "$C=\\varepsilon_0A/d$ se reduce a la mitad.",
+      "$U=\\dfrac{Q^2}{2C}$ se duplica: el trabajo lo hiciste tú, separando placas que se atraen."
+    ],
+    "porque_fallan": {
+      "A": "La capacitancia se reduce a la mitad.",
+      "B": "$\\sigma=Q/A$ no cambia: ni la carga ni el área se tocaron.",
+      "D": "$E=\\sigma/\\varepsilon_0$ tampoco cambia, por lo mismo.",
+      "E": "La batería está desconectada: la carga no puede cambiar."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q045": {
+    "idea": "Cada placa siente el campo de la **otra**, que es $\\sigma/2\\varepsilon_0$: de ahí el 2 en $F=Q^2/2\\varepsilon_0A$.",
+    "pasos": [
+      "$F=\\dfrac{Q^2}{2\\varepsilon_0A}=\\dfrac{(5\\times10^{-6})^2}{2(8{,}85\\times10^{-12})(0{,}3)}$.",
+      "$F=\\dfrac{2{,}5\\times10^{-11}}{5{,}3\\times10^{-12}}\\approx5$ N.",
+      "La separación no entra: el campo entre placas es uniforme."
+    ],
+    "porque_fallan": {
+      "C": "Usa $E=\\sigma/\\varepsilon_0$ sin el medio: cuenta el campo de la propia placa sobre sí misma.",
+      "D": "Mete la separación en la cuenta.",
+      "E": "Varios órdenes de magnitud arriba: revisa el $\\varepsilon_0$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q046": {
+    "idea": "Con carga fija, $U=Q^2/2C$. Si $C$ sube, $U$ baja, y el trabajo del agente es esa diferencia: negativo.",
+    "pasos": [
+      "$U_i=\\dfrac{(5\\times10^{-6})^2}{2(5\\times10^{-6})}=2{,}5\\times10^{-6}$ J.",
+      "$U_f=\\dfrac{(5\\times10^{-6})^2}{2(10\\times10^{-6})}=1{,}25\\times10^{-6}$ J.",
+      "$W=\\Delta U=-1{,}25\\times10^{-6}$ J: las placas se atraen y el campo hace el trabajo, no tú."
+    ],
+    "porque_fallan": {
+      "A": "La energía sí cambia: $C$ se duplicó.",
+      "B": "El valor correcto con el signo al revés. El signo es el concepto.",
+      "D": "No sale de $Q^2/2C$ con estos números."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q047": {
+    "idea": "Con la batería conectada, $V$ es lo que no cambia. $C$ sube por $\\kappa$ y $Q=CV$ sube con ella.",
+    "pasos": [
+      "$V$ fijo: lo impone la batería.",
+      "$C=\\kappa\\varepsilon_0A/d$ aumenta.",
+      "$Q=CV$ aumenta: la batería bombea más carga a las placas."
+    ],
+    "porque_fallan": {
+      "C": "El voltaje no puede subir: está sujetado por la batería.",
+      "D": "La capacitancia sube con el dieléctrico, nunca baja."
+    },
+    "confirma": "E"
+  },
+  "hrw-c25-q048": {
+    "idea": "$C=\\kappa\\varepsilon_0A/d$: hay que compensar la separación duplicada.",
+    "pasos": [
+      "Con aire y $d$: $C_0=1$ pF.",
+      "Con cera y $2d$: $C=\\dfrac{\\kappa\\varepsilon_0A}{2d}=\\dfrac{\\kappa}{2}C_0$.",
+      "$2=\\dfrac{\\kappa}{2}(1)\\Rightarrow\\kappa=4$."
+    ],
+    "porque_fallan": {
+      "C": "Olvida que la separación también cambió: sería la respuesta si $d$ fuera el mismo.",
+      "E": "Multiplica por 2 en vez de dividir.",
+      "B": "Un dieléctrico nunca tiene $\\kappa<1$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q049": {
+    "idea": "$C\\propto\\kappa/d$: gana el mayor cociente, no el mayor $\\kappa$ ni el más delgado.",
+    "pasos": [
+      "A: $2/0{,}1=20$. B: $3/0{,}2=15$. C: $2/0{,}3=6{,}7$.",
+      "D: $8/0{,}4=20$. E: $11/0{,}5=22$.",
+      "El mayor es E."
+    ],
+    "porque_fallan": {
+      "A": "Empata con D en 20, pero E los supera.",
+      "D": "Mayor $\\kappa$ que A y B, pero también más grueso.",
+      "B": "Ni el mayor $\\kappa$ ni el menor espesor."
+    },
+    "confirma": "E"
+  },
+  "hrw-c25-q050": {
+    "idea": "A carga fija, el dieléctrico **reduce** el campo por el factor $\\kappa$.",
+    "pasos": [
+      "$E=\\dfrac{\\sigma}{\\kappa\\varepsilon_0}$ con la misma $\\sigma$.",
+      "$\\dfrac{E_{aire}}{E_{aceite}}=\\dfrac{\\kappa_{aceite}}{\\kappa_{aire}}=\\kappa_{aceite}>1$.",
+      "Finito, porque ningún aceite tiene $\\kappa$ infinito."
+    ],
+    "porque_fallan": {
+      "A": "Invierte la razón: el campo en el aire es el **mayor**.",
+      "C": "Solo valdría 1 si el aceite tuviera $\\kappa=1$, es decir, si fuera vacío.",
+      "E": "Infinito correspondería a un conductor, no a un dieléctrico."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q051": {
+    "idea": "El sistema se mueve hacia donde baja su energía, y con $Q$ fija meter dieléctrico baja $U=Q^2/2C$.",
+    "pasos": [
+      "Batería desconectada: $Q$ fija.",
+      "Al entrar el vidrio, $C$ sube y $U$ baja.",
+      "La fuerza apunta hacia energía decreciente: el vidrio es **atraído** hacia dentro."
+    ],
+    "porque_fallan": {
+      "A": "Sería así si la energía subiera al entrar, y baja.",
+      "C": "Hay gradiente de energía en el borde: hay fuerza.",
+      "D": "El vidrio se polariza, pero su carga neta sigue siendo cero."
+    },
+    "confirma": "B"
+  },
+  "hrw-c25-q052": {
+    "idea": "En paralelo comparten $V$; con la misma $d$ comparten también $E=V/d$ y la densidad de energía.",
+    "pasos": [
+      "Mismo $V$ por estar en paralelo.",
+      "Misma $d$, luego mismo $E=V/d$ y misma $u=\\tfrac12\\varepsilon_0E^2$.",
+      "Capacitancias distintas con la misma $d$ significan **áreas** distintas, y $Q=CV$ difiere."
+    ],
+    "porque_fallan": {
+      "A": "Es lo mismo: están en paralelo.",
+      "C": "$V/d$ coincide porque coinciden $V$ y $d$.",
+      "E": "Ambos con aire: $\\kappa=1$ en los dos."
+    },
+    "confirma": "D"
+  },
+  "hrw-c25-q053": {
+    "idea": "En paralelo lo único garantizado es el voltaje.",
+    "pasos": [
+      "Misma área y capacitancias distintas obligan a separaciones distintas.",
+      "$E=V/d$ difiere, y con él la densidad de energía.",
+      "$Q=CV$ también difiere. Queda $V$."
+    ],
+    "porque_fallan": {
+      "C": "Con $d$ distinta, $V/d$ es distinta.",
+      "D": "$Q=CV$ y las capacitancias difieren.",
+      "E": "Justo lo que no puede coincidir si el área es igual y $C$ no."
+    },
+    "confirma": "A"
+  },
+  "hrw-c25-q054": {
+    "idea": "En serie comparten carga; con la misma $C$ comparten también $V$, pero no el campo si $d$ difiere.",
+    "pasos": [
+      "Serie: misma $Q$. Misma $C$, luego mismo $V=Q/C$ y misma $U=Q^2/2C$.",
+      "$E=V/d$ con $d$ distinta: el campo difiere."
+    ],
+    "porque_fallan": {
+      "A": "Coincide, porque coinciden $Q$ y $C$.",
+      "B": "También coincide, por lo mismo.",
+      "D": "La carga es lo que siempre comparten en serie."
+    },
+    "confirma": "C"
+  },
+  "hrw-c25-q055": {
+    "idea": "En serie lo común es siempre la carga, pasen las capacitancias que pasen.",
+    "pasos": [
+      "$Q$ igual en ambos por la inducción en las placas interiores.",
+      "$V=Q/C$ difiere, $U=Q^2/2C$ difiere, y $E=V/d$ con la misma $d$ también difiere."
+    ],
+    "porque_fallan": {
+      "A": "El voltaje se reparte según $1/C$.",
+      "C": "La densidad sigue al campo, que difiere.",
+      "D": "$E=V/d$ con la misma $d$ y $V$ distinta."
+    },
+    "confirma": "E"
+  }
+}
