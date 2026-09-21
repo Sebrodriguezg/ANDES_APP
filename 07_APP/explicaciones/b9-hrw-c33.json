@@ -1,0 +1,695 @@
+{
+  "hrw-c33-q001": {
+    "idea": "El orden del espectro, de menor a mayor frecuencia: radio, microondas, infrarrojo, visible, ultravioleta, rayos X, gamma.",
+    "pasos": ["Los gamma están en el extremo superior; el infrarrojo, por debajo del visible.", "Y $\\lambda=c/f$: más frecuencia, menos longitud de onda."],
+    "porque_fallan": {
+      "A": "El ultravioleta tiene **menor** longitud de onda que el infrarrojo: está al otro lado del visible.",
+      "B": "Los rayos X superan al azul por varios órdenes de magnitud.",
+      "E": "Los electrones son partículas con masa, no radiación electromagnética."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q002": {
+    "idea": "Recorre el espectro de menor a mayor frecuencia y colócalos.",
+    "pasos": ["radio → infrarrojo → visible → ultravioleta → rayos X.", "El visible queda entre el infrarrojo y el ultravioleta: los prefijos lo dicen."],
+    "porque_fallan": {
+      "A": "Coloca el infrarrojo por encima del visible.",
+      "E": "Invierte ultravioleta y rayos X.",
+      "C": "Pone el infrarrojo por debajo de la radio."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q003": {
+    "idea": "Dentro del visible, el azul es el de menor longitud de onda y el rojo el de mayor.",
+    "pasos": ["azul → verde → amarillo → rojo, en longitud creciente.", "En frecuencia es justo al revés."],
+    "porque_fallan": {
+      "A": "El orden invertido: es el de frecuencia creciente.",
+      "E": "Intercambia el verde y el amarillo.",
+      "C": "Coloca el rojo y el azul mal."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q004": {
+    "idea": "La sensibilidad del ojo tiene su máximo en el verde, hacia 555 nm.",
+    "pasos": ["Coincide con el pico del espectro solar que llega a la superficie."],
+    "porque_fallan": {
+      "A": "El rojo queda en un extremo de la curva de sensibilidad.",
+      "B": "El violeta, en el otro.",
+      "E": "La sensibilidad varía mucho con el color: por eso existe la curva fotópica."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q005": {
+    "idea": "En el vacío **todas** las ondas electromagnéticas viajan a $c$, sea cual sea su frecuencia.",
+    "pasos": ["$c=1/\\sqrt{\\mu_0\\varepsilon_0}$ no contiene la frecuencia.", "La dispersión aparece en los medios materiales, no en el vacío."],
+    "porque_fallan": {
+      "C": "Sí transportan energía: el vector de Poynting.",
+      "D": "Y momento: de ahí la presión de radiación.",
+      "A": "Es la descripción correcta de lo que son."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q006": {
+    "idea": "$c=1/\\sqrt{\\mu_0\\varepsilon_0}$, luego $\\mu_0\\varepsilon_0=1/c^2$.",
+    "pasos": ["Las unidades son las de una velocidad al cuadrado, invertida."],
+    "porque_fallan": {
+      "A": "Es el inverso: sería $1/\\mu_0\\varepsilon_0$.",
+      "B": "Confunde el producto con su raíz.",
+      "C": "Le falta el cuadrado."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q007": {
+    "idea": "La velocidad sale de las constantes del vacío: $c=\\dfrac{1}{\\sqrt{\\mu_0\\varepsilon_0}}$.",
+    "pasos": ["Es el resultado que convenció a Maxwell de que la luz era una onda electromagnética.", "Numéricamente da $3\\times10^8$ m/s."],
+    "porque_fallan": {
+      "B": "Es $1/c$, no $c$.",
+      "C": "Es $c^2$.",
+      "A": "Es $1/c^2$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q008": {
+    "idea": "En $c=1/\\sqrt{\\mu_0\\varepsilon_0}$ no aparece la frecuencia por ninguna parte.",
+    "pasos": ["El vacío no es dispersivo.", "Si lo fuera, un destello lejano llegaría descompuesto en colores a distintos tiempos."],
+    "porque_fallan": {
+      "A": "La dependencia con la frecuencia es cosa de los medios materiales.",
+      "D": "La velocidad no decae con la distancia: lo que decae es la intensidad.",
+      "E": "El tamaño de la fuente no entra."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q009": {
+    "idea": "$c=3\\times10^8$ m/s $=3\\times10^{10}$ cm/s.",
+    "pasos": ["Un metro son cien centímetros: el exponente sube en dos."],
+    "porque_fallan": {
+      "B": "$93\\times10^6$ **millas** es la distancia al Sol, no una velocidad.",
+      "E": "186.000 es en millas por **segundo**, no por hora.",
+      "A": "1100 ft/s es la velocidad del sonido."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q010": {
+    "idea": "$t=d/c$, y el resultado conviene tenerlo memorizado: la luz del Sol tarda ocho minutos.",
+    "pasos": ["$t=\\dfrac{1{,}5\\times10^{11}}{3\\times10^{8}}=500$ s.", "$=8{,}3$ minutos."],
+    "porque_fallan": {
+      "B": "Ocho segundos son 2,4 millones de kilómetros: muy corto.",
+      "D": "Ocho horas serían sesenta veces más lejos.",
+      "E": "Ocho años luz es la distancia a estrellas cercanas."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q011": {
+    "idea": "Ida y vuelta: hay que doblar la distancia.",
+    "pasos": ["$t=\\dfrac{2(3{,}8\\times10^{8})}{3\\times10^{8}}=2{,}5$ s."],
+    "porque_fallan": {
+      "A": "Es el trayecto de ida solamente.",
+      "C": "Es el orden del Sol, no de la Luna.",
+      "D": "Cuatro órdenes de magnitud por encima."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q012": {
+    "idea": "En el vacío todas van exactamente a $c$.",
+    "pasos": ["Es la misma idea que la pregunta de la dispersión: el vacío no distingue frecuencias."],
+    "porque_fallan": {
+      "D": "Los gamma tienen más energía por fotón, pero no van más rápido.",
+      "A": "Las de radio tampoco van más lento.",
+      "C": "Lo mismo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q013": {
+    "idea": "Misma velocidad, distinta frecuencia: las de radio están muy por debajo del visible.",
+    "pasos": ["$\\lambda$ de radio: metros o más. $\\lambda$ visible: cientos de nanómetros.", "Con $c$ fija, mayor $\\lambda$ significa menor $f$."],
+    "porque_fallan": {
+      "A": "En el vacío todas van a $c$.",
+      "B": "La frecuencia es mucho **menor**, no mayor.",
+      "E": "Las ondas electromagnéticas no necesitan medio: es su rasgo distintivo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q014": {
+    "idea": "$f=c/\\lambda$ con $\\lambda\\approx500$ nm.",
+    "pasos": ["$f=\\dfrac{3\\times10^{8}}{5\\times10^{-7}}=6\\times10^{14}$ Hz.", "Del orden de $5\\times10^{14}$."],
+    "porque_fallan": {
+      "A": "Es el orden de los rayos X.",
+      "E": "Es el de las microondas.",
+      "D": "El del infrarrojo lejano."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q015": {
+    "idea": "No hay límite superior: el espectro electromagnético es abierto por arriba.",
+    "pasos": ["Los gamma más energéticos observados llegan a $10^{28}$ Hz y no hay nada que lo tope.", "Lo único que limita es la energía disponible para producirlos."],
+    "porque_fallan": {
+      "C": "Los gamma superan a los rayos X.",
+      "A": "El rojo está en el medio del espectro, no arriba.",
+      "E": "No hay tal límite."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q016": {
+    "idea": "$f=c/\\lambda$, cuidando las unidades.",
+    "pasos": ["$f=\\dfrac{3\\times10^{8}}{0{,}03}=1\\times10^{10}$ Hz.", "$=10\\,000$ MHz."],
+    "porque_fallan": {
+      "C": "Dos órdenes de magnitud abajo.",
+      "E": "Usa los 3 cm sin convertir bien.",
+      "A": "Cuatro órdenes abajo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q017": {
+    "idea": "La misma cuenta con una longitud de onda enorme.",
+    "pasos": ["$f=\\dfrac{3\\times10^{8}}{300}=1\\times10^{6}$ Hz $=1$ MHz.", "Es plena banda de AM, que es justo lo que son 300 m."],
+    "porque_fallan": {
+      "B": "La mitad del valor.",
+      "D": "Casi un orden por encima.",
+      "A": "Nueve órdenes abajo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q018": {
+    "idea": "En una onda electromagnética, $\\omega=ck$.",
+    "pasos": ["$\\omega=(3\\times10^{8})(3\\times10^{6})=9\\times10^{14}$ rad/s."],
+    "porque_fallan": {
+      "E": "Dos órdenes por encima.",
+      "C": "Confunde $k$ con $\\omega$ sin multiplicar por $c$.",
+      "A": "Divide en vez de multiplicar."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q019": {
+    "idea": "Una carga **acelerada** radia. Con velocidad constante no hay radiación.",
+    "pasos": ["Una carga en reposo o en movimiento uniforme tiene un campo que la acompaña, sin desprenderse.", "Al acelerar, la información del cambio se propaga: eso es la onda."],
+    "porque_fallan": {
+      "A": "Una carga con velocidad constante no radia: basta con verla desde su propio marco, donde está quieta.",
+      "C": "La aceleración basta; no hace falta que cambie.",
+      "D": "Circular es un caso de aceleración, pero no el único."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q022": {
+    "idea": "En el vacío las amplitudes cumplen $E_m=cB_m$.",
+    "pasos": ["$E/B=c$, constante y sin dependencia de la frecuencia.", "Por eso el campo magnético de la luz parece diminuto en unidades del SI."],
+    "porque_fallan": {
+      "B": "La razón no depende de la frecuencia.",
+      "C": "Tampoco.",
+      "D": "El $\\sqrt2$ es de los valores eficaces, que no entran aquí."
+    },
+    "confirma": "A"
+  },
+  "hrw-c33-q023": {
+    "idea": "$\\vec E$ y $\\vec B$ están **en fase** y su razón es $c$: si uno es seno, el otro también.",
+    "pasos": [
+      "$E=cB_m\\sin(kx-\\omega t)$: mismo argumento, misma fase.",
+      "La única opción con seno y signo positivo es la E."
+    ],
+    "porque_fallan": {
+      "A": "Coseno: introduce un desfase de 90° que no existe entre $\\vec E$ y $\\vec B$.",
+      "D": "Coseno, y además sin el factor $c$.",
+      "C": "Signo negativo: rompería la orientación de $\\vec E\\times\\vec B$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q024": {
+    "idea": "El argumento $kx+\\omega t$ significa que la onda viaja hacia $-x$, y eso obliga a un signo en $\\vec B$.",
+    "pasos": [
+      "$\\vec E\\times\\vec B$ debe apuntar en $-\\hat x$.",
+      "Con $\\vec E$ en $+\\hat y$, hace falta $\\vec B$ en $-\\hat z$.",
+      "$B_z=-\\dfrac{E_m}{c}\\sin(kx+\\omega t)$."
+    ],
+    "porque_fallan": {
+      "E": "Signo positivo: daría propagación hacia $+x$, contra el argumento de la onda.",
+      "B": "Coseno, que introduce un desfase inexistente.",
+      "D": "Olvida dividir por $c$."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q025": {
+    "idea": "Es la ley de Ampère-Maxwell escrita para la onda, y trae signo menos.",
+    "pasos": [
+      "$\\dfrac{\\partial B}{\\partial x}=-\\mu_0\\varepsilon_0\\dfrac{\\partial E}{\\partial t}$.",
+      "Junto con $\\partial E/\\partial x=-\\partial B/\\partial t$ dan la ecuación de onda con velocidad $1/\\sqrt{\\mu_0\\varepsilon_0}$."
+    ],
+    "porque_fallan": {
+      "D": "El mismo término sin el signo menos: no reproduce la onda.",
+      "C": "Dos derivadas espaciales: no es ninguna de las leyes.",
+      "A": "Lo mismo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q026": {
+    "idea": "$B=E/c$.",
+    "pasos": ["$B=\\dfrac{100}{3\\times10^{8}}=3{,}3\\times10^{-7}$ T."],
+    "porque_fallan": {
+      "E": "Multiplica por $c$ en vez de dividir.",
+      "B": "Un factor 2 de más.",
+      "C": "Órdenes de magnitud fuera: 0,27 T es un imán de laboratorio."
+    },
+    "confirma": "A"
+  },
+  "hrw-c33-q027": {
+    "idea": "$\\vec S=\\dfrac{1}{\\mu_0}\\vec E\\times\\vec B$ apunta en la dirección en que viaja la onda y la energía.",
+    "pasos": ["Los tres vectores forman un triedro derecho: $\\vec E$, $\\vec B$ y la propagación."],
+    "porque_fallan": {
+      "A": "El producto vectorial es perpendicular a $\\vec E$.",
+      "B": "Y a $\\vec B$.",
+      "D": "La fuerza sobre una carga la da Lorentz, y depende de su velocidad."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q028": {
+    "idea": "El vector de Poynting es potencia por unidad de área.",
+    "pasos": ["$[S]=$ W/m², que es lo mismo que J/(s·m²)."],
+    "porque_fallan": {
+      "A": "J/m² es energía por área, sin el tiempo.",
+      "B": "J/s es potencia sin dividir por el área.",
+      "E": "J/m³ es densidad de energía."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q029": {
+    "idea": "$u_E=u_B$ en todo instante: $E=cB$ hace que las dos densidades coincidan.",
+    "pasos": ["$u_E=\\tfrac12\\varepsilon_0E^2$ y $u_B=\\dfrac{B^2}{2\\mu_0}$.", "Sustituyendo $B=E/c$ con $c^2=1/\\mu_0\\varepsilon_0$, salen iguales."],
+    "porque_fallan": {
+      "A": "El reparto es exactamente mitad y mitad.",
+      "B": "No hay ninguna asimetría.",
+      "E": "Tampoco al revés."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q030": {
+    "idea": "$\\vec S\\propto\\vec E\\times\\vec B$, y medio ciclo después **los dos** campos se invierten, así que $\\vec S$ no cambia.",
+    "pasos": [
+      "$(-\\hat z)\\times(\\hat y)=+\\hat x$: la energía va hacia $+x$.",
+      "Medio ciclo después, $\\vec E\\to+\\hat z$ y $\\vec B\\to-\\hat y$, y el producto sigue dando $+\\hat x$.",
+      "La energía nunca retrocede: dos signos menos se cancelan."
+    ],
+    "porque_fallan": {
+      "A": "Supone que la dirección se invierte medio ciclo después, y no lo hace.",
+      "C": "Además equivoca la dirección inicial.",
+      "D": "Lo mismo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q031": {
+    "idea": "Conocidos $\\vec S$ y $\\vec B$, se despeja $\\vec E$ del producto vectorial.",
+    "pasos": [
+      "$\\vec E\\times\\vec B$ debe dar $-\\hat y$, con $\\vec B=+\\hat x$.",
+      "Probando: $(-\\hat z)\\times(\\hat x)=-\\hat y$. ✓",
+      "$\\vec E$ va en la dirección $-z$."
+    ],
+    "porque_fallan": {
+      "C": "Daría $\\vec S$ hacia $+y$: el sentido contrario.",
+      "A": "$\\vec E$ es perpendicular a la propagación, nunca paralelo.",
+      "E": "$\\vec E$ también es perpendicular a $\\vec B$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q032": {
+    "idea": "Fuente puntual: la potencia se reparte en una esfera de radio $r$.",
+    "pasos": ["$I=\\dfrac{P}{4\\pi r^2}=\\dfrac{100}{4\\pi(100)}$.", "$I=0{,}080$ W/m²."],
+    "porque_fallan": {
+      "C": "Olvida el $4\\pi$.",
+      "A": "Divide solo por el radio.",
+      "D": "Un factor tres por debajo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q033": {
+    "idea": "Ley del inverso del cuadrado: diez veces más lejos, cien veces menos intensidad.",
+    "pasos": ["$\\dfrac{I_2}{I_1}=\\left(\\dfrac{10}{100}\\right)^2=\\dfrac{1}{100}$.", "$I_2=10$ W/m²."],
+    "porque_fallan": {
+      "B": "Divide por diez: olvida el cuadrado.",
+      "D": "Divide por mil.",
+      "A": "La intensidad sí cae con la distancia."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q035": {
+    "idea": "$I=\\dfrac{cB_m^2}{2\\mu_0}$.",
+    "pasos": [
+      "$B_m^2=(3{,}3\\times10^{-7})^2=1{,}09\\times10^{-13}$.",
+      "$I=\\dfrac{(3\\times10^{8})(1{,}09\\times10^{-13})}{2(4\\pi\\times10^{-7})}$.",
+      "$I=13$ W/m²."
+    ],
+    "porque_fallan": {
+      "C": "Olvida el factor 2 del promedio temporal.",
+      "A": "Varios órdenes por debajo.",
+      "D": "Confunde $\\mu_0$ con su inverso."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q036": {
+    "idea": "Intensidad por área por tiempo.",
+    "pasos": [
+      "$I=\\dfrac{E_m^2}{2\\mu_0c}=\\dfrac{10^4}{2(4\\pi\\times10^{-7})(3\\times10^{8})}=13{,}3$ W/m².",
+      "$P=IA=(13{,}3)(10^{-4})=1{,}33\\times10^{-3}$ W.",
+      "$U=Pt=(1{,}33\\times10^{-3})(10)=13$ mJ."
+    ],
+    "porque_fallan": {
+      "A": "Olvida multiplicar por los 10 s.",
+      "D": "Un orden de magnitud: revisa el cm² a m².",
+      "C": "Olvida el factor 2 del promedio."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q037": {
+    "idea": "La cola de un cometa apunta siempre en dirección contraria al Sol: la empuja la presión de radiación.",
+    "pasos": ["Si la luz no llevara momento, la cola seguiría la trayectoria del cometa, no al Sol."],
+    "porque_fallan": {
+      "B": "El calentamiento por corriente es disipación, no momento.",
+      "C": "Eso demuestra la fuerza magnética sobre cargas.",
+      "E": "El Doppler habla de frecuencias, no de momento."
+    },
+    "confirma": "A"
+  },
+  "hrw-c33-q038": {
+    "idea": "La presión es fuerza por unidad de área; con la intensidad fija, la presión no cambia y la fuerza baja con el área.",
+    "pasos": ["$p=I/c$ no contiene el área.", "$F=pA$ sí: menos área, menos fuerza."],
+    "porque_fallan": {
+      "A": "La presión no depende del área iluminada.",
+      "C": "La fuerza sí cambia: es la presión por el área.",
+      "E": "La presión se mantiene."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q039": {
+    "idea": "Absorción total: $p=I/c$.",
+    "pasos": ["$p=\\dfrac{1000}{3\\times10^{8}}=3{,}3\\times10^{-6}$ Pa."],
+    "porque_fallan": {
+      "E": "Es el caso de reflexión total, con el factor 2.",
+      "C": "La mitad del valor.",
+      "A": "Confunde la intensidad con la presión."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q040": {
+    "idea": "Reflexión total: el momento se invierte, así que la presión es el **doble**.",
+    "pasos": ["$p=\\dfrac{2I}{c}=6{,}7\\times10^{-6}$ Pa.", "El cambio de momento es $2p$ por fotón, no $p$."],
+    "porque_fallan": {
+      "D": "Es el caso de absorción total.",
+      "C": "La mitad de ese.",
+      "A": "Confunde intensidad con presión."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q041": {
+    "idea": "$F=pA$ con $p=I/c$.",
+    "pasos": ["$p=3{,}3\\times10^{-6}$ Pa y $A=10^{-4}$ m².", "$F=3{,}3\\times10^{-10}$ N."],
+    "porque_fallan": {
+      "E": "Usa el doble: eso es reflexión.",
+      "C": "La mitad.",
+      "A": "Olvida dividir por $c$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q042": {
+    "idea": "Lo mismo con el factor 2 de la reflexión.",
+    "pasos": ["$F=\\dfrac{2IA}{c}=6{,}7\\times10^{-10}$ N."],
+    "porque_fallan": {
+      "D": "Es el caso absorbente.",
+      "C": "La mitad de ese.",
+      "A": "Olvida dividir por $c$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q043": {
+    "idea": "Energía y momento van juntos en la radiación: $p=U/c$. Absorber una sin la otra es imposible.",
+    "pasos": ["Si el momento no se transfiriera, no se conservaría."],
+    "porque_fallan": {
+      "B": "No es cuestión de precio: viola la conservación del momento.",
+      "C": "Lo mismo.",
+      "E": "Sería un avance imposible, no difícil."
+    },
+    "confirma": "A"
+  },
+  "hrw-c33-q044": {
+    "idea": "Solo las ondas **transversales** pueden polarizarse: hace falta una dirección perpendicular a la propagación que distinguir.",
+    "pasos": ["En una onda longitudinal, como el sonido, la oscilación va en la dirección de avance y no hay nada que elegir."],
+    "porque_fallan": {
+      "A": "Una onda longitudinal no admite polarización.",
+      "B": "Un chorro de partículas clásicas tampoco la explica.",
+      "D": "«Algún tipo de onda» es cierto pero no aprovecha la información: la polarización dice **cuál**."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q045": {
+    "idea": "La antena responde al campo eléctrico paralelo a ella: mueve cargas a lo largo del conductor.",
+    "pasos": ["Una antena vertical capta campo eléctrico vertical."],
+    "porque_fallan": {
+      "A": "El campo horizontal no impulsa cargas a lo largo de una antena vertical.",
+      "D": "Un campo en la dirección de propagación no existe en una onda electromagnética.",
+      "B": "El campo eléctrico de la onda no circula alrededor de la antena."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q046": {
+    "idea": "El plano de polarización contiene al campo eléctrico **y** a la dirección de avance.",
+    "pasos": ["Es el plano en el que oscila $\\vec E$ mientras la onda viaja."],
+    "porque_fallan": {
+      "A": "Un plano perpendicular a ambos no contendría ninguno de los dos.",
+      "B": "Le falta contener la dirección de oscilación.",
+      "C": "Le falta contener la de propagación."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q047": {
+    "idea": "Una llama son miles de millones de átomos emitiendo independientemente: las direcciones se promedian.",
+    "pasos": ["Cada emisión tiene su polarización, pero el conjunto no tiene ninguna preferente."],
+    "porque_fallan": {
+      "B": "La polarización plana exige un mecanismo que la seleccione: un filtro, una reflexión, un cristal.",
+      "E": "Una llama emite un espectro ancho, no monocromático.",
+      "C": "La circular requiere desfases controlados."
+    },
+    "confirma": "A"
+  },
+  "hrw-c33-q048": {
+    "idea": "No polarizada no es «sin dirección»: es dirección que cambia al azar, muy deprisa.",
+    "pasos": ["Cada tren de ondas emitido dura nanosegundos y trae su propia orientación.", "El promedio sobre muchos es isótropo."],
+    "porque_fallan": {
+      "A": "En cada instante sí hay una dirección bien definida.",
+      "B": "Rotar de forma ordenada sería polarización circular.",
+      "E": "Mantenerse sobre una línea sería polarización lineal."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q050": {
+    "idea": "Primer filtro: la mitad. Segundo: ley de Malus, $\\cos^2\\theta$.",
+    "pasos": ["$\\dfrac{I}{I_0}=\\dfrac12\\cos^2 30^\\circ=\\dfrac12\\cdot\\dfrac34=\\dfrac38$."],
+    "porque_fallan": {
+      "D": "Olvida el factor $1/2$ del primer filtro.",
+      "C": "Olvida el coseno del segundo.",
+      "A": "Usa $\\cos^2 60^\\circ$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q051": {
+    "idea": "$\\dfrac{I_0}{2}\\cos^2\\theta=\\dfrac{I_0}{4}$, así que $\\cos^2\\theta=\\dfrac12$.",
+    "pasos": ["$\\cos\\theta=\\dfrac{1}{\\sqrt2}$, es decir $\\theta=45^\\circ$."],
+    "porque_fallan": {
+      "C": "Resuelve $\\cos\\theta=1/2$, olvidando el cuadrado.",
+      "A": "Usa el seno en lugar del coseno.",
+      "E": "La tangente no aparece en la ley de Malus."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q052": {
+    "idea": "Tres filtros, dos saltos de 45°: $\\tfrac12\\cdot\\cos^2 45\\cdot\\cos^2 45$.",
+    "pasos": ["$\\dfrac12\\cdot\\dfrac12\\cdot\\dfrac12=\\dfrac18$.", "Sin la hoja intermedia no pasaría nada: los extremos están cruzados."],
+    "porque_fallan": {
+      "C": "Olvida uno de los dos factores $\\cos^2$.",
+      "E": "Cero es lo que pasaría **sin** la hoja de en medio: ese es el resultado sorprendente.",
+      "A": "Solo cuenta el primer filtro."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q053": {
+    "idea": "Maximizar $\\cos^2\\theta\\cos^2(90^\\circ-\\theta)$ da $\\theta=45^\\circ$.",
+    "pasos": ["El producto $\\cos^2\\theta\\sin^2\\theta$ es máximo a 45°, donde vale $1/4$.", "Repartir el giro en dos mitades iguales es lo óptimo."],
+    "porque_fallan": {
+      "A": "A 0° el tercer filtro está cruzado con el segundo: no pasa nada.",
+      "E": "A 90° el problema es con el primero.",
+      "B": "Más cerca del óptimo que 0°, pero no el máximo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q054": {
+    "idea": "Con la hoja intermedia alineada con la primera, la tercera sigue cruzada y bloquea todo.",
+    "pasos": ["A $0^\\circ$ la de en medio no gira nada la polarización.", "La tercera, a 90° de la primera, extingue la luz."],
+    "porque_fallan": {
+      "C": "45° es precisamente el ángulo de **máxima** transmisión.",
+      "E": "Hay ángulos que bloquean del todo: 0° y 90°.",
+      "B": "A 30° algo pasa."
+    },
+    "confirma": "A"
+  },
+  "hrw-c33-q055": {
+    "idea": "Es la ley de la **reflexión**, y no lleva el nombre de ninguno de los de la lista.",
+    "pasos": ["Snell es la de refracción, con los índices y los senos."],
+    "porque_fallan": {
+      "B": "Snell relaciona ángulos en medios distintos.",
+      "A": "Faraday es inducción.",
+      "D": "«Cole's law» es un chiste: ensalada de col."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q056": {
+    "idea": "$n_1\\sin\\theta_1=n_2\\sin\\theta_2$ es la ley de Snell.",
+    "pasos": ["Relaciona los ángulos con los índices de los dos medios."],
+    "porque_fallan": {
+      "E": "La ley de los senos es de trigonometría de triángulos.",
+      "A": "Gauss es de flujo.",
+      "C": "Faraday, de inducción."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q057": {
+    "idea": "La normal es la perpendicular a la **superficie** en el punto de incidencia.",
+    "pasos": ["Todos los ángulos de reflexión y refracción se miden desde ella, no desde la superficie."],
+    "porque_fallan": {
+      "B": "Tangente es la superficie misma.",
+      "A": "No es arbitraria: la fija la geometría de la interfase.",
+      "D": "No tiene que ver con la polarización."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q058": {
+    "idea": "$\\theta_{ref}=\\theta_{inc}$: la dirección reflejada depende solo del ángulo de llegada.",
+    "pasos": ["El material y la longitud de onda afectan a **cuánta** luz se refleja, no a hacia dónde."],
+    "porque_fallan": {
+      "A": "El material cambia la intensidad reflejada, no el ángulo.",
+      "C": "El índice interviene en la refracción, no en la reflexión.",
+      "E": "La longitud de onda tampoco cambia el ángulo reflejado."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q059": {
+    "idea": "$n=c/v$: cuánto más lenta va la luz en el medio que en el vacío.",
+    "pasos": ["Siempre $n\\geq1$ y adimensional."],
+    "porque_fallan": {
+      "A": "La velocidad en el medio es $v$, no $n$.",
+      "B": "El ángulo se calcula **con** el índice, no es el índice.",
+      "E": "Es un número puro."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q060": {
+    "idea": "Es un cociente de velocidades: adimensional.",
+    "pasos": ["$n=c/v$, y m/s entre m/s se cancela."],
+    "porque_fallan": {
+      "A": "Sería la velocidad, no su cociente.",
+      "C": "El radián es para ángulos.",
+      "B": "Tampoco: se cancelan las unidades."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q066": {
+    "idea": "Las dos caras son paralelas: la segunda refracción deshace la primera y el rayo sale paralelo, desplazado.",
+    "pasos": ["Entra acercándose a la normal y sale alejándose en la misma medida.", "El desplazamiento lateral crece con el grosor y con el ángulo."],
+    "porque_fallan": {
+      "E": "No vuelve a la misma recta: queda corrido lateralmente.",
+      "B": "Dentro del vidrio sí se acerca, pero al salir se recupera el ángulo.",
+      "A": "Solo habría reflexión total interna por encima del ángulo crítico, y entrando desde el aire eso no ocurre."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q067": {
+    "idea": "Del aire al vidrio, $n$ aumenta: la luz frena y el rayo se **acerca** a la normal.",
+    "pasos": ["$v=c/n$ baja al subir $n$.", "Snell: mayor $n$, menor ángulo respecto a la normal."],
+    "porque_fallan": {
+      "C": "Acelerar al entrar en un medio más denso es imposible.",
+      "D": "Se acerca, no se aleja.",
+      "A": "La velocidad sí cambia: es la causa de la refracción."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q069": {
+    "idea": "Alejarse de la normal significa pasar a un medio de **menor** índice, donde la luz va más rápido.",
+    "pasos": ["Snell: si $\\theta_2>\\theta_1$, entonces $n_2<n_1$.", "Y $v=c/n$ es mayor."],
+    "porque_fallan": {
+      "C": "Un índice mayor acercaría el rayo a la normal.",
+      "D": "El cambio de velocidad es precisamente lo que produce el desvío.",
+      "B": "La dispersión requiere varias longitudes de onda; aquí basta una."
+    },
+    "confirma": "A"
+  },
+  "hrw-c33-q070": {
+    "idea": "La luz que entra en el agua se acerca a la normal, así que la sombra de la parte sumergida se acorta.",
+    "pasos": [
+      "Los rayos rasantes se «enderezan» al entrar en el agua.",
+      "La sombra bajo el agua queda más corta que la que produciría el mismo poste en el aire."
+    ],
+    "porque_fallan": {
+      "A": "La refracción acorta, no alarga.",
+      "E": "La refracción en el agua rompe la igualdad.",
+      "D": "El efecto va en el mismo sentido sea cual sea la altura del Sol."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q072": {
+    "idea": "$\\sin\\theta_c=\\dfrac{n_{aire}}{n_{benceno}}=\\dfrac{1}{1{,}80}$.",
+    "pasos": ["$\\sin\\theta_c=0{,}556$.", "$\\theta_c=34^\\circ$."],
+    "porque_fallan": {
+      "A": "Es el complementario: $90-34$.",
+      "D": "Usa el índice como si fuera el seno.",
+      "B": "Corresponde a un índice de 1,37."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q073": {
+    "idea": "La misma fórmula, y aquí piden directamente el seno.",
+    "pasos": ["$\\sin\\theta_c=\\dfrac{1}{1{,}50}=0{,}67$."],
+    "porque_fallan": {
+      "E": "Da el índice, no su inverso, y un seno no puede pasar de 1.",
+      "A": "Corresponde a $n=2$.",
+      "D": "Sería ángulo crítico de 90°, es decir, sin reflexión total."
+    },
+    "confirma": "B"
+  },
+  "hrw-c33-q075": {
+    "idea": "La reflexión total interna solo ocurre yendo del medio **denso** al menos denso, y por encima del ángulo crítico.",
+    "pasos": ["La luz tiene que venir del diamante, no del aire.", "Y con $\\theta>25^\\circ$."],
+    "porque_fallan": {
+      "B": "Desde el aire nunca hay reflexión total: siempre entra.",
+      "D": "Por debajo del crítico la luz sale refractada.",
+      "A": "Justo en el crítico el rayo sale rasante, sin reflejarse del todo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c33-q076": {
+    "idea": "Con $n_{agua}=1{,}50>n_{vidrio}=1{,}33$, el medio denso es el **agua**.",
+    "pasos": ["La reflexión total exige ir de mayor a menor índice: de agua a vidrio.", "Y solo por encima del ángulo crítico: por eso «puede», no «siempre»."],
+    "porque_fallan": {
+      "C": "De vidrio a agua se va hacia un índice mayor: nunca hay reflexión total.",
+      "B": "Acierta el sentido pero dice «siempre»: hace falta superar el ángulo crítico.",
+      "E": "Sí puede ocurrir, en el sentido correcto."
+    },
+    "confirma": "D"
+  },
+  "hrw-c33-q077": {
+    "idea": "Dispersión: el índice depende de la longitud de onda, así que cada color se desvía un ángulo distinto.",
+    "pasos": ["$n_{azul}>n_{rojo}$ en el vidrio, y el azul se desvía más.", "Sin esa dependencia, el prisma desviaría la luz blanca sin descomponerla."],
+    "porque_fallan": {
+      "D": "Que la luz frene es la causa de la refracción, pero sin dispersión todos los colores frenarían igual.",
+      "A": "La reflexión total no separa colores por sí sola.",
+      "E": "El prisma no absorbe selectivamente: reparte."
+    },
+    "confirma": "C"
+  },
+  "hrw-c33-q079": {
+    "idea": "Snell encadenado: el producto $n\\sin\\theta$ se conserva capa a capa.",
+    "pasos": [
+      "En el agua, al ángulo crítico: $n_1\\sin\\theta_1=1$.",
+      "Al pasar al aceite: $n_1\\sin\\theta_1=n_2\\sin\\theta_2$, luego $n_2\\sin\\theta_2=1$.",
+      "$\\theta_2=\\sin^{-1}(1/n_2)$: justo el ángulo crítico del aceite con el aire."
+    ],
+    "porque_fallan": {
+      "B": "Es el ángulo en el **agua**, no en el aceite.",
+      "E": "Invierte la razón de índices.",
+      "A": "$\\sin^{-1}(1)=90^\\circ$ solo se alcanza en la última interfase, con el aire."
+    },
+    "confirma": "C"
+  }
+}
