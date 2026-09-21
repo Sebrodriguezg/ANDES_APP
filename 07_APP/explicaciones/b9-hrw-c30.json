@@ -1,0 +1,760 @@
+{
+  "hrw-c30-q001": {
+    "idea": "$\\Phi=BA\\cos\\theta$ con $\\theta$ entre la **normal** y el campo.",
+    "pasos": [
+      "$\\Phi_1=B(1)\\cos60^\\circ=0{,}5B$.",
+      "$\\Phi_2=BA_2$ (normal paralela al campo).",
+      "$A_2=0{,}5$ m²."
+    ],
+    "porque_fallan": {
+      "A": "Usa $\\cos30^\\circ$: mide el ángulo desde el plano, no desde la normal.",
+      "D": "Invierte la razón.",
+      "E": "Solo valdría si el ángulo fuera cero."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q002": {
+    "idea": "Al girar la página, la normal se separa del campo y el flujo cae como el coseno.",
+    "pasos": [
+      "$\\Phi=5\\cos30^\\circ=5(0{,}866)$.",
+      "$\\Phi=4{,}3$ Wb."
+    ],
+    "porque_fallan": {
+      "A": "Usa $\\sin30^\\circ$: confunde el ángulo con su complementario.",
+      "C": "El flujo sí cambia al girar.",
+      "D": "El flujo no puede crecer: partía del máximo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q003": {
+    "idea": "La normal al plano $xy$ es el eje $z$, y el campo forma 30° con él.",
+    "pasos": [
+      "$\\Phi=BA\\cos30^\\circ=(2)(3)(0{,}866)$.",
+      "$\\Phi=5{,}2$ Wb."
+    ],
+    "porque_fallan": {
+      "B": "Usa $\\sin30^\\circ$.",
+      "D": "Olvida el coseno: sería el flujo con el campo perpendicular al plano.",
+      "A": "Usa solo el campo, sin el área."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q004": {
+    "idea": "Mismo campo y mismo ángulo: el flujo es proporcional al área.",
+    "pasos": [
+      "Doble área, doble flujo.",
+      "$\\Phi=10$ Wb. No hace falta calcular el ángulo."
+    ],
+    "porque_fallan": {
+      "B": "Aplica el coseno otra vez, y ya estaba incluido en los 5 Wb.",
+      "C": "El área cambió: el flujo también.",
+      "A": "Divide en vez de multiplicar."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q005": {
+    "idea": "El weber es la unidad de flujo: campo por área.",
+    "pasos": [
+      "$\\Phi=BA$, luego Wb = T·m²."
+    ],
+    "porque_fallan": {
+      "B": "T/s es una tasa de cambio de campo.",
+      "E": "T/m² sería campo dividido por área.",
+      "A": "V/s no tiene nada que ver con el flujo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q006": {
+    "idea": "De Faraday, $\\mathcal{E}=-d\\Phi/dt$, sale que el weber es voltio por segundo.",
+    "pasos": [
+      "$[\\Phi]=[\\mathcal{E}][t]=\\text{V}\\cdot$s.",
+      "Es la otra cara de T·m²: las dos son el weber."
+    ],
+    "porque_fallan": {
+      "D": "V/s invierte la relación.",
+      "B": "T·s le falta el área.",
+      "E": "T/m² no es flujo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q007": {
+    "idea": "La fem es la derivada del flujo: weber por segundo.",
+    "pasos": [
+      "$[\\mathcal{E}]=\\dfrac{\\text{Wb}}{\\text{s}}=\\dfrac{\\text{T}\\cdot\\text{m}^2}{\\text{s}}$, que es el voltio."
+    ],
+    "porque_fallan": {
+      "A": "V/s es la derivada de la fem, no la fem.",
+      "D": "T/s es la tasa de cambio del campo.",
+      "B": "V·m/s no sale de ninguna definición."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q008": {
+    "idea": "Faraday habla del **flujo**, no del campo: es la distinción que decide el capítulo.",
+    "pasos": [
+      "$\\mathcal{E}=-\\dfrac{d\\Phi_B}{dt}$ con $\\Phi_B=\\int\\vec B\\cdot d\\vec A$.",
+      "El flujo puede cambiar por $B$, por el área o por la orientación."
+    ],
+    "porque_fallan": {
+      "A": "El campo es solo una de las tres formas de cambiar el flujo. Girar una espira en campo constante también genera fem.",
+      "D": "El flujo eléctrico aparece en Ampère-Maxwell, no aquí.",
+      "B": "Lo mismo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q009": {
+    "idea": "La fem es la circulación del campo eléctrico **por el borde** de la superficie del flujo.",
+    "pasos": [
+      "$\\oint\\vec E\\cdot d\\vec s=-\\dfrac{d\\Phi_B}{dt}$.",
+      "No hace falta que haya conductor: el borde puede ser una curva imaginaria."
+    ],
+    "porque_fallan": {
+      "A": "Restringe a circuitos conductores, y la ley vale sin ellos.",
+      "C": "La fem es una integral de línea, no algo repartido por la superficie.",
+      "D": "Es tangente al borde, no perpendicular a la superficie."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q010": {
+    "idea": "Flujo cambiante implica fem, siempre. Que haya corriente o calor depende de si hay conductor.",
+    "pasos": [
+      "$\\oint\\vec E\\cdot d\\vec s=-d\\Phi/dt\\neq0$: eso es la fem.",
+      "En el vacío no hay corriente ni disipación, pero la fem existe igual."
+    ],
+    "porque_fallan": {
+      "C": "Solo circula corriente si hay un camino conductor.",
+      "A": "Sin corriente no hay disipación.",
+      "B": "Hay campo eléctrico inducido en todo el contorno, no solo «en el borde»: la afirmación se queda corta frente a la fem, que es lo que la ley garantiza."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q011": {
+    "idea": "Lenz: la corriente inducida se opone al **cambio**, no al campo.",
+    "pasos": [
+      "El campo entra en la página y está disminuyendo.",
+      "La espira intenta mantener ese flujo entrante.",
+      "Para crear campo hacia dentro de la página hace falta corriente **horaria**."
+    ],
+    "porque_fallan": {
+      "A": "Sería la respuesta si el campo entrante estuviera **aumentando**.",
+      "C": "Hay cambio de flujo: hay corriente.",
+      "D": "Describe media espira: la corriente recorre el lazo entero."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q012": {
+    "idea": "Lenz otra vez: si el flujo aplicado crece, el inducido se le opone.",
+    "pasos": [
+      "Campo aplicado creciente $\\Rightarrow$ campo inducido en sentido contrario dentro de la espira."
+    ],
+    "porque_fallan": {
+      "C": "Reforzaría el cambio: sería una fuente infinita de energía.",
+      "A": "La pregunta es por la dirección, no por cómo evoluciona su tamaño.",
+      "E": "El campo inducido por una espira plana es axial, no perpendicular al aplicado."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q013": {
+    "idea": "Que el flujo total sea **menor** que el aplicado significa que el inducido resta, y eso pasa cuando el aplicado crece.",
+    "pasos": [
+      "El campo tiene que atravesar la espira para dar flujo: normal a ella.",
+      "Creciente $\\Rightarrow$ el inducido se opone $\\Rightarrow$ el total queda por debajo del aplicado."
+    ],
+    "porque_fallan": {
+      "B": "Decreciente: el inducido **suma** y el total sería mayor.",
+      "C": "Paralelo al plano no da flujo: no habría nada que comparar.",
+      "E": "Tangente a la espira tampoco atraviesa."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q018": {
+    "idea": "Polo norte acercándose: el flujo hacia la espira crece, y la corriente inducida lo frena.",
+    "pasos": [
+      "El campo del polo norte sale de él, alejándose de ti, y aumenta en la espira.",
+      "La espira crea flujo **hacia ti** para oponerse.",
+      "Visto desde tu posición, eso es corriente antihoraria."
+    ],
+    "porque_fallan": {
+      "B": "Es el sentido al alejarlo, o al acercar un polo sur.",
+      "A": "El flujo está cambiando: hay corriente.",
+      "D": "La corriente recorre el lazo; no tiene un «izquierda» global."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q019": {
+    "idea": "Con el centro del imán en el plano de la espira el flujo pasa por un extremo, y ahí su derivada se anula.",
+    "pasos": [
+      "Entrando domina el polo norte; saliendo, el sur. En el medio el flujo es máximo.",
+      "En un máximo, $d\\Phi/dt=0$.",
+      "Fem nula, corriente esencialmente nula. Justo antes y justo después es máxima."
+    ],
+    "porque_fallan": {
+      "A": "Confunde flujo máximo con fem máxima: van desfasadas.",
+      "B": "Lo mismo, con el otro sentido.",
+      "C": "No es que no sea máxima: es que es cero."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q020": {
+    "idea": "Una espira que gira ve un flujo sinusoidal, y su derivada cambia de signo cada media vuelta.",
+    "pasos": [
+      "$\\Phi=BA\\cos\\omega t$, luego $\\mathcal{E}=BA\\omega\\sin\\omega t$.",
+      "El seno alterna: la corriente también. Esto es un alternador."
+    ],
+    "porque_fallan": {
+      "A": "Sería corriente continua, y entonces la espira no podría devolver energía.",
+      "C": "La corriente es la misma en todo el lazo: no puede ir en dos sentidos a la vez.",
+      "D": "Lo mismo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q022": {
+    "idea": "La fem en X responde al cambio del flujo en X, no al valor de la corriente en Y.",
+    "pasos": [
+      "$\\mathcal{E}_X=-N\\dfrac{d\\Phi_X}{dt}$, y $\\Phi_X$ lo produce la corriente de Y.",
+      "Con corriente constante en Y no hay fem, por grande que sea."
+    ],
+    "porque_fallan": {
+      "E": "Una corriente constante en Y da fem cero. Lo que cuenta es su **derivada**.",
+      "A": "El campo en sí no induce nada: su cambio sí.",
+      "C": "La resistencia fija la corriente resultante, no la fem."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q023": {
+    "idea": "La carga total no depende de lo rápido que cambie el campo: solo del cambio **total** de flujo. Y el campo se invierte, así que el cambio es de 2,00 T.",
+    "pasos": [
+      "$q=\\int i\\,dt=\\dfrac{N}{R}\\int\\dfrac{d\\Phi}{dt}dt=\\dfrac{N\\,\\Delta\\Phi}{R}$.",
+      "De $+1{,}00$ T a $-1{,}00$ T: $\\Delta B=2{,}00$ T, no 1,00.",
+      "$q=\\dfrac{(100)(0{,}100)(2{,}00)}{10}=2$ C."
+    ],
+    "porque_fallan": {
+      "C": "Toma $\\Delta B=1{,}00$ T: olvida que el campo se **invierte**, no que se anula. Es la trampa de la pregunta.",
+      "A": "Olvida además las 100 vueltas.",
+      "E": "No sale de ninguna combinación de los datos."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q025": {
+    "idea": "Los tres entran: $\\mathcal{E}=-N\\,d\\Phi/dt$ contiene las vueltas, y el flujo depende del imán y de la velocidad.",
+    "pasos": [
+      "Imán más fuerte: más $\\Phi$.",
+      "Más vueltas: el factor $N$.",
+      "Más rápido: mayor $d\\Phi/dt$."
+    ],
+    "porque_fallan": {
+      "A": "Deja fuera el factor $N$, que está explícito en la ley.",
+      "C": "La velocidad sola no basta: un imán débil da poca fem por rápido que vaya.",
+      "D": "Olvida que la fem depende de la rapidez del cambio."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q033": {
+    "idea": "Fem de movimiento $\\mathcal{E}=BLv$, y solo cuenta la componente **vertical** del campo.",
+    "pasos": [
+      "$v=75$ km/h $=20{,}8$ m/s.",
+      "$\\mathcal{E}=(0{,}50\\times10^{-4})(1{,}7)(20{,}8)$.",
+      "$\\mathcal{E}=1{,}8\\times10^{-3}$ V $=1{,}8$ mV."
+    ],
+    "porque_fallan": {
+      "C": "Dobla el resultado, quizá por contar la anchura dos veces.",
+      "E": "Usa la velocidad en km/h sin convertir.",
+      "A": "La componente vertical sí es perpendicular al movimiento y al eje: hay fem."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q037": {
+    "idea": "La fem es la derivada del flujo, y en un seno la derivada es máxima donde la función se anula.",
+    "pasos": [
+      "$\\Phi\\propto\\cos\\omega t$ y $\\mathcal{E}\\propto\\sin\\omega t$.",
+      "Van desfasadas 90°: fem máxima con flujo cero."
+    ],
+    "porque_fallan": {
+      "B": "Flujo máximo es fem **nula**: es el error más repetido del capítulo.",
+      "D": "Derivada del flujo nula es fem nula, por definición.",
+      "C": "El máximo de la derivada está en el cero de la función, no a la mitad."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q039": {
+    "idea": "Hay que **cambiar** el flujo, y partiendo del flujo máximo lo que más lo cambia es inclinar la normal.",
+    "pasos": [
+      "Aro en plano vertical este-oeste: su normal apunta norte-sur, paralela al campo. Flujo máximo.",
+      "Girar sobre un eje este-oeste inclina esa normal y el flujo cae deprisa.",
+      "Girar sobre un eje norte-sur deja la normal donde estaba: flujo constante, fem cero."
+    ],
+    "porque_fallan": {
+      "A": "La normal no se mueve: el flujo no cambia.",
+      "C": "En campo uniforme, trasladar no cambia el flujo.",
+      "D": "Lo mismo: uniforme significa igual en todas partes."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q040": {
+    "idea": "$\\mathcal{E}_{max}=NBA\\omega$, con $\\omega$ en rad/s.",
+    "pasos": [
+      "$A=\\pi(0{,}030)^2=2{,}83\\times10^{-3}$ m².",
+      "$\\omega=2\\pi(60)=377$ rad/s.",
+      "$\\mathcal{E}=(10)(0{,}50)(2{,}83\\times10^{-3})(377)=5{,}3$ V."
+    ],
+    "porque_fallan": {
+      "B": "Usa 60 rev/s como si fueran rad/s: falta el $2\\pi$.",
+      "A": "Olvida además las 10 vueltas.",
+      "D": "Un factor de más en alguna conversión."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q041": {
+    "idea": "Despeja $\\omega$ de $\\mathcal{E}_{max}=BA\\omega$.",
+    "pasos": [
+      "$A=\\pi(0{,}075)^2=1{,}77\\times10^{-2}$ m².",
+      "$\\omega=\\dfrac{1{,}0}{(1{,}6)(1{,}77\\times10^{-2})}=35$ rad/s."
+    ],
+    "porque_fallan": {
+      "E": "Un factor 2 de más: quizá usando el diámetro.",
+      "C": "Un factor 2π perdido en la conversión.",
+      "B": "Un orden de magnitud abajo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q042": {
+    "idea": "El eje de giro es paralelo al campo: la normal nunca se mueve y el flujo no cambia.",
+    "pasos": [
+      "Campo vertical, eje vertical, área horizontal.",
+      "$\\Phi=BA$ constante mientras gira.",
+      "$\\mathcal{E}=-d\\Phi/dt=0$. El área y las rpm son señuelos."
+    ],
+    "porque_fallan": {
+      "C": "Aplica $BA\\omega$ como si la espira se inclinara, y no se inclina.",
+      "B": "Lo mismo, con otro factor.",
+      "E": "Girar no basta: hay que girar respecto a un eje que cambie la orientación."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q045": {
+    "idea": "Una varilla suelta no cierra circuito: sin corriente no hay fuerza magnética que vencer.",
+    "pasos": [
+      "Se separan cargas en los extremos hasta equilibrarse, y ahí se acaba.",
+      "Sin corriente, $\\vec F=i\\vec L\\times\\vec B=0$.",
+      "A velocidad constante y sin rozamiento, la fuerza necesaria es cero."
+    ],
+    "porque_fallan": {
+      "D": "Es la fuerza si la varilla **cerrara** circuito por unos rieles: ahí sí circula $i=BLv/R$.",
+      "B": "$BLv$ es la fem, no una fuerza.",
+      "C": "$BLv/R$ es la corriente que habría con circuito cerrado."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q046": {
+    "idea": "La energía cinética que se pierde se disipa en la resistencia: $P=i^2R$.",
+    "pasos": [
+      "$i=\\sqrt{P/R}=\\sqrt{4{,}0\\times10^{-3}/10}$.",
+      "$i=\\sqrt{4\\times10^{-4}}=2{,}0\\times10^{-2}$ A $=20$ mA."
+    ],
+    "porque_fallan": {
+      "B": "Divide por $R$ sin la raíz.",
+      "C": "Raíz de algo distinto: revisa $P/R$.",
+      "E": "Los datos bastan: $P$ y $R$ determinan la corriente."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q047": {
+    "idea": "La misma idea con la otra forma de la potencia: $P=\\mathcal{E}^2/R$.",
+    "pasos": [
+      "$\\mathcal{E}=\\sqrt{PR}=\\sqrt{(5\\times10^{-3})(10)}$.",
+      "$\\mathcal{E}=\\sqrt{0{,}05}\\approx0{,}2$ V."
+    ],
+    "porque_fallan": {
+      "D": "Divide por $R$ en vez de multiplicar antes de la raíz.",
+      "C": "Confunde $\\sqrt{PR}$ con otra combinación.",
+      "E": "$P$ y $R$ bastan."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q048": {
+    "idea": "Un campo magnético que **cambia en el tiempo** crea campo eléctrico, aunque no haya conductor ni espira.",
+    "pasos": [
+      "$\\nabla\\times\\vec E=-\\dfrac{\\partial\\vec B}{\\partial t}$."
+    ],
+    "porque_fallan": {
+      "A": "Un campo magnético estático no genera campo eléctrico.",
+      "C": "El flujo requiere elegir una superficie; la ley local solo necesita que $\\vec B$ dependa del tiempo.",
+      "E": "El conductor no es necesario: el campo inducido existe en el vacío."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q049": {
+    "idea": "Dentro de la región, $E=\\dfrac{r}{2}\\dfrac{dB}{dt}$.",
+    "pasos": [
+      "$r=R/2=1{,}5$ cm.",
+      "$4{,}5\\times10^{-3}=\\dfrac{0{,}015}{2}\\dfrac{dB}{dt}$.",
+      "$\\dfrac{dB}{dt}=0{,}60$ T/s."
+    ],
+    "porque_fallan": {
+      "D": "Olvida el factor $1/2$.",
+      "B": "Usa $R$ en vez de $R/2$.",
+      "E": "Los dos errores juntos."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q050": {
+    "idea": "Fuera de la región el flujo ya no crece con $r$: queda fijo en $\\pi R^2$ y el campo cae como $1/r$.",
+    "pasos": [
+      "$E(2\\pi r)=\\pi R^2\\dfrac{dB}{dt}$.",
+      "$E=\\dfrac{R^2}{2r}\\dfrac{dB}{dt}$, y con $r=2R$: $E=\\dfrac{R}{4}\\dfrac{dB}{dt}$."
+    ],
+    "porque_fallan": {
+      "C": "Usa la fórmula de dentro, con $r$ en vez de $R^2/r$.",
+      "A": "Fuera el campo no es nulo: el flujo encerrado sigue cambiando.",
+      "D": "Evalúa en $r=R$ en vez de $2R$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q051": {
+    "idea": "Dentro, el flujo encerrado crece como $r^2$ y el perímetro como $r$: queda $E\\propto r$.",
+    "pasos": [
+      "$E(2\\pi r)=\\pi r^2\\dfrac{dB}{dt}\\Rightarrow E=\\dfrac{r}{2}\\dfrac{dB}{dt}$."
+    ],
+    "porque_fallan": {
+      "D": "$1/r$ es la dependencia **fuera** de la región.",
+      "C": "$r^2$ es el flujo, no el campo.",
+      "A": "$R$ es constante: no describe la variación con $r$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q052": {
+    "idea": "Fuera, el flujo encerrado ya no crece y solo queda el perímetro en el denominador.",
+    "pasos": [
+      "$E(2\\pi r)=\\pi R^2\\dfrac{dB}{dt}\\Rightarrow E\\propto\\dfrac1r$."
+    ],
+    "porque_fallan": {
+      "B": "$r$ es la dependencia **dentro**.",
+      "E": "$1/r^2$ no sale de esta geometría cilíndrica.",
+      "A": "No describe una variación con $r$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q053": {
+    "idea": "Despeja de $\\mathcal{E}=L\\,di/dt$.",
+    "pasos": [
+      "$L=\\dfrac{\\mathcal{E}}{di/dt}$, luego H = V·s/A."
+    ],
+    "porque_fallan": {
+      "C": "El ohmio es V/A: le falta el segundo.",
+      "B": "V/s no tiene nada que ver.",
+      "E": "A·s/V es el inverso del henry."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q056": {
+    "idea": "$\\mathcal{E}=L\\,di/dt$, despejando la tasa. Las 10 vueltas sobran: ya están dentro de $L$.",
+    "pasos": [
+      "$\\dfrac{di}{dt}=\\dfrac{2{,}0}{4{,}0\\times10^{-3}}=500$ A/s."
+    ],
+    "porque_fallan": {
+      "C": "Un orden de magnitud: revisa el mili.",
+      "B": "Divide además por las 10 vueltas, que ya estaban contadas.",
+      "D": "No sale de estos números."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q057": {
+    "idea": "$L=\\mu_0 n^2 A\\ell$ con $n=N/\\ell$, que se reescribe como $\\mu_0N^2A/\\ell$.",
+    "pasos": [
+      "$L=\\mu_0\\left(\\dfrac{N}{\\ell}\\right)^2A\\ell=\\dfrac{\\mu_0N^2A}{\\ell}$.",
+      "Cuadrática en $N$: cada vuelta enlaza el flujo de todas."
+    ],
+    "porque_fallan": {
+      "C": "Lineal en $N$: olvida que el flujo también crece con las vueltas.",
+      "A": "Le falta dividir por la longitud.",
+      "D": "Pone el área en el denominador."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q058": {
+    "idea": "$L\\propto N^2$.",
+    "pasos": [
+      "$\\left(\\dfrac{20}{5}\\right)^2=16$.",
+      "$L'=16L$."
+    ],
+    "porque_fallan": {
+      "A": "Lineal en $N$: se queda en el factor 4.",
+      "D": "Invierte la relación.",
+      "E": "La inductancia sí depende del número de vueltas."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q059": {
+    "idea": "La corriente crece hacia $\\mathcal{E}/R$ con constante de tiempo $\\tau=L/R$.",
+    "pasos": [
+      "$i=\\dfrac{\\mathcal{E}}{R}\\left(1-e^{-Rt/L}\\right)$.",
+      "Comprueba los extremos: $i(0)=0$ y $i(\\infty)=\\mathcal{E}/R$."
+    ],
+    "porque_fallan": {
+      "A": "El exponente invertido: $Lt/R$ no tiene unidades de número puro.",
+      "D": "Decae en vez de crecer: sería la descarga.",
+      "C": "Arranca en $2\\mathcal{E}/R$, que es imposible."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q060": {
+    "idea": "La fem del inductor empieza valiendo $\\mathcal{E}$ y decae: es lo que la corriente aún no ha «tomado».",
+    "pasos": [
+      "$\\mathcal{E}_L=L\\dfrac{di}{dt}=\\mathcal{E}e^{-Rt/L}$.",
+      "En $t=0$ vale $\\mathcal{E}$; a tiempo largo, cero."
+    ],
+    "porque_fallan": {
+      "E": "Crece de 0 a $\\mathcal{E}$: eso es la caída en la **resistencia**.",
+      "B": "Exponente con las unidades mal.",
+      "C": "Arranca en $2\\mathcal{E}$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q061": {
+    "idea": "$V_R=iR$, así que copia la forma de la corriente.",
+    "pasos": [
+      "$V_R=\\mathcal{E}\\left(1-e^{-Rt/L}\\right)$.",
+      "Arranca en cero y termina valiendo $\\mathcal{E}$."
+    ],
+    "porque_fallan": {
+      "D": "Es la caída en el **inductor**, que va al revés.",
+      "A": "Exponente mal escrito.",
+      "C": "Empieza en el doble de la fem."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q062": {
+    "idea": "Mitad del valor final en $t=\\tau\\ln2$, con $\\tau=L/R$.",
+    "pasos": [
+      "$\\tau=\\dfrac{8{,}0\\times10^{-3}}{2{,}0}=4{,}0$ ms.",
+      "$t=4{,}0\\ln2=2{,}8$ ms."
+    ],
+    "porque_fallan": {
+      "B": "Confunde la constante de tiempo con el tiempo de semi-subida.",
+      "C": "Olvida los prefijos por completo.",
+      "D": "Multiplica $L$ por $R$ en vez de dividir."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q063": {
+    "idea": "A tiempo largo el inductor es un cable: toda la caída está en la resistencia.",
+    "pasos": [
+      "$i=\\dfrac{20}{2{,}0}=10$ A.",
+      "Están en serie: la misma corriente por los dos."
+    ],
+    "porque_fallan": {
+      "D": "En serie no puede haber dos corrientes distintas.",
+      "E": "Por el inductor pasa la misma corriente: no la bloquea en régimen estacionario.",
+      "C": "Usa una resistencia que no está en el problema."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q064": {
+    "idea": "Justo al cerrar, la corriente es cero: la resistencia no cae nada y el inductor se lleva toda la fem.",
+    "pasos": [
+      "$i(0)=0\\Rightarrow V_R=iR=0$.",
+      "Por mallas, $V_L=20$ V."
+    ],
+    "porque_fallan": {
+      "A": "Es la situación a tiempo **largo**, invertida.",
+      "C": "El reparto a medias no ocurre en ningún instante concreto de este circuito.",
+      "E": "No hace falta $di/dt$: se deduce de que $i(0)=0$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q065": {
+    "idea": "A tiempo largo la corriente ya no cambia, así que el inductor no induce nada.",
+    "pasos": [
+      "$di/dt\\to0\\Rightarrow V_L=0$.",
+      "Toda la fem cae en la resistencia: $V_R=\\mathcal{E}$."
+    ],
+    "porque_fallan": {
+      "B": "Es el instante inicial, invertido.",
+      "C": "No hay ningún régimen en que se repartan a medias de forma estable.",
+      "E": "$di/dt$ vale cero, y eso ya es el dato."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q066": {
+    "idea": "$\\tau=L/R$: si los dos se duplican, el cociente no cambia.",
+    "pasos": [
+      "$\\dfrac{2L}{2R}=\\dfrac{L}{R}$."
+    ],
+    "porque_fallan": {
+      "A": "Cuenta solo la inductancia.",
+      "C": "Cuenta solo la resistencia.",
+      "B": "Multiplica los dos efectos en vez de dividirlos."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q070": {
+    "idea": "En serie las inductancias se suman, igual que las resistencias.",
+    "pasos": [
+      "$L_{eq}=3{,}5+4{,}5=8{,}0$ mH."
+    ],
+    "porque_fallan": {
+      "A": "Es la combinación en **paralelo**.",
+      "B": "Suma los inversos sin volver a invertir.",
+      "D": "No sale de ninguna de las dos reglas."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q071": {
+    "idea": "En serie la corriente —y por tanto $di/dt$— es común, así que la fem se reparte como las inductancias.",
+    "pasos": [
+      "$\\mathcal{E}_2=\\mathcal{E}_{tot}\\dfrac{L_2}{L_1+L_2}=16\\dfrac{4{,}5}{8{,}0}$.",
+      "$\\mathcal{E}_2=9{,}0$ V."
+    ],
+    "porque_fallan": {
+      "A": "Es la fem del inductor **menor**.",
+      "D": "Suma en vez de repartir.",
+      "C": "Aplica el reparto de paralelo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q072": {
+    "idea": "En paralelo se suman los inversos, como con las resistencias.",
+    "pasos": [
+      "$L_{eq}=\\dfrac{(3{,}5)(4{,}5)}{8{,}0}=2{,}0$ mH.",
+      "Menor que cualquiera de las dos."
+    ],
+    "porque_fallan": {
+      "E": "Es la combinación en **serie**.",
+      "B": "Se queda en $1/L_{eq}$.",
+      "D": "No sale de la fórmula."
+    },
+    "confirma": "A"
+  },
+  "hrw-c30-q073": {
+    "idea": "En paralelo la fem es la misma en los dos, y $di/dt=\\mathcal{E}/L$.",
+    "pasos": [
+      "$\\dfrac{di}{dt}=\\dfrac{16}{4{,}5\\times10^{-3}}=3{,}6\\times10^{3}$ A/s."
+    ],
+    "porque_fallan": {
+      "C": "Usa el inductor pequeño, que cambia más deprisa.",
+      "A": "Usa la inductancia equivalente.",
+      "E": "Reparte la fem, y en paralelo no se reparte."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q074": {
+    "idea": "Misma fem en paralelo: $L_1(di_1/dt)=L_2(di_2/dt)$, así que el menor cambia más rápido.",
+    "pasos": [
+      "$L\\left(\\dfrac{di}{dt}\\right)_{peq}=2L(1200)$.",
+      "$\\left(\\dfrac{di}{dt}\\right)_{peq}=2400$ A/s."
+    ],
+    "porque_fallan": {
+      "A": "Divide entre 2 en vez de multiplicar: invierte la relación.",
+      "B": "En paralelo las tasas no coinciden si las inductancias difieren.",
+      "D": "No sale del factor 2."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q075": {
+    "idea": "$U=\\tfrac12Li^2$: siempre positiva, lineal en $L$, y sin rastro de $di/dt$.",
+    "pasos": [
+      "El cuadrado borra el signo de la corriente.",
+      "Es lineal en $L$, no cuadrática.",
+      "Las unidades son julios."
+    ],
+    "porque_fallan": {
+      "A": "El cuadrado hace que el sentido de la corriente no importe.",
+      "B": "La **potencia** depende de $di/dt$; la energía almacenada, no.",
+      "C": "Es proporcional a $L$, no a $L^2$."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q078": {
+    "idea": "Condensador, batería e inductor almacenan energía recuperable; la resistencia la convierte en calor y ahí se acaba.",
+    "pasos": [
+      "$\\tfrac12CV^2$, $\\tfrac12Li^2$ y la energía química se pueden devolver.",
+      "$i^2R$ se va como calor al ambiente: cero recuperable."
+    ],
+    "porque_fallan": {
+      "A": "El condensador devuelve casi toda su energía al descargarse.",
+      "D": "El inductor también, al abrir el circuito.",
+      "E": "La varilla devuelve trabajo mecánico."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q079": {
+    "idea": "$U=\\tfrac12Li^2$: primero saca $L$, y recuerda que el sentido no importa.",
+    "pasos": [
+      "$40=\\tfrac12L(10)^2\\Rightarrow L=0{,}80$ H.",
+      "$U'=\\tfrac12(0{,}80)(5)^2=10$ J.",
+      "El cambio es $40-10=30$ J. Que sea «en sentido contrario» no afecta."
+    ],
+    "porque_fallan": {
+      "C": "Toma la energía final como el cambio.",
+      "A": "Divide la energía entre dos, como si fuera lineal en la corriente.",
+      "D": "Suma en vez de restar, quizá por el cambio de sentido."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q080": {
+    "idea": "$U=\\tfrac12Li^2$, con la corriente del instante. La resistencia y la batería sobran.",
+    "pasos": [
+      "$U=\\tfrac12(6{,}0\\times10^{-3})(5{,}0)^2=7{,}5\\times10^{-2}$ J."
+    ],
+    "porque_fallan": {
+      "C": "Olvida el factor $\\tfrac12$.",
+      "D": "Un factor cuatro de más.",
+      "E": "No hace falta $di/dt$ para la energía **almacenada**."
+    },
+    "confirma": "B"
+  },
+  "hrw-c30-q081": {
+    "idea": "Deriva la energía: $\\dfrac{dU}{dt}=Li\\dfrac{di}{dt}$. Aquí sí entra la tasa de cambio.",
+    "pasos": [
+      "$\\dfrac{dU}{dt}=(6{,}0\\times10^{-3})(5{,}0)(200)$.",
+      "$=6{,}0$ W."
+    ],
+    "porque_fallan": {
+      "A": "Es la energía almacenada, no su derivada.",
+      "D": "Olvida la corriente en el producto.",
+      "B": "Un factor 20 de más."
+    },
+    "confirma": "E"
+  },
+  "hrw-c30-q082": {
+    "idea": "Primero la corriente a ese instante, y con ella la energía.",
+    "pasos": [
+      "$\\tau=\\dfrac{6{,}0\\times10^{-3}}{3{,}0}=2{,}0$ ms, así que $t=\\tau$.",
+      "$i=\\dfrac{12}{3}(1-e^{-1})=4(0{,}632)=2{,}53$ A.",
+      "$U=\\tfrac12(6{,}0\\times10^{-3})(2{,}53)^2=1{,}9\\times10^{-2}$ J."
+    ],
+    "porque_fallan": {
+      "B": "Usa la corriente final, 4 A, en vez de la de $t=\\tau$.",
+      "E": "Un factor dos por debajo.",
+      "A": "A una constante de tiempo la corriente ya es el 63 % de la final."
+    },
+    "confirma": "C"
+  },
+  "hrw-c30-q083": {
+    "idea": "La densidad de energía magnética es $B^2/2\\mu_0$: julios por metro cúbico.",
+    "pasos": [
+      "$B^2/\\mu_0$ es el doble de esa densidad, con las mismas unidades.",
+      "$[\\;]=$ J/m³."
+    ],
+    "porque_fallan": {
+      "A": "Le falta dividir por el volumen.",
+      "C": "J/m sería energía por longitud.",
+      "B": "J/H no corresponde a nada del formalismo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c30-q084": {
+    "idea": "Densidad de energía por el volumen del cilindro.",
+    "pasos": [
+      "$u=\\dfrac{B^2}{2\\mu_0}=\\dfrac{(5{,}0\\times10^{-3})^2}{2(4\\pi\\times10^{-7})}=9{,}9$ J/m³.",
+      "$V=\\pi(0{,}0020)^2(0{,}030)=3{,}8\\times10^{-7}$ m³.",
+      "$U=(9{,}9)(3{,}8\\times10^{-7})=3{,}8\\times10^{-6}$ J."
+    ],
+    "porque_fallan": {
+      "E": "Se queda en la densidad de energía sin multiplicar por el volumen.",
+      "C": "Olvida el factor 2 del denominador.",
+      "D": "Dos órdenes de magnitud: revisa la conversión de cm a m."
+    },
+    "confirma": "B"
+  }
+}
