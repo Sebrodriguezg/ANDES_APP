@@ -4,8 +4,8 @@
   "algoritmo": "AES-GCM-256",
   "kdf": "PBKDF2-SHA256",
   "iteraciones": 210000,
-  "sal": "MdNQKduMeNLi7kgLv/fTlg==",
-  "canario": "4QqswpTp1j1Awwb0/KBvtcPaOCeHiO3Cy9bIN2xxeZAQZKKg"
+  "sal": "10CSsGxmNIgfgwpeMTJUmA==",
+  "canario": "JZhppPWYxF+yDrRmGBQiJeBPmivkEZ5DNWwTMtZV37pTatm1"
  },
  "hoja": {
   "archivo": "hoja.bin",

@@ -1,0 +1,765 @@
+{
+  "hrw-c32-q001": {
+    "idea": "$\\oint\\vec B\\cdot d\\vec A=0$ es cierta, se usa con superficies **cerradas**, y no contradice nada.",
+    "pasos": ["Dice que no hay monopolos: todo flujo que entra sale.", "No sirve para calcular $\\vec B$ de corrientes: para eso está Ampère."],
+    "porque_fallan": {
+      "A": "Las corrientes van en Ampère, no en esta ley.",
+      "B": "La ley es cierta **porque** no hay polos magnéticos aislados, no falsa por ello.",
+      "D": "$\\Phi_B=0$ sobre superficie cerrada y $d\\Phi_B/dt\\neq0$ a través de una abierta son cosas distintas."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q002": {
+    "idea": "El flujo magnético neto a través de cualquier superficie cerrada es cero: no existen monopolos.",
+    "pasos": ["Si existiera un polo aislado, encerrarlo daría flujo neto no nulo."],
+    "porque_fallan": {
+      "A": "La carga eléctrica la da la ley de Gauss **eléctrica**.",
+      "B": "La integral de línea es Ampère.",
+      "E": "Cierto pero no es lo que esta ley afirma."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q003": {
+    "idea": "Líneas cerradas es exactamente lo que significa flujo neto nulo.",
+    "pasos": ["Si una línea empezara o terminara, ahí habría flujo neto: un monopolo."],
+    "porque_fallan": {
+      "B": "Ampère relaciona la circulación con la corriente, no la topología de las líneas.",
+      "A": "Faraday describe el campo eléctrico inducido.",
+      "C": "La de electricidad permite líneas abiertas, que empiezan y acaban en cargas."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q004": {
+    "idea": "Un campo así tendría divergencia no nula, y eso lo prohíbe Gauss para el magnetismo.",
+    "pasos": ["$\\vec B=B(x)\\hat x$ da $\\nabla\\cdot\\vec B=\\dfrac{dB}{dx}\\neq0$.", "Las líneas se «perderían» por el camino: harían falta monopolos."],
+    "porque_fallan": {
+      "B": "Ampère no impide este campo: habla de la circulación.",
+      "A": "Faraday tampoco.",
+      "C": "La de electricidad no dice nada de $\\vec B$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q005": {
+    "idea": "Sin monopolos, las líneas no tienen dónde empezar ni acabar: se cierran.",
+    "pasos": ["Fuera del imán van de N a S; dentro, de S a N. El circuito se cierra."],
+    "porque_fallan": {
+      "C": "Solo describe el tramo exterior: dentro del imán van al revés.",
+      "B": "Lo mismo, invertido.",
+      "D": "Empezar en un polo es justamente lo que exigiría un monopolo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q006": {
+    "idea": "También en un imán de barra: fuera de N a S, dentro de S a N, y el bucle se cierra.",
+    "pasos": ["Las líneas atraviesan el imán por dentro."],
+    "porque_fallan": {
+      "B": "Dos líneas cruzándose darían dos direcciones de campo en un punto: imposible.",
+      "C": "Entran tantas por el sur como salen por el norte.",
+      "D": "Dentro del imán es donde el campo es más intenso."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q008": {
+    "idea": "Los monopolos añadirían carga magnética a la ecuación 2 y corriente magnética a la 3.",
+    "pasos": [
+      "La 2 pasaría de $0$ a $\\mu_0 q_m$: el flujo dejaría de anularse.",
+      "La 3 ganaría un término de corriente magnética, igual que la 4 lo tiene de eléctrica.",
+      "Las 1 y 4 no se tocan: ya describen la carga y la corriente eléctricas."
+    ],
+    "porque_fallan": {
+      "B": "Solo la 2 se queda corta: la simetría exige modificar también Faraday.",
+      "D": "La 4 ya contiene su término de corriente; la que le falta es a la 3.",
+      "A": "La 1 es la de Gauss eléctrica: no la afectan los polos magnéticos."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q009": {
+    "idea": "$d\\vec s$ es un tramo infinitesimal del **camino de integración**, que uno elige.",
+    "pasos": ["No es un desplazamiento de carga ni de polo, ni un área, ni una inductancia."],
+    "porque_fallan": {
+      "A": "El camino es imaginario: no lo recorre ninguna carga.",
+      "B": "Menos aún un polo, que no existe aislado.",
+      "D": "El elemento de área es $d\\vec A$, con la otra letra."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q010": {
+    "idea": "El circulito sobre la integral significa camino **cerrado**.",
+    "pasos": ["Con $d\\vec s$, el lazo es una curva cerrada; con $d\\vec A$, una superficie cerrada."],
+    "porque_fallan": {
+      "B": "El sentido lo eliges tú; solo fija el signo.",
+      "C": "Lo mismo.",
+      "E": "Superficie cerrada es el caso de $d\\vec A$, no el de $d\\vec s$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q011": {
+    "idea": "Con $d\\vec A$, el mismo símbolo significa superficie **cerrada**.",
+    "pasos": ["Una superficie cerrada es la que separa un dentro de un fuera, como una esfera."],
+    "porque_fallan": {
+      "D": "Camino cerrado es el caso de $d\\vec s$.",
+      "B": "El sentido de recorrido no aplica a una superficie.",
+      "A": "El subíndice de $\\mu_0$ es notación, no un operador."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q012": {
+    "idea": "Maxwell se apoya en campos y flujos, no en el valor de la carga del electrón ni en su cuantización.",
+    "pasos": ["Las ecuaciones son clásicas y continuas: no saben que la carga viene en paquetes."],
+    "porque_fallan": {
+      "B": "La cuantización es un hecho experimental que las ecuaciones ni usan ni contradicen.",
+      "A": "El valor numérico no aparece en ninguna de las cuatro.",
+      "D": "La clasificación de materiales es posterior y derivada."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q013": {
+    "idea": "En Faraday y Ampère-Maxwell, el camino es el **borde** de la superficie.",
+    "pasos": ["La superficie puede ser cualquiera que tenga ese borde: plana, abombada, lo que sea.", "El resultado no depende de cuál elijas."],
+    "porque_fallan": {
+      "A": "El camino no atraviesa el área: la rodea.",
+      "E": "Un camino interior no sirve: la ley relaciona borde con interior.",
+      "B": "Separarlos rompe la relación."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q014": {
+    "idea": "En una superficie cerrada, la convención es que $d\\vec A$ apunta hacia **afuera**.",
+    "pasos": ["Así el flujo positivo significa «sale» y el negativo «entra».", "Es lo que hace que $q_{enc}$ lleve su signo natural."],
+    "porque_fallan": {
+      "C": "Hacia dentro invertiría el signo de toda la ley.",
+      "A": "Tangente daría flujo cero siempre: no mediría nada.",
+      "D": "$d\\vec A$ depende de la superficie, no del campo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q015": {
+    "idea": "$d\\vec s$ y $d\\vec A$ se relacionan por la regla de la mano derecha, y esa relación no es ninguna de las cuatro opciones.",
+    "pasos": [
+      "$d\\vec A$ es normal a la superficie; $d\\vec s$ es tangente al borde.",
+      "En una superficie plana son perpendiculares, pero en una abombada el borde puede no serlo.",
+      "Lo único fijo es el sentido relativo, no el ángulo."
+    ],
+    "porque_fallan": {
+      "A": "Nunca son paralelos: uno es normal y el otro tangente al borde.",
+      "C": "Solo lo son en el caso plano.",
+      "D": "Y justo en ese caso plano sí son perpendiculares."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q016": {
+    "idea": "Mano derecha: pulgar en $d\\vec A$, dedos en el sentido de recorrido.",
+    "pasos": ["$d\\vec A$ hacia ti significa recorrer el borde en sentido **antihorario** visto por ti."],
+    "porque_fallan": {
+      "A": "Horario corresponde a $d\\vec A$ alejándose de ti.",
+      "C": "El recorrido es cerrado: no va de un lado a otro.",
+      "E": "Lo mismo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q017": {
+    "idea": "Campo de una carga puntual: Gauss eléctrica con una esfera concéntrica.",
+    "pasos": ["$\\oint\\vec E\\cdot d\\vec A=q/\\varepsilon_0$ y la simetría esférica hace el resto."],
+    "porque_fallan": {
+      "B": "La de magnetismo no menciona la carga eléctrica.",
+      "D": "Ampère-Maxwell da campos magnéticos.",
+      "C": "Faraday da el campo eléctrico **inducido**, no el de una carga estática."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q018": {
+    "idea": "Campo de un hilo con corriente: Ampère-Maxwell con un círculo concéntrico.",
+    "pasos": ["$\\oint\\vec B\\cdot d\\vec s=\\mu_0 i$, con $d\\Phi_E/dt=0$."],
+    "porque_fallan": {
+      "B": "La de Gauss magnética no relaciona corrientes con campos.",
+      "A": "La de Gauss eléctrica da $\\vec E$.",
+      "C": "Faraday también da $\\vec E$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q019": {
+    "idea": "Líneas cerradas es la lectura geométrica de flujo neto nulo.",
+    "pasos": ["$\\oint\\vec B\\cdot d\\vec A=0$ para toda superficie cerrada."],
+    "porque_fallan": {
+      "D": "Ampère habla de circulación, no de si las líneas se cierran.",
+      "A": "La eléctrica permite líneas abiertas.",
+      "C": "Faraday describe otro campo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q020": {
+    "idea": "Campo magnético creado por un campo eléctrico variable: el término de Maxwell.",
+    "pasos": ["$\\oint\\vec B\\cdot d\\vec s=\\mu_0\\varepsilon_0\\dfrac{d\\Phi_E}{dt}$ sin corriente de conducción."],
+    "porque_fallan": {
+      "C": "Faraday es el caso simétrico: campo **eléctrico** de un magnético variable.",
+      "B": "La de Gauss magnética no genera campos.",
+      "A": "La eléctrica tampoco da $\\vec B$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q021": {
+    "idea": "Campo eléctrico creado por un campo magnético variable: eso es Faraday.",
+    "pasos": ["$\\oint\\vec E\\cdot d\\vec s=-\\dfrac{d\\Phi_B}{dt}$."],
+    "porque_fallan": {
+      "D": "Ampère-Maxwell es el caso inverso.",
+      "A": "La de Gauss eléctrica solo ve cargas.",
+      "B": "La magnética no genera nada."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q022": {
+    "idea": "Entre las placas no hay corriente de conducción, pero sí campo eléctrico creciente: corriente de desplazamiento.",
+    "pasos": ["$\\oint\\vec B\\cdot d\\vec s=\\mu_0\\varepsilon_0\\dfrac{d\\Phi_E}{dt}$, con un círculo coaxial.", "Es el ejemplo con el que Maxwell justificó el término."],
+    "porque_fallan": {
+      "C": "Faraday daría el campo eléctrico, que aquí ya está dado.",
+      "A": "La carga en las placas se usa para el campo eléctrico, no para el magnético.",
+      "B": "No interviene."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q023": {
+    "idea": "Las ecuaciones de Maxwell dan **campos**; las fuerzas las da Lorentz y los flujos se calculan integrando.",
+    "pasos": ["$\\vec F=q(\\vec E+\\vec v\\times\\vec B)$ no es una de las cuatro.", "Un flujo dado ya está dado: no hay nada que calcular."],
+    "porque_fallan": {
+      "A": "La fuerza eléctrica sale de Lorentz una vez conocido $\\vec E$.",
+      "B": "Lo mismo con la magnética.",
+      "C": "Calcular el flujo de un campo conocido es una integral, no una ley."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q024": {
+    "idea": "Una brújula ya tiene polaridad conocida: su norte apunta al norte magnético.",
+    "pasos": ["Acércala al imán: el polo que atraiga a su norte es un sur."],
+    "porque_fallan": {
+      "D": "Otro imán sin marcar deja la misma duda en los dos.",
+      "A": "Una varilla cargada actúa por fuerza eléctrica, que no distingue polos.",
+      "E": "Las limaduras dibujan las líneas pero no su sentido."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q025": {
+    "idea": "Dentro del imán las líneas van del sur al norte: al revés que fuera.",
+    "pasos": ["Con el sur arriba y el norte abajo, dentro el campo apunta hacia **abajo**.", "Es lo que cierra el bucle de líneas."],
+    "porque_fallan": {
+      "A": "Dentro del imán el campo es intenso, no nulo.",
+      "C": "El peso no interviene en el campo.",
+      "D": "Con el imán vertical, el campo interior es vertical."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q026": {
+    "idea": "El magnetismo nace de corrientes microscópicas, no de polos: por eso cada trozo vuelve a tener dos.",
+    "pasos": ["Ampère propuso corrientes circulantes en la materia.", "Hoy son los momentos dipolares de los electrones: un dipolo partido sigue siendo un dipolo."],
+    "porque_fallan": {
+      "B": "Aunque llegaras al átomo, seguiría teniendo dos polos.",
+      "C": "Coulomb describe cargas eléctricas.",
+      "D": "Lenz habla de inducción."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q027": {
+    "idea": "Campo uniforme: hay par pero no fuerza neta, y el par lo alinea **con** el campo, no en perpendicular.",
+    "pasos": [
+      "$\\vec F=0$ porque el campo no tiene gradiente: no se traslada.",
+      "$\\vec\\tau=\\vec\\mu\\times\\vec B$ lo gira hasta quedar paralelo a $\\vec B$.",
+      "Ninguna de las cuatro describe eso."
+    ],
+    "porque_fallan": {
+      "A": "Para traslación haría falta un campo no uniforme.",
+      "C": "En perpendicular la energía es máxima, no mínima: gira hasta alinearse.",
+      "D": "El campo es horizontal y el imán se alinea con él."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q031": {
+    "idea": "$U=-\\vec\\mu\\cdot\\vec B$: el mínimo, $-\\mu B$, es con los dos paralelos.",
+    "pasos": ["Es el equilibrio estable, como la brújula apuntando al norte."],
+    "porque_fallan": {
+      "B": "Antiparalelo es el **máximo**: equilibrio inestable.",
+      "C": "Perpendicular da $U=0$, un valor intermedio.",
+      "D": "La energía sí depende de la orientación."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q032": {
+    "idea": "El magnetismo de la materia viene de los momentos dipolares de los **electrones**: orbital y de espín.",
+    "pasos": ["El momento va como $1/m$, y el electrón es casi dos mil veces más ligero que el protón."],
+    "porque_fallan": {
+      "D": "El espín del protón contribuye, pero mil veces menos.",
+      "A": "No existen partículas con un solo polo.",
+      "C": "Los movimientos nucleares son despreciables aquí."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q033": {
+    "idea": "La magnetización es densidad: momento dipolar **por unidad de volumen**.",
+    "pasos": ["$\\vec M=\\dfrac{\\sum\\vec\\mu}{V}$."],
+    "porque_fallan": {
+      "C": "Sin dividir por el volumen sería el momento total del objeto.",
+      "A": "La densidad de corriente es otra magnitud.",
+      "E": "El campo por unidad de volumen no es ninguna cantidad del formalismo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q034": {
+    "idea": "Momento dipolar (A·m²) dividido por volumen (m³).",
+    "pasos": ["$[M]=\\dfrac{\\text{A}\\cdot\\text{m}^2}{\\text{m}^3}=\\dfrac{\\text{A}}{\\text{m}}$."],
+    "porque_fallan": {
+      "C": "Es el momento dipolar sin dividir.",
+      "B": "Le sobra un metro.",
+      "E": "Le sobra otro más en el denominador."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q035": {
+    "idea": "El electrón es negativo: su momento magnético apunta **contra** su momento angular, y es proporcional a él.",
+    "pasos": ["$\\vec\\mu=-\\dfrac{e}{2m}\\vec L$: lineal en $L$ y de signo opuesto."],
+    "porque_fallan": {
+      "A": "Sería así para una carga positiva.",
+      "D": "La dependencia es lineal, no cuadrática.",
+      "E": "Precisamente depende de $\\vec L$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q036": {
+    "idea": "La razón giromagnética orbital es $e/2m$.",
+    "pasos": ["$\\mu=\\dfrac{eL}{2m}$.", "El 2 es lo que distingue el momento orbital del de espín, donde no está."],
+    "porque_fallan": {
+      "A": "Olvida el 2: esa es la razón del espín.",
+      "C": "Un factor cuatro de más.",
+      "D": "Invierte la masa y la carga."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q037": {
+    "idea": "Corriente es carga por vuelta dividida entre el periodo.",
+    "pasos": ["$T=\\dfrac{2\\pi r}{v}$.", "$i=\\dfrac{e}{T}=\\dfrac{ev}{2\\pi r}$."],
+    "porque_fallan": {
+      "B": "Olvida el $2\\pi$ del perímetro.",
+      "D": "Multiplica por el periodo en vez de dividir.",
+      "A": "No tiene unidades de corriente."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q038": {
+    "idea": "$\\mu\\propto q/m$: con carga parecida y masa 1836 veces mayor, el momento cae en esa proporción.",
+    "pasos": ["El magnetón nuclear es unas 1800 veces menor que el de Bohr."],
+    "porque_fallan": {
+      "B": "Los espines son del mismo orden, $\\hbar/2$.",
+      "D": "El protón tiene la misma magnitud de carga que el electrón.",
+      "E": "El tamaño no entra en el momento de espín."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q039": {
+    "idea": "El momento de espín del electrón es **opuesto** a su espín, no nulo, y no depende de nada externo.",
+    "pasos": ["Carga negativa: $\\vec\\mu_s$ apunta contra $\\vec S$.", "Su magnitud es fija, del orden de un magnetón de Bohr."],
+    "porque_fallan": {
+      "A": "Va en sentido contrario, por el signo de la carga.",
+      "D": "El campo aplicado orienta el momento, no cambia su magnitud.",
+      "C": "El momento de espín es independiente del orbital."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q040": {
+    "idea": "Sin momento orbital queda el de espín, que vale aproximadamente un magnetón de Bohr.",
+    "pasos": ["$\\mu_s\\approx\\mu_B=9{,}27\\times10^{-24}$ J/T.", "El factor $g\\approx2$ compensa el $1/2$ del espín."],
+    "porque_fallan": {
+      "A": "El espín siempre está ahí: el momento no se anula.",
+      "B": "El medio se cancela con el factor $g$.",
+      "D": "Doble sería con $g=4$."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q041": {
+    "idea": "El magnetón de Bohr es precisamente la escala natural: los momentos atómicos son unos pocos.",
+    "pasos": ["Por construcción, $\\mu_B=\\dfrac{e\\hbar}{2m}$ es el momento de un electrón con $L=\\hbar$."],
+    "porque_fallan": {
+      "A": "Mucho menor sería el caso nuclear.",
+      "C": "Mucho mayor no ocurre en átomos aislados.",
+      "E": "Justamente es la unidad en que se miden."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q042": {
+    "idea": "$\\mu_B=9{,}27\\times10^{-24}$ J/T, o sea del orden de $10^{-23}$.",
+    "pasos": ["$\\mu_B=\\dfrac{e\\hbar}{2m_e}=\\dfrac{(1{,}6\\times10^{-19})(1{,}05\\times10^{-34})}{2(9{,}1\\times10^{-31})}$."],
+    "porque_fallan": {
+      "D": "Ese es el orden del magnetón **nuclear**.",
+      "B": "Es el orden de la carga del electrón.",
+      "E": "El de la masa del electrón."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q043": {
+    "idea": "La teoría molecular explica cómo se ordenan los dipolos, no por qué se atraen: eso ya está en la interacción dipolar.",
+    "pasos": ["Estropear el orden (calor, golpes) desmagnetiza; ordenarlo (frotar con un imán) magnetiza.", "Partir el imán deja dominios con dos polos cada uno."],
+    "porque_fallan": {
+      "B": "Es justo lo que explica: alineación de dominios.",
+      "D": "La agitación térmica los desordena.",
+      "C": "Cada trozo conserva sus dipolos."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q044": {
+    "idea": "El diamagnetismo es inducción: el campo aplicado induce momentos que se le oponen, que es Lenz.",
+    "pasos": ["Todo material lo tiene, aunque quede tapado por para o ferromagnetismo.", "Para y ferromagnetismo vienen de momentos **permanentes**, no inducidos."],
+    "porque_fallan": {
+      "A": "El paramagnetismo es alineación de momentos que ya existen.",
+      "C": "El ferromagnetismo es interacción de intercambio, mecanocuántica.",
+      "E": "Lenz solo cubre el inducido."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q046": {
+    "idea": "Paramagnetismo: momentos permanentes que el campo tiende a alinear **a favor**, contra la agitación térmica.",
+    "pasos": ["Sin campo, el desorden térmico los promedia a cero.", "Con campo, un ligero exceso se alinea a favor."],
+    "porque_fallan": {
+      "B": "Alinearse en contra es diamagnetismo.",
+      "C": "La interacción de intercambio es ferromagnetismo.",
+      "D": "La interacción entre dipolos es demasiado débil para explicarlo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q048": {
+    "idea": "Ley de Curie: $M\\propto B/T$. Más calor, más desorden, menos magnetización.",
+    "pasos": ["La agitación térmica compite con el alineamiento.", "$M=CB/T$: inversamente proporcional a la temperatura absoluta."],
+    "porque_fallan": {
+      "A": "Va al revés: subir $T$ desordena.",
+      "C": "Sí depende de la temperatura.",
+      "E": "La dependencia es $1/T$, no $1/T^2$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q049": {
+    "idea": "Paramagnético: los dipolos refuerzan el campo, pero muy poco.",
+    "pasos": ["Mismo sentido que $B_0$, y con $\\chi\\sim10^{-5}$: la contribución es diminuta."],
+    "porque_fallan": {
+      "B": "El sentido opuesto es diamagnetismo.",
+      "C": "Superar a $B_0$ correspondería a un ferromagnético.",
+      "E": "Sí hay contribución, aunque sea pequeña."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q050": {
+    "idea": "Es desmagnetización adiabática: al quitar el campo el sistema se **enfría**, no se calienta.",
+    "pasos": [
+      "Los dipolos se desordenan y esa energía sale de la agitación térmica.",
+      "La magnetización cae mucho, no poco, y no cambia de signo.",
+      "Ninguna de las cuatro lo describe."
+    ],
+    "porque_fallan": {
+      "B": "La temperatura baja: es la técnica para alcanzar milikelvin.",
+      "C": "Sin campo la magnetización se desploma.",
+      "D": "No hay nada que invierta el sentido."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q051": {
+    "idea": "Diamagnético: los momentos inducidos se **oponen** al campo aplicado, por Lenz.",
+    "pasos": ["Sentido contrario a $B_0$ y magnitud pequeñísima, $\\chi\\sim-10^{-5}$."],
+    "porque_fallan": {
+      "D": "El mismo sentido es paramagnetismo.",
+      "A": "Superar a $B_0$ en contra solo lo haría un superconductor, que es un caso extremo.",
+      "E": "Sí hay contribución, aunque mínima."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q052": {
+    "idea": "Ferromagnetismo: los dipolos se alinean **entre sí**, aunque no haya campo externo.",
+    "pasos": ["La interacción de intercambio es cuántica y mucho más fuerte que la dipolar.", "Por eso hay dominios espontáneamente magnetizados."],
+    "porque_fallan": {
+      "A": "Alinearse con el campo externo es paramagnetismo.",
+      "E": "La fuerza dipolo-dipolo es demasiado débil para mantener el orden a temperatura ambiente.",
+      "B": "Contra el campo es diamagnetismo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q053": {
+    "idea": "Solo los ferromagnéticos conservan magnetización sin campo aplicado.",
+    "pasos": ["Para y diamagnéticos pierden la suya en cuanto se retira el campo."],
+    "porque_fallan": {
+      "D": "Los paramagnéticos no retienen nada.",
+      "C": "Menos aún.",
+      "A": "Los diamagnéticos se oponen al campo y no retienen."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q054": {
+    "idea": "Por encima de la temperatura de Curie la agitación rompe el orden de los dominios.",
+    "pasos": ["El material pasa de ferromagnético a paramagnético y pierde la magnetización permanente."],
+    "porque_fallan": {
+      "D": "El calor desordena: nunca aumenta la magnetización.",
+      "E": "No hay nada que invierta la polaridad.",
+      "A": "El efecto es drástico y bien conocido."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q055": {
+    "idea": "Los dominios vecinos apuntan en direcciones **distintas**: por eso un hierro sin magnetizar no atrae.",
+    "pasos": ["Si apuntaran todos igual, el trozo entero sería un imán.", "No tienen por qué ser exactamente opuestos: distintas basta."],
+    "porque_fallan": {
+      "A": "Opuestas es un caso particular de distintas.",
+      "B": "Si fueran iguales no habría fronteras de dominio.",
+      "D": "Iguales anularía la propia definición de dominio vecino."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q056": {
+    "idea": "Las paredes de dominio se mueven con esfuerzo y no vuelven: eso es la histéresis.",
+    "pasos": ["El estado magnético depende de la **historia**, no solo del campo actual.", "De ahí el ciclo y la magnetización remanente."],
+    "porque_fallan": {
+      "B": "Los dominios son la causa del ferromagnetismo; la histéresis es lo que su **comportamiento en campo** produce.",
+      "C": "La ley de Curie describe paramagnéticos.",
+      "E": "Gauss para el magnetismo vale para todo material."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q057": {
+    "idea": "Al quitar el campo, los dominios no vuelven a su desorden original: queda magnetización remanente.",
+    "pasos": ["Es lo que hace posible un imán permanente."],
+    "porque_fallan": {
+      "C": "Con un campo inverso suficiente —el coercitivo— sí se anula.",
+      "D": "La relación con el campo aplicado no es lineal: satura.",
+      "A": "Se magnetiza precisamente en la dirección del campo aplicado."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q059": {
+    "idea": "Al principio los dominios se alinean deprisa; después ya no queda nada que alinear: satura.",
+    "pasos": ["Crecimiento rápido al inicio, luego cada vez menos por cada amperio añadido.", "Al final la magnetización apenas cambia."],
+    "porque_fallan": {
+      "A": "La proporcionalidad se rompe en cuanto empieza la saturación.",
+      "E": "No crece más rápido: crece más despacio.",
+      "D": "El acero sí responde al campo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q060": {
+    "idea": "El momento dipolar terrestre es de unos $8\\times10^{22}$ J/T.",
+    "pasos": ["Del orden de $10^{23}$."],
+    "porque_fallan": {
+      "C": "Dos órdenes por debajo.",
+      "E": "Dos por encima.",
+      "A": "Seis por debajo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q061": {
+    "idea": "Cerca del ecuador magnético el campo es casi horizontal; hacia los polos se inclina y la componente horizontal cae.",
+    "pasos": ["De los lugares de la lista, Florida es el más al sur.", "Allí la inclinación es menor y la componente horizontal, mayor."],
+    "porque_fallan": {
+      "A": "Maine es el más al norte: allí el campo está más inclinado.",
+      "D": "Nueva York también queda al norte de Florida.",
+      "E": "Iowa igual."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q062": {
+    "idea": "Ion positivo cayendo hacia el centro, con el campo hacia el norte: producto vectorial directo.",
+    "pasos": [
+      "$\\vec v$ hacia abajo, $\\vec B$ hacia el norte.",
+      "$\\vec v\\times\\vec B$ apunta al este.",
+      "Carga positiva: la fuerza va al este."
+    ],
+    "porque_fallan": {
+      "C": "Oeste es el resultado para una carga negativa.",
+      "B": "Norte es la dirección del campo: la fuerza es perpendicular a él.",
+      "E": "Una carga en movimiento sí siente fuerza magnética."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q063": {
+    "idea": "La corriente de desplazamiento: un flujo eléctrico variable hace de corriente en la ley de Ampère.",
+    "pasos": [
+      "Sin ese término, Ampère se contradice en un condensador cargándose.",
+      "Con él, las ecuaciones predicen ondas electromagnéticas a la velocidad de la luz."
+    ],
+    "porque_fallan": {
+      "C": "Que $c$ salga de $\\mu_0$ y $\\varepsilon_0$ es la **consecuencia**, no la hipótesis.",
+      "D": "La fuerza de Lorentz es anterior y no es suya.",
+      "E": "Las corrientes circulantes en la materia son de Ampère."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q064": {
+    "idea": "$i_d=\\varepsilon_0\\dfrac{d\\Phi_E}{dt}$: lleva $\\varepsilon_0$, no $\\mu_0$.",
+    "pasos": ["En la ley aparece como $\\mu_0 i_d=\\mu_0\\varepsilon_0\\dfrac{d\\Phi_E}{dt}$.", "La corriente en sí es solo la parte con $\\varepsilon_0$."],
+    "porque_fallan": {
+      "D": "Ese es el producto que multiplica al flujo dentro de la ley completa.",
+      "C": "Cambia $\\varepsilon_0$ por $\\mu_0$.",
+      "A": "Sin $\\varepsilon_0$ no tiene unidades de corriente."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q065": {
+    "idea": "La corriente de desplazamiento existe donde el campo eléctrico **cambia**.",
+    "pasos": ["$i_d\\propto d\\Phi_E/dt$: si el campo es estático, es cero."],
+    "porque_fallan": {
+      "D": "Un campo eléctrico constante no da corriente de desplazamiento.",
+      "B": "La carga en movimiento es corriente de conducción, la otra.",
+      "C": "Un campo magnético variable induce campo eléctrico, que es Faraday."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q066": {
+    "idea": "Cargándose o descargándose, el campo entre placas cambia: hay corriente de desplazamiento.",
+    "pasos": ["$i_d$ entre las placas iguala a la corriente de conducción en los cables."],
+    "porque_fallan": {
+      "C": "Completamente cargado, el campo es constante: no hay corriente de desplazamiento.",
+      "D": "Descargado del todo tampoco.",
+      "A": "Si fugara carga habría corriente de **conducción**, que es otra cosa."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q069": {
+    "idea": "$i_d=\\varepsilon_0 A\\dfrac{dE}{dt}$, despejando la tasa.",
+    "pasos": [
+      "$A=\\pi(1{,}2)^2=4{,}52$ m².",
+      "$\\dfrac{dE}{dt}=\\dfrac{2{,}0\\times10^{-9}}{(8{,}85\\times10^{-12})(4{,}52)}$.",
+      "$=50$ V/m·s."
+    ],
+    "porque_fallan": {
+      "E": "Olvida el área.",
+      "B": "Usa el radio sin elevar al cuadrado.",
+      "A": "Un factor diez por debajo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q070": {
+    "idea": "La corriente de desplazamiento se reparte uniformemente por el área de las placas.",
+    "pasos": ["Media placa encierra media corriente.", "$i_d=1\\times\\dfrac{0{,}3}{0{,}6}=0{,}5$ A."],
+    "porque_fallan": {
+      "A": "Es la corriente total, que atraviesa la placa entera.",
+      "B": "Dobla en vez de repartir.",
+      "E": "Usa un cuarto del área."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q071": {
+    "idea": "La corriente de desplazamiento entre placas es igual a la de conducción: $i=C\\,dV/dt$.",
+    "pasos": ["$i_d=(1\\times10^{-6})(100)=1\\times10^{-4}$ A."],
+    "porque_fallan": {
+      "C": "Olvida la tasa de 100 V/s.",
+      "B": "Dos órdenes por debajo.",
+      "A": "El voltaje está cambiando: hay corriente."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q072": {
+    "idea": "Solo hay campo magnético entre las placas mientras el campo eléctrico cambia.",
+    "pasos": ["Cargándose (o descargándose) hay $d\\Phi_E/dt$ y por tanto $\\vec B$.", "Ya cargado, el campo eléctrico es constante y $\\vec B$ se anula."],
+    "porque_fallan": {
+      "C": "Cargado del todo no hay cambio y no hay campo magnético.",
+      "A": "No siempre: hace falta que cambie.",
+      "E": "No solo al empezar: durante toda la carga."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q073": {
+    "idea": "Campo alejándose de ti y **disminuyendo**: el cambio apunta hacia ti, y $\\vec B$ lo rodea por la mano derecha.",
+    "pasos": [
+      "$d\\vec E/dt$ apunta hacia ti, así que la corriente de desplazamiento también.",
+      "Mano derecha con el pulgar hacia ti: los dedos giran en sentido **antihorario**."
+    ],
+    "porque_fallan": {
+      "C": "Horario correspondería a un campo alejándose y **creciendo**.",
+      "A": "$\\vec B$ es perpendicular a $\\vec E$: no puede apuntar hacia ti.",
+      "B": "Lo mismo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q074": {
+    "idea": "Por simetría cilíndrica, las líneas de $\\vec B$ son circunferencias alrededor del eje.",
+    "pasos": ["Igual que alrededor de un hilo con corriente: la corriente de desplazamiento hace el mismo papel."],
+    "porque_fallan": {
+      "C": "Paralelas a $\\vec E$ violarían que $\\vec B\\perp\\vec E$ aquí.",
+      "D": "Rectas perpendiculares no cierran las líneas, y deben cerrarse.",
+      "B": "La simetría es circular, no elíptica."
+    },
+    "confirma": "A"
+  },
+  "hrw-c32-q075": {
+    "idea": "Dentro, el flujo encerrado crece como $r^2$ y el perímetro como $r$: queda $B\\propto r$.",
+    "pasos": ["$B(2\\pi r)=\\mu_0\\varepsilon_0\\pi r^2\\dfrac{dE}{dt}\\Rightarrow B=\\dfrac{\\mu_0\\varepsilon_0 r}{2}\\dfrac{dE}{dt}$.", "Es exactamente el mismo cálculo que el campo eléctrico inducido dentro de un solenoide."],
+    "porque_fallan": {
+      "B": "$1/r$ es la dependencia **fuera**.",
+      "A": "Uniforme sería si el flujo no creciera con el área.",
+      "C": "$r^2$ es el flujo, no el campo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c32-q076": {
+    "idea": "Fuera, el flujo ya no crece: queda fijo en $\\pi R^2$ y solo el perímetro cambia.",
+    "pasos": ["$B(2\\pi r)=\\mu_0\\varepsilon_0\\pi R^2\\dfrac{dE}{dt}\\Rightarrow B\\propto\\dfrac1r$."],
+    "porque_fallan": {
+      "E": "$r$ es la dependencia dentro.",
+      "A": "Fuera el campo no se anula: el flujo encerrado sigue cambiando.",
+      "D": "$1/r^2$ no sale de esta geometría."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q077": {
+    "idea": "Punto interior: $B=\\dfrac{\\mu_0\\varepsilon_0 r}{2}\\dfrac{dE}{dt}$, con $\\mu_0\\varepsilon_0=1/c^2$.",
+    "pasos": [
+      "$\\mu_0\\varepsilon_0=1{,}11\\times10^{-17}$.",
+      "$B=(1{,}11\\times10^{-17})\\dfrac{0{,}25}{2}(5{,}0\\times10^{12})$.",
+      "$B=7{,}0\\times10^{-6}$ T."
+    ],
+    "porque_fallan": {
+      "E": "Un orden de magnitud: revisa el factor $1/2$ o el radio.",
+      "C": "Usa el radio del cilindro en vez del punto.",
+      "A": "Dentro sí hay campo: el flujo encerrado cambia."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q078": {
+    "idea": "Punto exterior: $B=\\dfrac{\\mu_0\\varepsilon_0 R^2}{2r}\\dfrac{dE}{dt}$.",
+    "pasos": [
+      "$\\dfrac{R^2}{2r}=\\dfrac{0{,}49}{2{,}4}=0{,}204$.",
+      "$B=(1{,}11\\times10^{-17})(0{,}204)(5{,}0\\times10^{12})=1{,}1\\times10^{-5}$ T."
+    ],
+    "porque_fallan": {
+      "B": "Usa la fórmula de dentro.",
+      "E": "Un factor por encima.",
+      "A": "Fuera el campo no se anula."
+    },
+    "confirma": "C"
+  },
+  "hrw-c32-q079": {
+    "idea": "El papel sobresale por todos lados, así que su borde encierra **toda** la corriente de desplazamiento.",
+    "pasos": [
+      "$\\oint\\vec B\\cdot d\\vec s=\\mu_0(i_{enc}+i_d)=\\mu_0(1\\ \\text{A})$.",
+      "$=4\\pi\\times10^{-7}$ T·m. El tamaño del papel no importa."
+    ],
+    "porque_fallan": {
+      "D": "Usa $\\mu_0/4\\pi$ en vez de $\\mu_0$.",
+      "C": "Usa $\\varepsilon_0$, que no aparece aquí.",
+      "E": "Con la corriente basta: la geometría no entra."
+    },
+    "confirma": "B"
+  },
+  "hrw-c32-q080": {
+    "idea": "$i_d=C\\,dV/dt$, y con voltaje sinusoidal la derivada trae un factor $\\omega$.",
+    "pasos": ["$V=V_0\\sin\\omega t\\Rightarrow i_d=CV_0\\omega\\cos\\omega t$.", "$B\\propto i_d\\propto\\omega$: la amplitud crece con la frecuencia."],
+    "porque_fallan": {
+      "C": "La derivada del seno introduce $\\omega$: la amplitud sí depende de la frecuencia.",
+      "E": "Va en proporción directa, no inversa.",
+      "A": "Hay campo eléctrico variable, luego hay campo magnético."
+    },
+    "confirma": "D"
+  },
+  "hrw-c32-q081": {
+    "idea": "El electrón todavía no ha cruzado el plano: no hay carga atravesándolo, pero su campo sí está cambiando allí.",
+    "pasos": [
+      "Corriente verdadera a través del plano: cero, porque ninguna carga lo cruza.",
+      "El flujo eléctrico a través del plano crece al acercarse el electrón: corriente de desplazamiento no nula."
+    ],
+    "porque_fallan": {
+      "A": "La corriente verdadera exige carga cruzando la superficie.",
+      "C": "Solo hay una de las dos.",
+      "D": "El flujo eléctrico sí está cambiando."
+    },
+    "confirma": "B"
+  }
+}
