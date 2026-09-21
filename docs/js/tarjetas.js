@@ -396,19 +396,28 @@ function tarjetaMC(t, alResponder) {
         <span class="rotulo">¿Qué hay que recordar de esta?</span>
         <form class="fila-expresion">
           <input type="text" maxlength="280" autocomplete="off"
-                 placeholder="a = g\\senθ/(1 + I/MR^2)"
+                 placeholder="$\\lambda=\\frac{h}{mv}$"
                  value="${escapar(previa?.texto || '')}">
           <button type="submit">Guardar</button>
         </form>
+        <div class="vista-previa"></div>
         <span class="pie">Va a la Hoja, en ${escapar(nombreArea(t.area))}.
           Escribe <code>\\beta</code> para β, y encierra en <code>$…$</code> lo que
           lleve fracciones o integrales.</span>
       </div>`);
     nodo.append(caja);
 
+    // Vista previa en vivo: se ve si la fórmula compila antes de guardarla.
+    const entrada = caja.querySelector('input');
+    const vistaPrevia = caja.querySelector('.vista-previa');
+    entrada.addEventListener('input', () => {
+      vistaPrevia.innerHTML = entrada.value.trim()
+        ? renderMixto(entrada.value, mate) : '';
+    });
+
     caja.querySelector('form').addEventListener('submit', ev => {
       ev.preventDefault();
-      const texto = caja.querySelector('input').value;
+      const texto = entrada.value;
       almacen.anotarExpresion(t.id, texto, { codigo: t.codigo, area: t.area });
       caja.innerHTML = texto.trim()
         ? `<span class="rotulo">Guardado en la Hoja</span>

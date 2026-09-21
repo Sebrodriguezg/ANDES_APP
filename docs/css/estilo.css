@@ -826,6 +826,46 @@ ul.lista li::marker { color: var(--texto-tenue); }
   letter-spacing: .1em; color: var(--texto-tenue);
 }
 .hoja-mia .cuerpo { font-size: .86rem; color: var(--texto); line-height: 1.5; }
+.hoja-mia header .editar {
+  margin-left: auto; padding: 2px 7px;
+  background: none; border: 1px solid var(--borde); border-radius: 4px;
+  color: var(--texto-tenue);
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .1em;
+  text-transform: uppercase; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.hoja-mia header .editar:hover { border-color: var(--acento); color: var(--texto); }
+
+/* Editor de una nota, con vista previa en vivo: así se ve si la fórmula
+   compila antes de guardarla. */
+.editor-nota textarea {
+  width: 100%; box-sizing: border-box;
+  padding: 9px 11px;
+  background: var(--tarjeta-alta);
+  border: 1px solid var(--borde); border-radius: var(--radio);
+  color: var(--texto); font-size: .82rem; line-height: 1.45;
+  resize: vertical;
+}
+.editor-nota textarea:focus { outline: none; border-color: var(--acento); }
+.vista-previa {
+  margin-top: 8px; padding: 8px 11px;
+  background: color-mix(in srgb, var(--acento) 7%, transparent);
+  border-left: 2px solid var(--acento); border-radius: 4px;
+  font-size: .86rem; line-height: 1.5; color: var(--texto);
+  overflow-x: auto;
+}
+.vista-previa:empty { display: none; }
+.vista-previa .vacia { color: var(--texto-tenue); font-size: .76rem; }
+.acciones-nota { display: flex; gap: 7px; margin-top: 9px; }
+.acciones-nota button {
+  padding: 7px 12px;
+  background: var(--tarjeta-alta);
+  border: 1px solid var(--borde); border-radius: var(--radio);
+  color: var(--texto-suave); font-size: .76rem; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.acciones-nota button:hover { border-color: var(--acento); color: var(--texto); }
+.acciones-nota .borrar { margin-left: auto; }
 
 .opcion.elegida { border-left-color: var(--acento); }
 

@@ -59,13 +59,66 @@ function fichaExpresion(e) {
   const fecha = new Date(e.ts).toLocaleDateString('es-CO',
     { day: 'numeric', month: 'short' });
   return `
-    <article class="hoja-mia">
+    <article class="hoja-mia" data-id="${escapar(e.id)}">
       <header>
         <span class="codigo">${escapar(e.codigo || '—')}</span>
         <span class="cuando">${escapar(fecha)}</span>
+        <button type="button" class="editar" data-editar>editar</button>
       </header>
       <div class="cuerpo">${renderMixto(e.texto, mate)}</div>
     </article>`;
+}
+
+/* Editar una nota desde la propia Hoja.
+
+   Antes solo se podía escribir en el momento de fallar la tarjeta, y para
+   corregir una errata había que esperar a que la pregunta volviera a salir.
+   Con la vista previa en vivo además se ve el error de sintaxis antes de
+   guardar: escribir `frac{h}{mv}` sin la barra invertida compila como texto
+   y no como fracción, y así se nota de inmediato. */
+function abrirEdicion(ficha) {
+  if (ficha.querySelector('.editor-nota')) return;
+  const id = ficha.dataset.id;
+  const previa = almacen.expresionDe(id);
+  const cuerpo = ficha.querySelector('.cuerpo');
+  const original = cuerpo.innerHTML;
+
+  cuerpo.innerHTML = `
+    <div class="editor-nota">
+      <textarea rows="3" maxlength="280">${escapar(previa?.texto || '')}</textarea>
+      <div class="vista-previa"></div>
+      <div class="acciones-nota">
+        <button type="button" data-guardar>Guardar</button>
+        <button type="button" data-cancelar>Cancelar</button>
+        <button type="button" class="borrar" data-borrar>Borrar</button>
+      </div>
+    </div>`;
+
+  const caja = cuerpo.querySelector('textarea');
+  const previsualiza = () => {
+    cuerpo.querySelector('.vista-previa').innerHTML =
+      caja.value.trim() ? renderMixto(caja.value, mate)
+                        : '<span class="vacia">la vista previa aparece aquí</span>';
+  };
+  caja.addEventListener('input', previsualiza);
+  previsualiza();
+  caja.focus();
+
+  cuerpo.querySelector('[data-cancelar]')
+    .addEventListener('click', () => { cuerpo.innerHTML = original; });
+
+  cuerpo.querySelector('[data-guardar]').addEventListener('click', () => {
+    const texto = caja.value.trim();
+    if (!texto) return;
+    almacen.anotarExpresion(id, texto,
+      { codigo: previa?.codigo, area: previa?.area });
+    cuerpo.innerHTML = renderMixto(texto, mate);
+  });
+
+  cuerpo.querySelector('[data-borrar]').addEventListener('click', () => {
+    almacen.anotarExpresion(id, '');
+    ficha.remove();
+  });
 }
 
 function fichaPatron(t) {
@@ -315,6 +368,11 @@ export async function pintar() {
 
   // El índice no puede navegar por href: la app enruta con el hash, así que un
   // "#hoja-patrones" dispararía hashchange y saltaría a la vista Hoy.
+  caja.addEventListener('click', ev => {
+    const boton = ev.target.closest('[data-editar]');
+    if (boton) abrirEdicion(boton.closest('.hoja-mia'));
+  });
+
   const enlaces = [...caja.querySelectorAll('.hoja-indice button')];
   for (const b of enlaces) {
     b.addEventListener('click', () => {
