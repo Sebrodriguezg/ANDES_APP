@@ -14,6 +14,7 @@ echo
 echo "── Estado de la app ──"
 node 07_APP/pruebas/test_almacen.mjs || fallos=1
 node 07_APP/pruebas/test_feed.mjs || fallos=1
+node 07_APP/pruebas/test_formula.mjs || fallos=1
 
 echo
 echo "── Sintaxis del navegador ──"

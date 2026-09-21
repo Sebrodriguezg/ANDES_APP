@@ -16,7 +16,7 @@
 
 import * as datos from './datos.js';
 import * as almacen from './almacen.js';
-import { renderFormula } from './formula.js';
+import { renderFormula, renderMixto } from './formula.js';
 import { escapar, mate } from './mate.js';
 
 const $ = id => document.getElementById(id);
@@ -64,7 +64,7 @@ function fichaExpresion(e) {
         <span class="codigo">${escapar(e.codigo || '—')}</span>
         <span class="cuando">${escapar(fecha)}</span>
       </header>
-      <div class="cuerpo">${mate(escapar(e.texto))}</div>
+      <div class="cuerpo">${renderMixto(e.texto, mate)}</div>
     </article>`;
 }
 

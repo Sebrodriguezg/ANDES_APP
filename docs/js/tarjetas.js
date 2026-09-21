@@ -1,7 +1,7 @@
 /* Construcción del DOM de cada tipo de tarjeta del feed. */
 
 import { mate, escapar } from './mate.js';
-import { renderFormula, renderEnLinea } from './formula.js';
+import { renderFormula, renderEnLinea, renderMixto } from './formula.js';
 import { nombreArea } from './datos.js';
 import * as almacen from './almacen.js';
 
@@ -396,11 +396,13 @@ function tarjetaMC(t, alResponder) {
         <span class="rotulo">¿Qué hay que recordar de esta?</span>
         <form class="fila-expresion">
           <input type="text" maxlength="280" autocomplete="off"
-                 placeholder="la expresión, la trampa, el caso límite…"
+                 placeholder="a = g\\senθ/(1 + I/MR^2)"
                  value="${escapar(previa?.texto || '')}">
           <button type="submit">Guardar</button>
         </form>
-        <span class="pie">Va a la Hoja, en ${escapar(nombreArea(t.area))}.</span>
+        <span class="pie">Va a la Hoja, en ${escapar(nombreArea(t.area))}.
+          Escribe <code>\\beta</code> para β, y encierra en <code>$…$</code> lo que
+          lleve fracciones o integrales.</span>
       </div>`);
     nodo.append(caja);
 
@@ -410,7 +412,7 @@ function tarjetaMC(t, alResponder) {
       almacen.anotarExpresion(t.id, texto, { codigo: t.codigo, area: t.area });
       caja.innerHTML = texto.trim()
         ? `<span class="rotulo">Guardado en la Hoja</span>
-           <span class="pie">${mate(escapar(texto.trim()))}</span>`
+           <span class="pie">${renderMixto(texto.trim(), mate)}</span>`
         : '<span class="rotulo">Sin anotar</span>';
       caja.classList.add('resuelta');
     });

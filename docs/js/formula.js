@@ -40,6 +40,29 @@ export function renderEnLinea(latex) {
   }
 }
 
+/* Prosa con matemáticas intercaladas.
+
+   Las notas que Sebastián escribe en la Hoja son frases con fórmulas dentro:
+   «el orden no depende de M ni de R, $a = g\\sen\\theta/(1+I/MR^2)$». Sin esto
+   las notas eran inservibles —su palabra— porque salía el LaTeX crudo.
+
+   Dos niveles, a propósito:
+   - Lo que va entre signos de dólar pasa por KaTeX: fracciones, integrales,
+     raíces, todo.
+   - Lo de fuera pasa por `mate`, que ya convierte \beta en β y x^2 en
+     exponente. Así escribir una letra griega suelta no obliga a abrir dólares.
+
+   `texto` llega sin escapar: `mate` escapa, y KaTeX genera su propio HTML. */
+export function renderMixto(texto, mate) {
+  const partes = String(texto ?? '').split(/(\$[^$]*\$)/g);
+  return partes.map(parte => {
+    if (parte.length > 1 && parte.startsWith('$') && parte.endsWith('$')) {
+      return renderEnLinea(parte.slice(1, -1));
+    }
+    return mate(parte);
+  }).join('');
+}
+
 /** Bloque de fórmula de una tarjeta.
  *
  *  El contenido autoral trae `formula` como lista de renglones. Cada renglón es
