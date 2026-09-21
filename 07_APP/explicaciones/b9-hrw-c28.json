@@ -1,0 +1,464 @@
+{
+  "hrw-c28-q001": {
+    "idea": "De $F=qvB$ se despejan las unidades del tesla.",
+    "pasos": [
+      "$B=\\dfrac{F}{qv}=\\dfrac{\\text{N}}{\\text{C}\\cdot\\text{m/s}}$.",
+      "$=\\dfrac{\\text{kg}\\cdot\\text{m/s}^2\\cdot\\text{s}}{\\text{C}\\cdot\\text{m}}=\\dfrac{\\text{kg}}{\\text{C}\\cdot\\text{s}}$."
+    ],
+    "porque_fallan": {
+      "A": "Sería carga por velocidad, no campo.",
+      "C": "Le falta el tiempo.",
+      "E": "N/(C·m) no sale de despejar $B$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c28-q002": {
+    "idea": "Un producto vectorial es perpendicular a **los dos** factores, siempre.",
+    "pasos": [
+      "$\\vec F=q\\vec v\\times\\vec B$ es perpendicular a $\\vec v$ y a $\\vec B$.",
+      "Pero $\\vec v$ y $\\vec B$ pueden formar cualquier ángulo entre sí."
+    ],
+    "porque_fallan": {
+      "A": "También es perpendicular a $\\vec B$.",
+      "C": "Si $\\vec v\\parallel\\vec B$ la fuerza es cero, pero la fórmula sigue valiendo.",
+      "D": "$\\vec v$ y $\\vec B$ no tienen por qué ser perpendiculares entre sí."
+    },
+    "confirma": "E"
+  },
+  "hrw-c28-q004": {
+    "idea": "Las líneas de $\\vec B$ no coinciden con ninguna de esas direcciones: la fuerza es perpendicular al campo, no paralela.",
+    "pasos": [
+      "$\\vec F=q\\vec v\\times\\vec B$ es siempre perpendicular a $\\vec B$.",
+      "Y la velocidad de una carga puede apuntar a cualquier lado."
+    ],
+    "porque_fallan": {
+      "A": "La fuerza es perpendicular al campo, nunca paralela.",
+      "B": "Lo mismo, con el signo cambiado.",
+      "C": "La velocidad es arbitraria: la fija quien lanza la carga."
+    },
+    "confirma": "E"
+  },
+  "hrw-c28-q005": {
+    "idea": "La fuerza magnética es perpendicular a $\\vec v$ por construcción: nunca puede ir en su dirección.",
+    "pasos": [
+      "$\\vec F\\perp\\vec v$ siempre.",
+      "Por eso la fuerza magnética no hace trabajo."
+    ],
+    "porque_fallan": {
+      "A": "Si $\\vec v\\parallel\\vec B$ la fuerza es cero, no paralela a $\\vec v$.",
+      "C": "Perpendicular al campo da fuerza máxima, pero perpendicular a $\\vec v$.",
+      "D": "Ninguna dirección lo consigue."
+    },
+    "confirma": "E"
+  },
+  "hrw-c28-q006": {
+    "idea": "$F=qvB\\sin\\theta$: hace falta una componente de velocidad perpendicular al campo.",
+    "pasos": [
+      "Cruzar las líneas significa $\\theta\\neq0$, y entonces $\\sin\\theta\\neq0$."
+    ],
+    "porque_fallan": {
+      "A": "En reposo o moviéndose a lo largo del campo la fuerza es cero.",
+      "D": "A lo largo de las líneas, $\\sin\\theta=0$.",
+      "E": "Sin velocidad no hay fuerza magnética."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q007": {
+    "idea": "El campo es la única dirección en la que una carga puede moverse **sin** sentir fuerza.",
+    "pasos": [
+      "$\\vec F=0$ cuando $\\vec v\\parallel\\vec B$.",
+      "Así que la velocidad que no produce fuerza marca el eje del campo, salvo el sentido."
+    ],
+    "porque_fallan": {
+      "B": "Fuerza máxima significa velocidad **perpendicular** al campo.",
+      "C": "La fuerza es perpendicular al campo, nunca paralela.",
+      "D": "Es al revés: la dirección sin fuerza es la del campo, no su perpendicular."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q008": {
+    "idea": "Norte y sur son direcciones opuestas: $\\vec v$ es antiparalela a $\\vec B$ y el producto vectorial se anula.",
+    "pasos": [
+      "$\\sin180^\\circ=0$, luego $F=0$.",
+      "Que la carga sea negativa da igual: cero por lo que sea es cero."
+    ],
+    "porque_fallan": {
+      "B": "Habría fuerza vertical si $\\vec v$ y $\\vec B$ fueran perpendiculares.",
+      "D": "El signo del electrón cambiaría el sentido, pero solo si hubiera fuerza.",
+      "C": "Lo mismo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q009": {
+    "idea": "La fuerza magnética es perpendicular a la velocidad, así que no hace trabajo: la rapidez no cambia.",
+    "pasos": [
+      "$dW=\\vec F\\cdot d\\vec l=0$ porque $\\vec F\\perp\\vec v$.",
+      "Sí cambia la **dirección** de $\\vec v$, y con ella el momento y la trayectoria."
+    ],
+    "porque_fallan": {
+      "B": "La velocidad es un vector: cambia de dirección aunque no de módulo.",
+      "C": "El momento también es vector y sí cambia.",
+      "E": "La trayectoria se curva: es lo que hace un ciclotrón."
+    },
+    "confirma": "D"
+  },
+  "hrw-c28-q010": {
+    "idea": "Misma fuerza y mismo campo: $qv$ tiene que coincidir.",
+    "pasos": [
+      "$e\\,v_p=2e\\,v_\\alpha\\Rightarrow\\dfrac{v_p}{v_\\alpha}=2$."
+    ],
+    "porque_fallan": {
+      "A": "Invierte la razón: la carga menor necesita ir **más** rápido.",
+      "B": "Solo coincidirían con cargas iguales.",
+      "D": "Eleva al cuadrado sin motivo; la masa no interviene en la fuerza."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q011": {
+    "idea": "Un átomo de hidrógeno sin electrón es un protón: carga positiva. Regla de la mano derecha directa.",
+    "pasos": [
+      "Este $=\\hat x$, norte $=\\hat y$, arriba $=\\hat z$.",
+      "$\\vec v\\times\\vec B=\\hat x\\times\\hat y=\\hat z$.",
+      "Carga positiva, así que la fuerza va hacia arriba."
+    ],
+    "porque_fallan": {
+      "B": "Es el resultado si te olvidas de que perdió el **electrón** y lo tomas como negativo.",
+      "C": "Norte es la dirección del campo: la fuerza es perpendicular a él.",
+      "E": "$\\vec v$ y $\\vec B$ son perpendiculares: la fuerza es máxima, no nula."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q012": {
+    "idea": "Electrones: carga negativa, así que el resultado del producto vectorial se invierte.",
+    "pasos": [
+      "Haz hacia el este $\\hat x$, campo hacia abajo $-\\hat z$.",
+      "$\\vec v\\times\\vec B=\\hat x\\times(-\\hat z)=+\\hat y=$ norte.",
+      "Carga negativa: la fuerza va al sur, que visto desde la fuente es **a la derecha**."
+    ],
+    "porque_fallan": {
+      "A": "La deflexión es horizontal: la fuerza es perpendicular al campo vertical.",
+      "D": "Es el resultado sin invertir por el signo del electrón.",
+      "E": "$\\vec v\\perp\\vec B$: la fuerza es máxima."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q013": {
+    "idea": "Producto vectorial componente a componente, y después el signo de la carga.",
+    "pasos": [
+      "$\\hat x\\times\\hat z=-\\hat y$, luego $\\vec v\\times\\vec B=(3\\times10^{5})(0{,}8)(-\\hat y)$.",
+      "$q$ negativa invierte: la fuerza queda en $+\\hat y$.",
+      "$|F|=(1{,}6\\times10^{-19})(2{,}4\\times10^{5})=3{,}8\\times10^{-14}\\approx4\\times10^{-14}$ N."
+    ],
+    "porque_fallan": {
+      "E": "El módulo bien y el sentido al revés: olvida invertir por la carga negativa.",
+      "B": "La fuerza no puede ir en la dirección de $\\vec B$.",
+      "A": "$\\vec v\\perp\\vec B$: hay fuerza, y máxima."
+    },
+    "confirma": "D"
+  },
+  "hrw-c28-q014": {
+    "idea": "Solo la componente de $\\vec v$ **perpendicular** a $\\vec B$ produce fuerza.",
+    "pasos": [
+      "$\\vec B\\parallel\\hat x$, así que $v_x$ no contribuye.",
+      "$|\\vec v\\times\\vec B|=v_yB=(3\\times10^{5})(0{,}8)=2{,}4\\times10^{5}$.",
+      "$|F|=(1{,}6\\times10^{-19})(2{,}4\\times10^{5})=3{,}8\\times10^{-14}$ N."
+    ],
+    "porque_fallan": {
+      "D": "Usa $v_x$, que es justo la componente que no cuenta.",
+      "E": "Usa el módulo completo de $\\vec v$, sin proyectar.",
+      "A": "$v_y\\neq0$: hay componente perpendicular."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q015": {
+    "idea": "El mismo cálculo que la anterior: manda la componente perpendicular al campo.",
+    "pasos": [
+      "$|F|=|q|v_yB=(1{,}6\\times10^{-19})(3\\times10^{5})(0{,}8)=3{,}8\\times10^{-14}$ N."
+    ],
+    "porque_fallan": {
+      "D": "Usa $v_x$, paralela al campo.",
+      "E": "Usa la rapidez total, $\\sqrt{v_x^2+v_y^2}$.",
+      "A": "Hay componente perpendicular y por tanto fuerza."
+    },
+    "confirma": "B"
+  },
+  "hrw-c28-q016": {
+    "idea": "Velocidad paralela al campo: $\\sin0=0$ y no hay fuerza magnética.",
+    "pasos": [
+      "Sigue recto y a velocidad constante."
+    ],
+    "porque_fallan": {
+      "B": "La fuerza magnética nunca cambia la rapidez, ni aunque existiera.",
+      "D": "La hélice aparece cuando hay componente perpendicular, y aquí no la hay.",
+      "E": "Lo mismo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q017": {
+    "idea": "Calcula la fuerza inicial y mira hacia dónde se curva; el signo del electrón es lo que decide el giro.",
+    "pasos": [
+      "$\\vec v\\times\\vec B=\\hat x\\times\\hat z=-\\hat y$.",
+      "Carga negativa: $\\vec F$ queda en $+\\hat y$.",
+      "Va en $+x$ y se curva hacia $+y$: visto desde el eje $z$ positivo, eso es **antihorario**."
+    ],
+    "porque_fallan": {
+      "C": "El sentido que tendría una carga positiva.",
+      "A": "$\\vec v\\perp\\vec B$: hay fuerza y la trayectoria se curva.",
+      "D": "No hay componente de fuerza en $z$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c28-q020": {
+    "idea": "El periodo ciclotrónico **no depende de la velocidad ni del ángulo**: solo de $m$, $q$ y $B$.",
+    "pasos": [
+      "La componente paralela no siente fuerza; la perpendicular gira con $T=\\dfrac{2\\pi m}{eB}$.",
+      "Al cabo de un $T$ la velocidad vuelve a ser la misma, en módulo y dirección."
+    ],
+    "porque_fallan": {
+      "B": "Mete la rapidez, que es justo lo que se cancela: $r$ crece con $v$ pero $T$ no.",
+      "C": "Mete además el ángulo.",
+      "D": "Lo mismo con el coseno."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q021": {
+    "idea": "Misma rapidez, mismo campo, misma magnitud de carga: fuerzas iguales en módulo y opuestas por el signo.",
+    "pasos": [
+      "$|F|=|q|vB$ y $|q|$ es la misma para electrón y protón.",
+      "Los signos opuestos invierten el sentido.",
+      "La masa no entra en la **fuerza**: entra después, en la aceleración."
+    ],
+    "porque_fallan": {
+      "A": "Idénticas incluiría el sentido, y este se invierte.",
+      "C": "El 1840 es la razón de masas, y afecta al radio de giro, no a la fuerza.",
+      "D": "El sentido bien, la magnitud mal, por la misma razón."
+    },
+    "confirma": "B"
+  },
+  "hrw-c28-q022": {
+    "idea": "Selector de velocidades: las dos fuerzas se cancelan solo si $qE=qvB$, es decir $v=E/B$.",
+    "pasos": [
+      "$\\vec v$ perpendicular a ambos campos para que $q\\vec v\\times\\vec B$ quede antiparalela a $q\\vec E$.",
+      "$v=E/B$ es la única rapidez que pasa sin desviarse."
+    ],
+    "porque_fallan": {
+      "C": "$B/E$ tiene las unidades invertidas: no es una velocidad.",
+      "B": "Paralela a $\\vec B$ anula la fuerza magnética, pero la eléctrica sigue actuando.",
+      "A": "Paralela a $\\vec E$ deja la fuerza eléctrica sin nada que la compense."
+    },
+    "confirma": "D"
+  },
+  "hrw-c28-q023": {
+    "idea": "Con $\\vec E\\parallel\\vec B$, la fuerza eléctrica va a lo largo de las líneas y la magnética perpendicular: la suma queda en diagonal.",
+    "pasos": [
+      "$q\\vec E$ paralela al campo; $q\\vec v\\times\\vec B$ perpendicular a él.",
+      "La resultante forma un ángulo estrictamente entre 0 y 90° con las líneas."
+    ],
+    "porque_fallan": {
+      "C": "Sería así solo si la componente magnética fuera nula.",
+      "D": "Sería así solo sin campo eléctrico.",
+      "E": "El signo cambia el sentido de las dos a la vez: el ángulo con las líneas no cambia."
+    },
+    "confirma": "B"
+  },
+  "hrw-c28-q026": {
+    "idea": "Aceleración cero significa selector de velocidades: $v=E/B$. La carga sobra.",
+    "pasos": [
+      "$v=\\dfrac{5\\times10^{4}}{0{,}8}=6{,}3\\times10^{4}$ m/s."
+    ],
+    "porque_fallan": {
+      "C": "Multiplica por 0,8 en vez de dividir.",
+      "B": "Mete la carga en la cuenta, y se cancela.",
+      "E": "Solo una rapidez cumple la condición, no cualquiera."
+    },
+    "confirma": "D"
+  },
+  "hrw-c28-q028": {
+    "idea": "Primero la rapidez desde el potencial, luego el radio ciclotrónico.",
+    "pasos": [
+      "$eV=\\tfrac12mv^2\\Rightarrow v=\\sqrt{2eV/m}$.",
+      "$r=\\dfrac{mv}{eB}=\\dfrac{m}{eB}\\sqrt{\\dfrac{2eV}{m}}=\\dfrac{1}{B}\\sqrt{\\dfrac{2mV}{e}}$."
+    ],
+    "porque_fallan": {
+      "A": "Se queda en la velocidad sin multiplicar por $m/e$.",
+      "D": "Multiplica por $B$ en vez de dividir: el radio baja con el campo, no sube.",
+      "B": "Los dos errores a la vez."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q029": {
+    "idea": "Dos etapas: el filtro fija $v=E/B$, y el segundo campo curva con $r=mv/(qB')$.",
+    "pasos": [
+      "$v=E/B$ a la salida del filtro.",
+      "$r=\\dfrac{mv}{qB'}=\\dfrac{mE}{qBB'}$.",
+      "El radio va como $E$ dividido por el **producto** de los dos campos."
+    ],
+    "porque_fallan": {
+      "A": "Multiplica los campos donde había que dividir.",
+      "C": "Pone $E$ en el denominador: más campo eléctrico daría menos radio, y es al revés.",
+      "D": "Invierte la expresión entera."
+    },
+    "confirma": "E"
+  },
+  "hrw-c28-q030": {
+    "idea": "En el ciclotrón $r=mv/qB$, así que $v\\propto R$ y la energía va como el cuadrado.",
+    "pasos": [
+      "$v=\\dfrac{qBR}{m}$.",
+      "$K=\\tfrac12mv^2\\propto R^2$."
+    ],
+    "porque_fallan": {
+      "B": "Esa es la dependencia de la **velocidad**, no de la energía.",
+      "A": "Invierte la relación.",
+      "D": "La energía cinética es cuadrática en $v$, no cúbica en nada."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q031": {
+    "idea": "Con campos cruzados Thomson midió la desviación del haz, y de ahí sale $e/m$, no $e$ ni $m$ por separado.",
+    "pasos": [
+      "El filtro da $v=E/B$; la desviación con solo $\\vec E$ da $e/m$.",
+      "La carga suelta la midió Millikan, después."
+    ],
+    "porque_fallan": {
+      "A": "La masa solo se obtiene combinando e/m con la carga que midió Millikan después.",
+      "B": "Esa es la gota de aceite de Millikan, no el tubo de Thomson.",
+      "C": "El campo del experimento es el que aplica Thomson, no el terrestre.",
+      "E": "El número de Avogadro no sale de un haz de electrones."
+    },
+    "confirma": "D"
+  },
+  "hrw-c28-q036": {
+    "idea": "La fuerza total sobre una espira cerrada en campo uniforme es cero, y sobre la hipotenusa es cero porque es paralela a $\\vec B$.",
+    "pasos": [
+      "$\\vec F_{total}=I\\left(\\oint d\\vec l\\right)\\times\\vec B=0$ para cualquier circuito cerrado.",
+      "La hipotenusa es paralela a $\\vec B$: su fuerza es nula.",
+      "Luego la suma de las otras dos también tiene que ser nula."
+    ],
+    "porque_fallan": {
+      "B": "Es la fuerza sobre **un** lado, no la resultante de los dos.",
+      "C": "Suma módulos en vez de vectores.",
+      "D": "Lo mismo, con otro factor."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q037": {
+    "idea": "$F=ILB\\sin\\theta$, y los catetos forman 45° con la perpendicular a la hipotenusa.",
+    "pasos": [
+      "$\\theta=45^\\circ$ entre cada cateto y $\\vec B$.",
+      "$F=(2{,}0)(0{,}15)(0{,}7)\\sin45^\\circ$.",
+      "$F=0{,}21\\times0{,}707=0{,}15$ N."
+    ],
+    "porque_fallan": {
+      "D": "Olvida el $\\sin45^\\circ$ y toma el cateto como perpendicular al campo.",
+      "A": "Los catetos no son paralelos al campo: la hipotenusa sí lo sería en el problema anterior.",
+      "B": "Usa $\\sin45^\\circ$ dos veces."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q038": {
+    "idea": "$\\vec\\tau=\\vec\\mu\\times\\vec B$, con $\\vec\\mu$ dado por la regla de la mano derecha sobre el sentido de la corriente.",
+    "pasos": [
+      "Corriente horaria vista por ti $\\Rightarrow\\vec\\mu$ se aleja de ti, hacia dentro de la página.",
+      "$\\vec B$ hacia la derecha, en el plano.",
+      "$\\vec\\tau=\\vec\\mu\\times\\vec B$ queda vertical hacia abajo, y ese giro saca hacia ti el borde derecho."
+    ],
+    "porque_fallan": {
+      "B": "El sentido de giro contrario: revisa hacia dónde apunta $\\vec\\mu$.",
+      "C": "El par hace girar la página, no la traslada.",
+      "E": "$\\vec\\mu$ y $\\vec B$ son perpendiculares: el par es máximo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q040": {
+    "idea": "$\\mu=IA$: amperio por metro cuadrado de área.",
+    "pasos": [
+      "$[\\mu]=\\text{A}\\cdot\\text{m}^2$."
+    ],
+    "porque_fallan": {
+      "B": "Le falta una potencia de la longitud: eso sería corriente por longitud.",
+      "D": "A/m es intensidad de campo magnético $H$.",
+      "A": "El amperio solo es corriente."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q041": {
+    "idea": "$\\mu=IA$ en módulo, y la mano derecha da el sentido.",
+    "pasos": [
+      "$\\mu=(3{,}0)(5{,}8\\times10^{-2})=0{,}17$ A·m².",
+      "Corriente horaria vista de frente: los dedos giran así y el pulgar se aleja de ti."
+    ],
+    "porque_fallan": {
+      "D": "El módulo bien y el sentido al revés: eso sería corriente antihoraria.",
+      "A": "Toma la corriente como si fuera el momento, sin multiplicar por el área.",
+      "E": "El momento es perpendicular al plano de la espira, nunca contenido en él."
+    },
+    "confirma": "C"
+  },
+  "hrw-c28-q042": {
+    "idea": "$\\tau=\\mu B\\sin\\theta$ con $\\theta$ entre $\\vec\\mu$ y $\\vec B$: máximo cuando son perpendiculares, y $\\vec\\mu$ es perpendicular al plano.",
+    "pasos": [
+      "$\\vec\\mu\\perp\\vec B$ equivale a que el **plano** de la espira sea paralelo a $\\vec B$.",
+      "$\\mu=IA$ no depende de la forma, solo del área."
+    ],
+    "porque_fallan": {
+      "A": "Plano perpendicular a $\\vec B$ significa $\\vec\\mu\\parallel\\vec B$: par **nulo**.",
+      "C": "A área fija, la forma no influye.",
+      "D": "Depende del ángulo por el seno."
+    },
+    "confirma": "B"
+  },
+  "hrw-c28-q043": {
+    "idea": "$\\mu=IA=I\\pi r^2$, con el sentido por la mano derecha.",
+    "pasos": [
+      "$A=\\pi(0{,}2)^2=0{,}126$ m².",
+      "$\\mu=(2)(0{,}126)=0{,}25$ A·m².",
+      "Antihoraria vista desde $+z$: el pulgar apunta en $+z$."
+    ],
+    "porque_fallan": {
+      "B": "El sentido al revés.",
+      "C": "Un factor diez: revisa el radio al cuadrado.",
+      "E": "El momento es perpendicular al plano de la espira."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q045": {
+    "idea": "$\\vec\\tau=\\vec\\mu\\times\\vec B$, producto vectorial directo.",
+    "pasos": [
+      "$\\hat z\\times\\hat x=\\hat y$.",
+      "El par va en $+y$."
+    ],
+    "porque_fallan": {
+      "C": "El sentido invertido: revisa el orden de los factores, $\\vec\\mu$ primero.",
+      "A": "$\\vec\\mu\\perp\\vec B$ da par **máximo**, no nulo.",
+      "D": "El par es perpendicular a $\\vec\\mu$, así que no puede ir en $z$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c28-q046": {
+    "idea": "$U=-\\vec\\mu\\cdot\\vec B$: el mínimo es $-\\mu B$, cuando apuntan igual.",
+    "pasos": [
+      "$U=-\\mu B\\cos\\theta$ es mínima en $\\theta=0$.",
+      "Es la orientación de equilibrio estable: la brújula apuntando al norte."
+    ],
+    "porque_fallan": {
+      "B": "Ese es el **máximo**, $+\\mu B$: equilibrio inestable.",
+      "C": "Perpendicular da $U=0$, entre ambos extremos.",
+      "D": "Tampoco es extremo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c28-q048": {
+    "idea": "El trabajo es la diferencia de energía potencial entre las dos orientaciones.",
+    "pasos": [
+      "$U_i=-\\mu B$ (alineado) y $U_f=0$ (perpendicular).",
+      "$W=U_f-U_i=+\\mu B=(5\\times10^{-4})(0{,}5)$.",
+      "$W=2{,}5\\times10^{-4}$ J, positivo: hay que hacer trabajo contra el par."
+    ],
+    "porque_fallan": {
+      "C": "El signo al revés: sacar la espira del equilibrio cuesta energía.",
+      "A": "La energía sí cambia al girarla.",
+      "D": "Un factor 2 de más, como si fuera hasta la orientación opuesta."
+    },
+    "confirma": "B"
+  }
+}
