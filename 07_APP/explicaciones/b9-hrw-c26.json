@@ -1,0 +1,541 @@
+{
+  "hrw-c26-q001": {
+    "idea": "Amperio por hora es corriente por tiempo, y eso es carga.",
+    "pasos": ["$[A\\cdot h]=\\dfrac{\\text{C}}{\\text{s}}\\cdot\\text{s}=\\text{C}$.", "80 A·h son $80\\times3600=2{,}9\\times10^{5}$ C."],
+    "porque_fallan": {
+      "A": "Potencia sería voltio por amperio.",
+      "B": "Energía sería voltio por amperio por hora: el kW·h.",
+      "C": "El amperio solo ya es corriente; multiplicado por tiempo deja de serlo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q002": {
+    "idea": "Corriente es carga por unidad de tiempo.",
+    "pasos": ["$I=dq/dt$, luego C/s."],
+    "porque_fallan": {
+      "A": "kW·h es energía.",
+      "C": "El coulomb solo es carga, sin el tiempo.",
+      "D": "El voltio es energía por carga."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q003": {
+    "idea": "El amperio es la unidad de corriente en el SI.",
+    "pasos": ["$1\\ \\text{A}=1\\ \\text{C/s}$."],
+    "porque_fallan": {
+      "A": "Energía.",
+      "C": "Carga.",
+      "E": "Resistencia."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q004": {
+    "idea": "De $R=\\rho L/A$ se despejan las unidades de $\\rho$.",
+    "pasos": ["$\\rho=\\dfrac{RA}{L}$, luego $\\Omega\\cdot\\text{m}^2/\\text{m}=\\Omega\\cdot$m."],
+    "porque_fallan": {
+      "A": "El ohmio solo es resistencia, que depende de la geometría; la resistividad no.",
+      "C": "Divide en vez de multiplicar por el metro.",
+      "D": "Sobra un metro en el denominador."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q005": {
+    "idea": "Energía por unidad de tiempo es potencia, y su unidad es el vatio.",
+    "pasos": ["$P=dE/dt$, en J/s = W."],
+    "porque_fallan": {
+      "B": "W·s es energía, no rapidez de uso.",
+      "D": "J·s es acción, no potencia.",
+      "E": "kW·h también es energía: lo que factura la eléctrica."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q006": {
+    "idea": "Potencia por tiempo es energía.",
+    "pasos": ["$W\\cdot s=\\dfrac{\\text{J}}{\\text{s}}\\cdot\\text{s}=\\text{J}$."],
+    "porque_fallan": {
+      "A": "El kilovatio es potencia.",
+      "C": "El vatio es potencia.",
+      "E": "V/Ω es corriente, por la ley de Ohm."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q007": {
+    "idea": "Diferencia de potencial es energía por carga: J/C, que es el voltio.",
+    "pasos": ["$V=W/q$.", "Las otras cuatro parejas están cruzadas."],
+    "porque_fallan": {
+      "A": "kW·h es energía, no potencia.",
+      "B": "El kW es potencia, no energía.",
+      "D": "La corriente es A, no A/s.",
+      "E": "La resistencia es V/A, no V/C."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q008": {
+    "idea": "La corriente cuenta cuánta carga cruza un punto por segundo.",
+    "pasos": ["$I=\\dfrac{dq}{dt}$."],
+    "porque_fallan": {
+      "A": "La fuerza no aparece en la definición.",
+      "B": "Eso es la resistencia.",
+      "E": "La rapidez de las cargas es la velocidad de arrastre, que es otra cosa y minúscula."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q009": {
+    "idea": "$q=It$, con el tiempo en segundos. Los 60 W sobran.",
+    "pasos": ["$t=1\\ \\text{h}=3600$ s.", "$q=(0{,}5)(3600)=1800$ C."],
+    "porque_fallan": {
+      "B": "Usa $I=1$ A, o confunde la carga con el tiempo.",
+      "D": "Mete la potencia en la cuenta.",
+      "A": "Usa minutos en vez de segundos."
+    },
+    "confirma": "E"
+  },
+  "hrw-c26-q011": {
+    "idea": "Los electrones son negativos: se mueven **contra** el campo, y la corriente convencional va contra ellos.",
+    "pasos": [
+      "Electrones a la derecha $\\Rightarrow$ corriente convencional a la izquierda.",
+      "$\\vec J$ apunta como la corriente convencional: a la izquierda.",
+      "$\\vec J=\\sigma\\vec E$, así que $\\vec E$ también a la izquierda."
+    ],
+    "porque_fallan": {
+      "A": "Toma la dirección de los electrones como la de la corriente.",
+      "C": "$\\vec J$ y $\\vec E$ son siempre paralelos en un óhmico: no pueden apuntar al revés uno del otro.",
+      "E": "El campo sí se conoce: es paralelo a $\\vec J$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q012": {
+    "idea": "$I=JA$. Con la misma $J$, la corriente solo coincide si coincide el área.",
+    "pasos": ["$I=JA$ no contiene ni la longitud ni el material.", "Misma $J$ y misma $A$ dan la misma $I$."],
+    "porque_fallan": {
+      "A": "La longitud no entra en $I=JA$.",
+      "D": "El voltaje depende del material y la longitud: no basta.",
+      "E": "Con materiales distintos, el mismo $E$ da $J$ distintas."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q013": {
+    "idea": "$I=JA$, con el área del círculo y el radio en metros.",
+    "pasos": [
+      "$A=\\pi r^2=\\pi(1{,}5\\times10^{-4})^2=7{,}1\\times10^{-8}$ m².",
+      "$I=(2{,}8\\times10^{7})(7{,}1\\times10^{-8})=2{,}0$ A.",
+      "Los 150 m sobran."
+    ],
+    "porque_fallan": {
+      "D": "Usa el radio sin elevar al cuadrado, o mete la longitud.",
+      "A": "Confunde el radio con el diámetro.",
+      "C": "Área mal calculada, con un factor 2 de por medio."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q014": {
+    "idea": "La velocidad de arrastre es milimétrica; la velocidad térmica es de cientos de kilómetros por segundo.",
+    "pasos": [
+      "Arrastre típico: $10^{-4}$ m/s.",
+      "Velocidad térmica típica: $10^{6}$ m/s.",
+      "Diez órdenes de magnitud de diferencia."
+    ],
+    "porque_fallan": {
+      "A": "Al revés en diez órdenes de magnitud.",
+      "C": "Si fueran comparables, encender una luz tardaría horas.",
+      "D": "La relación no se invierte con la temperatura."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q015": {
+    "idea": "$v_d=\\dfrac{eE\\tau}{m}$: la velocidad de arrastre es proporcional al tiempo libre medio.",
+    "pasos": ["Con $E$, $e$ y $m$ iguales, $v_d\\propto\\tau$.", "Doble $\\tau$, doble $v_d$."],
+    "porque_fallan": {
+      "A": "$\\tau$ sí entra: es el tiempo que el campo acelera al electrón antes del choque.",
+      "C": "Invierte la relación.",
+      "D": "La dependencia es lineal, no cuadrática."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q016": {
+    "idea": "Sin campo los electrones se mueven rapidísimo, pero en todas las direcciones: la suma vectorial se anula.",
+    "pasos": [
+      "El movimiento térmico es isótropo.",
+      "Para cada electrón con $\\vec v$ hay otro con $-\\vec v$.",
+      "$\\vec J\\propto\\langle\\vec v\\rangle=0$, aunque $\\langle|\\vec v|\\rangle$ sea enorme."
+    ],
+    "porque_fallan": {
+      "A": "Sí se mueven, y muy rápido.",
+      "B": "La rapidez no es el problema: la dirección lo es.",
+      "E": "La ley de Ohm no es la causa de nada; es una descripción."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q017": {
+    "idea": "$J=nev_d$: a misma $J$, más portadores significa que cada uno va más despacio.",
+    "pasos": ["$v_d=\\dfrac{J}{ne}$.", "$n_A=2n_B\\Rightarrow v_A=v_B/2$."],
+    "porque_fallan": {
+      "A": "Invierte la proporción.",
+      "B": "La dependencia es lineal, no cuadrática.",
+      "E": "Si $n$ cambia y $J$ no, $v_d$ tiene que cambiar."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q018": {
+    "idea": "$v_d=\\dfrac{I}{nAe}$, y el resultado siempre sale ridículamente pequeño.",
+    "pasos": [
+      "$nAe=(8{,}4\\times10^{28})(7{,}4\\times10^{-7})(1{,}6\\times10^{-19})\\approx1{,}0\\times10^{4}$.",
+      "$v_d=\\dfrac{1}{1{,}0\\times10^{4}}=10^{-4}$ m/s.",
+      "Menos de un metro por hora: la señal viaja rápido, los electrones no."
+    ],
+    "porque_fallan": {
+      "A": "Es la velocidad de la luz: eso es lo que viaja rápido, el campo, no los electrones.",
+      "C": "Cuatro órdenes de magnitud arriba.",
+      "E": "Demasiado pequeño incluso para el arrastre."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q020": {
+    "idea": "La resistencia es una propiedad del objeto: no cambia porque cambies el voltaje.",
+    "pasos": ["$R=\\rho L/A$ es geometría y material.", "$I=V/R$ se duplica con $V$."],
+    "porque_fallan": {
+      "B": "La corriente sube con el voltaje, no baja.",
+      "C": "$R$ no depende de $V$ en un óhmico.",
+      "E": "$R$ queda fija; solo cambia $I$."
+    },
+    "confirma": "A"
+  },
+  "hrw-c26-q021": {
+    "idea": "$R\\propto L/r^2$: ordenar por ese cociente.",
+    "pasos": [
+      "1: $f/r^2=1$. 2: $(f/4)/(r/2)^2=1$. Empatan.",
+      "3: $(f/2)/(r^2/4)=2$. 4: $f/(r^2/4)=4$. 5: $5f/(4r^2)=1{,}25$.",
+      "De menor a mayor: 1 y 2 empatados, luego 5, luego 3, luego 4."
+    ],
+    "porque_fallan": {
+      "A": "Ordena por número de alambre.",
+      "B": "El orden invertido.",
+      "D": "Rompe el empate entre 1 y 2, que tienen exactamente la misma resistencia."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q022": {
+    "idea": "$R=\\rho L/A$ baja con área grande y longitud corta; y $\\rho$ del cobre sube con la temperatura.",
+    "pasos": ["Grueso: $A$ grande.", "Corto: $L$ pequeña.", "Frío: $\\rho$ pequeña. Las tres a favor."],
+    "porque_fallan": {
+      "A": "Las tres en contra.",
+      "C": "Grueso ayuda, pero largo y caliente perjudican.",
+      "D": "Corto y frío ayudan, pero delgado perjudica."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q023": {
+    "idea": "Volumen constante: si la longitud se duplica, el área se reduce a la mitad, y $R$ se multiplica por cuatro.",
+    "pasos": [
+      "$V=AL$ constante y $L'=2L\\Rightarrow A'=A/2$.",
+      "$R'=\\rho\\dfrac{2L}{A/2}=4\\rho\\dfrac{L}{A}=4R$.",
+      "En general, a volumen fijo $R\\propto L^2$."
+    ],
+    "porque_fallan": {
+      "B": "Cuenta solo el estiramiento y olvida el adelgazamiento.",
+      "D": "Un factor de más: el área se divide por 2, no por 4.",
+      "E": "Va en la dirección contraria."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q024": {
+    "idea": "$R=\\rho L/A$ depende del **área**, no de si esa área es un círculo, un cuadrado o una estrella.",
+    "pasos": ["Fijada $A$, la forma del contorno no entra en la fórmula."],
+    "porque_fallan": {
+      "A": "La temperatura cambia $\\rho$.",
+      "C": "$L$ está en el numerador.",
+      "D": "La conductividad es $1/\\rho$: sí influye."
+    },
+    "confirma": "E"
+  },
+  "hrw-c26-q025": {
+    "idea": "Mitad de longitud y mitad de diámetro: el área se reduce a la cuarta parte.",
+    "pasos": [
+      "$A'=\\pi(r/2)^2=A/4$.",
+      "$R'=\\rho\\dfrac{L/2}{A/4}=2\\rho\\dfrac{L}{A}=2R$."
+    ],
+    "porque_fallan": {
+      "B": "Cuenta la longitud y olvida el área.",
+      "C": "Supone que los dos efectos se cancelan; no lo hacen, porque el área va al cuadrado.",
+      "E": "Cuenta el área y olvida la longitud."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q026": {
+    "idea": "Primero $R=V/I$, después $\\rho=RA/L$.",
+    "pasos": [
+      "$R=\\dfrac{2}{4}=0{,}5\\ \\Omega$.",
+      "$\\rho=\\dfrac{(0{,}5)(1\\times10^{-6})}{1}=5\\times10^{-7}\\ \\Omega\\cdot$m."
+    ],
+    "porque_fallan": {
+      "B": "Usa $R=I/V$ en vez de $V/I$.",
+      "C": "Se queda con la corriente sin pasar por la resistencia.",
+      "E": "Multiplica por la longitud en vez de dividir."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q027": {
+    "idea": "Misma longitud y material: $R\\propto1/A$. Hay que comparar áreas, y la del tubo es la corona.",
+    "pasos": [
+      "$A_A=\\pi(0{,}5)^2=0{,}25\\pi$.",
+      "$A_B=\\pi(1^2-0{,}5^2)=0{,}75\\pi$.",
+      "$\\dfrac{R_A}{R_B}=\\dfrac{A_B}{A_A}=\\dfrac{0{,}75}{0{,}25}=3$."
+    ],
+    "porque_fallan": {
+      "C": "Compara diámetros en vez de áreas.",
+      "E": "Usa el área del círculo exterior completo, sin restar el hueco.",
+      "A": "Supone que el hueco no cambia nada."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q028": {
+    "idea": "La conductividad es el inverso de la **resistividad**, no de la resistencia.",
+    "pasos": ["$\\sigma=1/\\rho$, y $[\\rho]=\\Omega\\cdot$m.", "Luego $[\\sigma]=(\\Omega\\cdot\\text{m})^{-1}$."],
+    "porque_fallan": {
+      "A": "Es su inverso, no lo mismo.",
+      "B": "$\\Omega^{-1}$ es el inverso de la resistencia, que depende de la geometría.",
+      "C": "El mismo error: resistencia en lugar de resistividad."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q029": {
+    "idea": "Si $V/I$ cambia con el voltaje, el material no es óhmico; la resistencia sigue definiéndose como $V/I$ en cada punto.",
+    "pasos": [
+      "A 2 V: $R=2/4=0{,}5\\ \\Omega$. A 4 V: $R=4/10=0{,}4\\ \\Omega$.",
+      "No es constante: no cumple la ley de Ohm.",
+      "En la rama de bajo voltaje la razón observada es $0{,}5\\ \\Omega$."
+    ],
+    "porque_fallan": {
+      "A": "Precisamente no la obedece: $R$ cambió de 0,5 a 0,4 Ω.",
+      "C": "Invierte la fracción: $I/V$ en vez de $V/I$.",
+      "E": "Sí tiene resistencia en cada punto; lo que no tiene es una resistencia **única**."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q030": {
+    "idea": "Ley de Ohm directa: $V=IR$.",
+    "pasos": ["$V=(0{,}5)(60)=30$ V."],
+    "porque_fallan": {
+      "A": "Divide en vez de multiplicar, con la mitad de por medio.",
+      "C": "Toma la resistencia como si fuera el voltaje.",
+      "D": "Multiplica por 2 en vez de por 0,5."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q033": {
+    "idea": "Unidos extremo con extremo están **en serie**: la misma corriente pasa por los dos.",
+    "pasos": [
+      "La carga no se acumula en la unión: $I$ es la misma.",
+      "Radios distintos dan áreas distintas, así que $J=I/A$ difiere, y con ella $E=\\rho J$ y $v_d$.",
+      "Y $V=IR$ difiere porque las resistencias difieren."
+    ],
+    "porque_fallan": {
+      "A": "El voltaje se reparte según las resistencias.",
+      "C": "$J=I/A$ con áreas distintas.",
+      "D": "$E=\\rho J$ sigue a la densidad de corriente."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q034": {
+    "idea": "La forma local de la ley de Ohm es $\\vec E=\\rho\\vec J$.",
+    "pasos": ["$\\rho$ relaciona campo y densidad de corriente, punto a punto.", "$R$ relaciona voltaje y corriente, objeto a objeto."],
+    "porque_fallan": {
+      "A": "Esa constante es $R$, no $\\rho$.",
+      "B": "Mezcla una magnitud global con una local.",
+      "C": "Lo mismo, al revés."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q035": {
+    "idea": "$V=IR$: la resistencia es la constante entre corriente y diferencia de potencial.",
+    "pasos": ["Es la versión global de $\\vec E=\\rho\\vec J$."],
+    "porque_fallan": {
+      "A": "$V$ y $E$ se relacionan por la longitud, no por $R$.",
+      "B": "Esa relación pasa por $\\rho$ y la geometría.",
+      "C": "La longitud entra en $R$, pero no es lo que $R$ relaciona."
+    },
+    "confirma": "E"
+  },
+  "hrw-c26-q036": {
+    "idea": "$\\rho=\\dfrac{m}{ne^2\\tau}$: la resistividad la fija el tiempo libre medio entre choques.",
+    "pasos": [
+      "Más choques, menos $\\tau$, más resistividad.",
+      "Subir la temperatura acorta $\\tau$: por eso los metales se vuelven más resistivos al calentarse."
+    ],
+    "porque_fallan": {
+      "A": "En un óhmico $\\rho$ es justamente lo que **no** depende del campo.",
+      "C": "Tampoco de la densidad de corriente: esa es la definición de óhmico.",
+      "E": "La resistividad es del material; el área afecta a la resistencia."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q037": {
+    "idea": "En un óhmico, $R=\\rho L/A$ no contiene la corriente.",
+    "pasos": ["Geometría y material fijan $R$.", "La corriente es consecuencia, no causa."],
+    "porque_fallan": {
+      "B": "$L$ está en el numerador.",
+      "C": "$A$ en el denominador.",
+      "D": "$\\rho$ es el factor del material."
+    },
+    "confirma": "A"
+  },
+  "hrw-c26-q038": {
+    "idea": "$v_d=\\dfrac{e\\tau}{m}E$: lineal en el campo.",
+    "pasos": ["El campo acelera, los choques frenan, y el equilibrio da una velocidad proporcional a $E$."],
+    "porque_fallan": {
+      "A": "El área afecta a la corriente total, no a la velocidad de cada electrón a campo dado.",
+      "B": "La longitud tampoco: lo que importa es el campo local.",
+      "C": "La masa está en el denominador: es inversamente proporcional."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q039": {
+    "idea": "Hay tres formas de escribir $P$ y cada una dice algo distinto. Con la corriente fija, $P=I^2R$ es lineal en $R$.",
+    "pasos": [
+      "$P=I^2R$: triplicar $R$ a $I$ fija triplica $P$.",
+      "Cuidado con la C: a $V$ fija vale $P=V^2/R$, y triplicar $R$ **divide** la potencia entre tres."
+    ],
+    "porque_fallan": {
+      "A": "$P=V^2/R$: triplicar $V$ multiplica por **nueve**.",
+      "B": "$P=I^2R$: triplicar $I$ también multiplica por nueve.",
+      "C": "Divide la potencia entre tres, no la triplica.",
+      "E": "$P=IV$ por nueve."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q040": {
+    "idea": "Primero la corriente desde la potencia, luego la carga: $q=It$.",
+    "pasos": [
+      "$I=P/V=60/120=0{,}5$ A.",
+      "De 2 PM a 2 AM son 12 h $=43\\,200$ s.",
+      "$q=(0{,}5)(43\\,200)=21\\,600$ C."
+    ],
+    "porque_fallan": {
+      "B": "Usa una hora en vez de doce.",
+      "C": "Usa dos horas.",
+      "D": "Usa 10 horas, o pierde un factor."
+    },
+    "confirma": "E"
+  },
+  "hrw-c26-q041": {
+    "idea": "$P=IV$, despejando la corriente.",
+    "pasos": ["$I=\\dfrac{600}{120}=5$ A."],
+    "porque_fallan": {
+      "A": "Divide mal por un factor 2,5.",
+      "D": "Usa $P/V$ con los números cruzados.",
+      "E": "Divide $V$ entre $P$."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q042": {
+    "idea": "A resistencia fija, $P=V^2/R$: la potencia va como el **cuadrado** del voltaje.",
+    "pasos": [
+      "$\\dfrac{P_2}{P_1}=\\left(\\dfrac{V_2}{V_1}\\right)^2=\\left(\\dfrac13\\right)^2=\\dfrac19$.",
+      "$P_2=0{,}5/9=0{,}056$ W."
+    ],
+    "porque_fallan": {
+      "A": "Supone que la potencia no depende del voltaje.",
+      "B": "Divide por 3 en vez de por 9: olvida el cuadrado. Es el error típico.",
+      "C": "Multiplica por 3 en vez de dividir."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q043": {
+    "idea": "De la etiqueta salen $P$ y $V$: $R=V^2/P$.",
+    "pasos": ["$R=\\dfrac{120^2}{60}=\\dfrac{14\\,400}{60}=240\\ \\Omega$."],
+    "porque_fallan": {
+      "B": "Toma el voltaje como resistencia.",
+      "A": "Toma la potencia como resistencia.",
+      "E": "Divide $V$ entre $P$ sin elevar al cuadrado."
+    },
+    "confirma": "D"
+  },
+  "hrw-c26-q044": {
+    "idea": "Calor necesario dividido entre potencia da el tiempo.",
+    "pasos": [
+      "$Q=mc\\Delta T=(1000\\ \\text{g})(1\\ \\text{cal/g·K})(20\\ \\text{K})=20\\,000$ cal.",
+      "$=20\\,000\\times4{,}18=8{,}36\\times10^{4}$ J.",
+      "$t=\\dfrac{8{,}36\\times10^{4}}{400}=209\\ \\text{s}\\approx3{,}5$ min."
+    ],
+    "porque_fallan": {
+      "B": "Olvida convertir calorías a julios.",
+      "C": "Un factor 4 de más.",
+      "E": "Tres órdenes de magnitud abajo: revisa el kilogramo a gramos."
+    },
+    "confirma": "A"
+  },
+  "hrw-c26-q045": {
+    "idea": "A potencia fija, subir el voltaje baja la corriente, y las pérdidas van como $I^2R$.",
+    "pasos": [
+      "$P=IV$ fija: si $V$ se multiplica por 45, $I$ se divide por 45.",
+      "Las pérdidas en la línea son $I^2R_{\\text{línea}}$: caen por un factor $45^2\\approx2000$.",
+      "Por eso se transporta en alta tensión y se baja con transformadores al llegar."
+    ],
+    "porque_fallan": {
+      "B": "La resistencia del cable es geometría y material: no depende del voltaje.",
+      "C": "A la misma potencia, alto voltaje significa **menos** corriente.",
+      "E": "La caída $iR$ es menor, no mayor, porque $i$ es menor."
+    },
+    "confirma": "A"
+  },
+  "hrw-c26-q046": {
+    "idea": "Energía en kW·h por el precio.",
+    "pasos": [
+      "$0{,}125\\ \\text{kW}\\times4\\ \\text{h}\\times30=15$ kW·h.",
+      "$15\\times0{,}10=\\$1{,}50$."
+    ],
+    "porque_fallan": {
+      "A": "Usa 120 W redondeado a la baja, o 24 días.",
+      "C": "Un día de más en la cuenta.",
+      "D": "Cuenta 24 horas al día en vez de 4."
+    },
+    "confirma": "B"
+  },
+  "hrw-c26-q047": {
+    "idea": "$P=IV$, cuidando los prefijos.",
+    "pasos": ["$P=(7\\times10^{-3})(80\\times10^{3})$.", "$P=560$ W."],
+    "porque_fallan": {
+      "B": "Un orden de magnitud: revisa el mili contra el kilo.",
+      "C": "Divide en vez de multiplicar.",
+      "E": "Cruza los prefijos."
+    },
+    "confirma": "A"
+  },
+  "hrw-c26-q048": {
+    "idea": "De las calorías a los julios, de ahí a la potencia y de ahí a la corriente.",
+    "pasos": [
+      "$Q=60\\,000\\times4{,}18=2{,}51\\times10^{5}$ J en 600 s.",
+      "$P=\\dfrac{2{,}51\\times10^{5}}{600}=418$ W.",
+      "$I=\\dfrac{P}{V}=\\dfrac{418}{120}\\approx3{,}5$ A."
+    ],
+    "porque_fallan": {
+      "A": "Olvida pasar calorías a julios.",
+      "D": "Olvida dividir entre el tiempo.",
+      "E": "Las dos cosas a la vez."
+    },
+    "confirma": "C"
+  },
+  "hrw-c26-q049": {
+    "idea": "La etiqueta es la potencia **al voltaje nominal**: con otro voltaje, otra potencia.",
+    "pasos": [
+      "$P=V^2/R$ con $R$ fija: la bombilla da 75 W solo a su voltaje de diseño.",
+      "Ni es una reserva que se agote ni algo que se le meta de fábrica."
+    ],
+    "porque_fallan": {
+      "A": "Falso: a la mitad del voltaje da la cuarta parte de la potencia.",
+      "B": "El vatio es potencia, no una cantidad almacenable.",
+      "D": "La energía no se «gasta» hasta agotar los 75 W: el vatio no es energía."
+    },
+    "confirma": "E"
+  },
+  "hrw-c26-q050": {
+    "idea": "$E=Pt=IVt$, con el tiempo en segundos.",
+    "pasos": ["$P=(0{,}3)(6)=1{,}8$ W.", "$t=120$ s.", "$E=(1{,}8)(120)=216$ J."],
+    "porque_fallan": {
+      "A": "Se queda en la potencia y no multiplica por el tiempo.",
+      "D": "Usa 2 s en vez de 2 minutos.",
+      "B": "Cruza los factores."
+    },
+    "confirma": "E"
+  }
+}
