@@ -1,0 +1,405 @@
+{
+  "hrw-c29-q001": {
+    "idea": "Despeja $\\mu_0$ de la ley de Biot-Savart para un hilo recto.",
+    "pasos": ["$B=\\dfrac{\\mu_0 i}{2\\pi R}\\Rightarrow\\mu_0=\\dfrac{2\\pi RB}{i}$.", "$[\\mu_0]=\\dfrac{\\text{m}\\cdot\\text{T}}{\\text{A}}$."],
+    "porque_fallan": {
+      "A": "El tesla es la unidad de $B$, no de $\\mu_0$.",
+      "B": "Es la unidad de $\\mu_0$ dividida por un metro: sale de la fuerza entre hilos sin la longitud.",
+      "C": "Weber por metro tiene dimensiones de $B$ por metro."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q002": {
+    "idea": "El amperio es la unidad base; el coulomb se define a partir de él.",
+    "pasos": ["$1\\ \\text{C}=1\\ \\text{A}\\cdot1\\ \\text{s}$."],
+    "porque_fallan": {
+      "A": "Invierte la relación: A/s no es carga.",
+      "C": "Esa es la definición del **amperio** por la fuerza entre hilos paralelos.",
+      "E": "El coulomb no se reduce a kg, m y s: hace falta el amperio."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q007": {
+    "idea": "Regla de la mano derecha: pulgar en la corriente, dedos en el campo. Los dedos envuelven el hilo.",
+    "pasos": ["$\\vec B$ es azimutal: circunferencias concéntricas con el hilo.", "Nunca hay componente radial: $\\nabla\\cdot\\vec B=0$ lo prohíbe."],
+    "porque_fallan": {
+      "A": "Esa es la dirección de la corriente; el campo es perpendicular a ella.",
+      "C": "Radial hacia fuera es un campo eléctrico de una línea cargada, no magnético.",
+      "D": "Lo mismo, invertido."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q008": {
+    "idea": "Mano derecha con el pulgar al norte, estando nosotros **debajo** del cable.",
+    "pasos": [
+      "Corriente $\\hat y$ (norte); del hilo a nosotros, $-\\hat z$ (abajo).",
+      "$\\vec B\\propto\\hat I\\times\\hat r=\\hat y\\times(-\\hat z)=-\\hat x$.",
+      "$-\\hat x$ es el oeste."
+    ],
+    "porque_fallan": {
+      "A": "El este es el resultado si te colocas **encima** del cable.",
+      "C": "Norte es la dirección de la corriente: el campo es perpendicular.",
+      "B": "El campo de un hilo recto no tiene componente vertical en ese punto."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q009": {
+    "idea": "La aguja se alinea con el campo total, y encima de la brújula el cable impone su campo.",
+    "pasos": [
+      "Corriente de este a oeste, brújula debajo.",
+      "Mano derecha: debajo del cable el campo apunta al sur.",
+      "La punta «N» sigue al campo: apunta al sur."
+    ],
+    "porque_fallan": {
+      "A": "Sería lo que marcaría sin la corriente, con el campo terrestre solo.",
+      "C": "El campo del hilo es perpendicular a él, en el plano vertical norte-sur.",
+      "E": "El par la alinea y la deja quieta; no hay nada que la haga girar sin parar."
+    },
+    "confirma": "B"
+  },
+  "hrw-c29-q010": {
+    "idea": "$B=\\dfrac{\\mu_0 i}{2\\pi R}$: inverso de la distancia, no del cuadrado.",
+    "pasos": ["Sale de Ampère con un círculo concéntrico: $B(2\\pi R)=\\mu_0 i$."],
+    "porque_fallan": {
+      "C": "$1/R^2$ es el campo de un **dipolo puntual** o de un elemento de corriente aislado, no de un hilo infinito.",
+      "A": "Crecería con la distancia, lo contrario de lo observado.",
+      "D": "Es la caída del campo dipolar."
+    },
+    "confirma": "B"
+  },
+  "hrw-c29-q012": {
+    "idea": "Despeja la corriente de $B=\\mu_0 i/2\\pi R$.",
+    "pasos": [
+      "$i=\\dfrac{2\\pi RB}{\\mu_0}=\\dfrac{(2\\pi)(0{,}02)(2{,}0\\times10^{-5})}{4\\pi\\times10^{-7}}$.",
+      "$i=\\dfrac{2{,}51\\times10^{-6}}{1{,}26\\times10^{-6}}=2{,}0$ A."
+    ],
+    "porque_fallan": {
+      "D": "Usa el diámetro en vez del radio, o duplica en algún paso.",
+      "B": "Un factor 2 por debajo.",
+      "E": "Olvida convertir los centímetros a metros."
+    },
+    "confirma": "C"
+  },
+  "hrw-c29-q013": {
+    "idea": "Con corrientes opuestas, los dos campos apuntan al mismo lado en el punto medio y se **suman**.",
+    "pasos": [
+      "El campo de cada hilo es perpendicular a la recta que los une.",
+      "Corrientes opuestas invierten uno de los dos sentidos, así que ambos coinciden.",
+      "El resultado es perpendicular al plano de los dos hilos."
+    ],
+    "porque_fallan": {
+      "A": "Cero es lo que ocurre con corrientes del **mismo** sentido e iguales.",
+      "B": "El campo nunca apunta a lo largo de la recta que une los hilos.",
+      "C": "Tampoco es paralelo a los hilos: es perpendicular a ellos."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q014": {
+    "idea": "Mismo sentido: en el punto medio los campos se oponen y queda la **resta**.",
+    "pasos": [
+      "$r=0{,}20$ cm $=0{,}002$ m para cada hilo.",
+      "$\\dfrac{\\mu_0}{2\\pi r}=\\dfrac{2\\times10^{-7}}{0{,}002}=1{,}0\\times10^{-4}$ T/A.",
+      "$B=(1{,}0\\times10^{-4})(12-8)=4{,}0\\times10^{-4}$ T."
+    ],
+    "porque_fallan": {
+      "E": "Suma las corrientes: eso vale para sentidos **opuestos**.",
+      "C": "Usa solo una de las dos corrientes.",
+      "A": "Solo se anularía si las corrientes fueran iguales."
+    },
+    "confirma": "B"
+  },
+  "hrw-c29-q015": {
+    "idea": "Sentidos opuestos: en el punto medio los campos coinciden y se **suman**.",
+    "pasos": ["$B=(1{,}0\\times10^{-4})(12+8)=20\\times10^{-4}$ T."],
+    "porque_fallan": {
+      "B": "Resta las corrientes: eso vale para el mismo sentido.",
+      "D": "Usa solo la corriente mayor.",
+      "A": "Los campos se refuerzan, no se cancelan."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q019": {
+    "idea": "$F\\propto i_1i_2$: doblar las dos corrientes multiplica por cuatro.",
+    "pasos": ["$\\dfrac{F'}{F}=\\dfrac{(2i)(2i)}{i\\cdot i}=4$.", "$F'=4$ mN."],
+    "porque_fallan": {
+      "E": "Dobla una sola de las corrientes.",
+      "A": "La fuerza sí depende de las corrientes.",
+      "C": "Va en la dirección contraria."
+    },
+    "confirma": "B"
+  },
+  "hrw-c29-q020": {
+    "idea": "$\\dfrac{F}{L}=\\dfrac{\\mu_0 i_1i_2}{2\\pi d}$: cuadrática en la corriente, inversa en la separación.",
+    "pasos": ["Corrientes por 2 cada una: factor 4.", "Separación por 3: factor 1/3.", "$F'=\\dfrac{4F}{3}$."],
+    "porque_fallan": {
+      "B": "Eleva al cuadrado también la separación.",
+      "C": "Dobla una sola corriente.",
+      "A": "Los dos errores juntos."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q021": {
+    "idea": "Corrientes paralelas del mismo sentido se **atraen**.",
+    "pasos": [
+      "$\\dfrac{F}{L}=\\dfrac{\\mu_0 i_1i_2}{2\\pi d}=\\dfrac{(2\\times10^{-7})(2)(4)}{0{,}04}$.",
+      "$=4\\times10^{-5}$ N/m, atractiva."
+    ],
+    "porque_fallan": {
+      "C": "El valor bien y el signo al revés: repulsivas son las de sentidos opuestos.",
+      "B": "Un factor de más: revisa la conversión de 4 cm a metros.",
+      "A": "Lo mismo, y además repulsiva."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q022": {
+    "idea": "Corrientes de sentidos opuestos se **repelen**; el módulo es el mismo que antes.",
+    "pasos": ["$\\dfrac{F}{L}=4\\times10^{-5}$ N/m, repulsiva."],
+    "porque_fallan": {
+      "D": "El módulo bien y el sentido al revés.",
+      "A": "Un factor de más en el módulo.",
+      "B": "Los dos errores."
+    },
+    "confirma": "C"
+  },
+  "hrw-c29-q024": {
+    "idea": "Espiras vecinas llevan corriente en el mismo sentido, y corrientes paralelas se atraen.",
+    "pasos": ["Cada vuelta atrae a la siguiente.", "El muelle tiende a comprimirse: la bobina se acorta."],
+    "porque_fallan": {
+      "B": "Se alargaría si las corrientes vecinas fueran opuestas.",
+      "D": "Un solenoide produce campo intenso en su centro, no nulo.",
+      "C": "No hay par respecto al eje: la fuerza es axial."
+    },
+    "confirma": "A"
+  },
+  "hrw-c29-q026": {
+    "idea": "La gracia de las bobinas de Helmholtz es la **uniformidad** del campo entre ellas, no su intensidad.",
+    "pasos": ["Con la separación igual al radio, la segunda derivada del campo se anula en el centro.", "Queda una región amplia donde $B$ es casi constante."],
+    "porque_fallan": {
+      "B": "Un solenoide da campos mucho más intensos.",
+      "C": "Cancelar el campo terrestre es un uso posible, no la razón del diseño.",
+      "D": "El campo en el centro es perpendicular al plano de las bobinas."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q027": {
+    "idea": "La condición de Helmholtz es separación igual al radio.",
+    "pasos": ["Con $d=R$ se anula la segunda derivada de $B$ en el punto medio.", "Es exactamente lo que aplana el campo."],
+    "porque_fallan": {
+      "D": "Con $2R$ el campo ya tiene un hundimiento en el centro.",
+      "B": "Con $R/2$ el centro queda con un máximo pronunciado.",
+      "A": "Demasiado juntas: se comportan casi como una sola bobina."
+    },
+    "confirma": "C"
+  },
+  "hrw-c29-q028": {
+    "idea": "El campo de un dipolo magnético cae como el cubo de la distancia.",
+    "pasos": ["$B=\\dfrac{\\mu_0}{4\\pi}\\dfrac{2\\mu}{R^3}$ sobre el eje.", "Igual que el dipolo eléctrico: $1/R^3$."],
+    "porque_fallan": {
+      "D": "$1/R^2$ es el campo de una carga puntual, y no existen monopolos magnéticos.",
+      "B": "$1/R$ es el hilo recto infinito.",
+      "A": "Crecería con la distancia."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q029": {
+    "idea": "Sin fuerza significa moverse **paralelo** al campo, y en el eje de la espira el campo es axial.",
+    "pasos": [
+      "Por simetría, sobre el eje $z$ el campo de la espira apunta en $\\pm\\hat z$.",
+      "La recta $x=0$, $y=0$ es ese eje.",
+      "Una carga que lo recorre lleva $\\vec v\\parallel\\vec B$ y no siente fuerza."
+    ],
+    "porque_fallan": {
+      "A": "Esa recta está en el plano de la espira, donde el campo no es paralelo a ella.",
+      "C": "Lo mismo.",
+      "E": "$x=0$, $z=0$ es el eje $y$, contenido en el plano de la espira."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q030": {
+    "idea": "Ampère es una integral de línea sobre un lazo **cerrado**, y basta con que encierre la corriente neta.",
+    "pasos": ["$\\oint\\vec B\\cdot d\\vec s=\\mu_0 i_{enc}$ vale para cualquier camino cerrado.", "El camino puede rodear solo parte de la corriente: entonces $i_{enc}$ es esa parte."],
+    "porque_fallan": {
+      "A": "Una superficie corresponde a un flujo, no a esta circulación.",
+      "B": "La superficie cerrada es la ley de Gauss magnética, $\\oint\\vec B\\cdot d\\vec A=0$.",
+      "E": "No hace falta encerrarlo todo: lo que no se encierra simplemente no cuenta."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q031": {
+    "idea": "$d\\vec s$ es un tramo infinitesimal del **camino de integración**, que uno elige, no del hilo.",
+    "pasos": ["El camino es imaginario y puede ir por donde se quiera.", "No tiene por qué ser paralelo ni perpendicular a $\\vec B$."],
+    "porque_fallan": {
+      "A": "Ese sería $d\\vec l$ en Biot-Savart, que sí recorre el conductor.",
+      "B": "Solo coincide con $\\vec B$ si eliges el camino a lo largo de una línea de campo.",
+      "D": "El camino no tiene por qué medir lo que el hilo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q032": {
+    "idea": "El sentido es libre: solo fija el signo con que se cuenta la corriente encerrada.",
+    "pasos": ["Elegido el sentido de recorrido, la mano derecha da el sentido positivo de $i_{enc}$.", "Invertirlo cambia el signo de los dos lados de la igualdad."],
+    "porque_fallan": {
+      "A": "No hay ningún sentido privilegiado.",
+      "C": "Seguir las líneas de campo es cómodo, pero no obligatorio.",
+      "D": "El camino ni siquiera tiene que tocar el hilo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q033": {
+    "idea": "La circulación solo depende de la corriente encerrada, no de la forma ni del tamaño de la ventana.",
+    "pasos": ["$\\oint\\vec B\\cdot d\\vec s=\\mu_0 i=(4\\pi\\times10^{-7})(3{,}0)$.", "$=3{,}8\\times10^{-6}$ T·m.", "El 1,5 × 1,0 de la ventana sobra."],
+    "porque_fallan": {
+      "A": "Mete las dimensiones de la ventana en la cuenta.",
+      "C": "Usa $\\mu_0/4\\pi$ en vez de $\\mu_0$.",
+      "B": "Un factor de más por el mismo motivo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q034": {
+    "idea": "Cuenta la corriente **neta** encerrada: entran 3 A y salen 5 A.",
+    "pasos": ["$i_{neta}=5{,}0-3{,}0=2{,}0$ A.", "$\\oint\\vec B\\cdot d\\vec s=(4\\pi\\times10^{-7})(2{,}0)=2{,}5\\times10^{-6}$ T·m."],
+    "porque_fallan": {
+      "B": "Usa solo los 3 A.",
+      "D": "Suma las corrientes en vez de restarlas: van en sentidos opuestos.",
+      "C": "Usa solo los 5 A."
+    },
+    "confirma": "A"
+  },
+  "hrw-c29-q035": {
+    "idea": "Si $\\vec B$ es uniforme, su circulación sobre cualquier lazo cerrado es cero, y con ella la corriente encerrada.",
+    "pasos": ["$\\oint\\vec B\\cdot d\\vec s=\\vec B\\cdot\\oint d\\vec s=0$ porque $\\oint d\\vec s=0$.", "Luego $i_{enc}=0$."],
+    "porque_fallan": {
+      "B": "Es lo que daría si $\\vec B$ fuera azimutal y constante en módulo, no uniforme en dirección.",
+      "C": "Confunde circulación con flujo.",
+      "E": "No sale de ninguna aplicación de Ampère aquí."
+    },
+    "confirma": "A"
+  },
+  "hrw-c29-q036": {
+    "idea": "$\\vec B=A\\vec r\\times\\hat k$ es azimutal y de módulo $Ar$: crece con el radio.",
+    "pasos": [
+      "Sobre el círculo de radio $R$, $|\\vec B|=AR$ y $\\vec B$ es tangente al camino.",
+      "$\\oint\\vec B\\cdot d\\vec s=AR(2\\pi R)=2\\pi AR^2$.",
+      "$i_{enc}=\\dfrac{2\\pi AR^2}{\\mu_0}$."
+    ],
+    "porque_fallan": {
+      "A": "Olvida el factor 2 de la longitud de la circunferencia.",
+      "B": "Trata $|\\vec B|$ como constante en vez de proporcional a $r$.",
+      "E": "Un factor cuatro por debajo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q038": {
+    "idea": "En la superficie exterior está encerrada **toda** la corriente y el radio es el menor posible para eso.",
+    "pasos": [
+      "Hueco ($r<R_i$): $i_{enc}=0$, luego $B=0$.",
+      "Dentro del material: $i_{enc}$ crece con $r$, y $B$ también.",
+      "Fuera ($r>R_o$): $i_{enc}=i$ fija y $B$ cae como $1/r$. El máximo está justo en $R_o$."
+    ],
+    "porque_fallan": {
+      "A": "Ahí la corriente encerrada es cero.",
+      "E": "En el hueco el campo es nulo en todas partes.",
+      "C": "Dentro del material el campo aún no ha llegado a su máximo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c29-q039": {
+    "idea": "Cero **fuera** exige corriente neta nula, y cero *en todas partes* fuera exige además simetría axial.",
+    "pasos": [
+      "Para $r>R_o$, $i_{enc}=i_{cascarón}+i_{hilo}=0$, luego el hilo lleva $i$ en sentido opuesto.",
+      "Si el hilo estuviera descentrado, la circulación seguiría siendo cero pero $\\vec B$ no lo sería punto a punto.",
+      "Hace falta que esté sobre el eje."
+    ],
+    "porque_fallan": {
+      "B": "La corriente es la correcta, pero descentrado el campo exterior no se anula punto a punto: solo su integral.",
+      "C": "El mismo sentido duplicaría la corriente encerrada en vez de cancelarla.",
+      "E": "Sin corriente en el hilo, fuera quedaría el campo del cascarón."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q040": {
+    "idea": "Dentro del hueco el cascarón no encierra nada: el único campo posible es el del hilo.",
+    "pasos": [
+      "Para $r<R_i$, $i_{enc}$ es solo la del hilo.",
+      "$B=0$ en toda la región hueca obliga a que esa corriente sea nula.",
+      "Un cascarón solo, sin hilo, ya da campo cero en su hueco."
+    ],
+    "porque_fallan": {
+      "D": "Es la respuesta de la pregunta anterior, que pedía campo nulo **fuera**.",
+      "B": "Cualquier corriente en el hilo genera campo en el hueco.",
+      "A": "Lo mismo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q041": {
+    "idea": "$B=\\mu_0 n i$ dentro de un solenoide ideal: no aparece el radio por ninguna parte.",
+    "pasos": ["Ampère con un rectángulo: solo entran las vueltas por unidad de longitud y la corriente.", "La sección transversal se cancela."],
+    "porque_fallan": {
+      "A": "La corriente está en la fórmula.",
+      "C": "El espaciado es justamente $n$.",
+      "B": "El núcleo cambia $\\mu$ y con él el campo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c29-q042": {
+    "idea": "Dentro del interior pequeño actúan **los dos** campos, y ninguno depende del radio: solo de $n$ e $i$.",
+    "pasos": [
+      "$B_{total}=\\mu_0 n(i_{int}\\pm i_{ext})$ en la región común.",
+      "Cero exige corrientes iguales en módulo y opuestas en sentido.",
+      "Los radios de 20 y 30 mm son un señuelo: el campo de un solenoide ideal no depende del radio."
+    ],
+    "porque_fallan": {
+      "A": "Usa la razón de radios, 20/30, que no interviene.",
+      "C": "Lo mismo, invertido.",
+      "D": "Tampoco sale de ninguna razón de radios."
+    },
+    "confirma": "E"
+  },
+  "hrw-c29-q044": {
+    "idea": "$B=\\mu_0 n i$: solo cuenta $n$, y el radio no aparece.",
+    "pasos": ["$\\dfrac{B_2}{B_1}=\\dfrac{n_2}{n_1}=6$."],
+    "porque_fallan": {
+      "A": "Usa la razón de radios, que no interviene.",
+      "B": "Usa el radio al cuadrado, como si fuera el área.",
+      "D": "El campo sí cambia: $n$ es seis veces mayor."
+    },
+    "confirma": "C"
+  },
+  "hrw-c29-q045": {
+    "idea": "$B=\\mu_0 n i$ con $n$ en vueltas por **metro**. El radio sobra.",
+    "pasos": [
+      "$n=\\dfrac{500}{0{,}030}=1{,}67\\times10^{4}$ vueltas/m.",
+      "$B=(4\\pi\\times10^{-7})(1{,}67\\times10^{4})(2{,}0)$.",
+      "$B=4{,}2\\times10^{-2}$ T."
+    ],
+    "porque_fallan": {
+      "B": "Usa las 500 vueltas sin dividir por la longitud.",
+      "D": "Olvida $\\mu_0$.",
+      "A": "Varios órdenes de magnitud abajo: revisa la conversión de cm a m."
+    },
+    "confirma": "C"
+  },
+  "hrw-c29-q046": {
+    "idea": "En un toroide $B=\\dfrac{\\mu_0 Ni}{2\\pi r}$: cae con el radio, así que manda el radio menor.",
+    "pasos": ["El máximo está en la superficie interior, donde $r$ es mínimo.", "En el hueco central $i_{enc}=0$ y el campo es nulo."],
+    "porque_fallan": {
+      "A": "Ahí el camino de Ampère no encierra corriente: $B=0$.",
+      "C": "La superficie exterior es donde $r$ es máximo y $B$ mínimo.",
+      "D": "El campo no es uniforme: varía como $1/r$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c29-q047": {
+    "idea": "$B\\propto1/r$, así que la razón de campos es la razón inversa de radios.",
+    "pasos": [
+      "Lado del cuadrado igual al radio interior $a$: el radio exterior es $2a$.",
+      "$\\dfrac{B_{int}}{B_{ext}}=\\dfrac{1/a}{1/2a}=2$."
+    ],
+    "porque_fallan": {
+      "B": "La razón invertida: el campo es **mayor** dentro.",
+      "E": "Usa $1/r^2$, que no es la dependencia del toroide.",
+      "C": "El campo del toroide no es uniforme."
+    },
+    "confirma": "D"
+  }
+}
