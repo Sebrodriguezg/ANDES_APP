@@ -1,0 +1,746 @@
+{
+  "hrw-c31-q006": {
+    "idea": "La energía del condensador va como $V^2$: $U_C=\\tfrac12CV^2$.",
+    "pasos": ["$\\dfrac{U}{U_{max}}=\\left(\\dfrac{V}{V_{max}}\\right)^2=\\dfrac{40}{360}=\\dfrac19$.", "$V=\\dfrac{15}{3}=5$ V."],
+    "porque_fallan": {
+      "C": "Toma la raíz de $40/360$ mal, o supone proporcionalidad lineal con la energía.",
+      "D": "Es el valor máximo, no el del instante.",
+      "A": "Energía 40 µJ no nula implica voltaje no nulo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q007": {
+    "idea": "$f=\\dfrac{1}{2\\pi\\sqrt{LC}}$: para bajar la frecuencia hay que subir el **producto** $LC$.",
+    "pasos": ["A: $LC/4$. B y C: $LC$. D: $4LC$.", "El mayor producto es D, y da la frecuencia más baja: $f/2$."],
+    "porque_fallan": {
+      "A": "Cuadruplica la frecuencia en vez de bajarla.",
+      "B": "El producto no cambia: la frecuencia tampoco.",
+      "C": "Lo mismo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q008": {
+    "idea": "Despeja $C$ de $f=1/2\\pi\\sqrt{LC}$.",
+    "pasos": ["$C=\\dfrac{1}{4\\pi^2f^2L}=\\dfrac{1}{4\\pi^2(100)^2(2{,}5)}$.", "$C=1{,}0\\times10^{-6}$ F $=1$ µF."],
+    "porque_fallan": {
+      "B": "Tres órdenes de magnitud arriba.",
+      "E": "Seis órdenes abajo.",
+      "A": "Un faradio es un condensador gigantesco: el orden de magnitud delata el error."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q009": {
+    "idea": "$f=\\dfrac{1}{2\\pi\\sqrt{LC}}$, directo.",
+    "pasos": ["$LC=(4\\times10^{-3})(1\\times10^{-6})=4\\times10^{-9}$.", "$\\sqrt{LC}=6{,}3\\times10^{-5}$.", "$f=\\dfrac{1}{2\\pi(6{,}3\\times10^{-5})}\\approx2500$ Hz."],
+    "porque_fallan": {
+      "E": "Olvida el $2\\pi$: eso da $\\omega$, no $f$.",
+      "B": "Dos órdenes abajo.",
+      "C": "Los 60 Hz son la red eléctrica, no este circuito."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q010": {
+    "idea": "Ahora se despeja $L$.",
+    "pasos": ["$L=\\dfrac{1}{4\\pi^2f^2C}=\\dfrac{1}{4\\pi^2(10^{5})^2(10^{-7})}$.", "$L=2{,}5\\times10^{-5}$ H $=25$ µH."],
+    "porque_fallan": {
+      "D": "Un orden de magnitud abajo.",
+      "B": "Dos órdenes arriba.",
+      "A": "Tres órdenes arriba."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q013": {
+    "idea": "Dos inductancias en serie suman; dos capacitancias en serie se **reducen a la mitad**. El producto $LC$ no cambia.",
+    "pasos": ["$L'=2L$ y $C'=C/2$.", "$L'C'=LC$, luego $f'=f$."],
+    "porque_fallan": {
+      "B": "Cuenta solo el doble de inductancia.",
+      "D": "Trata las capacitancias como si sumaran, que es lo que hacen en paralelo.",
+      "A": "Dos factores de dos en la misma dirección."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q014": {
+    "idea": "En la analogía mecánica, $q\\leftrightarrow x$, $L\\leftrightarrow m$ y $1/C\\leftrightarrow k$.",
+    "pasos": [
+      "$\\tfrac12kx^2\\leftrightarrow\\dfrac{q^2}{2C}$: el papel de $k$ lo hace $1/C$.",
+      "Comprueba con la frecuencia: $\\omega=\\sqrt{k/m}\\leftrightarrow\\sqrt{1/LC}$."
+    ],
+    "porque_fallan": {
+      "C": "$C$ es el análogo de $1/k$, la **flexibilidad**, no la rigidez.",
+      "A": "$L$ hace de masa.",
+      "E": "$R$ hace de rozamiento."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q018": {
+    "idea": "La misma idea que antes: la energía va como el cuadrado del voltaje.",
+    "pasos": ["$V=V_{max}\\sqrt{U/U_{max}}=15\\sqrt{1/9}=5$ V."],
+    "porque_fallan": {
+      "C": "Supone proporcionalidad lineal entre energía y voltaje.",
+      "D": "Es el máximo.",
+      "A": "Con 40 µJ almacenados el voltaje no es cero."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q020": {
+    "idea": "La energía oscila entera entre condensador e inductor: cuando la corriente es cero, el condensador la tiene toda.",
+    "pasos": ["$U_C^{max}=U$, en el instante en que $i=0$.", "Y $U_L^{max}=U$ medio ciclo después."],
+    "porque_fallan": {
+      "A": "El reparto a medias ocurre en un instante intermedio, no en el máximo.",
+      "B": "El $\\sqrt2$ viene de los valores eficaces, que no aplican aquí.",
+      "D": "El $2\\pi$ no aparece en ningún reparto de energía."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q021": {
+    "idea": "$U_C\\propto q^2$, así que con $q=Q/2$ el condensador solo tiene la cuarta parte.",
+    "pasos": ["$U_C=U\\left(\\dfrac12\\right)^2=\\dfrac{U}{4}$.", "$U_L=U-U_C=\\dfrac{3U}{4}$."],
+    "porque_fallan": {
+      "A": "Supone dependencia lineal en la carga.",
+      "B": "Es la energía del **condensador**, no la del inductor.",
+      "C": "La energía en una parte no puede superar el total."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q022": {
+    "idea": "Toda la energía cabe en el condensador cuando la carga es máxima: $U=Q^2/2C$.",
+    "pasos": ["$Q=\\sqrt{2UC}=\\sqrt{2(5{,}0\\times10^{-6})(15\\times10^{-6})}$.", "$Q=\\sqrt{1{,}5\\times10^{-10}}=12$ µC."],
+    "porque_fallan": {
+      "B": "Olvida el factor 2.",
+      "E": "Un factor 2 de más.",
+      "A": "Divide donde había que multiplicar."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q023": {
+    "idea": "Y toda la energía cabe en el inductor cuando la corriente es máxima: $U=\\tfrac12LI^2$.",
+    "pasos": ["$I=\\sqrt{2U/L}=\\sqrt{\\dfrac{2(5{,}0\\times10^{-6})}{25\\times10^{-3}}}$.", "$I=\\sqrt{4\\times10^{-4}}=20$ mA."],
+    "porque_fallan": {
+      "B": "Olvida el factor 2 dentro de la raíz.",
+      "E": "Un factor 2 de más.",
+      "A": "Divide entre 2 en vez de multiplicar."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q024": {
+    "idea": "Sin corriente inicial, toda la energía está en el condensador; después pasa entera al inductor.",
+    "pasos": [
+      "$U=\\dfrac{Q^2}{2C}=\\dfrac{(15\\times10^{-6})^2}{2(50\\times10^{-6})}=2{,}25\\times10^{-6}$ J.",
+      "$I=\\sqrt{2U/L}=\\sqrt{\\dfrac{4{,}5\\times10^{-6}}{20\\times10^{-3}}}=15$ mA."
+    ],
+    "porque_fallan": {
+      "E": "Tres órdenes de magnitud: revisa los prefijos.",
+      "B": "Tres órdenes abajo.",
+      "C": "Sale de una combinación distinta de los datos."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q025": {
+    "idea": "En un instante cualquiera hay energía en los **dos**: se suman.",
+    "pasos": [
+      "$U_C=\\dfrac{q^2}{2C}=\\dfrac{(3\\times10^{-6})^2}{2(5\\times10^{-6})}=9{,}0\\times10^{-7}$ J.",
+      "$U_L=\\tfrac12Li^2=\\tfrac12(20\\times10^{-3})(7\\times10^{-3})^2=4{,}9\\times10^{-7}$ J.",
+      "$U=1{,}4\\times10^{-6}$ J."
+    ],
+    "porque_fallan": {
+      "C": "Se queda solo con la del condensador.",
+      "B": "Solo con la del inductor.",
+      "E": "Dobla la suma."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q026": {
+    "idea": "Suma las dos energías y luego pasa toda al condensador.",
+    "pasos": [
+      "$U=\\dfrac{(10\\times10^{-6})^2}{2(30\\times10^{-6})}+\\tfrac12(15\\times10^{-3})(20\\times10^{-3})^2$.",
+      "$U=1{,}67\\times10^{-6}+3{,}0\\times10^{-6}=4{,}67\\times10^{-6}$ J.",
+      "$Q=\\sqrt{2UC}=\\sqrt{2(4{,}67\\times10^{-6})(30\\times10^{-6})}=17$ µC."
+    ],
+    "porque_fallan": {
+      "B": "Se queda con la carga del instante inicial: la máxima es mayor.",
+      "A": "Olvida la energía del inductor.",
+      "E": "Un factor de más en la raíz."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q027": {
+    "idea": "En la malla LC, $L\\dfrac{di}{dt}=\\dfrac{q}{C}$.",
+    "pasos": ["$\\dfrac{di}{dt}=\\dfrac{q}{LC}=\\dfrac{25\\times10^{-6}}{(15\\times10^{-3})(10\\times10^{-6})}$.", "$=170$ A/s."],
+    "porque_fallan": {
+      "A": "Con carga en el condensador, la corriente está cambiando.",
+      "D": "Multiplica $LC$ donde había que dividir.",
+      "C": "Varios órdenes de magnitud abajo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q028": {
+    "idea": "Con la energía total del problema anterior, toda pasa al inductor.",
+    "pasos": ["$U=4{,}67\\times10^{-6}$ J.", "$I=\\sqrt{2U/L}=\\sqrt{\\dfrac{9{,}33\\times10^{-6}}{15\\times10^{-3}}}=25$ mA."],
+    "porque_fallan": {
+      "B": "Es la corriente del instante inicial, no la máxima.",
+      "A": "Por debajo incluso de la inicial: imposible.",
+      "D": "Un factor de más."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q030": {
+    "idea": "En un RLC amortiguado la amplitud decae como $e^{-Rt/2L}$.",
+    "pasos": [
+      "Cinco ciclos: $t=5/7000=7{,}14\\times10^{-4}$ s.",
+      "Exponente: $-\\dfrac{(200)(7{,}14\\times10^{-4})}{2(15\\times10^{-3})}=-4{,}76$.",
+      "$i=(25\\times10^{-3})e^{-4{,}76}=2{,}1\\times10^{-4}$ A."
+    ],
+    "porque_fallan": {
+      "E": "Es la corriente inicial: no ha decaído nada.",
+      "D": "Un solo ciclo en vez de cinco.",
+      "A": "El decaimiento es exponencial: nunca llega exactamente a cero."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q032": {
+    "idea": "Con fuente sinusoidal, en régimen estacionario **todo** oscila a la frecuencia de la fuente.",
+    "pasos": [
+      "Los transitorios, que van a la frecuencia natural, se extinguen.",
+      "Queda la respuesta forzada: 500 Hz."
+    ],
+    "porque_fallan": {
+      "B": "1,4 kHz es la frecuencia natural del circuito, que solo manda en el transitorio.",
+      "E": "No hay mezcla de frecuencias en régimen estacionario.",
+      "D": "La respuesta forzada va exactamente a la frecuencia impuesta."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q033": {
+    "idea": "La resistencia es la que amortigua: $e^{-Rt/2L}$.",
+    "pasos": ["Un decaimiento en pocos ciclos exige $R$ grande frente a $\\sqrt{L/C}$."],
+    "porque_fallan": {
+      "E": "Poca resistencia da muchos ciclos antes de apagarse.",
+      "A": "Una inductancia grande **alarga** el decaimiento: está en el denominador.",
+      "B": "La capacitancia fija la frecuencia, no el amortiguamiento."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q034": {
+    "idea": "El amortiguamiento corre la frecuencia: $\\omega=\\sqrt{\\dfrac{1}{LC}-\\dfrac{R^2}{4L^2}}$.",
+    "pasos": [
+      "$\\dfrac{1}{LC}=\\dfrac{1}{(25\\times10^{-3})(12\\times10^{-6})}=3{,}33\\times10^{6}$.",
+      "$\\dfrac{R^2}{4L^2}=\\dfrac{3600}{4(6{,}25\\times10^{-4})}=1{,}44\\times10^{6}$.",
+      "$\\omega=\\sqrt{1{,}89\\times10^{6}}=1{,}4\\times10^{3}$ rad/s."
+    ],
+    "porque_fallan": {
+      "C": "Usa $1/\\sqrt{LC}$ sin descontar el amortiguamiento: daría $1{,}8\\times10^{3}$.",
+      "D": "Un factor por encima.",
+      "A": "Resta de más."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q035": {
+    "idea": "En régimen estacionario la corriente sigue a la fuente, no a la frecuencia natural.",
+    "pasos": ["La fuente impone $2\\omega_0$, y eso es lo que queda cuando el transitorio muere."],
+    "porque_fallan": {
+      "B": "La frecuencia natural solo aparece en el transitorio.",
+      "A": "No hay ninguna división de frecuencia en un circuito lineal.",
+      "E": "Tampoco hay armónicos: el circuito es lineal."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q036": {
+    "idea": "La amplitud de corriente es máxima en **resonancia**, donde la impedancia se reduce a $R$.",
+    "pasos": ["$Z=\\sqrt{R^2+(X_L-X_C)^2}$ es mínima cuando $X_L=X_C$, es decir $\\omega=\\omega_0$.", "Ahí $Z=R$ y la corriente es máxima."],
+    "porque_fallan": {
+      "A": "Lejos de la resonancia domina $X_C$ y la impedancia crece.",
+      "D": "Lejos por arriba domina $X_L$.",
+      "E": "La corriente sí depende de la frecuencia: esa es la curva de resonancia."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q037": {
+    "idea": "En régimen estacionario, el condensador y el inductor devuelven toda la energía que toman: el promedio neto es cero.",
+    "pasos": ["Solo la resistencia disipa de forma neta.", "Por conservación, la fuente entrega exactamente lo que $R$ disipa: 5 nW."],
+    "porque_fallan": {
+      "A": "La energía media almacenada en el condensador es constante: su tasa media es cero.",
+      "B": "Lo mismo para el inductor.",
+      "D": "Ese factor 2 no corresponde a nada."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q038": {
+    "idea": "El condensador necesita corriente **antes** de tener voltaje: la corriente adelanta un cuarto de ciclo.",
+    "pasos": ["$i=C\\dfrac{dV}{dt}$: la corriente es máxima cuando el voltaje pasa por cero.", "Noventa grados de adelanto."],
+    "porque_fallan": {
+      "C": "Ese es el inductor.",
+      "E": "Ese es el resistor.",
+      "B": "Medio ciclo sería una inversión de signo, no un desfase reactivo."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q039": {
+    "idea": "En una resistencia, $V=iR$ en todo instante: no hay desfase posible.",
+    "pasos": ["La ley de Ohm es instantánea y sin memoria."],
+    "porque_fallan": {
+      "A": "El adelanto es del condensador.",
+      "C": "El retraso es del inductor.",
+      "B": "Medio ciclo no aparece en ningún elemento pasivo simple."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q040": {
+    "idea": "El inductor se opone a que la corriente cambie: la corriente llega tarde, un cuarto de ciclo.",
+    "pasos": ["$V=L\\,di/dt$: el voltaje es máximo cuando la corriente pasa por cero."],
+    "porque_fallan": {
+      "A": "Sin desfase es el resistor.",
+      "C": "Medio ciclo no corresponde a ningún elemento.",
+      "D": "Tres cuartos de retraso equivale a un cuarto de adelanto: eso es el condensador."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q041": {
+    "idea": "En un RL el inductor manda en el desfase: la corriente **atrasa**, y el ángulo sale del triángulo de impedancias.",
+    "pasos": ["$\\tan\\phi=\\dfrac{X_L}{R}=\\dfrac{\\omega L}{R}$.", "La corriente atrasa respecto a la fem."],
+    "porque_fallan": {
+      "A": "El adelanto es cosa de los condensadores.",
+      "C": "$\\omega R/L$ no tiene las unidades correctas dentro de la arcotangente.",
+      "D": "Los dos errores juntos."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q042": {
+    "idea": "En un RC la corriente **adelanta**, con $\\tan\\phi=X_C/R=1/\\omega CR$.",
+    "pasos": ["$X_C=1/\\omega C$, luego $\\tan\\phi=\\dfrac{1}{\\omega CR}$."],
+    "porque_fallan": {
+      "B": "El ángulo bien y el sentido al revés.",
+      "C": "Invierte la arcotangente.",
+      "E": "45° solo si $X_C=R$, que aquí no se impone."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q043": {
+    "idea": "Atraso de 45° significa $\\tan\\phi=1$, es decir reactancia neta igual a la resistencia, y positiva.",
+    "pasos": ["$\\tan\\phi=\\dfrac{X_L-X_C}{R}=1$.", "$R=\\omega L-\\dfrac{1}{\\omega C}$, con el signo que hace la corriente atrasar."],
+    "porque_fallan": {
+      "A": "Ese sería un **adelanto** de 45°: reactancia neta capacitiva.",
+      "E": "Eso es la resonancia, con desfase cero.",
+      "B": "Mezcla $L$ y $C$ en los sitios equivocados."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q044": {
+    "idea": "Triángulo de impedancias: $Z^2=R^2+X^2$.",
+    "pasos": ["$X=\\sqrt{100^2-60^2}=\\sqrt{6400}=80\\ \\Omega$."],
+    "porque_fallan": {
+      "A": "Resta directamente $100-60$: las impedancias no se suman escalarmente.",
+      "E": "Suma directamente.",
+      "D": "Usa la hipotenusa donde iba el cateto."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q045": {
+    "idea": "$X_C=\\dfrac{1}{2\\pi fC}$.",
+    "pasos": ["$X_C=\\dfrac{1}{2\\pi(400)(35\\times10^{-6})}$.", "$X_C=11\\ \\Omega$."],
+    "porque_fallan": {
+      "E": "Olvida el $2\\pi$.",
+      "C": "Calcula $2\\pi fC$ sin invertir.",
+      "A": "Un condensador real tiene reactancia finita a frecuencia finita."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q046": {
+    "idea": "Con la reactancia anterior, $I=\\mathcal{E}/X_C$.",
+    "pasos": ["$X_C=11{,}4\\ \\Omega$.", "$I=\\dfrac{20}{11{,}4}=1{,}8$ A."],
+    "porque_fallan": {
+      "B": "Multiplica por la reactancia en vez de dividir.",
+      "D": "Olvida el $2\\pi$ en la reactancia.",
+      "A": "Un condensador conduce corriente alterna."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q047": {
+    "idea": "$X_L=2\\pi fL$, y después $I=\\mathcal{E}/X_L$.",
+    "pasos": ["$X_L=2\\pi(400)(0{,}045)=113\\ \\Omega$.", "$I=\\dfrac{20}{113}=0{,}18$ A."],
+    "porque_fallan": {
+      "C": "Olvida el $2\\pi$.",
+      "D": "Divide la reactancia entre la fem.",
+      "A": "El inductor no bloquea del todo a frecuencia finita."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q048": {
+    "idea": "$Z=\\sqrt{R^2+(X_L-X_C)^2}$: subir $R$ sube $Z$ siempre; tocar $L$ o $C$ puede acercarte a la resonancia y **bajarla**.",
+    "pasos": ["El término $(X_L-X_C)^2$ puede crecer o decrecer según de qué lado de la resonancia estés.", "El término $R^2$ solo crece."],
+    "porque_fallan": {
+      "B": "Si estabas por debajo de la resonancia, subir $L$ acerca $X_L$ a $X_C$ y baja $Z$.",
+      "A": "Lo mismo con la capacitancia.",
+      "E": "Bajar $R$ baja $Z$."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q049": {
+    "idea": "Las reactancias se **restan** entre sí y luego entra Pitágoras con la resistencia.",
+    "pasos": ["$X=X_L-X_C=6-3=3\\ \\Omega$.", "$Z=\\sqrt{4^2+3^2}=5\\ \\Omega$."],
+    "porque_fallan": {
+      "B": "Suma $4+3$ escalarmente.",
+      "D": "Suma las tres.",
+      "E": "Suma las reactancias en vez de restarlas."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q051": {
+    "idea": "Resistencia y reactancia forman el triángulo; la corriente sale de la impedancia.",
+    "pasos": ["$Z=\\sqrt{30^2+40^2}=50\\ \\Omega$.", "$I=\\dfrac{420}{50}=8{,}4$ A."],
+    "porque_fallan": {
+      "A": "Suma escalarmente $30+40$.",
+      "E": "Usa solo la resistencia.",
+      "C": "Usa solo la reactancia."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q052": {
+    "idea": "Los voltajes de resistencia e inductor están a 90°: se componen con Pitágoras, no sumando.",
+    "pasos": ["$V_L=\\sqrt{\\mathcal{E}^2-V_R^2}=\\sqrt{20^2-16^2}$.", "$V_L=\\sqrt{144}=12$ V."],
+    "porque_fallan": {
+      "B": "Resta escalarmente $20-16$: es el error central del capítulo.",
+      "E": "Suma escalarmente.",
+      "D": "Suma los cuadrados en vez de restarlos."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q053": {
+    "idea": "La impedancia solo depende de $R$, $L$, $C$ y $\\omega$: subir la amplitud de la fuente solo escala la corriente.",
+    "pasos": ["$I=\\mathcal{E}/Z$ con $Z$ fija.", "Doble fem, doble corriente."],
+    "porque_fallan": {
+      "A": "La impedancia no depende de la amplitud.",
+      "C": "La reactancia tampoco.",
+      "D": "El factor de potencia es $R/Z$: no cambia."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q054": {
+    "idea": "$X_C=1/\\omega C$: doblar la frecuencia la reduce a la mitad.",
+    "pasos": ["$X_C\\propto1/\\omega$.", "Y de paso $X_L=\\omega L$ se **duplica**: van en sentidos opuestos."],
+    "porque_fallan": {
+      "A": "Confunde $X_C$ con $X_L$: la que se duplica es la inductiva.",
+      "C": "La impedancia puede subir o bajar según de qué lado de la resonancia estés.",
+      "D": "Lo mismo para la corriente."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q055": {
+    "idea": "Que la fuente adelante a la corriente significa circuito **inductivo**: $X_L>X_C$, estás por encima de la resonancia.",
+    "pasos": [
+      "Bajar $f$ reduce $X_L$ y aumenta $X_C$: la reactancia neta se acerca a cero.",
+      "Te acercas a la resonancia, así que $Z$ **baja**."
+    ],
+    "porque_fallan": {
+      "A": "Sería así si estuvieras por debajo de la resonancia, con la corriente adelantando.",
+      "C": "$Z$ depende de la frecuencia salvo justo en el mínimo.",
+      "D": "La amplitud no afecta a la impedancia."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q057": {
+    "idea": "Del ángulo sale la razón entre reactancia neta y resistencia.",
+    "pasos": [
+      "$X_L=2\\pi(1000)(0{,}1)=628\\ \\Omega$ y $X_C=\\dfrac{1}{2\\pi(1000)(10^{-6})}=159\\ \\Omega$.",
+      "$X=469\\ \\Omega$ y $\\tan75^\\circ=3{,}73$.",
+      "$R=\\dfrac{469}{3{,}73}=126\\ \\Omega$."
+    ],
+    "porque_fallan": {
+      "A": "Un orden de magnitud abajo.",
+      "D": "Multiplica por la tangente en vez de dividir.",
+      "E": "Usa la reactancia sin descontar la capacitiva."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q058": {
+    "idea": "Si subir la frecuencia **sube** la corriente, es que te estás acercando a la resonancia desde abajo.",
+    "pasos": ["Por debajo de la resonancia domina la reactancia capacitiva: $X_C>X_L$.", "Al subir $\\omega$, $X_L$ crece y $X_C$ baja: $Z$ disminuye y la corriente sube."],
+    "porque_fallan": {
+      "A": "Por encima de la resonancia, subir más la frecuencia **baja** la corriente.",
+      "C": "En resonancia exacta la corriente ya es máxima: no puede subir.",
+      "D": "La comparación con $R$ no decide de qué lado de la resonancia estás."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q059": {
+    "idea": "En fase exige $X_L=X_C$, y hay que subir $X_C$ de 100 a 200.",
+    "pasos": ["$X_C=1/\\omega C$: para doblarla hay que **reducir** $C$ a la mitad.", "Con $C/2$, $X_C=200=X_L$: resonancia."],
+    "porque_fallan": {
+      "D": "Doblar $C$ reduce $X_C$ a 50: aleja aún más.",
+      "A": "La resistencia no cambia el desfase entre $X_L$ y $X_C$: solo su magnitud relativa a $R$… y el desfase no se anula.",
+      "C": "Con $L=0$ quedaría $X_L=0$ y un desfase capacitivo puro."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q060": {
+    "idea": "Corriente atrasada significa inductivo. Para disipar más hay que acercarse a la resonancia subiendo $X_C$.",
+    "pasos": ["$P=i^2R$ con $i=\\mathcal{E}/Z$: sube al bajar $Z$.", "$X_C=1/\\omega C$ crece si $C$ **baja**, acercando $X_C$ a $X_L$."],
+    "porque_fallan": {
+      "B": "Subir $C$ baja $X_C$ y aleja de la resonancia.",
+      "C": "Subir $L$ sube $X_L$ y también aleja.",
+      "E": "Bajar la fem baja la potencia directamente."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q061": {
+    "idea": "En resonancia las reactancias se cancelan y el circuito se comporta como una resistencia pura.",
+    "pasos": ["$X_L=X_C\\Rightarrow Z=R$.", "Toda la fem cae en $R$, y la corriente está en fase."],
+    "porque_fallan": {
+      "A": "En resonancia la corriente es máxima y $V_R$ también.",
+      "C": "$V_C$ no es cero: cancela a $V_L$, que es otra cosa.",
+      "E": "En resonancia el desfase es cero, no 90°."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q062": {
+    "idea": "Si $V_L=V_C$ están en resonancia, y entonces $V_R$ es la fem completa.",
+    "pasos": [
+      "$\\mathcal{E}=\\sqrt{V_R^2+(V_L-V_C)^2}$.",
+      "$V_L=V_C\\Rightarrow\\mathcal{E}=V_R=100$ V.",
+      "$V_L$ y $V_C$ pueden ser enormes: se anulan entre sí."
+    ],
+    "porque_fallan": {
+      "A": "Reparte la fem entre tres, como si los voltajes se sumaran escalarmente.",
+      "B": "Reparte entre dos.",
+      "D": "Usa $100/\\sqrt{}$ de algo que no corresponde."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q063": {
+    "idea": "En paralelo lo común es el **voltaje**: están conectados a los mismos dos nodos.",
+    "pasos": ["Las corrientes de cada rama sí se desfasan entre sí, cada una según su elemento."],
+    "porque_fallan": {
+      "A": "Justo lo contrario: las corrientes van desfasadas entre ramas.",
+      "C": "Es cierto que la del condensador adelanta a la del inductor, pero en 180°, y la afirmación general del enunciado es la del voltaje.",
+      "D": "Los voltajes no pueden desfasarse: son el mismo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q064": {
+    "idea": "El valor eficaz se define por el **calentamiento**: es la continua equivalente en potencia disipada.",
+    "pasos": ["$P_{media}=I_{rms}^2R$, igual que una corriente continua $I_{rms}$."],
+    "porque_fallan": {
+      "A": "El pico es $\\sqrt2$ veces el eficaz.",
+      "B": "El promedio de una sinusoide es cero.",
+      "E": "Cero es el promedio, no el eficaz."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q066": {
+    "idea": "$V_{max}=\\sqrt2\\,V_{rms}$.",
+    "pasos": ["$V_{max}=100\\sqrt2=141$ V."],
+    "porque_fallan": {
+      "C": "Divide por $\\sqrt2$ en vez de multiplicar.",
+      "E": "Multiplica por 2 en vez de por $\\sqrt2$.",
+      "A": "El pico siempre supera al eficaz."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q067": {
+    "idea": "Impedancia por Pitágoras, corriente por Ohm, y el desfase por la arcotangente.",
+    "pasos": [
+      "$X_L=(400)(0{,}025)=10\\ \\Omega$.",
+      "$Z=\\sqrt{17{,}3^2+10^2}=20\\ \\Omega$, luego $I=10/20=0{,}50$ A.",
+      "$\\tan\\phi=10/17{,}3\\Rightarrow\\phi=30^\\circ$, y en un RL la corriente **atrasa**."
+    ],
+    "porque_fallan": {
+      "A": "El valor bien y el sentido al revés: en RL la corriente nunca adelanta.",
+      "B": "Usa solo la resistencia para la corriente.",
+      "C": "Confunde los catetos del triángulo."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q068": {
+    "idea": "Las dos reactancias se restan antes de entrar en Pitágoras.",
+    "pasos": [
+      "$X_L=(200)(0{,}4)=80\\ \\Omega$ y $X_C=\\dfrac{1}{(200)(200\\times10^{-6})}=25\\ \\Omega$.",
+      "$Z=\\sqrt{50^2+55^2}=74{,}3\\ \\Omega$.",
+      "$I=\\dfrac{10}{74{,}3}=0{,}135$ A."
+    ],
+    "porque_fallan": {
+      "D": "Usa solo la resistencia.",
+      "A": "Suma las reactancias en vez de restarlas.",
+      "E": "Se olvida de las reactancias por completo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q069": {
+    "idea": "$V_R=IR$ con la corriente que acabas de hallar.",
+    "pasos": ["$V_R=(0{,}135)(50)=6{,}7$ V."],
+    "porque_fallan": {
+      "D": "Es la fem de la fuente, y parte de ella cae en las reactancias.",
+      "B": "Es el voltaje del condensador.",
+      "E": "Es el del inductor."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q070": {
+    "idea": "$V_C=IX_C$, con $X_C=25\\ \\Omega$.",
+    "pasos": ["$V_C=(0{,}135)(25)=3{,}4$ V."],
+    "porque_fallan": {
+      "C": "Es el del resistor.",
+      "E": "Es el del inductor.",
+      "D": "Es la fem completa."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q071": {
+    "idea": "$V_L=IX_L$, con $X_L=80\\ \\Omega$. Fíjate en que **supera a la fem**.",
+    "pasos": [
+      "$V_L=(0{,}135)(80)=10{,}8$ V, mayor que los 10 V de la fuente.",
+      "No hay contradicción: $V_L$ y $V_C$ están en oposición y se restan."
+    ],
+    "porque_fallan": {
+      "C": "Es el del resistor.",
+      "B": "Es el del condensador.",
+      "D": "La fem no es el techo de cada voltaje por separado."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q074": {
+    "idea": "La potencia media la disipa solo la resistencia: $P=i_{rms}^2R$, que es lo mismo que $i\\mathcal{E}\\cos\\phi$.",
+    "pasos": ["$\\cos\\phi=R/Z$ e $i=\\mathcal{E}/Z$, así que $i\\mathcal{E}\\cos\\phi=i^2R$."],
+    "porque_fallan": {
+      "A": "El factor $1/2$ sobra cuando los valores ya son eficaces.",
+      "B": "Sin el factor de potencia, sobreestima.",
+      "D": "$i^2Z$ contaría también la parte reactiva, que no disipa."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q075": {
+    "idea": "El factor de potencia es $\\cos\\phi=R/Z$: un cociente de ohmios, adimensional.",
+    "pasos": ["Ohmios entre ohmios se cancelan.", "Va de 0 a 1 y no tiene unidades."],
+    "porque_fallan": {
+      "A": "Se cancelan los ohmios del numerador y el denominador.",
+      "C": "El **ángulo** va en radianes; su coseno no.",
+      "B": "El vatio es la potencia, no el factor."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q076": {
+    "idea": "$\\cos\\phi=R/Z$, y primero hay que armar $Z$.",
+    "pasos": [
+      "$X_L=2\\pi(100)(0{,}025)=15{,}7\\ \\Omega$ y $X_C=\\dfrac{1}{2\\pi(100)(35\\times10^{-6})}=45{,}5\\ \\Omega$.",
+      "$Z=\\sqrt{15^2+29{,}8^2}=33{,}4\\ \\Omega$.",
+      "$\\cos\\phi=\\dfrac{15}{33{,}4}=0{,}45$."
+    ],
+    "porque_fallan": {
+      "E": "Factor 1 es resonancia pura, y aquí las reactancias no se cancelan.",
+      "D": "Subestima la reactancia neta.",
+      "A": "Cero exigiría resistencia nula."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q077": {
+    "idea": "La alterna se transforma; la continua no. Eso permite transportar en alta tensión y consumir en baja.",
+    "pasos": ["El transformador necesita flujo variable, y solo la alterna lo da.", "Alta tensión en la línea significa poca corriente y pocas pérdidas $i^2R$."],
+    "porque_fallan": {
+      "D": "A igual corriente eficaz, el calentamiento es el mismo: por eso se define así el valor eficaz.",
+      "A": "Los generadores de alterna sí usan anillos rozantes.",
+      "E": "La alterna genera efectos magnéticos variables, no menos."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q078": {
+    "idea": "«Step-down» se refiere al **voltaje**: baja el voltaje y, en un transformador ideal, sube la corriente.",
+    "pasos": ["$V_s/V_p=N_s/N_p<1$.", "La potencia se conserva: lo que pierde en voltaje lo gana en corriente."],
+    "porque_fallan": {
+      "A": "Un transformador ideal no crea potencia.",
+      "B": "Tampoco la destruye.",
+      "E": "Eso es un rectificador, no un transformador."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q079": {
+    "idea": "El hierro tiene permeabilidad altísima: concentra el flujo y acopla los dos bobinados.",
+    "pasos": ["Casi todo el flujo del primario atraviesa el secundario.", "Sin núcleo ferromagnético el acoplamiento sería pésimo."],
+    "porque_fallan": {
+      "B": "La resistividad ayuda contra las corrientes de Foucault, pero no es la razón principal.",
+      "D": "Un imán permanente sería justo lo contrario de lo que hace falta.",
+      "E": "El aislamiento lo dan los barnices, no el núcleo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c31-q080": {
+    "idea": "Las láminas, aisladas entre sí, cortan los caminos de las corrientes de Foucault.",
+    "pasos": ["El flujo variable induciría remolinos de corriente en un núcleo macizo.", "Laminar aumenta la resistencia a esos remolinos sin estorbar al flujo."],
+    "porque_fallan": {
+      "B": "Las pérdidas $i^2R$ de las bobinas no dependen del núcleo.",
+      "C": "Laminar no aumenta el flujo.",
+      "A": "El montaje no es la razón."
+    },
+    "confirma": "E"
+  },
+  "hrw-c31-q081": {
+    "idea": "$\\dfrac{V_s}{V_p}=\\dfrac{N_s}{N_p}$.",
+    "pasos": ["$V_s=100\\times\\dfrac{500}{50}=1000$ V."],
+    "porque_fallan": {
+      "E": "Invierte la razón de vueltas.",
+      "B": "Usa una razón 5:1 en vez de 10:1.",
+      "D": "Supone que el transformador no cambia el voltaje."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q082": {
+    "idea": "Con el secundario abierto no hay potencia que entregar, y la reactancia del primario es enorme.",
+    "pasos": [
+      "Sin corriente en el secundario, el primario solo toma la pequeña corriente de magnetización.",
+      "La limita $X_L$, no la resistencia de 1 Ω."
+    ],
+    "porque_fallan": {
+      "B": "Usa $12/1$ como si el primario fuera solo una resistencia: ignora su inductancia.",
+      "C": "Aún peor.",
+      "D": "Lo relevante es que el secundario está abierto, no el número exacto de vueltas."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q083": {
+    "idea": "El voltaje sube con la razón de vueltas y la corriente baja en la misma proporción.",
+    "pasos": ["$V_s=6V_p$ y, por conservación de potencia, $i_p=6i_s$."],
+    "porque_fallan": {
+      "A": "En un transformador ideal las potencias son iguales.",
+      "B": "Las corrientes difieren por el factor 6.",
+      "E": "La frecuencia no cambia nunca."
+    },
+    "confirma": "D"
+  },
+  "hrw-c31-q084": {
+    "idea": "Con el elevador, $R$ ve el triple de voltaje, y la potencia va como $V^2$.",
+    "pasos": [
+      "Con transformador: $P=\\dfrac{(3V)^2}{R}=\\dfrac{9V^2}{R}$.",
+      "Directo: $P'=\\dfrac{V^2}{R}=\\dfrac{P}{9}$."
+    ],
+    "porque_fallan": {
+      "B": "Olvida que la potencia es cuadrática en el voltaje.",
+      "E": "Invierte la comparación.",
+      "C": "El transformador sí cambia lo que ve la resistencia."
+    },
+    "confirma": "A"
+  },
+  "hrw-c31-q085": {
+    "idea": "De la potencia y la corriente del secundario sale su voltaje, y de ahí el del primario.",
+    "pasos": [
+      "Ideal: $P_s=P_p=10$ kW.",
+      "$V_s=\\dfrac{10\\,000}{25}=400$ V.",
+      "Reductor 1:8, luego $V_p=8(400)=3200$ V."
+    ],
+    "porque_fallan": {
+      "C": "Es el voltaje del **secundario**.",
+      "A": "Multiplica por 8 dos veces.",
+      "D": "Divide en vez de multiplicar."
+    },
+    "confirma": "B"
+  },
+  "hrw-c31-q086": {
+    "idea": "Un transformador transforma impedancias por el **cuadrado** de la razón de vueltas.",
+    "pasos": [
+      "$R_{reflejada}=\\left(\\dfrac{N_p}{N_s}\\right)^2R$, y para acoplar hace falta $R_{reflejada}=100\\ \\Omega$.",
+      "$R=\\left(\\dfrac{N_s}{N_p}\\right)^2(100)=\\left(\\dfrac15\\right)^2(100)=4{,}0\\ \\Omega$."
+    ],
+    "porque_fallan": {
+      "E": "Supone que la impedancia pasa sin transformarse.",
+      "D": "Usa la razón de vueltas sin elevar al cuadrado.",
+      "B": "Eleva al cuadrado en el sentido contrario."
+    },
+    "confirma": "C"
+  }
+}
