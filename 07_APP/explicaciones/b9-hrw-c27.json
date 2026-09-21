@@ -1,0 +1,578 @@
+{
+  "hrw-c27-q001": {
+    "idea": "La regla de nudos dice que la carga no se acumula en un punto: lo que entra sale.",
+    "pasos": ["$\\sum I_{entra}=\\sum I_{sale}$ es conservación de la carga aplicada a un nudo."],
+    "porque_fallan": {
+      "B": "La ley de Ohm relaciona $V$ e $I$ en un elemento, no en un nudo.",
+      "D": "La conservación de la energía es la regla de **mallas**, la otra.",
+      "A": "Las leyes de Newton no gobiernan circuitos."
+    },
+    "confirma": "E"
+  },
+  "hrw-c27-q002": {
+    "idea": "La regla de mallas dice que dar una vuelta completa te devuelve al mismo potencial.",
+    "pasos": [
+      "El campo electrostático es conservativo: $\\oint\\vec E\\cdot d\\vec l=0$.",
+      "En términos de energía, una carga que recorre la malla vuelve con la misma energía."
+    ],
+    "porque_fallan": {
+      "E": "La conservación de la carga es la regla de **nudos**.",
+      "B": "Ohm aparece al evaluar cada término, no como origen de la regla.",
+      "C": "Newton no interviene."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q004": {
+    "idea": "Todo lo que entra tiene que salir: $4+x=5+2$.",
+    "pasos": ["Sale un total de 7 A y entran 4 A por el primero.", "$x=3$ A, y entrando."],
+    "porque_fallan": {
+      "A": "Suma las dos salidas sin restar la entrada.",
+      "C": "El valor bien y el sentido al revés.",
+      "E": "Resta en vez de completar el balance."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q005": {
+    "idea": "Un nudo es donde la corriente **puede repartirse**, y eso exige tres ramas o más.",
+    "pasos": ["Con dos cables unidos la corriente es la misma: no hay nada que repartir."],
+    "porque_fallan": {
+      "A": "Conectar un cable a una resistencia no crea bifurcación.",
+      "C": "Dos cables en fila son una sola rama.",
+      "E": "Doblar un cable no cambia nada eléctricamente."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q006": {
+    "idea": "Hay una incógnita por rama, así que hacen falta tantas ecuaciones independientes como ramas.",
+    "pasos": ["$J-1$ de nudos más $B-J+1$ de mallas suman $B$."],
+    "porque_fallan": {
+      "A": "Las ecuaciones de nudo son $J-1$: la última es combinación de las otras.",
+      "E": "Las mallas independientes son $B-J+1$, no todas las que se puedan dibujar.",
+      "D": "Se quedaría una incógnita sin determinar."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q007": {
+    "idea": "Total de ecuaciones $B$, menos las $J-1$ de nudos, deja $B-J+1$ de mallas.",
+    "pasos": ["$B-(J-1)=B-J+1$."],
+    "porque_fallan": {
+      "B": "Olvida que una de las ecuaciones de nudo es redundante.",
+      "D": "El número de mallas dibujables suele ser mayor que el de independientes.",
+      "C": "Serían todas las ramas, sin descontar los nudos."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q008": {
+    "idea": "En serie la corriente es común y el voltaje se reparte.",
+    "pasos": ["Iguales, así que $V/2$ cada uno.", "La misma $i$ atraviesa ambos."],
+    "porque_fallan": {
+      "A": "Da a cada uno el voltaje completo: eso es paralelo.",
+      "B": "Reparte también la corriente.",
+      "C": "Mezcla el voltaje de paralelo con la corriente de serie."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q009": {
+    "idea": "En paralelo el voltaje es común y la corriente se reparte.",
+    "pasos": ["$V$ entero en cada uno.", "Iguales, así que $i/2$ por cada rama."],
+    "porque_fallan": {
+      "B": "Reparte el voltaje: eso es serie.",
+      "D": "Lo mismo.",
+      "A": "Da la corriente entera a cada rama, y entonces no se conservaría en el nudo."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q010": {
+    "idea": "3 Ω es menor que 12 Ω, así que solo puede ser paralelo: en serie la resistencia solo sube.",
+    "pasos": [
+      "$\\dfrac13=\\dfrac1R+\\dfrac1{12}\\Rightarrow\\dfrac1R=\\dfrac{4-1}{12}=\\dfrac14$.",
+      "$R=4{,}0\\ \\Omega$, en paralelo."
+    ],
+    "porque_fallan": {
+      "B": "En serie darían 16 Ω, no 3.",
+      "C": "Resta las resistencias en vez de los inversos.",
+      "E": "En serie darían 21 Ω."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q011": {
+    "idea": "Cuatro valores con dos resistencias: los dos sueltos, el de serie y el de paralelo.",
+    "pasos": [
+      "Los valores sueltos tienen que estar en la lista: 4 y 12.",
+      "Serie: $4+12=16$. ✓",
+      "Paralelo: $\\dfrac{(4)(12)}{16}=3$. ✓ Los cuatro salen."
+    ],
+    "porque_fallan": {
+      "A": "3 y 4 en serie dan 7, que no está en la lista.",
+      "C": "3 y 16 no dan ni 4 ni 12.",
+      "E": "4 y 16 dan 20 en serie."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q012": {
+    "idea": "Cuatro iguales en paralelo dan $R/4$.",
+    "pasos": ["$R_{eq}=20/4=5\\ \\Omega$.", "$i=20/5=4{,}0$ A."],
+    "porque_fallan": {
+      "B": "Es la corriente por **una** resistencia, no la total.",
+      "A": "Trata el conjunto como si fuera serie.",
+      "D": "No sale de ninguna combinación."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q013": {
+    "idea": "En paralelo cada una ve los 20 V completos.",
+    "pasos": ["$i=20/20=1{,}0$ A por cada una.", "Las cuatro suman los 4 A del total."],
+    "porque_fallan": {
+      "C": "Es la corriente **total**, no la de una rama.",
+      "A": "Sería la de una rama si estuvieran en serie.",
+      "D": "No sale de estos números."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q014": {
+    "idea": "Cuatro iguales en serie dan $4R$, y la corriente es común.",
+    "pasos": ["$R_{eq}=80\\ \\Omega$.", "$i=20/80=0{,}25$ A, la misma en las cuatro."],
+    "porque_fallan": {
+      "B": "Sería si cada una viera los 20 V, es decir, en paralelo.",
+      "C": "Es la corriente total del caso paralelo.",
+      "D": "No sale de estos números."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q015": {
+    "idea": "Cuatro iguales en serie se reparten el voltaje por igual.",
+    "pasos": ["$V=iR=(0{,}25)(20)=5$ V.", "O directamente $20/4=5$ V."],
+    "porque_fallan": {
+      "D": "Es el voltaje total, que solo caería entero sobre una si fuera la única.",
+      "B": "Divide entre 5 en vez de entre 4.",
+      "E": "Multiplica en vez de dividir."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q016": {
+    "idea": "Nueve en paralelo dan $R/9$, y $R\\propto1/D^2$: hay que multiplicar el diámetro por 3.",
+    "pasos": [
+      "$R_{eq}=R/9$.",
+      "$R\\propto\\dfrac{1}{D^2}$, luego dividir $R$ entre 9 exige $D^2$ por 9.",
+      "$D=3d$."
+    ],
+    "porque_fallan": {
+      "B": "Escala el diámetro por 9 en vez del área.",
+      "C": "Va en la dirección contraria: adelgazar sube la resistencia.",
+      "D": "Lo mismo, peor."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q017": {
+    "idea": "Nueve en serie dan $9R$, y con $R\\propto1/D^2$ eso pide dividir el diámetro entre 3.",
+    "pasos": ["$R_{eq}=9R$ pide $D^2=d^2/9$.", "$D=d/3$."],
+    "porque_fallan": {
+      "A": "Engrosar baja la resistencia: es el caso paralelo.",
+      "D": "Escala el diámetro por 9 en vez del área.",
+      "E": "Dos escalados encadenados."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q018": {
+    "idea": "En paralelo y con la misma longitud, comparten $V$, y con él $E=V/L$, $J=E/\\rho$ y $v_d$. Solo la corriente difiere.",
+    "pasos": ["$I=JA$ con áreas distintas."],
+    "porque_fallan": {
+      "A": "Es igual: están en paralelo.",
+      "C": "$J=E/\\rho$ con el mismo $E$ y el mismo material.",
+      "D": "$E=V/L$ con $V$ y $L$ iguales."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q019": {
+    "idea": "En serie lo común es siempre la corriente.",
+    "pasos": ["La misma $I$ pasa por los dos.", "Áreas distintas dan $J=I/A$ distinta, y con ella $E$, $v_d$ y $V=IR$."],
+    "porque_fallan": {
+      "A": "El voltaje se reparte según las resistencias.",
+      "C": "$J=I/A$ con áreas distintas.",
+      "D": "$E=\\rho J$ sigue a $J$."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q022": {
+    "idea": "En paralelo el voltaje es común y $I=V/R$: más resistencia, menos corriente.",
+    "pasos": ["$R_1=2R_2\\Rightarrow i_1=i_2/2$."],
+    "porque_fallan": {
+      "A": "Invierte la proporción: la corriente busca el camino fácil.",
+      "C": "En paralelo los voltajes son iguales por construcción.",
+      "D": "Lo mismo."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q023": {
+    "idea": "En serie la corriente es común y $V=iR$: más resistencia, más voltaje.",
+    "pasos": ["$R_1=2R_2\\Rightarrow V_1=2V_2$."],
+    "porque_fallan": {
+      "A": "En serie la corriente es la misma en los dos.",
+      "B": "Lo mismo.",
+      "D": "Invierte el reparto del voltaje."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q024": {
+    "idea": "En serie usa $P=i^2R$: a corriente común, la potencia sigue a la resistencia.",
+    "pasos": ["$P_1/P_2=R_1/R_2=2$."],
+    "porque_fallan": {
+      "C": "Usa $P=V^2/R$, que es la fórmula del caso **paralelo**.",
+      "D": "Eleva al cuadrado la razón de resistencias sin motivo.",
+      "A": "Solo coincidirían con resistencias iguales."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q025": {
+    "idea": "En paralelo usa $P=V^2/R$: a voltaje común, la potencia va al revés que la resistencia.",
+    "pasos": ["$P_1/P_2=R_2/R_1=1/2$."],
+    "porque_fallan": {
+      "B": "Usa $P=i^2R$, la fórmula del caso **serie**. Es el error central del capítulo.",
+      "E": "Eleva al cuadrado la razón sin motivo.",
+      "A": "Solo con resistencias iguales."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q026": {
+    "idea": "$V_{term}=\\mathcal{E}-ir$: solo con $i=0$ desaparece la caída interna.",
+    "pasos": ["Sin corriente no hay caída en $r$, y el voltaje en bornes es la fem entera."],
+    "porque_fallan": {
+      "A": "Con corriente siempre hay caída interna.",
+      "C": "Cuanto mayor la corriente, mayor la diferencia.",
+      "B": "Cargando, el voltaje en bornes es **mayor** que la fem, no igual."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q027": {
+    "idea": "Descargando, la corriente sale por el borne positivo y la caída $ir$ resta.",
+    "pasos": ["$V_{term}=\\mathcal{E}-ir<\\mathcal{E}$."],
+    "porque_fallan": {
+      "A": "Sin corriente son iguales, y cargando es mayor.",
+      "B": "Cargando la corriente entra y el término suma: $V_{term}=\\mathcal{E}+ir$.",
+      "D": "Sin corriente coinciden exactamente."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q028": {
+    "idea": "$V_{term}>\\mathcal{E}$ solo si la caída interna suma, y eso pasa cuando la corriente entra por el positivo.",
+    "pasos": [
+      "$V_{term}=\\mathcal{E}+ir$ requiere corriente **hacia dentro** del borne positivo.",
+      "Equivalentemente, sale por el negativo: la batería se está cargando."
+    ],
+    "porque_fallan": {
+      "C": "Ese es el caso de descarga, donde el voltaje en bornes baja.",
+      "A": "El tamaño de la resistencia externa no invierte el signo del término.",
+      "E": "Con corriente nula serían iguales, no mayor."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q029": {
+    "idea": "El voltaje en bornes es el que cae sobre la resistencia externa.",
+    "pasos": ["$V_{term}=iR=(3)(6)=18$ V.", "De paso: $r=(24-18)/3=2\\ \\Omega$."],
+    "porque_fallan": {
+      "E": "Es la fem, no el voltaje en bornes: falta descontar la caída interna.",
+      "C": "Divide la fem entre dos sin razón.",
+      "B": "Toma la resistencia como voltaje."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q031": {
+    "idea": "En paralelo cada rama ve los 24 V completos.",
+    "pasos": ["$i=24/2{,}0=12$ A."],
+    "porque_fallan": {
+      "B": "Es la corriente por la de 6 Ω.",
+      "C": "Usa la resistencia equivalente del conjunto.",
+      "D": "Confunde el valor de la resistencia con la corriente."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q032": {
+    "idea": "En serie primero la corriente común, luego cada caída.",
+    "pasos": ["$R_{eq}=2+4+6=12\\ \\Omega$.", "$i=24/12=2$ A.", "$V_2=(2)(2)=4$ V."],
+    "porque_fallan": {
+      "B": "Es la caída sobre la de 4 Ω.",
+      "C": "La de 6 Ω.",
+      "D": "El voltaje total de la fuente."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q033": {
+    "idea": "Cargando, las fem se oponen: manda la diferencia, y las resistencias internas se suman.",
+    "pasos": ["$i=\\dfrac{12-10}{1+1}=1$ A."],
+    "porque_fallan": {
+      "B": "Olvida sumar la segunda resistencia interna.",
+      "D": "Suma las fem en vez de restarlas.",
+      "E": "Suma las fem y además divide mal."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q036": {
+    "idea": "Primero reduce el paralelo, luego la corriente total, y al final vuelve a la rama.",
+    "pasos": [
+      "$3\\parallel1{,}5=\\dfrac{(3)(1{,}5)}{4{,}5}=1\\ \\Omega$.",
+      "$R_{tot}=1+4=5\\ \\Omega$ y $i=10/5=2$ A.",
+      "Sobre el paralelo caen $2$ V, luego $i_3=2/3=0{,}67$ A."
+    ],
+    "porque_fallan": {
+      "C": "Es la corriente total, no la de la rama de 3 Ω.",
+      "A": "Reparte la corriente al revés: por la resistencia menor pasa más.",
+      "D": "Olvida la resistencia de 4 Ω en serie."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q037": {
+    "idea": "Las dos ramas del paralelo comparten la misma caída.",
+    "pasos": ["$i_{tot}=2$ A sobre $1\\ \\Omega$ de paralelo.", "$V=(2)(1)=2{,}0$ V."],
+    "porque_fallan": {
+      "C": "Es la caída sobre la resistencia de 4 Ω.",
+      "D": "El voltaje de la fuente entero.",
+      "B": "No corresponde a ningún elemento del circuito."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q038": {
+    "idea": "Dos baterías iguales en paralelo dan la misma fem con la mitad de resistencia interna.",
+    "pasos": [
+      "$\\mathcal{E}_{eq}=18$ V, $r_{eq}=0{,}5\\ \\Omega$.",
+      "$i=\\dfrac{18}{4+0{,}5}=4{,}0$ A por la resistencia."
+    ],
+    "porque_fallan": {
+      "B": "Es la corriente por **cada batería**, la mitad del total.",
+      "D": "Usa $r_{eq}=1\\ \\Omega$, sin el paralelo.",
+      "E": "Duplica la fem: en paralelo la fem no se suma."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q039": {
+    "idea": "Los 4 A del circuito se reparten por igual entre las dos baterías iguales.",
+    "pasos": ["$i_{bat}=4/2=2{,}0$ A."],
+    "porque_fallan": {
+      "C": "Es la corriente total, no la de cada batería.",
+      "A": "Divide entre cuatro.",
+      "E": "Duplica la fem."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q040": {
+    "idea": "La caída sobre la resistencia externa es $iR$ con la corriente total.",
+    "pasos": ["$V=(4)(4)=16$ V.", "Los 2 V que faltan hasta 18 caen en la resistencia interna equivalente."],
+    "porque_fallan": {
+      "A": "Confunde el valor de la resistencia con el voltaje.",
+      "C": "Descuenta 4 V en vez de 2.",
+      "E": "Suma las dos fem."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q043": {
+    "idea": "El fusible limita la potencia total: divide y **redondea hacia abajo**.",
+    "pasos": [
+      "$P_{max}=(120)(15)=1800$ W.",
+      "$1800/500=3{,}6$.",
+      "Tres bombillas: la cuarta fundiría el fusible."
+    ],
+    "porque_fallan": {
+      "D": "Redondea hacia arriba: con cuatro se piden 2000 W, o sea 16,7 A.",
+      "B": "Se queda corto.",
+      "E": "Muy por encima del límite."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q044": {
+    "idea": "En serie la corriente es la misma, y entonces brilla más la de **mayor** resistencia, que es la de menor vataje nominal.",
+    "pasos": [
+      "$R=V^2/P$: la de 25 W tiene $484\\ \\Omega$ y la de 100 W, $121\\ \\Omega$.",
+      "Misma corriente, luego $P=i^2R$: la de 25 W disipa cuatro veces más.",
+      "Ni las corrientes difieren, ni brillan igual, ni el voltaje se reparte en mitades."
+    ],
+    "porque_fallan": {
+      "A": "En serie la corriente es idéntica.",
+      "C": "La de 25 W brilla mucho más: es el resultado contraintuitivo del problema.",
+      "D": "El voltaje se reparte según las resistencias: 88 V y 22 V."
+    },
+    "confirma": "E"
+  },
+  "hrw-c27-q045": {
+    "idea": "Batería ideal en paralelo: cada rama ve $\\mathcal{E}$ entero.",
+    "pasos": ["$P_1=\\dfrac{\\mathcal{E}^2}{R_1}$, sin que $R_2$ intervenga."],
+    "porque_fallan": {
+      "B": "Es la expresión del caso **serie**.",
+      "C": "Usa la resistencia equivalente de la serie.",
+      "D": "Cruza las resistencias."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q046": {
+    "idea": "La potencia total se reparte entre los dos faros iguales, y de ahí sale la resistencia de cada uno.",
+    "pasos": [
+      "Cada faro: 24 W a 6 V.",
+      "$R=\\dfrac{V^2}{P}=\\dfrac{36}{24}=1{,}5\\ \\Omega$."
+    ],
+    "porque_fallan": {
+      "A": "Usa los 48 W completos en un solo faro.",
+      "C": "Usa $V/I$ con la corriente total.",
+      "E": "Multiplica en vez de dividir."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q047": {
+    "idea": "Paralelo: $P=V^2/R$, así que la razón de potencias es la inversa de la de resistencias.",
+    "pasos": ["$\\dfrac{P_1}{P_2}=\\dfrac{R_2}{R_1}=\\dfrac12$."],
+    "porque_fallan": {
+      "D": "Usa $P=i^2R$, que es lo que vale en serie.",
+      "A": "Eleva al cuadrado la razón.",
+      "C": "Solo con resistencias iguales."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q048": {
+    "idea": "En serie la corriente es la misma, y con $r=R$ la potencia $i^2R$ también.",
+    "pasos": ["$P_r=i^2r$ y $P_R=i^2R$, con $r=R$.", "Son iguales: la mitad de la energía se queda dentro de la batería."],
+    "porque_fallan": {
+      "B": "Supone que la interna disipa menos por ser «interna».",
+      "C": "Lo mismo, al revés.",
+      "E": "La fem no hace falta: se cancela en la razón."
+    },
+    "confirma": "A"
+  },
+  "hrw-c27-q049": {
+    "idea": "Positivo con positivo: las fem se oponen. Manda la diferencia, y la batería débil se carga.",
+    "pasos": [
+      "$i=\\dfrac{\\mathcal{E}_2-\\mathcal{E}_1}{2r}$.",
+      "La potencia que entra como energía química en la batería 1 es $\\mathcal{E}_1 i$.",
+      "$P=\\dfrac{(\\mathcal{E}_2-\\mathcal{E}_1)\\mathcal{E}_1}{2r}$."
+    ],
+    "porque_fallan": {
+      "C": "Olvida la segunda resistencia interna.",
+      "A": "Trata el circuito como si solo actuara $\\mathcal{E}_1$.",
+      "E": "Usa la fem mayor como si toda su potencia fuera a lo químico."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q053": {
+    "idea": "Un voltímetro es un galvanómetro con **mucha** resistencia en serie, para no desviar corriente.",
+    "pasos": [
+      "Para 1 V a fondo de escala con 1 mA: $R_{tot}=1/0{,}001=1000\\ \\Omega$.",
+      "$R_{serie}=1000-100=900\\ \\Omega$."
+    ],
+    "porque_fallan": {
+      "C": "Olvida descontar los 100 Ω del propio galvanómetro.",
+      "A": "En paralelo haría un amperímetro, no un voltímetro.",
+      "D": "Resistencia pequeña y en paralelo: lo contrario de lo que hace falta."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q054": {
+    "idea": "Un amperímetro va en serie con el circuito, así que debe estorbar poco: resistencia baja, y en paralelo para desviar el grueso de la corriente.",
+    "pasos": ["El shunt se lleva casi toda la corriente y el galvanómetro solo una fracción fija."],
+    "porque_fallan": {
+      "A": "Una resistencia alta en paralelo no desvía nada.",
+      "B": "En serie y alta es un voltímetro.",
+      "C": "En serie, aunque sea baja, no protege al galvanómetro del exceso."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q055": {
+    "idea": "Ampliar la escala por diez exige una resistencia total diez veces mayor.",
+    "pasos": [
+      "$R_{tot}$ pasa de $10\\,000$ a $100\\,000\\ \\Omega$.",
+      "$R_{serie}=100\\,000-10\\,000=90\\,000\\ \\Omega$."
+    ],
+    "porque_fallan": {
+      "A": "Olvida descontar la resistencia interna.",
+      "B": "En paralelo bajaría la resistencia y la escala se reduciría.",
+      "C": "Tres órdenes de magnitud corto."
+    },
+    "confirma": "E"
+  },
+  "hrw-c27-q056": {
+    "idea": "El shunt se lleva toda la corriente menos la de fondo de escala, y su resistencia sale de igualar caídas.",
+    "pasos": [
+      "Por el medidor pasan 50 mA; por el shunt, $5-0{,}05=4{,}95$ A.",
+      "$R_s i_s=R_g i_g\\Rightarrow R_s=\\dfrac{(1)(0{,}05)}{4{,}95}=\\dfrac{1}{99}\\ \\Omega$."
+    ],
+    "porque_fallan": {
+      "C": "El valor invertido: 99 Ω en vez de 1/99.",
+      "A": "En serie subiría la resistencia y bajaría la escala.",
+      "B": "Una resistencia enorme en serie es un voltímetro."
+    },
+    "confirma": "D"
+  },
+  "hrw-c27-q057": {
+    "idea": "Resistencia total desde la ley de Ohm, menos la interna.",
+    "pasos": ["$R_{tot}=3/0{,}01=300\\ \\Omega$.", "$R_{serie}=300-12=288\\ \\Omega$."],
+    "porque_fallan": {
+      "C": "Olvida descontar los 12 Ω del galvanómetro.",
+      "D": "Suma en vez de restar, y con otro número.",
+      "A": "No corresponde a ninguna cuenta del problema."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q058": {
+    "idea": "Escala por diez, resistencia total por diez, y se descuenta la interna.",
+    "pasos": ["$R_{tot}=10\\times10\\,000=100\\,000\\ \\Omega$.", "$R_{serie}=90\\,000\\ \\Omega$."],
+    "porque_fallan": {
+      "C": "Olvida descontar los 10.000 Ω internos.",
+      "D": "Multiplica por 10,8 sin motivo.",
+      "E": "Usa el voltaje como si fuera resistencia."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q061": {
+    "idea": "$RC$ es un tiempo: segundos, a secas.",
+    "pasos": ["$[\\Omega][F]=\\dfrac{\\text{V}}{\\text{A}}\\cdot\\dfrac{\\text{C}}{\\text{V}}=\\dfrac{\\text{C}}{\\text{A}}=\\text{s}$.", "Ninguna de las cuatro opciones es «segundo»."],
+    "porque_fallan": {
+      "A": "El faradio se cancela, no queda dividiendo.",
+      "C": "El inverso del tiempo es una frecuencia.",
+      "B": "El ohmio también se cancela."
+    },
+    "confirma": "E"
+  },
+  "hrw-c27-q065": {
+    "idea": "La caída es exponencial: a las dos constantes queda $e^{-2}$ de la carga inicial.",
+    "pasos": [
+      "$q/q_0=e^{-2}=0{,}135$.",
+      "Se ha ido el $100-13{,}5=86{,}5\\%$.",
+      "Nota que no es el doble del 63 %: eso sería sumar porcentajes en un proceso exponencial."
+    ],
+    "porque_fallan": {
+      "A": "No sale de $e^{-2}$.",
+      "C": "Nunca llega a cero en tiempo finito.",
+      "D": "El 86 % no está entre el 90 y el 100."
+    },
+    "confirma": "B"
+  },
+  "hrw-c27-q067": {
+    "idea": "Cargando, $q=q_f(1-e^{-t/\\tau})$. La mitad se alcanza en $\\tau\\ln2$.",
+    "pasos": [
+      "$1-e^{-t/\\tau}=0{,}5\\Rightarrow e^{-t/\\tau}=0{,}5$.",
+      "$t=\\tau\\ln2\\Rightarrow\\tau=\\dfrac{10}{0{,}693}$.",
+      "$\\tau\\approx14$ ms."
+    ],
+    "porque_fallan": {
+      "D": "Confunde el tiempo de semicarga con la constante de tiempo.",
+      "C": "Multiplica por $\\ln2$ en vez de dividir.",
+      "B": "Varias veces por debajo."
+    },
+    "confirma": "E"
+  },
+  "hrw-c27-q068": {
+    "idea": "Con la constante de tiempo del problema anterior, $C=\\tau/R$.",
+    "pasos": ["$\\tau=14{,}4$ ms.", "$C=\\dfrac{14{,}4\\times10^{-3}}{720}=2{,}0\\times10^{-5}$ F $=20$ µF."],
+    "porque_fallan": {
+      "B": "Usa los 10 ms como si fueran la constante de tiempo.",
+      "A": "Multiplica $\\ln2$ donde había que dividir.",
+      "D": "Se olvida de los prefijos: 7,2 F sería un condensador del tamaño de un edificio."
+    },
+    "confirma": "C"
+  },
+  "hrw-c27-q069": {
+    "idea": "En $q=q_0e^{-t/RC}$, la $t$ es simplemente el tiempo transcurrido: la variable.",
+    "pasos": ["La constante de tiempo es $RC$, el denominador.", "Los tiempos que describen las otras opciones son valores **particulares** de $t$, no su significado."],
+    "porque_fallan": {
+      "A": "La constante de tiempo es $RC$, no $t$.",
+      "B": "Ese es el instante $t=RC$, un caso concreto.",
+      "D": "Ese tiempo es infinito en el modelo."
+    },
+    "confirma": "E"
+  }
+}
