@@ -345,18 +345,11 @@ export function exportarCSV() {
    copia y se pega, sin necesidad de servidor ni de cuenta. */
 
 export function exportarEstado() {
-  const util = {
-    v: 2,
-    vistas: estado.vistas,
-    respuestas: estado.respuestas,
-    dias: estado.dias,
-    repaso: estado.repaso,
-    simulacros: estado.simulacros,
-    sesion: estado.sesion,
-    meta_diaria: estado.meta_diaria,
-  };
-  // btoa no admite caracteres fuera de latin-1; los ids y códigos son ASCII,
-  // pero se codifica a UTF-8 primero por si acaso.
+  // Va el estado entero, no una lista de campos: con la lista, las notas de la
+  // Hoja se quedaron fuera al añadirse después y no viajaban.
+  const util = { v: 3, ...estado };
+  // btoa no admite caracteres fuera de latin-1 y las notas traen π, √, ħ…:
+  // se codifica a UTF-8 primero.
   const bytes = new TextEncoder().encode(JSON.stringify(util));
   let binario = '';
   for (const b of bytes) binario += String.fromCharCode(b);
@@ -403,6 +396,15 @@ export function importarEstado(texto) {
         estado.sesion = datos.sesion;
       }
     }
+    // Notas de la Hoja: una por tarjeta; si los dos aparatos tienen la misma,
+    // gana la escrita más tarde.
+    const notas = new Map();
+    for (const e of [...(estado.expresiones || []), ...(datos.expresiones || [])]) {
+      const mia = notas.get(e.id);
+      if (!mia || (e.ts || 0) > (mia.ts || 0)) notas.set(e.id, e);
+    }
+    estado.expresiones = [...notas.values()];
+
     if (datos.meta_diaria) estado.meta_diaria = datos.meta_diaria;
 
     guardar();

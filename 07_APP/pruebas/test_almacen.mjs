@@ -115,6 +115,53 @@ await prueba('el traspaso entre aparatos fusiona, no pisa', async (a) => {
   assert.ok(b.respuestaPrevia('q2'), 'no se perdió la propia');
 });
 
+/* Se rompió el 2/10/2026: las notas de la Hoja se añadieron al estado después
+   del traspaso, que copiaba una lista fija de campos, y no viajaban. */
+await prueba('el código de progreso lleva todo el estado, notas incluidas', a => {
+  a.registrarRespuesta({ id: 'q1', area: 'mecanica', ok: false });
+  a.anotarExpresion('q1', 'T = 2π√(L/g)', { codigo: 'HRW 15.3', area: 'mecanica' });
+  const codigo = a.exportarEstado();
+  const bytes = Uint8Array.from(atob(codigo.slice(7)), c => c.charCodeAt(0));
+  const datos = JSON.parse(new TextDecoder().decode(bytes));
+  for (const campo of Object.keys(a.obtener())) {
+    assert.ok(campo in datos, `falta "${campo}" en el código`);
+  }
+});
+
+await prueba('las notas de la Hoja pasan al otro aparato y se fusionan', async (a) => {
+  a.anotarExpresion('q1', 'nota vieja', { area: 'mecanica' });
+  a.anotarExpresion('q2', 'solo del primero', { area: 'mecanica' });
+  await new Promise(r => setTimeout(r, 5));
+  a.anotarExpresion('q1', 'nota nueva', { area: 'mecanica' });
+  const codigo = a.exportarEstado();
+
+  const otra = new Map();
+  globalThis.localStorage = {
+    getItem: k => otra.get(k) ?? null,
+    setItem: (k, v) => otra.set(k, v),
+    removeItem: k => otra.delete(k),
+  };
+  const b = await import(`${ALMACEN}?p=notas`);
+  b.anotarExpresion('q1', 'nota intermedia', { area: 'mecanica' });
+  b.anotarExpresion('q3', 'solo del segundo', { area: 'termo_estadistica' });
+  // La de b se escribió después que todas las de a: es la más reciente.
+  const masNueva = b.expresionDe('q1').texto;
+
+  assert.equal(b.importarEstado(codigo).ok, true);
+  assert.equal(b.expresionDe('q2')?.texto, 'solo del primero', 'llegó la del otro aparato');
+  assert.equal(b.expresionDe('q3')?.texto, 'solo del segundo', 'no se perdió la propia');
+  assert.equal(b.expresionDe('q1').texto, masNueva, 'en conflicto gana la más reciente');
+  assert.equal(b.obtener().expresiones.length, 3, 'sin duplicados');
+});
+
+await prueba('un código de antes, sin notas, se sigue pudiendo pegar', a => {
+  a.anotarExpresion('q1', 'mía', { area: 'mecanica' });
+  const viejo = { v: 2, vistas: {}, respuestas: [{ id: 'q9', ok: true, ts: 1 }], dias: {} };
+  const codigo = 'ANDES1:' + btoa(JSON.stringify(viejo));
+  assert.equal(a.importarEstado(codigo).ok, true);
+  assert.equal(a.expresionDe('q1')?.texto, 'mía', 'las notas propias siguen ahí');
+});
+
 await prueba('un código inválido se rechaza sin romper nada', a => {
   a.contar('q1', { codigo: 'A' });
   const antes = a.totales().n;
