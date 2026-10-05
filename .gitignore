@@ -11,6 +11,12 @@
 !cronograma.pdf
 # Los formularios propios sí van al repo: son el entregable de cada semana.
 !04_ESTUDIO/formularios/*.pdf
+!04_ESTUDIO/formularios/unal/*.pdf
+
+# Los simulacros de la UNAL son recortes de exámenes de ETS: se quedan en local.
+# Se regeneran con 05_SIMULACROS/unal/armar.py.
+05_SIMULACROS/unal/_cache/
+05_SIMULACROS/unal/_recortes/
 
 # ---------------------------------------------------------------
 # Artefactos de compilación
