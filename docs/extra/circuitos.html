@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circuitos RC, RL y RLC</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690;
+          --line:#2A1F4A; --acc:#FCA50A; --ok:#F6D543; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .tabs { display:flex; gap:6px; margin:8px 0 8px; }
+  .tabs button { flex:1; font:inherit; font-size:14px; padding:9px 4px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel); color:var(--ink); cursor:pointer; }
+  .tabs button.on { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:700px) { .grid { grid-template-columns:1fr; } }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .fila button.on { border-color:var(--acc); color:var(--acc); }
+  .fila button.prin { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--acc); border-radius:2px;
+          padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+  .oculto { display:none !important; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Circuitos</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Circuitos: transitorios RC, RL y RLC</h1>
+  <p class="sub">Cierra el interruptor y mira cómo se llenan el condensador y la bobina. Los puntos son la corriente: su velocidad es I.</p>
+
+  <div class="tabs" id="tabs">
+    <button data-m="rc" class="on">RC</button>
+    <button data-m="rl">RL</button>
+    <button data-m="rlc">LC / RLC</button>
+  </div>
+
+  <div class="grid">
+    <canvas id="a"></canvas>
+    <canvas id="b"></canvas>
+  </div>
+
+  <div class="ctrl">
+    <div class="fila" id="fase">
+      <button data-f="carga" class="on">Cargar (con batería)</button>
+      <button data-f="descarga">Descargar (sin batería)</button>
+    </div>
+    <label>R = <b id="vR">1.0</b> Ω</label><input id="R" type="range" min="0" max="4" step="0.05" value="1">
+    <label id="lC">C = <b id="vC">1.0</b> F</label><input id="C" type="range" min="0.2" max="3" step="0.05" value="1">
+    <label id="lL">L = <b id="vL">1.0</b> H</label><input id="L" type="range" min="0.2" max="3" step="0.05" value="1">
+    <div class="fila"><button id="cerrar" class="prin">⏻ Cerrar el interruptor (t = 0)</button></div>
+  </div>
+
+  <div class="info" id="info"></div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A', ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5', rojo:'#E8593C' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+const V0 = 1;
+const S = { modo:'rc', fase:'carga', R:1, C:1, L:1, t:0, corre:true, fase0:0 };
+
+function ajustar(cv, ratio) {
+  const w = cv.clientWidth || 360, h = Math.round(w * ratio);
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h);
+  return { ctx, w, h };
+}
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) { ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.fillText(s, x, y); }
+function linea(ctx, x1, y1, x2, y2, c, w = 1, dash = null) { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]); }
+
+/* ── Física: devuelve {q, I, VC, VL, VR, UC, UL} en el instante t, más la escala de tiempo ── */
+function estado(t) {
+  const { R, C, L } = S, carga = S.fase === 'carga';
+  if (S.modo === 'rc') {
+    const tau = R * C || 1e-6, e = Math.exp(-t / tau);
+    const q = carga ? C * V0 * (1 - e) : C * V0 * e;
+    const I = carga ? (V0 / R) * e : -(V0 / R) * e;
+    return { q, I, VC: q / C, VR: I * R, VL: 0, UC: q * q / (2 * C), UL: 0, tau };
+  }
+  if (S.modo === 'rl') {
+    const tau = L / (R || 1e-6), e = Math.exp(-t / tau), I0 = V0 / (R || 1e-6);
+    const I = carga ? I0 * (1 - e) : I0 * e;
+    const dI = carga ? I0 / tau * e : -I0 / tau * e;
+    return { q: 0, I, VC: 0, VR: I * R, VL: L * dI, UC: 0, UL: L * I * I / 2, tau };
+  }
+  // RLC: el condensador cargado a V0 se descarga por R y L (q'' + (R/L) q' + q/(LC) = 0). Se integra.
+  const w0 = 1 / Math.sqrt(L * C);
+  return Object.assign({}, rlcEn(t), { tau: 2 * Math.PI / w0 });
+}
+let tabla = null;
+function prepararRLC() {   // RK4 una vez por cambio de parámetros
+  const { R, L, C } = S, dt = 0.01, N = 4000; tabla = [];
+  let q = C * V0, I = 0;
+  const f = (q, I) => [I, -(R / L) * I - q / (L * C)];
+  for (let k = 0; k <= N; k++) {
+    tabla.push([q, I]);
+    const [a1, b1] = f(q, I), [a2, b2] = f(q + a1 * dt / 2, I + b1 * dt / 2), [a3, b3] = f(q + a2 * dt / 2, I + b2 * dt / 2), [a4, b4] = f(q + a3 * dt, I + b3 * dt);
+    q += (a1 + 2 * a2 + 2 * a3 + a4) * dt / 6; I += (b1 + 2 * b2 + 2 * b3 + b4) * dt / 6;
+  }
+}
+function rlcEn(t) {
+  const k = Math.min(tabla.length - 1, Math.max(0, Math.round(t / 0.01))), [q, I] = tabla[k];
+  const { R, L, C } = S;
+  return { q, I, VC: q / C, VR: I * R, VL: -(q / C) - I * R, UC: q * q / (2 * C), UL: L * I * I / 2 };
+}
+const tMax = () => S.modo === 'rlc' ? Math.min(39, 3 * 2 * Math.PI * Math.sqrt(S.L * S.C)) : 5 * estado(0).tau;
+
+/* ── Esquema ── */
+function pintarCircuito() {
+  const { ctx, w, h } = ajustar($('a'), 0.8);
+  const e = estado(S.t), x0 = w * .12, x1 = w * .88, y0 = h * .2, y1 = h * .78;
+  const conBat = S.modo !== 'rlc' && S.fase === 'carga';
+  // camino (rectángulo) para los puntos de corriente
+  ctx.strokeStyle = COL.muted; ctx.lineWidth = 2; ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
+  // batería a la izquierda (o cable)
+  if (conBat) {
+    const ym = (y0 + y1) / 2; ctx.fillStyle = COL.bg; ctx.fillRect(x0 - 6, ym - 14, 12, 28);
+    linea(ctx, x0 - 14, ym - 6, x0 + 14, ym - 6, COL.ink, 3); linea(ctx, x0 - 8, ym + 6, x0 + 8, ym + 6, COL.ink, 3);
+    texto(ctx, 'V₀', x0 - 20, ym + 4, { c:COL.ink, f:12, al:'right' });
+  }
+  // resistencia arriba
+  if (S.R > 0) {
+    const xa = w * .32, xb = w * .52, yy = y0; ctx.fillStyle = COL.bg; ctx.fillRect(xa, yy - 8, xb - xa, 16);
+    ctx.strokeStyle = COL.rojo; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(xa, yy);
+    for (let i = 1; i <= 8; i++) ctx.lineTo(xa + (xb - xa) * i / 8, yy + (i % 2 ? -7 : 7) * (i === 8 ? 0 : 1)); ctx.stroke();
+    const calor = Math.min(1, Math.abs(e.I * e.I * S.R) * 2);
+    ctx.fillStyle = `rgba(232,89,60,${calor * .5})`; ctx.beginPath(); ctx.arc((xa + xb) / 2, yy, 18, 0, 7); ctx.fill();
+    texto(ctx, `R: ${e.VR.toFixed(2)} V`, (xa + xb) / 2, yy - 14, { c:COL.rojo, f:11, al:'center' });
+  }
+  // condensador a la derecha
+  if (S.modo !== 'rl') {
+    const ym = (y0 + y1) / 2, xx = x1; ctx.fillStyle = COL.bg; ctx.fillRect(xx - 14, ym - 6, 28, 12);
+    linea(ctx, xx - 16, ym - 6, xx + 16, ym - 6, COL.azul, 3); linea(ctx, xx - 16, ym + 6, xx + 16, ym + 6, COL.azul, 3);
+    const fr = Math.min(1, Math.abs(e.q) / (S.C * V0));
+    for (let i = 0; i < Math.round(fr * 6); i++) { texto(ctx, e.q >= 0 ? '+' : '−', xx - 14 + i * 5.5, ym - 10, { c:COL.acc, f:11 }); texto(ctx, e.q >= 0 ? '−' : '+', xx - 14 + i * 5.5, ym + 18, { c:COL.azul, f:11 }); }
+    texto(ctx, `C: ${e.VC.toFixed(2)} V`, xx - 20, ym + 32, { c:COL.azul, f:11, al:'right' });
+  }
+  // bobina abajo
+  if (S.modo !== 'rc') {
+    const xa = w * .4, xb = w * .62, yy = y1; ctx.fillStyle = COL.bg; ctx.fillRect(xa, yy - 10, xb - xa, 20);
+    const brillo = Math.min(1, e.UL * 3);
+    ctx.strokeStyle = `rgb(${Math.round(110 + 140 * brillo)},${Math.round(168 + 40 * brillo)},255)`; ctx.lineWidth = 2;
+    for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.arc(xa + (xb - xa) * (i + .5) / 5, yy, (xb - xa) / 10, Math.PI, 0); ctx.stroke(); }
+    texto(ctx, `L: ${e.VL.toFixed(2)} V`, (xa + xb) / 2, yy + 22, { c:COL.azul, f:11, al:'center' });
+  }
+  // interruptor
+  const xs = w * .2, ys = y1;
+  ctx.fillStyle = COL.bg; ctx.fillRect(xs - 14, ys - 4, 28, 8);
+  linea(ctx, xs - 14, ys, xs + (S.corre ? 14 : 10), ys - (S.corre ? 0 : 12), COL.ok, 2.5);
+  // puntos de corriente
+  const per = 2 * ((x1 - x0) + (y1 - y0)), n = 22;
+  for (let k = 0; k < n; k++) {
+    let s = ((k / n) * per + S.fase0) % per; if (s < 0) s += per;
+    let px, py;
+    if (s < x1 - x0) { px = x0 + s; py = y0; } else if ((s -= x1 - x0) < y1 - y0) { px = x1; py = y0 + s; }
+    else if ((s -= y1 - y0) < x1 - x0) { px = x1 - s; py = y1; } else { s -= x1 - x0; px = x0; py = y1 - s; }
+    ctx.fillStyle = COL.ok; ctx.globalAlpha = Math.min(1, .25 + Math.abs(e.I) * 1.2); ctx.beginPath(); ctx.arc(px, py, 3, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
+  }
+  texto(ctx, `t = ${S.t.toFixed(2)} s   I = ${e.I.toFixed(3)} A`, 10, 18, { c:COL.ok, f:13, b:true });
+  const tau = S.modo === 'rc' ? `τ = RC = ${(S.R * S.C).toFixed(2)} s` : S.modo === 'rl' ? `τ = L/R = ${(S.L / (S.R || 1e-6)).toFixed(2)} s` : regimen();
+  texto(ctx, tau, w - 10, 18, { c:COL.acc, f:12, b:true, al:'right' });
+}
+function regimen() {
+  const Rc = 2 * Math.sqrt(S.L / S.C);
+  if (S.R < 1e-6) return `LC: ω₀ = ${(1 / Math.sqrt(S.L * S.C)).toFixed(2)} rad/s`;
+  return S.R < Rc * .98 ? `subamortiguado (R < ${Rc.toFixed(2)})` : S.R > Rc * 1.02 ? `sobreamortiguado (R > ${Rc.toFixed(2)})` : 'amortiguamiento crítico';
+}
+
+/* ── Gráficas ── */
+function pintarGraficas() {
+  const { ctx, w, h } = ajustar($('b'), 0.8);
+  const m = { l:36, r:10, t:28, b:26 }, T = tMax();
+  const ts = Array.from({ length: 301 }, (_, i) => i * T / 300), E = ts.map(estado);
+  const lo = S.modo === 'rlc' ? -1.2 : -0.1;
+  const X = t => m.l + t / T * (w - m.l - m.r), Y = v => m.t + (1.1 - v) / (1.1 - lo) * (h - m.t - m.b);
+  for (const v of (S.modo === 'rlc' ? [-1, -.5, 0, .5, 1] : [0, .25, .5, .75, 1])) { linea(ctx, m.l, Y(v), w - m.r, Y(v), v === 0 ? COL.muted : COL.line); texto(ctx, v, m.l - 5, Y(v) + 4, { c:COL.tenue, f:10, al:'right' }); }
+  if (S.modo !== 'rlc') for (let k = 1; k <= 5; k++) { const tk = k * E[0].tau; linea(ctx, X(tk), m.t, X(tk), h - m.b, 'rgba(252,165,10,.18)'); texto(ctx, `${k}τ`, X(tk), h - m.b + 14, { c:COL.tenue, f:10, al:'center' }); }
+  texto(ctx, 't', w - m.r, h - 6, { c:COL.muted, al:'right' });
+  const Imax = Math.max(...E.map(e => Math.abs(e.I))) || 1, Umax = Math.max(...E.map(e => e.UC + e.UL)) || 1;
+  const curva = (fn, col, dash) => { ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.setLineDash(dash || []); ctx.beginPath(); E.forEach((e, i) => { const y = Y(fn(e)); i ? ctx.lineTo(X(ts[i]), y) : ctx.moveTo(X(ts[i]), y); }); ctx.stroke(); ctx.setLineDash([]); };
+  const leyenda = [];
+  if (S.modo !== 'rl') { curva(e => e.VC / V0, COL.azul); leyenda.push(['V_C/V₀', COL.azul]); }
+  curva(e => e.I / Imax, COL.ok); leyenda.push(['I/I_máx', COL.ok]);
+  if (S.modo === 'rl') { curva(e => e.VL / V0, COL.rosa, [4, 3]); leyenda.push(['V_L/V₀', COL.rosa]); }
+  if (S.modo === 'rlc') { curva(e => e.UC / Umax, 'rgba(110,168,255,.5)', [3, 3]); curva(e => e.UL / Umax, 'rgba(255,127,181,.6)', [3, 3]); leyenda.push(['U_C, U_L', COL.rosa]); }
+  leyenda.forEach(([t, c], i) => texto(ctx, '— ' + t, m.l + 4 + i * 82, m.t - 10, { c, f:11, b:true }));
+  const tn = Math.min(S.t, T); linea(ctx, X(tn), m.t, X(tn), h - m.b, 'rgba(232,226,242,.5)', 1, [2, 3]);
+}
+
+/* ── Textos ── */
+const INFO = {
+  rc: () => `
+    <h3>La ecuación (Kirchhoff en la malla)</h3>
+    <p>Carga: <span class="f">V₀ = IR + q/C</span>, con <span class="f">I = dq/dt</span>, así que <span class="f">dq/dt + q/(RC) = V₀/R</span>.</p>
+    <div class="caja"><b>Factor integrante</b> μ = e^(t/RC): <span class="f">d/dt[q e^(t/RC)] = (V₀/R) e^(t/RC)</span>, de donde <span class="f">q = CV₀(1 − e^(−t/RC))</span> e <span class="f">I = (V₀/R) e^(−t/RC)</span>.</div>
+    <p>Descarga: <span class="f">q = Q₀e^(−t/RC)</span>. En t = τ queda el 37 %; en 5τ, menos del 1 %.</p>
+    <h3>Reglas rápidas</h3>
+    <p>En t = 0 el condensador descargado es un <b>cable</b> (V_C = 0). En t → ∞ es un <b>circuito abierto</b> (I = 0).</p>
+    <p>Al cargar, la batería entrega QV₀ = CV₀². La mitad queda en el condensador (½CV₀²) y la otra mitad se disipa en R, <b>sea cual sea R</b>.</p>
+    <p class="trampa">La energía decae con τ/2 = RC/2, porque U ∝ q². Medio de energía en t = (RC ln 2)/2 (Conquering, problema 2 de circuitos).</p>`,
+  rl: () => `
+    <h3>La ecuación</h3>
+    <p><span class="f">V₀ = IR + L dI/dt</span>, así que <span class="f">dI/dt + (R/L)I = V₀/L</span>. Con factor integrante e^(Rt/L): <span class="f">I = (V₀/R)(1 − e^(−Rt/L))</span>, τ = L/R.</p>
+    <h3>Reglas rápidas</h3>
+    <p>En t = 0 la bobina se opone a cualquier cambio de corriente: es un <b>circuito abierto</b> (I = 0, V_L = V₀). En t → ∞ es un <b>cable</b> (V_L = 0, I = V₀/R). Es justo al revés que el condensador.</p>
+    <p>Energía almacenada al final: <span class="f">½LI² = ½L(V₀/R)²</span>.</p>
+    <p class="trampa">τ = L/R, no LR. Si R crece, la corriente final baja y llega antes.</p>`,
+  rlc: () => `
+    <h3>La ecuación</h3>
+    <p>El condensador arranca cargado (V₀) y se descarga por L y R: <span class="f">L q̈ + R q̇ + q/C = 0</span>. Es el oscilador amortiguado con m → L, b → R, k → 1/C.</p>
+    <div class="caja"><span class="f">ω₀ = 1/√(LC)</span>. Crítico en <span class="f">R = 2√(L/C)</span>. Por debajo oscila (subamortiguado) con <span class="f">ω = √(ω₀² − (R/2L)²)</span>. Por encima decae sin oscilar.</div>
+    <p>Con R = 0 (LC puro), la energía va y viene: U_C máxima cuando I = 0, y U_L máxima cuando q = 0. Exactamente como la potencial y la cinética de un resorte.</p>
+    <p class="trampa">La frecuencia de la energía es el doble que la de la carga: U ∝ q² repite cada medio período.</p>`,
+};
+
+/* ── Control ── */
+function pintar() { pintarCircuito(); pintarGraficas(); }
+function ponerModo(m, hash = true) {
+  S.modo = INFO[m] ? m : 'rc';
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.m === S.modo));
+  $('lC').classList.toggle('oculto', S.modo === 'rl'); $('C').classList.toggle('oculto', S.modo === 'rl');
+  $('lL').classList.toggle('oculto', S.modo === 'rc'); $('L').classList.toggle('oculto', S.modo === 'rc');
+  $('fase').classList.toggle('oculto', S.modo === 'rlc');
+  if (S.modo === 'rlc') { S.R = Math.min(S.R, 0.4); $('R').value = S.R; $('vR').textContent = S.R.toFixed(2); }
+  prepararRLC(); $('info').innerHTML = INFO[S.modo](); S.t = 0;
+  if (hash) history.replaceState(null, '', '#' + S.modo);
+}
+for (const k of ['R', 'C', 'L']) $(k).addEventListener('input', e => { S[k] = +e.target.value; $('v' + k).textContent = S[k].toFixed(2); prepararRLC(); S.t = 0; });
+$('tabs').addEventListener('click', e => { if (e.target.dataset.m) ponerModo(e.target.dataset.m); });
+$('fase').addEventListener('click', e => {
+  if (!e.target.dataset.f) return; S.fase = e.target.dataset.f; S.t = 0;
+  document.querySelectorAll('#fase button').forEach(b => b.classList.toggle('on', b.dataset.f === S.fase));
+});
+$('cerrar').addEventListener('click', () => { S.t = 0; S.corre = true; });
+addEventListener('resize', pintar);
+let ult = performance.now();
+function bucle(t) {
+  const dt = Math.min(0.05, (t - ult) / 1000); ult = t;
+  const T = tMax(), vel = T / 6;               // la gráfica entera dura unos 6 s
+  if (S.corre) { S.t += dt * vel; if (S.t > T * 1.15) S.t = 0; }
+  S.fase0 += estado(Math.min(S.t, T)).I * dt * 160;
+  pintar(); requestAnimationFrame(bucle);
+}
+ponerModo(location.hash.slice(1) || 'rc', false);
+const q = +new URLSearchParams(location.search).get('t'); if (q) S.t = q;
+requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

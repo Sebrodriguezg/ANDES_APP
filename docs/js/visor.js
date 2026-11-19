@@ -18,6 +18,9 @@ const SIMS = {
   dispersion:  { url: 'extra/mecanica.html#esfera',         titulo: 'Esfera dura' },
   monedas:     { url: 'extra/estadistica.html#monedas',     titulo: 'Monedas y entropía' },
   contacto:    { url: 'extra/estadistica.html#contacto',    titulo: 'Contacto térmico' },
+  rc:          { url: 'extra/circuitos.html#rc',            titulo: 'Circuito RC' },
+  rl:          { url: 'extra/circuitos.html#rl',            titulo: 'Circuito RL' },
+  rlc:         { url: 'extra/circuitos.html#rlc',           titulo: 'Circuito LC / RLC' },
   imagenes:    { url: 'extra/metodo_de_imagenes.html',      titulo: 'Método de las imágenes' },
   borde:       { url: 'extra/efectos_de_borde_linea_plano.html', titulo: 'Efectos de borde' },
   adiabatica:  { url: 'extra/p15_isoterma_adiabatica.html', titulo: 'Isoterma contra adiabática' },
@@ -36,6 +39,9 @@ const RE = {
   dispersion: /hard sphere|esfera dura|impact parameter|par[aá]metro de impacto|scattering angle|[aá]ngulo de dispersi[oó]n|cross section|secci[oó]n eficaz/,
   entropia: /multiplicit|microstate|microestado|macrostate|macroestado|\bcoins?\b|monedas?|einstein solid|s[oó]lido de einstein|k\s*ln|entrop[^.]*(?:\bln\b|ω|Ω|omega)|statistical weight|peso estad[ií]stico/,
   contacto: /thermal contact|contacto t[eé]rmico|einstein solid|s[oó]lido de einstein|two (?:systems|solids)|dos (?:sistemas|s[oó]lidos)/,
+  rc: /\brc\b|capacitor[^.]*(?:resistor|resistance)|(?:resistor|resistance)[^.]*capacitor|condensador[^.]*resist|resist[^.]*condensador|time constant|constante de tiempo|discharg|descarg/,
+  rl: /\brl\b|inductor[^.]*(?:resistor|resistance)|(?:resistor|resistance)[^.]*inductor|bobina[^.]*resist|inductance[^.]*resist/,
+  rlc: /\brlc\b|\blc\b|lc circuit|circuito lc|resonan|resonancia|inductor[^.]*capacitor|capacitor[^.]*inductor/,
   nave: /spaceship|space ship|\bnave\b|rocket|cohete|light-?years?|a[ñn]os luz|twin|gemel|\bstar\b|estrella|astronaut/,
   escalon: /\bstep\b|escal[oó]n|barrier|barrera|tunnel|t[uú]nel|reflection coef|transmission coef|coeficiente de (?:reflexi|transmisi)/,
   caja: /\bbox\b|caja|square well|infinite well|pozo|boson|fermion|pauli|indistinguish|indistinguib/,
@@ -64,6 +70,9 @@ export function simulacionesPara(t) {
   if (t.area === 'electromagnetismo') {
     if (RE.gauss.test(txt)) out.push('gauss');
     if (RE.ampere.test(txt)) out.push('ampere');
+    if (RE.rlc.test(txt)) out.push('rlc');
+    else if (RE.rc.test(txt)) out.push('rc');
+    if (RE.rl.test(txt) && !out.includes('rlc')) out.push('rl');
     if (RE.imagenes.test(txt)) out.push('imagenes');
     if (RE.borde.test(txt)) out.push('borde');
   }

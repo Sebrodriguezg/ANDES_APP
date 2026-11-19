@@ -123,6 +123,14 @@
   {
    "tipo": "html",
    "grupo": "Simulaciones",
+   "titulo": "Circuitos: RC, RL y RLC",
+   "desc": "Cerrar el interruptor y ver cargarse el condensador o la bobina: τ, la ecuación con factor integrante, energías y regímenes del RLC.",
+   "area": "electromagnetismo",
+   "archivo": "extra/circuitos.html#rc"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
    "titulo": "Isoterma contra adiabática",
    "desc": "Expansión de V a 2V (problema 15 de U1): trabajos como áreas, temperatura del gas y γ ajustable. Se puede grabar.",
    "area": "termo_estadistica",

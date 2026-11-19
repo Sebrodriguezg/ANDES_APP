@@ -139,6 +139,13 @@ SIMULACIONES = [
         "area": "termo_estadistica", "ancho": False, "hash": "contacto",
     },
     {
+        "fuente": VISUAL / "circuitos.html",
+        "titulo": "Circuitos: RC, RL y RLC",
+        "desc": "Cerrar el interruptor y ver cargarse el condensador o la bobina: τ, la "
+                "ecuación con factor integrante, energías y regímenes del RLC.",
+        "area": "electromagnetismo", "ancho": False, "hash": "rc",
+    },
+    {
         "fuente": VISUAL / "p15_isoterma_adiabatica.html",
         "titulo": "Isoterma contra adiabática",
         "desc": "Expansión de V a 2V (problema 15 de U1): trabajos como áreas, "

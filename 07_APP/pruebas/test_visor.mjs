@@ -38,6 +38,8 @@ caso('espacio de fase', { area: 'mecanica', enunciado: 'The area enclosed by the
 caso('esfera dura', { area: 'mecanica', enunciado: 'Scattering from a hard sphere: impact parameter b…', opciones: {} }, ['dispersion']);
 caso('entropía de monedas', { area: 'termo_estadistica', enunciado: 'N coins are tossed; the entropy S = k ln Ω of the macrostate…', opciones: {} }, ['monedas']);
 caso('dos sólidos', { area: 'termo_estadistica', enunciado: 'Two Einstein solids in thermal contact share q units…', opciones: {} }, ['contacto']);
+caso('RC', { area: 'electromagnetismo', enunciado: 'A capacitor C is in series with a resistor R. After what time has the resistor dissipated half the energy?', opciones: {} }, ['rc']);
+caso('LC', { area: 'electromagnetismo', enunciado: 'An LC circuit oscillates; the resonant frequency is', opciones: {} }, ['rlc']);
 caso('mecánica: nada', { area: 'mecanica', enunciado: 'A block slides down an incline', opciones: {} }, []);
 
 if (htmlAccesos({ area: 'mecanica', enunciado: 'x' }) !== '') { console.log('  FALLA tarjeta sin simulación pinta botones'); fallos++; }
