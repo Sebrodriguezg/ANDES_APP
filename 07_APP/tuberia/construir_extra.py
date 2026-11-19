@@ -54,6 +54,33 @@ SIMULACIONES = [
         "area": "relatividad", "ancho": False, "hash": "doppler",
     },
     {
+        "fuente": VISUAL / "relatividad.html",
+        "titulo": "Relatividad: la nave y el laboratorio",
+        "desc": "Viaje a una estrella: el reloj de la nave contra los relojes sincronizados "
+                "del laboratorio. Con ida y vuelta (gemelos) y su diagrama.",
+        "area": "relatividad", "ancho": False, "hash": "nave",
+    },
+    {
+        "fuente": VISUAL / "cuantica.html",
+        "titulo": "Cuántica: escalón de potencial",
+        "desc": "Onda que incide sobre un escalón: R y T contra E/V₀, penetración si E < V₀.",
+        "area": "moderna_cuantica", "ancho": False, "hash": "escalon",
+    },
+    {
+        "fuente": VISUAL / "cuantica.html",
+        "titulo": "Cuántica: caja 2D, bosones y fermiones",
+        "desc": "Niveles y degeneraciones de la caja; fundamental y primer excitado de dos "
+                "partículas según su tipo; |ψ|² de cada estado.",
+        "area": "moderna_cuantica", "ancho": False, "hash": "caja",
+    },
+    {
+        "fuente": VISUAL / "cuantica.html",
+        "titulo": "Cuántica: oscilador armónico",
+        "desc": "Estados estacionarios contra la probabilidad clásica, y superposiciones donde "
+                "⟨x⟩ y σₓ cambian con el tiempo.",
+        "area": "moderna_cuantica", "ancho": False, "hash": "oscilador",
+    },
+    {
         "fuente": VISUAL / "metodo_de_imagenes.html",
         "titulo": "Método de las imágenes",
         "desc": "Plano, esquina de 90°, esfera a tierra, esfera neutra y cavidad. "

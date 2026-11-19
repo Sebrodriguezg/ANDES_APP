@@ -8,6 +8,10 @@ const SIMS = {
   dilatacion:  { url: 'extra/relatividad.html#dilatacion',  titulo: 'Dilatación del tiempo' },
   contraccion: { url: 'extra/relatividad.html#contraccion', titulo: 'Contracción de longitudes' },
   doppler:     { url: 'extra/relatividad.html#doppler',     titulo: 'Doppler relativista' },
+  nave:        { url: 'extra/relatividad.html#nave',        titulo: 'La nave y el laboratorio' },
+  escalon:     { url: 'extra/cuantica.html#escalon',        titulo: 'Escalón de potencial' },
+  caja:        { url: 'extra/cuantica.html#caja',           titulo: 'Caja 2D: bosones y fermiones' },
+  oscilador:   { url: 'extra/cuantica.html#oscilador',      titulo: 'Oscilador cuántico' },
   imagenes:    { url: 'extra/metodo_de_imagenes.html',      titulo: 'Método de las imágenes' },
   borde:       { url: 'extra/efectos_de_borde_linea_plano.html', titulo: 'Efectos de borde' },
   adiabatica:  { url: 'extra/p15_isoterma_adiabatica.html', titulo: 'Isoterma contra adiabática' },
@@ -20,6 +24,10 @@ const RE = {
   imagenes: /image charge|method of images|m[eé]todo de (?:las )?im[aá]genes|carga imagen|grounded|a tierra|conducting plane|plano conductor|conductor plano/,
   borde: /infinite (?:line|sheet|plane|wire|rod|plate)|infinit[oa]s? (?:l[ií]nea|l[aá]mina|plano|hilo|alambre|placa)|finite (?:line|rod|sheet|wire)|edge effect|efectos? de borde|parallel[- ]plate|placas paralelas/,
   adiabatica: /adiabat|isotherm|isot[eé]rm/,
+  nave: /spaceship|space ship|\bnave\b|rocket|cohete|light-?years?|a[ñn]os luz|twin|gemel|\bstar\b|estrella|astronaut/,
+  escalon: /\bstep\b|escal[oó]n|barrier|barrera|tunnel|t[uú]nel|reflection coef|transmission coef|coeficiente de (?:reflexi|transmisi)/,
+  caja: /\bbox\b|caja|square well|infinite well|pozo|boson|fermion|pauli|indistinguish|indistinguib/,
+  oscilador: /harmonic oscillator|oscilador|arm[oó]nico|zero-point|punto cero|ladder operator|operador(?:es)? escalera|creation operator/,
 };
 
 /** Qué simulaciones tienen que ver con esta tarjeta (claves de SIMS). */
@@ -36,6 +44,7 @@ export function simulacionesPara(t) {
     if (RE.dilatacion.test(txt)) out.push('dilatacion');
     if (RE.contraccion.test(txt)) out.push('contraccion');
     if (RE.doppler.test(txt)) out.push('doppler');
+    if (RE.nave.test(txt)) out.unshift('nave');
     if (!out.length && t.area === 'relatividad') out.push('dilatacion', 'contraccion');
   } else if (etiquetas.includes('doppler') && !/sound|sonido/.test(txt) && /\blight\b|\bluz\b|relativis|\bstars?\b|galax|estrella|photon|fot[oó]n/.test(txt)) {
     out.push('doppler');
@@ -45,6 +54,11 @@ export function simulacionesPara(t) {
     if (RE.borde.test(txt)) out.push('borde');
   }
   if (t.area === 'termo_estadistica' && RE.adiabatica.test(txt)) out.push('adiabatica');
+  if (t.area === 'moderna_cuantica') {
+    if (RE.escalon.test(txt)) out.push('escalon');
+    if (RE.caja.test(txt)) out.push('caja');
+    if (RE.oscilador.test(txt)) out.push('oscilador');
+  }
   return [...new Set(out)].slice(0, 3);
 }
 

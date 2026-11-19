@@ -58,6 +58,7 @@
     <button data-m="dilatacion" class="on">Dilatación</button>
     <button data-m="contraccion">Contracción</button>
     <button data-m="doppler">Doppler</button>
+    <button data-m="nave">Nave</button>
   </div>
 
   <canvas id="anim"></canvas>
@@ -79,6 +80,11 @@
       <button data-f="S" class="on">Visto desde el andén</button>
       <button data-f="T">Visto desde el tren</button>
     </div>
+    <div id="ctrlNave">
+      <label>Distancia a la estrella (en el sistema de la Tierra): <b id="vD">4</b> años luz</label>
+      <input id="dist" type="range" min="1" max="10" step="0.5" value="4">
+      <div class="fila"><button id="ida" class="on">Solo ida</button><button id="vuelta">Ida y vuelta (gemelos)</button></div>
+    </div>
     <div id="ctrlDop">
       <label>Longitud de onda emitida λ₀: <b id="vl">550</b> nm</label>
       <input id="lam" type="range" min="380" max="700" step="5" value="550">
@@ -94,7 +100,7 @@
 
 <script>
 const $ = id => document.getElementById(id);
-const S = { modo:'dilatacion', beta:0.6, play:true, vel:1, marco:'S', T:0, lam0:550 };
+const S = { modo:'dilatacion', beta:0.6, play:true, vel:1, marco:'S', T:0, lam0:550, D:4, gemelos:false };
 const gam = b => 1 / Math.sqrt(1 - b * b);
 const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A',
               rel:'#D14263', ok:'#F6D543', azul:'#6EA8FF', foton:'#FCFFA4' };
@@ -468,9 +474,111 @@ function diagDoppler() {
   texto(ctx, '··· clásico 1 ± β', X(0.02), ly - 15, { c:COL.tenue, f:11 });
 }
 
+
+/* ═════════════════════════  NAVE  ═════════════════════════ */
+/* Unidades: años y años luz, c = 1. La animación avanza 1 año cada 0.8 s. */
+const ANIO = 0.8;
+
+function naveEstado() {
+  const b = Math.max(S.beta, 0.05), g = gam(b), D = S.D;
+  const tIda = D / b, tTot = S.gemelos ? 2 * tIda : tIda;
+  const pausa = 2.5;                                   // años de espera al final antes de repetir
+  const t = (S.T / ANIO) % (tTot + pausa);
+  const tv = Math.min(t, tTot);                        // tiempo del lab durante el viaje
+  const x = tv <= tIda ? b * tv : D - b * (tv - tIda);
+  const tau = tv / g;
+  return { b, g, D, tIda, tTot, t, tv, x, tau, llego: t >= tTot };
+}
+
+function reloj(ctx, x, y, valor, col, etiqueta, grande = false) {
+  const r = grande ? 22 : 15;
+  ctx.fillStyle = '#150E2B'; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+  ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.stroke();
+  const a = (valor % 1) * 2 * Math.PI - Math.PI / 2;
+  linea(ctx, x, y, x + Math.cos(a) * r * .75, y + Math.sin(a) * r * .75, col, 2);
+  texto(ctx, valor.toFixed(1), x, y + r + 13, { c: col, f: grande ? 14 : 11, b: true, al: 'center' });
+  if (etiqueta) texto(ctx, etiqueta, x, y - r - 6, { c: COL.muted, f: 10, al: 'center' });
+}
+
+function animNave() {
+  const { ctx, w, h } = ajustar($('anim'), angosto() ? 0.95 : 0.5);
+  ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h);
+  // estrellas de fondo
+  for (let i = 0; i < 60; i++) { const sx = (i * 97.3) % w, sy = (i * 53.7) % (h * .45); punto(ctx, sx, sy + 8, (i % 3) * .4 + .5, 'rgba(232,226,242,.35)'); }
+  const e = naveEstado();
+  const x0 = 40, x1 = w - 40, X = xx => x0 + (x1 - x0) * xx / e.D, yR = h * 0.56;
+  linea(ctx, x0, yR, x1, yR, COL.line, 1, [4, 4]);
+  // Tierra y estrella
+  punto(ctx, x0, yR, 12, '#3B82C4'); texto(ctx, 'Tierra', x0, yR + 30, { c: COL.muted, f: 11, al: 'center' });
+  punto(ctx, x1, yR, 10, COL.ok); texto(ctx, 'estrella', x1, yR + 30, { c: COL.muted, f: 11, al: 'center' });
+  // relojes del laboratorio, sincronizados, a lo largo del camino
+  const n = angosto() ? 3 : 5;
+  for (let k = 0; k <= n; k++) reloj(ctx, X(e.D * k / n), yR + 62, e.tv, COL.azul, '');
+  texto(ctx, 'relojes del laboratorio (sincronizados entre sí): todos marcan t', w / 2, h - 10, { c: COL.azul, f: 11, al: 'center' });
+  // nave
+  const xn = X(e.x), yn = yR - 34, dir = (e.tv <= e.tIda) ? 1 : -1;
+  ctx.fillStyle = COL.rel; ctx.beginPath();
+  ctx.moveTo(xn + 16 * dir, yn); ctx.lineTo(xn - 12 * dir, yn - 9); ctx.lineTo(xn - 7 * dir, yn); ctx.lineTo(xn - 12 * dir, yn + 9); ctx.fill();
+  if (!e.llego) punto(ctx, xn - 15 * dir, yn, 3 + Math.random() * 2, COL.acc);
+  reloj(ctx, xn, yn - 46, e.tau, COL.rel, 'nave', true);
+  // marcadores grandes
+  const fz = angosto() ? 13 : 15;
+  texto(ctx, `Lab: t = ${e.tv.toFixed(2)} años`, 12, 22, { c: COL.azul, f: fz, b: true });
+  texto(ctx, `Nave: τ = ${e.tau.toFixed(2)} años`, w - 12, 22, { c: COL.rel, f: fz, b: true, al: 'right' });
+  texto(ctx, `diferencia: ${(e.tv - e.tau).toFixed(2)} años`, w / 2, 42, { c: COL.muted, f: 12, al: 'center' });
+  if (e.llego) {
+    const msg = S.gemelos ? `De vuelta: el gemelo viajero es ${(e.tTot - e.tTot / e.g).toFixed(2)} años más joven`
+                          : `Llegó: Δt = D/v = ${e.tIda.toFixed(2)},  Δτ = Δt/γ = ${(e.tIda / e.g).toFixed(2)}`;
+    ctx.fillStyle = 'rgba(21,14,43,.9)'; ctx.fillRect(10, h * .30 - 18, w - 20, 28);
+    texto(ctx, msg, w / 2, h * .30, { c: COL.ok, f: angosto() ? 12 : 14, b: true, al: 'center' });
+  }
+}
+
+function diagNave() {
+  const { ctx, w, h } = ajustar($('diag'), angosto() ? 1.1 : 0.62);
+  const e = naveEstado();
+  const ctmax = e.tTot + 0.6, xmax = e.D + 0.8;
+  const { X, Y } = marco(ctx, w, h, xmax, ctmax);
+  texto(ctx, 'x (años luz)', X(xmax) - 4, Y(0) + 28, { c: COL.muted, f: 10, al: 'right' });
+  // Tierra y estrella: líneas verticales
+  linea(ctx, X(0), Y(0), X(0), Y(ctmax), '#3B82C4', 2.5);
+  linea(ctx, X(e.D), Y(0), X(e.D), Y(ctmax), 'rgba(246,213,67,.6)', 2);
+  texto(ctx, 'estrella', X(e.D) + 4, Y(ctmax) + 12, { c: COL.ok, f: 10 });
+  // nave
+  linea(ctx, X(0), Y(0), X(e.D), Y(e.tIda), COL.rel, 2.5);
+  if (S.gemelos) linea(ctx, X(e.D), Y(e.tIda), X(0), Y(e.tTot), COL.rel, 2.5);
+  // tics de un año de la nave (tiempo propio) sobre su línea de universo
+  const nT = Math.floor(e.tTot / e.g);
+  for (let k = 1; k <= nT; k++) {
+    const t = k * e.g, xx = t <= e.tIda ? e.b * t : e.D - e.b * (t - e.tIda);
+    punto(ctx, X(xx), Y(t), 3.5, COL.rel);
+    if (k <= 12) texto(ctx, k, X(xx) + 7, Y(t) + 4, { c: COL.rel, f: 10 });
+  }
+  // tics de la Tierra (un año de lab)
+  for (let k = 1; k <= Math.floor(ctmax); k++) punto(ctx, X(0), Y(k), 2.5, '#3B82C4');
+  // ahora
+  linea(ctx, X(0), Y(e.tv), X(xmax), Y(e.tv), 'rgba(252,165,10,.55)', 1, [2, 3]);
+  punto(ctx, X(e.x), Y(e.tv), 5, COL.acc);
+}
+
 /* ═════════════════════════  TEXTOS  ═════════════════════════ */
 
 const INFO = {
+  nave: `
+    <h3>Qué estás viendo</h3>
+    <p>Una nave viaja de la Tierra a una estrella que, en el sistema de la Tierra, está a D años luz. El laboratorio tiene relojes <b>sincronizados</b> a lo largo del camino (azules). La nave lleva el suyo (rojo). Cuando la nave pasa por un reloj del lab, compara: el suyo siempre va atrás.</p>
+    <h3>¿Quién mide el tiempo propio?</h3>
+    <div class="caja">Los eventos son <b>salir de la Tierra</b> y <b>llegar a la estrella</b>. ¿Qué reloj está en los dos? <b>El de la nave</b>, así que mide Δτ, el corto. El laboratorio necesita dos relojes, el de la Tierra y el de la estrella: mide Δt = D/v, el largo.</div>
+    <p><span class="f">Δt = D/v</span> &nbsp; <span class="f">Δτ = Δt/γ</span></p>
+    <h3>La misma cuenta, desde la nave</h3>
+    <p>Para la nave, la distancia Tierra–estrella está <b>contraída</b>: D/γ. La recorre a v, así que tarda <span class="f">(D/γ)/v = Δt/γ</span>. Es el mismo número: dilatación vista desde un lado, contracción vista desde el otro. Lo mismo pasa con los muones.</p>
+    <h3>En el diagrama</h3>
+    <p>Los puntos rojos son los cumpleaños de la nave (cada año de τ). Los azules, los de la Tierra. Los de la nave quedan más espaciados en ct: para el laboratorio, un año de la nave dura γ años.</p>
+    <h3>Gemelos (ida y vuelta)</h3>
+    <p>El viajero vuelve más joven: <span class="f">2D/v · (1 − 1/γ)</span> años de diferencia. No es simétrico, porque la nave <b>cambia de sistema inercial</b> al dar la vuelta: en el diagrama su línea se quiebra y la de la Tierra no. La línea quebrada es más corta en tiempo propio.</p>
+    <h3>Trampas</h3>
+    <p class="trampa">«D» siempre se da en el sistema de la Tierra. Si te dan la distancia medida por la nave, ya está contraída.</p>
+    <p class="trampa">Nada supera c, pero D/Δτ sí puede pasar de c: no es una velocidad medida en un solo sistema.</p>`,
   dilatacion: `
     <h3>Qué estás viendo</h3>
     <p>Un <b>reloj de luz</b>: un fotón rebota entre dos espejos y cada ida y vuelta es un tic. Los dos relojes son idénticos. Visto desde el laboratorio, el fotón del reloj que se mueve recorre la diagonal, un camino más largo a la misma velocidad c, así que <b>tarda más por tic</b>.</p>
@@ -518,6 +626,7 @@ function pintar() {
   if (S.modo === 'dilatacion') { animDilatacion(); diagDilatacion(); }
   if (S.modo === 'contraccion') { animContraccion(); diagContraccion(); }
   if (S.modo === 'doppler') { animDoppler(); diagDoppler(); }
+  if (S.modo === 'nave') { animNave(); diagNave(); }
 }
 
 function ponerModo(m, hash = true) {
@@ -526,7 +635,8 @@ function ponerModo(m, hash = true) {
   document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.m === m));
   $('marcos').classList.toggle('oculto', m !== 'contraccion');
   $('ctrlDop').classList.toggle('oculto', m !== 'doppler');
-  $('rotDiag').textContent = m === 'doppler' ? 'Cuánto cambia λ con β' : 'Diagrama de espacio-tiempo (c = 1, la luz va a 45°)';
+  $('ctrlNave').classList.toggle('oculto', m !== 'nave');
+  $('rotDiag').textContent = m === 'doppler' ? 'Cuánto cambia λ con β' : m === 'nave' ? 'Diagrama de espacio-tiempo (años y años luz)' : 'Diagrama de espacio-tiempo (c = 1, la luz va a 45°)';
   $('info').innerHTML = INFO[m];
   if (hash) history.replaceState(null, '', '#' + m);
   pintar();
@@ -546,6 +656,9 @@ $('marcos').addEventListener('click', e => {
   S.marco = f; S.T = 0; S.marcas = null;
   document.querySelectorAll('#marcos button').forEach(b => b.classList.toggle('on', b.dataset.f === f));
 });
+$('dist').addEventListener('input', e => { S.D = +e.target.value; $('vD').textContent = S.D; S.T = 0; });
+$('ida').addEventListener('click', () => { S.gemelos = false; S.T = 0; $('ida').classList.add('on'); $('vuelta').classList.remove('on'); });
+$('vuelta').addEventListener('click', () => { S.gemelos = true; S.T = 0; $('vuelta').classList.add('on'); $('ida').classList.remove('on'); });
 $('lam').addEventListener('input', e => { S.lam0 = +e.target.value; $('vl').textContent = S.lam0; });
 $('caso22').addEventListener('click', () => { ponerBeta(0.6); S.lam0 = 400; $('lam').value = 400; $('vl').textContent = 400; });
 $('play').addEventListener('click', () => { S.play = !S.play; $('play').textContent = S.play ? '❚❚ Pausa' : '▶ Seguir'; });

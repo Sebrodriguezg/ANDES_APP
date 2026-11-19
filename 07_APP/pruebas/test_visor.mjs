@@ -27,6 +27,11 @@ caso('plano infinito', { area: 'electromagnetismo', enunciado: 'An infinite shee
 caso('adiabática', { area: 'termo_estadistica', enunciado: 'An ideal gas expands adiabatically', opciones: {} }, ['adiabatica']);
 caso('Doppler acústico: nada', { area: 'optica_ondas', etiquetas: ['doppler'],
   enunciado: 'A siren approaches at 30 m/s; the sound frequency heard is', opciones: {} }, []);
+caso('viaje a una estrella', { area: 'relatividad', enunciado: 'A spaceship travels to a star 4 light-years away at 0.8c. How long does the trip take according to the astronaut clock?', opciones: {} },
+  ['nave', 'dilatacion', 'contraccion']);
+caso('escalón', { area: 'moderna_cuantica', enunciado: 'Electrons incident on a potential step of height V0…', opciones: {} }, ['escalon']);
+caso('bosones en una caja', { area: 'moderna_cuantica', enunciado: 'Two identical bosons in a 2D box…', opciones: {} }, ['caja']);
+caso('oscilador', { area: 'moderna_cuantica', enunciado: 'For a quantum harmonic oscillator in a superposition…', opciones: {} }, ['oscilador']);
 caso('mecánica: nada', { area: 'mecanica', enunciado: 'A block slides down an incline', opciones: {} }, []);
 
 if (htmlAccesos({ area: 'mecanica', enunciado: 'x' }) !== '') { console.log('  FALLA tarjeta sin simulación pinta botones'); fallos++; }

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuántica visual</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690;
+          --line:#2A1F4A; --acc:#FCA50A; --cua:#E8593C; --ok:#F6D543; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .tabs { display:flex; gap:6px; margin:8px 0 10px; }
+  .tabs button { flex:1; font:inherit; font-size:14px; padding:9px 4px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel); color:var(--ink); cursor:pointer; }
+  .tabs button.on { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; }
+  .rotulo { font:600 11px/1 ui-monospace, monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--acc); margin:14px 0 6px; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .fila button.on { border-color:var(--acc); color:var(--acc); }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--cua); border-radius:2px;
+          padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; margin-top:6px; }
+  th, td { border-bottom:1px solid var(--line); padding:6px 4px; text-align:left; vertical-align:top; }
+  th { color:var(--muted); font-weight:600; font-size:12px; }
+  td b { color:var(--ok); }
+  .oculto { display:none !important; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Cuántica</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Cuántica, vista</h1>
+  <p class="sub">Arriba lo que pasa, abajo la gráfica que lo resume. Toca, mueve y compara con lo que dice el libro.</p>
+
+  <div class="tabs" id="tabs">
+    <button data-m="escalon" class="on">Escalón</button>
+    <button data-m="caja">Caja 2D</button>
+    <button data-m="oscilador">Oscilador</button>
+  </div>
+
+  <canvas id="anim"></canvas>
+
+  <div class="ctrl">
+    <div id="cEsc">
+      <label>Energía de la partícula: E/V₀ = <b id="vE">2.00</b></label>
+      <input id="E" type="range" min="0.2" max="4" step="0.01" value="2">
+      <div class="fila"><button data-e="0.5">E &lt; V₀</button><button data-e="1.0001">E ≈ V₀</button><button data-e="1.25">E = 1.25 V₀</button><button data-e="2">E = 2V₀</button></div>
+    </div>
+    <div id="cCaja">
+      <label>Forma de la caja: L<sub>y</sub>/L<sub>x</sub> = <b id="vA">1.00</b> (1 = cuadrada)</label>
+      <input id="asp" type="range" min="1" max="2" step="0.05" value="1">
+      <div class="fila" id="tipos">
+        <button data-p="dist">Distinguibles</button>
+        <button data-p="bos" class="on">Bosones</button>
+        <button data-p="fer0">Fermiones sin espín</button>
+        <button data-p="fer">Fermiones espín ½</button>
+      </div>
+      <div class="fila" id="estados"></div>
+    </div>
+    <div id="cOsc">
+      <div class="fila" id="oscModo">
+        <button data-o="est" class="on">Estado estacionario</button>
+        <button data-o="sup">Superposición</button>
+      </div>
+      <label id="lN">Nivel n = <b id="vN">0</b></label>
+      <input id="n" type="range" min="0" max="8" step="1" value="0">
+      <div class="fila" id="pares">
+        <button data-par="0,1" class="on">(ψ₀ + ψ₁)/√2</button>
+        <button data-par="0,2">(ψ₀ + ψ₂)/√2</button>
+        <button data-par="1,2">(ψ₁ + ψ₂)/√2</button>
+      </div>
+    </div>
+    <div class="fila"><button id="play">❚❚ Pausa</button></div>
+  </div>
+
+  <div class="rotulo" id="rotDiag"></div>
+  <canvas id="diag"></canvas>
+
+  <div class="info" id="info"></div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const S = { modo:'escalon', E:2, asp:1, tipo:'bos', sel:[1,1], osc:'est', n:0, par:[0,1], T:0, play:true };
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A',
+              cua:'#E8593C', ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+const angosto = () => document.querySelector('main').clientWidth < 600;
+function ajustar(cv, ratio) {
+  const w = cv.clientWidth || 360, h = Math.round(w * ratio);
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) {
+    cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+  }
+  const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h);
+  return { ctx, w, h };
+}
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) {
+  ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.textBaseline = 'alphabetic'; ctx.fillText(s, x, y);
+}
+function linea(ctx, x1, y1, x2, y2, c, w = 1, dash = null) {
+  ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]);
+}
+function curva(ctx, xs, fx, X, Y, c, w = 2, dash = null) {
+  ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath();
+  xs.forEach((x, i) => { const y = fx(x); if (!isFinite(y)) return; i ? ctx.lineTo(X(x), Y(y)) : ctx.moveTo(X(x), Y(y)); });
+  ctx.stroke(); ctx.setLineDash([]);
+}
+const rango = (a, b, n) => Array.from({ length: n + 1 }, (_, i) => a + (b - a) * i / n);
+
+/* ═════════════════════════  ESCALÓN  ═════════════════════════ */
+/* Unidades: ħ = 2m = 1, V₀ = 1, así E = k². La onda llega desde la izquierda. */
+
+function escalon(E) {
+  const k1 = Math.sqrt(E);
+  if (E > 1) {
+    const k2 = Math.sqrt(E - 1);
+    const r = (k1 - k2) / (k1 + k2), t = 2 * k1 / (k1 + k2);
+    return { arriba: true, k1, k2, r, t, R: r * r, T: (k2 / k1) * t * t };
+  }
+  const kap = Math.sqrt(1 - E);
+  // r = (k1 − iκ)/(k1 + iκ), t = 2k1/(k1 + iκ)
+  const d = k1 * k1 + kap * kap;
+  return { arriba: false, k1, kap, rr: (k1 * k1 - kap * kap) / d, ri: -2 * k1 * kap / d,
+           tr: 2 * k1 * k1 / d, ti: -2 * k1 * kap / d, R: 1, T: 0 };
+}
+
+function animEscalon() {
+  const { ctx, w, h } = ajustar($('anim'), angosto() ? 0.8 : 0.45);
+  const p = escalon(S.E), om = S.E * 3;           // ω ∝ E (solo para animar)
+  const xmin = -12, xmax = 8;
+  const X = x => 10 + (x - xmin) / (xmax - xmin) * (w - 20);
+  const ybase = h * 0.86, esc = h * 0.17;
+  const Yv = v => ybase - v * h * 0.22;           // energías
+  // potencial
+  ctx.fillStyle = 'rgba(232,89,60,.15)'; ctx.fillRect(X(0), Yv(1), X(xmax) - X(0), ybase - Yv(1));
+  linea(ctx, X(xmin), ybase, X(0), ybase, COL.cua, 2); linea(ctx, X(0), ybase, X(0), Yv(1), COL.cua, 2); linea(ctx, X(0), Yv(1), X(xmax), Yv(1), COL.cua, 2);
+  texto(ctx, 'V₀', X(xmax) - 4, Yv(1) - 6, { c:COL.cua, al:'right', b:true });
+  const yE = Yv(Math.min(S.E, 3.2));
+  linea(ctx, X(xmin), yE, X(xmax), yE, 'rgba(246,213,67,.5)', 1, [5, 4]);
+  texto(ctx, `E = ${S.E.toFixed(2)} V₀`, X(xmin) + 4, yE - 5, { c:COL.ok, f:11 });
+  // ψ(x, t): parte real (línea) y |ψ|² (relleno), centrada en la línea de E
+  const xs = rango(xmin, xmax, 600), ct = Math.cos(om * S.T), st = Math.sin(om * S.T);
+  const psi = x => {        // devuelve [Re, Im] sin el factor temporal
+    if (x < 0) {
+      const a = p.k1 * x;
+      if (p.arriba) return [Math.cos(a) + p.r * Math.cos(a), Math.sin(a) - p.r * Math.sin(a)];
+      return [Math.cos(a) + p.rr * Math.cos(a) + p.ri * Math.sin(a), Math.sin(a) - p.rr * Math.sin(a) + p.ri * Math.cos(a)];
+    }
+    if (p.arriba) { const a = p.k2 * x; return [p.t * Math.cos(a), p.t * Math.sin(a)]; }
+    const e = Math.exp(-p.kap * x); return [p.tr * e, p.ti * e];
+  };
+  ctx.fillStyle = 'rgba(110,168,255,.18)'; ctx.beginPath(); ctx.moveTo(X(xmin), yE);
+  xs.forEach(x => { const [a, b] = psi(x); ctx.lineTo(X(x), yE - (a * a + b * b) * esc * 0.5); });
+  ctx.lineTo(X(xmax), yE); ctx.fill();
+  curva(ctx, xs, x => { const [a, b] = psi(x); return a * ct + b * st; }, X, v => yE - v * esc, COL.azul, 2);
+  texto(ctx, 'Re ψ (animada)  ·  relleno: |ψ|²', w / 2, 18, { c:COL.muted, f:11, al:'center' });
+  // flechas incidente/reflejada/transmitida
+  texto(ctx, '→ incide', X(-11.5), ybase - 26, { c:COL.ink, f:12 });
+  texto(ctx, `← refleja R = ${p.R.toFixed(3)}`, X(-11.5), ybase - 8, { c:COL.rosa, f:12, b:true });
+  texto(ctx, p.arriba ? `T = ${p.T.toFixed(3)} →` : `penetra ~1/κ = ${(1 / p.kap).toFixed(2)}`, X(xmax) - 6, ybase - 26, { c:COL.ok, f:12, b:true, al:'right' });
+  if (!p.arriba) texto(ctx, 'pero T = 0', X(xmax) - 6, ybase - 8, { c:COL.muted, f:11, al:'right' });
+}
+
+function diagEscalon() {
+  const { ctx, w, h } = ajustar($('diag'), angosto() ? 0.7 : 0.42);
+  const m = { l:40, r:14, t:14, b:30 };
+  const X = e => m.l + e / 4 * (w - m.l - m.r), Y = v => h - m.b - v * (h - m.t - m.b);
+  for (const v of [0, .25, .5, .75, 1]) { linea(ctx, m.l, Y(v), w - m.r, Y(v), COL.line); texto(ctx, v, m.l - 6, Y(v) + 4, { c:COL.tenue, f:10, al:'right' }); }
+  for (let e = 0; e <= 4; e++) texto(ctx, e, X(e), h - m.b + 14, { c:COL.tenue, f:10, al:'center' });
+  texto(ctx, 'E/V₀', w - m.r, h - 6, { c:COL.muted, f:11, al:'right' });
+  linea(ctx, X(1), Y(0), X(1), Y(1), 'rgba(232,89,60,.5)', 1, [3, 3]);
+  const es = rango(0.01, 4, 400);
+  curva(ctx, es, e => escalon(e).R, X, Y, COL.rosa, 2.2);
+  curva(ctx, es, e => escalon(e).T, X, Y, COL.ok, 2.2);
+  curva(ctx, es, e => e > 1 ? 0 : 1, X, Y, 'rgba(232,226,242,.3)', 1.5, [4, 4]);
+  const p = escalon(S.E);
+  ctx.fillStyle = COL.rosa; ctx.beginPath(); ctx.arc(X(S.E), Y(p.R), 5, 0, 7); ctx.fill();
+  ctx.fillStyle = COL.ok; ctx.beginPath(); ctx.arc(X(S.E), Y(p.T), 5, 0, 7); ctx.fill();
+  texto(ctx, '— R (reflexión)', X(2.3), Y(0.62), { c:COL.rosa, f:12, b:true });
+  texto(ctx, '— T (transmisión)', X(2.3), Y(0.80), { c:COL.ok, f:12, b:true });
+  texto(ctx, '- - clásico: R = 0 si E > V₀', X(2.3), Y(0.44), { c:COL.muted, f:11 });
+}
+
+/* ═════════════════════════  CAJA 2D  ═════════════════════════ */
+/* E(nx, ny) = ε (nx² + ny²/a²), con ε = π²ħ²/(2m Lx²) y a = Ly/Lx. */
+
+function niveles() {
+  const out = [];
+  for (let nx = 1; nx <= 5; nx++) for (let ny = 1; ny <= 5; ny++) out.push({ nx, ny, E: nx * nx + ny * ny / (S.asp * S.asp) });
+  return out.sort((a, b) => a.E - b.E || a.nx - b.nx);
+}
+const fmt = v => Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(2);
+
+/* Estados de dos partículas, ordenados por energía. Devuelve [{E, desc, deg}] únicos por energía. */
+function dosParticulas(tipo) {
+  const niv = niveles().slice(0, 10);
+  const conf = [];
+  for (let i = 0; i < niv.length; i++) for (let j = i; j < niv.length; j++) {
+    const a = niv[i], b = niv[j], E = a.E + b.E, mismo = i === j;
+    const et = s => `(${s.nx},${s.ny})`;
+    let deg;
+    if (tipo === 'dist') deg = mismo ? 1 : 2;           // 1↔2 se pueden distinguir
+    if (tipo === 'bos') deg = 1;                         // simétrico: una combinación
+    if (tipo === 'fer0') { if (mismo) continue; deg = 1; } // Pauli: nunca el mismo estado
+    if (tipo === 'fer') deg = mismo ? 1 : 4;             // singlete si mismo orbital; si no, singlete + triplete
+    conf.push({ E, desc: mismo ? `${et(a)}²` : `${et(a)} ${et(b)}`, deg });
+  }
+  conf.sort((x, y) => x.E - y.E);
+  const grupos = [];
+  for (const c of conf) {
+    const g = grupos.find(g => Math.abs(g.E - c.E) < 1e-9);
+    if (g) { g.descs.push(c.desc); g.deg += c.deg; } else grupos.push({ E: c.E, descs: [c.desc], deg: c.deg });
+  }
+  return grupos;
+}
+
+function animCaja() {
+  const { ctx, w, h } = ajustar($('anim'), angosto() ? 0.9 : 0.5);
+  const niv = niveles().slice(0, 9);
+  const Emax = niv[niv.length - 1].E * 1.05;
+  const m = { l:46, r:12, t:22, b:16 };
+  const ancho = angosto() ? w * 0.62 : w * 0.5;
+  const Y = E => h - m.b - E / Emax * (h - m.t - m.b);
+  texto(ctx, 'Niveles de una partícula (en unidades de ε)', 10, 14, { c:COL.muted, f:11 });
+  // agrupar degenerados
+  const grupos = [];
+  for (const n of niv) { const g = grupos.find(g => Math.abs(g.E - n.E) < 1e-9); g ? g.est.push(n) : grupos.push({ E: n.E, est: [n] }); }
+  // ocupación del fundamental de 2 partículas, para dibujar las bolitas
+  const fund = dosParticulas(S.tipo)[0];
+  for (const g of grupos) {
+    const y = Y(g.E), k = g.est.length, seg = (ancho - m.l) / k;
+    g.est.forEach((st, i) => {
+      const x1 = m.l + i * seg + 4, x2 = m.l + (i + 1) * seg - 4;
+      const sel = st.nx === S.sel[0] && st.ny === S.sel[1];
+      linea(ctx, x1, y, x2, y, sel ? COL.acc : COL.ink, sel ? 3 : 2);
+      texto(ctx, `(${st.nx},${st.ny})`, (x1 + x2) / 2, y - 5, { c: sel ? COL.acc : COL.muted, f:10, al:'center' });
+      // bolitas del estado fundamental de 2 partículas
+      const etq = `(${st.nx},${st.ny})`;
+      const d = fund.descs[0];
+      let nOcc = 0;
+      if (d === `${etq}²`) nOcc = 2; else if (d.split(' ').includes(etq)) nOcc = 1;
+      for (let q = 0; q < nOcc; q++) {
+        const cx = (x1 + x2) / 2 + (nOcc === 2 ? (q ? 8 : -8) : 0);
+        ctx.fillStyle = S.tipo.startsWith('fer') ? COL.rosa : COL.azul; ctx.beginPath(); ctx.arc(cx, y + 9, 5, 0, 7); ctx.fill();
+        if (S.tipo === 'fer') texto(ctx, q ? '↓' : '↑', cx, y + 22, { c:COL.rosa, f:10, al:'center' });
+      }
+    });
+    texto(ctx, fmt(g.E), m.l - 6, y + 4, { c:COL.tenue, f:10, al:'right' });
+    if (k > 1) texto(ctx, `×${k}`, ancho + 4, y + 4, { c:COL.ok, f:10 });
+  }
+  // a la derecha: resumen del estado fundamental y primer excitado de 2 partículas
+  const lista = dosParticulas(S.tipo), xr = ancho + 30;
+  const nom = { dist:'Distinguibles', bos:'Bosones', fer0:'Fermiones sin espín', fer:'Fermiones espín ½' }[S.tipo];
+  texto(ctx, `Dos ${nom.toLowerCase()}:`, xr, 44, { c:COL.ink, f:12, b:true });
+  [['Fundamental', lista[0]], ['1.er excitado', lista[1]]].forEach(([n, g], i) => {
+    const y = 72 + i * 58;
+    texto(ctx, n, xr, y, { c:COL.muted, f:11 });
+    texto(ctx, `E = ${fmt(g.E)} ε`, xr, y + 18, { c:COL.ok, f:15, b:true });
+    texto(ctx, g.descs.slice(0, 2).join(' o '), xr, y + 34, { c:COL.muted, f:10 });
+  });
+}
+
+function diagCaja() {
+  const { ctx, w, h } = ajustar($('diag'), angosto() ? 0.75 / S.asp * S.asp : 0.45);
+  const [nx, ny] = S.sel;
+  const lx = Math.min(w - 20, (h - 30) / S.asp), ly = lx * S.asp;
+  const x0 = (w - lx) / 2, y0 = 20;
+  const N = 120, img = ctx.createImageData(1, 1);
+  const cw = lx / N, ch = ly / N;
+  for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
+    const v = Math.pow(Math.sin(nx * Math.PI * (i + .5) / N) * Math.sin(ny * Math.PI * (j + .5) / N), 2);
+    const r = Math.round(20 + 232 * Math.pow(v, .8)), g = Math.round(14 + 150 * Math.pow(v, 1.3)), b = Math.round(43 + 40 * v);
+    ctx.fillStyle = `rgb(${r},${g},${b})`; ctx.fillRect(x0 + i * cw, y0 + ly - (j + 1) * ch, cw + .6, ch + .6);
+  }
+  ctx.strokeStyle = COL.ink; ctx.lineWidth = 1.5; ctx.strokeRect(x0, y0, lx, ly);
+  texto(ctx, `|ψ(${nx},${ny})|²  ·  nodos: ${nx - 1} verticales, ${ny - 1} horizontales`, w / 2, 14, { c:COL.muted, f:11, al:'center' });
+}
+
+function tablaCaja() {
+  const cols = ['dist', 'bos', 'fer0', 'fer'];
+  const nom = { dist:'Distinguibles', bos:'Bosones', fer0:'Fermiones sin espín', fer:'Fermiones ½' };
+  const filas = cols.map(t => { const l = dosParticulas(t); return `<tr><td>${nom[t]}</td><td><b>${fmt(l[0].E)}</b> <small>${l[0].descs[0]}</small></td><td><b>${fmt(l[1].E)}</b> <small>${l[1].descs.slice(0, 2).join(', ')}</small></td></tr>`; }).join('');
+  return `<table><tr><th>Dos partículas</th><th>Fundamental (ε)</th><th>1.er excitado (ε)</th></tr>${filas}</table>`;
+}
+
+/* ═════════════════════════  OSCILADOR  ═════════════════════════ */
+/* ħ = m = ω = 1: E_n = n + ½, V = x²/2. */
+
+function psiN(n, x) {
+  let p0 = Math.pow(Math.PI, -0.25) * Math.exp(-x * x / 2);
+  if (n === 0) return p0;
+  let p1 = Math.SQRT2 * x * p0;
+  for (let k = 1; k < n; k++) { const p2 = Math.sqrt(2 / (k + 1)) * x * p1 - Math.sqrt(k / (k + 1)) * p0; p0 = p1; p1 = p2; }
+  return p1;
+}
+const XS = rango(-5.5, 5.5, 500);
+function densidad(t) {
+  if (S.osc === 'est') return XS.map(x => psiN(S.n, x) ** 2);
+  const [a, b] = S.par, dw = b - a;
+  return XS.map(x => { const pa = psiN(a, x), pb = psiN(b, x); return 0.5 * (pa * pa + pb * pb + 2 * pa * pb * Math.cos(dw * t)); });
+}
+function momentos(t) {
+  const d = densidad(t), dx = XS[1] - XS[0];
+  let m1 = 0, m2 = 0; d.forEach((v, i) => { m1 += XS[i] * v * dx; m2 += XS[i] * XS[i] * v * dx; });
+  return { x: m1, s: Math.sqrt(Math.max(0, m2 - m1 * m1)) };
+}
+
+function animOsc() {
+  const { ctx, w, h } = ajustar($('anim'), angosto() ? 0.85 : 0.48);
+  const X = x => w / 2 + x / 5.5 * (w / 2 - 10), Ye = E => h - 16 - E / 9.5 * (h - 40);
+  curva(ctx, XS, x => x * x / 2, X, Ye, COL.cua, 2);
+  for (let n = 0; n <= 8; n++) linea(ctx, X(-Math.sqrt(2 * n + 1)), Ye(n + .5), X(Math.sqrt(2 * n + 1)), Ye(n + .5), 'rgba(232,226,242,.15)');
+  const t = S.T * 1.6;
+  if (S.osc === 'est') {
+    const n = S.n, E = n + .5, A = Math.sqrt(2 * E);
+    linea(ctx, X(-A), Ye(E), X(A), Ye(E), COL.ok, 1, [4, 3]);
+    // ψ_n girando en el plano complejo: la parte real oscila, |ψ|² quieta
+    const fase = Math.cos(E * t);
+    curva(ctx, XS, x => psiN(n, x) * fase, X, v => Ye(E) - v * 70, 'rgba(110,168,255,.55)', 1.5);
+    ctx.fillStyle = 'rgba(246,213,67,.25)'; ctx.beginPath(); ctx.moveTo(X(-5.5), Ye(E));
+    XS.forEach(x => ctx.lineTo(X(x), Ye(E) - psiN(n, x) ** 2 * 110)); ctx.lineTo(X(5.5), Ye(E)); ctx.fill();
+    // clásico: P(x) = 1/(π√(A² − x²))
+    curva(ctx, XS.filter(x => Math.abs(x) < A * .995), x => 1 / (Math.PI * Math.sqrt(A * A - x * x)), X, v => Ye(E) - v * 110, 'rgba(255,127,181,.8)', 1.5, [4, 3]);
+    linea(ctx, X(-A), Ye(E) + 4, X(-A), Ye(0), 'rgba(246,213,67,.35)', 1, [2, 3]); linea(ctx, X(A), Ye(E) + 4, X(A), Ye(0), 'rgba(246,213,67,.35)', 1, [2, 3]);
+    texto(ctx, `E${n} = (${n} + ½) ħω`, 10, 18, { c:COL.ok, f:14, b:true });
+    texto(ctx, `${n} nodos · |ψ|² quieta: estado estacionario`, 10, 36, { c:COL.muted, f:11 });
+    texto(ctx, '- - clásico (más tiempo en los bordes)', w - 10, 18, { c:COL.rosa, f:11, al:'right' });
+  } else {
+    const [a, b] = S.par, Em = (a + b) / 2 + .5, d = densidad(t), { x, s } = momentos(t);
+    ctx.fillStyle = 'rgba(246,213,67,.3)'; ctx.beginPath(); ctx.moveTo(X(-5.5), Ye(Em));
+    d.forEach((v, i) => ctx.lineTo(X(XS[i]), Ye(Em) - v * 120)); ctx.lineTo(X(5.5), Ye(Em)); ctx.fill();
+    linea(ctx, X(x), Ye(Em) + 8, X(x), Ye(Em) - 110, COL.acc, 2);
+    linea(ctx, X(x - s), Ye(Em) + 14, X(x + s), Ye(Em) + 14, COL.azul, 3);
+    texto(ctx, '⟨x⟩', X(x), Ye(Em) - 114, { c:COL.acc, f:11, al:'center' });
+    texto(ctx, '±σ', X(x + s) + 4, Ye(Em) + 18, { c:COL.azul, f:11 });
+    texto(ctx, `(ψ${a} + ψ${b})/√2: |ψ|² se mueve con ω = ${b - a}·ω₀`, 10, 18, { c:COL.ok, f:13, b:true });
+    texto(ctx, `⟨x⟩ = ${x.toFixed(2)}   σₓ = ${s.toFixed(2)}`, 10, 36, { c:COL.muted, f:12 });
+  }
+}
+
+function diagOsc() {
+  const { ctx, w, h } = ajustar($('diag'), angosto() ? 0.6 : 0.36);
+  const m = { l:40, r:12, t:16, b:28 }, tmax = 4 * Math.PI;
+  const X = t => m.l + t / tmax * (w - m.l - m.r), Y = v => m.t + (1.6 - v) / 3.2 * (h - m.t - m.b);
+  for (const v of [-1.5, -1, -.5, 0, .5, 1, 1.5]) { linea(ctx, m.l, Y(v), w - m.r, Y(v), v === 0 ? COL.muted : COL.line); texto(ctx, v, m.l - 6, Y(v) + 4, { c:COL.tenue, f:10, al:'right' }); }
+  texto(ctx, 'ω₀t', w - m.r, h - 6, { c:COL.muted, f:11, al:'right' });
+  const ts = rango(0, tmax, 240);
+  const M = ts.map(t => momentos(t));
+  curva(ctx, ts, t => M[Math.round(t / tmax * 240)].x, X, Y, COL.acc, 2);
+  curva(ctx, ts, t => M[Math.round(t / tmax * 240)].s, X, Y, COL.azul, 2);
+  const tn = (S.T * 1.6) % tmax; linea(ctx, X(tn), m.t, X(tn), h - m.b, 'rgba(232,226,242,.4)', 1, [3, 3]);
+  texto(ctx, '— ⟨x⟩(t)', m.l + 6, m.t + 12, { c:COL.acc, f:12, b:true });
+  texto(ctx, '— σₓ(t)', m.l + 80, m.t + 12, { c:COL.azul, f:12, b:true });
+}
+
+/* ═════════════════════════  TEXTOS  ═════════════════════════ */
+
+const INFO = {
+  escalon: () => {
+    const p = escalon(S.E);
+    return `
+    <h3>Qué estás viendo</h3>
+    <p>Una onda plana llega desde la izquierda a un escalón de altura V₀. La línea azul es la parte real de ψ (gira con el tiempo); el relleno es |ψ|². A la izquierda, la incidente y la reflejada interfieren: por eso |ψ|² ondula.</p>
+    <h3>E &gt; V₀</h3>
+    <p><span class="f">k₁ = √(2mE)/ħ</span>, <span class="f">k₂ = √(2m(E−V₀))/ħ</span></p>
+    <p><span class="f">R = ((k₁ − k₂)/(k₁ + k₂))²</span> &nbsp; <span class="f">T = 4k₁k₂/(k₁ + k₂)² = 1 − R</span></p>
+    <div class="caja">Ahora mismo: ${p.arriba ? `k₂/k₁ = ${(p.k2 / p.k1).toFixed(3)}, R = ${p.R.toFixed(3)}, T = ${p.T.toFixed(3)}` : `E &lt; V₀: R = 1, T = 0; la onda entra una distancia ~1/κ = ${(1 / p.kap).toFixed(2)} (en unidades de ħ/√(2mV₀))`}.</div>
+    <p><b>Lo cuántico:</b> aunque E &gt; V₀, una parte se refleja (clásicamente, nada). Y R <b>no depende de hacia dónde</b> esté el escalón: subir o bajar da el mismo R.</p>
+    <h3>E &lt; V₀</h3>
+    <p>Reflexión total (R = 1), pero ψ entra como <span class="f">e^(−κx)</span> con <span class="f">κ = √(2m(V₀−E))/ħ</span>. Si el escalón fuera una barrera de ancho finito, eso daría el <b>efecto túnel</b>.</p>
+    <h3>Trampas</h3>
+    <p class="trampa">T no es |t|²: es (k₂/k₁)|t|², porque la corriente lleva la velocidad. Verifica siempre R + T = 1.</p>
+    <p class="trampa">Para E = 2V₀: k₂/k₁ = 1/√2 y R = ((√2 − 1)/(√2 + 1))² ≈ 0.029. Es pequeño, pero no es cero.</p>`;
+  },
+  caja: () => `
+    <h3>Qué estás viendo</h3>
+    <p>Caja de lados Lx y Ly: <span class="f">E = (π²ħ²/2m)(nx²/Lx² + ny²/Ly²)</span>. En la gráfica se usa ε = π²ħ²/(2mLx²). Toca un estado para ver su |ψ|² abajo. Las bolitas marcan cómo se llena el <b>fundamental de dos partículas</b> según su tipo.</p>
+    <h3>Degeneración</h3>
+    <p>En la caja <b>cuadrada</b>, (1,2) y (2,1) tienen la misma energía (5ε): degeneración ×2, por simetría. Si estiras la caja, la simetría se rompe y los niveles se separan.</p>
+    <h3>Dos partículas: quién puede compartir</h3>
+    <div class="caja">
+      <b>Bosones:</b> sin límite. Los dos en (1,1): 2E₁₁.<br>
+      <b>Fermiones sin espín:</b> Pauli prohíbe el mismo estado. Uno en (1,1) y otro en el siguiente.<br>
+      <b>Fermiones de espín ½:</b> dos en el mismo orbital si tienen espines opuestos (singlete).<br>
+      <b>Distinguibles:</b> las mismas energías que los bosones, pero más estados por nivel (1↔2 cuenta distinto).
+    </div>
+    ${tablaCaja()}
+    <h3>Trampas</h3>
+    <p class="trampa">Mira las unidades de las opciones: con ħ²/(mL²) en vez de π²ħ²/(2mL²), multiplica por π²/2.</p>
+    <p class="trampa">«Primer excitado» del sistema, no de una partícula: suma las dos energías y busca la segunda más baja.</p>`,
+  oscilador: () => `
+    <h3>Qué estás viendo</h3>
+    <p>Potencial <span class="f">V = ½mω²x²</span>, niveles <span class="f">Eₙ = (n + ½)ħω</span>, igualmente espaciados. Fundamental: ½ħω, la energía del punto cero.</p>
+    <h3>Estado estacionario</h3>
+    <p>ψₙ tiene n nodos. Su fase gira (la línea azul oscila), pero <b>|ψ|² no cambia</b>: por eso se llama estacionario. ⟨x⟩ = 0 y σₓ es constante. La curva rosa es la probabilidad clásica: la partícula pasa más tiempo en los bordes, donde frena. Para n grande, la cuántica se le parece.</p>
+    <h3>Superposición</h3>
+    <p>Con dos niveles, |ψ|² oscila a la frecuencia de la <b>diferencia</b>: <span class="f">(Eₙ − Eₘ)/ħ</span>. Con ψ₀ + ψ₁, ⟨x⟩ = (1/√2)cos ωt, como un oscilador clásico. Con ψ₀ + ψ₂, ⟨x⟩ = 0 pero σₓ «respira» a 2ω.</p>
+    <div class="caja">Regla: ⟨x⟩ solo acopla niveles <b>vecinos</b> (Δn = ±1), porque x ∝ a + a†. ⟨x²⟩ acopla Δn = 0 y ±2.</div>
+    <p><span class="f">a = (mωx + ip)/√(2mħω)</span>, <span class="f">a†|n⟩ = √(n+1)|n+1⟩</span>, <span class="f">a|n⟩ = √n|n−1⟩</span>, <span class="f">⟨x²⟩ₙ = (n + ½)ħ/mω</span>.</p>
+    <h3>Trampa</h3>
+    <p class="trampa">«La varianza depende del tiempo» solo pasa en superposiciones de niveles distintos. En un estado estacionario, ningún valor esperado cambia.</p>`,
+};
+
+/* ═════════════════════════  CONTROL  ═════════════════════════ */
+
+function pintar() {
+  if (S.modo === 'escalon') { animEscalon(); diagEscalon(); }
+  if (S.modo === 'caja') { animCaja(); diagCaja(); }
+  if (S.modo === 'oscilador') { animOsc(); diagOsc(); }
+}
+function refrescarInfo() { $('info').innerHTML = INFO[S.modo](); }
+function botonesEstados() {
+  $('estados').innerHTML = niveles().slice(0, 8).map(n =>
+    `<button data-s="${n.nx},${n.ny}" class="${n.nx === S.sel[0] && n.ny === S.sel[1] ? 'on' : ''}">(${n.nx},${n.ny}) · ${fmt(n.E)}ε</button>`).join('');
+}
+function ponerModo(m, hash = true) {
+  if (!INFO[m]) m = 'escalon';
+  S.modo = m;
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.m === m));
+  $('cEsc').classList.toggle('oculto', m !== 'escalon');
+  $('cCaja').classList.toggle('oculto', m !== 'caja');
+  $('cOsc').classList.toggle('oculto', m !== 'oscilador');
+  $('rotDiag').textContent = { escalon:'R y T contra la energía', caja:'Densidad de probabilidad del estado elegido', oscilador:'⟨x⟩ y σₓ contra el tiempo' }[m];
+  if (m === 'caja') botonesEstados();
+  refrescarInfo();
+  if (hash) history.replaceState(null, '', '#' + m);
+  pintar();
+}
+function ponerOsc() {
+  $('lN').classList.toggle('oculto', S.osc !== 'est'); $('n').classList.toggle('oculto', S.osc !== 'est');
+  $('pares').classList.toggle('oculto', S.osc !== 'sup');
+}
+
+$('tabs').addEventListener('click', e => { if (e.target.dataset.m) ponerModo(e.target.dataset.m); });
+$('E').addEventListener('input', e => { S.E = +e.target.value; $('vE').textContent = S.E.toFixed(2); refrescarInfo(); });
+document.querySelector('#cEsc .fila').addEventListener('click', e => {
+  if (!e.target.dataset.e) return; S.E = +e.target.dataset.e; $('E').value = S.E; $('vE').textContent = S.E.toFixed(2); refrescarInfo();
+});
+$('asp').addEventListener('input', e => { S.asp = +e.target.value; $('vA').textContent = S.asp.toFixed(2); botonesEstados(); refrescarInfo(); });
+$('tipos').addEventListener('click', e => {
+  if (!e.target.dataset.p) return; S.tipo = e.target.dataset.p;
+  document.querySelectorAll('#tipos button').forEach(b => b.classList.toggle('on', b.dataset.p === S.tipo));
+});
+$('estados').addEventListener('click', e => { if (!e.target.dataset.s) return; S.sel = e.target.dataset.s.split(',').map(Number); botonesEstados(); });
+$('oscModo').addEventListener('click', e => {
+  if (!e.target.dataset.o) return; S.osc = e.target.dataset.o;
+  document.querySelectorAll('#oscModo button').forEach(b => b.classList.toggle('on', b.dataset.o === S.osc)); ponerOsc();
+});
+$('n').addEventListener('input', e => { S.n = +e.target.value; $('vN').textContent = S.n; });
+$('pares').addEventListener('click', e => {
+  if (!e.target.dataset.par) return; S.par = e.target.dataset.par.split(',').map(Number);
+  document.querySelectorAll('#pares button').forEach(b => b.classList.toggle('on', b.dataset.par === e.target.dataset.par));
+});
+$('play').addEventListener('click', () => { S.play = !S.play; $('play').textContent = S.play ? '❚❚ Pausa' : '▶ Seguir'; });
+addEventListener('resize', pintar);
+addEventListener('hashchange', () => ponerModo(location.hash.slice(1), false));
+
+let ult = performance.now();
+function bucle(ahora) {
+  const dt = Math.min(0.05, (ahora - ult) / 1000); ult = ahora;
+  if (S.play) S.T += dt;
+  pintar(); requestAnimationFrame(bucle);
+}
+ponerOsc();
+ponerModo(location.hash.slice(1) || 'escalon', false);
+// ?t=N avanza la animación N segundos (para revisar capturas); ?osc=sup fuerza la superposición.
+const q = new URLSearchParams(location.search);
+if (q.get('osc') === 'sup') { S.osc = 'sup'; ponerOsc(); }
+S.T = +q.get('t') || 0; pintar();
+requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>
