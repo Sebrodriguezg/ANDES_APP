@@ -3,6 +3,30 @@
   {
    "tipo": "html",
    "grupo": "Simulaciones",
+   "titulo": "Relatividad: dilatación del tiempo",
+   "desc": "Reloj de luz quieto y en movimiento, el triángulo de Δt = γΔτ y el diagrama de espacio-tiempo con hipérbolas de tiempo propio.",
+   "area": "relatividad",
+   "archivo": "extra/relatividad.html#dilatacion"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Relatividad: contracción de longitudes",
+   "desc": "El tren visto desde el andén y desde el tren: destellos simultáneos para uno y no para el otro. Diagrama con la franja del tren.",
+   "area": "relatividad",
+   "archivo": "extra/relatividad.html#contraccion"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Relatividad: Doppler",
+   "desc": "Frentes de onda coloreados por la λ recibida, curvas contra β y el caso n.º 22 del 2024 (β = 3/5).",
+   "area": "relatividad",
+   "archivo": "extra/relatividad.html#doppler"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
    "titulo": "Método de las imágenes",
    "desc": "Plano, esquina de 90°, esfera a tierra, esfera neutra y cavidad. Zona de interés contra zona externa, y la solución sin conductor.",
    "area": "electromagnetismo",

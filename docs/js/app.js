@@ -6,6 +6,7 @@ import * as feed from './feed.js';
 import * as simulacro from './simulacro.js';
 import * as hoja from './hoja.js';
 import { escapar } from './mate.js';
+import { abrirVisor } from './visor.js';
 
 let crono = null;
 
@@ -203,7 +204,7 @@ async function pintarMaterial() {
 }
 
 async function abrirMaterial(it, boton) {
-  if (it.tipo === 'html') { location.href = it.archivo; return; }
+  if (it.tipo === 'html') { abrirVisor(it.archivo, it.titulo); return; }
 
   const meta = boton.querySelector('.item-meta');
   const antes = meta.textContent;

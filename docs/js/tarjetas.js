@@ -1,5 +1,6 @@
 /* Construcción del DOM de cada tipo de tarjeta del feed. */
 
+import { htmlAccesos } from './visor.js';
 import { mate, escapar } from './mate.js';
 import { renderFormula, renderEnLinea, renderMixto } from './formula.js';
 import { nombreArea } from './datos.js';
@@ -344,6 +345,8 @@ function tarjetaMC(t, alResponder) {
         quienes presentaron el GRE.</p>` : ''}`);
 
     if (t.explicacion) nodo.insertAdjacentHTML('beforeend', bloqueExplicacion(t, marcada));
+    // Después de responder, no antes: el acceso a la simulación delata el tema.
+    nodo.insertAdjacentHTML('beforeend', htmlAccesos(t));
 
     if (!anotar) return;
 
@@ -687,6 +690,7 @@ export function tarjetaReanudar({ n, aciertos, meta, ultimo, alVerAnteriores }) 
 
 export function construir(t, alResponder) {
   const nodo = despachar(t, alResponder);
+  if (nodo && t.tipo !== 'mc') nodo.insertAdjacentHTML('beforeend', htmlAccesos(t));
   if (nodo) montarReporte(nodo, t);
   return nodo;
 }

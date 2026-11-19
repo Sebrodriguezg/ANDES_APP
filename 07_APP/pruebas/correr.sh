@@ -15,6 +15,7 @@ echo "── Estado de la app ──"
 node 07_APP/pruebas/test_almacen.mjs || fallos=1
 node 07_APP/pruebas/test_feed.mjs || fallos=1
 node 07_APP/pruebas/test_formula.mjs || fallos=1
+node 07_APP/pruebas/test_visor.mjs || fallos=1
 
 echo
 echo "── Sintaxis del navegador ──"
@@ -49,7 +50,7 @@ try:
     ext = d / "extra.json"
     if ext.exists():
         items = json.loads(ext.read_text())["items"]
-        faltan = [i["archivo"] for i in items if not (Path("docs") / i["archivo"]).exists()]
+        faltan = [i["archivo"] for i in items if not (Path("docs") / i["archivo"].split("#")[0]).exists()]
         if faltan:
             print(f"  FALLA material sin archivo: {faltan}"); sys.exit(1)
         claros = list((Path("docs") / "extra").glob("*.pdf"))

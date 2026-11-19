@@ -33,6 +33,27 @@ VISUAL = RAIZ / "05_SIMULACROS/uniandes/visual"
 
 SIMULACIONES = [
     {
+        "fuente": VISUAL / "relatividad.html",
+        "titulo": "Relatividad: dilatación del tiempo",
+        "desc": "Reloj de luz quieto y en movimiento, el triángulo de Δt = γΔτ y el "
+                "diagrama de espacio-tiempo con hipérbolas de tiempo propio.",
+        "area": "relatividad", "ancho": False, "hash": "dilatacion",
+    },
+    {
+        "fuente": VISUAL / "relatividad.html",
+        "titulo": "Relatividad: contracción de longitudes",
+        "desc": "El tren visto desde el andén y desde el tren: destellos simultáneos "
+                "para uno y no para el otro. Diagrama con la franja del tren.",
+        "area": "relatividad", "ancho": False, "hash": "contraccion",
+    },
+    {
+        "fuente": VISUAL / "relatividad.html",
+        "titulo": "Relatividad: Doppler",
+        "desc": "Frentes de onda coloreados por la λ recibida, curvas contra β y el "
+                "caso n.º 22 del 2024 (β = 3/5).",
+        "area": "relatividad", "ancho": False, "hash": "doppler",
+    },
+    {
         "fuente": VISUAL / "metodo_de_imagenes.html",
         "titulo": "Método de las imágenes",
         "desc": "Plano, esquina de 90°, esfera a tierra, esfera neutra y cavidad. "
@@ -134,7 +155,7 @@ def adaptar(html, sim):
     barra = (
         '<div class="andes-barra">'
         '<a href="../index.html#material">← Material</a>'
-        f'<span class="andes-titulo">{sim["titulo"]}</span>'
+        f'<span class="andes-titulo">{sim["titulo"].split(":")[0]}</span>'
         '<button type="button" id="andes-completa">⤢ Pantalla completa</button>'
         "</div>\n"
     )
@@ -162,7 +183,16 @@ COMUN_CSS = """/* Barra común de las simulaciones dentro de ANDES. */
 @media (max-width:420px) { .andes-titulo { display:none; } }
 """
 
-COMUN_JS = """// Pantalla completa en horizontal: así se leen los lienzos anchos en el teléfono.
+COMUN_JS = """// Dentro del visor de la app (un iframe sobre el feed), «volver» cierra el visor
+// en vez de navegar: así el feed sigue exactamente donde estaba.
+(() => {
+  if (window.parent === window) return;
+  const a = document.querySelector('.andes-barra a');
+  if (!a) return;
+  a.remove();   // el visor ya tiene su propio «✕ Volver»; queda el de pantalla completa
+})();
+
+// Pantalla completa en horizontal: así se leen los lienzos anchos en el teléfono.
 (() => {
   const b = document.getElementById('andes-completa');
   if (!b) return;
@@ -207,7 +237,7 @@ def main():
         items.append({
             "tipo": "html", "grupo": "Simulaciones", "titulo": sim["titulo"],
             "desc": sim["desc"], "area": sim["area"],
-            "archivo": f"extra/{destino.name}",
+            "archivo": f"extra/{destino.name}" + (f"#{sim['hash']}" if sim.get("hash") else ""),
         })
         print(f"  html  {destino.relative_to(RAIZ)}")
 
