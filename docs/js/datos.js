@@ -179,3 +179,27 @@ export function rangoCorto(inicio, fin) {
   const b = new Date(fin + 'T00:00:00').toLocaleDateString('es-CO', opciones);
   return `${a} – ${b}`;
 }
+
+/* ── Material adicional ───────────────────────────────────────
+   Las simulaciones van en claro (son propias); los PDF van cifrados con la
+   misma clave que las tandas. Ver 07_APP/tuberia/construir_extra.py. */
+
+let extra = null;
+
+export async function cargarExtra() {
+  if (!extra) extra = await traer('extra.json');
+  return extra.items || [];
+}
+
+/** Descarga y descifra un PDF del material; devuelve un Blob listo para abrir. */
+export async function pdfExtra(item) {
+  const m = await cargarManifiesto();
+  const resp = await fetch(item.archivo, { cache: 'no-cache' });
+  if (!resp.ok) throw new Error(`No pude cargar ${item.archivo} (${resp.status})`);
+  const blob = await resp.arrayBuffer();
+  if (!m.cifrado) return new Blob([blob], { type: 'application/pdf' });
+  const clave = await cripto.recuperar(m.cifrado);
+  if (!clave) throw new Error('sin-clave');
+  const crudo = await cripto.descifrarBytes(clave, blob);
+  return new Blob([crudo], { type: 'application/pdf' });
+}

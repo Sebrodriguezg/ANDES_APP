@@ -1,0 +1,208 @@
+{
+ "items": [
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Método de las imágenes",
+   "desc": "Plano, esquina de 90°, esfera a tierra, esfera neutra y cavidad. Zona de interés contra zona externa, y la solución sin conductor.",
+   "area": "electromagnetismo",
+   "archivo": "extra/metodo_de_imagenes.html"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Efectos de borde: línea y plano",
+   "desc": "Cuándo vale la aproximación infinita: mapa de E_finito/E_infinito y la curva log–log contra la distancia.",
+   "area": "electromagnetismo",
+   "archivo": "extra/efectos_de_borde_linea_plano.html"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Isoterma contra adiabática",
+   "desc": "Expansión de V a 2V (problema 15 de U1): trabajos como áreas, temperatura del gas y γ ajustable. Se puede grabar.",
+   "area": "termo_estadistica",
+   "archivo": "extra/p15_isoterma_adiabatica.html"
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Plan",
+   "titulo": "Plan de los últimos días",
+   "desc": "Plan día a día hasta el examen, con páginas exactas.",
+   "area": "transversal",
+   "archivo": "extra/plan_final_8dias.bin",
+   "nombre": "plan_final_8dias.pdf",
+   "kb": 361
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Problemas resueltos",
+   "titulo": "E&M: 36 problemas resueltos",
+   "desc": "Conquering, Irodov y Uniandes 2024 (n.º 9, 10, 12–15). Enunciados primero, soluciones después.",
+   "area": "electromagnetismo",
+   "archivo": "extra/problemas_em_18nov.bin",
+   "nombre": "problemas_EM_18nov.pdf",
+   "kb": 318
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
+   "titulo": "Simulacro U1",
+   "desc": "25 preguntas, 3 h.",
+   "area": "transversal",
+   "archivo": "extra/simulacro_u1.bin",
+   "nombre": "simulacro_U1.pdf",
+   "kb": 817
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
+   "titulo": "Clave U1",
+   "desc": "Respuestas del U1.",
+   "area": "transversal",
+   "archivo": "extra/clave_u1.bin",
+   "nombre": "clave_U1.pdf",
+   "kb": 125
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
+   "titulo": "Soluciones U1",
+   "desc": "Soluciones explicadas del U1.",
+   "area": "transversal",
+   "archivo": "extra/soluciones_u1.bin",
+   "nombre": "soluciones_U1.pdf",
+   "kb": 336
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
+   "titulo": "Simulacro U2",
+   "desc": "90 min; la parte B está en el GR9677.",
+   "area": "transversal",
+   "archivo": "extra/simulacro_u2.bin",
+   "nombre": "simulacro_U2.pdf",
+   "kb": 855
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
+   "titulo": "Clave U2",
+   "desc": "Respuestas del U2.",
+   "area": "transversal",
+   "archivo": "extra/clave_u2.bin",
+   "nombre": "clave_U2.pdf",
+   "kb": 125
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
+   "titulo": "Simulacro U3",
+   "desc": "Se resuelve sobre el GR9677.",
+   "area": "transversal",
+   "archivo": "extra/simulacro_u3.bin",
+   "nombre": "simulacro_U3.pdf",
+   "kb": 156
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
+   "titulo": "Clave U3",
+   "desc": "Respuestas del U3.",
+   "area": "transversal",
+   "archivo": "extra/clave_u3.bin",
+   "nombre": "clave_U3.pdf",
+   "kb": 125
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Formularios",
+   "titulo": "Guía final (UNAL)",
+   "desc": "La guía de repaso que se armó para la UNAL.",
+   "area": "transversal",
+   "archivo": "extra/guia_final_unal.bin",
+   "nombre": "guia_final_UNAL.pdf",
+   "kb": 798
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Formularios",
+   "titulo": "Referencia: analítica, E&M y termo",
+   "desc": "Formulario de referencia.",
+   "area": "electromagnetismo",
+   "archivo": "extra/referencia_analitica_em_termo.bin",
+   "nombre": "referencia_analitica_em_termo.pdf",
+   "kb": 249
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Formularios",
+   "titulo": "Referencia: cuántica y moderna",
+   "desc": "Formulario de referencia.",
+   "area": "moderna_cuantica",
+   "archivo": "extra/referencia_cuantica_moderna.bin",
+   "nombre": "referencia_cuantica_moderna.pdf",
+   "kb": 264
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Formularios",
+   "titulo": "Referencia: experimental y matemática",
+   "desc": "Formulario de referencia.",
+   "area": "transversal",
+   "archivo": "extra/referencia_experimental_matematica.bin",
+   "nombre": "referencia_experimental_matematica.pdf",
+   "kb": 245
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Formularios",
+   "titulo": "Lista: analítica, E&M y termo",
+   "desc": "Lista de chequeo para memorizar.",
+   "area": "electromagnetismo",
+   "archivo": "extra/lista_analitica_em_termo.bin",
+   "nombre": "lista_analitica_em_termo.pdf",
+   "kb": 132
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Formularios",
+   "titulo": "Lista: cuántica y moderna",
+   "desc": "Lista de chequeo para memorizar.",
+   "area": "moderna_cuantica",
+   "archivo": "extra/lista_cuantica_moderna.bin",
+   "nombre": "lista_cuantica_moderna.pdf",
+   "kb": 158
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Formularios",
+   "titulo": "Lista: experimental y matemática",
+   "desc": "Lista de chequeo para memorizar.",
+   "area": "transversal",
+   "archivo": "extra/lista_experimental_matematica.bin",
+   "nombre": "lista_experimental_matematica.pdf",
+   "kb": 148
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Notas",
+   "titulo": "Plano inclinado",
+   "desc": "Notas propias.",
+   "area": "mecanica",
+   "archivo": "extra/plano_inclinado.bin",
+   "nombre": "plano_inclinado.pdf",
+   "kb": 237
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Notas",
+   "titulo": "Cuña móvil",
+   "desc": "Notas propias.",
+   "area": "mecanica",
+   "archivo": "extra/cuna_movil.bin",
+   "nombre": "cuna_movil.pdf",
+   "kb": 272
+  }
+ ]
+}

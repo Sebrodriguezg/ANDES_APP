@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Método de las imágenes</title>
+<style>
+  :root { --bg:#f7f7f5; --panel:#fff; --ink:#1d1d1f; --muted:#666; --line:#d9d9d6; --acc:#1f6feb; --warn:#b00020; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#131416; --panel:#1c1d20; --ink:#ececec; --muted:#9a9a9a; --line:#333; --acc:#5b9bff; --warn:#ff6b6b; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:1350px; margin:0 auto; padding:16px; }
+  h1 { font-size:19px; margin:0 0 4px; }
+  p.sub { margin:0 0 12px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:minmax(0, 740px) minmax(0, 1fr); gap:16px; align-items:start; }
+  @media (max-width: 1000px) { .grid { grid-template-columns:1fr; } }
+  canvas { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); }
+  .box { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:12px; }
+  .seg { display:flex; flex-wrap:wrap; gap:6px; }
+  .seg button { font:inherit; font-size:14px; padding:7px 10px; border-radius:8px; border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
+  .seg button.on { background:var(--acc); color:#fff; border-color:var(--acc); }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:8px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; }
+  h2 { font-size:16px; margin:0 0 6px; }
+  h3 { font-size:14px; margin:10px 0 2px; color:var(--acc); }
+  .info p, .info li { margin:3px 0; }
+  .info ul { margin:4px 0; padding-left:20px; }
+  code, .f { font-family:ui-monospace, monospace; font-size:13.5px; }
+  .warn { color:var(--warn); font-weight:600; }
+  .chk { display:flex; gap:16px; flex-wrap:wrap; margin-top:8px; font-size:14px; }
+  details summary { cursor:pointer; font-weight:600; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Método de las imágenes</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Método de las imágenes: zona de interés, zona externa y por qué funciona</h1>
+  <p class="sub">Escoge el caso y la vista. El color es el potencial (rojo +, azul −), las líneas delgadas son equipotenciales, las líneas con flecha son líneas de campo. El borde del conductor se colorea según la carga inducida σ.</p>
+
+  <div class="grid">
+    <div>
+      <canvas id="c" width="760" height="760"></canvas>
+      <div class="box" style="margin-top:12px">
+        <div class="seg" id="vistas">
+          <button data-v="fis" class="on">1. Física: carga + conductor</button>
+          <button data-v="img">2. Construcción con imágenes (todo el espacio)</button>
+          <button data-v="sin">3. Solo la carga, sin conductor</button>
+        </div>
+        <div class="chk">
+          <label style="margin:0"><input type="checkbox" id="cV0" checked> resaltar V = 0</label>
+          <label style="margin:0"><input type="checkbox" id="cEq" checked> equipotenciales</label>
+          <label style="margin:0"><input type="checkbox" id="cLn" checked> líneas de campo</label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="box">
+        <div class="seg" id="casos">
+          <button data-c="plano" class="on">Plano a tierra</button>
+          <button data-c="esquina">Dos planos a 90°</button>
+          <button data-c="esfera">Esfera a tierra (carga afuera)</button>
+          <button data-c="neutra">Esfera aislada neutra</button>
+          <button data-c="cavidad">Cavidad esférica (carga adentro)</button>
+        </div>
+        <div id="sliders"></div>
+      </div>
+      <div class="box info" id="info"></div>
+      <div class="box info">
+        <details open>
+          <summary>Por qué la carga imagen no es un problema</summary>
+          <p>El problema físico solo pide V en la <b>zona de interés</b>. Ahí la solución de imágenes cumple dos cosas: la ecuación de Poisson con <b>solo las cargas reales</b> (las imágenes están fuera de esa zona) y las <b>condiciones de frontera</b> (V = cte en el conductor). Por el <b>teorema de unicidad</b>, es la única solución, así que es la física.</p>
+          <p>En la <b>zona externa</b> la fórmula de imágenes sigue dando números, pero <b>no describen nada físico</b>: ahí está el conductor, con E = 0 y V constante. La singularidad de la imagen vive en esa zona, que nunca usamos. Compara la vista 1 con la 2: dentro de la zona de interés son idénticas.</p>
+          <p>La vista 3 muestra por qué hace falta el método: sin el conductor, V no vale 0 en la frontera, y las líneas de campo no llegan perpendiculares.</p>
+        </details>
+        <details>
+          <summary>Receta en el examen</summary>
+          <ul>
+            <li>¿Plano? imagen −q simétrica. ¿Esfera de radio R, carga a distancia a? <span class="f">q′ = −qR/a</span> en <span class="f">b = R²/a</span>.</li>
+            <li><b>Fuerza</b>: Coulomb entre la carga real y las imágenes. <b>Energía</b>: la mitad de la de cargas "reales" (<span class="f">U = −kq²/4a</span> en el plano, no <span class="f">−kq²/2a</span>).</li>
+            <li><b>Carga inducida total</b>: la suma de las imágenes (excepto en la cavidad: ahí es −q, porque encierra a q por Gauss).</li>
+            <li><b>Chequeos</b>: E perpendicular al conductor; σ con signo opuesto a q y máxima en el punto más cercano.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const cv = document.getElementById('c'), ctx = cv.getContext('2d'), $ = id => document.getElementById(id);
+const W = 3, SZ = cv.width;                     // ventana de −3 a 3
+const px = x => (x + W) / (2*W) * SZ, py = y => (W - y) / (2*W) * SZ;
+const S = { caso:'plano', vista:'fis', a:1.2, b:0.8, R:1.2, V0:true, Eq:true, Ln:true };
+
+// ---------- Casos ----------
+// Cada caso devuelve: reales, imagenes, zona(x,y) → true si es zona de interés, frontera (para dibujar y σ), textos.
+const CASOS = {
+  plano: {
+    sliders: [['a', 'Distancia de la carga al plano a', 0.3, 2.5, 0.05]],
+    build: () => ({
+      reales: [{x:0, y:S.a, q:1}],
+      imgs:   [{x:0, y:-S.a, q:-1}],
+      zona: (x, y) => y > 0,
+      frontera: t => ({ x: t, y: 0, nx: 0, ny: 1 }), tRange: [-W, W],
+    }),
+    info: () => {
+      const a = S.a, F = 1/(4*a*a);
+      return `<h2>Carga frente a un plano conductor a tierra</h2>
+      <h3>Zona de interés</h3><p>El semiespacio <b>z &gt; 0</b>, donde está la carga real q en z = a.</p>
+      <h3>Zona externa</h3><p><b>z &lt; 0</b>: el conductor. Físicamente E = 0 y V = 0 ahí.</p>
+      <h3>Imagen</h3><p><b>−q en z = −a</b> (= ${(-a).toFixed(2)}).</p>
+      <h3>Resultados</h3>
+      <p class="f">V = kq[1/√(ρ²+(z−a)²) − 1/√(ρ²+(z+a)²)]</p>
+      <p class="f">σ(ρ) = −qa / [2π(ρ²+a²)^{3/2}],  σ(0) = −q/(2πa²)</p>
+      <p class="f">F = kq²/(2a)² = q²/(16πε₀a²) hacia el plano → ${F.toFixed(3)} kq²</p>
+      <p class="f">U = −kq²/(4a)  (la mitad de −kq²/2a)</p>
+      <p>Carga inducida total: <b>−q</b>.</p>`;
+    },
+  },
+  esquina: {
+    sliders: [['a', 'Distancia al plano vertical (x)', 0.3, 2.4, 0.05], ['b', 'Distancia al plano horizontal (y)', 0.3, 2.4, 0.05]],
+    build: () => ({
+      reales: [{x:S.a, y:S.b, q:1}],
+      imgs:   [{x:-S.a, y:S.b, q:-1}, {x:S.a, y:-S.b, q:-1}, {x:-S.a, y:-S.b, q:1}],
+      zona: (x, y) => x > 0 && y > 0,
+      frontera: t => t < 0 ? { x: 0, y: -t, nx: 1, ny: 0 } : { x: t, y: 0, nx: 0, ny: 1 }, tRange: [-W, W],
+    }),
+    info: () => {
+      const a = S.a, b = S.b, d = Math.hypot(2*a, 2*b);
+      const Fx = -1/(4*a*a) + 2*a/(d**3), Fy = -1/(4*b*b) + 2*b/(d**3);
+      return `<h2>Carga frente a dos planos a tierra que forman 90°</h2>
+      <h3>Zona de interés</h3><p>El primer cuadrante, <b>x &gt; 0 y y &gt; 0</b>.</p>
+      <h3>Zona externa</h3><p>Los otros tres cuadrantes: el conductor.</p>
+      <h3>Imágenes (3)</h3><p><b>−q en (−a, b)</b>, <b>−q en (a, −b)</b>, <b>+q en (−a, −b)</b>. La tercera hace falta para que V = 0 en los dos planos a la vez.</p>
+      <h3>Resultados</h3>
+      <p class="f">F = kq²[ −x̂/(2a)² − ŷ/(2b)² + (2a, 2b)/((2a)²+(2b)²)^{3/2} ]</p>
+      <p class="f">Ahora: F = (${Fx.toFixed(3)}, ${Fy.toFixed(3)}) kq²,  |F| = ${Math.hypot(Fx, Fy).toFixed(3)} kq²</p>
+      <p>Carga inducida total: −q − q + q = <b>−q</b>.</p>
+      <p><b>Truco:</b> solo funciona con ángulos π/n (n entero), y salen 2n − 1 imágenes. Con 60° hay 5.</p>`;
+    },
+  },
+  esfera: {
+    sliders: [['R', 'Radio de la esfera R', 0.5, 1.6, 0.05], ['a', 'Distancia de la carga al centro a', 0.6, 2.8, 0.05]],
+    fix: () => { if (S.a <= S.R + 0.05) S.a = S.R + 0.05; },
+    build: () => ({
+      reales: [{x:S.a, y:0, q:1}],
+      imgs:   [{x:S.R*S.R/S.a, y:0, q:-S.R/S.a}],
+      zona: (x, y) => x*x + y*y > S.R*S.R,
+      frontera: t => ({ x: S.R*Math.cos(t), y: S.R*Math.sin(t), nx: Math.cos(t), ny: Math.sin(t) }), tRange: [0, 2*Math.PI],
+    }),
+    info: () => {
+      const R = S.R, a = S.a, F = R*a/((a*a - R*R)**2);
+      return `<h2>Carga afuera de una esfera conductora a tierra</h2>
+      <h3>Zona de interés</h3><p>Afuera de la esfera, <b>r &gt; R</b>.</p>
+      <h3>Zona externa</h3><p>Adentro, <b>r &lt; R</b>: el conductor (V = 0, E = 0).</p>
+      <h3>Imagen</h3><p><b>q′ = −qR/a = ${(-R/a).toFixed(3)} q</b>, en <b>b = R²/a = ${(R*R/a).toFixed(3)}</b> desde el centro, hacia la carga.</p>
+      <h3>Resultados</h3>
+      <p class="f">σ(θ) = −q(a²−R²) / [4πR(R²+a²−2aR cosθ)^{3/2}]</p>
+      <p class="f">F = kq·(qR/a)/(a − R²/a)² = kq²Ra/(a²−R²)²  → ${F.toFixed(3)} kq²</p>
+      <p>Carga inducida total: <b>−qR/a</b> (no −q: parte de las líneas se van al infinito).</p>
+      <p><b>Casos límite:</b> si a → R, se vuelve el plano (F ≈ kq²/(2d)², con d = a − R). Si a → ∞, q′ → 0.</p>`;
+    },
+  },
+  neutra: {
+    sliders: [['R', 'Radio de la esfera R', 0.5, 1.6, 0.05], ['a', 'Distancia de la carga al centro a', 0.6, 2.8, 0.05]],
+    fix: () => { if (S.a <= S.R + 0.05) S.a = S.R + 0.05; },
+    build: () => ({
+      reales: [{x:S.a, y:0, q:1}],
+      imgs:   [{x:S.R*S.R/S.a, y:0, q:-S.R/S.a}, {x:0, y:0, q:S.R/S.a}],
+      zona: (x, y) => x*x + y*y > S.R*S.R,
+      frontera: t => ({ x: S.R*Math.cos(t), y: S.R*Math.sin(t), nx: Math.cos(t), ny: Math.sin(t) }), tRange: [0, 2*Math.PI],
+    }),
+    info: () => {
+      const R = S.R, a = S.a, F = R*a/((a*a - R*R)**2) - R/(a**3);
+      return `<h2>Carga afuera de una esfera conductora aislada y neutra</h2>
+      <h3>Zona de interés</h3><p>Afuera de la esfera, <b>r &gt; R</b>.</p>
+      <h3>Zona externa</h3><p>Adentro: el conductor, ahora a potencial <b>V = kq/a ≠ 0</b>.</p>
+      <h3>Imágenes (2)</h3><p>La de la esfera a tierra, <b>−qR/a en R²/a</b>, más <b>+qR/a en el centro</b>, para que la carga total sea cero. La del centro no cambia que V sea constante en la superficie: solo le suma kq/a.</p>
+      <h3>Resultados</h3>
+      <p class="f">V(esfera) = k(qR/a)/R = kq/a</p>
+      <p class="f">F = kq²[ Ra/(a²−R²)² − R/a³ ]  → ${F.toFixed(3)} kq², atractiva</p>
+      <p>Carga inducida total: <b>0</b>. Lado cercano negativo, lado lejano positivo: mira cómo cambia el color del borde.</p>
+      <p><b>Lejos</b> (a ≫ R): F ≈ 2kq²R³/a⁵, la de un dipolo inducido.</p>`;
+    },
+  },
+  cavidad: {
+    sliders: [['R', 'Radio de la cavidad R', 1.0, 2.2, 0.05], ['a', 'Distancia de la carga al centro a', 0.1, 2.0, 0.05]],
+    fix: () => { if (S.a >= S.R - 0.08) S.a = S.R - 0.08; },
+    build: () => ({
+      reales: [{x:S.a, y:0, q:1}],
+      imgs:   [{x:S.R*S.R/S.a, y:0, q:-S.R/S.a}],
+      zona: (x, y) => x*x + y*y < S.R*S.R,
+      frontera: t => ({ x: S.R*Math.cos(t), y: S.R*Math.sin(t), nx: -Math.cos(t), ny: -Math.sin(t) }), tRange: [0, 2*Math.PI],
+    }),
+    info: () => {
+      const R = S.R, a = S.a, F = R*a/((R*R - a*a)**2);
+      return `<h2>Carga dentro de una cavidad esférica en un conductor a tierra</h2>
+      <h3>Zona de interés</h3><p><b>Adentro</b> de la cavidad, <b>r &lt; R</b>.</p>
+      <h3>Zona externa</h3><p><b>Afuera</b>, r &gt; R: el conductor. Los papeles se invierten respecto a la esfera.</p>
+      <h3>Imagen</h3><p><b>q′ = −qR/a = ${(-R/a).toFixed(3)} q</b>, en <b>b = R²/a = ${(R*R/a).toFixed(3)}</b>: <b>afuera</b> de la cavidad y <b>más grande</b> que q.</p>
+      <h3>Resultados</h3>
+      <p class="f">F = kq²Ra/(R²−a²)² hacia la pared más cercana → ${F.toFixed(3)} kq²</p>
+      <p><span class="warn">Trampa:</span> la carga inducida total en la pared es <b>−q</b>, no −qR/a. Por Gauss, una superficie dentro del metal encierra carga 0. La imagen solo reproduce el campo adentro; su valor no es la carga inducida.</p>
+      <p>Si a = 0 (carga en el centro), b → ∞: no hace falta imagen, el campo es el de q sola.</p>`;
+    },
+  },
+};
+
+// ---------- Física ----------
+let G = null;   // geometría actual
+function cargasVista() {
+  if (S.vista === 'sin') return G.reales;
+  return G.reales.concat(G.imgs);
+}
+function campo(x, y, Q) { let ex = 0, ey = 0, v = 0;
+  for (const c of Q) { const dx = x - c.x, dy = y - c.y, r2 = dx*dx + dy*dy + 1e-6, r = Math.sqrt(r2);
+    v += c.q / r; ex += c.q * dx / (r2 * r); ey += c.q * dy / (r2 * r); }
+  return [ex, ey, v]; }
+
+function colors() {
+  const d = true;
+  return d ? { bg:'#150E2B', cond:'#3B2C66', ink:'#ececec', line:'rgba(255,255,255,.9)', eq:'rgba(255,255,255,.28)', hatch:'rgba(0,0,0,.45)' }
+           : { bg:'#ffffff', cond:'#b9bbc0', ink:'#1d1d1f', line:'rgba(20,20,20,.85)', eq:'rgba(0,0,0,.22)', hatch:'rgba(255,255,255,.55)' };
+}
+function vcolor(v) { // divergente: azul (−) blanco (0) rojo (+)
+  const t = Math.tanh(v / 0.6);
+  const dark = true;
+  const base = dark ? [21, 14, 43] : [250, 250, 250];
+  const tgt = t > 0 ? [214, 48, 49] : [33, 102, 172];
+  const f = Math.pow(Math.abs(t), 0.8);
+  return base.map((b, k) => Math.round(b + (tgt[k] - b) * f));
+}
+
+// ---------- Dibujo ----------
+const N = 380, off = document.createElement('canvas'); off.width = off.height = N; const img = off.getContext('2d').createImageData(N, N);
+let Vgrid = new Float32Array(N*N), Zgrid = new Uint8Array(N*N);
+
+function draw() {
+  const C = colors(), Q = cargasVista();
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, SZ, SZ);
+
+  // potencial
+  for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+    const x = -W + (i + .5) * 2*W/N, y = W - (j + .5) * 2*W/N, k = j*N + i;
+    const z = G.zona(x, y); Zgrid[k] = z ? 1 : 0;
+    let v = campo(x, y, Q)[2];
+    if (S.vista === 'fis' && !z) v = (S.caso === 'neutra') ? 1 / S.a : 0;   // dentro del conductor: V constante
+    Vgrid[k] = v;
+    let col = (S.vista === 'fis' && !z) ? hex(C.cond) : vcolor(v);
+    img.data.set([col[0], col[1], col[2], 255], 4*k);
+  }
+  // equipotenciales y V = 0
+  const lev = v => Math.floor(Math.tanh(v / 0.6) * 10);
+  for (let j = 0; j < N-1; j++) for (let i = 0; i < N-1; i++) {
+    const k = j*N + i; if (S.vista === 'fis' && !Zgrid[k]) continue;
+    const a = Vgrid[k], b = Vgrid[k+1], c = Vgrid[k+N];
+    if (S.V0 && ((a > 0) !== (b > 0) || (a > 0) !== (c > 0))) { img.data.set([255, 255, 255, 255], 4*k); continue; }
+    if (S.Eq && (lev(a) !== lev(b) || lev(a) !== lev(c))) { const p = 4*k; for (let m = 0; m < 3; m++) img.data[p+m] = Math.round(img.data[p+m] * 0.72); }
+  }
+  off.getContext('2d').putImageData(img, 0, 0);
+  ctx.imageSmoothingEnabled = true; ctx.drawImage(off, 0, 0, SZ, SZ);
+
+  // zona externa en la vista de imágenes: rayado
+  if (S.vista !== 'fis') {
+    ctx.save(); ctx.beginPath(); clipZona(false); ctx.clip();
+    ctx.strokeStyle = C.hatch; ctx.lineWidth = 6;
+    for (let s = -SZ; s < 2*SZ; s += 22) { ctx.beginPath(); ctx.moveTo(s, 0); ctx.lineTo(s - SZ, SZ); ctx.stroke(); }
+    ctx.restore();
+  }
+
+  // líneas de campo
+  if (S.Ln) lineas(C, Q);
+
+  // frontera con σ
+  fronteraSigma(C);
+
+  // cargas
+  for (const c of G.reales) carga(c, true, C);
+  if (S.vista === 'img') for (const c of G.imgs) carga(c, false, C);
+
+  // etiquetas de zonas
+  etiquetas(C);
+}
+
+function hex(h) { return [1, 3, 5].map(i => parseInt(h.slice(i, i+2), 16)); }
+
+// trazado de la región (para recortar): zona de interés o su complemento
+function clipZona(interes) {
+  const s = SZ;
+  if (S.caso === 'plano') { interes ? ctx.rect(0, 0, s, py(0)) : ctx.rect(0, py(0), s, s - py(0)); }
+  else if (S.caso === 'esquina') { if (interes) ctx.rect(px(0), 0, s - px(0), py(0)); else { ctx.rect(0, 0, px(0), s); ctx.rect(px(0), py(0), s - px(0), s - py(0)); } }
+  else {
+    const r = S.R / (2*W) * s, cx = px(0), cy = py(0);
+    const dentro = S.caso === 'cavidad' ? interes : !interes;
+    if (dentro) ctx.arc(cx, cy, r, 0, 2*Math.PI);
+    else { ctx.rect(0, 0, s, s); ctx.moveTo(cx + r, cy); ctx.arc(cx, cy, r, 0, 2*Math.PI, true); }
+  }
+}
+
+function carga(c, real, C) {
+  const r = 7 + 5 * Math.min(2, Math.abs(c.q));
+  ctx.fillStyle = c.q > 0 ? '#d63031' : '#2166ac';
+  ctx.globalAlpha = real ? 1 : 0.85;
+  ctx.beginPath(); ctx.arc(px(c.x), py(c.y), r, 0, 7); ctx.fill();
+  ctx.globalAlpha = 1; ctx.lineWidth = 2.5; ctx.strokeStyle = '#fff';
+  if (!real) ctx.setLineDash([4, 3]);
+  ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle = '#fff'; ctx.font = 'bold 14px system-ui'; ctx.textAlign = 'center'; ctx.fillText(c.q > 0 ? '+' : '−', px(c.x), py(c.y) + 5);
+  ctx.font = 'bold 13px system-ui';
+  const lab = real ? 'q (real)' : `${c.q > 0 ? '+' : '−'}${Math.abs(c.q) === 1 ? '' : Math.abs(c.q).toFixed(2)}q (imagen)`;
+  const w = ctx.measureText(lab).width + 10; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(px(c.x) - w/2, py(c.y) - r - 24, w, 18);
+  ctx.fillStyle = '#fff'; ctx.fillText(lab, px(c.x), py(c.y) - r - 10);
+}
+
+function fronteraSigma(C) {
+  const Qimg = G.reales.concat(G.imgs);
+  const [t0, t1] = G.tRange, M = 400; let pts = [];
+  for (let i = 0; i <= M; i++) { const f = G.frontera(t0 + (t1 - t0) * i / M);
+    const e = campo(f.x + f.nx*0.01, f.y + f.ny*0.01, Qimg); pts.push({ ...f, s: (e[0]*f.nx + e[1]*f.ny) / (4*Math.PI) }); }
+  const smax = Math.max(...pts.map(p => Math.abs(p.s))) || 1;
+  for (let i = 0; i < M; i++) {
+    const p = pts[i], q = pts[i+1]; if (Math.hypot(px(p.x) - px(q.x), py(p.y) - py(q.y)) > 40) continue;
+    const t = Math.min(1, Math.abs(p.s) / smax);
+    ctx.strokeStyle = p.s < 0 ? `rgba(33,102,172,${0.35 + 0.65*t})` : `rgba(214,48,49,${0.35 + 0.65*t})`;
+    ctx.lineWidth = 2 + 9 * Math.sqrt(t);
+    ctx.beginPath(); ctx.moveTo(px(p.x), py(p.y)); ctx.lineTo(px(q.x), py(q.y)); ctx.stroke();
+  }
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 1.2; ctx.setLineDash(S.vista === 'fis' ? [] : [6, 5]);
+  ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(px(p.x), py(p.y)) : ctx.moveTo(px(p.x), py(p.y))); ctx.stroke(); ctx.setLineDash([]);
+}
+
+function lineas(C, Q) {
+  const fuentes = [];
+  const n0 = 26;
+  if (S.vista === 'fis') {
+    for (const c of G.reales) fuentes.push(...semillas(c, n0));
+    // superficie con σ > 0 (esfera neutra): las líneas salen del conductor
+    if (S.caso === 'neutra') { const Qi = G.reales.concat(G.imgs); const k = Math.round(n0 * S.R / S.a);
+      const pos = []; for (let i = 0; i < 720; i++) { const f = G.frontera(i / 720 * 2*Math.PI); const e = campo(f.x + f.nx*.01, f.y + f.ny*.01, Qi);
+        const s = e[0]*f.nx + e[1]*f.ny; if (s > 0) pos.push({ x: f.x + f.nx*.02, y: f.y + f.ny*.02, s }); }
+      const tot = pos.reduce((a, p) => a + p.s, 0); let acc = 0, next = tot / (2*k);
+      for (const p of pos) { acc += p.s; if (acc >= next) { fuentes.push({ x: p.x, y: p.y }); next += tot / k; } } }
+  } else {
+    for (const c of Q) if (c.q > 0) fuentes.push(...semillas(c, Math.round(n0 * Math.min(1.6, c.q))));
+  }
+  const negs = Q.filter(c => c.q < 0);
+  ctx.strokeStyle = C.line; ctx.fillStyle = C.line; ctx.lineWidth = 1.4;
+  for (const s0 of fuentes) {
+    let x = s0.x, y = s0.y, path = [[x, y]];
+    for (let it = 0; it < 4000; it++) {
+      const [ex, ey] = campo(x, y, Q), m = Math.hypot(ex, ey); if (m < 1e-9) break;
+      const h = 0.012;
+      // RK2
+      const xm = x + ex/m*h/2, ym = y + ey/m*h/2, [e2x, e2y] = campo(xm, ym, Q), m2 = Math.hypot(e2x, e2y);
+      x += e2x/m2*h; y += e2y/m2*h; path.push([x, y]);
+      if (Math.abs(x) > W + 0.3 || Math.abs(y) > W + 0.3) break;
+      if (S.vista === 'fis' && !G.zona(x, y)) break;
+      if (negs.some(c => Math.hypot(x - c.x, y - c.y) < 0.05)) break;
+    }
+    if (path.length < 3) continue;
+    ctx.beginPath(); path.forEach(([a, b], i) => i ? ctx.lineTo(px(a), py(b)) : ctx.moveTo(px(a), py(b))); ctx.stroke();
+    const mi = Math.min(path.length - 2, Math.floor(path.length * 0.4));
+    if (mi > 2) { const [a, b] = path[mi], [c, d] = path[mi+1]; flecha(px(a), py(b), px(c), py(d)); }
+  }
+}
+function semillas(c, n) { const r = 0.07, out = []; for (let i = 0; i < n; i++) { const t = (i + 0.5) / n * 2*Math.PI; out.push({ x: c.x + r*Math.cos(t), y: c.y + r*Math.sin(t) }); } return out; }
+function flecha(x0, y0, x1, y1) { const dx = x1 - x0, dy = y1 - y0, m = Math.hypot(dx, dy) || 1, ux = dx/m, uy = dy/m;
+  ctx.beginPath(); ctx.moveTo(x1 + ux*4, y1 + uy*4); ctx.lineTo(x1 - ux*5 + uy*4, y1 - uy*5 - ux*4); ctx.lineTo(x1 - ux*5 - uy*4, y1 - uy*5 + ux*4); ctx.fill(); }
+
+function etiquetas(C) {
+  const tag = (txt, x, y, col, bg) => { ctx.font = 'bold 15px system-ui'; const w = ctx.measureText(txt).width + 16;
+    ctx.fillStyle = bg; ctx.beginPath(); ctx.roundRect(x - w/2, y - 15, w, 24, 6); ctx.fill(); ctx.fillStyle = col; ctx.textAlign = 'center'; ctx.fillText(txt, x, y + 2); };
+  const ext = S.vista === 'fis' ? 'CONDUCTOR: E = 0, V = cte' : S.vista === 'img' ? 'ZONA EXTERNA: la fórmula no es física aquí' : 'aquí iría el conductor';
+  const bgI = 'rgba(31,111,235,.92)', bgE = 'rgba(60,60,60,.85)';
+  let I, E;
+  if (S.caso === 'plano') { I = [SZ/2, 30]; E = [SZ/2, SZ - 24]; }
+  else if (S.caso === 'esquina') { I = [px(1.8), 30]; E = [px(-1.6), SZ - 24]; }
+  else if (S.caso === 'cavidad') { I = [px(0), py(-S.R*0.55)]; E = [SZ/2, SZ - 24]; }
+  else { I = [SZ/2, 30]; E = [px(0), py(-S.R*0.5)]; }
+  tag('ZONA DE INTERÉS', I[0], I[1], '#fff', bgI);
+  tag(ext, E[0], E[1], '#fff', bgE);
+  ctx.font = '13px system-ui'; ctx.fillStyle = C.ink; ctx.textAlign = 'left';
+  const vistaTxt = { fis: 'Vista 1 · física', img: 'Vista 2 · carga real + imágenes, sin conductor', sin: 'Vista 3 · solo la carga real' }[S.vista];
+  ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(8, 8, ctx.measureText(vistaTxt).width + 16, 22);
+  ctx.fillStyle = '#fff'; ctx.fillText(vistaTxt, 16, 24);
+}
+
+// ---------- Controles ----------
+function sliders() {
+  const box = $('sliders'); box.innerHTML = '';
+  for (const [k, txt, lo, hi, st] of CASOS[S.caso].sliders) {
+    const id = 's_' + k;
+    box.insertAdjacentHTML('beforeend', `<label>${txt}: <b id="v_${k}">${S[k].toFixed(2)}</b></label><input id="${id}" type="range" min="${lo}" max="${hi}" step="${st}" value="${S[k]}">`);
+    $(id).addEventListener('input', e => { S[k] = +e.target.value; refresh(); });
+  }
+}
+let raf = null;
+function refresh() {
+  const c = CASOS[S.caso]; if (c.fix) c.fix();
+  for (const [k] of c.sliders) { const el = $('s_' + k); if (el) el.value = S[k]; const v = $('v_' + k); if (v) v.textContent = S[k].toFixed(2); }
+  G = c.build(); $('info').innerHTML = c.info();
+  cancelAnimationFrame(raf); raf = requestAnimationFrame(draw);
+}
+document.querySelectorAll('#casos button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#casos button').forEach(x => x.classList.toggle('on', x === b));
+  S.caso = b.dataset.c;
+  if (S.caso === 'cavidad') { S.R = 1.8; S.a = 0.9; } else if (S.caso === 'esfera' || S.caso === 'neutra') { S.R = 1.0; S.a = 1.8; } else { S.a = 1.2; S.b = 0.8; }
+  sliders(); refresh();
+});
+document.querySelectorAll('#vistas button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#vistas button').forEach(x => x.classList.toggle('on', x === b)); S.vista = b.dataset.v; refresh(); });
+$('cV0').onchange = e => { S.V0 = e.target.checked; refresh(); };
+$('cEq').onchange = e => { S.Eq = e.target.checked; refresh(); };
+$('cLn').onchange = e => { S.Ln = e.target.checked; refresh(); };
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', refresh);
+// permitir abrir un caso y vista desde la URL: #esfera,img
+(() => { const [c, v] = location.hash.slice(1).split(','); if (CASOS[c]) document.querySelector(`#casos [data-c=${c}]`).click(); if (v) S.vista = v,
+  document.querySelectorAll('#vistas button').forEach(x => x.classList.toggle('on', x.dataset.v === v)); })();
+sliders(); refresh();
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

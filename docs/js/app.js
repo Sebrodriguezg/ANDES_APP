@@ -17,7 +17,7 @@ const CARPETA_DRIVE =
 const REPOSITORIO = 'https://github.com/Sebrodriguezg/ANDES_APP';
 
 const $ = id => document.getElementById(id);
-const VISTAS = ['hoy', 'feed', 'hoja', 'plan', 'yo', 'simulacro'];
+const VISTAS = ['hoy', 'feed', 'hoja', 'plan', 'yo', 'simulacro', 'material'];
 
 /* ── Vista HOY ────────────────────────────────────────────── */
 
@@ -93,6 +93,7 @@ function pintarHoy() {
           </div>` : ''}
       </div>` : ''}
 
+    <a class="boton enlace-simulacro" href="#material">Material adicional: simulaciones y PDF</a>
     <a class="boton suave enlace-simulacro" href="#simulacro">Hacer un simulacro completo</a>
     <a class="boton suave enlace-simulacro" href="${CARPETA_DRIVE}"
        target="_blank" rel="noopener noreferrer">Descargar todo el material</a>
@@ -157,6 +158,74 @@ function detalleSemana(s) {
     </div>
     ${bloques || '<p class="vacio">Esta semana no tiene desglose en 03_TEMARIO.</p>'}`;
   $('detalle-semana').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ── Vista MATERIAL ───────────────────────────────────────── */
+
+async function pintarMaterial() {
+  const vista = $('vista-material');
+  let items;
+  try {
+    items = await datos.cargarExtra();
+  } catch {
+    vista.innerHTML = '<p class="vacio">No pude cargar el índice del material.</p>';
+    return;
+  }
+
+  const grupos = new Map();
+  for (const it of items) {
+    if (!grupos.has(it.grupo)) grupos.set(it.grupo, []);
+    grupos.get(it.grupo).push(it);
+  }
+
+  vista.innerHTML = `
+    <div class="cabecera-hoy">
+      <div class="fecha">Lo que se hizo para estudiar</div>
+      <h1>Material adicional</h1>
+    </div>
+    <p class="nota-material">Las simulaciones se ven mejor con el teléfono en
+    horizontal. Los PDF se descifran aquí con tu clave y se abren en el visor.</p>
+    ${[...grupos].map(([grupo, lista]) => `
+      <h2 class="seccion">${escapar(grupo)}</h2>
+      ${lista.map((it, i) => `
+        <button class="tarjeta item-material" type="button"
+                data-g="${escapar(grupo)}" data-i="${i}"
+                style="--color-area: var(--${it.area || 'transversal'})">
+          <span class="item-titulo">${escapar(it.titulo)}</span>
+          <span class="item-desc">${escapar(it.desc || '')}</span>
+          <span class="item-meta">${it.tipo === 'html' ? 'Simulación interactiva'
+            : `PDF · ${it.kb} kB`}</span>
+        </button>`).join('')}`).join('')}`;
+
+  vista.querySelectorAll('.item-material').forEach(b => {
+    b.addEventListener('click', () => abrirMaterial(grupos.get(b.dataset.g)[+b.dataset.i], b));
+  });
+}
+
+async function abrirMaterial(it, boton) {
+  if (it.tipo === 'html') { location.href = it.archivo; return; }
+
+  const meta = boton.querySelector('.item-meta');
+  const antes = meta.textContent;
+  meta.textContent = 'Descifrando…';
+  try {
+    const url = URL.createObjectURL(await datos.pdfExtra(it));
+    // Con visor de PDF (computador) se abre en una pestaña; en el teléfono se
+    // descarga con su nombre y lo abre el visor del sistema.
+    if (navigator.pdfViewerEnabled) {
+      window.open(url, '_blank', 'noopener');
+    } else {
+      const a = document.createElement('a');
+      a.href = url; a.download = it.nombre || 'material.pdf';
+      document.body.append(a); a.click(); a.remove();
+    }
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    meta.textContent = antes;
+  } catch (e) {
+    meta.textContent = e.message === 'sin-clave'
+      ? 'Falta la clave: ábrela desde el feed primero'
+      : 'No pude abrirlo. ¿Hay conexión?';
+  }
 }
 
 /* ── Vista YO ─────────────────────────────────────────────── */
@@ -586,6 +655,7 @@ async function mostrar(vista) {
   if (vista === 'plan') pintarPlan();
   if (vista === 'yo') pintarYo();
   if (vista === 'simulacro') await pintarSimulacro();
+  if (vista === 'material') await pintarMaterial();
   if (vista === 'feed') await feed.iniciar(crono);
 
   if (vista !== 'feed') window.scrollTo(0, 0);

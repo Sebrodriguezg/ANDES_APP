@@ -1451,3 +1451,16 @@ a.enlace-externo { flex: 1 1 auto; }
 .distractores li.tuya .letra {
   color: var(--mal); border-color: var(--mal);
 }
+
+/* ── Material adicional ─────────────────────────────────────── */
+.nota-material { color: var(--texto-suave); font-size: .9rem; margin: 0 0 8px; }
+.item-material {
+  display: flex; flex-direction: column; gap: 4px; width: 100%;
+  text-align: left; cursor: pointer; font: inherit; color: var(--texto);
+  border-left: 3px solid var(--color-area, var(--transversal));
+  margin-bottom: 10px;
+}
+.item-material:hover { border-color: var(--acento); }
+.item-titulo { font-weight: 600; }
+.item-desc { color: var(--texto-suave); font-size: .9rem; }
+.item-meta { color: var(--texto-tenue); font-size: .8rem; font-family: var(--mono); }

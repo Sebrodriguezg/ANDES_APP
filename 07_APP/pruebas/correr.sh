@@ -46,6 +46,16 @@ try:
     if faltan:
         print(f"  FALLA faltan tandas: {faltan}"); sys.exit(1)
     print(f"  ok    manifiesto, cronograma y {len(man['tandas'])} tandas")
+    ext = d / "extra.json"
+    if ext.exists():
+        items = json.loads(ext.read_text())["items"]
+        faltan = [i["archivo"] for i in items if not (Path("docs") / i["archivo"]).exists()]
+        if faltan:
+            print(f"  FALLA material sin archivo: {faltan}"); sys.exit(1)
+        claros = list((Path("docs") / "extra").glob("*.pdf"))
+        if claros:
+            print(f"  FALLA PDF sin cifrar en docs/extra: {claros}"); sys.exit(1)
+        print(f"  ok    material adicional: {len(items)} elementos, PDF cifrados")
     if man.get("cifrado"):
         print("  ok    contenido cifrado")
     else:

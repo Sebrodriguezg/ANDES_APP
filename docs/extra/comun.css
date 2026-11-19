@@ -1,0 +1,12 @@
+/* Barra común de las simulaciones dentro de ANDES. */
+.andes-barra { position:sticky; top:0; z-index:5; display:flex; align-items:center; gap:10px;
+  padding:10px 16px; background:#100A22; border-bottom:1px solid #2A1F4A;
+  font:14px/1.3 system-ui, sans-serif; }
+.andes-barra a { color:#FCA50A; text-decoration:none; font-weight:600; white-space:nowrap; }
+.andes-titulo { flex:1; color:#E8E2F2; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.andes-barra button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px;
+  border:1px solid #3B2C66; background:#150E2B; color:#E8E2F2; cursor:pointer; white-space:nowrap; }
+.andes-girar { display:none; margin:10px 16px 0; padding:10px 12px; border:1px solid #F37819;
+  border-radius:2px; color:#E8E2F2; background:#1D1439; font:14px/1.4 system-ui, sans-serif; }
+@media (orientation:portrait) and (max-width:700px) { .andes-girar { display:block; } }
+@media (max-width:420px) { .andes-titulo { display:none; } }

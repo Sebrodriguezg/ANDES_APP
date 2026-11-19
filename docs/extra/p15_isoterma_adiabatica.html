@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isoterma vs adiabática</title>
+<style>
+  :root { --bg:#f7f7f5; --panel:#ffffff; --ink:#1d1d1f; --muted:#666; --line:#d9d9d6; --acc:#1f6feb; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#131416; --panel:#1c1d20; --ink:#ececec; --muted:#9a9a9a; --line:#333; --acc:#5b9bff; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.4 system-ui, sans-serif; }
+  main { max-width:1300px; margin:0 auto; padding:16px; }
+  h1 { font-size:18px; margin:0 0 4px; }
+  p.sub { margin:0 0 12px; color:var(--muted); }
+  canvas { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); }
+  .ctrl { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px 22px; margin-top:12px;
+          background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; }
+  label { display:block; font-size:13px; color:var(--muted); }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; }
+  .btns { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  button { font:inherit; padding:8px 14px; border-radius:8px; border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
+  button.main { background:var(--acc); color:#fff; border-color:var(--acc); }
+  button.rec { background:#c62828; color:#fff; border-color:#c62828; }
+  .gam { display:flex; gap:6px; margin-top:4px; }
+  .gam button { padding:3px 8px; font-size:12px; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Isoterma contra adiabática</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+<div class="andes-girar">Gira el teléfono, o toca <b>Pantalla completa</b>: el gráfico es ancho y en vertical se ve diminuto.</div>
+
+<main>
+  <h1>Problema 15: expansión de V a 2V, isotérmica (PV = cte) contra adiabática (PV<sup>γ</sup> = cte)</h1>
+  <p class="sub">Mismo estado inicial. Mueve los valores, dale a «Expandir» y mira cómo crecen las dos áreas (los trabajos). «Grabar» guarda un video .webm del lienzo.</p>
+
+  <canvas id="c" width="1280" height="720"></canvas>
+
+  <div class="ctrl">
+    <div><label>Presión inicial P₀: <b id="vP">200</b> kPa</label><input id="P" type="range" min="50" max="500" step="10" value="200"></div>
+    <div><label>Volumen inicial V₀: <b id="vV">2.0</b> L</label><input id="V" type="range" min="0.5" max="5" step="0.1" value="2"></div>
+    <div><label>Factor de expansión V<sub>f</sub>/V₀: <b id="vr">2.0</b></label><input id="r" type="range" min="1.2" max="4" step="0.1" value="2"></div>
+    <div><label>γ = C<sub>p</sub>/C<sub>v</sub>: <b id="vg">1.67</b></label><input id="g" type="range" min="1.05" max="1.80" step="0.01" value="1.67">
+      <div class="gam"><button data-g="1.6667">monoatómico 5/3</button><button data-g="1.4">diatómico 7/5</button><button data-g="1.3333">poliatómico 4/3</button></div></div>
+    <div><label>Posición de la expansión: <b id="vs">100</b> %</label><input id="s" type="range" min="0" max="1" step="0.001" value="1"></div>
+    <div><label>Duración de la animación: <b id="vd">4</b> s</label><input id="d" type="range" min="1" max="12" step="0.5" value="4"></div>
+  </div>
+  <div class="btns">
+    <button class="main" id="play">▶ Expandir</button>
+    <button id="reset">⟲ Volver a V₀</button>
+    <button class="rec" id="rec">● Grabar expansión</button>
+    <button id="png">Guardar imagen PNG</button>
+  </div>
+</main>
+
+<script>
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const $ = id => document.getElementById(id);
+const S = { P:200, V:2, r:2, g:5/3, s:1, d:4 };
+
+function cssColors() {
+  const dark = true;
+  return dark
+    ? { bg:'#150E2B', ink:'#ececec', muted:'#9a9a9a', grid:'#2A1F4A', iso:'#5b9bff', isoF:'rgba(91,155,255,.22)', ad:'#ff7a59', adF:'rgba(255,122,89,.28)', wall:'#888' }
+    : { bg:'#ffffff', ink:'#1d1d1f', muted:'#666', grid:'#ececec', iso:'#1f6feb', isoF:'rgba(31,111,235,.15)', ad:'#d9480f', adF:'rgba(217,72,15,.20)', wall:'#555' };
+}
+
+// Física
+const Piso = V => S.P * S.V / V;
+const Pad  = V => S.P * Math.pow(S.V / V, S.g);
+const Wiso = Vf => S.P * S.V * Math.log(Vf / S.V);                       // kPa·L = J
+const Wad  = Vf => S.P * S.V * (1 - Math.pow(S.V / Vf, S.g - 1)) / (S.g - 1);
+const Tad  = Vf => Math.pow(S.V / Vf, S.g - 1);                          // T/T0
+
+// Ejes fijos según el estado completo (no saltan durante la animación)
+function frame() {
+  const Vmax = S.V * S.r * 1.08, Pmax = S.P * 1.12;
+  const X0 = 90, X1 = 800, Y0 = 650, Y1 = 185;
+  return { X0, X1, Y0, Y1, Vmax, Pmax,
+    x: V => X0 + (X1 - X0) * V / Vmax, y: P => Y0 - (Y0 - Y1) * P / Pmax };
+}
+
+function niceStep(max) { const raw = max / 6, p = Math.pow(10, Math.floor(Math.log10(raw))); const m = raw / p; return (m < 1.5 ? 1 : m < 3.5 ? 2 : 5) * p; }
+
+function draw() {
+  const C = cssColors(), F = frame();
+  const Vf = S.V * S.r, Vc = S.V + (Vf - S.V) * S.s;
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, cv.width, cv.height);
+
+  // Rejilla y ejes
+  ctx.font = '15px system-ui, sans-serif'; ctx.lineWidth = 1;
+  const sv = niceStep(F.Vmax), sp = niceStep(F.Pmax);
+  for (let v = 0; v <= F.Vmax + 1e-9; v += sv) { ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(F.x(v), F.Y0); ctx.lineTo(F.x(v), F.Y1); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.textAlign = 'center'; ctx.fillText(+v.toFixed(2), F.x(v), F.Y0 + 22); }
+  for (let p = 0; p <= F.Pmax + 1e-9; p += sp) { ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(F.X0, F.y(p)); ctx.lineTo(F.X1, F.y(p)); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.textAlign = 'right'; ctx.fillText(+p.toFixed(0), F.X0 - 8, F.y(p) + 5); }
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(F.X0, F.Y1); ctx.lineTo(F.X0, F.Y0); ctx.lineTo(F.X1, F.Y0); ctx.stroke();
+  ctx.fillStyle = C.ink; ctx.textAlign = 'center'; ctx.font = '16px system-ui, sans-serif';
+  ctx.fillText('V (L)', (F.X0 + F.X1) / 2, F.Y0 + 46);
+  ctx.save(); ctx.translate(F.X0 - 58, (F.Y0 + F.Y1) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('P (kPa)', 0, 0); ctx.restore();
+
+  // Curvas completas tenues (de V0/1.6 a Vmax) para ver la forma
+  const curve = (f, col, w, a, b, dash) => { ctx.strokeStyle = col; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath();
+    for (let i = 0; i <= 200; i++) { const V = a + (b - a) * i / 200, P = f(V); const yy = F.y(P); i ? ctx.lineTo(F.x(V), yy) : ctx.moveTo(F.x(V), yy); } ctx.stroke(); ctx.setLineDash([]); };
+  const Vlo = Math.max(S.V / 1.5, F.Vmax * 0.02);
+  ctx.save(); ctx.beginPath(); ctx.rect(F.X0, F.Y1, F.X1 - F.X0, F.Y0 - F.Y1); ctx.clip();
+  curve(Piso, C.iso, 1.2, Vlo, F.Vmax, [6, 6]); curve(Pad, C.ad, 1.2, Vlo, F.Vmax, [6, 6]);
+
+  // Áreas hasta el volumen actual
+  const area = (f, col) => { ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(F.x(S.V), F.Y0);
+    for (let i = 0; i <= 160; i++) { const V = S.V + (Vc - S.V) * i / 160; ctx.lineTo(F.x(V), F.y(f(V))); } ctx.lineTo(F.x(Vc), F.Y0); ctx.closePath(); ctx.fill(); };
+  if (Vc > S.V) { area(Piso, C.isoF); area(Pad, C.adF); }
+  curve(Piso, C.iso, 3.5, S.V, Vc); curve(Pad, C.ad, 3.5, S.V, Vc);
+  ctx.restore();
+
+  // Líneas de V0 y Vf
+  ctx.setLineDash([3, 5]); ctx.strokeStyle = C.muted; ctx.lineWidth = 1;
+  [S.V, Vf].forEach(v => { ctx.beginPath(); ctx.moveTo(F.x(v), F.Y0); ctx.lineTo(F.x(v), F.Y1 + 10); ctx.stroke(); });
+  ctx.setLineDash([]); ctx.fillStyle = C.ink; ctx.textAlign = 'center'; ctx.font = 'bold 16px system-ui, sans-serif';
+  ctx.fillText('V₀', F.x(S.V), F.Y1); ctx.fillText(S.r === 2 ? '2V₀' : (+S.r.toFixed(1)) + 'V₀', F.x(Vf), F.Y1);
+
+  // Puntos actuales
+  const dot = (V, P, col) => { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(F.x(V), F.y(P), 7, 0, 7); ctx.fill(); ctx.strokeStyle = C.bg; ctx.lineWidth = 2; ctx.stroke(); };
+  dot(S.V, S.P, C.ink); dot(Vc, Piso(Vc), C.iso); dot(Vc, Pad(Vc), C.ad);
+
+  // Leyenda y números
+  const wi = Wiso(Vc), wa = Wad(Vc);
+  const bx = 40, bx2 = 440, by = 36;
+  ctx.textAlign = 'left'; ctx.font = 'bold 17px system-ui, sans-serif';
+  ctx.fillStyle = C.iso; ctx.fillText('Isotérmica  PV = cte', bx, by);
+  ctx.font = '16px system-ui, sans-serif';
+  ctx.fillText(`W = nRT ln(V/V₀) = ${wi.toFixed(1)} J`, bx, by + 22);
+  ctx.fillText(`P = ${Piso(Vc).toFixed(1)} kPa   T/T₀ = 1.00`, bx, by + 42);
+  ctx.font = 'bold 17px system-ui, sans-serif'; ctx.fillStyle = C.ad; ctx.fillText(`Adiabática  PV^γ = cte  (γ = ${S.g.toFixed(2)})`, bx2, by);
+  ctx.font = '16px system-ui, sans-serif';
+  ctx.fillText(`W = (P₀V₀ − PV)/(γ−1) = ${wa.toFixed(1)} J`, bx2, by + 22);
+  ctx.fillText(`P = ${Pad(Vc).toFixed(1)} kPa   T/T₀ = ${Tad(Vc).toFixed(3)}`, bx2, by + 42);
+  ctx.fillStyle = C.ink; ctx.font = 'bold 17px system-ui, sans-serif';
+  ctx.fillText(Vc > S.V ? `0 < W_ad < W_iso   (W_ad/W_iso = ${(wa / wi).toFixed(3)})` : 'Mismo punto de partida (P₀, V₀)', bx, by + 80);
+
+  drawCylinders(C, Vc, Vf);
+}
+
+// Dos cilindros: izquierda en baño térmico (isoterma), derecha aislado (adiabática)
+function drawCylinders(C, Vc, Vf) {
+  const top = 200, bottom = 620, w = 150, gap = 50, x0 = 860;
+  const hmax = bottom - top - 30, h = V => hmax * V / Vf;
+  [[x0, 'Isotérmica', 'baño a T₀', C.iso, 1], [x0 + w + gap, 'Adiabática', 'aislado', C.ad, Tad(Vc)]].forEach(([x, name, sub, col, tr]) => {
+    ctx.fillStyle = C.ink; ctx.font = 'bold 17px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(name, x + w / 2, top - 46);
+    ctx.font = '14px system-ui, sans-serif'; ctx.fillStyle = C.muted; ctx.fillText(sub, x + w / 2, top - 26);
+    // Gas: color según la temperatura (frío = azul pálido)
+    const hh = h(Vc), yP = bottom - hh;
+    const t = Math.max(0, Math.min(1, (tr - 0.3) / 0.7));
+    const mix = (h, c) => Math.round(c + (h - c) * t); ctx.fillStyle = `rgba(${mix(235, 90)}, ${mix(110, 160)}, ${mix(90, 245)}, 0.6)`; // rojo = T0, azul = frío
+    ctx.fillRect(x, yP, w, hh);
+    // Paredes
+    ctx.strokeStyle = sub === 'aislado' ? C.wall : col; ctx.lineWidth = sub === 'aislado' ? 8 : 3;
+    ctx.beginPath(); ctx.moveTo(x, top - 10); ctx.lineTo(x, bottom); ctx.lineTo(x + w, bottom); ctx.lineTo(x + w, top - 10); ctx.stroke();
+    if (sub !== 'aislado') { ctx.strokeStyle = 'rgba(217,72,15,.6)'; ctx.lineWidth = 2; ctx.beginPath();
+      for (let i = 0; i <= 30; i++) { const xx = x + 10 + (w - 20) * i / 30; ctx.lineTo(xx, bottom + 14 + 4 * Math.sin(i * 1.2)); } ctx.stroke(); }
+    // Marca de V0
+    ctx.setLineDash([4, 4]); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x - 6, bottom - h(S.V)); ctx.lineTo(x + w + 6, bottom - h(S.V)); ctx.stroke(); ctx.setLineDash([]);
+    // Pistón
+    ctx.fillStyle = col; ctx.fillRect(x + 4, yP - 14, w - 8, 14); ctx.fillRect(x + w / 2 - 4, top - 10, 8, yP - 14 - (top - 10));
+    ctx.fillStyle = C.ink; ctx.font = '15px system-ui, sans-serif';
+    ctx.fillText(`T/T₀ = ${tr.toFixed(2)}`, x + w / 2, bottom + 40);
+  });
+  ctx.fillStyle = C.muted; ctx.font = '14px system-ui, sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('Q entra del baño:', x0 + w / 2, bottom + 62); ctx.fillText('T no cambia', x0 + w / 2, bottom + 80);
+  ctx.fillText('Q = 0: el trabajo', x0 + w + gap + w / 2, bottom + 62); ctx.fillText('lo paga U (se enfría)', x0 + w + gap + w / 2, bottom + 80);
+}
+
+// Controles
+function sync() {
+  S.P = +$('P').value; S.V = +$('V').value; S.r = +$('r').value; S.g = +$('g').value; S.s = +$('s').value; S.d = +$('d').value;
+  $('vP').textContent = S.P; $('vV').textContent = S.V.toFixed(1); $('vr').textContent = S.r.toFixed(1);
+  $('vg').textContent = S.g.toFixed(2); $('vs').textContent = Math.round(S.s * 100); $('vd').textContent = S.d;
+  draw();
+}
+['P', 'V', 'r', 'g', 's', 'd'].forEach(id => $(id).addEventListener('input', () => { stop(); sync(); }));
+document.querySelectorAll('[data-g]').forEach(b => b.onclick = () => { $('g').value = b.dataset.g; sync(); });
+
+let raf = null, t0 = 0, onEnd = null;
+function stop() { if (raf) cancelAnimationFrame(raf); raf = null; }
+function play(cb) {
+  stop(); onEnd = cb || null; $('s').value = 0; sync();
+  const hold = 600; // pausa al inicio y al final
+  t0 = performance.now();
+  const step = now => {
+    const e = now - t0 - hold;
+    const u = Math.max(0, Math.min(1, e / (S.d * 1000)));
+    const s = u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2; // suave
+    $('s').value = s; sync();
+    if (e < S.d * 1000 + hold) raf = requestAnimationFrame(step); else { raf = null; if (onEnd) onEnd(); }
+  };
+  raf = requestAnimationFrame(step);
+}
+$('play').onclick = () => play();
+$('reset').onclick = () => { stop(); $('s').value = 0; sync(); };
+
+$('png').onclick = () => { const a = document.createElement('a'); a.download = `isoterma_adiabatica_g${S.g.toFixed(2)}_r${S.r}.png`; a.href = cv.toDataURL('image/png'); a.click(); };
+
+$('rec').onclick = () => {
+  if (!cv.captureStream || !window.MediaRecorder) { alert('Este navegador no permite grabar el lienzo. Usa Chrome o Firefox.'); return; }
+  const types = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm', 'video/mp4'];
+  const type = types.find(t => MediaRecorder.isTypeSupported(t)) || '';
+  const rec = new MediaRecorder(cv.captureStream(60), type ? { mimeType: type, videoBitsPerSecond: 8e6 } : {});
+  const chunks = []; rec.ondataavailable = e => e.data.size && chunks.push(e.data);
+  rec.onstop = () => { const blob = new Blob(chunks, { type: rec.mimeType }); const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = `expansion_g${S.g.toFixed(2)}_r${S.r}.${rec.mimeType.includes('mp4') ? 'mp4' : 'webm'}`; a.click();
+    $('rec').textContent = '● Grabar expansión'; $('rec').disabled = false; };
+  $('rec').textContent = '● Grabando…'; $('rec').disabled = true;
+  rec.start(); play(() => setTimeout(() => rec.stop(), 300));
+};
+
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+sync();
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

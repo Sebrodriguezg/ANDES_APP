@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Efectos de borde</title>
+<style>
+  :root { --bg:#f7f7f5; --panel:#fff; --ink:#1d1d1f; --muted:#666; --line:#d9d9d6; --acc:#1f6feb; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#131416; --panel:#1c1d20; --ink:#ececec; --muted:#9a9a9a; --line:#333; --acc:#5b9bff; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.45 system-ui, sans-serif; }
+  main { max-width:1300px; margin:0 auto; padding:16px; }
+  h1 { font-size:18px; margin:0 0 4px; }
+  p.sub { margin:0 0 12px; color:var(--muted); }
+  canvas { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); }
+  .ctrl { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px 22px; margin-top:12px;
+          background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; }
+  label { display:block; font-size:13px; color:var(--muted); }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; }
+  .seg { display:flex; gap:6px; }
+  .seg button { flex:1; font:inherit; padding:8px; border-radius:8px; border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
+  .seg button.on { background:var(--acc); color:#fff; border-color:var(--acc); }
+  .nota { margin-top:12px; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .nota p { margin:4px 0; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Efectos de borde: línea y plano</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+<div class="andes-girar">Gira el teléfono, o toca <b>Pantalla completa</b>: el gráfico es ancho y en vertical se ve diminuto.</div>
+
+<main>
+  <h1>Efectos de borde: línea y plano finitos contra infinitos</h1>
+  <p class="sub">Izquierda: mapa del cociente |E<sub>finito</sub>| / E<sub>infinito</sub> en un corte, con flechas de dirección. Donde el color llega al amarillo y queda dentro del contorno blanco, la aproximación infinita vale. Derecha: |E| contra la distancia, en escala log–log, sobre la línea punteada del mapa.</p>
+
+  <canvas id="c" width="1280" height="660"></canvas>
+
+  <div class="ctrl">
+    <div><label>Objeto</label><div class="seg"><button id="mL" class="on">Línea de carga</button><button id="mP">Plano (placa cuadrada)</button></div></div>
+    <div><label>Tamaño L (largo de la línea o lado de la placa): <b id="vL">2.0</b> &nbsp;· la ventana mide 4 × 4</label><input id="L" type="range" min="0.3" max="12" step="0.1" value="2"></div>
+    <div><label>Dónde mido la curva de la derecha: <b id="vs">centro</b></label><input id="s" type="range" min="0" max="1.5" step="0.01" value="0"></div>
+    <div><label>Tolerancia del contorno: <b id="vt">5</b> %</label><input id="t" type="range" min="1" max="20" step="1" value="5"></div>
+  </div>
+
+  <div class="nota">
+    <p><b>Línea:</b> E<sub>∞</sub> = 2kλ/r. En el eje que pasa por el centro, la línea finita da E = (2kλ/r)·(L/2)/√(r² + L²/4). Es la infinita multiplicada por un factor que tiende a 1 si r ≪ L y a L/(2r) si r ≫ L (y ahí sale kQ/r²).</p>
+    <p><b>Plano:</b> E<sub>∞</sub> = σ/2ε₀, y no depende de r. En el eje de una placa cuadrada, E = (σ/πε₀)·arctan[L²/(4r√(r² + L²/2))]: vale σ/2ε₀ si r ≪ L y kQ/r² si r ≫ L.</p>
+    <p><b>La regla:</b> lo infinito vale si estás <b>cerca comparado con L</b> y <b>lejos del borde comparado con tu distancia</b>. Mueve el punto de medida hacia el borde y verás que la curva se separa mucho antes.</p>
+  </div>
+</main>
+
+<script>
+const cv = document.getElementById('c'), ctx = cv.getContext('2d'), $ = id => document.getElementById(id);
+const S = { mode:(location.hash==="#plano"?"P":"L"), L:2, s:0, tol:0.05 };
+const W = 2;                       // la ventana va de −2 a 2
+const MAP = { x:20, y:20, n:620 }; // posición y tamaño del mapa en el lienzo
+const GR  = { x0:770, x1:1250, y0:570, y1:60 };
+
+function colors() {
+  const d = true;
+  return d ? { bg:'#150E2B', ink:'#ececec', muted:'#9a9a9a', grid:'#2A1F4A', fin:'#ffb84d', inf:'#5b9bff', pt:'#c792ea', obj:'#ff5c5c' }
+           : { bg:'#ffffff', ink:'#1d1d1f', muted:'#666', grid:'#ececec', fin:'#d9480f', inf:'#1f6feb', pt:'#8e44ad', obj:'#c62828' };
+}
+
+// ---------- Campos (k = 1, λ = 1, σ = 1) ----------
+// Segmento de carga en el eje x, de −L/2 a L/2; punto (x, y). Fórmula exacta.
+function Eline(x, y, L) {
+  const d = Math.abs(y) || 1e-9, x1 = -L/2 - x, x2 = L/2 - x;
+  const r1 = Math.hypot(x1, d), r2 = Math.hypot(x2, d);
+  const Ex = 1/r2 - 1/r1;            // signo: carga a la izquierda empuja a +x
+  const Ey = (x2/r2 - x1/r1) / d * Math.sign(y || 1);
+  return [ Ex, Ey ];
+}
+// Placa cuadrada de lado L en z = 0; corte por y = 0. Cada franja en x' es una línea finita (largo L en la profundidad), exacta.
+const NP = 500;
+function Eplate(x, z, L) {
+  let Ex = 0, Ez = 0; const dx = L / NP;
+  for (let i = 0; i < NP; i++) {
+    const xp = -L/2 + (i + 0.5) * dx, ux = x - xp, r2 = ux*ux + z*z, r = Math.sqrt(r2) || 1e-9;
+    const mag = 2 * dx / r * (L/2) / Math.sqrt(r2 + L*L/4);
+    Ex += mag * ux / r; Ez += mag * z / r;
+  }
+  return [Ex, Ez];
+}
+const Efin = (x, y) => S.mode === 'L' ? Eline(x, y, S.L) : Eplate(x, y, S.L);
+const Einf = (x, y) => S.mode === 'L' ? 2 / (Math.abs(y) || 1e-9) : 2 * Math.PI;
+const Q = () => S.mode === 'L' ? S.L : S.L * S.L;
+
+// Paleta tipo viridis
+const VIR = [[68,1,84],[59,82,139],[33,145,140],[94,201,98],[253,231,37]];
+function vir(t) { t = Math.max(0, Math.min(1, t)) * (VIR.length - 1); const i = Math.min(VIR.length - 2, Math.floor(t)), f = t - i;
+  return VIR[i].map((c, k) => Math.round(c + (VIR[i+1][k] - c) * f)); }
+
+// ---------- Mapa ----------
+const N = 155, img = ctx.createImageData(N, N), off = document.createElement('canvas'); off.width = off.height = N;
+let ratio = new Float32Array(N * N);
+function computeMap() {
+  for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+    const x = -W + (i + 0.5) * 2 * W / N, y = W - (j + 0.5) * 2 * W / N;
+    const [ex, ey] = Efin(x, y); ratio[j*N + i] = Math.hypot(ex, ey) / Einf(x, y);
+  }
+}
+function drawMap(C) {
+  for (let k = 0; k < N*N; k++) {
+    const r = ratio[k]; let [R, G, B] = vir(r);
+    img.data[4*k] = R; img.data[4*k+1] = G; img.data[4*k+2] = B; img.data[4*k+3] = 255;
+  }
+  // contorno de la tolerancia
+  const th = 1 - S.tol;
+  for (let j = 1; j < N-1; j++) for (let i = 1; i < N-1; i++) {
+    const a = ratio[j*N+i] >= th;
+    if (a !== (ratio[j*N+i+1] >= th) || a !== (ratio[(j+1)*N+i] >= th)) { const k = 4*(j*N+i); img.data[k] = img.data[k+1] = img.data[k+2] = 255; }
+  }
+  off.getContext('2d').putImageData(img, 0, 0);
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(off, MAP.x, MAP.y, MAP.n, MAP.n);
+
+  const px = x => MAP.x + (x + W) / (2*W) * MAP.n, py = y => MAP.y + (W - y) / (2*W) * MAP.n;
+  // flechas
+  ctx.strokeStyle = 'rgba(255,255,255,.75)'; ctx.fillStyle = 'rgba(255,255,255,.75)'; ctx.lineWidth = 1.3;
+  const M = 15;
+  for (let j = 0; j < M; j++) for (let i = 0; i < M; i++) {
+    const x = -W + (i + 0.5) * 2*W/M, y = W - (j + 0.5) * 2*W/M; if (Math.abs(y) < 0.08) continue;
+    const [ex, ey] = Efin(x, y), m = Math.hypot(ex, ey); if (!m) continue;
+    const ux = ex/m, uy = ey/m, len = 15, cx = px(x), cy = py(y);
+    const ax = cx + ux*len/2, ay = cy - uy*len/2, bx = cx - ux*len/2, by = cy + uy*len/2;
+    ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(ax, ay); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax - 5*ux + 3*uy, ay + 5*uy + 3*ux); ctx.lineTo(ax - 5*ux - 3*uy, ay + 5*uy - 3*ux); ctx.fill();
+  }
+  // el objeto
+  ctx.save(); ctx.beginPath(); ctx.rect(MAP.x, MAP.y, MAP.n, MAP.n); ctx.clip();
+  ctx.strokeStyle = C.obj; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(px(-S.L/2), py(0)); ctx.lineTo(px(S.L/2), py(0)); ctx.stroke();
+  // línea de medida
+  const x0 = S.s * S.L / 2;
+  ctx.setLineDash([6, 5]); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px(x0), py(0)); ctx.lineTo(px(x0), MAP.y); ctx.stroke(); ctx.setLineDash([]);
+  ctx.restore();
+  ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.strokeRect(MAP.x, MAP.y, MAP.n, MAP.n);
+
+  // barra de color
+  const bx = MAP.x + MAP.n + 14, bw = 16;
+  for (let k = 0; k < MAP.n; k++) { const [R, G, B] = vir(1 - k / MAP.n); ctx.fillStyle = `rgb(${R},${G},${B})`; ctx.fillRect(bx, MAP.y + k, bw, 1); }
+  ctx.fillStyle = C.ink; ctx.font = '13px system-ui'; ctx.textAlign = 'left';
+  ctx.fillText('1', bx + bw + 4, MAP.y + 10); ctx.fillText('0.5', bx + bw + 4, MAP.y + MAP.n/2 + 4); ctx.fillText('0', bx + bw + 4, MAP.y + MAP.n);
+  ctx.save(); ctx.translate(bx + bw + 56, MAP.y + MAP.n/2); ctx.rotate(-Math.PI/2); ctx.textAlign = 'center';
+  ctx.fillText('|E| / E∞', 0, 0); ctx.restore();
+  ctx.fillStyle = '#fff'; ctx.font = 'bold 15px system-ui'; ctx.textAlign = 'left';
+  ctx.fillText(S.mode === 'L' ? 'Línea finita (vista lateral)' : 'Placa cuadrada (corte por la mitad)', MAP.x + 10, MAP.y + 22);
+  ctx.font = '13px system-ui'; ctx.fillText(`contorno blanco: |E|/E∞ = ${(1 - S.tol).toFixed(2)}`, MAP.x + 10, MAP.y + 42);
+}
+
+// ---------- Gráfica log–log ----------
+function drawGraph(C) {
+  const r0 = 0.01, r1 = 100, x0 = S.s * S.L / 2;
+  const lx = r => GR.x0 + (Math.log10(r) - Math.log10(r0)) / (Math.log10(r1) - Math.log10(r0)) * (GR.x1 - GR.x0);
+  const fin = r => { const [a, b] = Efin(x0, r); return Math.hypot(a, b); };
+  const inf = r => Einf(x0, r), pt = r => Q() / ((r*r) + x0*x0 * 0); // carga puntual vista desde lejos
+  // rango vertical
+  const vals = []; for (let i = 0; i <= 60; i++) { const r = r0 * Math.pow(r1/r0, i/60); vals.push(fin(r), inf(r)); }
+  let lo = Math.log10(Math.min(...vals)) - 0.3, hi = Math.log10(Math.max(...vals)) + 0.3;
+  const ly = E => GR.y0 - (Math.log10(E) - lo) / (hi - lo) * (GR.y0 - GR.y1);
+
+  ctx.font = '13px system-ui'; ctx.lineWidth = 1;
+  for (let e = Math.ceil(Math.log10(r0)); e <= Math.log10(r1); e++) { const X = lx(Math.pow(10, e));
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(X, GR.y0); ctx.lineTo(X, GR.y1); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.textAlign = 'center'; ctx.fillText('10' + sup(e), X, GR.y0 + 20); }
+  for (let e = Math.ceil(lo); e <= hi; e++) { const Y = ly(Math.pow(10, e));
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(GR.x0, Y); ctx.lineTo(GR.x1, Y); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.textAlign = 'right'; ctx.fillText('10' + sup(e), GR.x0 - 6, Y + 4); }
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(GR.x0, GR.y1); ctx.lineTo(GR.x0, GR.y0); ctx.lineTo(GR.x1, GR.y0); ctx.stroke();
+  ctx.fillStyle = C.ink; ctx.textAlign = 'center'; ctx.font = '15px system-ui';
+  ctx.fillText('distancia perpendicular r (unidades de la ventana)', (GR.x0 + GR.x1)/2, GR.y0 + 44);
+  ctx.save(); ctx.translate(GR.x0 - 48, (GR.y0 + GR.y1)/2); ctx.rotate(-Math.PI/2); ctx.fillText('|E|', 0, 0); ctx.restore();
+
+  // r = L
+  const XL = lx(S.L); if (XL > GR.x0 && XL < GR.x1) { ctx.setLineDash([3, 4]); ctx.strokeStyle = C.muted; ctx.beginPath(); ctx.moveTo(XL, GR.y0); ctx.lineTo(XL, GR.y1); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = C.muted; ctx.font = '13px system-ui'; ctx.fillText('r = L', XL, GR.y1 - 6); }
+
+  const curve = (f, col, w, dash) => { ctx.save(); ctx.beginPath(); ctx.rect(GR.x0, GR.y1, GR.x1 - GR.x0, GR.y0 - GR.y1); ctx.clip();
+    ctx.strokeStyle = col; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath();
+    for (let i = 0; i <= 240; i++) { const r = r0 * Math.pow(r1/r0, i/240), X = lx(r), Y = ly(f(r)); i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }
+    ctx.stroke(); ctx.restore(); };
+  curve(pt, C.pt, 2, [5, 5]); curve(inf, C.inf, 2.5, [9, 5]); curve(fin, C.fin, 3.5);
+
+  // leyenda
+  const lg = [[C.fin, S.mode === 'L' ? 'línea finita' : 'placa finita', []], [C.inf, S.mode === 'L' ? 'línea infinita: 2kλ/r' : 'plano infinito: σ/2ε₀', [9, 5]], [C.pt, 'carga puntual: kQ/r²', [5, 5]]];
+  let yy = GR.y0 - 70; ctx.font = '14px system-ui'; ctx.textAlign = 'left';
+  lg.forEach(([c, t, d]) => { ctx.strokeStyle = c; ctx.lineWidth = 3; ctx.setLineDash(d); ctx.beginPath(); ctx.moveTo(GR.x0 + 20, yy); ctx.lineTo(GR.x0 + 60, yy); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = C.ink; ctx.fillText(t, GR.x0 + 68, yy + 5); yy += 22; });
+  ctx.fillStyle = C.ink; ctx.font = 'bold 15px system-ui'; ctx.textAlign = 'left';
+  const where = S.s === 0 ? 'por el centro' : S.s < 1 ? `a ${Math.round(S.s*100)} % del camino al borde` : S.s === 1 ? 'justo sobre el borde' : 'por fuera del borde';
+  ctx.fillText(`|E| medido ${where}`, GR.x0 + 10, GR.y1 - 20);
+  // cociente en r = L/10
+  const rr = S.L / 10; ctx.font = '13px system-ui'; ctx.fillStyle = C.muted;
+  ctx.fillText(`en r = L/10: |E|/E∞ = ${(fin(rr)/inf(rr)).toFixed(3)}    en r = L: ${(fin(S.L)/inf(S.L)).toFixed(3)}    en r = 10L: ${(fin(10*S.L)/inf(10*S.L)).toFixed(3)}`, GR.x0 + 10, GR.y0 + 64);
+}
+function sup(e) { const m = {'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'}; return String(e).split('').map(c => m[c]).join(''); }
+
+function draw(recompute) {
+  const C = colors(); if (recompute) computeMap();
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, cv.width, cv.height);
+  drawMap(C); drawGraph(C);
+}
+
+// ---------- Controles ----------
+let pend = null;
+function sync(recompute) {
+  S.L = +$('L').value; S.s = +$('s').value; S.tol = +$('t').value / 100;
+  $('vL').textContent = S.L.toFixed(1); $('vt').textContent = $('t').value;
+  $('vs').textContent = S.s === 0 ? 'centro' : S.s < 1 ? `${Math.round(S.s*100)} % hacia el borde` : S.s === 1 ? 'borde' : 'fuera del borde';
+  if (recompute) { cancelAnimationFrame(pend); pend = requestAnimationFrame(() => draw(true)); } else draw(false);
+}
+$('L').addEventListener('input', () => sync(true));
+$('s').addEventListener('input', () => sync(false));
+$('t').addEventListener('input', () => sync(false));
+$('mL').onclick = () => { S.mode = 'L'; $('mL').classList.add('on'); $('mP').classList.remove('on'); sync(true); };
+$('mP').onclick = () => { S.mode = 'P'; $('mP').classList.add('on'); $('mL').classList.remove('on'); sync(true); };
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => draw(false));
+sync(true);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

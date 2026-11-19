@@ -41,6 +41,14 @@ export async function descifrar(clave, blob) {
   return new TextDecoder().decode(texto);
 }
 
+/** Igual que descifrar, pero devuelve los bytes: para los PDF del material. */
+export async function descifrarBytes(clave, blob) {
+  const bytes = new Uint8Array(blob);
+  return crypto.subtle.decrypt(
+    { name: 'AES-GCM', iv: bytes.slice(0, 12) }, clave, bytes.slice(12)
+  );
+}
+
 /** Comprueba la frase contra el canario antes de dar la clave por buena. */
 export async function probarFrase(frase, cripto) {
   const clave = await derivar(frase, cripto);
