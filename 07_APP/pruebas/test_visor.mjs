@@ -32,6 +32,12 @@ caso('viaje a una estrella', { area: 'relatividad', enunciado: 'A spaceship trav
 caso('escalón', { area: 'moderna_cuantica', enunciado: 'Electrons incident on a potential step of height V0…', opciones: {} }, ['escalon']);
 caso('bosones en una caja', { area: 'moderna_cuantica', enunciado: 'Two identical bosons in a 2D box…', opciones: {} }, ['caja']);
 caso('oscilador', { area: 'moderna_cuantica', enunciado: 'For a quantum harmonic oscillator in a superposition…', opciones: {} }, ['oscilador']);
+caso('conductor hueco', { area: 'electromagnetismo', enunciado: 'Un conductor cilíndrico muy largo y hueco transporta una corriente I', opciones: {} }, ['ampere']);
+caso('esferas concéntricas', { area: 'electromagnetismo', enunciado: 'A uniformly charged sphere is surrounded by a spherical shell…', opciones: {} }, ['gauss']);
+caso('espacio de fase', { area: 'mecanica', enunciado: 'The area enclosed by the orbit in phase space…', opciones: {} }, ['fase']);
+caso('esfera dura', { area: 'mecanica', enunciado: 'Scattering from a hard sphere: impact parameter b…', opciones: {} }, ['dispersion']);
+caso('entropía de monedas', { area: 'termo_estadistica', enunciado: 'N coins are tossed; the entropy S = k ln Ω of the macrostate…', opciones: {} }, ['monedas']);
+caso('dos sólidos', { area: 'termo_estadistica', enunciado: 'Two Einstein solids in thermal contact share q units…', opciones: {} }, ['contacto']);
 caso('mecánica: nada', { area: 'mecanica', enunciado: 'A block slides down an incline', opciones: {} }, []);
 
 if (htmlAccesos({ area: 'mecanica', enunciado: 'x' }) !== '') { console.log('  FALLA tarjeta sin simulación pinta botones'); fallos++; }

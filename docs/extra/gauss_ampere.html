@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gauss y Ampère</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690;
+          --line:#2A1F4A; --acc:#FCA50A; --em:#FCA50A; --ok:#F6D543; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .tabs { display:flex; gap:6px; margin:8px 0 8px; }
+  .tabs button { flex:1; font:inherit; font-size:14px; padding:9px 4px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel); color:var(--ink); cursor:pointer; }
+  .tabs button.on { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:700px) { .grid { grid-template-columns:1fr; } }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .fila button.on { border-color:var(--acc); color:var(--acc); }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--em); border-radius:2px;
+          padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Ampère</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Gauss y Ampère: el campo por regiones</h1>
+  <p class="sub">Mueve la superficie (o curva) de radio r. Lo que encierra decide el campo. Arriba el corte, abajo la gráfica.</p>
+
+  <div class="tabs" id="tabs">
+    <button data-l="gauss" class="on">Gauss: E(r)</button>
+    <button data-l="ampere">Ampère: B(r)</button>
+  </div>
+  <div class="fila" id="casos"></div>
+
+  <div class="grid" style="margin-top:10px">
+    <canvas id="corte"></canvas>
+    <canvas id="graf"></canvas>
+  </div>
+
+  <div class="ctrl">
+    <label>Radio de la superficie gaussiana / curva amperiana: r = <b id="vr">0.50</b></label>
+    <input id="r" type="range" min="0.02" max="2.4" step="0.01" value="0.5">
+    <div class="fila"><button id="barrer">▶ Barrer r</button></div>
+  </div>
+
+  <div class="info" id="info"></div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A',
+              ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5', pos:'rgba(252,165,10,', neg:'rgba(110,168,255,' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+const S = { ley:'gauss', caso:'esfera', r:0.5, barrer:false, T:0 };
+
+/* Cada caso: regiones (para dibujar), fracción encerrada, campo, potencial y texto. Unidades: k = 1, R = 1. */
+const CASOS = {
+  gauss: {
+    esfera: {
+      nombre:'Esfera maciza', reg:[{ r0:0, r1:1, s:+1, vol:true }], bordes:[1],
+      enc: r => Math.min(r, 1) ** 3, E: r => Math.min(r, 1) ** 3 / (r * r),
+      V: r => r >= 1 ? 1 / r : (3 - r * r) / 2, geo:'esf',
+      txt:`<p>Adentro la carga encerrada crece como r³ y el área como r²: <span class="f">E = kQr/R³</span>, lineal. Afuera, <span class="f">E = kQ/r²</span>, como una carga puntual.</p>
+           <p><span class="f">V(0) = 3kQ/(2R)</span>, 1.5 veces el del borde. El máximo de E está en la superficie.</p>`,
+    },
+    cascaron: {
+      nombre:'Cascarón (o esfera conductora)', reg:[{ r0:0.98, r1:1.02, s:+1 }], bordes:[1],
+      enc: r => r < 1 ? 0 : 1, E: r => r < 1 ? 0 : 1 / (r * r), V: r => r < 1 ? 1 : 1 / r, geo:'esf',
+      txt:`<p>Adentro no hay carga encerrada: <b>E = 0</b>, pero <b>V = kQ/R, constante</b> (no cero). En la superficie E salta de 0 a kQ/R². Una esfera conductora cargada es exactamente esto: la carga se va a la superficie.</p>`,
+    },
+    concentricas: {
+      nombre:'+Q maciza y −Q cascarón', reg:[{ r0:0, r1:0.7, s:+1, vol:true }, { r0:1.48, r1:1.52, s:-1 }], bordes:[0.7, 1.5],
+      enc: r => r < 0.7 ? (r / 0.7) ** 3 : r < 1.5 ? 1 : 0,
+      E: r => (r < 0.7 ? (r / 0.7) ** 3 : r < 1.5 ? 1 : 0) / (r * r),
+      V: r => r >= 1.5 ? 0 : r >= 0.7 ? 1 / r - 1 / 1.5 : (3 * 0.49 - r * r) / (2 * 0.343) - 1 / 1.5, geo:'esf',
+      txt:`<p>Entre las esferas solo cuenta la de adentro: <span class="f">E = kQ/r²</span>. Afuera la carga neta es cero, así que <b>E = 0 y V = 0</b>.</p>
+           <p><span class="f">ΔV = V(a) − V(b) = kQ(1/a − 1/b)</span>. Da lo mismo que la interior sea maciza o un cascarón: afuera de ella solo importa su carga total.</p>`,
+    },
+    cilindro: {
+      nombre:'Cilindro macizo infinito', reg:[{ r0:0, r1:1, s:+1, vol:true }], bordes:[1],
+      enc: r => Math.min(r, 1) ** 2, E: r => Math.min(r, 1) ** 2 / r, V:null, geo:'cil',
+      txt:`<p>Superficie gaussiana: un cilindro de largo ℓ (las tapas no cuentan, E es radial). Adentro <span class="f">E = λr/(2πε₀R²)</span>, lineal. Afuera <span class="f">E = λ/(2πε₀r)</span>, cae como 1/r, no como 1/r².</p>
+           <p>V no se puede poner a cero en el infinito (diverge como ln r). Siempre se calcula una diferencia: <span class="f">ΔV = (λ/2πε₀) ln(b/a)</span>.</p>`,
+    },
+    coaxial: {
+      nombre:'Coaxial: +λ adentro, −λ afuera', reg:[{ r0:0, r1:0.4, s:+1, vol:true }, { r0:1.48, r1:1.52, s:-1 }], bordes:[0.4, 1.5],
+      enc: r => r < 0.4 ? (r / 0.4) ** 2 : r < 1.5 ? 1 : 0, E: r => (r < 0.4 ? (r / 0.4) ** 2 : r < 1.5 ? 1 : 0) / r, V:null, geo:'cil',
+      txt:`<p>Entre conductores <span class="f">E = λ/(2πε₀r)</span>; afuera, cero. De ahí sale la capacitancia por unidad de largo: <span class="f">C/ℓ = 2πε₀/ln(b/a)</span>, el problema 2 del Conquering.</p>`,
+    },
+  },
+  ampere: {
+    alambre: {
+      nombre:'Alambre macizo', reg:[{ r0:0, r1:1, s:+1, vol:true }], bordes:[1],
+      enc: r => Math.min(r, 1) ** 2, B: r => Math.min(r, 1) ** 2 / r,
+      txt:`<p>Adentro <span class="f">I_enc = I r²/R²</span> y <span class="f">B = μ₀Ir/(2πR²)</span>, lineal. Afuera <span class="f">B = μ₀I/(2πr)</span>. El máximo está en la superficie.</p>`,
+    },
+    hueco: {
+      nombre:'Conductor hueco (a < r < b)', reg:[{ r0:0.6, r1:1.2, s:+1, vol:true }], bordes:[0.6, 1.2],
+      enc: r => r < 0.6 ? 0 : r < 1.2 ? (r * r - 0.36) / (1.44 - 0.36) : 1,
+      B: r => (r < 0.6 ? 0 : r < 1.2 ? (r * r - 0.36) / (1.44 - 0.36) : 1) / r,
+      txt:`<p>En el hueco, B = 0. En el material, la corriente encerrada es la <b>fracción de área</b>: <span class="f">I_enc = I (r² − a²)/(b² − a²)</span>, así que</p>
+           <p><span class="f">B = (μ₀I/2πr)·(r² − a²)/(b² − a²)</span></p>
+           <p>Chequeos: en r = a da 0; en r = b da μ₀I/(2πb), lo mismo que un alambre. Es el n.º 9 del examen 2024.</p>`,
+    },
+    coaxial: {
+      nombre:'Coaxial: I adentro, −I afuera', reg:[{ r0:0, r1:0.4, s:+1, vol:true }, { r0:1.2, r1:1.5, s:-1, vol:true }], bordes:[0.4, 1.2, 1.5],
+      enc: r => r < 0.4 ? (r / 0.4) ** 2 : r < 1.2 ? 1 : r < 1.5 ? 1 - (r * r - 1.44) / (2.25 - 1.44) : 0,
+      B: r => (r < 0.4 ? (r / 0.4) ** 2 : r < 1.2 ? 1 : r < 1.5 ? 1 - (r * r - 1.44) / (2.25 - 1.44) : 0) / r,
+      txt:`<p>Por el centro va I y por el blindaje vuelve −I. Entre los dos, <span class="f">B = μ₀I/(2πr)</span>; en el blindaje cae a cero; <b>afuera B = 0</b>. Por eso el cable coaxial no irradia ni capta campos.</p>`,
+    },
+    solenoide: {
+      nombre:'Solenoide (corte transversal)', reg:[{ r0:0.98, r1:1.02, s:+1 }], bordes:[1],
+      enc: r => r < 1 ? 1 : 0, B: r => r < 1 ? 1 : 0, sol:true,
+      txt:`<p>Aquí la curva amperiana es un <b>rectángulo</b> con un lado adentro, paralelo al eje, y otro afuera. Adentro <span class="f">B = μ₀nI</span>, uniforme: no depende de r. Afuera, B ≈ 0.</p>
+           <p>Toroide: es un solenoide cerrado. Con una circunferencia, <span class="f">B = μ₀NI/(2πr)</span> dentro del núcleo y 0 fuera.</p>`,
+    },
+  },
+};
+
+function ajustar(cv, ratio) {
+  const w = cv.clientWidth || 360, h = Math.round(w * ratio);
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h);
+  return { ctx, w, h };
+}
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) {
+  ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.fillText(s, x, y);
+}
+function linea(ctx, x1, y1, x2, y2, c, w = 1, dash = null) {
+  ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]);
+}
+function flecha(ctx, x1, y1, x2, y2, c, w = 1.6) {
+  linea(ctx, x1, y1, x2, y2, c, w); const a = Math.atan2(y2 - y1, x2 - x1), s = 6;
+  ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - s * Math.cos(a - .45), y2 - s * Math.sin(a - .45)); ctx.lineTo(x2 - s * Math.cos(a + .45), y2 - s * Math.sin(a + .45)); ctx.fill();
+}
+const caso = () => CASOS[S.ley][S.caso];
+const campo = (c, r) => S.ley === 'gauss' ? c.E(r) : c.B(r);
+
+function pintarCorte() {
+  const { ctx, w, h } = ajustar($('corte'), 1);
+  const c = caso(), cx = w / 2, cy = h / 2 + 8, s = Math.min(w, h) / 2 / 2.55;
+  // regiones con carga / corriente
+  for (const g of c.reg) {
+    const col = g.s > 0 ? COL.pos : COL.neg;
+    ctx.fillStyle = col + (g.vol ? '.32)' : '.85)');
+    ctx.beginPath(); ctx.arc(cx, cy, g.r1 * s, 0, 2 * Math.PI);
+    if (g.r0 > 0) { ctx.moveTo(cx + g.r0 * s, cy); ctx.arc(cx, cy, g.r0 * s, 0, 2 * Math.PI, true); }
+    ctx.fill();
+    if (S.ley === 'ampere') {               // ⊙ sale de la página, ⊗ entra
+      const n = g.vol ? 18 : 14;
+      for (let i = 0; i < n * 2; i++) {
+        const rr = g.vol ? Math.sqrt(g.r0 ** 2 + (g.r1 ** 2 - g.r0 ** 2) * ((i * 0.7548777 + 0.13) % 1)) : (g.r0 + g.r1) / 2, a = i * 2.39996;
+        if (g.vol && g.r0 === 0 && rr < 0.08) continue;
+        const px = cx + rr * s * Math.cos(a), py = cy + rr * s * Math.sin(a);
+        ctx.strokeStyle = g.s > 0 ? '#FCA50A' : '#6EA8FF'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(px, py, 3.5, 0, 7); ctx.stroke();
+        if (g.s > 0 && !c.sol) { ctx.fillStyle = '#FCA50A'; ctx.beginPath(); ctx.arc(px, py, 1.2, 0, 7); ctx.fill(); }
+        else { linea(ctx, px - 2.4, py - 2.4, px + 2.4, py + 2.4, ctx.strokeStyle); linea(ctx, px - 2.4, py + 2.4, px + 2.4, py - 2.4, ctx.strokeStyle); }
+      }
+    }
+  }
+  // superficie / curva de radio r, con lo encerrado resaltado
+  const R = S.r * s;
+  ctx.fillStyle = 'rgba(246,213,67,.07)'; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fill();
+  ctx.strokeStyle = COL.ok; ctx.lineWidth = 2; ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+  // flechas de campo sobre la superficie
+  const F = campo(c, S.r), Fmax = Math.max(...Array.from({ length: 200 }, (_, i) => campo(c, 0.02 + i * 0.012)));
+  const L = Fmax > 0 ? 34 * F / Fmax : 0;
+  if (c.sol) {
+    if (S.r < 1) texto(ctx, '⊙ B uniforme, sale de la página', cx, cy - 1.15 * s, { c:COL.ok, f:12, al:'center', b:true });
+  } else if (L > 1.5) {
+    for (let i = 0; i < 12; i++) {
+      const a = i * Math.PI / 6, px = cx + R * Math.cos(a), py = cy + R * Math.sin(a);
+      if (S.ley === 'gauss') flecha(ctx, px, py, px + L * Math.cos(a), py + L * Math.sin(a), COL.ok);
+      else flecha(ctx, px, py, px + L * Math.sin(a), py - L * Math.cos(a), COL.ok);   // antihorario en pantalla: corriente ⊙
+    }
+  }
+  const enc = c.enc(S.r);
+  texto(ctx, c.nombre, 10, 18, { c:COL.ink, f:13, b:true });
+  texto(ctx, `${S.ley === 'gauss' ? 'Q' : 'I'} encerrada = ${enc.toFixed(2)} ${S.ley === 'gauss' ? (c.geo === 'cil' ? 'λℓ' : 'Q') : 'I'}`, 10, h - 12, { c:COL.ok, f:13, b:true });
+  texto(ctx, S.ley === 'gauss' ? 'naranja +, azul −' : '⊙ sale, ⊗ entra', w - 10, h - 12, { c:COL.muted, f:11, al:'right' });
+}
+
+function pintarGraf() {
+  const { ctx, w, h } = ajustar($('graf'), 1);
+  const c = caso(), m = { l:38, r:12, t:22, b:30 }, rmax = 2.4;
+  const rs = Array.from({ length: 481 }, (_, i) => 0.01 + i * (rmax - 0.01) / 480);
+  const Fs = rs.map(r => campo(c, r)), Fmax = Math.max(...Fs) * 1.15 || 1;
+  const Vs = (S.ley === 'gauss' && c.V) ? rs.map(c.V) : null, Vmax = Vs ? Math.max(...Vs) * 1.15 || 1 : 1;
+  const X = r => m.l + r / rmax * (w - m.l - m.r), Y = v => h - m.b - v * (h - m.t - m.b);
+  linea(ctx, m.l, Y(0), w - m.r, Y(0), COL.muted); linea(ctx, m.l, Y(0), m.l, m.t, COL.muted);
+  for (let r = 0.5; r <= rmax; r += 0.5) texto(ctx, r.toFixed(1), X(r), h - m.b + 14, { c:COL.tenue, f:10, al:'center' });
+  texto(ctx, 'r / R', w - m.r, h - 6, { c:COL.muted, f:11, al:'right' });
+  for (const b of c.bordes) linea(ctx, X(b), m.t, X(b), Y(0), 'rgba(232,226,242,.25)', 1, [3, 3]);
+  const trazar = (vals, max, col, dash) => {
+    ctx.strokeStyle = col; ctx.lineWidth = 2.2; ctx.setLineDash(dash || []); ctx.beginPath();
+    vals.forEach((v, i) => { const px = X(rs[i]), py = Y(v / max); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }); ctx.stroke(); ctx.setLineDash([]);
+  };
+  trazar(Fs, Fmax, COL.acc);
+  if (Vs) trazar(Vs, Vmax, COL.azul, [5, 4]);
+  const F = campo(c, S.r);
+  linea(ctx, X(S.r), m.t, X(S.r), Y(0), COL.ok, 1, [2, 3]);
+  ctx.fillStyle = COL.acc; ctx.beginPath(); ctx.arc(X(S.r), Y(F / Fmax), 5, 0, 7); ctx.fill();
+  if (Vs) { ctx.fillStyle = COL.azul; ctx.beginPath(); ctx.arc(X(S.r), Y(c.V(S.r) / Vmax), 4, 0, 7); ctx.fill(); }
+  texto(ctx, S.ley === 'gauss' ? '— E(r)' : '— B(r)', m.l + 6, m.t - 6, { c:COL.acc, f:12, b:true });
+  if (Vs) texto(ctx, '- - V(r), cero en el infinito', m.l + 60, m.t - 6, { c:COL.azul, f:12 });
+}
+
+function info() {
+  const c = caso();
+  const comun = S.ley === 'gauss'
+    ? `<h3>La receta</h3><div class="caja"><span class="f">∮E·dA = Q_enc/ε₀</span>. Con simetría, E es constante sobre la superficie: <span class="f">E·(área) = Q_enc/ε₀</span>. Esfera: área 4πr². Cilindro: 2πrℓ.</div>`
+    : `<h3>La receta</h3><div class="caja"><span class="f">∮B·dl = μ₀I_enc</span>. Con simetría circular, <span class="f">B·2πr = μ₀I_enc</span>. B es tangente (regla de la mano derecha).</div>`;
+  $('info').innerHTML = `<h3>${c.nombre}</h3>${c.txt}${comun}
+    <h3>Trampas</h3>
+    <p class="trampa">Si la densidad es uniforme, «encerrado» es fracción de volumen (esfera: r³), de área (cilindro: r²) o de área de anillo (hueco: r² − a²). No es fracción de radio.</p>
+    <p class="trampa">E = 0 adentro de un conductor no quiere decir V = 0: V es constante, e igual al de su superficie.</p>`;
+}
+
+function botonesCasos() {
+  $('casos').innerHTML = Object.entries(CASOS[S.ley]).map(([k, c]) => `<button data-c="${k}" class="${k === S.caso ? 'on' : ''}">${c.nombre}</button>`).join('');
+}
+function ponerLey(l, caso0) {
+  S.ley = CASOS[l] ? l : 'gauss';
+  S.caso = CASOS[S.ley][caso0] ? caso0 : Object.keys(CASOS[S.ley])[0];
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.l === S.ley));
+  botonesCasos(); info(); pintar();
+  history.replaceState(null, '', `#${S.ley},${S.caso}`);
+}
+function pintar() { pintarCorte(); pintarGraf(); }
+
+$('tabs').addEventListener('click', e => { if (e.target.dataset.l) ponerLey(e.target.dataset.l); });
+$('casos').addEventListener('click', e => { if (e.target.dataset.c) ponerLey(S.ley, e.target.dataset.c); });
+$('r').addEventListener('input', e => { S.r = +e.target.value; $('vr').textContent = S.r.toFixed(2); pintar(); });
+$('barrer').addEventListener('click', () => { S.barrer = !S.barrer; $('barrer').textContent = S.barrer ? '❚❚ Parar' : '▶ Barrer r'; });
+addEventListener('resize', pintar);
+let ult = performance.now();
+function bucle(t) {
+  const dt = Math.min(0.05, (t - ult) / 1000); ult = t;
+  if (S.barrer) { S.T += dt; S.r = 0.05 + 2.3 * (0.5 - 0.5 * Math.cos(S.T * 0.7)); $('r').value = S.r; $('vr').textContent = S.r.toFixed(2); pintar(); }
+  requestAnimationFrame(bucle);
+}
+const [l0, c0] = location.hash.slice(1).split(',');
+ponerLey(l0 || 'gauss', c0);
+const q = +new URLSearchParams(location.search).get('r'); if (q) { S.r = q; $('r').value = q; $('vr').textContent = q.toFixed(2); pintar(); }
+requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

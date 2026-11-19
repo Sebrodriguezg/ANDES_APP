@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mecánica avanzada</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690;
+          --line:#2A1F4A; --acc:#FCA50A; --mec:#F6D543; --ok:#F6D543; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .tabs { display:flex; gap:6px; margin:8px 0 8px; }
+  .tabs button { flex:1; font:inherit; font-size:14px; padding:9px 4px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel); color:var(--ink); cursor:pointer; }
+  .tabs button.on { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:700px) { .grid { grid-template-columns:1fr; } }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line);
+                 background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .fila button.on { border-color:var(--acc); color:var(--acc); }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--mec); border-radius:2px;
+          padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+  .oculto { display:none !important; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Mecánica</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Mecánica avanzada, vista</h1>
+  <p class="sub">Espacio de fase: el área de la órbita da el período. Esfera dura: el parámetro de impacto da el ángulo.</p>
+
+  <div class="tabs" id="tabs">
+    <button data-m="fase" class="on">Espacio de fase</button>
+    <button data-m="esfera">Esfera dura</button>
+  </div>
+
+  <div class="grid">
+    <canvas id="a"></canvas>
+    <canvas id="b"></canvas>
+  </div>
+
+  <div class="ctrl">
+    <div id="cFase">
+      <div class="fila" id="sist">
+        <button data-s="osc" class="on">Oscilador armónico</button>
+        <button data-s="caja">Partícula en una caja</button>
+        <button data-s="pend">Péndulo</button>
+      </div>
+      <label>Energía: E = <b id="vE">1.00</b></label>
+      <input id="E" type="range" min="0.1" max="4" step="0.01" value="1">
+    </div>
+    <div id="cEsf">
+      <label>Parámetro de impacto: b/R = <b id="vb">0.50</b></label>
+      <input id="bb" type="range" min="0" max="1" step="0.005" value="0.5">
+      <div class="fila"><button id="abanico" class="on">Mostrar abanico de trayectorias</button></div>
+    </div>
+  </div>
+
+  <div class="info" id="info"></div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A', ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+const S = { modo:'fase', sis:'osc', E:1, b:0.5, abanico:true, T:0, x:null, p:null };
+
+function ajustar(cv, ratio) {
+  const w = cv.clientWidth || 360, h = Math.round(w * ratio);
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h);
+  return { ctx, w, h };
+}
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) { ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.fillText(s, x, y); }
+function linea(ctx, x1, y1, x2, y2, c, w = 1, dash = null) { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]); }
+function punto(ctx, x, y, r, c) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
+
+/* ═════════════════════════  ESPACIO DE FASE  ═════════════════════════ */
+/* m = 1. Oscilador: V = x²/2 (ω = 1). Caja: V = 0 en |x| < 1. Péndulo: V = −cos θ (g/ℓ = 1). */
+const SIS = {
+  osc:  { V: x => x * x / 2, dV: x => x, xr: 3.2, pr: 3.2, Emin: 0.1, Emax: 4, xl:'x', E0: 1,
+          rango: E => { const a = Math.sqrt(2 * E); return [-a, a]; } },
+  caja: { V: () => 0, dV: () => 0, xr: 1.35, pr: 3.2, Emin: 0.1, Emax: 4, xl:'x', E0: 1, pared: 1,
+          rango: () => [-1, 1] },
+  pend: { V: x => -Math.cos(x), dV: x => Math.sin(x), xr: Math.PI, pr: 2.6, Emin: -0.95, Emax: 2.2, xl:'θ', E0: 0.5,
+          rango: E => E >= 1 ? [-Math.PI, Math.PI] : (() => { const a = Math.acos(-E); return [-a, a]; })() },
+};
+/* Área encerrada A(E) = ∮p dx. Para el péndulo que gira (E > 1) se toma una vuelta: ∫ p dθ sobre 2π. */
+function area(sis, E) {
+  const s = SIS[sis], [x0, x1] = s.rango(E), n = 400;
+  let A = 0;
+  for (let i = 0; i < n; i++) { const x = x0 + (x1 - x0) * (i + .5) / n; A += Math.sqrt(Math.max(0, 2 * (E - s.V(x)))) * (x1 - x0) / n; }
+  return (sis === 'pend' && E >= 1) ? A : 2 * A;
+}
+const periodo = (sis, E) => { const h = 1e-3; return (area(sis, E + h) - area(sis, E - h)) / (2 * h); };
+
+function reiniciarPunto() { const s = SIS[S.sis], [x0] = s.rango(S.E); S.x = S.sis === 'pend' && S.E >= 1 ? -Math.PI : x0 * 0.999; S.p = Math.sqrt(Math.max(0, 2 * (S.E - s.V(S.x)))); if (S.sis === 'caja') { S.x = 0; S.p = Math.sqrt(2 * S.E); } }
+function paso(dt) {
+  const s = SIS[S.sis];
+  if (S.sis === 'caja') { S.x += S.p * dt; if (S.x > 1) { S.x = 2 - S.x; S.p = -S.p; } if (S.x < -1) { S.x = -2 - S.x; S.p = -S.p; } return; }
+  const f = (x, p) => [p, -s.dV(x)];
+  const [k1x, k1p] = f(S.x, S.p), [k2x, k2p] = f(S.x + k1x * dt / 2, S.p + k1p * dt / 2);
+  const [k3x, k3p] = f(S.x + k2x * dt / 2, S.p + k2p * dt / 2), [k4x, k4p] = f(S.x + k3x * dt, S.p + k3p * dt);
+  S.x += (k1x + 2 * k2x + 2 * k3x + k4x) * dt / 6; S.p += (k1p + 2 * k2p + 2 * k3p + k4p) * dt / 6;
+  if (S.sis === 'pend') { if (S.x > Math.PI) S.x -= 2 * Math.PI; if (S.x < -Math.PI) S.x += 2 * Math.PI; }
+}
+
+function pintarFase() {
+  const { ctx, w, h } = ajustar($('a'), 1);
+  const s = SIS[S.sis], X = x => w / 2 + x / s.xr * (w / 2 - 14), Y = p => h / 2 - p / s.pr * (h / 2 - 22);
+  linea(ctx, 10, Y(0), w - 10, Y(0), COL.muted); linea(ctx, X(0), 16, X(0), h - 10, COL.muted);
+  texto(ctx, s.xl, w - 12, Y(0) - 6, { c:COL.muted, al:'right' }); texto(ctx, 'p', X(0) + 6, 26, { c:COL.muted });
+  if (s.pared) { linea(ctx, X(-1), 16, X(-1), h - 10, 'rgba(232,89,60,.7)', 2); linea(ctx, X(1), 16, X(1), h - 10, 'rgba(232,89,60,.7)', 2); }
+  // otras órbitas (contornos de H)
+  const Es = [];
+  for (let k = 1; k <= 7; k++) Es.push(s.Emin + (s.Emax - s.Emin) * k / 8);
+  if (S.sis === 'pend') Es.push(1);
+  for (const E of Es) dibujarOrbita(ctx, s, E, X, Y, E === 1 && S.sis === 'pend' ? 'rgba(255,127,181,.6)' : 'rgba(232,226,242,.18)', false);
+  // la órbita elegida, con su área
+  dibujarOrbita(ctx, s, S.E, X, Y, COL.acc, true);
+  punto(ctx, X(S.x), Y(S.p), 6, COL.ok);
+  const A = area(S.sis, S.E), T = periodo(S.sis, S.E);
+  texto(ctx, `Área A(E) = ${A.toFixed(2)}`, 10, 18, { c:COL.acc, f:13, b:true });
+  texto(ctx, `T = dA/dE = ${T.toFixed(2)}`, w - 10, 18, { c:COL.ok, f:13, b:true, al:'right' });
+  if (S.sis === 'pend') texto(ctx, 'separatriz (E = 1)', w - 10, h - 12, { c:COL.rosa, f:11, al:'right' });
+}
+function dibujarOrbita(ctx, s, E, X, Y, col, relleno) {
+  const [x0, x1] = s.rango(E), n = 200, sup = [], inf = [];
+  for (let i = 0; i <= n; i++) { const x = x0 + (x1 - x0) * i / n, p = Math.sqrt(Math.max(0, 2 * (E - s.V(x)))); sup.push([x, p]); inf.push([x, -p]); }
+  const gira = S.sis === 'pend' && E >= 1;
+  ctx.beginPath();
+  sup.forEach(([x, p], i) => i ? ctx.lineTo(X(x), Y(p)) : ctx.moveTo(X(x), Y(p)));
+  if (gira) {
+    if (relleno) { ctx.lineTo(X(x1), Y(0)); ctx.lineTo(X(x0), Y(0)); ctx.closePath(); ctx.fillStyle = 'rgba(252,165,10,.18)'; ctx.fill(); }
+    ctx.strokeStyle = col; ctx.lineWidth = relleno ? 2.5 : 1.2; ctx.stroke();
+    ctx.beginPath(); inf.forEach(([x, p], i) => i ? ctx.lineTo(X(x), Y(p)) : ctx.moveTo(X(x), Y(p))); ctx.strokeStyle = col; ctx.stroke();
+    return;
+  }
+  for (let i = inf.length - 1; i >= 0; i--) ctx.lineTo(X(inf[i][0]), Y(inf[i][1]));
+  ctx.closePath();
+  if (relleno) { ctx.fillStyle = 'rgba(252,165,10,.18)'; ctx.fill(); }
+  ctx.strokeStyle = col; ctx.lineWidth = relleno ? 2.5 : 1.2; ctx.stroke();
+}
+
+function pintarAE() {
+  const { ctx, w, h } = ajustar($('b'), 1);
+  const s = SIS[S.sis], m = { l:44, r:14, t:26, b:32 };
+  const Es = Array.from({ length: 160 }, (_, i) => s.Emin + (s.Emax - s.Emin) * i / 159);
+  const As = Es.map(E => area(S.sis, E)), Amax = Math.max(...As) * 1.08;
+  const X = E => m.l + (E - s.Emin) / (s.Emax - s.Emin) * (w - m.l - m.r), Y = A => h - m.b - A / Amax * (h - m.t - m.b);
+  linea(ctx, m.l, h - m.b, w - m.r, h - m.b, COL.muted); linea(ctx, m.l, h - m.b, m.l, m.t, COL.muted);
+  texto(ctx, 'E', w - m.r, h - 8, { c:COL.muted, al:'right' }); texto(ctx, 'A(E)', m.l + 4, m.t - 8, { c:COL.acc, f:12, b:true });
+  ctx.strokeStyle = COL.acc; ctx.lineWidth = 2.2; ctx.beginPath(); Es.forEach((E, i) => i ? ctx.lineTo(X(E), Y(As[i])) : ctx.moveTo(X(E), Y(As[i]))); ctx.stroke();
+  // tangente: su pendiente es el período
+  const A = area(S.sis, S.E), T = periodo(S.sis, S.E), d = (s.Emax - s.Emin) * 0.18;
+  linea(ctx, X(S.E - d), Y(A - T * d), X(S.E + d), Y(A + T * d), COL.ok, 2);
+  punto(ctx, X(S.E), Y(A), 5, COL.ok);
+  texto(ctx, `pendiente = T = ${T.toFixed(2)}`, X(S.E) + 8, Y(A) + 18, { c:COL.ok, f:12, b:true });
+  if (S.sis === 'pend') linea(ctx, X(1), m.t, X(1), h - m.b, 'rgba(255,127,181,.5)', 1, [3, 3]);
+  const ref = { osc:'oscilador: A = 2πE/ω, recta → T = 2π/ω para toda E', caja:'caja de largo L: A = 2L√(2mE) → T = 2L/v', pend:'péndulo: T crece y diverge en la separatriz' }[S.sis];
+  texto(ctx, ref, m.l + 4, m.t + 12, { c:COL.muted, f:11 });
+}
+
+/* ═════════════════════════  ESFERA DURA  ═════════════════════════ */
+
+function pintarEsfera() {
+  const { ctx, w, h } = ajustar($('a'), 1);
+  const R = Math.min(w, h) * 0.22, cx = w * 0.55, cy = h / 2;
+  ctx.fillStyle = 'rgba(246,213,67,.18)'; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fill();
+  ctx.strokeStyle = COL.ok; ctx.lineWidth = 2; ctx.stroke();
+  linea(ctx, 10, cy, w - 10, cy, 'rgba(232,226,242,.15)', 1, [3, 3]);
+  const tray = (b, col, wid, fullAlpha) => {
+    const yb = cy - b * R;
+    if (b >= 1) { linea(ctx, 0, yb, w, yb, col, wid); return; }
+    const alfa = Math.asin(b), px = cx - R * Math.cos(alfa), py = yb;
+    linea(ctx, 0, yb, px, py, col, wid);
+    const th = Math.PI - 2 * alfa;            // ángulo de dispersión (desviación hacia arriba)
+    const L = Math.max(w, h);
+    linea(ctx, px, py, px + L * Math.cos(th), py - L * Math.sin(th), col, wid);
+    return { px, py, alfa, th };
+  };
+  if (S.abanico) for (let k = 0; k <= 20; k++) tray(k / 20 * 0.999, 'rgba(110,168,255,.22)', 1);
+  const g = tray(S.b, COL.acc, 2.5);
+  if (g) {
+    // normal y ángulos iguales
+    linea(ctx, cx, cy, g.px - 0.5 * R * Math.cos(g.alfa), g.py - 0.5 * R * Math.sin(g.alfa), 'rgba(232,226,242,.5)', 1, [4, 3]);
+    linea(ctx, cx, cy, g.px, g.py, 'rgba(232,226,242,.5)', 1);
+    // b
+    linea(ctx, cx - R * 1.6, cy, cx - R * 1.6, cy - S.b * R, COL.rosa, 2);
+    texto(ctx, 'b', cx - R * 1.6 - 8, cy - S.b * R / 2 + 4, { c:COL.rosa, f:13, b:true, al:'right' });
+    texto(ctx, `θ = ${(g.th * 180 / Math.PI).toFixed(1)}°`, g.px + 10, g.py - 12, { c:COL.acc, f:14, b:true });
+    texto(ctx, 'α', g.px - 14, g.py + 4, { c:COL.muted, f:11 });
+  }
+  texto(ctx, 'reflexión especular: ángulo de entrada = ángulo de salida', w / 2, h - 10, { c:COL.muted, f:11, al:'center' });
+}
+
+function pintarTheta() {
+  const { ctx, w, h } = ajustar($('b'), 1);
+  const m = { l:44, r:14, t:26, b:32 }, X = b => m.l + b * (w - m.l - m.r), Y = th => h - m.b - th / 180 * (h - m.t - m.b);
+  linea(ctx, m.l, h - m.b, w - m.r, h - m.b, COL.muted); linea(ctx, m.l, h - m.b, m.l, m.t, COL.muted);
+  for (const t of [0, 45, 90, 135, 180]) { linea(ctx, m.l, Y(t), w - m.r, Y(t), COL.line); texto(ctx, t + '°', m.l - 6, Y(t) + 4, { c:COL.tenue, f:10, al:'right' }); }
+  for (const b of [0, .25, .5, .75, 1]) texto(ctx, b, X(b), h - m.b + 14, { c:COL.tenue, f:10, al:'center' });
+  texto(ctx, 'b/R', w - m.r, h - 8, { c:COL.muted, al:'right' });
+  ctx.strokeStyle = COL.acc; ctx.lineWidth = 2.2; ctx.beginPath();
+  for (let i = 0; i <= 200; i++) { const b = i / 200, th = 2 * Math.acos(b) * 180 / Math.PI; i ? ctx.lineTo(X(b), Y(th)) : ctx.moveTo(X(b), Y(th)); }
+  ctx.stroke();
+  const th = 2 * Math.acos(S.b) * 180 / Math.PI;
+  punto(ctx, X(S.b), Y(th), 5, COL.ok);
+  texto(ctx, 'θ(b) = 2 arccos(b/R)  ⇔  b = R cos(θ/2)', m.l + 6, m.t - 8, { c:COL.acc, f:12, b:true });
+  texto(ctx, 'dσ/dΩ = R²/4 (isótropo)   σ = πR²', m.l + 6, Y(28), { c:COL.muted, f:11 });
+}
+
+/* ═════════════════════════  TEXTOS Y CONTROL  ═════════════════════════ */
+
+const INFO = {
+  fase: () => `
+    <h3>Qué estás viendo</h3>
+    <p>Cada curva es una órbita de energía constante en el plano (${SIS[S.sis].xl}, p). El punto se mueve según Hamilton: <span class="f">ẋ = ∂H/∂p</span>, <span class="f">ṗ = −∂H/∂x</span>. Siempre gira en sentido horario: arriba (p > 0) avanza hacia la derecha.</p>
+    <h3>El resultado clave</h3>
+    <div class="caja"><span class="f">T(E) = dA/dE</span>, donde <span class="f">A(E) = ∮p dx</span> es el área encerrada por la órbita. Es la pendiente de la curva de la derecha.</div>
+    <p><b>Oscilador:</b> la órbita es una elipse de semiejes √(2E/k) y √(2mE). Su área es <span class="f">A = 2πE/ω</span>, lineal en E, así que <span class="f">T = 2π/ω</span> para toda energía (isócrono).</p>
+    <p><b>Caja de largo L:</b> un rectángulo de base L y altura 2√(2mE). <span class="f">A = 2L√(2mE)</span>, así que <span class="f">T = dA/dE = L√(2m/E) = 2L/v</span>: el tiempo de ida y vuelta.</p>
+    <p><b>Péndulo:</b> para E pequeña se parece al oscilador. Cerca de la separatriz (E = 1, la curva rosa) el período diverge: tarda infinito en llegar arriba. Por encima, gira sin volver.</p>
+    <h3>Para qué sirve en el examen</h3>
+    <p>Si te dan la forma de la órbita, calcula el área y deriva. Liouville: el área de una región de condiciones iniciales se conserva con el tiempo. La cuantización de Bohr–Sommerfeld es <span class="f">∮p dx = nh</span>: con el oscilador da Eₙ = nħω.</p>
+    <p class="trampa">El área no es el período: es su integral. Fíjate si te piden A(E) o T = dA/dE.</p>`,
+  esfera: () => `
+    <h3>Qué estás viendo</h3>
+    <p>Partículas que llegan en paralelo con parámetro de impacto b (la distancia al eje) y rebotan especularmente en una esfera dura de radio R.</p>
+    <h3>La geometría</h3>
+    <p>En el choque, sin α = b/R (α es el ángulo con la normal). Entra y sale con el mismo ángulo respecto a la normal, así que se desvía <span class="f">θ = π − 2α</span>.</p>
+    <div class="caja"><span class="f">b = R cos(θ/2)</span>. Choque frontal (b = 0) → θ = 180°, rebota hacia atrás. Rozando (b = R) → θ = 0.</div>
+    <h3>Sección eficaz</h3>
+    <p><span class="f">dσ/dΩ = (b/sin θ)|db/dθ| = R²/4</span>: no depende del ángulo, sale igual hacia todos lados. Integrando, <span class="f">σ = πR²</span>, el área geométrica que «ve» el haz.</p>
+    <h3>Trampas</h3>
+    <p class="trampa">No es b = R sin(θ/2): con b = 0 eso daría θ = 0. Chequea siempre los dos extremos.</p>
+    <p class="trampa">El abanico se ve denso cerca de θ = 180° porque dibujé b uniforme. La sección eficaz por ángulo sólido igual da isótropa.</p>`,
+};
+
+function pintar() {
+  if (S.modo === 'fase') { pintarFase(); pintarAE(); } else { pintarEsfera(); pintarTheta(); }
+}
+function ponerModo(m, hash = true) {
+  S.modo = INFO[m] ? m : 'fase';
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.m === S.modo));
+  $('cFase').classList.toggle('oculto', S.modo !== 'fase'); $('cEsf').classList.toggle('oculto', S.modo !== 'esfera');
+  $('info').innerHTML = INFO[S.modo]();
+  if (hash) history.replaceState(null, '', '#' + S.modo);
+  pintar();
+}
+function ponerSis(sis) {
+  S.sis = sis; const s = SIS[sis];
+  $('E').min = s.Emin; $('E').max = s.Emax; S.E = s.E0; $('E').value = S.E; $('vE').textContent = S.E.toFixed(2);
+  document.querySelectorAll('#sist button').forEach(b => b.classList.toggle('on', b.dataset.s === sis));
+  reiniciarPunto(); $('info').innerHTML = INFO[S.modo]();
+}
+$('tabs').addEventListener('click', e => { if (e.target.dataset.m) ponerModo(e.target.dataset.m); });
+$('sist').addEventListener('click', e => { if (e.target.dataset.s) ponerSis(e.target.dataset.s); });
+$('E').addEventListener('input', e => { S.E = +e.target.value; $('vE').textContent = S.E.toFixed(2); reiniciarPunto(); });
+$('bb').addEventListener('input', e => { S.b = +e.target.value; $('vb').textContent = S.b.toFixed(2); });
+$('abanico').addEventListener('click', () => { S.abanico = !S.abanico; $('abanico').classList.toggle('on', S.abanico); });
+addEventListener('resize', pintar);
+let ult = performance.now();
+function bucle(t) {
+  const dt = Math.min(0.05, (t - ult) / 1000); ult = t;
+  if (S.modo === 'fase') for (let k = 0; k < 4; k++) paso(dt / 4 * 1.5);
+  pintar(); requestAnimationFrame(bucle);
+}
+ponerSis('osc');
+ponerModo(location.hash.slice(1) || 'fase', false);
+requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

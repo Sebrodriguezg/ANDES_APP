@@ -81,6 +81,20 @@ SIMULACIONES = [
         "area": "moderna_cuantica", "ancho": False, "hash": "oscilador",
     },
     {
+        "fuente": VISUAL / "gauss_ampere.html",
+        "titulo": "Gauss: E(r) por regiones",
+        "desc": "Esfera maciza, cascarón, esferas concéntricas ±Q, cilindro y coaxial: "
+                "la superficie gaussiana, la carga encerrada, E(r) y V(r).",
+        "area": "electromagnetismo", "ancho": False, "hash": "gauss,esfera",
+    },
+    {
+        "fuente": VISUAL / "gauss_ampere.html",
+        "titulo": "Ampère: B(r) por regiones",
+        "desc": "Alambre macizo, conductor hueco, coaxial y solenoide: corriente encerrada "
+                "como fracción de área y el perfil de B(r).",
+        "area": "electromagnetismo", "ancho": False, "hash": "ampere,alambre",
+    },
+    {
         "fuente": VISUAL / "metodo_de_imagenes.html",
         "titulo": "Método de las imágenes",
         "desc": "Plano, esquina de 90°, esfera a tierra, esfera neutra y cavidad. "
@@ -95,6 +109,34 @@ SIMULACIONES = [
                 "y la curva log–log contra la distancia.",
         "area": "electromagnetismo",
         "ancho": True,
+    },
+    {
+        "fuente": VISUAL / "mecanica.html",
+        "titulo": "Mecánica: espacio de fase y T = dA/dE",
+        "desc": "Oscilador, caja y péndulo en el plano (x, p): el área de la órbita y su "
+                "derivada, que es el período.",
+        "area": "mecanica", "ancho": False, "hash": "fase",
+    },
+    {
+        "fuente": VISUAL / "mecanica.html",
+        "titulo": "Mecánica: dispersión por esfera dura",
+        "desc": "Parámetro de impacto y ángulo de dispersión: b = R cos(θ/2), "
+                "dσ/dΩ = R²/4 y σ = πR².",
+        "area": "mecanica", "ancho": False, "hash": "esfera",
+    },
+    {
+        "fuente": VISUAL / "estadistica.html",
+        "titulo": "Estadística: monedas y entropía",
+        "desc": "Microestados contra macroestados, Ω = C(N, n), S = k ln Ω y por qué el "
+                "pico se angosta con N.",
+        "area": "termo_estadistica", "ancho": False, "hash": "monedas",
+    },
+    {
+        "fuente": VISUAL / "estadistica.html",
+        "titulo": "Estadística: dos sólidos en contacto térmico",
+        "desc": "Sólidos de Einstein que intercambian energía: Ω_A·Ω_B, el macroestado más "
+                "probable y la segunda ley en vivo.",
+        "area": "termo_estadistica", "ancho": False, "hash": "contacto",
     },
     {
         "fuente": VISUAL / "p15_isoterma_adiabatica.html",

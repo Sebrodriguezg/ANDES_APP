@@ -12,6 +12,12 @@ const SIMS = {
   escalon:     { url: 'extra/cuantica.html#escalon',        titulo: 'Escalón de potencial' },
   caja:        { url: 'extra/cuantica.html#caja',           titulo: 'Caja 2D: bosones y fermiones' },
   oscilador:   { url: 'extra/cuantica.html#oscilador',      titulo: 'Oscilador cuántico' },
+  gauss:       { url: 'extra/gauss_ampere.html#gauss,esfera',   titulo: 'Gauss: E(r) por regiones' },
+  ampere:      { url: 'extra/gauss_ampere.html#ampere,alambre', titulo: 'Ampère: B(r) por regiones' },
+  fase:        { url: 'extra/mecanica.html#fase',           titulo: 'Espacio de fase' },
+  dispersion:  { url: 'extra/mecanica.html#esfera',         titulo: 'Esfera dura' },
+  monedas:     { url: 'extra/estadistica.html#monedas',     titulo: 'Monedas y entropía' },
+  contacto:    { url: 'extra/estadistica.html#contacto',    titulo: 'Contacto térmico' },
   imagenes:    { url: 'extra/metodo_de_imagenes.html',      titulo: 'Método de las imágenes' },
   borde:       { url: 'extra/efectos_de_borde_linea_plano.html', titulo: 'Efectos de borde' },
   adiabatica:  { url: 'extra/p15_isoterma_adiabatica.html', titulo: 'Isoterma contra adiabática' },
@@ -24,6 +30,12 @@ const RE = {
   imagenes: /image charge|method of images|m[eé]todo de (?:las )?im[aá]genes|carga imagen|grounded|a tierra|conducting plane|plano conductor|conductor plano/,
   borde: /infinite (?:line|sheet|plane|wire|rod|plate)|infinit[oa]s? (?:l[ií]nea|l[aá]mina|plano|hilo|alambre|placa)|finite (?:line|rod|sheet|wire)|edge effect|efectos? de borde|parallel[- ]plate|placas paralelas/,
   adiabatica: /adiabat|isotherm|isot[eé]rm/,
+  gauss: /gauss|spherical shell|cascar[oó]n|uniformly charged (?:sphere|ball|cylinder)|esfera (?:maciza|s[oó]lida|cargada|hueca)|charged (?:sphere|cylinder|shell)|coaxial|cilindro/,
+  ampere: /amp[eè]re|amperian|amperiana|solenoid|toroid|hollow (?:conductor|cylinder)|conductor hueco|cilindro hueco|cil[ií]ndric[oa][^.]*hueco|long straight wire|alambre (?:recto|largo)|coaxial/,
+  fase: /phase space|phase-space|espacio de fase|liouville|action variable|variable de acci[oó]n|hamilton/,
+  dispersion: /hard sphere|esfera dura|impact parameter|par[aá]metro de impacto|scattering angle|[aá]ngulo de dispersi[oó]n|cross section|secci[oó]n eficaz/,
+  entropia: /multiplicit|microstate|microestado|macrostate|macroestado|\bcoins?\b|monedas?|einstein solid|s[oó]lido de einstein|k\s*ln|entrop[^.]*(?:\bln\b|ω|Ω|omega)|statistical weight|peso estad[ií]stico/,
+  contacto: /thermal contact|contacto t[eé]rmico|einstein solid|s[oó]lido de einstein|two (?:systems|solids)|dos (?:sistemas|s[oó]lidos)/,
   nave: /spaceship|space ship|\bnave\b|rocket|cohete|light-?years?|a[ñn]os luz|twin|gemel|\bstar\b|estrella|astronaut/,
   escalon: /\bstep\b|escal[oó]n|barrier|barrera|tunnel|t[uú]nel|reflection coef|transmission coef|coeficiente de (?:reflexi|transmisi)/,
   caja: /\bbox\b|caja|square well|infinite well|pozo|boson|fermion|pauli|indistinguish|indistinguib/,
@@ -50,10 +62,20 @@ export function simulacionesPara(t) {
     out.push('doppler');
   }
   if (t.area === 'electromagnetismo') {
+    if (RE.gauss.test(txt)) out.push('gauss');
+    if (RE.ampere.test(txt)) out.push('ampere');
     if (RE.imagenes.test(txt)) out.push('imagenes');
     if (RE.borde.test(txt)) out.push('borde');
   }
-  if (t.area === 'termo_estadistica' && RE.adiabatica.test(txt)) out.push('adiabatica');
+  if (t.area === 'termo_estadistica') {
+    if (RE.adiabatica.test(txt)) out.push('adiabatica');
+    if (RE.contacto.test(txt)) out.push('contacto');
+    else if (RE.entropia.test(txt)) out.push('monedas');
+  }
+  if (t.area === 'mecanica') {
+    if (RE.fase.test(txt)) out.push('fase');
+    if (RE.dispersion.test(txt)) out.push('dispersion');
+  }
   if (t.area === 'moderna_cuantica') {
     if (RE.escalon.test(txt)) out.push('escalon');
     if (RE.caja.test(txt)) out.push('caja');

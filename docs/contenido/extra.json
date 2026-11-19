@@ -59,6 +59,22 @@
   {
    "tipo": "html",
    "grupo": "Simulaciones",
+   "titulo": "Gauss: E(r) por regiones",
+   "desc": "Esfera maciza, cascarón, esferas concéntricas ±Q, cilindro y coaxial: la superficie gaussiana, la carga encerrada, E(r) y V(r).",
+   "area": "electromagnetismo",
+   "archivo": "extra/gauss_ampere.html#gauss,esfera"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Ampère: B(r) por regiones",
+   "desc": "Alambre macizo, conductor hueco, coaxial y solenoide: corriente encerrada como fracción de área y el perfil de B(r).",
+   "area": "electromagnetismo",
+   "archivo": "extra/gauss_ampere.html#ampere,alambre"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
    "titulo": "Método de las imágenes",
    "desc": "Plano, esquina de 90°, esfera a tierra, esfera neutra y cavidad. Zona de interés contra zona externa, y la solución sin conductor.",
    "area": "electromagnetismo",
@@ -71,6 +87,38 @@
    "desc": "Cuándo vale la aproximación infinita: mapa de E_finito/E_infinito y la curva log–log contra la distancia.",
    "area": "electromagnetismo",
    "archivo": "extra/efectos_de_borde_linea_plano.html"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Mecánica: espacio de fase y T = dA/dE",
+   "desc": "Oscilador, caja y péndulo en el plano (x, p): el área de la órbita y su derivada, que es el período.",
+   "area": "mecanica",
+   "archivo": "extra/mecanica.html#fase"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Mecánica: dispersión por esfera dura",
+   "desc": "Parámetro de impacto y ángulo de dispersión: b = R cos(θ/2), dσ/dΩ = R²/4 y σ = πR².",
+   "area": "mecanica",
+   "archivo": "extra/mecanica.html#esfera"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Estadística: monedas y entropía",
+   "desc": "Microestados contra macroestados, Ω = C(N, n), S = k ln Ω y por qué el pico se angosta con N.",
+   "area": "termo_estadistica",
+   "archivo": "extra/estadistica.html#monedas"
+  },
+  {
+   "tipo": "html",
+   "grupo": "Simulaciones",
+   "titulo": "Estadística: dos sólidos en contacto térmico",
+   "desc": "Sólidos de Einstein que intercambian energía: Ω_A·Ω_B, el macroestado más probable y la segunda ley en vivo.",
+   "area": "termo_estadistica",
+   "archivo": "extra/estadistica.html#contacto"
   },
   {
    "tipo": "html",
