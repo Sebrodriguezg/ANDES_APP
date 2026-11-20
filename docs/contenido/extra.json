@@ -209,6 +209,16 @@
   {
    "tipo": "pdf",
    "grupo": "Simulacros Uniandes",
+   "titulo": "Soluciones U2",
+   "desc": "Las 25 explicadas, con trucos de descarte y la trampa de cada fallada.",
+   "area": "transversal",
+   "archivo": "extra/soluciones_u2.bin",
+   "nombre": "soluciones_U2.pdf",
+   "kb": 382
+  },
+  {
+   "tipo": "pdf",
+   "grupo": "Simulacros Uniandes",
    "titulo": "Simulacro U3",
    "desc": "Se resuelve sobre el GR9677.",
    "area": "transversal",

@@ -172,6 +172,8 @@ PDFS = [
      "05_SIMULACROS/uniandes/simulacro_U2.pdf"),
     ("Simulacros Uniandes", "Clave U2", "Respuestas del U2.", "transversal",
      "05_SIMULACROS/uniandes/clave_U2.pdf"),
+    ("Simulacros Uniandes", "Soluciones U2", "Las 25 explicadas, con trucos de descarte y la trampa de cada fallada.",
+     "transversal", "05_SIMULACROS/uniandes/soluciones_U2.pdf"),
     ("Simulacros Uniandes", "Simulacro U3", "Se resuelve sobre el GR9677.", "transversal",
      "05_SIMULACROS/uniandes/simulacro_U3.pdf"),
     ("Simulacros Uniandes", "Clave U3", "Respuestas del U3.", "transversal",
