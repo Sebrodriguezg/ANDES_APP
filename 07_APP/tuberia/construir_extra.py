@@ -146,6 +146,62 @@ SIMULACIONES = [
         "area": "electromagnetismo", "ancho": False, "hash": "rc",
     },
     {
+        "fuente": VISUAL / "oscilaciones.html",
+        "titulo": "Oscilaciones: amortiguado (casos de la ED)",
+        "desc": "Sub, crítico y sobreamortiguado: x(t) y las raíces de la ecuación "
+                "característica moviéndose en el plano complejo.",
+        "area": "mecanica", "ancho": False, "hash": "amortiguado",
+    },
+    {
+        "fuente": VISUAL / "oscilaciones.html",
+        "titulo": "Oscilaciones: forzado y resonancia",
+        "desc": "Transitorio y estado estacionario, curva A(ω), desfase de 0° a 180° "
+                "y el pico de resonancia según el amortiguamiento.",
+        "area": "mecanica", "ancho": False, "hash": "forzado",
+    },
+    {
+        "fuente": VISUAL / "rodadura.html",
+        "titulo": "Rodadura y momentos de inercia",
+        "desc": "Carrera en un plano inclinado: bloque, esfera, cilindro, cascarón y aro. "
+                "a = g sinθ/(1 + β) y el reparto de la energía.",
+        "area": "mecanica", "ancho": False,
+    },
+    {
+        "fuente": VISUAL / "ondas_optica.html",
+        "titulo": "Ondas estacionarias: cuerdas y tubos",
+        "desc": "Modos de la cuerda, del tubo abierto y del cerrado (solo impares), con "
+                "nodos, vientres y las dos ondas viajeras.",
+        "area": "optica_ondas", "ancho": False, "hash": "estacionarias",
+    },
+    {
+        "fuente": VISUAL / "ondas_optica.html",
+        "titulo": "Doble rendija: interferencia y difracción",
+        "desc": "El campo de dos fuentes y el patrón en la pantalla: d sinθ = mλ, "
+                "a sinθ = mλ y los órdenes que faltan.",
+        "area": "optica_ondas", "ancho": False, "hash": "rendijas",
+    },
+    {
+        "fuente": VISUAL / "ondas_optica.html",
+        "titulo": "Lentes delgadas: los tres rayos",
+        "desc": "Convergente y divergente: imagen real o virtual, derecha o invertida, "
+                "con 1/d₀ + 1/dᵢ = 1/f.",
+        "area": "optica_ondas", "ancho": False, "hash": "lentes",
+    },
+    {
+        "fuente": VISUAL / "termo_ciclos.html",
+        "titulo": "Termo: los cuatro procesos",
+        "desc": "Isobárico, isocórico, isotérmico y adiabático desde el mismo estado: "
+                "W como área y la tabla de Q, W y ΔU con sus signos.",
+        "area": "termo_estadistica", "ancho": False, "hash": "procesos",
+    },
+    {
+        "fuente": VISUAL / "termo_ciclos.html",
+        "titulo": "Termo: ciclo de Carnot en PV y TS",
+        "desc": "Los cuatro tramos animados, el rectángulo en TS, η = 1 − T_c/T_h y la "
+                "segunda ley.",
+        "area": "termo_estadistica", "ancho": False, "hash": "carnot",
+    },
+    {
         "fuente": VISUAL / "p15_isoterma_adiabatica.html",
         "titulo": "Isoterma contra adiabática",
         "desc": "Expansión de V a 2V (problema 15 de U1): trabajos como áreas, "

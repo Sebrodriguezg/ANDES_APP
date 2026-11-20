@@ -24,7 +24,7 @@ caso('relatividad sin pista: las dos', { area: 'relatividad', enunciado: 'Which 
 caso('imagen en plano a tierra', { area: 'electromagnetismo',
   enunciado: 'A point charge q is brought to a distance d from a grounded conducting plane.', opciones: {} }, ['imagenes']);
 caso('plano infinito', { area: 'electromagnetismo', enunciado: 'An infinite sheet of charge…', opciones: {} }, ['borde']);
-caso('adiabática', { area: 'termo_estadistica', enunciado: 'An ideal gas expands adiabatically', opciones: {} }, ['adiabatica']);
+caso('adiabática', { area: 'termo_estadistica', enunciado: 'An ideal gas expands adiabatically', opciones: {} }, ['procesos', 'adiabatica']);
 caso('Doppler acústico: nada', { area: 'optica_ondas', etiquetas: ['doppler'],
   enunciado: 'A siren approaches at 30 m/s; the sound frequency heard is', opciones: {} }, []);
 caso('viaje a una estrella', { area: 'relatividad', enunciado: 'A spaceship travels to a star 4 light-years away at 0.8c. How long does the trip take according to the astronaut clock?', opciones: {} },
@@ -40,6 +40,13 @@ caso('entropía de monedas', { area: 'termo_estadistica', enunciado: 'N coins ar
 caso('dos sólidos', { area: 'termo_estadistica', enunciado: 'Two Einstein solids in thermal contact share q units…', opciones: {} }, ['contacto']);
 caso('RC', { area: 'electromagnetismo', enunciado: 'A capacitor C is in series with a resistor R. After what time has the resistor dissipated half the energy?', opciones: {} }, ['rc']);
 caso('LC', { area: 'electromagnetismo', enunciado: 'An LC circuit oscillates; the resonant frequency is', opciones: {} }, ['rlc']);
+caso('oscilador forzado', { area: 'mecanica', enunciado: 'A damped harmonic oscillator is driven by a force F0 cos ωt; at resonance…', opciones: {} }, ['forzado']);
+caso('amortiguado crítico', { area: 'mecanica', enunciado: 'For a critically damped oscillator…', opciones: {} }, ['amortiguado']);
+caso('carrera de rodadura', { area: 'mecanica', enunciado: 'A hoop and a solid sphere roll without slipping down an incline…', opciones: {} }, ['rodadura']);
+caso('doble rendija', { area: 'optica_ondas', enunciado: 'Light passes through two slits separated by d; the interference fringes…', opciones: {} }, ['rendijas']);
+caso('lente', { area: 'optica_ondas', enunciado: 'An object is 30 cm from a converging lens of focal length 10 cm', opciones: {} }, ['lentes']);
+caso('tubo', { area: 'optica_ondas', enunciado: 'A pipe open at both ends has a fundamental frequency of 440 Hz', opciones: {} }, ['estacionarias']);
+caso('Carnot', { area: 'termo_estadistica', enunciado: 'A Carnot engine operates between 500 K and 300 K; its efficiency is', opciones: {} }, ['carnot']);
 caso('mecánica: nada', { area: 'mecanica', enunciado: 'A block slides down an incline', opciones: {} }, []);
 
 if (htmlAccesos({ area: 'mecanica', enunciado: 'x' }) !== '') { console.log('  FALLA tarjeta sin simulación pinta botones'); fallos++; }

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oscilaciones</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690;
+          --line:#2A1F4A; --acc:#FCA50A; --mec:#F6D543; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .tabs { display:flex; gap:6px; margin:8px 0 8px; }
+  .tabs button { flex:1; font:inherit; font-size:14px; padding:9px 4px; border-radius:2px; border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
+  .tabs button.on { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:700px) { .grid { grid-template-columns:1fr; } }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--mec); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+  .oculto { display:none !important; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Oscilaciones</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Oscilaciones: amortiguadas y forzadas</h1>
+  <p class="sub">m ẍ + b ẋ + k x = F(t). Con γ = b/m y ω₀ = √(k/m). Mueve γ y mira cómo cambian las raíces y la forma de x(t).</p>
+
+  <div class="tabs" id="tabs">
+    <button data-m="amortiguado" class="on">Amortiguado</button>
+    <button data-m="forzado">Forzado</button>
+  </div>
+  <div class="grid">
+    <canvas id="a"></canvas>
+    <canvas id="b"></canvas>
+  </div>
+  <div class="ctrl">
+    <label>Amortiguamiento γ = b/m = <b id="vg">0.40</b> s⁻¹ &nbsp;(crítico en γ = 2ω₀ = 2)</label>
+    <input id="g" type="range" min="0" max="4" step="0.01" value="0.4">
+    <div class="fila" id="pres"><button data-g="0">Sin fricción</button><button data-g="0.4">Sub</button><button data-g="2">Crítico</button><button data-g="3.5">Sobre</button></div>
+    <div id="cFor">
+      <label>Frecuencia de la fuerza ω = <b id="vw">0.70</b> rad/s &nbsp;(ω₀ = 1)</label>
+      <input id="w" type="range" min="0.05" max="3" step="0.01" value="0.7">
+      <div class="fila"><button id="res">Ir a la resonancia</button></div>
+    </div>
+    <div class="fila"><button id="reset">⟲ Soltar de nuevo</button></div>
+  </div>
+  <div class="info" id="info"></div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A', ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+const W0 = 1, F0 = 1;
+const S = { modo:'amortiguado', g:0.4, w:0.7, t:0, x:1, v:0, hist:[] };
+function ajustar(cv, r) { const w = cv.clientWidth || 360, h = Math.round(w * r); if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); } const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h); return { ctx, w, h }; }
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) { ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.fillText(s, x, y); }
+function linea(ctx, x1, y1, x2, y2, c, w = 1, d = null) { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(d || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]); }
+function punto(ctx, x, y, r, c) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
+
+const regimen = g => g < 1e-9 ? 'sin amortiguamiento' : g < 2 * W0 - 1e-3 ? 'subamortiguado' : g > 2 * W0 + 1e-3 ? 'sobreamortiguado' : 'amortiguamiento crítico';
+/* Raíces de r² + γ r + ω₀² = 0 */
+function raices(g) { const d = g * g / 4 - W0 * W0; return d >= 0 ? [[-g / 2 + Math.sqrt(d), 0], [-g / 2 - Math.sqrt(d), 0]] : [[-g / 2, Math.sqrt(-d)], [-g / 2, -Math.sqrt(-d)]]; }
+const fuerza = t => S.modo === 'forzado' ? F0 * Math.cos(S.w * t) : 0;
+function paso(dt) {
+  const f = (t, x, v) => [v, fuerza(t) - S.g * v - W0 * W0 * x];
+  const t = S.t, [a1, b1] = f(t, S.x, S.v), [a2, b2] = f(t + dt / 2, S.x + a1 * dt / 2, S.v + b1 * dt / 2), [a3, b3] = f(t + dt / 2, S.x + a2 * dt / 2, S.v + b2 * dt / 2), [a4, b4] = f(t + dt, S.x + a3 * dt, S.v + b3 * dt);
+  S.x += (a1 + 2 * a2 + 2 * a3 + a4) * dt / 6; S.v += (b1 + 2 * b2 + 2 * b3 + b4) * dt / 6; S.t += dt;
+}
+const amplitud = (w, g) => F0 / Math.sqrt((W0 * W0 - w * w) ** 2 + (g * w) ** 2);
+const fase = (w, g) => Math.atan2(g * w, W0 * W0 - w * w);   // retraso de x respecto a F
+
+function pintarA() {
+  const { ctx, w, h } = ajustar($('a'), 0.95);
+  const forz = S.modo === 'forzado', esc = forz ? Math.min(1, 1.6 / Math.max(amplitud(S.w, Math.max(S.g, .05)), 1)) : 1;
+  // resorte y masa
+  const y0 = 46, xEq = w * 0.55, px = 1 / 2.2 * (w * 0.4), xm = xEq + S.x * px * esc;
+  const xPared = forz ? 20 + 12 * Math.cos(S.w * S.t) : 20;
+  ctx.fillStyle = forz ? COL.rosa : COL.muted; ctx.fillRect(xPared - 6, y0 - 22, 6, 44);
+  ctx.strokeStyle = COL.muted; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(xPared, y0);
+  const vueltas = 14; for (let i = 1; i <= vueltas; i++) ctx.lineTo(xPared + (xm - 18 - xPared) * i / vueltas, y0 + (i % 2 ? -9 : 9) * (i === vueltas ? 0 : 1));
+  ctx.lineTo(xm - 18, y0); ctx.stroke();
+  ctx.fillStyle = COL.acc; ctx.fillRect(xm - 18, y0 - 16, 36, 32);
+  linea(ctx, xEq, y0 + 22, xEq, y0 + 30, COL.tenue);
+  if (forz) texto(ctx, 'pared que oscila: F = F₀cos ωt', 30, 14, { c:COL.rosa, f:10 });
+  // x(t) de los últimos segundos
+  const top = 96, bot = h - 18, mid = (top + bot) / 2, Tw = forz ? 40 : 30;
+  const X = t => 10 + (t - (S.t - Tw)) / Tw * (w - 20), Y = v => mid - v * (bot - top) / 2 / (forz ? Math.max(1.2, amplitud(S.w, Math.max(S.g, .05)) * 1.1) : 1.1);
+  linea(ctx, 10, mid, w - 10, mid, COL.line);
+  if (!forz && S.g > 0 && S.g < 2 * W0) {   // envolvente e^{−γt/2}
+    for (const sg of [1, -1]) { ctx.strokeStyle = 'rgba(110,168,255,.45)'; ctx.setLineDash([4, 3]); ctx.beginPath(); S.hist.forEach(([t], i) => { const y = Y(sg * Math.exp(-S.g * t / 2) * 1.0); i ? ctx.lineTo(X(t), y) : ctx.moveTo(X(t), y); }); ctx.stroke(); ctx.setLineDash([]); }
+  }
+  if (forz) { ctx.strokeStyle = 'rgba(255,127,181,.45)'; ctx.beginPath(); S.hist.forEach(([t], i) => { const y = Y(Math.cos(S.w * t) * .5); i ? ctx.lineTo(X(t), y) : ctx.moveTo(X(t), y); }); ctx.stroke(); }
+  ctx.strokeStyle = COL.acc; ctx.lineWidth = 2; ctx.beginPath(); S.hist.forEach(([t, x], i) => i ? ctx.lineTo(X(t), Y(x)) : ctx.moveTo(X(t), Y(x))); ctx.stroke();
+  texto(ctx, forz ? 'x(t) — y la fuerza (rosa, escalada)' : `x(t): ${regimen(S.g)}`, 12, top - 4, { c:COL.muted, f:11 });
+  if (!forz && S.g > 0 && S.g < 2) texto(ctx, `Q = ω₀/γ = ${(W0 / S.g).toFixed(1)}`, w - 12, top - 4, { c:COL.azul, f:11, al:'right' });
+}
+
+function pintarB() {
+  const { ctx, w, h } = ajustar($('b'), 0.95);
+  if (S.modo === 'amortiguado') {
+    // plano complejo de las raíces
+    const cx = w * 0.62, cy = h * 0.5, u = Math.min(w, h) * 0.2;
+    linea(ctx, 10, cy, w - 10, cy, COL.muted); linea(ctx, cx, 20, cx, h - 20, COL.muted);
+    texto(ctx, 'Re r', w - 12, cy - 6, { c:COL.muted, al:'right' }); texto(ctx, 'Im r', cx + 6, 30, { c:COL.muted });
+    ctx.strokeStyle = 'rgba(232,226,242,.15)'; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.arc(cx, cy, u * W0, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+    texto(ctx, '|r| = ω₀', cx + u * .72, cy - u * .78, { c:COL.tenue, f:10 });
+    // recorrido de las raíces al variar γ (lugar geométrico)
+    ctx.strokeStyle = 'rgba(252,165,10,.25)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, u * W0, Math.PI / 2, 3 * Math.PI / 2); ctx.stroke();
+    linea(ctx, cx - u * 4.5, cy, cx, cy, 'rgba(252,165,10,.25)', 3);
+    for (const [re, im] of raices(S.g)) punto(ctx, cx + re * u, cy - im * u, 7, COL.acc);
+    const [r1, r2] = raices(S.g);
+    texto(ctx, 'Raíces de r² + γr + ω₀² = 0', 12, 22, { c:COL.ink, f:13, b:true });
+    texto(ctx, regimen(S.g), 12, 40, { c:COL.ok, f:12, b:true });
+    const fr = r1[1] ? `r = −γ/2 ± i·${r1[1].toFixed(2)} → oscila y decae` : (Math.abs(r1[0] - r2[0]) < 1e-6 ? 'r = −γ/2 doble → x = (A + Bt)e^(−γt/2)' : `r = ${r1[0].toFixed(2)}, ${r2[0].toFixed(2)} → dos exponenciales`);
+    texto(ctx, fr, 12, h - 14, { c:COL.muted, f:11 });
+    return;
+  }
+  // curva de resonancia y fase
+  const m = { l:40, r:12, t:24, b:30 }, wmax = 3, g = Math.max(S.g, 0.02);
+  const Amax = Math.min(amplitud(Math.sqrt(Math.max(0, 1 - g * g / 2)) || 0.001, g) * 1.15, 12);
+  const X = v => m.l + v / wmax * (w - m.l - m.r), Y = A => h - m.b - Math.min(A, Amax) / Amax * (h - m.t - m.b) * .62;
+  const Yf = p => m.t + p / Math.PI * (h - m.t - m.b) * .3;
+  linea(ctx, m.l, h - m.b, w - m.r, h - m.b, COL.muted);
+  for (let v = 0.5; v <= 3; v += .5) texto(ctx, v, X(v), h - m.b + 14, { c:COL.tenue, f:10, al:'center' });
+  texto(ctx, 'ω/ω₀', w - m.r, h - 6, { c:COL.muted, al:'right' });
+  linea(ctx, X(1), m.t, X(1), h - m.b, 'rgba(232,226,242,.25)', 1, [3, 3]);
+  ctx.strokeStyle = COL.acc; ctx.lineWidth = 2.2; ctx.beginPath();
+  for (let i = 0; i <= 300; i++) { const v = 0.01 + i / 300 * (wmax - .01); i ? ctx.lineTo(X(v), Y(amplitud(v, g))) : ctx.moveTo(X(v), Y(amplitud(v, g))); } ctx.stroke();
+  ctx.strokeStyle = COL.azul; ctx.lineWidth = 1.6; ctx.beginPath();
+  for (let i = 0; i <= 300; i++) { const v = 0.01 + i / 300 * (wmax - .01); i ? ctx.lineTo(X(v), Yf(fase(v, g))) : ctx.moveTo(X(v), Yf(fase(v, g))); } ctx.stroke();
+  punto(ctx, X(S.w), Y(amplitud(S.w, g)), 5, COL.ok); punto(ctx, X(S.w), Yf(fase(S.w, g)), 4, COL.azul);
+  texto(ctx, `A(ω) = ${amplitud(S.w, g).toFixed(2)} F₀/m`, m.l + 4, m.t - 6, { c:COL.acc, f:12, b:true });
+  texto(ctx, `retraso φ = ${(fase(S.w, g) * 180 / Math.PI).toFixed(0)}°`, w - m.r, m.t - 6, { c:COL.azul, f:12, b:true, al:'right' });
+  texto(ctx, '0°', m.l - 4, Yf(0) + 4, { c:COL.azul, f:10, al:'right' }); texto(ctx, '180°', m.l - 4, Yf(Math.PI) + 4, { c:COL.azul, f:10, al:'right' });
+}
+
+const INFO = {
+  amortiguado: `
+    <h3>La ecuación y sus tres casos</h3>
+    <p><span class="f">ẍ + γẋ + ω₀²x = 0</span>. Se prueba <span class="f">x = e^(rt)</span> y sale la ecuación característica <span class="f">r² + γr + ω₀² = 0</span>, con <span class="f">r = −γ/2 ± √(γ²/4 − ω₀²)</span>. El discriminante decide todo:</p>
+    <div class="caja">
+      <b>Subamortiguado</b> (γ &lt; 2ω₀): raíces complejas. <span class="f">x = Ae^(−γt/2)cos(ω₁t + φ)</span>, con <span class="f">ω₁ = √(ω₀² − γ²/4)</span>: oscila un poco más lento que ω₀ y la amplitud decae.<br>
+      <b>Crítico</b> (γ = 2ω₀): raíz doble. <span class="f">x = (A + Bt)e^(−ω₀t)</span>: vuelve al equilibrio <b>lo más rápido posible</b> sin pasarse. Así se diseñan los amortiguadores de los carros.<br>
+      <b>Sobreamortiguado</b> (γ &gt; 2ω₀): dos raíces reales negativas. Suma de dos exponenciales: vuelve lento, sin oscilar.
+    </div>
+    <p>En el plano complejo, las raíces recorren el semicírculo de radio ω₀ al subir γ, chocan en −ω₀ (crítico) y se separan sobre el eje real.</p>
+    <h3>Energía y factor Q</h3>
+    <p>La energía decae como <span class="f">e^(−γt)</span>, el doble de rápido que la amplitud. <span class="f">Q = ω₀/γ</span> es, más o menos, cuántas oscilaciones (por 2π) da antes de apagarse.</p>
+    <h3>Primer orden: factor integrante</h3>
+    <p>Si falta la masa (<span class="f">bẋ + kx = 0</span>), o en RC y RL, la ecuación es de primer orden: <span class="f">ẋ + x/τ = f(t)</span>. Se multiplica por <span class="f">e^(t/τ)</span> y el lado izquierdo queda como <span class="f">d/dt[x e^(t/τ)]</span>. Siempre da exponenciales con tiempo τ.</p>
+    <p class="trampa">El crítico no oscila, pero tampoco es «el más lento»: es el más rápido de los que no se pasan.</p>`,
+  forzado: `
+    <h3>Qué estás viendo</h3>
+    <p>Una pared oscila y empuja al resorte con <span class="f">F₀cos ωt</span>. Al principio hay un <b>transitorio</b> (la solución homogénea, que decae). Después solo queda la <b>respuesta estacionaria</b>, que oscila a la frecuencia de la fuerza, <b>no</b> a ω₀.</p>
+    <h3>La amplitud y la fase</h3>
+    <div class="caja"><span class="f">A(ω) = (F₀/m) / √((ω₀² − ω²)² + γ²ω²)</span> &nbsp; <span class="f">tan φ = γω/(ω₀² − ω²)</span></div>
+    <p><b>ω ≪ ω₀</b>: sigue a la fuerza, en fase, con A ≈ F₀/k (estático).<br>
+       <b>ω = ω₀</b>: la fase es exactamente <b>90°</b> y A = F₀/(mγω₀). El pico de A está un poco antes, en <span class="f">√(ω₀² − γ²/2)</span>.<br>
+       <b>ω ≫ ω₀</b>: va en <b>contrafase</b> (180°) y A ≈ F₀/(mω²): la inercia no lo deja seguir.</p>
+    <p>El ancho del pico es aproximadamente γ: menos fricción, pico más alto y más angosto.</p>
+    <h3>Trampas</h3>
+    <p class="trampa">La frecuencia estacionaria es la de la fuerza. ω₀ solo aparece en el transitorio y en la forma de A(ω).</p>
+    <p class="trampa">Es la misma matemática que el RLC con fuente: m → L, b → R, k → 1/C, F → V. La resonancia de la corriente en el RLC es exactamente en ω₀.</p>`,
+};
+function pintar() { pintarA(); pintarB(); }
+function soltar() { S.t = 0; S.x = S.modo === 'forzado' ? 0 : 1; S.v = 0; S.hist = []; }
+function ponerModo(m, hash = true) { S.modo = INFO[m] ? m : 'amortiguado'; document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.m === S.modo)); $('cFor').classList.toggle('oculto', S.modo !== 'forzado'); $('info').innerHTML = INFO[S.modo]; soltar(); if (hash) history.replaceState(null, '', '#' + S.modo); }
+function ponerG(g) { S.g = +g; $('g').value = S.g; $('vg').textContent = S.g.toFixed(2); if (S.modo === 'amortiguado') soltar(); }
+$('tabs').addEventListener('click', e => { if (e.target.dataset.m) ponerModo(e.target.dataset.m); });
+$('g').addEventListener('input', e => ponerG(e.target.value));
+$('pres').addEventListener('click', e => { if (e.target.dataset.g) ponerG(e.target.dataset.g); });
+$('w').addEventListener('input', e => { S.w = +e.target.value; $('vw').textContent = S.w.toFixed(2); });
+$('res').addEventListener('click', () => { S.w = 1; $('w').value = 1; $('vw').textContent = '1.00'; });
+$('reset').addEventListener('click', soltar);
+addEventListener('resize', pintar);
+let ult = performance.now();
+function bucle(t) { const dt = Math.min(0.05, (t - ult) / 1000) * 2.2; ult = t; for (let k = 0; k < 6; k++) paso(dt / 6); S.hist.push([S.t, S.x]); const Tw = S.modo === 'forzado' ? 40 : 30; while (S.hist.length && S.hist[0][0] < S.t - Tw) S.hist.shift(); if (S.modo === 'amortiguado' && S.t > 30) soltar(); pintar(); requestAnimationFrame(bucle); }
+ponerModo(location.hash.slice(1) || 'amortiguado', false);
+const q = +new URLSearchParams(location.search).get('t'); for (let k = 0; k < q / 0.02; k++) { paso(0.02); S.hist.push([S.t, S.x]); }
+pintar(); requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

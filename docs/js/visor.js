@@ -21,6 +21,14 @@ const SIMS = {
   rc:          { url: 'extra/circuitos.html#rc',            titulo: 'Circuito RC' },
   rl:          { url: 'extra/circuitos.html#rl',            titulo: 'Circuito RL' },
   rlc:         { url: 'extra/circuitos.html#rlc',           titulo: 'Circuito LC / RLC' },
+  amortiguado: { url: 'extra/oscilaciones.html#amortiguado', titulo: 'Oscilador amortiguado' },
+  forzado:     { url: 'extra/oscilaciones.html#forzado',    titulo: 'Oscilador forzado y resonancia' },
+  rodadura:    { url: 'extra/rodadura.html',                titulo: 'Rodadura y momentos de inercia' },
+  estacionarias:{ url: 'extra/ondas_optica.html#estacionarias', titulo: 'Ondas estacionarias' },
+  rendijas:    { url: 'extra/ondas_optica.html#rendijas',   titulo: 'Doble rendija' },
+  lentes:      { url: 'extra/ondas_optica.html#lentes',     titulo: 'Lentes delgadas' },
+  procesos:    { url: 'extra/termo_ciclos.html#procesos',   titulo: 'Los cuatro procesos' },
+  carnot:      { url: 'extra/termo_ciclos.html#carnot',     titulo: 'Ciclo de Carnot' },
   imagenes:    { url: 'extra/metodo_de_imagenes.html',      titulo: 'Método de las imágenes' },
   borde:       { url: 'extra/efectos_de_borde_linea_plano.html', titulo: 'Efectos de borde' },
   adiabatica:  { url: 'extra/p15_isoterma_adiabatica.html', titulo: 'Isoterma contra adiabática' },
@@ -42,6 +50,14 @@ const RE = {
   rc: /\brc\b|capacitor[^.]*(?:resistor|resistance)|(?:resistor|resistance)[^.]*capacitor|condensador[^.]*resist|resist[^.]*condensador|time constant|constante de tiempo|discharg|descarg/,
   rl: /\brl\b|inductor[^.]*(?:resistor|resistance)|(?:resistor|resistance)[^.]*inductor|bobina[^.]*resist|inductance[^.]*resist/,
   rlc: /\brlc\b|\blc\b|lc circuit|circuito lc|resonan|resonancia|inductor[^.]*capacitor|capacitor[^.]*inductor/,
+  amort: /damp|amortigu|critically|cr[ií]tico|quality factor|factor de calidad|decay of (?:the )?amplitude/,
+  forz: /driven|forced|forzad|resonan|driving (?:force|frequency)/,
+  rodadura: /\broll|rueda|rodando|without slipping|sin deslizar|moment of inertia|momento de inercia|rotational inertia|inercia rotacional/,
+  estac: /standing wave|onda estacionaria|harmonic|arm[oó]nico|\bpipe|\btubo|organ|fundamental frequency|frecuencia fundamental|string (?:fixed|of length)|cuerda/,
+  rendijas: /\bslits?\b|rendija|interference|interferencia|diffraction|difracci|grating|fringe|franja/,
+  lentes: /\blens|\blente|focal|converging|diverging|convergente|divergente|mirror|espejo/,
+  ciclo: /carnot|efficien|eficiencia|heat engine|m[aá]quina t[eé]rmica|refrigerat|\bcycle|\bciclo/,
+  proc: /isobar|isochor|isoc[oó]ric|isob[aá]ric|first law|primera ley|adiabat|isotherm|isot[eé]rm|work done by the gas|trabajo (?:hecho|realizado) por el gas/,
   nave: /spaceship|space ship|\bnave\b|rocket|cohete|light-?years?|a[ñn]os luz|twin|gemel|\bstar\b|estrella|astronaut/,
   escalon: /\bstep\b|escal[oó]n|barrier|barrera|tunnel|t[uú]nel|reflection coef|transmission coef|coeficiente de (?:reflexi|transmisi)/,
   caja: /\bbox\b|caja|square well|infinite well|pozo|boson|fermion|pauli|indistinguish|indistinguib/,
@@ -77,13 +93,23 @@ export function simulacionesPara(t) {
     if (RE.borde.test(txt)) out.push('borde');
   }
   if (t.area === 'termo_estadistica') {
+    if (RE.ciclo.test(txt)) out.push('carnot');
+    if (RE.proc.test(txt)) out.push('procesos');
     if (RE.adiabatica.test(txt)) out.push('adiabatica');
     if (RE.contacto.test(txt)) out.push('contacto');
     else if (RE.entropia.test(txt)) out.push('monedas');
   }
   if (t.area === 'mecanica') {
+    if (RE.forz.test(txt)) out.push('forzado');
+    else if (RE.amort.test(txt)) out.push('amortiguado');
+    if (RE.rodadura.test(txt)) out.push('rodadura');
     if (RE.fase.test(txt)) out.push('fase');
     if (RE.dispersion.test(txt)) out.push('dispersion');
+  }
+  if (t.area === 'optica_ondas') {
+    if (RE.estac.test(txt)) out.push('estacionarias');
+    if (RE.rendijas.test(txt)) out.push('rendijas');
+    if (RE.lentes.test(txt)) out.push('lentes');
   }
   if (t.area === 'moderna_cuantica') {
     if (RE.escalon.test(txt)) out.push('escalon');

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rodadura y momentos de inercia</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690; --line:#2A1F4A; --acc:#FCA50A; --mec:#F6D543; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; margin-top:10px; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .fila button.prin { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--mec); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; margin-top:6px; }
+  th, td { border-bottom:1px solid var(--line); padding:5px 4px; text-align:left; }
+  th { color:var(--muted); font-size:12px; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Rodadura y momentos de inercia</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Carrera en el plano inclinado: quién llega primero</h1>
+  <p class="sub">Todos ruedan sin deslizar desde el mismo punto. Gana el que guarda menos energía girando.</p>
+  <canvas id="a"></canvas>
+  <div class="ctrl">
+    <label>Ángulo del plano: <b id="vt">20</b>°</label>
+    <input id="th" type="range" min="5" max="45" step="1" value="20">
+    <div class="fila"><button id="go" class="prin">▶ Soltar todos</button></div>
+  </div>
+  <canvas id="b"></canvas>
+  <div class="info" id="info"></div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A', ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+/* β = I/(mR²). El bloque desliza sin fricción: β = 0. */
+const CUERPOS = [
+  { n:'Bloque sin fricción', b:0, c:'#E8E2F2', f:'bloque' },
+  { n:'Esfera maciza', b:2 / 5, c:'#F6D543', f:'esfera' },
+  { n:'Cilindro macizo', b:1 / 2, c:'#FCA50A', f:'disco' },
+  { n:'Cascarón esférico', b:2 / 3, c:'#6EA8FF', f:'cascaron' },
+  { n:'Aro (anillo)', b:1, c:'#FF7FB5', f:'aro' },
+];
+const S = { th:20, t:0, corre:false, L:4 };
+const G = 9.8;
+const acel = b => G * Math.sin(S.th * Math.PI / 180) / (1 + b);
+function ajustar(cv, r) { const w = cv.clientWidth || 360, h = Math.round(w * r); if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); } const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h); return { ctx, w, h }; }
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) { ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.fillText(s, x, y); }
+function linea(ctx, x1, y1, x2, y2, c, w = 1, d = null) { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(d || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]); }
+
+function pintarCarrera() {
+  const angosto = $('a').clientWidth < 600;
+  const { ctx, w, h } = ajustar($('a'), angosto ? 1.0 : 0.55);
+  const th = S.th * Math.PI / 180, carriles = CUERPOS.length;
+  const alto = (h - 30) / carriles, r = Math.min(alto * 0.22, 12);
+  CUERPOS.forEach((c, i) => {
+    const y0 = 16 + i * alto, x0 = 16, largo = w - 32 - (angosto ? 0 : 110);
+    const dx = largo, dy = Math.min(alto * 0.7, dx * Math.tan(th));
+    // rampa del carril
+    linea(ctx, x0, y0 + r * 2, x0 + dx, y0 + r * 2 + dy, COL.line, 2);
+    const s = Math.min(1, 0.5 * acel(c.b) * S.t * S.t / S.L);   // fracción recorrida
+    const px = x0 + s * dx, py = y0 + r * 2 + s * dy - r;
+    const giro = (s * S.L / 0.1);   // ángulo para R = 0.1 m (solo visual)
+    ctx.save(); ctx.translate(px, py); ctx.rotate(giro);
+    ctx.strokeStyle = c.c; ctx.fillStyle = c.c; ctx.lineWidth = 2;
+    if (c.f === 'bloque') { ctx.rotate(-giro + Math.atan2(dy, dx)); ctx.fillRect(-r, -r, 2 * r, 2 * r); }
+    else if (c.f === 'aro') { ctx.beginPath(); ctx.arc(0, 0, r - 1, 0, 7); ctx.stroke(); }
+    else if (c.f === 'cascaron') { ctx.beginPath(); ctx.arc(0, 0, r - 1, 0, 7); ctx.stroke(); ctx.globalAlpha = .25; ctx.fill(); ctx.globalAlpha = 1; }
+    else { ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); }
+    if (c.f !== 'bloque') { ctx.strokeStyle = COL.bg; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(r, 0); ctx.stroke(); }
+    ctx.restore();
+    const tf = Math.sqrt(2 * S.L / acel(c.b));
+    texto(ctx, c.n, x0, y0 + 10, { c:c.c, f:11, b:true });
+    if (!angosto) texto(ctx, s >= 1 ? `llegó: ${tf.toFixed(2)} s` : `${S.t.toFixed(2)} s`, w - 12, y0 + r * 2 + dy * .6, { c: s >= 1 ? c.c : COL.tenue, f:12, b: s >= 1, al:'right' });
+    else if (s >= 1) texto(ctx, `${tf.toFixed(2)} s`, w - 12, y0 + 10, { c:c.c, f:11, b:true, al:'right' });
+  });
+}
+
+function pintarBarras() {
+  const { ctx, w, h } = ajustar($('b'), 0.5);
+  const m = { l:120, r:16, t:26, b:16 }, fila = (h - m.t - m.b) / CUERPOS.length;
+  texto(ctx, 'Reparto de la energía al llegar: traslación  /  rotación', 12, 16, { c:COL.muted, f:12 });
+  CUERPOS.forEach((c, i) => {
+    const y = m.t + i * fila + fila * .2, hh = fila * .6, ancho = w - m.l - m.r;
+    const ft = 1 / (1 + c.b);
+    ctx.fillStyle = c.c; ctx.fillRect(m.l, y, ancho * ft, hh);
+    ctx.fillStyle = 'rgba(232,226,242,.18)'; ctx.fillRect(m.l + ancho * ft, y, ancho * (1 - ft), hh);
+    texto(ctx, `β = ${c.b === 0 ? '0' : c.b === 0.4 ? '2/5' : c.b === 0.5 ? '1/2' : Math.abs(c.b - 2 / 3) < 1e-9 ? '2/3' : '1'}`, m.l - 8, y + hh * .72, { c:c.c, f:12, b:true, al:'right' });
+    texto(ctx, `${Math.round(ft * 100)} %`, m.l + 6, y + hh * .72, { c:COL.bg, f:11, b:true });
+    if (c.b > 0) texto(ctx, `${Math.round((1 - ft) * 100)} %`, w - m.r - 6, y + hh * .72, { c:COL.ink, f:11, al:'right' });
+  });
+}
+
+function info() {
+  const s = Math.sin(S.th * Math.PI / 180);
+  const filas = CUERPOS.map(c => `<tr><td style="color:${c.c}">${c.n}</td><td>${c.b === 0 ? '—' : c.f === 'esfera' ? '⅖ mR²' : c.f === 'disco' ? '½ mR²' : c.f === 'cascaron' ? '⅔ mR²' : 'mR²'}</td><td>g sinθ/${(1 + c.b).toFixed(2)}</td><td>${acel(c.b).toFixed(2)} m/s²</td></tr>`).join('');
+  $('info').innerHTML = `
+    <h3>Por qué el orden es siempre el mismo</h3>
+    <p>Rodar sin deslizar une las dos velocidades: <span class="f">v = ωR</span>. La energía potencial se reparte entre traslación y rotación:</p>
+    <p><span class="f">mgh = ½mv² + ½Iω² = ½mv²(1 + β)</span>, con <span class="f">β = I/(mR²)</span>.</p>
+    <div class="caja"><span class="f">a = g sinθ/(1 + β)</span> &nbsp; <span class="f">v_final = √(2gh/(1 + β))</span><br>
+    <b>No dependen de m ni de R</b>, solo de la forma (β). Una esfera de canica le gana a una esfera de bolos.</div>
+    <p>Gana el que tiene <b>menos masa lejos del eje</b>: la esfera maciza (β = 2/5) le gana al cilindro (1/2), al cascarón (2/3) y al aro (1). El bloque sin fricción, que no gira, gana a todos.</p>
+    <table><tr><th>Cuerpo</th><th>I (centro)</th><th>a</th><th>a (θ = ${S.th}°)</th></tr>${filas}</table>
+    <h3>Momentos de inercia que hay que saber</h3>
+    <p>Varilla de largo L: <span class="f">mL²/12</span> en el centro y <span class="f">mL²/3</span> en un extremo. Disco o cilindro: <span class="f">½mR²</span>. Aro: <span class="f">mR²</span>. Esfera maciza: <span class="f">⅖mR²</span>. Cascarón: <span class="f">⅔mR²</span>. Placa rectangular (eje perpendicular, centro): <span class="f">m(a² + b²)/12</span>.</p>
+    <p><b>Steiner</b> (ejes paralelos): <span class="f">I = I_cm + md²</span>. Con la varilla: <span class="f">mL²/12 + m(L/2)² = mL²/3</span>.</p>
+    <h3>Trampas</h3>
+    <p class="trampa">La fricción estática hace rodar al cuerpo pero no gasta energía: el punto de contacto está quieto. Por eso se conserva mgh.</p>
+    <p class="trampa">El orden no depende del ángulo: cambia el tiempo, pero no quién gana.</p>`;
+}
+$('th').addEventListener('input', e => { S.th = +e.target.value; $('vt').textContent = S.th; S.t = 0; S.corre = false; info(); });
+$('go').addEventListener('click', () => { S.t = 0; S.corre = true; });
+addEventListener('resize', () => { pintarCarrera(); pintarBarras(); });
+let ult = performance.now();
+function bucle(t) { const dt = Math.min(0.05, (t - ult) / 1000); ult = t; if (S.corre) S.t += dt * 0.8; pintarCarrera(); requestAnimationFrame(bucle); }
+info(); pintarBarras();
+const q = +new URLSearchParams(location.search).get('t'); if (q) { S.t = q; }
+requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

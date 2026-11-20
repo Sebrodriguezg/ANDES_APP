@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ondas y óptica</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690; --line:#2A1F4A; --acc:#FCA50A; --opt:#B03A80; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .tabs { display:flex; gap:6px; margin:8px 0 8px; }
+  .tabs button { flex:1; font:inherit; font-size:14px; padding:9px 4px; border-radius:2px; border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
+  .tabs button.on { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; margin-top:10px; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .fila button.on { border-color:var(--acc); color:var(--acc); }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--opt); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+  .oculto { display:none !important; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Lentes delgadas</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Ondas y óptica, vistas</h1>
+  <p class="sub">Ondas estacionarias, interferencia de dos rendijas y lentes delgadas.</p>
+  <div class="tabs" id="tabs">
+    <button data-m="estacionarias" class="on">Estacionarias</button>
+    <button data-m="rendijas">Doble rendija</button>
+    <button data-m="lentes">Lentes</button>
+  </div>
+  <canvas id="a"></canvas>
+  <div class="ctrl">
+    <div id="cEst">
+      <div class="fila" id="medio">
+        <button data-c="cuerda" class="on">Cuerda fija–fija</button>
+        <button data-c="abierto">Tubo abierto–abierto</button>
+        <button data-c="cerrado">Tubo cerrado–abierto</button>
+      </div>
+      <label>Modo n = <b id="vn">1</b></label>
+      <input id="n" type="range" min="1" max="6" step="1" value="1">
+      <div class="fila"><button id="viajeras">Mostrar las dos ondas viajeras</button></div>
+    </div>
+    <div id="cRen">
+      <label>Longitud de onda λ = <b id="vl">550</b> nm</label><input id="l" type="range" min="400" max="700" step="5" value="550">
+      <label>Separación entre rendijas d = <b id="vd">20</b> μm</label><input id="d" type="range" min="5" max="60" step="1" value="20">
+      <label>Ancho de cada rendija a = <b id="va">5</b> μm</label><input id="aa" type="range" min="1" max="20" step="0.5" value="5">
+    </div>
+    <div id="cLen">
+      <label>Distancia focal f = <b id="vf">10</b> cm (negativa: divergente)</label><input id="f" type="range" min="-20" max="20" step="0.5" value="10">
+      <label>Distancia del objeto d₀ = <b id="vo">25</b> cm</label><input id="o" type="range" min="2" max="45" step="0.5" value="25">
+    </div>
+  </div>
+  <canvas id="b"></canvas>
+  <div class="info" id="info"></div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A', ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+const S = { modo:'estacionarias', medio:'cuerda', n:1, viaj:false, T:0, lam:550, d:20, a:5, f:10, o:25 };
+function ajustar(cv, r) { const w = cv.clientWidth || 360, h = Math.round(w * r); if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); } const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h); return { ctx, w, h }; }
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) { ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.fillText(s, x, y); }
+function linea(ctx, x1, y1, x2, y2, c, w = 1, d = null) { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(d || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]); }
+function flecha(ctx, x1, y1, x2, y2, c, w = 1.6) { linea(ctx, x1, y1, x2, y2, c, w); const a = Math.atan2(y2 - y1, x2 - x1), s = 7; ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - s * Math.cos(a - .45), y2 - s * Math.sin(a - .45)); ctx.lineTo(x2 - s * Math.cos(a + .45), y2 - s * Math.sin(a + .45)); ctx.fill(); }
+function colorLambda(l) { let r = 0, g = 0, b = 0; if (l < 440) { r = -(l - 440) / 60; b = 1; } else if (l < 490) { g = (l - 440) / 50; b = 1; } else if (l < 510) { g = 1; b = -(l - 510) / 20; } else if (l < 580) { r = (l - 510) / 70; g = 1; } else if (l < 645) { r = 1; g = -(l - 645) / 65; } else r = 1; const k = v => Math.round(255 * Math.pow(v, .8)); return [k(r), k(g), k(b)]; }
+
+/* ── Estacionarias ── */
+function modoReal() { return S.medio === 'cerrado' ? 2 * S.n - 1 : S.n; }   // cerrado: solo impares
+function pintarEst() {
+  const { ctx, w, h } = ajustar($('a'), 0.55);
+  const x0 = 30, x1 = w - 30, L = x1 - x0, yc = h * 0.55, A = h * 0.28, k = modoReal();
+  const lam = S.medio === 'cerrado' ? 4 * L / k : 2 * L / k, kk = 2 * Math.PI / lam, wt = S.T * 3;
+  // forma espacial: cuerda sin(kx) (nodos en los extremos); tubo abierto cos(kx) (vientres); cerrado en x0: sin(kx) desde la pared
+  const forma = x => S.medio === 'abierto' ? Math.cos(kk * x) : Math.sin(kk * x);
+  if (S.medio !== 'cuerda') { ctx.fillStyle = 'rgba(110,168,255,.08)'; ctx.fillRect(x0, yc - A * 1.15, L, A * 2.3); linea(ctx, x0, yc - A * 1.15, x1, yc - A * 1.15, COL.muted, 2); linea(ctx, x0, yc + A * 1.15, x1, yc + A * 1.15, COL.muted, 2); }
+  if (S.medio === 'cerrado' || S.medio === 'cuerda') linea(ctx, x0, yc - A * 1.15, x0, yc + A * 1.15, COL.ink, 4);
+  if (S.medio === 'cuerda') linea(ctx, x1, yc - A * 1.15, x1, yc + A * 1.15, COL.ink, 4);
+  // envolvente
+  for (const sg of [1, -1]) { ctx.strokeStyle = 'rgba(232,226,242,.18)'; ctx.setLineDash([3, 3]); ctx.beginPath(); for (let i = 0; i <= 300; i++) { const x = i / 300 * L; const y = yc - sg * A * forma(x); i ? ctx.lineTo(x0 + x, y) : ctx.moveTo(x0 + x, y); } ctx.stroke(); ctx.setLineDash([]); }
+  if (S.viaj) for (const [s, c] of [[1, 'rgba(110,168,255,.55)'], [-1, 'rgba(255,127,181,.55)']]) {
+    ctx.strokeStyle = c; ctx.lineWidth = 1.4; ctx.beginPath();
+    for (let i = 0; i <= 300; i++) { const x = i / 300 * L; const y = yc - A / 2 * (S.medio === 'abierto' ? Math.cos(kk * x - s * wt) : Math.sin(kk * x - s * wt)) * s; i ? ctx.lineTo(x0 + x, y) : ctx.moveTo(x0 + x, y); } ctx.stroke();
+  }
+  ctx.strokeStyle = COL.acc; ctx.lineWidth = 2.5; ctx.beginPath();
+  for (let i = 0; i <= 300; i++) { const x = i / 300 * L; const y = yc - A * forma(x) * Math.cos(wt); i ? ctx.lineTo(x0 + x, y) : ctx.moveTo(x0 + x, y); } ctx.stroke();
+  // nodos
+  for (let i = 0; i <= 600; i++) { const x = i / 600 * L; if (Math.abs(forma(x)) < 0.012) { ctx.fillStyle = COL.ok; ctx.beginPath(); ctx.arc(x0 + x, yc, 3.5, 0, 7); ctx.fill(); } }
+  const etq = S.medio === 'cerrado' ? `armónico ${k} (solo impares): λ = 4L/${k}` : `armónico ${k}: λ = 2L/${k}`;
+  texto(ctx, etq, 12, 20, { c:COL.acc, f:13, b:true });
+  texto(ctx, S.medio === 'cuerda' ? 'desplazamiento de la cuerda' : 'aire: vientre en extremo abierto, nodo en cerrado', 12, h - 10, { c:COL.muted, f:11 });
+  texto(ctx, '● nodos', w - 12, 20, { c:COL.ok, f:11, al:'right' });
+}
+function pintarEstB() {
+  const { ctx, w, h } = ajustar($('b'), 0.35);
+  const m = { l:20, r:20, t:26, b:26 };
+  texto(ctx, 'Frecuencias permitidas (en unidades de la fundamental de la cuerda o tubo abierto, v/2L)', 12, 16, { c:COL.muted, f:11 });
+  const X = f => m.l + f / 7 * (w - m.l - m.r);
+  linea(ctx, m.l, h - m.b, w - m.r, h - m.b, COL.muted);
+  for (let i = 1; i <= 6; i++) {
+    const k = S.medio === 'cerrado' ? 2 * i - 1 : i, f = S.medio === 'cerrado' ? k / 2 : k;
+    if (f > 7) continue;
+    const act = i === S.n;
+    linea(ctx, X(f), h - m.b, X(f), m.t + 4, act ? COL.acc : 'rgba(232,226,242,.45)', act ? 4 : 2);
+    texto(ctx, S.medio === 'cerrado' ? `${k}/2` : `${k}`, X(f), h - 8, { c: act ? COL.acc : COL.muted, f:11, al:'center' });
+  }
+}
+
+/* ── Doble rendija ── */
+function I(th) { const s = Math.sin(th), b = Math.PI * S.a * 1e3 * s / S.lam, al = Math.PI * S.d * 1e3 * s / S.lam; const sinc = Math.abs(b) < 1e-9 ? 1 : Math.sin(b) / b; return Math.cos(al) ** 2 * sinc * sinc; }
+function pintarRen() {
+  const { ctx, w, h } = ajustar($('a'), 0.6);
+  // campo de dos fuentes (vista desde arriba), con escala exagerada para verlo
+  const N = 130, M = Math.round(N * h / w), img = ctx.createImageData(N, M), lamPx = 9, dPx = Math.max(6, S.d / S.lam * 1e3 * lamPx * 0.12);
+  const [cr, cg, cb] = colorLambda(S.lam), wt = S.T * 6;
+  for (let j = 0; j < M; j++) for (let i = 0; i < N; i++) {
+    const x = i / N * 130, y = (j / M - .5) * 130 * h / w;
+    if (x < 6) continue;
+    const r1 = Math.hypot(x - 4, y - dPx / 2), r2 = Math.hypot(x - 4, y + dPx / 2);
+    const v = (Math.cos(2 * Math.PI * r1 / lamPx - wt) + Math.cos(2 * Math.PI * r2 / lamPx - wt)) / 2;
+    const q = (v * v), o = (j * N + i) * 4;
+    img.data[o] = cr * q; img.data[o + 1] = cg * q; img.data[o + 2] = cb * q; img.data[o + 3] = 255;
+  }
+  const tmp = document.createElement('canvas'); tmp.width = N; tmp.height = M; tmp.getContext('2d').putImageData(img, 0, 0);
+  ctx.imageSmoothingEnabled = true; ctx.drawImage(tmp, 0, 0, w, h);
+  ctx.fillStyle = COL.ink; const xs = 4 / 130 * w; ctx.fillRect(xs - 2, 0, 4, h); ctx.fillStyle = COL.bg;
+  ctx.fillRect(xs - 2, h / 2 - dPx / 2 / 130 * w - 3, 4, 6); ctx.fillRect(xs - 2, h / 2 + dPx / 2 / 130 * w - 3, 4, 6);
+  texto(ctx, 'vista desde arriba (escala exagerada): franjas brillantes = interferencia constructiva', 10, h - 8, { c:COL.ink, f:10 });
+}
+function pintarRenB() {
+  const { ctx, w, h } = ajustar($('b'), 0.5);
+  const m = { l:16, r:16, t:40, b:30 }, thMax = Math.asin(Math.min(1, 3.2 * S.lam / (S.a * 1e3)));
+  const X = th => m.l + (th / thMax + 1) / 2 * (w - m.l - m.r), Y = v => h - m.b - v * (h - m.t - m.b);
+  const [cr, cg, cb] = colorLambda(S.lam);
+  for (let i = 0; i < w - m.l - m.r; i++) { const th = ((i / (w - m.l - m.r)) * 2 - 1) * thMax; const v = Math.pow(I(th), .6); ctx.fillStyle = `rgb(${cr * v | 0},${cg * v | 0},${cb * v | 0})`; ctx.fillRect(m.l + i, 8, 1, 22); }
+  texto(ctx, 'pantalla', w - m.r, 42, { c:COL.muted, f:10, al:'right' });
+  ctx.strokeStyle = 'rgba(232,226,242,.35)'; ctx.setLineDash([4, 3]); ctx.beginPath();
+  for (let i = 0; i <= 600; i++) { const th = (i / 300 - 1) * thMax, b = Math.PI * S.a * 1e3 * Math.sin(th) / S.lam, s = Math.abs(b) < 1e-9 ? 1 : (Math.sin(b) / b) ** 2; i ? ctx.lineTo(X(th), Y(s)) : ctx.moveTo(X(th), Y(s)); } ctx.stroke(); ctx.setLineDash([]);
+  ctx.strokeStyle = COL.acc; ctx.lineWidth = 1.8; ctx.beginPath();
+  for (let i = 0; i <= 1200; i++) { const th = (i / 600 - 1) * thMax; i ? ctx.lineTo(X(th), Y(I(th))) : ctx.moveTo(X(th), Y(I(th))); } ctx.stroke();
+  linea(ctx, m.l, Y(0), w - m.r, Y(0), COL.muted);
+  texto(ctx, '— I(θ) dos rendijas    - - envolvente de una rendija', m.l, h - 10, { c:COL.muted, f:11 });
+  const perd = S.d / S.a, ent = Math.abs(perd - Math.round(perd)) < 0.02;
+  if (ent) texto(ctx, `d/a = ${Math.round(perd)}: falta el orden ${Math.round(perd)} (cae en un mínimo de difracción)`, m.l, m.t - 4, { c:COL.rosa, f:11, b:true });
+}
+
+/* ── Lentes ── */
+function pintarLen() {
+  const { ctx, w, h } = ajustar($('a'), 0.6);
+  const cx = w * 0.5, cy = h * 0.55, u = w / 100;   // 1 cm = u px
+  const uy = u * 2, f = S.f || 0.01, d0 = S.o, h0 = 6, di = 1 / (1 / f - 1 / d0), m = -di / d0;
+  linea(ctx, 0, cy, w, cy, COL.line);
+  // lente
+  ctx.strokeStyle = COL.azul; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(cx, cy - h * .4); ctx.lineTo(cx, cy + h * .4); ctx.stroke();
+  const pun = f > 0 ? 1 : -1; for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(cx - 8, cy + s * h * .4 - s * pun * 8); ctx.lineTo(cx, cy + s * h * .4); ctx.lineTo(cx + 8, cy + s * h * .4 - s * pun * 8); ctx.stroke(); }
+  for (const s of [-1, 1]) { ctx.fillStyle = COL.ok; ctx.beginPath(); ctx.arc(cx + s * f * u, cy, 3.5, 0, 7); ctx.fill(); }
+  texto(ctx, 'F', cx + f * u, cy + 16, { c:COL.ok, f:11, al:'center' }); texto(ctx, "F'", cx - f * u, cy + 16, { c:COL.ok, f:11, al:'center' });
+  // objeto
+  const xo = cx - d0 * u, yo = cy - h0 * uy; flecha(ctx, xo, cy, xo, yo, COL.acc, 3);
+  // imagen
+  const xi = cx + di * u, yi = cy - m * h0 * uy, real = di > 0;
+  const enRango = Math.abs(di) < 400;
+  // rayos principales
+  const R = (x1, y1, x2, y2, c, dash) => linea(ctx, x1, y1, x2, y2, c, 1.6, dash);
+  const ext = (x1, y1, x2, y2, k = 6) => [x1 + (x2 - x1) * k, y1 + (y2 - y1) * k];
+  // 1) paralelo → por el foco de salida
+  R(xo, yo, cx, yo, COL.rosa);
+  { const [ex, ey] = ext(cx, yo, cx + f * u, cy); R(cx, yo, ex, ey, COL.rosa); if (!real) R(cx, yo, ...ext(cx, yo, cx - f * u, cy, -6), 'rgba(255,127,181,.4)', [4, 3]); }
+  // 2) por el centro, sin desviarse
+  { const [ex, ey] = ext(xo, yo, cx, cy, 8); R(xo, yo, ex, ey, COL.azul); if (!real) R(cx, cy, ...ext(xo, yo, cx, cy, -8), 'rgba(110,168,255,.4)', [4, 3]); }
+  // 3) por el foco de entrada → sale paralelo
+  if (Math.abs(d0 - f) > 0.3) {
+    const yl = cy + (yo - cy) * (f / (f - d0)) * -1 * -1;
+    const yLente = cy - (h0 * uy) * (f / (f - d0));
+    R(xo, yo, cx, yLente, COL.ok); R(cx, yLente, w, yLente, COL.ok);
+    if (!real) R(cx, yLente, 0, yLente, 'rgba(246,213,67,.4)', [4, 3]);
+  }
+  if (enRango) flecha(ctx, xi, cy, xi, yi, real ? COL.acc : 'rgba(252,165,10,.5)', 3);
+  const tipo = !isFinite(di) || Math.abs(d0 - f) < .3 ? 'en el foco: la imagen se va al infinito' : `${real ? 'real' : 'virtual'}, ${m < 0 ? 'invertida' : 'derecha'}, ${Math.abs(m) > 1 ? 'aumentada' : 'reducida'}`;
+  texto(ctx, `dᵢ = ${isFinite(di) ? di.toFixed(1) : '∞'} cm   m = ${isFinite(m) ? m.toFixed(2) : '∞'}`, 12, 20, { c:COL.acc, f:13, b:true });
+  texto(ctx, `Imagen ${tipo}`, 12, 38, { c:COL.ok, f:12 });
+}
+function pintarLenB() {
+  const { ctx, w, h } = ajustar($('b'), 0.42);
+  const m = { l:40, r:14, t:22, b:28 }, f = S.f;
+  const X = d => m.l + d / 45 * (w - m.l - m.r), Y = v => h - m.b - (v + 60) / 120 * (h - m.t - m.b);
+  linea(ctx, m.l, Y(0), w - m.r, Y(0), COL.muted);
+  for (const v of [-60, -30, 30, 60]) texto(ctx, v, m.l - 4, Y(v) + 4, { c:COL.tenue, f:10, al:'right' });
+  for (let d = 10; d <= 40; d += 10) texto(ctx, d, X(d), h - m.b + 14, { c:COL.tenue, f:10, al:'center' });
+  texto(ctx, 'd₀ (cm)', w - m.r, h - 6, { c:COL.muted, f:11, al:'right' });
+  if (f > 0) linea(ctx, X(f), m.t, X(f), h - m.b, 'rgba(246,213,67,.4)', 1, [3, 3]);
+  ctx.strokeStyle = COL.acc; ctx.lineWidth = 2; ctx.beginPath(); let prev = null;
+  for (let i = 1; i <= 600; i++) { const d = i / 600 * 45, di = 1 / (1 / (f || .01) - 1 / d); const y = Y(Math.max(-60, Math.min(60, di))); if (prev !== null && Math.abs(di - prev) > 80) ctx.moveTo(X(d), y); else ctx.lineTo(X(d), y); prev = di; } ctx.stroke();
+  const di = 1 / (1 / (f || .01) - 1 / S.o); ctx.fillStyle = COL.ok; ctx.beginPath(); ctx.arc(X(S.o), Y(Math.max(-60, Math.min(60, di))), 5, 0, 7); ctx.fill();
+  texto(ctx, 'dᵢ contra d₀: positivo = real, negativo = virtual', m.l, m.t - 6, { c:COL.muted, f:11 });
+}
+
+const INFO = {
+  estacionarias: `
+    <h3>Qué es una onda estacionaria</h3>
+    <p>Dos ondas iguales que viajan en sentidos opuestos (actívalas con el botón) suman <span class="f">2A sin(kx)cos(ωt)</span>: la forma ya no viaja, solo sube y baja. Hay puntos que nunca se mueven (<b>nodos</b>) y otros que se mueven al máximo (<b>vientres</b>). Entre dos nodos hay media longitud de onda.</p>
+    <div class="caja"><b>Cuerda fija–fija</b> y <b>tubo abierto–abierto</b>: <span class="f">λₙ = 2L/n</span>, <span class="f">fₙ = nv/2L</span>, todos los armónicos.<br>
+    <b>Tubo cerrado–abierto</b>: <span class="f">λₙ = 4L/n</span> con n impar, <span class="f">fₙ = nv/4L</span>. Su fundamental es la mitad de la del abierto del mismo largo, y le faltan los pares.</div>
+    <p>En la cuerda, <span class="f">v = √(T/μ)</span> (tensión entre densidad lineal). En el aire, <span class="f">v ≈ 343</span> m/s a 20 °C, y crece como √T.</p>
+    <p class="trampa">En un tubo, lo que dibujé es el desplazamiento del aire: vientre en el extremo abierto. La presión es al revés: nodo en el abierto y vientre en el cerrado.</p>`,
+  rendijas: `
+    <h3>Dos condiciones, dos escalas</h3>
+    <div class="caja"><b>Máximos de las dos rendijas</b> (interferencia): <span class="f">d sinθ = mλ</span>.<br>
+    <b>Mínimos de cada rendija</b> (difracción): <span class="f">a sinθ = mλ</span>, con m ≠ 0.<br>
+    El patrón es el producto: franjas finas de <span class="f">cos²(πd sinθ/λ)</span> dentro de la envolvente ancha <span class="f">sinc²(πa sinθ/λ)</span>.</div>
+    <p>Cuanto más separadas las rendijas, más finas las franjas. Cuanto más angosta cada rendija, más ancha la envolvente. Con λ más larga (más roja), todo se abre.</p>
+    <p><b>Órdenes que faltan</b>: si d/a es entero, el máximo de orden m = d/a cae justo en un mínimo de difracción y desaparece. Prueba d = 20 μm y a = 5 μm: falta el orden 4.</p>
+    <p>En la pantalla, para ángulos pequeños, la separación entre franjas es <span class="f">Δy = λD/d</span>.</p>
+    <p class="trampa">Para una sola rendija, a sinθ = mλ da los <b>mínimos</b>; para la red o la doble rendija, d sinθ = mλ da los <b>máximos</b>. Es la confusión más común.</p>`,
+  lentes: `
+    <h3>La ecuación y los signos</h3>
+    <div class="caja"><span class="f">1/d₀ + 1/dᵢ = 1/f</span> &nbsp; <span class="f">m = −dᵢ/d₀</span><br>
+    f &gt; 0 convergente, f &lt; 0 divergente. dᵢ &gt; 0: imagen <b>real</b>, del otro lado, se puede proyectar. dᵢ &lt; 0: <b>virtual</b>, del mismo lado. m &lt; 0: invertida.</div>
+    <p><b>Convergente, los cuatro casos</b>: d₀ &gt; 2f, real, invertida y reducida (cámara). d₀ = 2f, real, invertida y del mismo tamaño. f &lt; d₀ &lt; 2f, real, invertida y aumentada (proyector). d₀ &lt; f, virtual, derecha y aumentada (lupa).</p>
+    <p><b>Divergente</b>: siempre virtual, derecha y reducida.</p>
+    <h3>Los tres rayos</h3>
+    <p>Rosa: entra paralelo y sale por el foco. Azul: pasa por el centro sin desviarse. Amarillo: entra por el foco y sale paralelo. Con dos basta. Si la imagen es virtual, se cruzan sus prolongaciones (punteadas).</p>
+    <p class="trampa">Dos lentes en contacto: las potencias se suman, 1/f = 1/f₁ + 1/f₂. Espejo: f = R/2.</p>`,
+};
+function pintar() { if (S.modo === 'estacionarias') { pintarEst(); pintarEstB(); } else if (S.modo === 'rendijas') { pintarRen(); pintarRenB(); } else { pintarLen(); pintarLenB(); } }
+function ponerModo(m, hash = true) { S.modo = INFO[m] ? m : 'estacionarias'; document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.m === S.modo)); $('cEst').classList.toggle('oculto', S.modo !== 'estacionarias'); $('cRen').classList.toggle('oculto', S.modo !== 'rendijas'); $('cLen').classList.toggle('oculto', S.modo !== 'lentes'); $('info').innerHTML = INFO[S.modo]; if (hash) history.replaceState(null, '', '#' + S.modo); }
+$('tabs').addEventListener('click', e => { if (e.target.dataset.m) ponerModo(e.target.dataset.m); });
+$('medio').addEventListener('click', e => { if (!e.target.dataset.c) return; S.medio = e.target.dataset.c; document.querySelectorAll('#medio button').forEach(b => b.classList.toggle('on', b.dataset.c === S.medio)); });
+$('n').addEventListener('input', e => { S.n = +e.target.value; $('vn').textContent = S.n; });
+$('viajeras').addEventListener('click', () => { S.viaj = !S.viaj; $('viajeras').classList.toggle('on', S.viaj); });
+for (const [id, k, v] of [['l', 'lam', 'vl'], ['d', 'd', 'vd'], ['aa', 'a', 'va'], ['f', 'f', 'vf'], ['o', 'o', 'vo']]) $(id).addEventListener('input', e => { S[k] = +e.target.value; $(v).textContent = S[k]; });
+addEventListener('resize', pintar);
+let ult = performance.now();
+function bucle(t) { const dt = Math.min(0.05, (t - ult) / 1000); ult = t; S.T += dt; pintar(); requestAnimationFrame(bucle); }
+ponerModo(location.hash.slice(1) || 'estacionarias', false);
+const q = new URLSearchParams(location.search); if (q.get('n')) { S.n = +q.get('n'); } if (q.get('medio')) { S.medio = q.get('medio'); document.querySelectorAll('#medio button').forEach(b => b.classList.toggle('on', b.dataset.c === S.medio)); } S.T = +q.get('t') || 0;
+requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ciclos y procesos termodinámicos</title>
+<style>
+  :root { --bg:#0B0718; --panel:#150E2B; --panel2:#1D1439; --ink:#E8E2F2; --muted:#9C93B5; --tenue:#6F6690; --line:#2A1F4A; --acc:#FCA50A; --ter:#F37819; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:12px 16px 40px; }
+  h1 { font-size:19px; margin:6px 0 2px; }
+  p.sub { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .tabs { display:flex; gap:6px; margin:8px 0 8px; }
+  .tabs button { flex:1; font:inherit; font-size:14px; padding:9px 4px; border-radius:2px; border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
+  .tabs button.on { background:var(--acc); color:#0B0718; border-color:var(--acc); font-weight:700; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:700px) { .grid { grid-template-columns:1fr; } }
+  canvas { width:100%; display:block; border:1px solid var(--line); border-radius:2px; background:#100A22; touch-action:pinch-zoom; }
+  .ctrl { background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+  label b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--acc); }
+  .fila { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .fila button { font:inherit; font-size:13px; padding:6px 10px; border-radius:2px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); cursor:pointer; }
+  .fila button.on { border-color:var(--acc); color:var(--acc); }
+  .info { background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--ter); border-radius:2px; padding:12px 14px; margin-top:10px; }
+  .info h3 { font-size:13px; margin:12px 0 4px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .info h3:first-child { margin-top:0; }
+  .info p { margin:4px 0; }
+  .f { font-family:ui-monospace, monospace; font-size:14px; background:var(--panel2); padding:1px 5px; border-radius:2px; }
+  .caja { background:var(--panel2); border:1px solid var(--line); padding:8px 10px; margin:6px 0; border-radius:2px; }
+  .trampa { color:#FF7FB5; font-weight:600; }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; margin-top:6px; font-variant-numeric:tabular-nums; }
+  th, td { border-bottom:1px solid var(--line); padding:5px 4px; text-align:right; }
+  th:first-child, td:first-child { text-align:left; }
+  th { color:var(--muted); font-size:12px; }
+  .pos { color:#F6D543; } .neg { color:#6EA8FF; }
+  .oculto { display:none !important; }
+
+  /* ── ANDES: paleta de la app (va al final para ganar) ── */
+  :root { --bg:#0B0718; --panel:#150E2B; --ink:#E8E2F2; --muted:#9C93B5; --line:#2A1F4A; --acc:#FCA50A; --warn:#FF4F9A; }
+  .seg button.on, button.main { color:#0B0718 !important; font-weight:600; }
+  main { padding-top:8px; }
+  canvas { border-radius:2px !important; touch-action:pinch-zoom; }
+  input[type=range], input[type=checkbox] { accent-color:#FCA50A; }
+</style>
+<meta name="theme-color" content="#0B0718">
+<link rel="stylesheet" href="comun.css">
+</head>
+<body>
+<div class="andes-barra"><a href="../index.html#material">← Material</a><span class="andes-titulo">Termo</span><button type="button" id="andes-completa">⤢ Pantalla completa</button></div>
+
+<main>
+  <h1>Termodinámica: procesos y el ciclo de Carnot</h1>
+  <p class="sub">Gas ideal, 1 mol, R = 1 (unidades libres). W = área bajo la curva en PV. Primera ley: ΔU = Q − W (W hecho por el gas).</p>
+  <div class="tabs" id="tabs">
+    <button data-m="procesos" class="on">Los 4 procesos</button>
+    <button data-m="carnot">Ciclo de Carnot</button>
+  </div>
+  <div class="grid">
+    <canvas id="a"></canvas>
+    <canvas id="b"></canvas>
+  </div>
+  <div class="ctrl">
+    <div class="fila" id="gam"><button data-g="1.6667" class="on">Monoatómico γ = 5/3</button><button data-g="1.4">Diatómico γ = 7/5</button></div>
+    <div id="cPro">
+      <div class="fila" id="proc">
+        <button data-p="isobarico">Isobárico</button><button data-p="isocorico">Isocórico</button>
+        <button data-p="isotermico" class="on">Isotérmico</button><button data-p="adiabatico">Adiabático</button>
+      </div>
+      <label>Factor de expansión V<sub>f</sub>/V<sub>i</sub> = <b id="vr">2.0</b> (en el isocórico: T<sub>f</sub>/T<sub>i</sub>)</label>
+      <input id="r" type="range" min="1.1" max="4" step="0.05" value="2">
+    </div>
+    <div id="cCar">
+      <label>T caliente = <b id="vh">500</b> &nbsp; T fría = <b id="vc">300</b></label>
+      <input id="th" type="range" min="200" max="900" step="10" value="500">
+      <input id="tc" type="range" min="100" max="600" step="10" value="300">
+      <label>Expansión isotérmica V₂/V₁ = <b id="ve">2.0</b></label>
+      <input id="e" type="range" min="1.2" max="4" step="0.05" value="2">
+    </div>
+  </div>
+  <div class="info" id="info"></div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const COL = { bg:'#100A22', ink:'#E8E2F2', muted:'#9C93B5', tenue:'#6F6690', line:'#2A1F4A', acc:'#FCA50A', ok:'#F6D543', azul:'#6EA8FF', rosa:'#FF7FB5', ter:'#F37819' };
+const dpr = Math.min(2, window.devicePixelRatio || 1);
+const S = { modo:'procesos', g:5 / 3, proc:'isotermico', r:2, Th:500, Tc:300, e:2, T:0 };
+const Vi = 1, Ti = 300, Pi = Ti / Vi;    // R = 1, n = 1: PV = T
+function ajustar(cv, r) { const w = cv.clientWidth || 360, h = Math.round(w * r); if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); } const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, w, h); return { ctx, w, h }; }
+function texto(ctx, s, x, y, { c = COL.ink, f = 12, b = false, al = 'left' } = {}) { ctx.fillStyle = c; ctx.font = `${b ? '600 ' : ''}${f}px system-ui, sans-serif`; ctx.textAlign = al; ctx.fillText(s, x, y); }
+function linea(ctx, x1, y1, x2, y2, c, w = 1, d = null) { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.setLineDash(d || []); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]); }
+const Cv = () => 1 / (S.g - 1), Cp = () => S.g / (S.g - 1);
+
+/* Cada proceso: camino P(V) (o V(P) en el isocórico) y sus Q, W, ΔU */
+function proceso(tipo, r) {
+  const g = S.g, cv = Cv();
+  if (tipo === 'isobarico') { const Vf = Vi * r, Tf = Ti * r; return { cam: s => [Vi + (Vf - Vi) * s, Pi], W: Pi * (Vf - Vi), dU: cv * (Tf - Ti), Q: Cp() * (Tf - Ti), Tf, Vf, Pf: Pi }; }
+  if (tipo === 'isocorico') { const Tf = Ti * r; return { cam: s => [Vi, Pi * (1 + (r - 1) * s)], W: 0, dU: cv * (Tf - Ti), Q: cv * (Tf - Ti), Tf, Vf: Vi, Pf: Pi * r }; }
+  if (tipo === 'isotermico') { const Vf = Vi * r; const W = Ti * Math.log(r); return { cam: s => { const V = Vi + (Vf - Vi) * s; return [V, Ti / V]; }, W, dU: 0, Q: W, Tf: Ti, Vf, Pf: Ti / Vf }; }
+  const Vf = Vi * r, Tf = Ti * Math.pow(r, 1 - g); return { cam: s => { const V = Vi + (Vf - Vi) * s; return [V, Pi * Math.pow(Vi / V, g)]; }, W: cv * (Ti - Tf), dU: cv * (Tf - Ti), Q: 0, Tf, Vf, Pf: Pi * Math.pow(r, -g) };
+}
+const NOM = { isobarico:'Isobárico (P cte)', isocorico:'Isocórico (V cte)', isotermico:'Isotérmico (T cte)', adiabatico:'Adiabático (Q = 0)' };
+const COLP = { isobarico:'#F6D543', isocorico:'#FF7FB5', isotermico:'#6EA8FF', adiabatico:'#F37819' };
+
+function ejesPV(ctx, w, h, Vmax, Pmax) {
+  const m = { l:42, r:12, t:16, b:30 };
+  const X = V => m.l + V / Vmax * (w - m.l - m.r), Y = P => h - m.b - P / Pmax * (h - m.t - m.b);
+  linea(ctx, m.l, h - m.b, w - m.r, h - m.b, COL.muted); linea(ctx, m.l, h - m.b, m.l, m.t, COL.muted);
+  texto(ctx, 'V', w - m.r, h - 8, { c:COL.muted, al:'right' }); texto(ctx, 'P', m.l - 8, m.t + 10, { c:COL.muted, al:'right' });
+  return { X, Y };
+}
+
+function pintarProcesos() {
+  const { ctx, w, h } = ajustar($('a'), 0.85);
+  const r = S.r, Vmax = Vi * Math.max(r, 1) * 1.15, Pmax = Pi * (S.proc === 'isocorico' ? r : 1) * 1.15;
+  const { X, Y } = ejesPV(ctx, w, h, Vmax, Pmax);
+  // isotermas de referencia
+  for (const T of [150, 300, 600, 900]) { ctx.strokeStyle = 'rgba(232,226,242,.1)'; ctx.beginPath(); for (let i = 1; i <= 200; i++) { const V = i / 200 * Vmax, P = T / V; if (P > Pmax) continue; ctx.lineTo(X(V), Y(P)); } ctx.stroke(); }
+  // los otros procesos tenues, el elegido con su área
+  for (const t of Object.keys(NOM)) {
+    const p = proceso(t, r), sel = t === S.proc;
+    if (sel && t !== 'isocorico') { ctx.fillStyle = 'rgba(252,165,10,.18)'; ctx.beginPath(); ctx.moveTo(X(Vi), Y(0)); for (let i = 0; i <= 100; i++) { const [V, P] = p.cam(i / 100); ctx.lineTo(X(V), Y(P)); } ctx.lineTo(X(p.Vf), Y(0)); ctx.fill(); }
+    ctx.strokeStyle = sel ? COLP[t] : 'rgba(232,226,242,.18)'; ctx.lineWidth = sel ? 2.8 : 1.2; ctx.beginPath();
+    for (let i = 0; i <= 100; i++) { const [V, P] = p.cam(i / 100); i ? ctx.lineTo(X(V), Y(P)) : ctx.moveTo(X(V), Y(P)); } ctx.stroke();
+  }
+  const p = proceso(S.proc, r), s = (S.T * 0.4) % 1.3, [V, P] = p.cam(Math.min(1, s));
+  ctx.fillStyle = COL.ok; ctx.beginPath(); ctx.arc(X(V), Y(P), 6, 0, 7); ctx.fill();
+  ctx.fillStyle = COL.ink; ctx.beginPath(); ctx.arc(X(Vi), Y(Pi), 4, 0, 7); ctx.fill(); texto(ctx, 'i', X(Vi) - 8, Y(Pi) - 6, { c:COL.ink });
+  texto(ctx, NOM[S.proc], w - 14, 24, { c:COLP[S.proc], f:13, b:true, al:'right' });
+  texto(ctx, S.proc === 'isocorico' ? 'W = 0: sin área bajo la curva' : 'área sombreada = W hecho por el gas', w - 14, 42, { c:COL.muted, f:11, al:'right' });
+}
+function pintarBarrasProc() {
+  const { ctx, w, h } = ajustar($('b'), 0.85);
+  const tipos = Object.keys(NOM), datos = tipos.map(t => proceso(t, S.r));
+  const max = Math.max(...datos.flatMap(d => [Math.abs(d.Q), Math.abs(d.W), Math.abs(d.dU)])) || 1;
+  const m = { l:12, r:12, t:30, b:12 }, fila = (h - m.t - m.b) / tipos.length, x0 = w * 0.5, esc = (w * 0.5 - m.r - 6) / max * 0.92;
+  texto(ctx, 'Q, W y ΔU de cada proceso (misma expansión)', 12, 18, { c:COL.muted, f:12 });
+  tipos.forEach((t, i) => {
+    const d = datos[i], y = m.t + i * fila, sel = t === S.proc;
+    if (sel) { ctx.fillStyle = 'rgba(252,165,10,.08)'; ctx.fillRect(4, y, w - 8, fila - 4); }
+    texto(ctx, NOM[t].split(' (')[0], 12, y + 16, { c:COLP[t], f:12, b:true });
+    linea(ctx, x0, y + 6, x0, y + fila - 8, COL.line);
+    [['Q', d.Q, COL.ok], ['W', d.W, COL.azul], ['ΔU', d.dU, COL.rosa]].forEach(([n, v, c], k) => {
+      const yy = y + 22 + k * ((fila - 30) / 3), hh = Math.max(4, (fila - 34) / 3);
+      ctx.fillStyle = c; ctx.fillRect(v >= 0 ? x0 : x0 + v * esc, yy, Math.abs(v) * esc, hh);
+      texto(ctx, `${n} ${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(0)}`, 12, yy + hh, { c, f:11 });
+    });
+  });
+}
+
+/* ── Carnot ── */
+function carnot() {
+  const g = S.g, Th = S.Th, Tc = Math.min(S.Tc, S.Th - 10), k = Math.pow(Th / Tc, 1 / (g - 1));
+  const V1 = 1, V2 = V1 * S.e, V3 = V2 * k, V4 = V1 * k;
+  return { Th, Tc, V1, V2, V3, V4, Qh: Th * Math.log(S.e), Qc: Tc * Math.log(S.e), W: (Th - Tc) * Math.log(S.e), eta: 1 - Tc / Th, g };
+}
+function caminoCarnot(c, s) {  // s ∈ [0,4): tramo y fracción
+  const i = Math.floor(s) % 4, f = s - Math.floor(s), g = c.g;
+  if (i === 0) { const V = c.V1 * Math.pow(c.V2 / c.V1, f); return [V, c.Th / V, c.Th]; }
+  if (i === 1) { const V = c.V2 * Math.pow(c.V3 / c.V2, f), T = c.Th * Math.pow(c.V2 / V, g - 1); return [V, T / V, T]; }
+  if (i === 2) { const V = c.V3 * Math.pow(c.V4 / c.V3, f); return [V, c.Tc / V, c.Tc]; }
+  const V = c.V4 * Math.pow(c.V1 / c.V4, f), T = c.Tc * Math.pow(c.V4 / V, g - 1); return [V, T / V, T];
+}
+function pintarCarnot() {
+  const { ctx, w, h } = ajustar($('a'), 0.85), c = carnot();
+  const Vmax = c.V3 * 1.1, Pmax = c.Th / c.V1 * 1.1;
+  const { X, Y } = ejesPV(ctx, w, h, Vmax, Pmax);
+  ctx.fillStyle = 'rgba(252,165,10,.18)'; ctx.beginPath();
+  for (let i = 0; i <= 400; i++) { const [V, P] = caminoCarnot(c, i / 100); i ? ctx.lineTo(X(V), Y(P)) : ctx.moveTo(X(V), Y(P)); } ctx.fill();
+  const cols = [COL.rosa, COL.ter, COL.azul, COL.ter];
+  for (let t = 0; t < 4; t++) { ctx.strokeStyle = cols[t]; ctx.lineWidth = 2.6; ctx.beginPath(); for (let i = 0; i <= 100; i++) { const [V, P] = caminoCarnot(c, t + i / 100 * .999); i ? ctx.lineTo(X(V), Y(P)) : ctx.moveTo(X(V), Y(P)); } ctx.stroke(); }
+  const s = (S.T * 0.5) % 4, [V, P] = caminoCarnot(c, s);
+  ctx.fillStyle = COL.ok; ctx.beginPath(); ctx.arc(X(V), Y(P), 6, 0, 7); ctx.fill();
+  const et = ['1→2 isoterma T_h: entra Q_h', '2→3 adiabática: se enfría', '3→4 isoterma T_c: sale Q_c', '4→1 adiabática: se calienta'];
+  texto(ctx, et[Math.floor(s)], w - 14, 24, { c:cols[Math.floor(s)], f:12, b:true, al:'right' });
+  texto(ctx, `W = área = ${c.W.toFixed(0)}`, w - 14, 42, { c:COL.acc, f:12, al:'right' });
+}
+function pintarTS() {
+  const { ctx, w, h } = ajustar($('b'), 0.85), c = carnot();
+  const m = { l:42, r:14, t:22, b:30 }, dS = Math.log(S.e), Smax = dS * 1.6, Tmax = c.Th * 1.15;
+  const X = s => m.l + (s + dS * .3) / Smax * (w - m.l - m.r), Y = T => h - m.b - T / Tmax * (h - m.t - m.b);
+  linea(ctx, m.l, h - m.b, w - m.r, h - m.b, COL.muted); linea(ctx, m.l, h - m.b, m.l, m.t, COL.muted);
+  texto(ctx, 'S', w - m.r, h - 8, { c:COL.muted, al:'right' }); texto(ctx, 'T', m.l - 8, m.t + 10, { c:COL.muted, al:'right' });
+  ctx.fillStyle = 'rgba(110,168,255,.15)'; ctx.fillRect(X(0), Y(c.Tc), X(dS) - X(0), Y(0) - Y(c.Tc));
+  ctx.fillStyle = 'rgba(252,165,10,.3)'; ctx.fillRect(X(0), Y(c.Th), X(dS) - X(0), Y(c.Tc) - Y(c.Th));
+  ctx.strokeStyle = COL.ink; ctx.lineWidth = 2; ctx.strokeRect(X(0), Y(c.Th), X(dS) - X(0), Y(c.Tc) - Y(c.Th));
+  const s = (S.T * 0.5) % 4, i = Math.floor(s), f = s - i;
+  const pt = [[f * dS, c.Th], [dS, c.Th - (c.Th - c.Tc) * f], [dS * (1 - f), c.Tc], [0, c.Tc + (c.Th - c.Tc) * f]][i];
+  ctx.fillStyle = COL.ok; ctx.beginPath(); ctx.arc(X(pt[0]), Y(pt[1]), 6, 0, 7); ctx.fill();
+  texto(ctx, 'W', (X(0) + X(dS)) / 2, (Y(c.Th) + Y(c.Tc)) / 2 + 5, { c:COL.ink, f:14, b:true, al:'center' });
+  texto(ctx, 'Q_c (al foco frío)', (X(0) + X(dS)) / 2, (Y(c.Tc) + Y(0)) / 2 + 4, { c:COL.azul, f:11, al:'center' });
+  texto(ctx, `η = 1 − T_c/T_h = ${(c.eta * 100).toFixed(1)} %`, m.l + 6, m.t - 6, { c:COL.ok, f:13, b:true });
+  texto(ctx, `T_h = ${c.Th}`, X(dS) + 6, Y(c.Th) + 4, { c:COL.rosa, f:11 }); texto(ctx, `T_c = ${c.Tc}`, X(dS) + 6, Y(c.Tc) + 4, { c:COL.azul, f:11 });
+}
+
+function info() {
+  if (S.modo === 'procesos') {
+    const filas = Object.keys(NOM).map(t => { const d = proceso(t, S.r), cl = v => v > 0.5 ? 'pos' : v < -0.5 ? 'neg' : ''; return `<tr><td style="color:${COLP[t]}">${NOM[t]}</td><td class="${cl(d.Q)}">${d.Q.toFixed(0)}</td><td class="${cl(d.W)}">${d.W.toFixed(0)}</td><td class="${cl(d.dU)}">${d.dU.toFixed(0)}</td><td>${d.Tf.toFixed(0)}</td></tr>`; }).join('');
+    $('info').innerHTML = `
+      <h3>La tabla que hay que saber</h3>
+      <table><tr><th>Proceso</th><th>Q</th><th>W</th><th>ΔU</th><th>T final</th></tr>${filas}</table>
+      <p style="color:var(--muted);font-size:13px">Estado inicial: V = 1, T = 300, R = 1. C_v = ${Cv().toFixed(2)}R, C_p = ${Cp().toFixed(2)}R.</p>
+      <div class="caja">
+        <b>Isobárico</b>: <span class="f">W = PΔV</span>, <span class="f">Q = nC_pΔT</span>.<br>
+        <b>Isocórico</b>: <span class="f">W = 0</span>, todo el calor va a energía interna: <span class="f">Q = nC_vΔT</span>.<br>
+        <b>Isotérmico</b>: <span class="f">ΔU = 0</span>, así que <span class="f">Q = W = nRT ln(V_f/V_i)</span>.<br>
+        <b>Adiabático</b>: <span class="f">Q = 0</span>, así que <span class="f">W = −ΔU</span> y el gas se enfría al expandirse. <span class="f">PV^γ</span> y <span class="f">TV^(γ−1)</span> constantes.
+      </div>
+      <p><b>ΔU depende solo de ΔT</b> (gas ideal): <span class="f">ΔU = nC_vΔT</span>, sea cual sea el proceso. Q y W dependen del camino.</p>
+      <p>La adiabática cae más empinada que la isoterma (γ &gt; 1), así que con la misma expansión hace menos trabajo. Es el problema 15 de U1.</p>
+      <p class="trampa">Convención de signos: aquí W es el trabajo hecho POR el gas (ΔU = Q − W). Algunos libros usan el trabajo hecho SOBRE el gas (ΔU = Q + W). Lee cuál usa el enunciado.</p>`;
+  } else {
+    const c = carnot();
+    $('info').innerHTML = `
+      <h3>Los cuatro tramos</h3>
+      <p>1→2 <b>isoterma caliente</b>: el gas se expande en contacto con T_h y absorbe <span class="f">Q_h = nRT_h ln(V₂/V₁)</span>. 2→3 <b>adiabática</b>: sigue expandiéndose sin calor y se enfría hasta T_c. 3→4 <b>isoterma fría</b>: se comprime y entrega <span class="f">Q_c = nRT_c ln(V₃/V₄)</span>. 4→1 <b>adiabática</b>: se comprime y se calienta de vuelta a T_h.</p>
+      <div class="caja"><span class="f">η = W/Q_h = 1 − Q_c/Q_h = 1 − T_c/T_h</span> &nbsp; Ahora: Q_h = ${c.Qh.toFixed(0)}, Q_c = ${c.Qc.toFixed(0)}, W = ${c.W.toFixed(0)}, η = ${(c.eta * 100).toFixed(1)} %.</div>
+      <p><b>En el diagrama TS el ciclo es un rectángulo</b>: isotermas horizontales, adiabáticas verticales (sin calor, ΔS = 0). El área es W y el rectángulo de abajo es Q_c. Por eso η = 1 − T_c/T_h se ve a simple vista.</p>
+      <h3>Segunda ley</h3>
+      <p>En un ciclo reversible, <span class="f">Q_h/T_h = Q_c/T_c</span>: la entropía que entra es igual a la que sale. Ninguna máquina entre los mismos focos supera a la de Carnot. Refrigerador: <span class="f">COP = T_c/(T_h − T_c)</span>. Bomba de calor: <span class="f">T_h/(T_h − T_c)</span>.</p>
+      <p class="trampa">Las temperaturas van siempre en kelvin. η no depende del gas ni de V₂/V₁: solo de T_c/T_h. Cambia γ o la expansión y mira que η no se mueve.</p>`;
+  }
+}
+function pintar() { if (S.modo === 'procesos') { pintarProcesos(); pintarBarrasProc(); } else { pintarCarnot(); pintarTS(); } }
+function ponerModo(m, hash = true) { S.modo = m === 'carnot' ? 'carnot' : 'procesos'; document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.m === S.modo)); $('cPro').classList.toggle('oculto', S.modo !== 'procesos'); $('cCar').classList.toggle('oculto', S.modo !== 'carnot'); info(); if (hash) history.replaceState(null, '', '#' + S.modo); }
+$('tabs').addEventListener('click', e => { if (e.target.dataset.m) ponerModo(e.target.dataset.m); });
+$('gam').addEventListener('click', e => { if (!e.target.dataset.g) return; S.g = +e.target.dataset.g; document.querySelectorAll('#gam button').forEach(b => b.classList.toggle('on', b === e.target)); info(); });
+$('proc').addEventListener('click', e => { if (!e.target.dataset.p) return; S.proc = e.target.dataset.p; S.T = 0; document.querySelectorAll('#proc button').forEach(b => b.classList.toggle('on', b.dataset.p === S.proc)); });
+$('r').addEventListener('input', e => { S.r = +e.target.value; $('vr').textContent = S.r.toFixed(2); info(); });
+$('th').addEventListener('input', e => { S.Th = +e.target.value; if (S.Tc >= S.Th) { S.Tc = S.Th - 10; $('tc').value = S.Tc; $('vc').textContent = S.Tc; } $('vh').textContent = S.Th; info(); });
+$('tc').addEventListener('input', e => { S.Tc = Math.min(+e.target.value, S.Th - 10); $('vc').textContent = S.Tc; info(); });
+$('e').addEventListener('input', e => { S.e = +e.target.value; $('ve').textContent = S.e.toFixed(2); info(); });
+addEventListener('resize', pintar);
+let ult = performance.now();
+function bucle(t) { const dt = Math.min(0.05, (t - ult) / 1000); ult = t; S.T += dt; pintar(); requestAnimationFrame(bucle); }
+ponerModo(location.hash.slice(1) || 'procesos', false);
+S.T = +new URLSearchParams(location.search).get('t') || 0;
+requestAnimationFrame(bucle);
+</script>
+<script src="comun.js"></script>
+</body>
+</html>
